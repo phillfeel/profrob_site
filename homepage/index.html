@@ -136,38 +136,59 @@
     }
     .ph.dark .ph-lbl { background: rgba(11,20,36,.6); }
 
-    /* ===== HEADER ===== */
-    .header {
+    /* ===== HEADER (from mockup) ===== */
+    .pr-hd {
+      display: flex; align-items: center; gap: 28px;
+      padding: 16px 40px; width: 100%;
       position: sticky; top: 0; z-index: 50;
-      background: rgba(11,20,36,.97);
-      backdrop-filter: blur(12px);
+      transition: background .2s;
+    }
+    .pr-hd-dark {
+      background: #0B1424;
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .header-in {
-      display: flex; align-items: center; gap: 8px;
-      max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 66px;
+    .pr-logo { display: flex; align-items: center; gap: 11px; }
+    .pr-logo-mk {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: var(--accent); display: flex;
+      align-items: center; justify-content: center;
+      color: #fff; flex: none;
     }
-    .logo {
-      font-size: 18px; font-weight: 800; color: #fff;
-      letter-spacing: .04em; margin-right: 28px; flex: none;
+    .pr-logo-mk i { width: 20px; height: 20px; }
+    .pr-logo-tx { display: flex; flex-direction: column; line-height: 1.05; }
+    .pr-logo-nm { font-weight: 800; font-size: 17px; letter-spacing: .06em; color: #fff; }
+    .pr-logo-sub { font-size: 9.5px; font-weight: 500; letter-spacing: .01em; max-width: 190px; color: #8AA0BC; }
+    .pr-nav { display: flex; align-items: center; gap: 16px; margin-left: 8px; flex-wrap: wrap; }
+    .pr-nav a { font-size: 13.5px; font-weight: 600; white-space: nowrap; color: #C7D4E6; transition: color .15s; }
+    .pr-nav a:hover { color: #fff; }
+    .pr-right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+    .pr-phone { font-size: 15px; font-weight: 700; white-space: nowrap; color: #fff; }
+    .pr-cta {
+      background: var(--accent); color: #fff; border: none;
+      font-family: inherit; font-size: 13.5px; font-weight: 700;
+      padding: 11px 18px; border-radius: 9px; cursor: pointer;
+      white-space: nowrap; transition: background .2s;
     }
-    .logo span { color: var(--accent); }
-    .nav { display: flex; gap: 4px; flex: 1; }
-    .nav a {
-      font-size: 13.5px; font-weight: 600; color: #B7C6DB;
-      padding: 8px 13px; border-radius: 8px; transition: all .15s;
+    .pr-cta:hover { background: var(--accent-hover); }
+    .pr-burger {
+      display: none; margin-left: auto;
+      background: none; border: none; cursor: pointer; color: #fff;
     }
-    .nav a:hover { color: #fff; background: rgba(255,255,255,.07); }
-    .header-cta { flex: none; }
-    .header-cta .btn { padding: 10px 18px; font-size: 13px; }
-    .header-phone {
-      font-size: 14px; font-weight: 700; color: #fff;
-      margin-left: 16px; flex: none;
+    .pr-burger i { width: 26px; height: 26px; }
+    @media (max-width: 1100px) {
+      .pr-nav, .pr-phone { display: none; }
+      .pr-cta { display: none; }
+      .pr-burger { display: block; }
+      .pr-hd { padding: 14px 20px; gap: 0; }
+      .pr-nav.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: #0B1424; padding: 16px 24px;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        z-index: 49;
+      }
+      .pr-nav.open a { padding: 10px 0; }
     }
-
-    /* Mobile nav toggle */
-    .nav-toggle { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; }
-    .nav-toggle i { width: 24px; height: 24px; }
 
     /* ===== HERO ===== */
     .hero {
@@ -294,50 +315,51 @@
     .trust3 div { display: flex; gap: 12px; align-items: center; font-size: 14px; font-weight: 600; color: #D3DFEE; }
     .trust3 i { width: 22px; height: 22px; color: var(--accent-light-text); flex: none; }
 
-    /* ===== STATS BAR (перед футером) ===== */
-    .statsbar { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,.08); }
-    .statsbar-in {
-      display: grid; grid-template-columns: repeat(5,1fr); gap: 24px;
-      max-width: 1200px; margin: 0 auto; padding: 40px 24px;
-      text-align: center;
+    /* ===== FOOTER (from mockup: pf-*) ===== */
+    .pf-stats {
+      background: #F2F6FC; border-top: 1px solid var(--border);
+      padding: 26px 40px;
+      display: flex; flex-wrap: wrap; gap: 26px 40px; align-items: center;
     }
-    .statsbar-item .sn {
-      font-size: 36px; font-weight: 800; color: #fff;
-      letter-spacing: -.02em; line-height: 1;
+    .pf-st { display: flex; align-items: center; gap: 12px; }
+    .pf-st i { color: var(--accent); width: 26px; height: 26px; flex: none; }
+    .pf-st-n { font-weight: 800; font-size: 21px; color: var(--text); line-height: 1; }
+    .pf-st-l { font-size: 12.5px; color: #6C7889; font-weight: 500; max-width: 150px; line-height: 1.25; margin-top: 3px; }
+    .pf-main { background: var(--bg-dark); color: #B8C6DA; padding: 46px 40px 30px; }
+    .pf-grid {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 36px;
     }
-    .statsbar-item .sl {
-      font-size: 13px; color: #7C90AC; margin-top: 8px;
-      font-weight: 500; line-height: 1.4;
+    .pf-brand .pf-nm {
+      font-weight: 800; font-size: 19px; letter-spacing: .06em; color: #fff;
     }
-
-    /* ===== FOOTER ===== */
-    .footer { background: var(--bg-dark); color: #B7C6DB; border-top: 1px solid rgba(255,255,255,.06); }
-    .footer-in {
-      display: grid; grid-template-columns: 1.3fr 1fr 1fr .8fr; gap: 40px;
-      max-width: 1200px; margin: 0 auto; padding: 56px 24px 40px;
+    .pf-brand p {
+      font-size: 13px; line-height: 1.55; margin: 12px 0 0;
+      max-width: 280px; color: #8598B0;
     }
-    .footer-col h5 {
-      font-size: 12px; font-weight: 800; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--text-label); margin-bottom: 18px;
+    .pf-col h4 {
+      font-size: 13px; font-weight: 700; color: #fff;
+      margin: 2px 0 15px; text-transform: uppercase; letter-spacing: .04em;
     }
-    .footer-col a {
-      display: block; font-size: 14px; color: #8FA1B8;
-      padding: 5px 0; font-weight: 500; transition: color .15s;
+    .pf-col a {
+      display: block; color: #95A8C0; font-size: 13.5px;
+      font-weight: 500; margin-bottom: 11px; transition: color .15s;
     }
-    .footer-col a:hover { color: #fff; }
-    .footer-brand .logo { font-size: 22px; margin-bottom: 14px; }
-    .footer-brand p { font-size: 13.5px; color: #7C90AC; line-height: 1.6; max-width: 300px; }
-    .footer-brand .f-contacts { margin-top: 18px; }
-    .footer-brand .f-contacts a {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 14px; font-weight: 600; color: #B7C6DB; padding: 4px 0;
+    .pf-col a:hover { color: #fff; }
+    .pf-bot {
+      border-top: 1px solid rgba(255,255,255,.09);
+      margin-top: 34px; padding-top: 20px;
+      display: flex; flex-wrap: wrap; gap: 12px 24px;
+      align-items: center; font-size: 12.5px; color: #6E8098;
     }
-    .footer-brand .f-contacts i { width: 16px; height: 16px; color: var(--accent-light-text); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.06);
-      max-width: 1200px; margin: 0 auto; padding: 20px 24px;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 12.5px; color: #5A6D84;
+    .pf-bot a { color: #6E8098; transition: color .15s; }
+    .pf-bot a:hover { color: #fff; }
+    .pf-bot .pf-sp { margin-left: auto; display: flex; gap: 18px; }
+    @media (max-width: 900px) {
+      .pf-grid { grid-template-columns: 1fr 1fr; }
+      .pf-stats, .pf-main { padding-left: 22px; padding-right: 22px; }
+    }
+    @media (max-width: 560px) {
+      .pf-grid { grid-template-columns: 1fr; }
     }
 
     /* ===== CTA ROW (inline dark bar) ===== */
@@ -357,37 +379,24 @@
       .plat, .ctaband { grid-template-columns: 1fr; }
       .tiles { grid-template-columns: repeat(3,1fr); }
       .rstats { grid-template-columns: repeat(3,1fr); }
-      .statsbar-in { grid-template-columns: repeat(3,1fr); }
-      .footer-in { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
     @media (max-width: 768px) {
-      .nav { display: none; }
-      .nav-toggle { display: block; }
-      .nav.open {
-        display: flex; flex-direction: column;
-        position: absolute; top: 66px; left: 0; right: 0;
-        background: var(--bg-dark); padding: 16px 24px;
-        border-bottom: 1px solid rgba(255,255,255,.08);
-        z-index: 49;
-      }
-      .header-phone { display: none; }
       .hero h1 { font-size: 32px; }
       .h2 { font-size: 26px; }
       .s { padding: 52px 0; }
       .grid3, .grid4, .grid6 { grid-template-columns: 1fr 1fr; }
       .steps { grid-template-columns: repeat(2,1fr); }
       .tiles { grid-template-columns: repeat(2,1fr); }
-      .rstats, .statsbar-in { grid-template-columns: repeat(2,1fr); }
+      .rstats { grid-template-columns: repeat(2,1fr); }
       .plat-f { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .grid2, .grid3, .grid4, .grid6, .steps, .tiles, .rstats, .statsbar-in {
+      .grid2, .grid3, .grid4, .grid6, .steps, .tiles, .rstats {
         grid-template-columns: 1fr;
       }
       .hero h1 { font-size: 28px; }
       .h2 { font-size: 22px; }
       .hw-g { grid-template-columns: 1fr; }
-      .footer-in { grid-template-columns: 1fr; }
     }
 
     /* ===== MICRO-ANIMATIONS ===== */
@@ -416,29 +425,32 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="header" id="header">
-    <div class="header-in">
-      <a class="logo" href="/">ПРОФ<span>РОБОТ</span></a>
-      <nav class="nav" id="mainNav">
-        <a href="/resheniya/">Решения</a>
-        <a href="/otrasli/">Отрасли</a>
-        <a href="/produkty/">Продукты</a>
-        <a href="/platforma/">Платформа</a>
-        <a href="/uslugi/">Услуги</a>
-        <a href="/kejsy/">Кейсы</a>
-        <a href="/o-kompanii/">О компании</a>
-      </nav>
-      <div class="header-cta">
-        <a class="btn btn-pri" href="/roi/">
-          <i data-lucide="calculator"></i>Рассчитать ROI
-        </a>
-      </div>
-      <a class="header-phone" href="tel:+74951234567">+7 (495) 123-45-67</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Меню">
-        <i data-lucide="menu"></i>
-      </button>
+  <!-- ===== HEADER (from mockup) ===== -->
+  <header class="pr-hd pr-hd-dark" id="header">
+    <a class="pr-logo" href="/">
+      <span class="pr-logo-mk"><i data-lucide="box"></i></span>
+      <span class="pr-logo-tx">
+        <span class="pr-logo-nm">ПРОФРОБОТ</span>
+        <span class="pr-logo-sub">Интегратор роботизации и автоматизации бизнес-процессов</span>
+      </span>
+    </a>
+    <nav class="pr-nav" id="mainNav">
+      <a href="/resheniya/">Решения</a>
+      <a href="/otrasli/">Отрасли</a>
+      <a href="/produkty/">Продукты</a>
+      <a href="/platforma/">Платформа</a>
+      <a href="/uslugi/">Услуги</a>
+      <a href="/kejsy/">Кейсы</a>
+      <a href="/o-kompanii/">О компании</a>
+      <a href="/kontakty/">Контакты</a>
+    </nav>
+    <div class="pr-right">
+      <a class="pr-phone" href="tel:+74951234567">+7 (495) 123-45-67</a>
+      <button class="pr-cta" onclick="location.href='/kontakty/'">Свяжитесь с нами</button>
     </div>
+    <button class="pr-burger" id="navToggle" aria-label="Меню">
+      <i data-lucide="menu"></i>
+    </button>
   </header>
 
   <main>
@@ -777,73 +789,54 @@
     </section>
   </main>
 
-  <!-- ===== FIX #2: ПОЛОСА ЦИФР ПЕРЕД ФУТЕРОМ ===== -->
-  <div class="statsbar">
-    <div class="statsbar-in">
-      <div class="statsbar-item">
-        <div class="sn">50+</div>
-        <div class="sl">проектов реализовано</div>
-      </div>
-      <div class="statsbar-item">
-        <div class="sn">500+</div>
-        <div class="sl">роботов в эксплуатации</div>
-      </div>
-      <div class="statsbar-item">
-        <div class="sn">30%</div>
-        <div class="sl">снижение затрат в среднем</div>
-      </div>
-      <div class="statsbar-item">
-        <!-- FIX #3: единые 6+ лет -->
-        <div class="sn">6+</div>
-        <div class="sl">лет опыта в роботизации</div>
-      </div>
-      <div class="statsbar-item">
-        <div class="sn">24/7</div>
-        <div class="sl">сервис и поддержка по всей России</div>
-      </div>
+  <!-- ===== FOOTER (from mockup) ===== -->
+  <footer class="pf">
+    <!-- Полоса цифр (светлая, с иконками) -->
+    <div class="pf-stats">
+      <div class="pf-st"><i data-lucide="briefcase"></i><div><div class="pf-st-n">50+</div><div class="pf-st-l">проектов реализовано</div></div></div>
+      <div class="pf-st"><i data-lucide="bot"></i><div><div class="pf-st-n">500+</div><div class="pf-st-l">роботов в эксплуатации</div></div></div>
+      <div class="pf-st"><i data-lucide="trending-down"></i><div><div class="pf-st-n">30%</div><div class="pf-st-l">снижение затрат в среднем</div></div></div>
+      <div class="pf-st"><i data-lucide="award"></i><div><div class="pf-st-n">6+ лет</div><div class="pf-st-l">опыта в роботизации</div></div></div>
+      <div class="pf-st"><i data-lucide="headset"></i><div><div class="pf-st-n">24/7</div><div class="pf-st-l">сервис и поддержка по РФ</div></div></div>
     </div>
-  </div>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-in">
-      <div class="footer-col footer-brand">
-        <div class="logo">ПРОФ<span>РОБОТ</span></div>
-        <p>Роботизация и автоматизация процессов для измеримого результата бизнеса. Аудит, пилот, внедрение, сервис по SLA.</p>
-        <div class="f-contacts">
-          <a href="tel:+74951234567"><i data-lucide="phone"></i>+7 (495) 123-45-67</a>
-          <a href="mailto:info@profrobot.ru"><i data-lucide="mail"></i>info@profrobot.ru</a>
+    <!-- Основной блок футера -->
+    <div class="pf-main">
+      <div class="pf-grid">
+        <div class="pf-brand">
+          <div class="pf-nm">ПРОФРОБОТ</div>
+          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримым ROI и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="pf-col">
+          <h4>Разделы</h4>
+          <a href="/resheniya/">Решения</a>
+          <a href="/otrasli/">Отрасли</a>
+          <a href="/produkty/">Продукты</a>
+          <a href="/platforma/">Платформа</a>
+          <a href="/uslugi/">Услуги</a>
+        </div>
+        <div class="pf-col">
+          <h4>Компания</h4>
+          <a href="/kejsy/">Кейсы</a>
+          <a href="/baza-znanij/">База знаний</a>
+          <a href="/o-kompanii/">О компании</a>
+          <a href="/proizvoditeli/">Производители</a>
+          <a href="/kontakty/">Контакты</a>
+        </div>
+        <div class="pf-col">
+          <h4>Контакты</h4>
+          <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+          <a href="/kontakty/">Москва · сервис по РФ</a>
+          <a href="#">Telegram · WhatsApp</a>
         </div>
       </div>
-      <div class="footer-col">
-        <h5>Решения</h5>
-        <a href="/resheniya/klining/">Роботизированный клининг</a>
-        <a href="/resheniya/sklady/">Складская роботизация</a>
-        <a href="/resheniya/servisnye/">Сервисные роботы</a>
-        <a href="/resheniya/stroitelstvo/">Строительная робототехника</a>
-        <a href="/resheniya/agro/">Агророботы</a>
-        <a href="/resheniya/">Все решения</a>
+      <div class="pf-bot">
+        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <span class="pf-sp">
+          <a href="/politika-konfidencialnosti/">Политика конфиденциальности</a>
+          <a href="/rekvizity/">Реквизиты</a>
+        </span>
       </div>
-      <div class="footer-col">
-        <h5>Компания</h5>
-        <a href="/o-kompanii/">О компании</a>
-        <a href="/kejsy/">Кейсы</a>
-        <a href="/platforma/">Платформа</a>
-        <a href="/proizvoditeli/">Производители</a>
-        <a href="/kontakty/">Контакты</a>
-      </div>
-      <div class="footer-col">
-        <h5>Услуги</h5>
-        <a href="/uslugi/audit/">Аудит и анализ</a>
-        <a href="/uslugi/pilot/">Пилотный проект</a>
-        <a href="/uslugi/vnedrenie/">Внедрение под ключ</a>
-        <a href="/uslugi/servis/">Сервис и поддержка</a>
-        <a href="/roi/">Калькулятор ROI</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
-      <span>Москва, Россия</span>
     </div>
   </footer>
 
