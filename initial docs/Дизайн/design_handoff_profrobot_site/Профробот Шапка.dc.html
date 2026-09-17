@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style data-dc-atomics>
+.pr-hd{font-family:'Manrope',system-ui,sans-serif;display:flex;align-items:center;gap:28px;padding:16px 40px;box-sizing:border-box;width:100%}
+.pr-hd-light{background:#fff;border-bottom:1px solid #E4E9F0}
+.pr-hd-dark{background:#0B1424;border-bottom:1px solid rgba(255,255,255,.08)}
+.pr-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.pr-logo-mk{width:34px;height:34px;border-radius:8px;background:#1E6BFF;display:flex;align-items:center;justify-content:center;color:#fff;flex:none}
+.pr-logo-mk svg{width:20px;height:20px}
+.pr-logo-tx{display:flex;flex-direction:column;line-height:1.05}
+.pr-logo-nm{font-weight:800;font-size:17px;letter-spacing:.06em}
+.pr-logo-sub{font-size:9.5px;font-weight:500;letter-spacing:.01em;max-width:190px}
+.pr-hd-light .pr-logo-nm{color:#0E1826}.pr-hd-light .pr-logo-sub{color:#7A8698}
+.pr-hd-dark .pr-logo-nm{color:#fff}.pr-hd-dark .pr-logo-sub{color:#8AA0BC}
+.pr-nav{display:flex;align-items:center;gap:22px;margin-left:8px;flex-wrap:wrap}
+.pr-nav a{text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.pr-hd-light .pr-nav a{color:#3A4658}.pr-hd-dark .pr-nav a{color:#C7D4E6}
+.pr-hd-light .pr-nav a:hover{color:#1E6BFF}.pr-hd-dark .pr-nav a:hover{color:#fff}
+.pr-right{margin-left:auto;display:flex;align-items:center;gap:20px}
+.pr-phone{font-size:15px;font-weight:700;white-space:nowrap;text-decoration:none}
+.pr-hd-light .pr-phone{color:#0E1826}.pr-hd-dark .pr-phone{color:#fff}
+.pr-cta{background:#1E6BFF;color:#fff;border:none;font-family:inherit;font-size:13.5px;font-weight:700;padding:11px 18px;border-radius:9px;cursor:pointer;white-space:nowrap}
+.pr-cta:hover{background:#1857D6}
+.pr-burger{display:none;margin-left:auto;background:none;border:none;cursor:pointer}
+.pr-burger svg{width:26px;height:26px}
+.pr-hd-light .pr-burger{color:#0E1826}.pr-hd-dark .pr-burger{color:#fff}
+@media(max-width:1100px){.pr-nav,.pr-phone{display:none}.pr-cta{display:none}.pr-burger{display:block}.pr-hd{padding:14px 20px;gap:0}}
+</style>
+</helmet>
+<header class="pr-hd pr-hd-light">
+<a class="pr-logo" href="#"><span class="pr-logo-mk"><i data-lucide="box"></i></span><span class="pr-logo-tx"><span class="pr-logo-nm">ПРОФРОБОТ</span><span class="pr-logo-sub">Интегратор роботизации и автоматизации бизнес-процессов</span></span></a>
+<nav class="pr-nav"><a href="#">Решения</a><a href="#">Отрасли</a><a href="#">Продукты</a><a href="#">Платформа</a><a href="#">Услуги</a><a href="#">Кейсы</a><a href="#">О компании</a><a href="#">Контакты</a></nav>
+<div class="pr-right"><a class="pr-phone" href="tel:+74951234567">+7 (495) 123-45-67</a><button class="pr-cta">Свяжитесь с нами</button></div>
+<button class="pr-burger" aria-label="Меню"><i data-lucide="menu"></i></button>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:66}}">
+class Component extends DCLogic {
+  componentDidMount(){ this._icons(); }
+  componentDidUpdate(){ this._icons(); }
+  _icons(){ if(window.lucide){ try{window.lucide.createIcons();}catch(e){} } else { setTimeout(()=>this._icons(),120); } }
+}
+</script>
+</body>
+</html>

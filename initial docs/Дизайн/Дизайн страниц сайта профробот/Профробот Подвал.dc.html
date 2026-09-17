@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style data-dc-atomics>
+.pf{font-family:'Manrope',system-ui,sans-serif;width:100%;box-sizing:border-box}
+.pf-stats{background:#F2F6FC;border-top:1px solid #E4E9F0;padding:26px 40px;display:flex;flex-wrap:wrap;gap:26px 40px;align-items:center}
+.pf-st{display:flex;align-items:center;gap:12px}
+.pf-st i{color:#1E6BFF;width:26px;height:26px;flex:none}
+.pf-st-n{font-weight:800;font-size:21px;color:#0E1826;line-height:1}
+.pf-st-l{font-size:12.5px;color:#6C7889;font-weight:500;max-width:150px;line-height:1.25;margin-top:3px}
+.pf-main{background:#0B1424;color:#B8C6DA;padding:46px 40px 30px}
+.pf-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px}
+.pf-brand .pf-nm{font-family:inherit;font-weight:800;font-size:19px;letter-spacing:.06em;color:#fff}
+.pf-brand p{font-size:13px;line-height:1.55;margin:12px 0 0;max-width:280px;color:#8598B0}
+.pf-col h4{font-size:13px;font-weight:700;color:#fff;margin:2px 0 15px;text-transform:uppercase;letter-spacing:.04em}
+.pf-col a{display:block;text-decoration:none;color:#95A8C0;font-size:13.5px;font-weight:500;margin-bottom:11px}
+.pf-col a:hover{color:#fff}
+.pf-bot{border-top:1px solid rgba(255,255,255,.09);margin-top:34px;padding-top:20px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;font-size:12.5px;color:#6E8098}
+.pf-bot a{color:#6E8098;text-decoration:none}.pf-bot a:hover{color:#fff}
+.pf-bot .pf-sp{margin-left:auto;display:flex;gap:18px}
+@media(max-width:900px){.pf-grid{grid-template-columns:1fr 1fr}.pf-stats,.pf-main{padding-left:22px;padding-right:22px}}
+@media(max-width:560px){.pf-grid{grid-template-columns:1fr}}
+</style>
+</helmet>
+<footer class="pf">
+<div class="pf-stats">
+<div class="pf-st"><i data-lucide="briefcase"></i><div><div class="pf-st-n">50+</div><div class="pf-st-l">проектов реализовано</div></div></div>
+<div class="pf-st"><i data-lucide="bot"></i><div><div class="pf-st-n">500+</div><div class="pf-st-l">роботов в эксплуатации</div></div></div>
+<div class="pf-st"><i data-lucide="trending-down"></i><div><div class="pf-st-n">30%</div><div class="pf-st-l">снижение затрат в среднем</div></div></div>
+<div class="pf-st"><i data-lucide="award"></i><div><div class="pf-st-n">6+ лет</div><div class="pf-st-l">опыта в роботизации</div></div></div>
+<div class="pf-st"><i data-lucide="headset"></i><div><div class="pf-st-n">24/7</div><div class="pf-st-l">сервис и поддержка по РФ</div></div></div>
+</div>
+<div class="pf-main">
+<div class="pf-grid">
+<div class="pf-brand"><div class="pf-nm">ПРОФРОБОТ</div><p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримым ROI и обслуживаем их по SLA — по всей России.</p></div>
+<div class="pf-col"><h4>Разделы</h4><a href="#">Решения</a><a href="#">Отрасли</a><a href="#">Продукты</a><a href="#">Платформа</a><a href="#">Услуги</a></div>
+<div class="pf-col"><h4>Компания</h4><a href="#">Кейсы</a><a href="#">База знаний</a><a href="#">О компании</a><a href="#">Производители</a><a href="#">Контакты</a></div>
+<div class="pf-col"><h4>Контакты</h4><a href="tel:+74951234567">+7 (495) 123-45-67</a><a href="mailto:info@profrobot.ru">info@profrobot.ru</a><a href="#">Москва · сервис по РФ</a><a href="#">Telegram · WhatsApp</a></div>
+</div>
+<div class="pf-bot"><span>© 2026 ПРОФРОБОТ. Все права защищены.</span><span class="pf-sp"><a href="#">Политика конфиденциальности</a><a href="#">Реквизиты</a></span></div>
+</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:360}}">
+class Component extends DCLogic {
+  componentDidMount(){ this._icons(); }
+  _icons(){ if(window.lucide){ try{window.lucide.createIcons();}catch(e){} } else { setTimeout(()=>this._icons(),120); } }
+}
+</script>
+</body>
+</html>

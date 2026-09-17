@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Роботы-уборщики и роботизация для бизнеса | ПРОФРОБОТ</title>
+  <meta name="description" content="Роботы-уборщики и роботизация под ключ: аудит, пилот, интеграция, сервис по SLA. Снижаем затраты до 30% и закрываем дефицит персонала. Рассчитайте ROI.">
+  <meta property="og:title" content="Роботы-уборщики и роботизация для бизнеса | ПРОФРОБОТ">
+  <meta property="og:description" content="Роботы-уборщики и роботизация под ключ: аудит, пилот, интеграция, сервис по SLA. Снижаем затраты до 30%. Рассчитайте ROI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://profrobot.ru/">
+  <meta property="og:locale" content="ru_RU">
+  <link rel="canonical" href="https://profrobot.ru/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      background: #fff;
+      color: #0E1826;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --bg-dark: #0B1424;
+      --bg-dark-2: #14243A;
+      --accent: #1E6BFF;
+      --accent-hover: #1857D6;
+      --accent-light: #EAF1FF;
+      --accent-light-text: #5B9CFF;
+      --bg-alt: #F4F8FC;
+      --text: #0E1826;
+      --text-secondary: #4C5A6C;
+      --text-muted: #5A6675;
+      --text-label: #8592A4;
+      --border: #E4E9F0;
+      --border-light: #E1E7EF;
+      --green: #3ED88A;
+      --green-text: #1C9A5A;
+      --green-dark: #6FE0A8;
+      --orange: #E0663A;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --shadow: 0 16px 46px rgba(16,30,50,.13);
+    }
+
+    /* ===== SHARED PRIMITIVES ===== */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .s { padding: 72px 0; }
+    .s-alt { background: var(--bg-alt); }
+    .s-dark { background: var(--bg-dark); color: #fff; }
+    .eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .s-dark .eyebrow { color: var(--accent-light-text); }
+    .h2 { font-size: 32px; font-weight: 800; letter-spacing: -.02em; line-height: 1.12; margin: 0; }
+    .h2c { text-align: center; }
+    .lead { font-size: 16.5px; line-height: 1.62; color: var(--text-secondary); margin: 16px 0 0; max-width: 720px; }
+    .s-dark .lead { color: #A9BAD0; }
+    .lead-c { margin-left: auto; margin-right: auto; text-align: center; }
+    .head-c { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+    .head-l { margin: 0 0 36px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: inherit; font-size: 14.5px; font-weight: 700;
+      padding: 14px 24px; border-radius: 10px; border: none;
+      cursor: pointer; white-space: nowrap; transition: all .2s;
+    }
+    .btn i { width: 18px; height: 18px; }
+    .btn-pri { background: var(--accent); color: #fff; }
+    .btn-pri:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(30,107,255,.3); }
+    .btn-gho { background: transparent; color: var(--text); border: 1.5px solid #CBD5E3; }
+    .btn-gho:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-sec { background: var(--accent-light); color: var(--accent); }
+    .btn-sec:hover { background: #d8e6ff; }
+    .s-dark .btn-gho { color: #fff; border-color: rgba(255,255,255,.28); }
+    .s-dark .btn-gho:hover { border-color: #fff; }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+
+    /* Chip icons */
+    .chip {
+      width: 46px; height: 46px; border-radius: 11px;
+      background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; flex: none;
+    }
+    .chip i { width: 23px; height: 23px; }
+    .s-dark .chip { background: rgba(94,156,255,.14); color: #7FB0FF; }
+
+    /* Cards */
+    .card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 13px; padding: 24px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(30,107,255,.08); }
+    .card h3 { margin: 16px 0 8px; font-size: 17px; font-weight: 700; letter-spacing: -.01em; }
+    .card p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--text-muted); }
+
+    /* Grids */
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .grid6 { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+
+    /* Placeholder images */
+    .ph {
+      background-image: repeating-linear-gradient(135deg,#E7EDF5 0 11px,#EEF3F9 11px 22px);
+      border: 1px solid var(--border-light); border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      color: #93A2B6; overflow: hidden;
+    }
+    .ph.dark {
+      background-image: repeating-linear-gradient(135deg,#16233A 0 11px,#1B2B45 11px 22px);
+      border-color: rgba(255,255,255,.08); color: #6E86A6;
+    }
+    .ph-lbl {
+      font-family: ui-monospace,'SF Mono',Menlo,monospace;
+      font-size: 11px; letter-spacing: .02em;
+      padding: 5px 10px; background: rgba(255,255,255,.75); border-radius: 6px;
+    }
+    .ph.dark .ph-lbl { background: rgba(11,20,36,.6); }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11,20,36,.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .header-in {
+      display: flex; align-items: center; gap: 8px;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 66px;
+    }
+    .logo {
+      font-size: 18px; font-weight: 800; color: #fff;
+      letter-spacing: .04em; margin-right: 28px; flex: none;
+    }
+    .logo span { color: var(--accent); }
+    .nav { display: flex; gap: 4px; flex: 1; }
+    .nav a {
+      font-size: 13.5px; font-weight: 600; color: #B7C6DB;
+      padding: 8px 13px; border-radius: 8px; transition: all .15s;
+    }
+    .nav a:hover { color: #fff; background: rgba(255,255,255,.07); }
+    .header-cta { flex: none; }
+    .header-cta .btn { padding: 10px 18px; font-size: 13px; }
+    .header-phone {
+      font-size: 14px; font-weight: 700; color: #fff;
+      margin-left: 16px; flex: none;
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; }
+    .nav-toggle i { width: 24px; height: 24px; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 540px;
+      background: var(--bg-dark); color: #fff; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(135deg,#0E1B30 0 13px,#122240 13px 26px);
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg,#0B1424 8%,rgba(11,20,36,.55) 55%,rgba(11,20,36,.2));
+    }
+    .hero-in {
+      position: relative; padding: 64px 0 48px;
+      display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px;
+      align-items: start; max-width: 1200px; margin: 0 auto;
+      padding-left: 24px; padding-right: 24px;
+    }
+    .hero h1 { font-size: 42px; font-weight: 800; letter-spacing: -.025em; line-height: 1.06; margin: 0; }
+    .hero h1 .bl { color: #4E93FF; }
+    .hero p { font-size: 16px; line-height: 1.6; color: #B7C6DB; max-width: 480px; margin: 22px 0 0; }
+    .hero .btn-gho { color: #fff; border-color: rgba(255,255,255,.3); }
+    .hero .btn-gho:hover { border-color: #fff; }
+
+    /* Hero widget */
+    .hero-widget {
+      background: rgba(17,29,49,.72); border: 1px solid rgba(255,255,255,.11);
+      border-radius: 16px; padding: 22px; backdrop-filter: blur(4px);
+    }
+    .hw-t { font-size: 13.5px; font-weight: 700; color: #DCE7F5; }
+    .hw-g { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+    .hw-c {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 11px; padding: 14px;
+    }
+    .hw-n { font-size: 26px; font-weight: 800; color: #fff; line-height: 1; }
+    .hw-n .u { color: #4E93FF; }
+    .hw-l { font-size: 12px; color: #93A6C0; margin-top: 5px; font-weight: 500; }
+    .hw-b {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; color: var(--green-dark); font-weight: 600;
+      border-top: 1px solid rgba(255,255,255,.08); padding-top: 13px;
+    }
+    .hw-b i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex: none; }
+
+    /* Logo bar */
+    .logobar {
+      position: relative; border-top: 1px solid rgba(255,255,255,.09);
+      padding: 20px 24px;
+      display: flex; align-items: center; gap: 14px 30px; flex-wrap: wrap;
+      background: rgba(8,15,28,.55);
+      max-width: 1200px; margin: 0 auto;
+    }
+    .logobar .lb-t { font-size: 12.5px; color: #7C90AC; font-weight: 600; margin-right: 8px; }
+    .logobar b { font-weight: 800; font-size: 16px; letter-spacing: .04em; color: #C4D2E6; }
+    .logobar a { color: var(--accent-light-text); font-size: 12.5px; font-weight: 600; margin-left: auto; }
+    .logobar a:hover { color: #fff; }
+
+    /* ===== STEPS ===== */
+    .steps { display: grid; grid-template-columns: repeat(6,1fr); gap: 14px; margin-top: 8px; }
+    .step-n {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-weight: 800; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .step h4 { margin: 0 0 7px; font-size: 15px; font-weight: 700; }
+    .step p { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--text-muted); }
+
+    /* ===== RESULT STATS (dark) ===== */
+    .rstats { display: grid; grid-template-columns: repeat(5,1fr); gap: 22px; margin-top: 8px; }
+    .rstat i { color: var(--accent-light-text); width: 26px; height: 26px; margin-bottom: 12px; }
+    .rstat .n { font-size: 33px; font-weight: 800; letter-spacing: -.02em; line-height: 1; color: #fff; }
+    .rstat .l { font-size: 13px; color: #9DB0C8; margin-top: 8px; line-height: 1.4; font-weight: 500; }
+
+    /* ===== CASE CARDS ===== */
+    .casecard {
+      border: 1px solid var(--border); border-radius: 13px;
+      overflow: hidden; background: #fff; display: flex; flex-direction: column;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .casecard:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(30,107,255,.08); }
+    .casecard .cc-img { height: 160px; }
+    .casecard .cc-b { padding: 18px; }
+    .cc-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--accent-hover); background: var(--accent-light);
+      padding: 5px 10px; border-radius: 6px; margin-bottom: 12px;
+    }
+    .casecard h4 { margin: 0 0 14px; font-size: 16.5px; font-weight: 700; line-height: 1.25; letter-spacing: -.01em; }
+    .cc-link {
+      font-size: 13.5px; font-weight: 700; color: var(--accent);
+      display: inline-flex; gap: 6px; align-items: center;
+    }
+    .cc-link:hover { color: var(--accent-hover); }
+    .cc-link i { width: 16px; height: 16px; }
+
+    /* ===== INDUSTRY TILES ===== */
+    .tiles { display: grid; grid-template-columns: repeat(6,1fr); gap: 14px; }
+    .tile {
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; background: #fff; display: block;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .tile:hover { border-color: var(--accent); box-shadow: 0 6px 18px rgba(30,107,255,.08); }
+    .tile .ti-img { height: 82px; }
+    .tile .ti-b { padding: 12px 13px; display: flex; gap: 9px; align-items: center; }
+    .tile .ti-b i { width: 18px; height: 18px; color: var(--accent); flex: none; }
+    .tile .ti-b span { font-size: 12.5px; font-weight: 600; color: #2A3646; line-height: 1.2; }
+
+    /* ===== PLATFORM BLOCK ===== */
+    .plat { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .plat-f { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 26px; margin-top: 6px; }
+    .plat-f div { display: flex; gap: 11px; align-items: center; font-size: 14px; color: #C6D4E8; font-weight: 500; }
+    .plat-f i { width: 19px; height: 19px; color: var(--accent-light-text); flex: none; }
+
+    /* ===== CTA BAND ===== */
+    .ctaband { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
+    .trust3 { display: flex; flex-direction: column; gap: 16px; }
+    .trust3 div { display: flex; gap: 12px; align-items: center; font-size: 14px; font-weight: 600; color: #D3DFEE; }
+    .trust3 i { width: 22px; height: 22px; color: var(--accent-light-text); flex: none; }
+
+    /* ===== STATS BAR (перед футером) ===== */
+    .statsbar { background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,.08); }
+    .statsbar-in {
+      display: grid; grid-template-columns: repeat(5,1fr); gap: 24px;
+      max-width: 1200px; margin: 0 auto; padding: 40px 24px;
+      text-align: center;
+    }
+    .statsbar-item .sn {
+      font-size: 36px; font-weight: 800; color: #fff;
+      letter-spacing: -.02em; line-height: 1;
+    }
+    .statsbar-item .sl {
+      font-size: 13px; color: #7C90AC; margin-top: 8px;
+      font-weight: 500; line-height: 1.4;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--bg-dark); color: #B7C6DB; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer-in {
+      display: grid; grid-template-columns: 1.3fr 1fr 1fr .8fr; gap: 40px;
+      max-width: 1200px; margin: 0 auto; padding: 56px 24px 40px;
+    }
+    .footer-col h5 {
+      font-size: 12px; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-label); margin-bottom: 18px;
+    }
+    .footer-col a {
+      display: block; font-size: 14px; color: #8FA1B8;
+      padding: 5px 0; font-weight: 500; transition: color .15s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-brand .logo { font-size: 22px; margin-bottom: 14px; }
+    .footer-brand p { font-size: 13.5px; color: #7C90AC; line-height: 1.6; max-width: 300px; }
+    .footer-brand .f-contacts { margin-top: 18px; }
+    .footer-brand .f-contacts a {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 600; color: #B7C6DB; padding: 4px 0;
+    }
+    .footer-brand .f-contacts i { width: 16px; height: 16px; color: var(--accent-light-text); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.06);
+      max-width: 1200px; margin: 0 auto; padding: 20px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12.5px; color: #5A6D84;
+    }
+
+    /* ===== CTA ROW (inline dark bar) ===== */
+    .ctarow {
+      display: flex; align-items: center; gap: 24px;
+      background: var(--bg-dark); border-radius: var(--radius-lg);
+      padding: 30px 34px; flex-wrap: wrap;
+    }
+    .ctarow h3 { margin: 0; color: #fff; font-size: 21px; font-weight: 800; letter-spacing: -.01em; }
+    .ctarow p { margin: 6px 0 0; color: #A9BAD0; font-size: 14px; }
+    .ctarow .btns { margin: 0 0 0 auto; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1000px) {
+      .hero-in { grid-template-columns: 1fr; }
+      .hero-widget { max-width: 460px; }
+      .plat, .ctaband { grid-template-columns: 1fr; }
+      .tiles { grid-template-columns: repeat(3,1fr); }
+      .rstats { grid-template-columns: repeat(3,1fr); }
+      .statsbar-in { grid-template-columns: repeat(3,1fr); }
+      .footer-in { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .nav-toggle { display: block; }
+      .nav.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 66px; left: 0; right: 0;
+        background: var(--bg-dark); padding: 16px 24px;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        z-index: 49;
+      }
+      .header-phone { display: none; }
+      .hero h1 { font-size: 32px; }
+      .h2 { font-size: 26px; }
+      .s { padding: 52px 0; }
+      .grid3, .grid4, .grid6 { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: repeat(2,1fr); }
+      .tiles { grid-template-columns: repeat(2,1fr); }
+      .rstats, .statsbar-in { grid-template-columns: repeat(2,1fr); }
+      .plat-f { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .grid2, .grid3, .grid4, .grid6, .steps, .tiles, .rstats, .statsbar-in {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 { font-size: 28px; }
+      .h2 { font-size: 22px; }
+      .hw-g { grid-template-columns: 1fr; }
+      .footer-in { grid-template-columns: 1fr; }
+    }
+
+    /* ===== MICRO-ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-in > * {
+      animation: fadeInUp .6s ease-out both;
+    }
+    .hero-in > *:nth-child(2) { animation-delay: .15s; }
+  </style>
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ПРОФРОБОТ",
+    "url": "https://profrobot.ru",
+    "telephone": "+7 (495) 123-45-67",
+    "email": "info@profrobot.ru",
+    "description": "Роботизация и автоматизация процессов для бизнеса. Аудит, пилот, внедрение, сервис по SLA."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-in">
+      <a class="logo" href="/">ПРОФ<span>РОБОТ</span></a>
+      <nav class="nav" id="mainNav">
+        <a href="/resheniya/">Решения</a>
+        <a href="/otrasli/">Отрасли</a>
+        <a href="/produkty/">Продукты</a>
+        <a href="/platforma/">Платформа</a>
+        <a href="/uslugi/">Услуги</a>
+        <a href="/kejsy/">Кейсы</a>
+        <a href="/o-kompanii/">О компании</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-pri" href="/roi/">
+          <i data-lucide="calculator"></i>Рассчитать ROI
+        </a>
+      </div>
+      <a class="header-phone" href="tel:+74951234567">+7 (495) 123-45-67</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== ЭКРАН 1 — HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-in">
+        <div>
+          <h1>Роботизация и автоматизация процессов <span class="bl">для измеримого результата бизнеса</span></h1>
+          <p>Внедряем роботизированные системы, которые снижают затраты до 30%, закрывают дефицит персонала и делают качество услуг стабильным. Считаем экономику до вложений — вы видите окупаемость заранее.</p>
+          <div class="btns">
+            <a class="btn btn-pri" href="/roi/">
+              <i data-lucide="calculator"></i>Рассчитать экономический эффект (ROI)
+            </a>
+            <a class="btn btn-gho" href="/kejsy/">
+              <i data-lucide="play"></i>Посмотреть кейсы
+            </a>
+          </div>
+        </div>
+        <div class="hero-widget">
+          <div class="hw-t">ПРОФРОБОТ — единый центр управления</div>
+          <div class="hw-g">
+            <div class="hw-c"><div class="hw-n">142</div><div class="hw-l">устройства</div></div>
+            <div class="hw-c"><div class="hw-n">14</div><div class="hw-l">объектов</div></div>
+            <div class="hw-c"><div class="hw-n">98,2<span class="u">%</span></div><div class="hw-l">SLA и качество</div></div>
+            <div class="hw-c"><div class="hw-n">24</div><div class="hw-l">активные операции</div></div>
+          </div>
+          <div class="hw-b"><i></i>Все операции под контролем 24/7</div>
+        </div>
+      </div>
+      <div class="logobar">
+        <span class="lb-t">Работаем с ведущими мировыми производителями</span>
+        <b>PUDU</b><b>GAUSIUM</b><b>KEENON</b><b>HIKROBOT</b><b>FORWARDX</b><b>UNITREE</b><b>ORIONSTAR</b>
+        <a href="/proizvoditeli/">и другие →</a>
+      </div>
+    </section>
+
+    <!-- ===== ЭКРАН 2 — ЗАДАЧИ ===== -->
+    <section class="s" id="tasks">
+      <div class="wrap">
+        <div class="head-c">
+          <span class="eyebrow">С чего начать</span>
+          <h2 class="h2 h2c">Какие задачи вы хотите решить?</h2>
+          <p class="lead lead-c">Начните с задачи — решение подберём под неё, а не наоборот.</p>
+        </div>
+        <div class="grid6">
+          <div class="card">
+            <div class="chip"><i data-lucide="user-x"></i></div>
+            <h3>Не хватает персонала</h3>
+            <p>Линейных сотрудников всё сложнее найти и дороже удерживать. Робот берёт на себя рутину и снижает зависимость объекта от ручного труда и текучки.</p>
+          </div>
+          <div class="card">
+            <div class="chip"><i data-lucide="wallet"></i></div>
+            <h3>Высокая стоимость эксплуатации</h3>
+            <p>Пересчитываем расходы на уборку и обслуживание. На типовых объектах эксплуатация сокращается на 30% и более.</p>
+          </div>
+          <div class="card">
+            <div class="chip"><i data-lucide="badge-check"></i></div>
+            <h3>Нестабильное качество</h3>
+            <p>Результат не должен зависеть от смены, настроения или опыта конкретного человека. Робот работает по одному стандарту каждый день.</p>
+          </div>
+          <div class="card">
+            <div class="chip"><i data-lucide="eye"></i></div>
+            <h3>Нет прозрачности и контроля</h3>
+            <p>Видно, что происходит на объекте прямо сейчас: где убрано, что пропущено, сколько сделано. Объективные данные вместо «вроде всё нормально».</p>
+          </div>
+          <div class="card">
+            <div class="chip"><i data-lucide="moon"></i></div>
+            <h3>Процессы мешают бизнесу</h3>
+            <p>Настраиваем работу в ночь и непиковые часы, чтобы уборка и логистика не пересекались с потоком клиентов и производством.</p>
+          </div>
+          <div class="card">
+            <div class="chip"><i data-lucide="layers"></i></div>
+            <h3>Сложно масштабировать</h3>
+            <p>Один объект — понятно. Пять объектов — уже хаос. Единая платформа держит весь парк под контролем из одного центра.</p>
+          </div>
+        </div>
+        <!-- FIX #5: добавлен CTA «Подобрать решение» -->
+        <div class="btns" style="justify-content: center;">
+          <a class="btn btn-sec" href="/podbor/">
+            <i data-lucide="search"></i>Подобрать решение
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ЭКРАН 3 — КАК ПРОХОДИТ ВНЕДРЕНИЕ ===== -->
+    <section class="s s-alt" id="process">
+      <div class="wrap">
+        <div class="head-c">
+          <span class="eyebrow">Процесс</span>
+          <h2 class="h2 h2c">Как проходит внедрение</h2>
+          <p class="lead lead-c">От первого аудита до сервиса по SLA — шесть шагов, на каждом вы видите цифры.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-n">1</div>
+            <h4>Аудит и анализ</h4>
+            <p>Выезжаем на объект, разбираем процессы и цифры. Считаем, где теряются деньги и каким будет ROI.</p>
+          </div>
+          <div class="step">
+            <div class="step-n">2</div>
+            <h4>Подбор решения</h4>
+            <p>Оборудование и сценарии под задачу, а не «что есть в наличии». Техника от 2–5 производителей.</p>
+          </div>
+          <div class="step">
+            <div class="step-n">3</div>
+            <h4>Пилотный проект</h4>
+            <p>Запускаем на реальном участке и подтверждаем экономику до крупных вложений.</p>
+          </div>
+          <div class="step">
+            <div class="step-n">4</div>
+            <h4>Внедрение под ключ</h4>
+            <p>Поставка, настройка, интеграция с инфраструктурой, обучение персонала и запуск.</p>
+          </div>
+          <div class="step">
+            <div class="step-n">5</div>
+            <h4>Сервис и поддержка</h4>
+            <p>SLA, техподдержка, обслуживание, обновления. Собственная сервисная сеть по России.</p>
+          </div>
+          <div class="step">
+            <div class="step-n">6</div>
+            <h4>Аналитика и развитие</h4>
+            <p>Смотрим на данные эксплуатации, дорабатываем сценарии и масштабируем на другие объекты.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ЭКРАН 4 — РЕЗУЛЬТАТ ===== -->
+    <section class="s s-dark" id="results">
+      <div class="wrap">
+        <div class="head-c">
+          <span class="eyebrow">Результат</span>
+          <h2 class="h2 h2c">Результат, который получает бизнес</h2>
+        </div>
+        <div class="rstats">
+          <div class="rstat">
+            <i data-lucide="trending-down"></i>
+            <div class="n">до 30%</div>
+            <div class="l">снижение затрат на эксплуатацию</div>
+          </div>
+          <div class="rstat">
+            <i data-lucide="users"></i>
+            <div class="n">до 80%</div>
+            <div class="l">снижение зависимости от ручного труда</div>
+          </div>
+          <div class="rstat">
+            <i data-lucide="badge-check"></i>
+            <div class="n">98%+</div>
+            <div class="l">стабильное качество уборки и услуг</div>
+          </div>
+          <div class="rstat">
+            <i data-lucide="clock"></i>
+            <div class="n">24/7</div>
+            <div class="l">автономная работа без перерывов</div>
+          </div>
+          <div class="rstat">
+            <i data-lucide="activity"></i>
+            <div class="n">100%</div>
+            <div class="l">прозрачность и контроль в реальном времени</div>
+          </div>
+        </div>
+        <p class="lead lead-c" style="font-size: 13px; margin-top: 26px;">Диапазоны рассчитываются на аудите под конкретный объект.</p>
+      </div>
+    </section>
+
+    <!-- ===== ЭКРАН 5 — КЕЙСЫ ===== -->
+    <section class="s" id="cases">
+      <div class="wrap">
+        <div class="head-l">
+          <span class="eyebrow">Доказательства</span>
+          <h2 class="h2">Кейсы и результаты</h2>
+        </div>
+        <div class="grid4">
+          <div class="casecard">
+            <div class="cc-img ph"><span class="ph-lbl">фото · бизнес-центр</span></div>
+            <div class="cc-b">
+              <span class="cc-tag">Бизнес-центр</span>
+              <h4>Снижение затрат на клининг на 32%</h4>
+              <a class="cc-link" href="/kejsy/biznes-centr/">Смотреть кейс <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="casecard">
+            <div class="cc-img ph"><span class="ph-lbl">фото · торговый центр</span></div>
+            <div class="cc-b">
+              <span class="cc-tag">Торговый центр</span>
+              <h4>Оптимизация уборки в ночное время</h4>
+              <a class="cc-link" href="/kejsy/torgovyj-centr/">Смотреть кейс <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="casecard">
+            <div class="cc-img ph"><span class="ph-lbl">фото · склад</span></div>
+            <div class="cc-b">
+              <span class="cc-tag">Складской комплекс</span>
+              <h4>Рост пропускной способности склада на 35%</h4>
+              <a class="cc-link" href="/kejsy/sklad/">Смотреть кейс <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="casecard">
+            <div class="cc-img ph"><span class="ph-lbl">фото · стройка</span></div>
+            <div class="cc-b">
+              <span class="cc-tag">Строительный объект</span>
+              <h4>Снижение трудозатрат на демонтаж на 40%</h4>
+              <a class="cc-link" href="/kejsy/stroitelstvo/">Смотреть кейс <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="btns">
+          <a class="btn btn-gho" href="/kejsy/">Все кейсы <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ЭКРАН 6 — ОТРАСЛИ ===== -->
+    <section class="s s-alt" id="industries">
+      <div class="wrap">
+        <div class="head-c">
+          <span class="eyebrow">Отрасли</span>
+          <h2 class="h2 h2c">Отрасли, в которых мы создаём результат</h2>
+        </div>
+        <div class="tiles">
+          <a class="tile" href="/otrasli/biznes-centry/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="building-2"></i><span>Бизнес-центры и офисы</span></div>
+          </a>
+          <a class="tile" href="/otrasli/torgovye-centry/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="shopping-cart"></i><span>Торговые центры и ритейл</span></div>
+          </a>
+          <a class="tile" href="/otrasli/sklady/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="package"></i><span>Склады и логистика</span></div>
+          </a>
+          <a class="tile" href="/otrasli/oteli/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="bed-double"></i><span>Отели и HoReCa</span></div>
+          </a>
+          <a class="tile" href="/otrasli/medicina/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="heart-pulse"></i><span>Медицинские объекты</span></div>
+          </a>
+          <a class="tile" href="/otrasli/stroitelstvo/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="hard-hat"></i><span>Строительство и девелопмент</span></div>
+          </a>
+          <a class="tile" href="/otrasli/promyshlennost/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="factory"></i><span>Промышленность и производство</span></div>
+          </a>
+          <a class="tile" href="/otrasli/obshhestvennye/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="users"></i><span>Общественные пространства</span></div>
+          </a>
+          <a class="tile" href="/otrasli/municipalnye/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="landmark"></i><span>Муниципальные службы</span></div>
+          </a>
+          <a class="tile" href="/otrasli/agro/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="sprout"></i><span>Агро и фермерские хозяйства</span></div>
+          </a>
+          <a class="tile" href="/otrasli/obrazovanie/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="graduation-cap"></i><span>Образовательные учреждения</span></div>
+          </a>
+          <a class="tile" href="/otrasli/fitness/">
+            <div class="ti-img ph"></div>
+            <div class="ti-b"><i data-lucide="dumbbell"></i><span>Фитнес-клубы и спорткомплексы</span></div>
+          </a>
+        </div>
+        <!-- FIX #5: ещё один CTA «Подобрать решение» в отраслях -->
+        <div class="btns" style="justify-content: center; margin-top: 32px;">
+          <a class="btn btn-pri" href="/podbor/">
+            <i data-lucide="search"></i>Подобрать решение под вашу отрасль
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ЭКРАН 7 — ПЛАТФОРМА ===== -->
+    <section class="s s-dark" id="platform">
+      <div class="wrap">
+        <div class="plat">
+          <div>
+            <span class="eyebrow">Платформа</span>
+            <h2 class="h2" style="color:#fff">ПРОФРОБОТ Cleaning Operations Platform</h2>
+            <p class="lead">Единая платформа управления роботизированным клинингом, техникой и эксплуатацией объектов. В одном окне — весь парк устройств, качество, отчёты и оповещения. Ставим на объект не «робота-одиночку», а управляемую систему.</p>
+            <div class="plat-f">
+              <div><i data-lucide="activity"></i>Мониторинг в реальном времени</div>
+              <div><i data-lucide="layout-grid"></i>Управление парком устройств</div>
+              <div><i data-lucide="badge-check"></i>Контроль качества и KPI</div>
+              <div><i data-lucide="bar-chart-3"></i>Аналитика и отчёты</div>
+              <div><i data-lucide="bell"></i>Оповещения и сценарии</div>
+              <div><i data-lucide="link"></i>Интеграция с инфраструктурой</div>
+            </div>
+            <div class="btns">
+              <a class="btn btn-pri" href="/platforma/">Подробнее о платформе <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="ph dark" style="height: 320px; border-radius: 16px;">
+            <span class="ph-lbl">скриншот · интерфейс платформы</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ФИНАЛЬНЫЙ CTA ===== -->
+    <section class="s s-alt" id="cta-final">
+      <div class="wrap">
+        <div class="ctaband">
+          <div>
+            <h2 class="h2">Готовы рассчитать экономический эффект роботизации вашего объекта?</h2>
+            <p class="lead">Рассчитаем ROI и подготовим предложение под ваши задачи и объект. Без обязательств — сначала цифры, потом решение.</p>
+            <div class="btns">
+              <a class="btn btn-pri" href="/roi/">
+                <i data-lucide="calculator"></i>Рассчитать ROI за 2 минуты
+              </a>
+              <!-- FIX #4: добавлен email рядом с телефоном -->
+              <a class="btn btn-gho" href="tel:+74951234567">+7 (495) 123-45-67</a>
+              <a class="btn btn-gho" href="mailto:info@profrobot.ru">
+                <i data-lucide="mail"></i>info@profrobot.ru
+              </a>
+            </div>
+          </div>
+          <div class="trust3">
+            <div><i data-lucide="map-pin"></i>Собственная сервисная сеть по всей России</div>
+            <!-- FIX #3: 6 лет вместо 10 -->
+            <div><i data-lucide="award"></i>Опыт и экспертиза более 6 лет</div>
+            <div><i data-lucide="file-check"></i>Работаем по SLA и KPI</div>
+            <!-- FIX #6: добавлен пункт про хранение данных в РФ -->
+            <div><i data-lucide="shield-check"></i>Данные хранятся и обрабатываются в РФ</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FIX #2: ПОЛОСА ЦИФР ПЕРЕД ФУТЕРОМ ===== -->
+  <div class="statsbar">
+    <div class="statsbar-in">
+      <div class="statsbar-item">
+        <div class="sn">50+</div>
+        <div class="sl">проектов реализовано</div>
+      </div>
+      <div class="statsbar-item">
+        <div class="sn">500+</div>
+        <div class="sl">роботов в эксплуатации</div>
+      </div>
+      <div class="statsbar-item">
+        <div class="sn">30%</div>
+        <div class="sl">снижение затрат в среднем</div>
+      </div>
+      <div class="statsbar-item">
+        <!-- FIX #3: единые 6+ лет -->
+        <div class="sn">6+</div>
+        <div class="sl">лет опыта в роботизации</div>
+      </div>
+      <div class="statsbar-item">
+        <div class="sn">24/7</div>
+        <div class="sl">сервис и поддержка по всей России</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-in">
+      <div class="footer-col footer-brand">
+        <div class="logo">ПРОФ<span>РОБОТ</span></div>
+        <p>Роботизация и автоматизация процессов для измеримого результата бизнеса. Аудит, пилот, внедрение, сервис по SLA.</p>
+        <div class="f-contacts">
+          <a href="tel:+74951234567"><i data-lucide="phone"></i>+7 (495) 123-45-67</a>
+          <a href="mailto:info@profrobot.ru"><i data-lucide="mail"></i>info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Решения</h5>
+        <a href="/resheniya/klining/">Роботизированный клининг</a>
+        <a href="/resheniya/sklady/">Складская роботизация</a>
+        <a href="/resheniya/servisnye/">Сервисные роботы</a>
+        <a href="/resheniya/stroitelstvo/">Строительная робототехника</a>
+        <a href="/resheniya/agro/">Агророботы</a>
+        <a href="/resheniya/">Все решения</a>
+      </div>
+      <div class="footer-col">
+        <h5>Компания</h5>
+        <a href="/o-kompanii/">О компании</a>
+        <a href="/kejsy/">Кейсы</a>
+        <a href="/platforma/">Платформа</a>
+        <a href="/proizvoditeli/">Производители</a>
+        <a href="/kontakty/">Контакты</a>
+      </div>
+      <div class="footer-col">
+        <h5>Услуги</h5>
+        <a href="/uslugi/audit/">Аудит и анализ</a>
+        <a href="/uslugi/pilot/">Пилотный проект</a>
+        <a href="/uslugi/vnedrenie/">Внедрение под ключ</a>
+        <a href="/uslugi/servis/">Сервис и поддержка</a>
+        <a href="/roi/">Калькулятор ROI</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
+      <span>Москва, Россия</span>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Init Lucide icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      // Mobile nav toggle
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('mainNav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          nav.classList.toggle('open');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
