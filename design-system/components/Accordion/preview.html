@@ -1,0 +1,16 @@
+<!-- @dsCard group="Контент" height=480 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Accordion — превью</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"></head>
+<body>
+<div id="root" class="pr-col" style="padding:24px 32px"></div>
+<script>
+  var P = window.Profrobot, h = React.createElement, F = React.Fragment;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(P.Accordion, { items: [
+    { q: 'Сколько времени занимает внедрение?', a: 'От двух до шести недель: обследование объекта, пилот на одной зоне, запуск всего флота и обучение персонала.' },
+    { q: 'Можно ли взять роботов в аренду?', a: 'Да — аренда, лизинг или сервисная подписка с обслуживанием.' },
+    { q: 'Кто обслуживает роботов?', a: 'Наша сервисная команда, SLA прописан в договоре.' },
+    { q: 'Работают ли роботы разных брендов в одной системе?', a: 'Да, все устройства подключаются к платформе ПРОФРОБОТ.' }] }));
+</script>
+</body>
+</html>

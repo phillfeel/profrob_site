@@ -1,0 +1,15 @@
+<!-- @dsCard group="Метки" height=130 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Tag — превью</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"></head>
+<body>
+<div id="root" class=""></div>
+<script>
+  var P = window.Profrobot, h = React.createElement, F = React.Fragment;
+  var t = ['Сервис','Ресепшн','Уборка','Доставка','Склад','Инспекция'];
+  ReactDOM.createRoot(document.getElementById('root')).render(h(F, null,
+    h('div', { className: 'pr-row' }, t.map(function (x) { return h(P.Tag, { key: x }, x); })),
+    h('div', { 'data-theme': 'dark', className: 'pr-row', style: { background: 'var(--stage)', margin: '0 24px', borderRadius: '16px' } }, t.slice(0, 4).map(function (x) { return h(P.Tag, { key: x }, x); }))));
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- @dsCard group="Формы" height=300 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Field — превью</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"></head>
+<body>
+<div id="root" class="pr-row" style="align-items:flex-start"></div>
+<script>
+  var P = window.Profrobot, h = React.createElement, F = React.Fragment;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(F, null,
+    h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, minmax(240px, 1fr))', gap: '24px', width: '100%' } },
+      h(P.Field, { label: 'Имя', placeholder: 'Как к вам обращаться' }),
+      h(P.Field, { label: 'Телефон', type: 'tel', placeholder: '+7 (___) ___-__-__', hint: 'Перезвоним в течение часа' }),
+      h(P.Field, { label: 'Email', defaultValue: 'ivan@', error: 'Проверьте адрес — не хватает домена' })),
+    h('div', { style: { width: '100%', marginTop: '8px' } }, h(P.Field, { label: 'Задача', multiline: true, placeholder: 'Площадь, тип объекта, что хотите автоматизировать' }))));
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- @dsCard group="Раскладка" height=600 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Stage — превью</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"></head>
+<body>
+<div id="root" class="" style="padding:24px"></div>
+<script>
+  var P = window.Profrobot, h = React.createElement, F = React.Fragment;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(P.Stage, null,
+    h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '24px', flexWrap: 'wrap' } },
+      h(P.SectionHeader, { index: '05', label: 'Платформа', title: 'Весь флот — в одном окне.', lead: 'Карты, задания, телеметрия и отчёты по каждому роботу.' }),
+      h(P.MetricsBar, { items: [{ value: '142', label: 'устройства' }, { value: 'SLA 98,2%' }] })),
+    h('div', { style: { display: 'flex', gap: '48px', marginTop: '48px', justifyContent: 'center' } },
+      h(P.ScanRing, { width: 180 }), h(P.ScanRing, { width: 140 }), h(P.ScanRing, { width: 180 }))));
+</script>
+</body>
+</html>

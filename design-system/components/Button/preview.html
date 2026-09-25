@@ -1,0 +1,24 @@
+<!-- @dsCard group="Действия" height=340 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>Button — превью</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"></head>
+<body>
+<div id="root" class="pr-row"></div>
+<script>
+  var P = window.Profrobot, h = React.createElement, F = React.Fragment;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(F, null,
+    h('div', { className: 'pr-row' },
+      h(P.Button, { size: 'lg', icon: 'arrow-right' }, 'Рассчитать ROI'),
+      h(P.Button, { size: 'lg', variant: 'secondary' }, 'Смотреть роботов'),
+      h(P.Button, null, 'Связаться'),
+      h(P.Button, { variant: 'ghost' }, 'Все кейсы'),
+      h(P.Button, { size: 'sm', variant: 'secondary', icon: 'arrow-up-right' }, 'Подробнее'),
+      h(P.Button, { disabled: true }, 'Отправить')),
+    h(P.Stage, { glow: false, style: { padding: '24px', borderRadius: '24px', margin: '0 24px 24px' } },
+      h('div', { style: { display: 'flex', gap: '12px', flexWrap: 'wrap' } },
+        h(P.Button, { size: 'lg', variant: 'inverse', icon: 'arrow-right' }, 'Получить расчёт'),
+        h(P.Button, { size: 'lg' }, 'Связаться'),
+        h(P.Button, { size: 'lg', variant: 'secondary' }, 'Скачать каталог')))));
+</script>
+</body>
+</html>

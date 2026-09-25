@@ -1,0 +1,23 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {"v": 1, "at": "2026-09-25T19:04:27Z"},
+  "title": "ПРОФРОБОТ",
+  "namespace": "Profrobot",
+  "libraries": [{"name": "react", "version": "18"}, {"name": "react-dom", "version": "18"}],
+  "sections": {},
+  "groups": ["Logos", "Reference"],
+  "assetGroups": {
+    "Logos": {"name": "Logos", "tile": "m", "order": ["profrobot-logo.png", "profrobot-logo-inverse.png", "profrobot-mark.png"], "files": {
+      "profrobot-logo.png": {"name": "profrobot-logo.png", "blob": "16484b9c88a696674b3ce459d15cc33c", "size": 74671, "type": "image/png"},
+      "profrobot-logo-inverse.png": {"name": "profrobot-logo-inverse.png", "blob": "5ebfd6818d972b557edd0b09a4835a0a", "size": 42051, "type": "image/png"},
+      "profrobot-mark.png": {"name": "profrobot-mark.png", "blob": "2134593d4e0d4602632ecadb7870562a", "size": 14037, "type": "image/png"}
+    }},
+    "Reference": {"name": "Reference", "tile": "l", "order": ["hero-reference.png"], "files": {
+      "hero-reference.png": {"name": "hero-reference.png", "blob": "2089512162842ba8fd2568571827e7c7", "size": 1707132, "type": "image/png"}
+    }}
+  },
+  "blobs": {},
+  "docs": {"readme": "project/README.md", "sections": []},
+  "lastChange": {"by": "jinnjinn", "at": "2026-09-25T19:04:27Z", "via": "Claude (Cowork)", "note": "Первая версия дизайн-системы лендинга по утверждённому рендеру главного экрана"}
+}

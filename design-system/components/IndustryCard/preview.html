@@ -1,0 +1,15 @@
+<!-- @dsCard group="Карточки" height=320 -->
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>IndustryCard — превью</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"></head>
+<body>
+<div id="root" class="pr-row" style="align-items:stretch;gap:24px;display:grid;grid-template-columns:repeat(3,1fr)"></div>
+<script>
+  var P = window.Profrobot, h = React.createElement, F = React.Fragment;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(F, null,
+    h(P.IndustryCard, { index: '01', title: 'Торговые центры', text: 'Уборка, навигация посетителей, промо.', tags: ['Уборка', 'Ресепшн'] }),
+    h(P.IndustryCard, { index: '02', title: 'Склады и производство', text: 'Внутренняя логистика и инспекция.', tags: ['Склад', 'Инспекция'] }),
+    h(P.IndustryCard, { index: '03', title: 'HoReCa', text: 'Доставка блюд и встреча гостей.', tags: ['Доставка'] })));
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>ПРОФРОБОТ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;700&display=swap">
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; width:960px; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .stage { fill:var(--stage); }
+  .rim { fill:var(--stage-glow); }
+  .accent { fill:var(--accent); }
+  .white { fill:var(--on-stage); }
+  .lime { fill:var(--lime); }
+  .ring { fill:none; stroke:var(--lime); stroke-width:1.5; }
+  .r-xl { rx:var(--radius-xl); }
+  .r-lg { rx:var(--radius-lg); }
+  .pill { rx:var(--radius-sm); }
+  .words { position:absolute; left:var(--space-10); bottom:var(--space-10); max-width:440px; }
+  .name { margin:0; font-size:60px; line-height:.95; font-weight:700; letter-spacing:-.03em; color:var(--ink); }
+  .tag { margin:var(--space-3) 0 0 2px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      stage 464×264 slab bleeding off right and bottom (the podium, largest) · accent 104×160 (the one brand hue, tallest) · on-stage 80×112 and 112×80 (the white robot bodies, always white) · lime 64×24 once (the "online" badge) — ≈45% of 960×288
+  arrangement one tall graphite slab, the three blocks standing inside it in a soft row, bottoms on one line space-12 above the bottom edge
+  pattern     lime scan rings, from "круги сканирования под каждым роботом": one ellipse at each block's base, stroke 1.5, on the slab only; plus the 2px stage-glow rim along the slab's top edge
+  scales      gutters space-8; slab corner radius-xl; blocks radius-lg; badge pill rx radius-sm (half of 24)
+-->
+<rect class="rim r-xl" x="16" y="22" width="496" height="300" rx="40"/>
+<rect class="stage r-xl" x="16" y="24" width="496" height="300" rx="40"/>
+<rect class="white r-lg" x="64" y="128" width="80" height="112" rx="24"/>
+<rect class="accent r-lg" x="176" y="80" width="104" height="160" rx="24"/>
+<rect class="white r-lg" x="312" y="160" width="112" height="80" rx="24"/>
+<rect class="lime pill" x="336" y="112" width="64" height="24" rx="12"/>
+<ellipse class="ring" cx="104" cy="242" rx="50" ry="10"/>
+<ellipse class="ring" cx="228" cy="242" rx="62" ry="12"/>
+<ellipse class="ring" cx="368" cy="242" rx="64" ry="12"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">ПРОФРОБОТ</h1>
+<p class="tag">Роботизация, которая окупается.</p>
+</div>
+</div>
+</body>
+</html>

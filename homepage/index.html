@@ -239,15 +239,20 @@
     /* Logo bar */
     .logobar {
       position: relative; border-top: 1px solid rgba(255,255,255,.09);
-      padding: 20px 24px;
-      display: flex; align-items: center; gap: 14px 30px; flex-wrap: wrap;
+      padding: 18px 24px 20px;
+      display: flex; flex-direction: column; gap: 14px;
       background: rgba(8,15,28,.55);
       max-width: 1200px; margin: 0 auto;
     }
-    .logobar .lb-t { font-size: 12.5px; color: #7C90AC; font-weight: 600; margin-right: 8px; }
-    .logobar b { font-weight: 800; font-size: 16px; letter-spacing: .04em; color: #C4D2E6; }
-    .logobar a { color: var(--accent-light-text); font-size: 12.5px; font-weight: 600; margin-left: auto; }
-    .logobar a:hover { color: #fff; }
+    .logobar .lb-t { font-size: 11.5px; color: #7C90AC; font-weight: 500; letter-spacing: .02em; }
+    .lb-brands {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+    .lb-brands img { height: 28px; width: auto; opacity: .7; transition: opacity .2s; flex-shrink: 0; }
+    .lb-brands img:hover { opacity: 1; }
+    .lb-brands a { color: var(--accent-light-text); font-size: 12.5px; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+    .lb-brands a:hover { color: #fff; }
 
     /* ===== STEPS ===== */
     .steps { display: grid; grid-template-columns: repeat(6,1fr); gap: 14px; margin-top: 8px; }
@@ -312,14 +317,15 @@
     /* ===== CTA BAND ===== */
     .ctaband { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
     .trust3 { display: flex; flex-direction: column; gap: 16px; }
-    .trust3 div { display: flex; gap: 12px; align-items: center; font-size: 14px; font-weight: 600; color: #D3DFEE; }
-    .trust3 i { width: 22px; height: 22px; color: var(--accent-light-text); flex: none; }
+    .trust3 div { display: flex; gap: 12px; align-items: center; font-size: 14px; font-weight: 600; color: var(--text-secondary); }
+    .trust3 i { width: 22px; height: 22px; color: var(--accent); flex: none; }
 
     /* ===== FOOTER (from mockup: pf-*) ===== */
     .pf-stats {
       background: #F2F6FC; border-top: 1px solid var(--border);
       padding: 26px 40px;
-      display: flex; flex-wrap: wrap; gap: 26px 40px; align-items: center;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px;
+      align-items: start;
     }
     .pf-st { display: flex; align-items: center; gap: 12px; }
     .pf-st i { color: var(--accent); width: 26px; height: 26px; flex: none; }
@@ -356,10 +362,12 @@
     .pf-bot .pf-sp { margin-left: auto; display: flex; gap: 18px; }
     @media (max-width: 900px) {
       .pf-grid { grid-template-columns: 1fr 1fr; }
+      .pf-stats { grid-template-columns: repeat(3, 1fr); }
       .pf-stats, .pf-main { padding-left: 22px; padding-right: 22px; }
     }
     @media (max-width: 560px) {
       .pf-grid { grid-template-columns: 1fr; }
+      .pf-stats { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ===== CTA ROW (inline dark bar) ===== */
@@ -483,8 +491,16 @@
       </div>
       <div class="logobar">
         <span class="lb-t">Работаем с ведущими мировыми производителями</span>
-        <b>PUDU</b><b>GAUSIUM</b><b>KEENON</b><b>HIKROBOT</b><b>FORWARDX</b><b>UNITREE</b><b>ORIONSTAR</b>
-        <a href="/proizvoditeli/">и другие →</a>
+        <span class="lb-brands">
+          <img src="logos/pudu.svg" alt="PUDU" height="28">
+          <img src="logos/gausium.svg" alt="GAUSIUM" height="28">
+          <img src="logos/keenon.svg" alt="KEENON" height="28">
+          <img src="logos/hikrobot.svg" alt="HIKROBOT" height="28">
+          <img src="logos/forwardx.svg" alt="FORWARDX" height="28">
+          <img src="logos/unitree.svg" alt="UNITREE" height="28">
+          <img src="logos/orionstar.svg" alt="ORIONSTAR" height="28">
+          <a href="/proizvoditeli/">и другие →</a>
+        </span>
       </div>
     </section>
 
