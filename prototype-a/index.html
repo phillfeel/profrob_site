@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Роботы-уборщики и роботизация для бизнеса | ПРОФРОБОТ</title>
+  <meta name="description" content="Прототип главной ПРОФРОБОТ — концепция A «Конвейер»: закреплённые главы и горизонтальные ленты.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* ================= TOKENS (design-system/tokens.json) ================= */
+    :root {
+      --surface: #f3f2ef; --surface-raised: #fff; --surface-sunken: #e9e7e2;
+      --line: #e0ded8; --line-strong: #8a8883;
+      --ink: #16181c; --ink-muted: #5c6069;
+      --accent: #2f3bff; --accent-hover: #1f29e6; --accent-ink: #2f3bff; --accent-soft: #e7e8ff;
+      --lime: #c8ff3c; --lime-soft: #eefcc4; --lime-ink: #3a6500;
+      --stage: #1c1e22; --stage-raised: #262a30; --stage-line: #3a3f48;
+      --on-stage: #f3f2ef; --on-stage-muted: #a3a8b1; --accent-ink-dark: #9ba2ff;
+      --glass: rgba(255,255,255,.72); --glass-line: rgba(255,255,255,.9);
+
+      --sans: Onest, Manrope, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+      --r-sm: 12px; --r-md: 16px; --r-lg: 24px; --r-xl: 40px; --r-pill: 999px;
+      --shadow-sm: 0 1px 2px #16181c0d, 0 2px 8px #16181c0a;
+      --shadow-md: 0 2px 4px #16181c0a, 0 12px 32px -8px #16181c1f;
+      --glow-edge: inset 0 1px 0 #2f3bff80, 0 16px 48px -16px #2f3bffb3, 0 2px 0 -1px #2f3bff;
+      --glow-accent: 0 8px 24px -8px #2f3bff99;
+
+      --container: 1320px;
+      --gutter: 40px;
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --fast: 140ms; --base: 240ms; --slow: 600ms;
+    }
+
+    /* ================= BASE ================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    body {
+      font-family: var(--sans); color: var(--ink); background: var(--surface);
+      -webkit-font-smoothing: antialiased; line-height: 1.5; overflow-x: hidden;
+    }
+    /* Зерно */
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    :focus-visible { outline: none; box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); border-radius: 8px; }
+
+    .wrap { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+    section { position: relative; z-index: 2; }
+    .sec { padding: 128px 0; }
+
+    /* ================= TYPE ================= */
+    .mono { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+    .tag::before { content: "["; } .tag::after { content: "]"; }
+    .tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .h1 { font-size: clamp(40px, 5.6vw, 80px); font-weight: 700; letter-spacing: -.04em; line-height: .98; }
+    .h2 { font-size: clamp(34px, 4.4vw, 60px); font-weight: 700; letter-spacing: -.035em; line-height: 1; }
+    .lead { font-size: 19px; line-height: 1.5; color: var(--ink-muted); max-width: 56ch; }
+    .sec-head { display: grid; gap: 24px; margin-bottom: 48px; }
+    .idx { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--ink-muted); }
+    .idx b { color: var(--accent); font-weight: 500; }
+    .tnum { font-feature-settings: "tnum"; }
+
+    /* ================= BUTTONS ================= */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 26px;
+      border-radius: var(--r-pill); font: 500 15px/1 var(--sans); cursor: pointer; border: 1px solid transparent;
+      transition: background var(--fast) var(--ease), box-shadow var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+      white-space: nowrap;
+    }
+    .btn svg { width: 18px; height: 18px; }
+    .btn-pri { background: var(--accent); color: #fff; }
+    .btn-pri:hover { background: var(--accent-hover); box-shadow: var(--glow-accent); }
+    .btn-sec { border-color: var(--line-strong); color: var(--ink); }
+    .btn-sec:hover { border-color: var(--ink); }
+    .btn-inv { background: var(--on-stage); color: var(--ink); }
+    .btn-inv:hover { background: #fff; }
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ================= NAV ================= */
+    .nav {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 50;
+      width: min(1200px, calc(100% - 32px)); height: 56px; padding: 0 8px 0 24px;
+      display: flex; align-items: center; gap: 32px; border-radius: var(--r-pill);
+      background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-md);
+    }
+    .nav img { height: 24px; width: auto; }
+    .nav-links { display: flex; gap: 28px; margin: 0 auto; font-size: 14px; font-weight: 500; }
+    .nav-links a { color: var(--ink-muted); transition: color var(--fast) var(--ease); }
+    .nav-links a:hover, .nav-links a.on { color: var(--ink); }
+    .nav .btn { height: 40px; padding: 0 20px; font-size: 14px; }
+
+    /* ================= SECTION COUNTER ================= */
+    .counter {
+      position: fixed; right: 40px; top: 50%; transform: translateY(-50%); z-index: 40;
+      display: flex; flex-direction: column; align-items: center; gap: 12px; font-family: var(--mono); font-size: 13px;
+    }
+    .counter .cur { color: var(--ink); font-weight: 500; min-width: 2ch; text-align: center; }
+    .counter .tot { color: var(--ink-muted); }
+    .counter .bar { width: 2px; height: 72px; background: var(--line); position: relative; overflow: hidden; border-radius: 2px; }
+    .counter .bar i { position: absolute; inset: 0; background: var(--accent); transform-origin: top; transform: scaleY(0); }
+    .counter .lbl {
+      position: absolute; right: 28px; top: 50%; transform: translateY(-50%); white-space: nowrap;
+      font-size: 11px; letter-spacing: .08em; color: var(--ink-muted); writing-mode: vertical-rl; rotate: 180deg; right: auto; left: -28px;
+    }
+    .counter.on-dark .cur { color: var(--on-stage); }
+    .counter.on-dark .bar { background: var(--stage-line); }
+
+    /* ================= 01 HERO ================= */
+    .hero { padding-top: 136px; min-height: 100vh; overflow: hidden; }
+    .hero-top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
+    .hero-copy { display: grid; gap: 24px; }
+    .metrics {
+      display: flex; align-items: center; gap: 16px; padding: 14px 16px 14px 20px; border-radius: var(--r-md);
+      background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(20px); box-shadow: var(--shadow-md);
+      font-size: 14px; color: var(--ink-muted); white-space: nowrap;
+    }
+    .metrics b { color: var(--ink); font-weight: 600; }
+    .metrics .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--line-strong); }
+    .badge-online {
+      display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; border-radius: var(--r-pill);
+      background: var(--lime-soft); color: var(--lime-ink); font-size: 12px; font-weight: 500;
+    }
+    .badge-online i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime-ink); animation: pulse 2s var(--ease) infinite; }
+    @keyframes pulse { 50% { opacity: .3; } }
+    .podium { position: relative; margin: 8px auto 0; max-width: 1480px; padding: 0 16px; }
+    .podium img {
+      width: 100%; height: auto; will-change: transform;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 86%, transparent 100%);
+              mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 86%, transparent 100%);
+    }
+    .partners { display: flex; justify-content: center; margin-top: -8px; padding: 0 16px; text-align: center; }
+    .partners a { font-size: 13px; color: var(--ink-muted); }
+    .partners a:hover { color: var(--accent-ink); }
+
+    /* ================= HORIZONTAL PINNED CHAPTERS ================= */
+    .hpin { height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 0; }
+    .hpin-inner { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: center; padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))); }
+    /* Заголовок закрыт фоном слева до края экрана — лента уезжает «под» него */
+    .hpin-head { display: grid; gap: 24px; align-self: stretch; align-content: center; position: relative; z-index: 3; background: var(--surface); box-shadow: -60vw 0 0 60vw var(--surface); }
+    .hpin-head::after { content: ""; position: absolute; top: 0; bottom: 0; right: -48px; width: 48px; background: linear-gradient(90deg, var(--surface), transparent); }
+    .progress { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 12px; color: var(--ink-muted); }
+    .progress .track-bar { width: 120px; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
+    .progress .track-bar i { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+    .progress b { color: var(--ink); font-weight: 500; }
+    .viewport { overflow: visible; }
+    .track { display: flex; gap: 24px; width: max-content; padding-right: 20vw; will-change: transform; }
+
+    /* Задачи — карточки */
+    .task {
+      width: 400px; min-height: 440px; padding: 32px; border-radius: var(--r-lg); background: var(--surface-raised);
+      box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 16px;
+      transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+    }
+    .task:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .task .n { font-family: var(--mono); font-size: 13px; color: var(--ink-muted); display: flex; justify-content: space-between; }
+    .task .ic { width: 56px; height: 56px; border-radius: var(--r-md); background: var(--accent-soft); color: var(--accent-ink); display: grid; place-items: center; margin-top: 32px; }
+    .task .ic svg { width: 26px; height: 26px; stroke-width: 1.75; }
+    .task h3 { font-size: 26px; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; margin-top: auto; }
+    .task p { font-size: 15px; color: var(--ink-muted); }
+    .task.cta { background: var(--stage); color: var(--on-stage); justify-content: space-between; }
+    .task.cta p { color: var(--on-stage-muted); }
+
+    /* Внедрение — таймлайн */
+    .timeline-wrap { position: relative; }
+    .tl-line { position: absolute; left: 0; right: 20vw; top: 27px; height: 2px; background: var(--line); }
+    .tl-line i { position: absolute; inset: 0; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+    .step { width: 360px; padding-right: 24px; position: relative; }
+    .step .node {
+      width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; position: relative; z-index: 1;
+      background: var(--surface); border: 2px solid var(--line); font-family: var(--mono); font-size: 14px; color: var(--ink-muted);
+      transition: all var(--base) var(--ease);
+    }
+    .step.on .node { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: var(--glow-accent); }
+    .step h3 { font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 40px 0 12px; line-height: 1.1; }
+    .step p { color: var(--ink-muted); font-size: 16px; max-width: 30ch; }
+    .step .meta { margin-top: 20px; }
+    .step { opacity: .35; transition: opacity var(--slow) var(--ease); }
+    .step.on { opacity: 1; }
+
+    /* ================= STAGE ================= */
+    .stage {
+      background: var(--stage); color: var(--on-stage); border-radius: var(--r-xl); box-shadow: var(--glow-edge);
+      position: relative; overflow: hidden; margin: 0 16px;
+    }
+    .stage::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 50% at 50% 0%, rgba(255,255,255,.07), transparent 70%); }
+    .stage .lead { color: var(--on-stage-muted); }
+    .stage .idx { color: var(--on-stage-muted); }
+    .stage .idx b { color: var(--accent-ink-dark); }
+
+    /* 04 Результат */
+    .kpis { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--stage-line); }
+    .kpi { padding: 40px 24px 8px 0; border-right: 1px solid var(--stage-line); display: grid; gap: 16px; align-content: start; }
+    .kpi + .kpi { padding-left: 24px; }
+    .kpi:last-child { border-right: 0; }
+    .kpi .v { font-size: clamp(44px, 5vw, 72px); font-weight: 700; letter-spacing: -.04em; line-height: 1; font-feature-settings: "tnum"; }
+    .kpi .v small { font-size: .45em; color: var(--accent-ink-dark); letter-spacing: -.02em; }
+    .kpi .l { color: var(--on-stage-muted); font-size: 15px; max-width: 22ch; }
+    .kpi .bar { height: 2px; background: var(--stage-line); }
+    .kpi .bar i { display: block; height: 100%; background: var(--lime); transform-origin: left; transform: scaleX(0); }
+    .footnote { margin-top: 40px; font-size: 13px; color: var(--on-stage-muted); font-family: var(--mono); letter-spacing: .04em; }
+
+    /* 05 Кейсы */
+    .cases-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 48px; }
+    .slider-ctrl { display: flex; align-items: center; gap: 16px; }
+    .round { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; display: grid; place-items: center; cursor: pointer; color: var(--ink); transition: border-color var(--fast) var(--ease), background var(--fast) var(--ease); }
+    .round:hover { border-color: var(--ink); }
+    .round:disabled { opacity: .35; cursor: default; }
+    .round svg { width: 20px; height: 20px; }
+    .cases {
+      display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+      padding: 8px max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))) 24px;
+    }
+    .cases::-webkit-scrollbar { display: none; }
+    .case { flex: 0 0 min(560px, 82vw); scroll-snap-align: start; scroll-margin-left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))); background: var(--surface-raised); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease); }
+    .case:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .case .ph { aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, #e9e7e2 0 12px, #efede8 12px 24px); display: grid; place-items: center; }
+    .case .ph span { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); background: var(--surface-raised); padding: 6px 10px; border-radius: var(--r-pill); }
+    .case .body { padding: 28px 32px 32px; display: grid; gap: 16px; }
+    .case .res { display: flex; align-items: baseline; gap: 12px; }
+    .case .res b { font-size: 56px; font-weight: 700; letter-spacing: -.04em; line-height: 1; color: var(--accent-ink); font-feature-settings: "tnum"; }
+    .case h3 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+    .case .more { font-size: 14px; font-weight: 500; color: var(--accent-ink); display: inline-flex; gap: 6px; align-items: center; }
+    .case .more svg { width: 16px; height: 16px; }
+
+    /* 06 Отрасли */
+    .ind { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+    .ind-head { position: sticky; top: 140px; display: grid; gap: 24px; }
+    .ind-list { border-top: 1px solid var(--line); }
+    .ind-row {
+      display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 16px; padding: 22px 0;
+      border-bottom: 1px solid var(--line); font-size: 22px; font-weight: 500; letter-spacing: -.01em;
+      transition: padding var(--base) var(--ease), color var(--fast) var(--ease);
+    }
+    .ind-row .no { font-family: var(--mono); font-size: 12px; color: var(--ink-muted); }
+    .ind-row .go { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: var(--ink-muted); transition: all var(--base) var(--ease); }
+    .ind-row .go svg { width: 18px; height: 18px; }
+    .ind-row:hover { padding-left: 12px; color: var(--accent-ink); }
+    .ind-row:hover .go { background: var(--accent); color: #fff; }
+    .ind-row .seo { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); margin-left: 12px; letter-spacing: .04em; }
+
+    /* 07 Платформа */
+    .plat { height: 100vh; display: flex; align-items: center; padding: 16px 0; }
+    .plat .stage { width: calc(100% - 32px); height: calc(100vh - 32px); max-height: 860px; display: grid; grid-template-columns: 5fr 7fr; gap: 48px; padding: 56px; align-items: center; }
+    .plat-copy { display: grid; gap: 24px; }
+    .feats { display: grid; gap: 0; border-top: 1px solid var(--stage-line); }
+    .feat { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--stage-line); color: var(--on-stage-muted); font-size: 17px; transition: color var(--base) var(--ease), padding var(--base) var(--ease); }
+    .feat .no { font-family: var(--mono); font-size: 12px; width: 24px; }
+    .feat.on { color: var(--on-stage); padding-left: 8px; }
+    .feat.on .no { color: var(--accent-ink-dark); }
+    .feat .st { margin-left: auto; width: 6px; height: 6px; border-radius: 50%; background: transparent; transition: background var(--base) var(--ease); }
+    .feat.on .st { background: var(--lime); }
+    /* мок интерфейса */
+    .ui { background: var(--stage-raised); border: 1px solid var(--stage-line); border-radius: var(--r-lg); height: 100%; max-height: 620px; display: grid; grid-template-columns: 180px 1fr; overflow: hidden; }
+    .ui-side { border-right: 1px solid var(--stage-line); padding: 20px 16px; display: grid; gap: 6px; align-content: start; font-size: 13px; color: var(--on-stage-muted); }
+    .ui-side .it { padding: 8px 10px; border-radius: 8px; transition: all var(--base) var(--ease); }
+    .ui-side .it.on { background: var(--accent); color: #fff; }
+    .ui-main { padding: 20px; display: grid; grid-template-rows: auto 1fr auto; gap: 16px; min-height: 0; }
+    .ui-top { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--on-stage-muted); }
+    .ui-top b { color: var(--on-stage); font-weight: 600; font-size: 15px; }
+    .ui-map { position: relative; border-radius: var(--r-md); background: #1a1c20; border: 1px solid var(--stage-line); overflow: hidden;
+      background-image: linear-gradient(var(--stage-line) 1px, transparent 1px), linear-gradient(90deg, var(--stage-line) 1px, transparent 1px); background-size: 40px 40px; background-position: -1px -1px; }
+    .ui-map .room { position: absolute; border: 1.5px solid #4a505b; border-radius: 6px; }
+    .ui-map .bot { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--accent-ink-dark); }
+    .ui-map .bot::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 1.5px solid var(--lime); animation: scan 2.4s var(--ease) infinite; }
+    @keyframes scan { from { transform: scale(.4); opacity: 1; } to { transform: scale(1.8); opacity: 0; } }
+    .ui-map .zone { position: absolute; background: rgba(200,255,60,.12); border: 1px dashed rgba(200,255,60,.5); border-radius: 6px; opacity: 0; transition: opacity var(--slow) var(--ease); }
+    .ui-map .alert { position: absolute; right: 16px; top: 16px; padding: 8px 12px; border-radius: 10px; background: #3a2a10; color: #ffb547; font-size: 12px; opacity: 0; transform: translateY(-8px); transition: all var(--slow) var(--ease); }
+    .ui-bottom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .ui-card { border: 1px solid var(--stage-line); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--on-stage-muted); transition: border-color var(--base) var(--ease); }
+    .ui-card b { display: block; color: var(--on-stage); font-size: 22px; font-weight: 600; letter-spacing: -.02em; font-feature-settings: "tnum"; }
+    .ui-card .spark { display: flex; gap: 3px; align-items: end; height: 22px; margin-top: 6px; }
+    .ui-card .spark i { flex: 1; background: var(--stage-line); border-radius: 2px; transition: background var(--base) var(--ease); }
+    /* состояния интерфейса по активной функции */
+    .ui[data-f="1"] .ui-map .bot::after { border-color: var(--lime); }
+    .ui[data-f="3"] .ui-map .zone, .ui[data-f="3"] .ui-card.q { opacity: 1; border-color: var(--lime); }
+    .ui[data-f="4"] .ui-card .spark i { background: var(--accent-ink-dark); }
+    .ui[data-f="5"] .ui-map .alert { opacity: 1; transform: none; }
+    .ui[data-f="2"] .ui-card.fleet, .ui[data-f="4"] .ui-card.rep, .ui[data-f="6"] .ui-card { border-color: var(--accent-ink-dark); }
+    .ui[data-f="3"] .ui-map .zone { opacity: 1; }
+
+    /* 08 CTA */
+    .final .stage { padding: 96px 56px; text-align: center; display: grid; justify-items: center; gap: 32px; }
+    .final .h2 { max-width: 18ch; }
+    .final .lead { margin: 0 auto; }
+    .trust { display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; font-size: 14px; color: var(--on-stage-muted); }
+    .trust span { display: inline-flex; gap: 8px; align-items: center; }
+    .trust i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); }
+    .contacts { font-size: 15px; color: var(--on-stage-muted); }
+    .contacts a { color: var(--on-stage); border-bottom: 1px solid var(--stage-line); }
+
+    /* Футер */
+    .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; padding: 80px 0 56px; }
+    .stats b { display: block; font-size: 40px; font-weight: 700; letter-spacing: -.03em; font-feature-settings: "tnum"; }
+    .stats .l { font-size: 14px; color: var(--ink-muted); }
+    .foot { display: flex; justify-content: space-between; gap: 24px; padding: 24px 0 40px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-muted); flex-wrap: wrap; }
+
+    /* Появление */
+    .reveal { opacity: 0; transform: translateY(16px); }
+    .proto-note { position: fixed; left: 16px; bottom: 16px; z-index: 60; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; padding: 8px 12px; border-radius: var(--r-pill); background: var(--ink); color: var(--surface); opacity: .85; }
+
+    /* ================= MOBILE / FALLBACK (без закреплений) ================= */
+    @media (max-width: 1023px) {
+      :root { --gutter: 16px; }
+      .sec { padding: 80px 0; }
+      .nav-links, .counter { display: none; }
+      .nav { padding-left: 16px; gap: 12px; justify-content: space-between; }
+      .hero { padding-top: 104px; min-height: 0; }
+      .hero-top { grid-template-columns: 1fr; }
+      .metrics { flex-wrap: wrap; white-space: normal; }
+      .hpin { height: auto; padding: 80px 0; }
+      .hpin-inner { grid-template-columns: 1fr; padding-left: var(--gutter); gap: 32px; }
+      .hpin-head { box-shadow: none; background: none; }
+      .hpin-head::after { display: none; }
+      .viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: 0; }
+      .viewport::-webkit-scrollbar { display: none; }
+      .track { padding-right: var(--gutter); }
+      .task, .step { scroll-snap-align: start; width: 82vw; max-width: 400px; }
+      .task { min-height: 360px; }
+      .tl-line { right: var(--gutter); }
+      .step { opacity: 1; }
+      .kpis { grid-template-columns: 1fr 1fr; }
+      .kpi, .kpi + .kpi { padding: 24px 16px 16px 0; border-right: 0; border-bottom: 1px solid var(--stage-line); }
+      .stage { margin: 0 8px; border-radius: var(--r-lg); }
+      .sec.stage, .stage.sec { padding: 64px 16px; }
+      .ind { grid-template-columns: 1fr; gap: 32px; }
+      .ind-head { position: static; }
+      .ind-row { font-size: 18px; grid-template-columns: 40px 1fr auto; }
+      .ind-row .seo { display: none; }
+      .plat { height: auto; padding: 0; }
+      .plat .stage { height: auto; max-height: none; grid-template-columns: 1fr; padding: 48px 20px; }
+      .ui { grid-template-columns: 1fr; min-height: 420px; }
+      .ui-side { display: none; }
+      .final .stage { padding: 64px 20px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .cases-head { flex-direction: column; align-items: start; }
+      .proto-note { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      .step { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" aria-label="Основная навигация">
+    <a href="#hero" data-link aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+    <nav class="nav-links">
+      <a href="#tasks" data-link>Решения</a>
+      <a href="#industries" data-link>Отрасли</a>
+      <a href="#platform" data-link>Платформа</a>
+      <a href="#cases" data-link>Кейсы</a>
+      <a href="#contact" data-link>Контакты</a>
+    </nav>
+    <a class="btn btn-pri" href="#contact" data-link>Связаться</a>
+  </header>
+
+  <!-- ================= SECTION COUNTER ================= -->
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">08</span>
+    <span class="lbl">ГЕРОЙ</span>
+  </div>
+
+  <main>
+    <!-- ================= 01 HERO ================= -->
+    <section class="hero" id="hero" data-sec="01" data-name="ГЕРОЙ">
+      <div class="wrap hero-top">
+        <div class="hero-copy">
+          <h1 class="h1 hero-in">Роботизация, которая окупается.</h1>
+          <p class="lead hero-in">Внедряем роботов, которые снижают затраты до 30%, закрывают дефицит персонала и держат качество стабильным. Окупаемость считаем до вложений.</p>
+          <div class="btns hero-in">
+            <a class="btn btn-pri" href="#contact" data-link>Рассчитать ROI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-sec" href="#cases" data-link>Посмотреть кейсы</a>
+          </div>
+        </div>
+        <div class="metrics hero-in" role="status" aria-label="Единый центр управления">
+          <span><b class="tnum" data-count="142">142</b> устройства</span><span class="dot"></span>
+          <span><b class="tnum" data-count="14">14</b> объектов</span><span class="dot"></span>
+          <span>SLA <b class="tnum" data-count="98.2" data-dec="1">98,2</b><b>%</b></span>
+          <span class="badge-online"><i></i>Система онлайн</span>
+        </div>
+      </div>
+      <div class="podium">
+        <img src="assets/podium.jpg" alt="Флот роботов ПРОФРОБОТ на подиуме: сервисный, ресепшн, уборочный, доставка, склад, инспекция" width="1586" height="600" fetchpriority="high">
+      </div>
+      <div class="partners"><a href="#" class="mono">Работаем с PUDU, GAUSIUM, KEENON и другими ↗</a></div>
+    </section>
+
+    <!-- ================= 02 ЗАДАЧИ — pinned horizontal ================= -->
+    <section class="hpin" id="tasks" data-sec="02" data-name="ЗАДАЧИ" data-hpin>
+      <div class="hpin-inner">
+        <div class="hpin-head">
+          <span class="idx"><b>02</b> — ЗАДАЧИ</span>
+          <h2 class="h2">Какие задачи вы хотите решить?</h2>
+          <p class="lead">Начните с задачи. Решение подберём под неё, а не наоборот.</p>
+          <div class="progress"><b class="p-cur tnum">01</b><span class="track-bar"><i></i></span><span class="tnum">06</span></div>
+        </div>
+        <div class="viewport">
+          <div class="track">
+            <article class="task"><div class="n"><span>01</span><span class="tag"><i></i>Персонал</span></div>
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 8 5 5M22 8l-5 5"/></svg></div>
+              <h3>Не хватает персонала</h3><p>Линейных сотрудников всё сложнее найти и дороже удерживать. Робот забирает рутину и снижает зависимость от текучки.</p></article>
+            <article class="task"><div class="n"><span>02</span><span class="tag"><i></i>Затраты</span></div>
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17 13.5 8.5l-5 5L2 7"/><path d="M16 17h6v-6"/></svg></div>
+              <h3>Высокая стоимость эксплуатации</h3><p>На типовых объектах эксплуатация сокращается на 30% и больше за счёт ночных и повторяющихся работ.</p></article>
+            <article class="task"><div class="n"><span>03</span><span class="tag"><i></i>Качество</span></div>
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+              <h3>Нестабильное качество услуг</h3><p>Результат не зависит от смены и настроения. Робот работает по одному стандарту каждый день.</p></article>
+            <article class="task"><div class="n"><span>04</span><span class="tag"><i></i>Контроль</span></div>
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+              <h3>Нет прозрачности и контроля</h3><p>Где убрано, что пропущено, сколько сделано — видно прямо сейчас. Данные вместо «вроде всё нормально».</p></article>
+            <article class="task"><div class="n"><span>05</span><span class="tag"><i></i>График</span></div>
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
+              <h3>Процессы мешают основному бизнесу</h3><p>Уборка и логистика уходят в ночь и непиковые часы и не пересекаются с потоком клиентов.</p></article>
+            <article class="task"><div class="n"><span>06</span><span class="tag"><i></i>Масштаб</span></div>
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
+              <h3>Сложно масштабировать</h3><p>Один объект — понятно. Пять — уже хаос. Платформа держит весь парк из одного центра.</p></article>
+            <article class="task cta"><span class="tag" style="color:var(--on-stage-muted)"><i></i>Подбор</span>
+              <div><h3>Не нашли свою задачу?</h3><p style="margin:12px 0 24px">Опишите объект — предложим сценарий за 1 день.</p>
+              <a class="btn btn-inv" href="#contact" data-link>Подобрать решение</a></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 ВНЕДРЕНИЕ — pinned horizontal timeline ================= -->
+    <section class="hpin" id="process" data-sec="03" data-name="ВНЕДРЕНИЕ" data-hpin data-timeline>
+      <div class="hpin-inner">
+        <div class="hpin-head">
+          <span class="idx"><b>03</b> — ВНЕДРЕНИЕ</span>
+          <h2 class="h2">Как проходит внедрение</h2>
+          <p class="lead">Шесть шагов от аудита до сервиса по SLA. На каждом вы видите цифры.</p>
+          <div class="progress"><b class="p-cur tnum">01</b><span class="track-bar"><i></i></span><span class="tnum">06</span></div>
+        </div>
+        <div class="viewport">
+          <div class="track timeline-wrap">
+            <div class="tl-line"><i></i></div>
+            <div class="step"><div class="node">01</div><h3>Аудит и анализ</h3><p>Выезжаем на объект, разбираем процессы и цифры, считаем ROI.</p><div class="meta tag"><i></i>1–2 недели</div></div>
+            <div class="step"><div class="node">02</div><h3>Подбор решения</h3><p>Оборудование от 2–5 производителей под задачу, без привязки к одному.</p><div class="meta tag"><i></i>Независимо</div></div>
+            <div class="step"><div class="node">03</div><h3>Пилот</h3><p>Запускаем на реальном участке и подтверждаем экономику до крупных вложений.</p><div class="meta tag"><i></i>До закупки</div></div>
+            <div class="step"><div class="node">04</div><h3>Внедрение под ключ</h3><p>Поставка, настройка, интеграция, обучение персонала и запуск.</p><div class="meta tag"><i></i>Интеграция</div></div>
+            <div class="step"><div class="node">05</div><h3>Сервис по SLA</h3><p>Собственная сервисная сеть по России. Отвечаем за то, чтобы робот работал.</p><div class="meta tag"><i></i>24/7</div></div>
+            <div class="step"><div class="node">06</div><h3>Аналитика и развитие</h3><p>Смотрим данные эксплуатации, дорабатываем сценарии, масштабируем.</p><div class="meta tag"><i></i>Платформа</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04 РЕЗУЛЬТАТ ================= -->
+    <section id="results" data-sec="04" data-name="РЕЗУЛЬТАТ" data-dark>
+      <div class="stage sec">
+        <div class="wrap">
+          <div class="sec-head reveal">
+            <span class="idx"><b>04</b> — РЕЗУЛЬТАТ</span>
+            <h2 class="h2">Результат, который получает бизнес.</h2>
+          </div>
+          <div class="kpis">
+            <div class="kpi"><div class="v"><span class="tnum" data-count="30">0</span><small>%</small></div><div class="bar"><i data-fill="0.3"></i></div><div class="l">до 30% снижение затрат на эксплуатацию</div></div>
+            <div class="kpi"><div class="v"><span class="tnum" data-count="80">0</span><small>%</small></div><div class="bar"><i data-fill="0.8"></i></div><div class="l">до 80% меньше зависимость от ручного труда</div></div>
+            <div class="kpi"><div class="v"><span class="tnum" data-count="98">0</span><small>%+</small></div><div class="bar"><i data-fill="0.98"></i></div><div class="l">стабильное качество уборки и услуг</div></div>
+            <div class="kpi"><div class="v">24<small>/7</small></div><div class="bar"><i data-fill="1"></i></div><div class="l">автономная работа без перерывов</div></div>
+            <div class="kpi"><div class="v"><span class="tnum" data-count="100">0</span><small>%</small></div><div class="bar"><i data-fill="1"></i></div><div class="l">прозрачность и контроль в реальном времени</div></div>
+          </div>
+          <p class="footnote">* Диапазоны рассчитываются на аудите под конкретный объект.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 05 КЕЙСЫ — slider ================= -->
+    <section class="sec" id="cases" data-sec="05" data-name="КЕЙСЫ" style="padding-left:0;padding-right:0">
+      <div class="wrap cases-head reveal">
+        <div class="sec-head" style="margin:0">
+          <span class="idx"><b>05</b> — КЕЙСЫ</span>
+          <h2 class="h2">Кейсы и результаты.</h2>
+        </div>
+        <div class="slider-ctrl">
+          <span class="mono tnum"><b class="c-cur">01</b> / 04</span>
+          <button class="round" data-dir="-1" aria-label="Предыдущий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button class="round" data-dir="1" aria-label="Следующий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="cases" tabindex="0" aria-label="Кейсы, прокрутка по горизонтали">
+        <article class="case"><div class="ph"><span>ФОТО ОБЪЕКТА · БИЗНЕС-ЦЕНТР</span></div><div class="body"><span class="tag"><i></i>Бизнес-центр</span><div class="res"><b>−32%</b></div><h3>Снижение затрат на клининг</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><span>ФОТО ОБЪЕКТА · ТОРГОВЫЙ ЦЕНТР</span></div><div class="body"><span class="tag"><i></i>Торговый центр</span><div class="res"><b>0</b><span class="mono">ночных бригад</span></div><h3>Оптимизация уборки в ночное время</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><span>ФОТО ОБЪЕКТА · СКЛАД</span></div><div class="body"><span class="tag"><i></i>Складской комплекс</span><div class="res"><b>+35%</b></div><h3>Рост пропускной способности склада</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><span>ФОТО ОБЪЕКТА · СТРОЙКА</span></div><div class="body"><span class="tag"><i></i>Строительство</span><div class="res"><b>−40%</b></div><h3>Снижение трудозатрат на демонтаж</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+      </div>
+      <div class="wrap" style="margin-top:24px"><a class="btn btn-sec" href="#">Все кейсы</a></div>
+    </section>
+
+    <!-- ================= 06 ОТРАСЛИ — sticky head ================= -->
+    <section class="sec" id="industries" data-sec="06" data-name="ОТРАСЛИ" style="padding-top:0">
+      <div class="wrap ind">
+        <div class="ind-head">
+          <span class="idx"><b>06</b> — ОТРАСЛИ</span>
+          <h2 class="h2">Отрасли, в которых мы создаём результат.</h2>
+          <p class="lead">Под каждую отрасль — свой лендинг со сценариями, оборудованием и расчётом.</p>
+          <div><a class="btn btn-sec" href="#contact" data-link>Подобрать решение</a></div>
+        </div>
+        <ol class="ind-list">
+          <li><a class="ind-row reveal" href="#"><span class="no">01</span><span>Бизнес-центры и офисы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">02</span><span>Торговые центры и ритейл</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">03</span><span>Склады и логистика<span class="seo">AMR</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">04</span><span>Отели и HoReCa</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">05</span><span>Медицинские объекты</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">06</span><span>Строительство и девелопмент<span class="seo">ДЕМОНТАЖ</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">07</span><span>Промышленность и производство</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">08</span><span>Общественные пространства</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">09</span><span>Муниципальные службы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">10</span><span>Агро и фермерские хозяйства<span class="seo">АГРОДРОНЫ</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">11</span><span>Образовательные учреждения</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="#"><span class="no">12</span><span>Фитнес-клубы и спорткомплексы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= 07 ПЛАТФОРМА — pinned scrollytelling ================= -->
+    <section class="plat" id="platform" data-sec="07" data-name="ПЛАТФОРМА" data-dark>
+      <div class="stage">
+        <div class="plat-copy">
+          <span class="idx"><b>07</b> — ПЛАТФОРМА</span>
+          <h2 class="h2" style="font-size:clamp(32px,3.4vw,48px)">Весь флот — в одном окне.</h2>
+          <p class="lead" style="font-size:17px">ПРОФРОБОТ Cleaning Operations Platform: парк устройств, качество, отчёты и оповещения. Не «робот-одиночка», а управляемая система.</p>
+          <ul class="feats">
+            <li class="feat on" data-f="1"><span class="no">01</span>Мониторинг в реальном времени<span class="st"></span></li>
+            <li class="feat" data-f="2"><span class="no">02</span>Управление парком устройств<span class="st"></span></li>
+            <li class="feat" data-f="3"><span class="no">03</span>Контроль качества и KPI<span class="st"></span></li>
+            <li class="feat" data-f="4"><span class="no">04</span>Аналитика и отчёты<span class="st"></span></li>
+            <li class="feat" data-f="5"><span class="no">05</span>Оповещения и сценарии<span class="st"></span></li>
+            <li class="feat" data-f="6"><span class="no">06</span>Интеграция с инфраструктурой<span class="st"></span></li>
+          </ul>
+          <div><a class="btn btn-inv" href="#">Подробнее о платформе ↗</a></div>
+        </div>
+        <div class="ui" data-f="1" aria-hidden="true">
+          <div class="ui-side">
+            <div class="mono" style="font-size:10px;margin-bottom:8px">ПРОФРОБОТ · PLATFORM</div>
+            <div class="it on" data-f="1">Мониторинг</div><div class="it" data-f="2">Парк</div><div class="it" data-f="3">Качество</div>
+            <div class="it" data-f="4">Отчёты</div><div class="it" data-f="5">Оповещения</div><div class="it" data-f="6">Интеграции</div>
+          </div>
+          <div class="ui-main">
+            <div class="ui-top"><div><b>ТЦ «Северный» · этаж 1</b><br>12 400 м² · ночная смена</div><span class="badge-online"><i></i>Онлайн</span></div>
+            <div class="ui-map">
+              <div class="room" style="left:6%;top:10%;width:38%;height:44%"></div>
+              <div class="room" style="left:50%;top:10%;width:44%;height:30%"></div>
+              <div class="room" style="left:6%;top:60%;width:56%;height:30%"></div>
+              <div class="room" style="left:68%;top:46%;width:26%;height:44%"></div>
+              <div class="zone" style="left:8%;top:13%;width:34%;height:38%"></div>
+              <div class="zone" style="left:70%;top:49%;width:22%;height:38%"></div>
+              <span class="bot" style="left:22%;top:30%"></span>
+              <span class="bot" style="left:70%;top:24%"></span>
+              <span class="bot" style="left:36%;top:74%"></span>
+              <span class="bot" style="left:80%;top:68%"></span>
+              <div class="alert">Робот #07 · низкий заряд · маршрут на базу</div>
+            </div>
+            <div class="ui-bottom">
+              <div class="ui-card fleet">Устройств в работе<b>24 / 26</b></div>
+              <div class="ui-card q">Качество уборки<b>98,2%</b></div>
+              <div class="ui-card rep">Убрано за смену<b>11 870 м²</b><div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:85%"></i><i style="height:92%"></i></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 08 CTA ================= -->
+    <section class="final" id="contact" data-sec="08" data-name="ЗАЯВКА" data-dark style="padding:128px 0 0">
+      <div class="stage">
+        <span class="idx reveal"><b>08</b> — ЗАЯВКА</span>
+        <h2 class="h2 reveal">Посчитаем экономику вашего объекта.</h2>
+        <p class="lead reveal">Рассчитаем ROI и подготовим предложение. Без обязательств: сначала цифры, потом решение.</p>
+        <div class="btns reveal" style="justify-content:center">
+          <a class="btn btn-pri" href="#">Рассчитать ROI за 2 минуты <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <p class="contacts reveal">или <a href="tel:+74951234567">+7 (495) 123-45-67</a> · <a href="mailto:info@profrobot.ru">info@profrobot.ru</a></p>
+        <div class="trust reveal"><span><i></i>Сервисная сеть по всей России</span><span><i></i>Работаем по SLA и KPI</span><span><i></i>Данные хранятся в РФ</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap" style="position:relative;z-index:2">
+    <div class="stats">
+      <div class="reveal"><b data-count="50">0</b><span class="l">проектов реализовано</span></div>
+      <div class="reveal"><b><span data-count="500">0</span>+</b><span class="l">роботов в эксплуатации</span></div>
+      <div class="reveal"><b><span data-count="30">0</span>%</b><span class="l">снижение затрат в среднем</span></div>
+      <div class="reveal"><b>6+</b><span class="l">лет в роботизации</span></div>
+      <div class="reveal"><b>24/7</b><span class="l">сервис по всей России</span></div>
+    </div>
+    <div class="foot"><span>© 2026 ПРОФРОБОТ</span><span>Прототип · концепция A «Конвейер» · контент по ТЗ v2.1</span></div>
+  </footer>
+
+  <div class="proto-note">ПРОТОТИП · A «КОНВЕЙЕР»</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script>
+  (() => {
+    'use strict';
+    const EASE = 'power3.out'; // ближайший аналог ease-standard cubic-bezier(.2,0,0,1)
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const fmt = (v, dec) => v.toFixed(dec).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+
+    // Без GSAP (CDN недоступен) страница остаётся полностью читаемой: снимаем скрытие.
+    if (!window.gsap || !window.ScrollTrigger) {
+      document.querySelectorAll('.reveal').forEach((el) => { el.style.opacity = 1; el.style.transform = 'none'; });
+      document.querySelectorAll('[data-count]').forEach((el) => { el.textContent = fmt(+el.dataset.count, +(el.dataset.dec || 0)); });
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ---------- Smooth scroll (Lenis) + якоря ----------
+    let lenis = null;
+    if (!reduce && window.Lenis) {
+      lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((t) => lenis.raf(t * 1000));
+      gsap.ticker.lagSmoothing(0);
+    }
+    document.querySelectorAll('[data-link]').forEach((a) => a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      lenis ? lenis.scrollTo(target, { offset: 0 }) : target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    }));
+
+    // ---------- Count-up ----------
+    const countUp = (el) => {
+      const to = +el.dataset.count, dec = +(el.dataset.dec || 0);
+      if (reduce) { el.textContent = fmt(to, dec); return; }
+      const o = { v: 0 };
+      gsap.to(o, { v: to, duration: 1.4, ease: EASE, onUpdate: () => { el.textContent = fmt(o.v, dec); } });
+    };
+
+    // ---------- Section counter ----------
+    const counter = document.querySelector('.counter');
+    const cCur = counter.querySelector('.cur'), cLbl = counter.querySelector('.lbl'), cBar = counter.querySelector('.bar i');
+    const sections = [...document.querySelectorAll('[data-sec]')];
+    const navLinks = [...document.querySelectorAll('.nav-links a')];
+    let activeSec = null;
+    // Активный раздел = последний, чей верх выше середины экрана. Работает и для закреплённых секций.
+    const syncCounter = () => {
+      const mid = window.innerHeight * 0.5;
+      const sec = sections.reduce((acc, s) => (s.getBoundingClientRect().top <= mid ? s : acc), sections[0]);
+      if (sec === activeSec) return;
+      activeSec = sec;
+      cCur.textContent = sec.dataset.sec; cLbl.textContent = sec.dataset.name;
+      counter.classList.toggle('on-dark', sec.hasAttribute('data-dark'));
+      gsap.to(cBar, { scaleY: +sec.dataset.sec / sections.length, duration: .6, ease: EASE });
+      navLinks.forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + sec.id));
+    };
+    ScrollTrigger.create({ start: 0, end: 'max', onUpdate: syncCounter, onRefresh: syncCounter });
+
+    // ---------- 01 Hero ----------
+    const heroIn = gsap.utils.toArray('.hero-in');
+    const podium = document.querySelector('.podium img');
+    if (!reduce) {
+      gsap.from(heroIn, { y: 16, opacity: 0, duration: .6, ease: EASE, stagger: .08 });
+      gsap.from(podium, { y: 40, opacity: 0, duration: 1.2, ease: EASE, delay: .2 });
+    }
+    document.querySelectorAll('.metrics [data-count]').forEach(countUp);
+
+    // ---------- Reveal (общий) ----------
+    ScrollTrigger.batch('.reveal', {
+      start: 'top 88%', once: true,
+      onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: .6, ease: EASE, stagger: .06 }),
+    });
+
+    // ---------- 04 Результат: цифры и шкалы ----------
+    ScrollTrigger.create({
+      trigger: '#results', start: 'top 70%', once: true,
+      onEnter: () => {
+        document.querySelectorAll('#results [data-count]').forEach(countUp);
+        gsap.to('#results .bar i', { scaleX: (i, el) => +el.dataset.fill, duration: 1.4, ease: EASE, stagger: .1 });
+      },
+    });
+    ScrollTrigger.create({ trigger: 'footer .stats', start: 'top 85%', once: true, onEnter: () => document.querySelectorAll('footer [data-count]').forEach(countUp) });
+
+    // ---------- 05 Кейсы: слайдер ----------
+    const cases = document.querySelector('.cases');
+    const caseCards = [...cases.children];
+    const cCaseCur = document.querySelector('.c-cur');
+    const [prevBtn, nextBtn] = document.querySelectorAll('.slider-ctrl .round');
+    const caseIndex = () => Math.round(cases.scrollLeft / (caseCards[0].offsetWidth + 24));
+    const syncCases = () => {
+      const i = Math.min(caseIndex(), caseCards.length - 1);
+      cCaseCur.textContent = pad2(i + 1);
+      prevBtn.disabled = cases.scrollLeft < 4;
+      nextBtn.disabled = cases.scrollLeft + cases.clientWidth >= cases.scrollWidth - 4;
+    };
+    cases.addEventListener('scroll', syncCases, { passive: true });
+    document.querySelectorAll('.slider-ctrl .round').forEach((b) => b.addEventListener('click', () => {
+      const i = Math.max(0, Math.min(caseCards.length - 1, caseIndex() + +b.dataset.dir));
+      cases.scrollTo({ left: caseCards[i].offsetLeft - caseCards[0].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+    }));
+    syncCases();
+
+    // ---------- Закрепления: только десктоп и без reduced-motion ----------
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+
+      // Hero: наезд на подиум и уход текста
+      gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
+        .to('.hero-top', { y: -120, opacity: 0, ease: 'none' }, 0)
+        .to(podium, { scale: 1.18, y: 60, transformOrigin: '50% 60%', ease: 'none' }, 0);
+
+      // 02 и 03: горизонтальные ленты
+      document.querySelectorAll('[data-hpin]').forEach((sec, n) => {
+        const track = sec.querySelector('.track');
+        const viewport = sec.querySelector('.viewport');
+        const pBar = sec.querySelector('.progress .track-bar i');
+        const pCur = sec.querySelector('.p-cur');
+        const items = [...track.children].filter((c) => !c.classList.contains('tl-line'));
+        const steps = sec.hasAttribute('data-timeline') ? items : null;
+        const line = sec.querySelector('.tl-line i');
+        const dist = () => Math.max(0, track.scrollWidth - (window.innerWidth - viewport.getBoundingClientRect().left) + 80);
+        const total = 6;
+
+        gsap.to(track, {
+          x: () => -dist(), ease: 'none',
+          scrollTrigger: {
+            trigger: sec, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1, refreshPriority: 3 - n,
+            onUpdate: (self) => {
+              const p = self.progress;
+              gsap.set(pBar, { scaleX: p });
+              const i = Math.min(total, Math.floor(p * total) + 1);
+              pCur.textContent = pad2(i);
+              if (steps) {
+                gsap.set(line, { scaleX: p });
+                steps.forEach((s, k) => s.classList.toggle('on', k < i));
+              }
+            },
+          },
+        });
+        if (steps) steps[0].classList.add('on');
+      });
+
+      // 07 Платформа: закрепление, функции переключаются скроллом
+      const feats = [...document.querySelectorAll('.feat')];
+      const ui = document.querySelector('.ui');
+      const setF = (n) => {
+        feats.forEach((f) => f.classList.toggle('on', +f.dataset.f === n));
+        ui.dataset.f = n;
+        ui.querySelectorAll('.ui-side .it').forEach((it) => it.classList.toggle('on', +it.dataset.f === n));
+      };
+      ScrollTrigger.create({
+        trigger: '#platform', start: 'top top', end: '+=' + feats.length * 55 + '%', pin: true, scrub: true, refreshPriority: 1,
+        onUpdate: (self) => setF(Math.min(feats.length, Math.floor(self.progress * feats.length) + 1)),
+      });
+
+      return () => { document.querySelectorAll('.step').forEach((s) => s.classList.remove('on')); };
+    });
+
+    // Мобайл / reduced-motion: платформу листают по тапу на функцию
+    document.querySelectorAll('.feat').forEach((f) => f.addEventListener('click', () => {
+      document.querySelectorAll('.feat').forEach((x) => x.classList.toggle('on', x === f));
+      const ui = document.querySelector('.ui'); ui.dataset.f = f.dataset.f;
+      ui.querySelectorAll('.ui-side .it').forEach((it) => it.classList.toggle('on', it.dataset.f === f.dataset.f));
+    }));
+
+    // Триггеры созданы не сверху вниз: закрепления пересчитываем первыми, остальные — после них
+    ScrollTrigger.sort();
+    ScrollTrigger.refresh();
+
+    // Пересчёт после загрузки шрифтов и картинок, чтобы pin-дистанции были точными
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+    if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
+  })();
+  </script>
+</body>
+</html>

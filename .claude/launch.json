@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "prototype-a",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4173",
+        "--directory",
+        "prototype-a"
+      ],
+      "port": 4173
+    },
+    {
+      "name": "prototype-c",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4174",
+        "--directory",
+        "prototype-c"
+      ],
+      "port": 4174
+    }
+  ]
+}
