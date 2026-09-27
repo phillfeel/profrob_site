@@ -172,22 +172,34 @@
     .task.cta { background: var(--stage); color: var(--on-stage); justify-content: space-between; }
     .task.cta p { color: var(--on-stage-muted); }
 
-    /* Внедрение — таймлайн */
-    .timeline-wrap { position: relative; }
-    .tl-line { position: absolute; left: 0; right: 20vw; top: 27px; height: 2px; background: var(--line); }
-    .tl-line i { position: absolute; inset: 0; background: var(--accent); transform-origin: left; transform: scaleX(0); }
-    .step { width: 360px; padding-right: 24px; position: relative; }
-    .step .node {
-      width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; position: relative; z-index: 1;
+    /* ================= 03 ВНЕДРЕНИЕ — вертикальный таймлайн (sticky-заголовок) ================= */
+    .vproc { padding: 128px 0; }
+    .vproc-grid { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: start; }
+    .vproc-head { position: sticky; top: 140px; display: grid; gap: 24px; align-content: start; }
+    .vp-meter { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 12px; color: var(--ink-muted); margin-top: 4px; }
+    .vp-meter .vp-cur { font-size: 15px; color: var(--ink); font-weight: 500; }
+    .vp-bar { width: 120px; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
+    .vp-bar i { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+
+    .vproc-list { position: relative; }
+    .vt-line { position: absolute; left: 27px; top: 28px; bottom: 28px; width: 2px; background: var(--line); overflow: hidden; }
+    .vt-line i { display: block; width: 100%; height: 100%; background: var(--accent); transform-origin: top; transform: scaleY(0); }
+    .vstep {
+      display: flex; gap: 32px; align-items: flex-start; padding: 48px 0;
+      border-bottom: 1px solid var(--line); opacity: .35; transition: opacity var(--slow) var(--ease);
+    }
+    .vstep:first-child { padding-top: 0; }
+    .vstep:last-child { border-bottom: 0; padding-bottom: 0; }
+    .vstep.on { opacity: 1; }
+    .vstep .node {
+      flex: none; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; position: relative; z-index: 1;
       background: var(--surface); border: 2px solid var(--line); font-family: var(--mono); font-size: 14px; color: var(--ink-muted);
       transition: all var(--base) var(--ease);
     }
-    .step.on .node { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: var(--glow-accent); }
-    .step h3 { font-size: 26px; font-weight: 600; letter-spacing: -.02em; margin: 40px 0 12px; line-height: 1.1; }
-    .step p { color: var(--ink-muted); font-size: 16px; max-width: 30ch; }
-    .step .meta { margin-top: 20px; }
-    .step { opacity: .35; transition: opacity var(--slow) var(--ease); }
-    .step.on { opacity: 1; }
+    .vstep.on .node { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: var(--glow-accent); }
+    .vstep .body { display: grid; gap: 10px; padding-top: 6px; }
+    .vstep h3 { font-size: 28px; font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+    .vstep p { color: var(--ink-muted); font-size: 16px; max-width: 42ch; }
 
     /* ================= STAGE ================= */
     .stage {
@@ -326,10 +338,12 @@
       .viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: 0; }
       .viewport::-webkit-scrollbar { display: none; }
       .track { padding-right: var(--gutter); }
-      .task, .step { scroll-snap-align: start; width: 82vw; max-width: 400px; }
-      .task { min-height: 360px; }
-      .tl-line { right: var(--gutter); }
-      .step { opacity: 1; }
+      .task { scroll-snap-align: start; width: 82vw; max-width: 400px; min-height: 360px; }
+      .vproc { padding: 80px 0; }
+      .vproc-grid { grid-template-columns: 1fr; gap: 24px; }
+      .vproc-head { position: static; }
+      .vstep { opacity: 1; padding: 32px 0; gap: 20px; }
+      .vstep h3 { font-size: 22px; }
       .kpis { grid-template-columns: 1fr 1fr; }
       .kpi, .kpi + .kpi { padding: 24px 16px 16px 0; border-right: 0; border-bottom: 1px solid var(--stage-line); }
       .stage { margin: 0 8px; border-radius: var(--r-lg); }
@@ -350,7 +364,7 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .reveal { opacity: 1; transform: none; }
-      .step { opacity: 1; }
+      .vstep { opacity: 1; }
     }
   </style>
 </head>
@@ -438,25 +452,23 @@
       </div>
     </section>
 
-    <!-- ================= 03 ВНЕДРЕНИЕ — pinned horizontal timeline ================= -->
-    <section class="hpin" id="process" data-sec="03" data-name="ВНЕДРЕНИЕ" data-hpin data-timeline>
-      <div class="hpin-inner">
-        <div class="hpin-head">
+    <!-- ================= 03 ВНЕДРЕНИЕ — вертикальный скролл, sticky-заголовок слева ================= -->
+    <section class="vproc" id="process" data-sec="03" data-name="ВНЕДРЕНИЕ">
+      <div class="wrap vproc-grid">
+        <div class="vproc-head">
           <span class="idx"><b>03</b> — ВНЕДРЕНИЕ</span>
           <h2 class="h2">Как проходит внедрение</h2>
           <p class="lead">Шесть шагов от аудита до сервиса по SLA. На каждом вы видите цифры.</p>
-          <div class="progress"><b class="p-cur tnum">01</b><span class="track-bar"><i></i></span><span class="tnum">06</span></div>
+          <div class="vp-meter"><span class="vp-cur tnum">01</span><span class="vp-bar"><i></i></span><span class="tnum">06</span></div>
         </div>
-        <div class="viewport">
-          <div class="track timeline-wrap">
-            <div class="tl-line"><i></i></div>
-            <div class="step"><div class="node">01</div><h3>Аудит и анализ</h3><p>Выезжаем на объект, разбираем процессы и цифры, считаем ROI.</p><div class="meta tag"><i></i>1–2 недели</div></div>
-            <div class="step"><div class="node">02</div><h3>Подбор решения</h3><p>Оборудование от 2–5 производителей под задачу, без привязки к одному.</p><div class="meta tag"><i></i>Независимо</div></div>
-            <div class="step"><div class="node">03</div><h3>Пилот</h3><p>Запускаем на реальном участке и подтверждаем экономику до крупных вложений.</p><div class="meta tag"><i></i>До закупки</div></div>
-            <div class="step"><div class="node">04</div><h3>Внедрение под ключ</h3><p>Поставка, настройка, интеграция, обучение персонала и запуск.</p><div class="meta tag"><i></i>Интеграция</div></div>
-            <div class="step"><div class="node">05</div><h3>Сервис по SLA</h3><p>Собственная сервисная сеть по России. Отвечаем за то, чтобы робот работал.</p><div class="meta tag"><i></i>24/7</div></div>
-            <div class="step"><div class="node">06</div><h3>Аналитика и развитие</h3><p>Смотрим данные эксплуатации, дорабатываем сценарии, масштабируем.</p><div class="meta tag"><i></i>Платформа</div></div>
-          </div>
+        <div class="vproc-list">
+          <div class="vt-line"><i></i></div>
+          <div class="vstep"><div class="node">01</div><div class="body"><h3>Аудит и анализ</h3><p>Выезжаем на объект, разбираем процессы и цифры, считаем ROI.</p><div class="meta tag"><i></i>1–2 недели</div></div></div>
+          <div class="vstep"><div class="node">02</div><div class="body"><h3>Подбор решения</h3><p>Оборудование от 2–5 производителей под задачу, без привязки к одному.</p><div class="meta tag"><i></i>Независимо</div></div></div>
+          <div class="vstep"><div class="node">03</div><div class="body"><h3>Пилот</h3><p>Запускаем на реальном участке и подтверждаем экономику до крупных вложений.</p><div class="meta tag"><i></i>До закупки</div></div></div>
+          <div class="vstep"><div class="node">04</div><div class="body"><h3>Внедрение под ключ</h3><p>Поставка, настройка, интеграция, обучение персонала и запуск.</p><div class="meta tag"><i></i>Интеграция</div></div></div>
+          <div class="vstep"><div class="node">05</div><div class="body"><h3>Сервис по SLA</h3><p>Собственная сервисная сеть по России. Отвечаем за то, чтобы робот работал.</p><div class="meta tag"><i></i>24/7</div></div></div>
+          <div class="vstep"><div class="node">06</div><div class="body"><h3>Аналитика и развитие</h3><p>Смотрим данные эксплуатации, дорабатываем сценарии, масштабируем.</p><div class="meta tag"><i></i>Платформа</div></div></div>
         </div>
       </div>
     </section>
@@ -681,6 +693,31 @@
       onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: .6, ease: EASE, stagger: .06 }),
     });
 
+    // ---------- 03 Внедрение: вертикальный скролл, шаги заполняются по ходу ----------
+    // Обычный поток документа + один scrub на весь список — без пина, лёгкий эффект,
+    // поэтому работает на всех экранах и не гейтится под десктоп, в отличие от лент ниже.
+    (() => {
+      const list = document.querySelector('.vproc-list');
+      if (!list) return;
+      const vsteps = [...list.querySelectorAll('.vstep')];
+      const vLine = list.querySelector('.vt-line i');
+      const vBar = document.querySelector('.vp-bar i');
+      const vCur = document.querySelector('.vp-cur');
+      const total = vsteps.length;
+      vsteps[0].classList.add('on');
+      ScrollTrigger.create({
+        trigger: list, start: 'top 60%', end: 'bottom 60%', scrub: true,
+        onUpdate: (self) => {
+          const p = self.progress;
+          gsap.set(vLine, { scaleY: p });
+          gsap.set(vBar, { scaleX: p });
+          const i = Math.min(total, Math.floor(p * total) + 1);
+          vCur.textContent = pad2(i);
+          vsteps.forEach((s, k) => s.classList.toggle('on', k < i));
+        },
+      });
+    })();
+
     // ---------- 04 Результат: цифры и шкалы ----------
     ScrollTrigger.create({
       trigger: '#results', start: 'top 70%', once: true,
@@ -721,17 +758,15 @@
         .to(podium, { scale: 1.18, y: 60, transformOrigin: '50% 60%', ease: 'none' }, 0)
         .to(podium, { opacity: 0, ease: 'none' }, 0.6);
 
-      // 02 и 03: горизонтальные ленты. SLOWDOWN растягивает дистанцию скролла относительно
-      // ширины ленты, чтобы карточки не проскакивали — каждую видно дольше.
+      // 02 Задачи: горизонтальная лента (единственный остающийся data-hpin — «Внедрение»
+      // теперь вертикальный скролл, см. блок выше). SLOWDOWN растягивает дистанцию скролла
+      // относительно ширины ленты, чтобы карточки не проскакивали — каждую видно дольше.
       const SLOWDOWN = 1.8;
       document.querySelectorAll('[data-hpin]').forEach((sec, n) => {
         const track = sec.querySelector('.track');
         const viewport = sec.querySelector('.viewport');
         const pBar = sec.querySelector('.progress .track-bar i');
         const pCur = sec.querySelector('.p-cur');
-        const items = [...track.children].filter((c) => !c.classList.contains('tl-line'));
-        const steps = sec.hasAttribute('data-timeline') ? items : null;
-        const line = sec.querySelector('.tl-line i');
         const dist = () => Math.max(0, track.scrollWidth - (window.innerWidth - viewport.getBoundingClientRect().left) + 80);
         const total = 6;
 
@@ -744,14 +779,9 @@
               gsap.set(pBar, { scaleX: p });
               const i = Math.min(total, Math.floor(p * total) + 1);
               pCur.textContent = pad2(i);
-              if (steps) {
-                gsap.set(line, { scaleX: p });
-                steps.forEach((s, k) => s.classList.toggle('on', k < i));
-              }
             },
           },
         });
-        if (steps) steps[0].classList.add('on');
       });
 
       // 07 Платформа: закрепление, функции переключаются скроллом
@@ -767,7 +797,6 @@
         onUpdate: (self) => setF(Math.min(feats.length, Math.floor(self.progress * feats.length) + 1)),
       });
 
-      return () => { document.querySelectorAll('.step').forEach((s) => s.classList.remove('on')); };
     });
 
     // Мобайл / reduced-motion: платформу листают по тапу на функцию
