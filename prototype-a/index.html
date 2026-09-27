@@ -319,7 +319,6 @@
 
     /* Появление */
     .reveal { opacity: 0; transform: translateY(16px); }
-    .proto-note { position: fixed; left: 16px; bottom: 16px; z-index: 60; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; padding: 8px 12px; border-radius: var(--r-pill); background: var(--ink); color: var(--surface); opacity: .85; }
 
     /* Узкий десктоп: карточке метрик и заголовку уже тесно в одной строке */
     @media (max-width: 1199px) {
@@ -365,7 +364,6 @@
       .final .stage { padding: 64px 20px; }
       .stats { grid-template-columns: 1fr 1fr; }
       .cases-head { flex-direction: column; align-items: start; }
-      .proto-note { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -621,10 +619,8 @@
       <div class="reveal"><b>6+</b><span class="l">лет в роботизации</span></div>
       <div class="reveal"><b>24/7</b><span class="l">сервис по всей России</span></div>
     </div>
-    <div class="foot"><span>© 2026 ПРОФРОБОТ</span><span>Прототип · концепция A «Конвейер» · контент по ТЗ v2.1</span></div>
+    <div class="foot"><span>© 2026 ПРОФРОБОТ</span></div>
   </footer>
-
-  <div class="proto-note">ПРОТОТИП · A «КОНВЕЙЕР»</div>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
