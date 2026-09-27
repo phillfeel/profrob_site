@@ -118,7 +118,7 @@
     .counter.on-dark .bar { background: var(--stage-line); }
 
     /* ================= 01 HERO ================= */
-    .hero { padding-top: 136px; min-height: 100vh; overflow: hidden; }
+    .hero { padding-top: 136px; min-height: 100vh; overflow: visible; z-index: 3; }
     .hero-top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
     .hero-copy { display: grid; gap: 24px; }
     .metrics {
@@ -134,7 +134,7 @@
     }
     .badge-online i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime-ink); animation: pulse 2s var(--ease) infinite; }
     @keyframes pulse { 50% { opacity: .3; } }
-    .podium { position: relative; margin: 8px auto 0; max-width: 1480px; padding: 0 16px; }
+    .podium { position: relative; margin: 8px auto 0; max-width: 1480px; padding: 0 16px; pointer-events: none; }
     .podium img {
       width: 100%; height: auto; will-change: transform;
       -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 86%, transparent 100%);
@@ -399,7 +399,6 @@
       <div class="podium">
         <img src="assets/podium.jpg" alt="Флот роботов ПРОФРОБОТ на подиуме: сервисный, ресепшн, уборочный, доставка, склад, инспекция" width="1586" height="600" fetchpriority="high">
       </div>
-      <div class="partners"><a href="#" class="mono">Работаем с PUDU, GAUSIUM, KEENON и другими ↗</a></div>
     </section>
 
     <!-- ================= 02 ЗАДАЧИ — pinned horizontal ================= -->
@@ -715,12 +714,16 @@
     const mm = gsap.matchMedia();
     mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
 
-      // Hero: наезд на подиум и уход текста
+      // Hero: наезд на подиум и уход текста. Картинка гаснет заранее (после 60% прогресса),
+      // чтобы не обрезаться о границу секции при заезде под следующий блок.
       gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
         .to('.hero-top', { y: -120, opacity: 0, ease: 'none' }, 0)
-        .to(podium, { scale: 1.18, y: 60, transformOrigin: '50% 60%', ease: 'none' }, 0);
+        .to(podium, { scale: 1.18, y: 60, transformOrigin: '50% 60%', ease: 'none' }, 0)
+        .to(podium, { opacity: 0, ease: 'none' }, 0.6);
 
-      // 02 и 03: горизонтальные ленты
+      // 02 и 03: горизонтальные ленты. SLOWDOWN растягивает дистанцию скролла относительно
+      // ширины ленты, чтобы карточки не проскакивали — каждую видно дольше.
+      const SLOWDOWN = 1.8;
       document.querySelectorAll('[data-hpin]').forEach((sec, n) => {
         const track = sec.querySelector('.track');
         const viewport = sec.querySelector('.viewport');
@@ -735,7 +738,7 @@
         gsap.to(track, {
           x: () => -dist(), ease: 'none',
           scrollTrigger: {
-            trigger: sec, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1, refreshPriority: 3 - n,
+            trigger: sec, start: 'top top', end: () => '+=' + dist() * SLOWDOWN, pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1, refreshPriority: 3 - n,
             onUpdate: (self) => {
               const p = self.progress;
               gsap.set(pBar, { scaleX: p });
