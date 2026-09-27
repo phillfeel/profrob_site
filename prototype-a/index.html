@@ -63,7 +63,8 @@
     .tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
     .tag::before { content: "["; } .tag::after { content: "]"; }
     .tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-    .h1 { font-size: clamp(40px, 5.6vw, 80px); font-weight: 700; letter-spacing: -.04em; line-height: .98; }
+    /* 5.2vw держит H1 в двух строках рядом с карточкой метрик — как на эталоне hero-reference.png */
+    .h1 { font-size: clamp(40px, 5.2vw, 80px); font-weight: 700; letter-spacing: -.04em; line-height: .98; }
     .h2 { font-size: clamp(34px, 4.4vw, 60px); font-weight: 700; letter-spacing: -.035em; line-height: 1; }
     .lead { font-size: 19px; line-height: 1.5; color: var(--ink-muted); max-width: 56ch; }
     .sec-head { display: grid; gap: 24px; margin-bottom: 48px; }
@@ -134,12 +135,10 @@
     }
     .badge-online i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime-ink); animation: pulse 2s var(--ease) infinite; }
     @keyframes pulse { 50% { opacity: .3; } }
-    .podium { position: relative; margin: 8px auto 0; max-width: 1480px; padding: 0 16px; pointer-events: none; }
-    .podium img {
-      width: 100%; height: auto; will-change: transform;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 86%, transparent 100%);
-              mask-image: linear-gradient(to bottom, transparent 0, #000 12%, #000 86%, transparent 100%);
-    }
+    /* Фон рендера сведён к surface (#F3F2EF), поэтому картинка ложится на страницу без маски и стыка.
+       Ширина завязана на высоту экрана: подиум целиком помещается в первый экран на типовых ноутбуках. */
+    .podium { position: relative; margin: 0; width: 100%; pointer-events: none; }
+    .podium img { width: 100%; height: auto; will-change: transform; }
     .partners { display: flex; justify-content: center; margin-top: -8px; padding: 0 16px; text-align: center; }
     .partners a { font-size: 13px; color: var(--ink-muted); }
     .partners a:hover { color: var(--accent-ink); }
@@ -322,6 +321,12 @@
     .reveal { opacity: 0; transform: translateY(16px); }
     .proto-note { position: fixed; left: 16px; bottom: 16px; z-index: 60; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; padding: 8px 12px; border-radius: var(--r-pill); background: var(--ink); color: var(--surface); opacity: .85; }
 
+    /* Узкий десктоп: карточке метрик и заголовку уже тесно в одной строке */
+    @media (max-width: 1199px) {
+      .hero-top { grid-template-columns: 1fr; }
+      .metrics { justify-self: start; }
+    }
+
     /* ================= MOBILE / FALLBACK (без закреплений) ================= */
     @media (max-width: 1023px) {
       :root { --gutter: 16px; }
@@ -331,6 +336,7 @@
       .hero { padding-top: 104px; min-height: 0; }
       .hero-top { grid-template-columns: 1fr; }
       .metrics { flex-wrap: wrap; white-space: normal; }
+      .podium { margin-top: 24px; }
       .hpin { height: auto; padding: 80px 0; }
       .hpin-inner { grid-template-columns: 1fr; padding-left: var(--gutter); gap: 32px; }
       .hpin-head { box-shadow: none; background: none; }
@@ -411,7 +417,10 @@
         </div>
       </div>
       <div class="podium">
-        <img src="assets/podium.jpg" alt="Флот роботов ПРОФРОБОТ на подиуме: сервисный, ресепшн, уборочный, доставка, склад, инспекция" width="1586" height="600" fetchpriority="high">
+        <picture>
+          <source srcset="assets/podium.webp" type="image/webp">
+          <img src="assets/podium.jpg" alt="Флот роботов ПРОФРОБОТ на подиуме: агродрон, демонтажный робот, клининговый робот-полотёр, промышленный манипулятор, складской AMR-робот и велнес-робот" width="2048" height="710" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </section>
 
