@@ -263,9 +263,9 @@
     .ind-row .seo { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); margin-left: 12px; letter-spacing: .04em; }
 
     /* 07 Платформа */
-    .plat { height: 100vh; display: flex; align-items: center; padding: 16px 0; }
-    .plat .stage { width: calc(100% - 32px); height: calc(100vh - 32px); max-height: 860px; display: grid; grid-template-columns: 5fr 7fr; gap: 48px; padding: 56px; align-items: center; }
-    .plat-copy { display: grid; gap: 24px; }
+    .plat { height: 100vh; display: flex; align-items: center; padding: 0 16px; }
+    .plat .stage { width: 100%; height: calc(100vh - 32px); max-height: 860px; display: grid; grid-template-columns: 5fr 7fr; gap: 48px; padding: 40px 56px; align-items: center; margin: 0; }
+    .plat-copy { display: grid; gap: 24px; min-height: 0; overflow: visible; }
     .feats { display: grid; gap: 0; border-top: 1px solid var(--stage-line); }
     .feat { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--stage-line); color: var(--on-stage-muted); font-size: 17px; transition: color var(--base) var(--ease), padding var(--base) var(--ease); }
     .feat .no { font-family: var(--mono); font-size: 12px; width: 24px; }
@@ -352,8 +352,8 @@
       .ind-head { position: static; }
       .ind-row { font-size: 18px; grid-template-columns: 40px 1fr auto; }
       .ind-row .seo { display: none; }
-      .plat { height: auto; padding: 0; }
-      .plat .stage { height: auto; max-height: none; grid-template-columns: 1fr; padding: 48px 20px; }
+      .plat { height: auto; padding: 0 16px; }
+      .plat .stage { height: auto; max-height: none; grid-template-columns: 1fr; padding: 40px 24px; margin: 0; }
       .ui { grid-template-columns: 1fr; min-height: 420px; }
       .ui-side { display: none; }
       .final .stage { padding: 64px 20px; }
