@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Роботы-уборщики и роботизация для бизнеса | ПРОФРОБОТ</title>
-  <meta name="description" content="ПРОФРОБОТ — роботизация для бизнеса. Роботы-уборщики, AMR-роботы, промышленные манипуляторы и другие решения для автоматизации.">
+  <meta name="description" content="Прототип главной ПРОФРОБОТ — концепция A «Конвейер»: закреплённые главы и горизонтальные ленты.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,76 +53,11 @@
           <span class="badge-online"><i></i>Система онлайн</span>
         </div>
       </div>
-      <div class="scene">
-        <div class="scene-stage">
-          <div class="scene-plate-top"></div>
-          <div class="scene-plate-side"></div>
-          <div class="scene-reflection"></div>
-        </div>
-        <div class="scene-track">
-          <button class="robot" data-robot="agro" aria-label="Агродрон — роботизация сельского хозяйства">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-agro.webp" alt="Агродрон" width="1207" height="703" decoding="sync" fetchpriority="high">
-            <span class="robot-label">АГРО</span>
-          </button>
-          <button class="robot" data-robot="demolition" aria-label="Демонтажный робот — роботизация строительства">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-demolition.webp" alt="Демонтажный робот" width="1199" height="1015" decoding="sync" fetchpriority="high">
-            <span class="robot-label">СТРОЙКА</span>
-          </button>
-          <button class="robot" data-robot="cleaning" aria-label="Клининговый робот-полотёр — автоматизация уборки">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-cleaning.webp" alt="Клининговый робот" width="964" height="1026" decoding="sync" fetchpriority="high">
-            <span class="robot-label">УБОРКА</span>
-          </button>
-          <button class="robot" data-robot="manipulator" aria-label="Промышленный манипулятор — автоматизация производства">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-manipulator.webp" alt="Промышленный манипулятор" width="992" height="1116" decoding="sync" fetchpriority="high">
-            <span class="robot-label">ПРОИЗВОДСТВО</span>
-          </button>
-          <button class="robot" data-robot="amr" aria-label="Складской AMR-робот — автоматизация логистики">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-amr.webp" alt="Складской AMR-робот" width="837" height="1148" decoding="sync" fetchpriority="high">
-            <span class="robot-label">СКЛАД</span>
-          </button>
-          <button class="robot" data-robot="wellness" aria-label="Велнес-робот — роботизация wellness-услуг">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-wellness.webp" alt="Велнес-робот" width="1068" height="990" decoding="sync" fetchpriority="high">
-            <span class="robot-label">ВЕЛНЕС</span>
-          </button>
-        </div>
-        <div class="scene-caption">
-          <span class="caption-label">Результат:</span>
-          <span class="caption-text">снижение затрат на клининг на 32%</span>
-        </div>
-      </div>
-      <div class="logobar">
-        <span class="logobar-label">Работаем с ведущими мировыми производителями</span>
-        <div class="logobar-logos">
-          <img src="homepage/logos/gausium.svg" alt="Gausium" width="120" height="40">
-          <span class="logo-placeholder">PUDU</span>
-          <span class="logo-placeholder">KEENON</span>
-          <span class="logo-placeholder">HIKROBOT</span>
-          <span class="logo-placeholder">FORWARDX</span>
-          <span class="logo-placeholder">UNITREE</span>
-          <span class="logo-placeholder">ORIONSTAR</span>
-          <a href="#" class="logobar-more">и другие</a>
-        </div>
-      </div>
-      <div class="mode-switcher" aria-label="Переключатель режима анимации">
-        <span class="mode-label">Режим:</span>
-        <label class="mode-option">
-          <input type="radio" name="mode" value="A" checked>
-          <span>A</span>
-        </label>
-        <label class="mode-option">
-          <input type="radio" name="mode" value="B">
-          <span>B</span>
-        </label>
-        <label class="mode-option">
-          <input type="radio" name="mode" value="C">
-          <span>C</span>
-        </label>
+      <div class="podium">
+        <picture>
+          <source srcset="assets/podium.webp" type="image/webp">
+          <img src="assets/podium.jpg" alt="Флот роботов ПРОФРОБОТ на подиуме: агродрон, демонтажный робот, клининговый робот-полотёр, промышленный манипулятор, складской AMR-робот и велнес-робот" width="2048" height="710" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </section>
 

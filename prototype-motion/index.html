@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Песочница движения героя — ПРОФРОБОТ</title>
+  <meta name="description" content="Песочница выбора характера движения героя главной ПРОФРОБОТ. Режимы: «Спотлайт», «Конвейер», «Только ховер».">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* ================= TOKENS (копия :root из styles.css, design-system/tokens.json) ================= */
+:root {
+  --surface: #f3f2ef; --surface-raised: #fff; --surface-sunken: #e9e7e2;
+  --line: #e0ded8; --line-strong: #8a8883;
+  --ink: #16181c; --ink-muted: #5c6069;
+  --accent: #2f3bff; --accent-hover: #1f29e6; --accent-ink: #2f3bff; --accent-soft: #e7e8ff;
+  --lime: #c8ff3c; --lime-soft: #eefcc4; --lime-ink: #3a6500;
+  --stage: #1c1e22; --stage-raised: #262a30; --stage-line: #3a3f48;
+  --on-stage: #f3f2ef; --on-stage-muted: #a3a8b1; --accent-ink-dark: #9ba2ff;
+  --glass: rgba(255,255,255,.72); --glass-line: rgba(255,255,255,.9);
+
+  --sans: Onest, Manrope, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --r-sm: 12px; --r-md: 16px; --r-lg: 24px; --r-xl: 40px; --r-pill: 999px;
+  --shadow-sm: 0 1px 2px #16181c0d, 0 2px 8px #16181c0a;
+  --shadow-md: 0 2px 4px #16181c0a, 0 12px 32px -8px #16181c1f;
+  --glow-edge: inset 0 1px 0 #2f3bff80, 0 16px 48px -16px #2f3bffb3, 0 2px 0 -1px #2f3bff;
+  --glow-accent: 0 8px 24px -8px #2f3bff99;
+
+  --container: 1320px;
+  --gutter: 40px;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --fast: 140ms; --base: 240ms; --slow: 600ms;
+
+  /* ---- Геометрия сцены. Один набор чисел на breakpoint, всё остальное считается от него ---- */
+  /* Вся сцена считается от одной величины, а пропорции сняты с эталона assets/podium.jpg:
+     там роботы выше всей видимой плиты примерно в 2,3 раза, а эллипс верхней грани очень
+     плоский — его вертикальный размер около 6% от ширины плиты. Первая сборка держала плиту
+     почти вровень с роботами, из-за чего сцена читалась как тёмная полоса, а не как подиум.
+     Рамки потолка: по ширине сумма шести роботов не должна вылезать за окно (16vw),
+     по высоте герой обязан влезать в первый экран вместе с H1 и кнопками (30vh). */
+  --robot-base: min(300px, 30vh, 16vw);
+  --plate-h: calc(var(--robot-base) * .30);       /* торец */
+  --plate-ellipse: calc(var(--robot-base) * .26); /* вертикальный размер верхней грани */
+  --plate-bottom: calc(var(--robot-base) * .16);  /* зазор под плитой — место для отражения */
+  --feet: calc(var(--robot-base) * .40);          /* линия ног, чуть позади переднего края эллипса */
+  --scene-h: calc(var(--robot-base) * 1.52);      /* = --feet + база + запас сверху; CLS = 0.
+                                                     Запас .12, а не .06: на .06 у самого высокого
+                                                     робота над макушкой оставалось 13px, и подъём
+                                                     от скролл-скраба выезжал за край сцены. */
+  --logo-h: 24px;   /* оптическая высота краски логотипа, а не высота бокса файла */
+}
+
+/* ================= BASE (копия из styles.css) ================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans); color: var(--ink); background: var(--surface);
+  -webkit-font-smoothing: antialiased; line-height: 1.5; overflow-x: hidden;
+}
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); border-radius: 8px; }
+.wrap { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+section { position: relative; z-index: 2; }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.h1 { font-size: clamp(40px, 5.2vw, 80px); font-weight: 700; letter-spacing: -.04em; line-height: .98; }
+.lead { font-size: 19px; line-height: 1.5; color: var(--ink-muted); max-width: 56ch; }
+.tnum { font-feature-settings: "tnum"; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 26px;
+  border-radius: var(--r-pill); font: 500 15px/1 var(--sans); cursor: pointer; border: 1px solid transparent;
+  transition: background var(--fast) var(--ease), box-shadow var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; }
+.btn-pri { background: var(--accent); color: #fff; }
+.btn-pri:hover { background: var(--accent-hover); box-shadow: var(--glow-accent); }
+.btn-sec { border-color: var(--line-strong); color: var(--ink); }
+.btn-sec:hover { border-color: var(--ink); }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ================= HERO (копия из styles.css) ================= */
+.hero {
+  padding-top: clamp(40px, 6vh, 88px); overflow: visible; z-index: 3;
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;
+}
+.hero-top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
+.hero-copy { display: grid; gap: clamp(16px, 2.4vh, 24px); }
+.hero-side { display: grid; gap: 16px; justify-items: end; }
+.metrics {
+  display: flex; align-items: center; gap: 16px; padding: 14px 16px 14px 20px; border-radius: var(--r-md);
+  background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(20px); box-shadow: var(--shadow-md);
+  font-size: 14px; color: var(--ink-muted); white-space: nowrap;
+}
+.metrics b { color: var(--ink); font-weight: 600; }
+.metrics .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--line-strong); }
+.badge-online {
+  display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; border-radius: var(--r-pill);
+  background: var(--lime-soft); color: var(--lime-ink); font-size: 12px; font-weight: 500;
+}
+.badge-online i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime-ink); animation: pulse 2s var(--ease) infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
+
+/* ================= SCENE ================= */
+.scene {
+  position: relative; width: 100%; height: var(--scene-h);
+  margin-top: clamp(8px, 2vh, 32px);
+  /* Подрезает роботов по краям окна: при параллаксе крайние выходят за край, а в режиме B
+     лента заезжает и уезжает ровно за эту границу (§7.2). Плита при этом видна во всю ширину.
+     clip вместо hidden: hidden делает .scene скролл-контейнером, и в режиме B браузер,
+     показывая фокус на роботе за краем, прокрутил бы ленту внутри контейнера — обратно она
+     уже не вернётся. clip прокрутку запрещает вовсе.
+     По вертикали клипа быть не должно: скролл-скраб уводит .robot-depth вверх на depth*3600
+     (до 58px), ховер добавляет ещё 18px и scale — всё это выше верхней границы сцены, и при
+     клипе роботам срезало макушки белой линией. overflow-x: clip не заставляет вторую ось
+     становиться auto (с hidden так не выйдет), поэтому по Y оставляем visible. */
+  overflow: hidden;              /* фолбэк для движков без overflow: clip */
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+/* ---- Подиум. Собран на CSS (не растр), чтобы кольца свечения реагировали на ховер.
+       Разбор эталона (нижняя треть assets/podium.jpg): тёмная верхняя грань, торец чуть светлее
+       сверху и глухой снизу, по нижнему ребру — тонкая яркая синяя кромка со свечением,
+       под плитой — размытое отражение на светлом фоне страницы. ---- */
+.scene-plate {
+  position: absolute; left: 50%; bottom: var(--plate-bottom);
+  width: 118vw; height: var(--plate-h); margin-left: -59vw;
+  pointer-events: none;
+}
+.scene-plate__body {            /* торец плиты вместе с синей кромкой по нижнему ребру.
+                                   Кромка отдельным слоем давала вторую дугу: у слоёв разной
+                                   высоты border-radius в процентах расходится по краям. */
+  position: absolute; inset: 0;
+  border-radius: 0 0 50% 50% / 0 0 46% 46%;
+  background: linear-gradient(180deg, #23262c 0%, #1a1d22 54%, #101215 100%);
+  border-bottom: 2px solid #4a55ff;
+  box-shadow: 0 0 14px #2f3bff66, 0 10px 30px -14px #2f3bff99;
+}
+.scene-plate__top {             /* верхняя грань — эллипс в перспективе */
+  position: absolute; left: 0; right: 0; top: calc(var(--plate-ellipse) * -.5); height: var(--plate-ellipse);
+  border-radius: 50%;
+  background: radial-gradient(58% 130% at 50% 32%, #3c424c 0%, #2c313a 46%, #1f2229 100%);
+  /* Две «жёсткие» части токена --glow-edge; размытый ореол перенесён на торец,
+     иначе он затягивает синевой весь низ экрана. */
+  box-shadow: inset 0 1px 0 #2f3bff80, 0 2px 0 -1px #2f3bff;
+}
+.scene-plate__reflection {      /* мягкое отражение; зеркальных копий роботов нет — дорого и мылит */
+  position: absolute; left: 8%; right: 8%; top: 100%; height: var(--plate-bottom);
+  background: radial-gradient(46% 100% at 50% 0%, #1c1e2226 0%, #1c1e2200 76%);
+}
+
+/* ---- Слой роботов ---- */
+.scene-track {
+  position: absolute; left: 0; right: 0; bottom: var(--feet);
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: clamp(4px, 1.4vw, 28px);
+  --lift-on: 1;   /* компенсация кривизны эллипса включена; в режиме B выключается, см. ниже */
+}
+.scene-track > .robot + .robot { margin-left: -1vw; } /* лёгкий нахлёст на узких десктопах — читается как глубина */
+
+/* ---- Режим B «Конвейер»: тот же трек становится лентой (§7.2) ----
+   Трек дублируется ×2 в JS и едет xPercent 0 → -50% своей ширины. Чтобы -50% попадали ровно
+   в один период, интервал между роботами задан margin-right каждому, а не gap: у gap последнего
+   интервала в ряду нет, и половина ширины приходится на полгаппа мимо стыка — раз в цикл лента
+   дёргалась бы. --belt-gap считает JS: период обязан быть не уже окна, иначе в стыке проезжает
+   пустая плита.
+   --lift-on: 0 — подъём крайних роботов (--lf) в ленте выключен. Он компенсирует кривизну
+   эллипса для конкретной позиции в ряду, а едущий робот проходит все позиции подряд: фиксированный
+   подъём тут не значит ничего, зато ломает общую линию ног. */
+.scene-track.is-belt {
+  right: auto; width: max-content; justify-content: flex-start; gap: 0;
+  --lift-on: 0;
+}
+.scene-track.is-belt > .robot { margin-left: 0; margin-right: var(--belt-gap, 40px); }
+
+.robot {
+  position: relative; flex: 0 0 auto; appearance: none; background: none; border: 0; padding: 0;
+  cursor: pointer; color: inherit; font: inherit;
+  /* Компенсация кривизны эллипса: у плиты в перспективе край ближе к центру ниже,
+     чем по бокам, поэтому крайние роботы стоят выше центральных. */
+  margin-bottom: calc(var(--robot-base) * var(--lf, 0) * var(--lift-on, 1));
+}
+.robot-depth, .robot-life, .robot-fig { display: block; }
+.robot-fig { position: relative; }
+.robot img {
+  position: relative; z-index: 1;
+  height: calc(var(--robot-base) * var(--k)); width: auto;
+}
+.robot-glow {
+  /* Ширина 62% от картинки: кольцо во всю ширину робота читается как отдельный обруч
+     и цепляется за соседние. Мягкий контур вместо заливки — заливка выглядит как трава. */
+  position: absolute; z-index: 0; left: 20%; right: 20%;
+  bottom: calc(var(--robot-base) * var(--k) * -.05);   /* половина высоты кольца: центр ложится на ноги */
+  height: calc(var(--robot-base) * var(--k) * .1);
+  border-radius: 50%; opacity: .5;
+  background: radial-gradient(closest-side, #c8ff3c1a 30%, #c8ff3c73 72%, #c8ff3c00 100%);
+}
+.robot-label {
+  /* Все шесть подписей обязаны лежать на одной горизонтали: подъём робота (--lf) вычитается,
+     иначе подписи идут лесенкой вслед за роботами и ряд выглядит кривым.
+     Полоса подписи — чистый участок торца между передним краем эллипса (.33 базы от низа
+     сцены) и синей кромкой (.16): центр полосы .245. Раньше подпись считалась от геометрии
+     плиты и попадала ровно на линию эллипса — она резала текст пополам. */
+  position: absolute; left: 50%;
+  bottom: calc(-1 * (var(--feet) - var(--robot-base) * .245 + 8px)
+                 - var(--robot-base) * var(--lf, 0) * var(--lift-on, 1));
+  translate: -50% 0;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--on-stage-muted); white-space: nowrap; opacity: .72;
+  transition: color var(--base) var(--ease), opacity var(--base) var(--ease);
+}
+.robot-label::before { content: "[\00a0"; } .robot-label::after { content: "\00a0]"; }
+.robot.is-active .robot-label { color: var(--on-stage); opacity: 1; }
+
+/* ---- Панель активного робота (только режим «Спотлайт») ---- */
+.scene-caption {
+  display: grid; gap: 4px; justify-items: end; text-align: right;
+  min-height: 52px; max-width: 340px;
+}
+.scene-caption[hidden] { display: none; }
+.scene-caption__cat { color: var(--accent-ink); }
+.scene-caption__res { font-size: 15px; font-weight: 500; color: var(--ink); }
+
+/* ================= ЛОГОБАР (отдельный блок, а не плинтус плиты — ТЗ стр. 384) ================= */
+.logobar { padding: clamp(40px, 6vh, 72px) 0 clamp(48px, 8vh, 96px); }
+.logobar__inner { display: grid; gap: 24px; justify-items: center; text-align: center; }
+.logobar__title { font-size: 14px; color: var(--ink-muted); }
+.logobar__list { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(24px, 3vw, 44px); }
+/* Нормализация по оптической высоте. --oh — это 1 / доля краски в файле по вертикали
+   (замерено по альфа-бокcу каждого файла в браузере): у одних логотип занимает кадр целиком,
+   у других сидит в четверти высоты с полями. Без этого PUDU выглядит вдвое крупнее HIKROBOT
+   при формально одинаковой высоте бокса. Краска во всех семи файлах отцентрована по вертикали
+   (отклонение ≤1,2%), поэтому одной общей линии достаточно align-items: center.
+   Подмена файла требует правки одного числа в разметке, а не вёрстки. */
+.logobar__list img {
+  height: calc(var(--logo-h) * var(--oh, 1)); width: auto;
+  opacity: .75; filter: grayscale(1);
+  transition: opacity var(--base) var(--ease), filter var(--base) var(--ease);
+}
+.logobar__list li:hover img { opacity: 1; filter: grayscale(0); }
+/* Два файла-заглушки нарисованы белым по прозрачному фону — на светлой странице их просто нет.
+   Инверсия — подпорка под заглушки, с настоящими логотипами эти две строки уходят. */
+.logobar__list img[data-ink="light"] { filter: grayscale(1) invert(1); }
+.logobar__list li:hover img[data-ink="light"] { filter: invert(1); }
+.logobar__more { font-size: 13px; color: var(--ink-muted); border-bottom: 1px solid var(--line-strong); }
+.logobar__more:hover { color: var(--accent-ink); }
+.logobar__note {
+  font-family: var(--mono); font-size: 10px; line-height: 1.4; letter-spacing: .04em;
+  color: var(--line-strong); opacity: .65; max-width: 62ch;
+}
+
+/* ================= ПАНЕЛЬ ПЕСОЧНИЦЫ — в продакшен не едет ================= */
+.sandbox {
+  position: fixed; z-index: 90; top: 8px; right: 12px; width: 236px;
+  display: grid; gap: 10px; padding: 7px 12px; border-radius: var(--r-md);
+  background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(20px); box-shadow: var(--shadow-md);
+  font-size: 13px;
+}
+.sandbox:not([open]) { width: auto; }
+.sandbox summary {
+  display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none;
+  font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+.sandbox summary::-webkit-details-marker { display: none; }
+.sandbox summary b { color: var(--accent-ink); }
+.sandbox summary::after { content: "▾"; margin-left: auto; color: var(--line-strong); }
+.sandbox[open] summary::after { content: "▴"; }
+.sandbox label { display: flex; align-items: baseline; gap: 8px; cursor: pointer; }
+.sandbox label:has(:disabled) { cursor: not-allowed; color: var(--line-strong); }
+.sandbox small { display: block; font-size: 11px; color: var(--ink-muted); }
+.sandbox label:has(:disabled) small { color: var(--line-strong); }
+.sandbox__foot { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; color: var(--line-strong); }
+[data-nogsap] .sandbox__foot::after { content: " · GSAP НЕ ЗАГРУЗИЛСЯ, СЦЕНА СТАТИЧНА"; color: var(--accent-ink); }
+
+/* ================= АДАПТИВ ================= */
+@media (max-width: 1023px) {
+  /* Только режим C: автоцикла, ленты и параллакса нет — ховера на тач-экране нет, а постоянное
+     движение жрёт батарею (спека §11). Роботы уезжают в горизонтальный scroll-snap: шесть в ряд
+     не помещаются, а обрезка «показываем три» скрыла бы половину парка от глаза и от пальца. */
+  /* Нижняя граница clamp у H1 (40px) не помещается в 375px: «Роботизация,» занимает ~270px,
+     и строка выезжает за экран. Гаттер и кегль на мобайле пересчитываются от ширины окна. */
+  :root { --robot-base: min(190px, 40vw, 26vh); --logo-h: 20px; --gutter: 20px; }
+  .h1 { font-size: clamp(30px, 8.6vw, 44px); }
+  .lead { font-size: 17px; }
+  .metrics { width: 100%; }
+  .scene-caption { max-width: none; }
+  .hero { min-height: 0; }
+  .hero-top { grid-template-columns: 1fr; }
+  .hero-side { justify-items: start; }
+  .metrics { flex-wrap: wrap; white-space: normal; }
+  .scene-caption { justify-items: start; text-align: left; }
+  .scene-track {
+    overflow-x: auto; overflow-y: hidden; justify-content: flex-start;
+    padding: 0 40vw; scroll-snap-type: x mandatory; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scene-track::-webkit-scrollbar { display: none; }
+  .scene-track > .robot { scroll-snap-align: center; }
+  .scene-track > .robot + .robot { margin-left: 0; }
+  .sandbox { top: auto; bottom: 12px; right: 12px; left: 12px; width: auto; }
+}
+
+/* ================= REDUCED MOTION ================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ================= ПАНЕЛЬ ПЕСОЧНИЦЫ ================= -->
+  <details class="sandbox" id="sandbox">
+    <summary>Режим движения<b id="sandbox-cur">A</b></summary>
+    <label><input type="radio" name="motion-mode" value="a" checked>
+      <span>A — Спотлайт<small>автоцикл 4,2 с</small></span></label>
+    <label><input type="radio" name="motion-mode" value="b">
+      <span>B — Конвейер<small>лента, полный цикл 48 с</small></span></label>
+    <label><input type="radio" name="motion-mode" value="c">
+      <span>C — Только ховер<small>он же фолбэк reduced-motion и мобайла</small></span></label>
+    <p class="sandbox__foot">Песочница · в index.html не вливается</p>
+  </details>
+
+  <main>
+    <!-- ================= ГЕРОЙ ================= -->
+    <section class="hero" id="hero">
+      <div class="wrap hero-top">
+        <div class="hero-copy">
+          <h1 class="h1 hero-in">Роботизация, которая окупается.</h1>
+          <p class="lead hero-in">Внедряем роботов, которые снижают затраты до 30%, закрывают дефицит персонала и держат качество стабильным. Окупаемость считаем до вложений.</p>
+          <div class="btns hero-in">
+            <a class="btn btn-pri" href="#">Рассчитать ROI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-sec" href="#">Посмотреть кейсы</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="metrics hero-in" role="status" aria-label="Единый центр управления">
+            <span><b class="tnum">142</b> устройства</span><span class="dot"></span>
+            <span><b class="tnum">14</b> объектов</span><span class="dot"></span>
+            <span>SLA <b class="tnum">98,2</b><b>%</b></span>
+            <span class="badge-online"><i></i>Система онлайн</span>
+          </div>
+          <div class="scene-caption hero-in" id="caption" aria-live="polite">
+            <span class="mono scene-caption__cat" id="caption-cat">Уборка</span>
+            <span class="scene-caption__res" id="caption-res">снижение затрат на клининг на 32%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Сцена. Порядок слева направо тот же, что на assets/podium.jpg, — чтобы сравнение было честным.
+           data-k — высота в долях от самого высокого (robot-amr). data-life/amp/rot — микрожизнь (§8.1).
+           data-depth — коэффициент параллакса (§8.3). data-res — строка для панели (§10). -->
+      <div class="scene" id="scene">
+        <div class="scene-plate" aria-hidden="true">
+          <div class="scene-plate__body"></div>
+          <div class="scene-plate__top"></div>
+          <div class="scene-plate__reflection"></div>
+        </div>
+
+        <div class="scene-track" id="track">
+          <button class="robot" type="button"
+                  style="--k:.62; --lf:.07"
+                  data-life="5.9" data-amp="6" data-rot=".4" data-depth=".010"
+                  data-cat="Агро" data-res="точное внесение и мониторинг полей"><!-- цифры по агро в ТЗ нет — ждём заказчика, не выдумываем -->
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="../assets/robots/robot-agro.webp" width="1207" height="703" decoding="sync"
+                   alt="Агродрон для обработки и мониторинга полей">
+            </span></span></span>
+            <span class="robot-label">Агро</span>
+          </button>
+
+          <button class="robot" type="button"
+                  style="--k:.88; --lf:.03"
+                  data-life="4.3" data-amp="3" data-depth=".014"
+                  data-cat="Стройка" data-res="снижение трудозатрат на демонтаж на 40%">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="../assets/robots/robot-demolition.webp" width="1199" height="1015" decoding="sync"
+                   alt="Демонтажный робот для строительных работ">
+            </span></span></span>
+            <span class="robot-label">Стройка</span>
+          </button>
+
+          <button class="robot" type="button"
+                  style="--k:.74; --lf:0"
+                  data-life="3.1" data-amp="3" data-depth=".020"
+                  data-cat="Уборка" data-res="снижение затрат на клининг на 32%">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="../assets/robots/robot-cleaning.webp" width="964" height="1026" fetchpriority="high" decoding="sync"
+                   alt="Клининговый робот-полотёр для коммерческих помещений">
+            </span></span></span>
+            <span class="robot-label">Уборка</span>
+          </button>
+
+          <button class="robot" type="button"
+                  style="--k:.82; --lf:0"
+                  data-life="3.7" data-amp="3" data-depth=".022"
+                  data-cat="Производство" data-res="до 80% снижение зависимости от ручного труда">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="../assets/robots/robot-manipulator.webp" width="992" height="1116" fetchpriority="high" decoding="sync"
+                   alt="Промышленный робот-манипулятор на производственной линии">
+            </span></span></span>
+            <span class="robot-label">Производство</span>
+          </button>
+
+          <button class="robot" type="button"
+                  style="--k:1; --lf:.03"
+                  data-life="4.9" data-amp="3" data-depth=".016"
+                  data-cat="Склад" data-res="рост пропускной способности склада на 35%">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="../assets/robots/robot-amr.webp" width="837" height="1148" decoding="sync"
+                   alt="Складской AMR-робот для перевозки стеллажей">
+            </span></span></span>
+            <span class="robot-label">Склад</span>
+          </button>
+
+          <button class="robot" type="button"
+                  style="--k:.72; --lf:.07"
+                  data-life="5.3" data-amp="2" data-depth=".012"
+                  data-cat="Велнес" data-res="сервис в зонах отдыха без участия персонала"><!-- цифры по велнесу в ТЗ нет — ждём заказчика -->
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="../assets/robots/robot-wellness.webp" width="1068" height="990" decoding="sync"
+                   alt="Велнес-робот — массажное кресло с автоматическим управлением">
+            </span></span></span>
+            <span class="robot-label">Велнес</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ЛОГОБАР ================= -->
+    <section class="logobar" aria-labelledby="logobar-title">
+      <div class="wrap logobar__inner">
+        <p class="logobar__title" id="logobar-title">Работаем с ведущими мировыми производителями</p>
+        <ul class="logobar__list">
+          <!-- --oh = 1 / доля краски по вертикали в самом файле, замерено по альфа-боксу.
+               data-ink="light" — файл нарисован белым по прозрачному и без инверсии невидим. -->
+          <li><img src="../homepage/logos/pudu.svg"      alt="PUDU"      style="--oh:1"    loading="lazy"></li>
+          <li><img src="../homepage/logos/gausium.svg"   alt="GAUSIUM"   style="--oh:1.03" loading="lazy"></li>
+          <li><img src="../homepage/logos/keenon.png"    alt="KEENON"    style="--oh:1.24" loading="lazy"></li>
+          <li><img src="../homepage/logos/hikrobot.svg"  alt="HIKROBOT"  style="--oh:2.66" loading="lazy"></li>
+          <li><img src="../homepage/logos/forwardx.png"  alt="ForwardX"  style="--oh:2.78" loading="lazy" data-ink="light"></li>
+          <li><img src="../homepage/logos/unitree.svg"   alt="UNITREE"   style="--oh:1.17" loading="lazy"></li>
+          <li><img src="../homepage/logos/orionstar.png" alt="OrionStar" style="--oh:1.01" loading="lazy" data-ink="light"></li>
+        </ul>
+        <a class="logobar__more" href="#">и другие</a>
+        <p class="logobar__note">Настоящий логотип пока только у GAUSIUM, остальные — заглушки; forwardx и orionstar нарисованы белым и выводятся с инверсией. Подмена файла правок вёрстки не требует: оптическая высота задаётся --oh.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  'use strict';
+  const EASE = 'power3.out'; // ближайший аналог ease-standard cubic-bezier(.2,0,0,1)
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mqMobile = matchMedia('(max-width: 1023px)');
+
+  const scene   = document.querySelector('#scene');
+  const track   = document.querySelector('#track');
+  const els     = Array.from(document.querySelectorAll('.robot'));
+  const cap     = document.querySelector('#caption');
+  const capCat  = document.querySelector('#caption-cat');
+  const capRes  = document.querySelector('#caption-res');
+  const radios  = Array.from(document.querySelectorAll('input[name="motion-mode"]'));
+  const box     = document.querySelector('#sandbox');
+  const boxCur  = document.querySelector('#sandbox-cur');
+  const KEY     = 'pr-motion-mode';
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* приватный режим — просто не запоминаем */ } },
+  };
+
+  // Без GSAP (CDN недоступен) ряд виден статично, подписи и логобар на месте — ничего не скрыто
+  // CSS'ом изначально, поэтому достаточно выйти и пометить панель песочницы.
+  if (!window.gsap || !window.ScrollTrigger) {
+    document.documentElement.dataset.nogsap = '1';
+    radios.forEach((r) => { r.disabled = true; });
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (!reduce && window.Lenis) {
+    const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((t) => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  const part = (el, sel) => el.querySelector(sel);
+  const num  = (el, key, def) => (el.dataset[key] !== undefined ? parseFloat(el.dataset[key]) : def);
+
+  /* ---------- Состояние сцены ----------
+     Ровно одна функция красит сцену, поэтому ховер и автоцикл не могут разойтись.
+     grayscale не используем: filter не transform/opacity (правило §2), а серый второй слой
+     стоит шести лишних картинок. Ограничиваемся прозрачностью — спека это разрешает. */
+  /* Спека просит dim .42 и .5, но эти числа рассчитаны на тёмный фон: страница светлая,
+     техника белая, и на .42 неактивные роботы пропадают целиком. Разницу между активным
+     и остальными держат подъём, масштаб и яркость кольца, прозрачность только помогает. */
+  const SPOT  = { y: -18, scale: 1.06, dim: .62, dur: .7  };
+  const HOVER = { y: -12, scale: 1.05, dim: .68, dur: .24 };
+  let active = null;
+  /* Стейдж — всё, что сейчас стоит на сцене и красится одинаково. В режимах A и C это шесть
+     роботов, в режиме B — они же плюс дубли ленты: дубль обязан гаснуть и подниматься так же,
+     как оригинал, иначе у стыка видно, что это копия. */
+  let stage = els;
+
+  function paint(i, cfg) {
+    const c = cfg || {};
+    const dim = c.dim === undefined ? 1 : c.dim;
+    const dur = c.dur === undefined ? .4 : c.dur;
+    active = i;
+    stage.forEach((el, n) => {
+      const on = i !== null && n === i;
+      gsap.to(el, { opacity: i === null ? 1 : (on ? 1 : dim), duration: dur * .7, ease: EASE, overwrite: 'auto' });
+      gsap.to(part(el, '.robot-fig'), { y: on ? (c.y || 0) : 0, scale: on ? (c.scale || 1) : 1, duration: dur, ease: EASE, overwrite: 'auto' });
+      gsap.to(part(el, '.robot-glow'), { opacity: on ? 1 : .5, scale: on ? 1.18 : 1, duration: dur, ease: EASE, overwrite: 'auto' });
+      el.classList.toggle('is-active', on);
+    });
+    if (i !== null && stage[i]) setCaption(stage[i]);
+  }
+
+  /* ---------- Панель активного робота: кроссфейд, не мгновенная подмена ---------- */
+  let capTl = null;
+  function setCaption(el) {
+    if (cap.hidden) return;
+    const cat = el.dataset.cat, res = el.dataset.res;
+    if (capCat.textContent === cat) return;
+    if (reduce) { capCat.textContent = cat; capRes.textContent = res; return; }
+    if (capTl) capTl.kill();
+    capTl = gsap.timeline()
+      .to(cap, { opacity: 0, y: -6, duration: .18, ease: EASE })
+      .add(() => { capCat.textContent = cat; capRes.textContent = res; })
+      .fromTo(cap, { y: 6 }, { opacity: 1, y: 0, duration: .28, ease: EASE });
+  }
+
+  /* ---------- Микрожизнь: длительности несоизмеримы, роботы не синхронизируются ---------- */
+  const life = [];
+  function buildLife() {
+    life.forEach((t) => t.kill());
+    life.length = 0;
+    if (reduce) return;
+    stage.forEach((el) => {
+      const l = part(el, '.robot-life');
+      const amp = num(el, 'amp', 3), rot = num(el, 'rot', 0), d = num(el, 'life', 4);
+      life.push(gsap.fromTo(l,
+        { y: amp * .5, rotation: rot },
+        { y: -amp * .5, rotation: -rot, duration: d / 2, ease: 'sine.inOut', yoyo: true, repeat: -1 }));
+    });
+  }
+
+  /* ---------- Автоцикл «Спотлайт» ---------- */
+  let cycle = null, idx = -1, resume = null;
+  const stopCycle = () => { if (cycle) { cycle.kill(); cycle = null; } if (resume) { resume.kill(); resume = null; } };
+  function startCycle(from) {
+    stopCycle();
+    if (from !== undefined && from !== null) idx = from;
+    cycle = gsap.timeline({ repeat: -1 })
+      .call(() => { idx = (idx + 1) % els.length; paint(idx, SPOT); })
+      .to({}, { duration: 4.2 });
+  }
+
+  /* ---------- Режим B «Конвейер» ----------
+     Трек дублируется ×2 и едет xPercent 0 → -50% своей ширины (§7.2). GSAP пишет xPercent
+     в transform процентами, а не пикселями, поэтому -50% — всегда ровно половина трека:
+     стык не разъезжается, даже если ширина периода поменялась между кадрами. */
+  const BELT_DUR = 48;       // полный цикл, §7.2
+  const BELT_GAP_MIN = 28;   // интервал не уже, чем gap статичного ряда
+  let beltTl = null;
+  const clones = [];
+
+  // Период ленты = шесть роботов + шесть интервалов. Период уже окна — в стыке проезжает пустая
+  // плита, поэтому интервал растягивается до ширины окна. Мерим offsetWidth: в
+  // getBoundingClientRect уже сидят scale от въезда и ховера, она бы соврала.
+  const beltGap = () => {
+    const sum = els.reduce((s, el) => s + el.offsetWidth, 0);
+    return Math.max(BELT_GAP_MIN, (innerWidth + 8 - sum) / 6);
+  };
+
+  function buildClones() {
+    els.forEach((el) => {
+      const c = el.cloneNode(true);
+      c.dataset.clone = '1';
+      c.setAttribute('aria-hidden', 'true');   // в дереве доступности дубля нет
+      c.tabIndex = -1;                         // Tab по-прежнему проходит ровно по шести (§11)
+      // Клон снимается с живого узла: если ещё идёт твин въезда, в инлайн-стиле сидит его кадр
+      // (opacity 0, translateY) — и клон замрёт в нём навсегда. Моем; --k и --lf не трогаем.
+      [c].concat(Array.from(c.querySelectorAll('*'))).forEach((n) => {
+        n.style.transform = ''; n.style.opacity = ''; n.style.willChange = '';
+        n.style.translate = ''; n.style.rotate = ''; n.style.scale = '';
+      });
+      const img = c.querySelector('img');
+      if (img) img.removeAttribute('fetchpriority');  // приоритет уже отработал на оригинале
+      clones.push(c);
+      track.appendChild(c);
+      wire(c);   // ховер на дубле обязан работать: у края экрана едет именно он
+    });
+  }
+
+  function startBelt() {
+    if (beltTl) return;
+    buildClones();
+    setStage(els.concat(clones));
+    track.style.setProperty('--belt-gap', beltGap().toFixed(2) + 'px');
+    track.classList.add('is-belt');
+    gsap.set(track, { xPercent: 0, willChange: 'transform' });
+    beltTl = gsap.timeline({ repeat: -1 })
+      .to(track, { xPercent: -50, duration: BELT_DUR, ease: 'none' });
+    if (!inView) beltTl.pause();   // герой вне вьюпорта — лента не едет (§12)
+  }
+
+  function stopBelt() {
+    if (beltTl) {
+      gsap.killTweensOf(beltTl);   // твин торможения timeScale не должен пережить сам таймлайн
+      beltTl.kill();
+      beltTl = null;
+    }
+    if (clones.length) {
+      clones.forEach((c) => {
+        gsap.killTweensOf([c].concat(Array.from(c.querySelectorAll('*'))));
+        c.remove();
+      });
+      clones.length = 0;
+    }
+    track.classList.remove('is-belt');
+    track.style.removeProperty('--belt-gap');
+    gsap.set(track, { clearProps: 'all' });
+  }
+
+  // Торможение и разгон ленты (§7.2). Резкой остановки быть не должно, поэтому только твин
+  // по timeScale; overwrite снимает предыдущий, иначе при быстрой протяжке мыши по ряду
+  // на таймлайне копятся встречные твины.
+  const brake = (ts, dur) => {
+    if (beltTl) gsap.to(beltTl, { timeScale: ts, duration: dur, ease: EASE, overwrite: true });
+  };
+
+  // §11 требует Tab по шести роботам с видимым фокусом. В режиме B оригинал в этот момент может
+  // стоять за краем экрана — на экране его дубль. Спека этот случай не описывает; подводим ленту
+  // к сфокусированному роботу: фокус на невидимом элементе хуже, чем перескок ленты.
+  function revealOnBelt(el) {
+    if (!beltTl || !el.matches(':focus-visible')) return;
+    const r = el.getBoundingClientRect();
+    if (r.left >= 0 && r.right <= innerWidth) return;
+    const period = track.offsetWidth / 2;
+    if (!period) return;
+    const left = scene.getBoundingClientRect().left;
+    const w = el.offsetWidth;
+    /* Экранная позиция робота = left + offsetLeft - period * фаза. Лента периодична по картинке,
+       но не по узлам: оригиналы занимают первый период трека, дальше идут дубли. Поэтому фазы,
+       при которой этот конкретный узел стоит по центру, может не быть вовсе — у первого робота
+       она только одна, нулевая. Берём диапазон фаз, при которых он целиком в кадре (период не
+       уже окна, поэтому диапазон непустой всегда), и внутри него ближайшую к центру. */
+    const centered = (left + el.offsetLeft + w / 2 - innerWidth / 2) / period;
+    const lo = Math.max(0, (left + el.offsetLeft + w - innerWidth) / period);
+    const hi = Math.max(lo, Math.min(1, (left + el.offsetLeft) / period));
+    beltTl.time(Math.min(hi, Math.max(lo, centered)) * BELT_DUR);
+  }
+
+  /* ---------- Ховер и фокус дают одно и то же состояние ---------- */
+  // Индекс берётся из стейджа в момент события, а не замыканием: в режиме B состав меняется.
+  function wire(el) {
+    const focusIn = () => {
+      stopCycle();
+      brake(0, .4);
+      revealOnBelt(el);
+      paint(stage.indexOf(el), HOVER);
+    };
+    const focusOut = () => {
+      brake(1, .6);
+      if (mode === 'a' && auto()) { resume = gsap.delayedCall(1.5, () => startCycle(stage.indexOf(el))); }
+      else { paint(null, { dur: .3 }); }
+    };
+    el.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') focusIn(); });
+    el.addEventListener('pointerleave', (e) => { if (e.pointerType !== 'touch') focusOut(); });
+    el.addEventListener('focus', focusIn);
+    el.addEventListener('blur', focusOut);
+    // В продакшене уведёт на страницу отрасли.
+    el.addEventListener('click', () => { paint(stage.indexOf(el), SPOT); });
+  }
+  els.forEach(wire);
+
+  /* ---------- Параллакс от курсора ---------- */
+  // quickTo привязан к конкретным узлам, поэтому пересобирается вместе со стейджем.
+  // Каждый quickTo держит на элементе постоянный твин, и он не умирает сам: без kill
+  // переключение режимов накапливает по два висящих твина на робота за проход.
+  let px = [], py = [], pq = [];
+  function buildParallax() {
+    pq.forEach((t) => t.kill());
+    pq.length = 0;
+    const make = (el, prop) => {
+      const q = gsap.quickTo(el, prop, { duration: .5, ease: 'power2.out' });
+      if (q.tween) pq.push(q.tween);
+      return q;
+    };
+    px = stage.map((el) => make(el, 'x'));
+    py = stage.map((el) => make(el, 'y'));
+  }
+  scene.closest('.hero').addEventListener('pointermove', (e) => {
+    if (reduce || mqMobile.matches || e.pointerType === 'touch') return;
+    const cx = innerWidth / 2, cy = innerHeight / 2;
+    stage.forEach((el, n) => {
+      const d = num(el, 'depth', .014);
+      px[n]((e.clientX - cx) * d);
+      py[n]((e.clientY - cy) * d * .6);
+    });
+  });
+
+  // Один стейдж на всю сцену: смена состава пересобирает всё, что к узлам привязано.
+  function setStage(list) {
+    stage = list;
+    buildLife();
+    buildParallax();
+  }
+
+  /* ---------- Въезд + снятие will-change ---------- */
+  if (!reduce) {
+    gsap.from('.hero-in', { y: 16, opacity: 0, duration: .6, ease: EASE, stagger: .08 });
+    gsap.set(els, { willChange: 'transform' });
+    gsap.from(els, {
+      y: 24, opacity: 0, duration: .9, ease: EASE, stagger: .07, delay: .15,
+      onComplete: () => gsap.set(els, { willChange: 'auto' }), // шесть постоянных композитных слоёв нам не нужны
+    });
+  }
+
+  /* ---------- Скролл-скраб: передние слои уезжают быстрее задних ---------- */
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+    const tl = gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
+      .to('.hero-top', { y: -120, opacity: 0, ease: 'none' }, 0)
+      .to(scene, { scale: 1.12, y: 40, transformOrigin: '50% 70%', ease: 'none' }, 0)
+      .to(scene, { opacity: 0, ease: 'none' }, .6);
+    els.forEach((el) => {
+      tl.to(part(el, '.robot-depth'), { y: -num(el, 'depth', .014) * 3600, ease: 'none' }, 0);
+    });
+    return () => tl.scrollTrigger && tl.scrollTrigger.kill();
+  });
+
+  /* ---------- Пауза вне вьюпорта ---------- */
+  let inView = true;
+  ScrollTrigger.create({
+    trigger: '.hero', start: 'top bottom', end: 'bottom top',
+    onToggle: (self) => {
+      inView = self.isActive;
+      if (inView) {
+        life.forEach((t) => t.play());
+        if (mode === 'a' && auto()) startCycle(idx);
+        if (beltTl) beltTl.play();
+      } else {
+        life.forEach((t) => t.pause());
+        stopCycle();
+        if (beltTl) beltTl.pause();
+      }
+    },
+  });
+
+  /* ---------- Режимы ---------- */
+  // auto() — можно ли вообще шевелить сцену без участия пользователя.
+  const auto = () => !reduce && !mqMobile.matches;
+  let mode = 'a';
+
+  function applyMode(next, initial) {
+    mode = next;
+    // Ленту и автоцикл снимаем всегда: переключение не должно оставлять ни висящих твинов,
+    // ни дублей в DOM. Стейдж возвращается к шести роботам, микрожизнь и параллакс — за ним.
+    stopCycle();
+    stopBelt();
+    setStage(els);
+    // На первом проходе не красим: paint с overwrite затёр бы твин въезда по opacity.
+    if (!initial) paint(null, { dur: .3 });
+    // Панель принадлежит автоциклу. Если цикла нет (мобайл, reduced-motion), она застыла бы
+    // на случайном роботе и врала — прячем вместе с циклом. В режиме B её нет по §7.2:
+    // текст, привязанный к едущему объекту, не читается.
+    cap.hidden = (mode !== 'a' || !auto());
+    boxCur.textContent = mode.toUpperCase();
+    // Режим C: ряд статичен, работают только микрожизнь и ховер — ставить больше нечего.
+    // Мобайл и reduced-motion: ни автоцикла, ни ленты, то есть фактически тот же C (§11).
+    const go = () => {
+      if (mode !== next || !auto()) return;
+      if (mode === 'a') { if (inView) { idx = -1; startCycle(); } }
+      else if (mode === 'b') { startBelt(); }   // сам встанет на паузу, если герой вне вьюпорта
+    };
+    // Первый запуск отложен на время въезда: иначе дубли снимаются с роботов посреди твина,
+    // а автоцикл красит незавершённый gsap.from (§16.10).
+    if (initial && !reduce) gsap.delayedCall(1.5, go); else go();
+  }
+
+  box.open = store.get(KEY + '-open') === '1';
+  box.addEventListener('toggle', () => store.set(KEY + '-open', box.open ? '1' : '0'));
+
+  const first = radios.find((r) => r.value === store.get(KEY) && !r.disabled) || radios[0];
+  first.checked = true;
+  radios.forEach((r) => r.addEventListener('change', () => {
+    if (!r.checked) return;
+    store.set(KEY, r.value);
+    applyMode(r.value);
+  }));
+
+  applyMode(first.value, true);
+  mqMobile.addEventListener('change', () => applyMode(mode));
+
+  /* Ресайз меняет --robot-base, а с ним ширину роботов и период ленты. Пересобираем ленту,
+     сохранив фазу; timeScale ставим по факту — держат ли её сейчас ховером. Смену брейкпоинта
+     ловит mqMobile выше, там пересобирается весь режим. */
+  let rz = null;
+  addEventListener('resize', () => {
+    if (rz) rz.kill();
+    rz = gsap.delayedCall(.2, () => {
+      if (mode !== 'b' || !beltTl) return;
+      const phase = beltTl.progress();
+      stopBelt();
+      startBelt();
+      if (!beltTl) return;
+      beltTl.progress(phase);
+      beltTl.timeScale(track.querySelector('.robot:hover') ? 0 : 1);
+      paint(null, { dur: .2 });   // дубль под курсором мог исчезнуть — снимаем приглушение
+    });
+  });
+})();
+</script>
+</body>
+</html>
