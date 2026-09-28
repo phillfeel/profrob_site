@@ -46,54 +46,92 @@
             <a class="btn btn-sec" href="#cases" data-link>Посмотреть кейсы</a>
           </div>
         </div>
-        <div class="metrics hero-in" role="status" aria-label="Единый центр управления">
-          <span><b class="tnum" data-count="142">142</b> устройства</span><span class="dot"></span>
-          <span><b class="tnum" data-count="14">14</b> объектов</span><span class="dot"></span>
-          <span>SLA <b class="tnum" data-count="98.2" data-dec="1">98,2</b><b>%</b></span>
-          <span class="badge-online"><i></i>Система онлайн</span>
+        <div class="hero-side">
+          <div class="metrics hero-in" role="status" aria-label="Единый центр управления">
+            <span><b class="tnum" data-count="142">142</b> устройства</span><span class="dot"></span>
+            <span><b class="tnum" data-count="14">14</b> объектов</span><span class="dot"></span>
+            <span>SLA <b class="tnum" data-count="98.2" data-dec="1">98,2</b><b>%</b></span>
+            <span class="badge-online"><i></i>Система онлайн</span>
+          </div>
+          <div class="scene-caption hero-in" id="caption" aria-live="polite">
+            <span class="mono scene-caption__cat" id="caption-cat">Уборка</span>
+            <span class="scene-caption__res" id="caption-res">снижение затрат на клининг на 32%</span>
+          </div>
         </div>
       </div>
-      <div class="scene">
-        <div class="scene-stage">
-          <div class="scene-plate-top"></div>
-          <div class="scene-plate-side"></div>
-          <div class="scene-reflection"></div>
+      <div class="scene" id="scene">
+        <div class="scene-plate" aria-hidden="true">
+          <div class="scene-plate__body"></div>
+          <div class="scene-plate__top"></div>
+          <div class="scene-plate__reflection"></div>
         </div>
-        <div class="scene-track">
-          <button class="robot" data-robot="agro" aria-label="Агродрон — роботизация сельского хозяйства">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-agro.webp" alt="Агродрон" width="1207" height="703" decoding="sync" fetchpriority="high">
-            <span class="robot-label">АГРО</span>
+        <div class="scene-track" id="track">
+          <button class="robot" type="button"
+                  style="--k:.62; --lf:.07"
+                  data-life="5.9" data-amp="6" data-rot=".4" data-depth=".010"
+                  data-cat="Агро" data-res="точное внесение и мониторинг полей"
+                  data-robot="agro" aria-label="Агродрон — роботизация сельского хозяйства">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="assets/robots/robot-agro.webp" alt="Агродрон" width="1207" height="703" decoding="sync">
+            </span></span></span>
+            <span class="robot-label">Агро</span>
           </button>
-          <button class="robot" data-robot="demolition" aria-label="Демонтажный робот — роботизация строительства">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-demolition.webp" alt="Демонтажный робот" width="1199" height="1015" decoding="sync" fetchpriority="high">
-            <span class="robot-label">СТРОЙКА</span>
+          <button class="robot" type="button"
+                  style="--k:.88; --lf:.03"
+                  data-life="4.3" data-amp="3" data-depth=".014"
+                  data-cat="Стройка" data-res="снижение трудозатрат на демонтаж на 40%"
+                  data-robot="demolition" aria-label="Демонтажный робот — роботизация строительства">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="assets/robots/robot-demolition.webp" alt="Демонтажный робот" width="1199" height="1015" decoding="sync">
+            </span></span></span>
+            <span class="robot-label">Стройка</span>
           </button>
-          <button class="robot" data-robot="cleaning" aria-label="Клининговый робот-полотёр — автоматизация уборки">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-cleaning.webp" alt="Клининговый робот" width="964" height="1026" decoding="sync" fetchpriority="high">
-            <span class="robot-label">УБОРКА</span>
+          <button class="robot" type="button"
+                  style="--k:.74; --lf:0"
+                  data-life="3.1" data-amp="3" data-depth=".020"
+                  data-cat="Уборка" data-res="снижение затрат на клининг на 32%"
+                  data-robot="cleaning" aria-label="Клининговый робот-полотёр — автоматизация уборки">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="assets/robots/robot-cleaning.webp" alt="Клининговый робот" width="964" height="1026" fetchpriority="high" decoding="sync">
+            </span></span></span>
+            <span class="robot-label">Уборка</span>
           </button>
-          <button class="robot" data-robot="manipulator" aria-label="Промышленный манипулятор — автоматизация производства">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-manipulator.webp" alt="Промышленный манипулятор" width="992" height="1116" decoding="sync" fetchpriority="high">
-            <span class="robot-label">ПРОИЗВОДСТВО</span>
+          <button class="robot" type="button"
+                  style="--k:.82; --lf:0"
+                  data-life="3.7" data-amp="3" data-depth=".022"
+                  data-cat="Производство" data-res="до 80% снижение зависимости от ручного труда"
+                  data-robot="manipulator" aria-label="Промышленный манипулятор — автоматизация производства">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="assets/robots/robot-manipulator.webp" alt="Промышленный манипулятор" width="992" height="1116" fetchpriority="high" decoding="sync">
+            </span></span></span>
+            <span class="robot-label">Производство</span>
           </button>
-          <button class="robot" data-robot="amr" aria-label="Складской AMR-робот — автоматизация логистики">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-amr.webp" alt="Складской AMR-робот" width="837" height="1148" decoding="sync" fetchpriority="high">
-            <span class="robot-label">СКЛАД</span>
+          <button class="robot" type="button"
+                  style="--k:1; --lf:.03"
+                  data-life="4.9" data-amp="3" data-depth=".016"
+                  data-cat="Склад" data-res="рост пропускной способности склада на 35%"
+                  data-robot="amr" aria-label="Складской AMR-робот — автоматизация логистики">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="assets/robots/robot-amr.webp" alt="Складской AMR-робот" width="837" height="1148" decoding="sync">
+            </span></span></span>
+            <span class="robot-label">Склад</span>
           </button>
-          <button class="robot" data-robot="wellness" aria-label="Велнес-робот — роботизация wellness-услуг">
-            <div class="robot-glow"></div>
-            <img src="assets/robots/robot-wellness.webp" alt="Велнес-робот" width="1068" height="990" decoding="sync" fetchpriority="high">
-            <span class="robot-label">ВЕЛНЕС</span>
+          <button class="robot" type="button"
+                  style="--k:.72; --lf:.07"
+                  data-life="5.3" data-amp="2" data-depth=".012"
+                  data-cat="Велнес" data-res="сервис в зонах отдыха без участия персонала"
+                  data-robot="wellness" aria-label="Велнес-робот — роботизация wellness-услуг">
+            <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+              <span class="robot-glow" aria-hidden="true"></span>
+              <img src="assets/robots/robot-wellness.webp" alt="Велнес-робот" width="1068" height="990" decoding="sync">
+            </span></span></span>
+            <span class="robot-label">Велнес</span>
           </button>
-        </div>
-        <div class="scene-caption">
-          <span class="caption-label">Результат:</span>
-          <span class="caption-text">снижение затрат на клининг на 32%</span>
         </div>
       </div>
       <div class="logobar">

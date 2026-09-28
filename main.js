@@ -2,7 +2,6 @@
   'use strict';
   const EASE = 'power3.out';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isMobile = window.innerWidth < 1024;
   const pad2 = (n) => String(n).padStart(2, '0');
   const fmt = (v, dec) => v.toFixed(dec).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
@@ -14,240 +13,261 @@
   }
   gsap.registerPlugin(ScrollTrigger);
 
-  // ========== HERO SCENE ANIMATION ==========
-  const robots = [...document.querySelectorAll('.robot')];
-  const sceneCaption = document.querySelector('.scene-caption');
-  const captionText = document.querySelector('.caption-text');
-  
-  // Данные результатов для каждого робота
-  const robotResults = {
-    agro: 'роботизация сельского хозяйства',
-    demolition: 'снижение трудозатрат на демонтаж на 40%',
-    cleaning: 'снижение затрат на клининг на 32%',
-    manipulator: 'до 80% снижение зависимости от ручного труда',
-    amr: 'рост пропускной способности склада на 35%',
-    wellness: 'автоматизация wellness-услуг'
-  };
-
-  // Текущий режим (A, B, C)
-  let currentMode = localStorage.getItem('heroMode') || 'A';
-  let spotlightIndex = 0;
-  let spotlightTimeline = null;
-  let conveyorTimeline = null;
-  let microLifeTimelines = [];
-  let parallaxQuickTo = null;
-
-  // ========== MICRO LIFE (микрожизнь) ==========
-  const createMicroLife = () => {
-    microLifeTimelines.forEach(tl => tl.kill());
-    microLifeTimelines = [];
-    
-    if (reduce || isMobile) return;
-
-    const durations = [3.1, 3.7, 4.3, 4.9, 5.3, 5.9];
-    const amplitudes = [6, 3, 3, 3, 2, 3]; // agro самый заметный, wellness самый тихий
-    const rotations = [0.4, 0, 0, 0, 0, 0]; // только agro вращается
-
-    robots.forEach((robot, i) => {
-      const tl = gsap.timeline({ repeat: -1, yoyo: true });
-      tl.to(robot, {
-        y: amplitudes[i],
-        rotation: rotations[i],
-        duration: durations[i],
-        ease: 'sine.inOut'
-      });
-      microLifeTimelines.push(tl);
-    });
-  };
-
-  // ========== HOVER STATE ==========
-  const setHoverState = (robot, isActive) => {
-    const others = robots.filter(r => r !== robot);
-    
-    if (isActive) {
-      gsap.to(robot, { y: -12, scale: 1.05, duration: 0.24, ease: EASE });
-      gsap.to(robot.querySelector('.robot-glow'), { opacity: 0.8, scale: 1.3, duration: 0.24, ease: EASE });
-      gsap.to(robot.querySelector('.robot-label'), { opacity: 1, duration: 0.24, ease: EASE });
-      gsap.to(others, { opacity: 0.68, duration: 0.24, ease: EASE });
-    } else {
-      gsap.to(robot, { y: 0, scale: 1, duration: 0.24, ease: EASE });
-      gsap.to(robot.querySelector('.robot-glow'), { opacity: 0.3, scale: 1, duration: 0.24, ease: EASE });
-      gsap.to(robot.querySelector('.robot-label'), { opacity: 0.6, duration: 0.24, ease: EASE });
-      gsap.to(others, { opacity: 1, duration: 0.24, ease: EASE });
-    }
-  };
-
-  // ========== PARALLAX ==========
-  const createParallax = () => {
-    if (reduce || isMobile) return;
-
-    const scene = document.querySelector('.scene');
-    const depths = [0.008, 0.012, 0.016, 0.018, 0.020, 0.022]; // разные коэффициенты глубины
-
-    parallaxQuickTo = gsap.quickTo(robots, 'y', { duration: 0.4, ease: EASE });
-
-    scene.addEventListener('pointermove', (e) => {
-      const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
-      robots.forEach((robot, i) => {
-        gsap.set(robot, { x: x * 100 * depths[i] * 50 });
-      });
-    });
-  };
-
-  // ========== MODE A: SPOTLIGHT ==========
-  const createSpotlightMode = () => {
-    if (reduce || isMobile) return;
-
-    const activateRobot = (index) => {
-      const activeRobot = robots[index];
-      const others = robots.filter((_, i) => i !== index);
-      
-      gsap.to(activeRobot, { y: -18, scale: 1.06, duration: 0.7, ease: EASE });
-      gsap.to(activeRobot.querySelector('.robot-glow'), { opacity: 0.9, scale: 1.4, duration: 0.7, ease: EASE });
-      gsap.to(activeRobot.querySelector('.robot-label'), { opacity: 1, duration: 0.7, ease: EASE });
-      gsap.to(others, { opacity: 0.62, duration: 0.7, ease: EASE });
-
-      // Обновление caption
-      const robotType = activeRobot.dataset.robot;
-      captionText.textContent = robotResults[robotType];
-      sceneCaption.classList.add('active');
-    };
-
-    const cycleSpotlight = () => {
-      spotlightIndex = (spotlightIndex + 1) % robots.length;
-      activateRobot(spotlightIndex);
-    };
-
-    spotlightTimeline = gsap.timeline({ repeat: -1, repeatDelay: 4.2 });
-    spotlightTimeline.call(cycleSpotlight);
-    activateRobot(0); // первый робот активен сразу
-
-    // Ховер останавливает автоцикл
-    robots.forEach((robot, i) => {
-      robot.addEventListener('pointerenter', () => {
-        spotlightTimeline.pause();
-        activateRobot(i);
-      });
-      robot.addEventListener('pointerleave', () => {
-        spotlightTimeline.play();
-      });
-    });
-  };
-
-  // ========== MODE B: CONVEYOR ==========
-  const createConveyorMode = () => {
-    if (reduce || isMobile) return;
-
-    const track = document.querySelector('.scene-track');
-    const trackWidth = track.scrollWidth;
-    
-    // Дублируем трек
-    track.innerHTML += track.innerHTML;
-    const allRobots = [...document.querySelectorAll('.robot')];
-
-    conveyorTimeline = gsap.to(track, {
-      x: -trackWidth / 2,
-      duration: 48,
-      ease: 'none',
-      repeat: -1
-    });
-
-    // Ховер тормозит ленту
-    track.addEventListener('pointerenter', () => {
-      gsap.to(conveyorTimeline, { timeScale: 0, duration: 0.4, ease: EASE });
-    });
-    track.addEventListener('pointerleave', () => {
-      gsap.to(conveyorTimeline, { timeScale: 1, duration: 0.6, ease: EASE });
-    });
-
-    sceneCaption.classList.remove('active');
-  };
-
-  // ========== MODE C: HOVER ONLY ==========
-  const createHoverOnlyMode = () => {
-    sceneCaption.classList.remove('active');
-    // Только микрожизнь и ховер, без автоцикла
-  };
-
-  // ========== SWITCH MODE ==========
-  const switchMode = (mode) => {
-    currentMode = mode;
-    localStorage.setItem('heroMode', mode);
-
-    // Очистка предыдущих таймлайнов
-    if (spotlightTimeline) { spotlightTimeline.kill(); spotlightTimeline = null; }
-    if (conveyorTimeline) { conveyorTimeline.kill(); conveyorTimeline = null; }
-    
-    // Сброс состояния роботов
-    gsap.set(robots, { y: 0, scale: 1, opacity: 1, x: 0, rotation: 0 });
-    gsap.set('.robot-glow', { opacity: 0.3, scale: 1 });
-    gsap.set('.robot-label', { opacity: 0.6 });
-    sceneCaption.classList.remove('active');
-
-    // Пересоздание микрожизни
-    createMicroLife();
-
-    // Создание新模式
-    switch (mode) {
-      case 'A':
-        createSpotlightMode();
-        break;
-      case 'B':
-        createConveyorMode();
-        break;
-      case 'C':
-        createHoverOnlyMode();
-        break;
-    }
-  };
-
-  // ========== INIT ==========
+  // ========== HERO SCENE — перенос из prototype-motion, логика та же ==========
+  // Слои: button.robot — параллакс, .robot-depth — скролл-скраб, .robot-life — микрожизнь,
+  // .robot-fig — ховер/спотлайт. Два твина на одном y дерутся, поэтому слои разведены.
   const initHeroScene = () => {
-    createMicroLife();
-    createParallax();
-    
-    // Обработчики ховера для всех режимов
-    robots.forEach(robot => {
-      robot.addEventListener('pointerenter', () => setHoverState(robot, true));
-      robot.addEventListener('pointerleave', () => setHoverState(robot, false));
-      robot.addEventListener('focus', () => setHoverState(robot, true));
-      robot.addEventListener('blur', () => setHoverState(robot, false));
-    });
+    const mqMobile = matchMedia('(max-width: 1023px)');
+    const scene  = document.querySelector('#scene');
+    const track  = document.querySelector('#track');
+    if (!scene || !track) return;
+    const els    = Array.from(track.querySelectorAll('.robot'));
+    const cap    = document.querySelector('#caption');
+    const capCat = document.querySelector('#caption-cat');
+    const capRes = document.querySelector('#caption-res');
+    const radios = Array.from(document.querySelectorAll('.mode-option input[name="mode"]'));
+    const KEY = 'heroMode';
+    const store = {
+      get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+      set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* приватный режим */ } },
+    };
+    const part = (el, sel) => el.querySelector(sel);
+    const num  = (el, key, def) => (el.dataset[key] !== undefined ? parseFloat(el.dataset[key]) : def);
+    const auto = () => !reduce && !mqMobile.matches;
 
-    // Переключатель режимов
-    document.querySelectorAll('.mode-option input').forEach(input => {
-      input.addEventListener('change', (e) => {
-        switchMode(e.target.value);
+    let mode = 'a';
+    let inView = true;
+    let stage = els;
+
+    // ---------- Состояние сцены: одна функция красит всё ----------
+    const SPOT  = { y: -18, scale: 1.06, dim: .62, dur: .7  };
+    const HOVER = { y: -12, scale: 1.05, dim: .68, dur: .24 };
+
+    function paint(i, cfg) {
+      const c = cfg || {};
+      const dim = c.dim === undefined ? 1 : c.dim;
+      const dur = c.dur === undefined ? .4 : c.dur;
+      stage.forEach((el, n) => {
+        const on = i !== null && n === i;
+        gsap.to(el, { opacity: i === null ? 1 : (on ? 1 : dim), duration: dur * .7, ease: EASE, overwrite: 'auto' });
+        gsap.to(part(el, '.robot-fig'), { y: on ? (c.y || 0) : 0, scale: on ? (c.scale || 1) : 1, duration: dur, ease: EASE, overwrite: 'auto' });
+        gsap.to(part(el, '.robot-glow'), { opacity: on ? 1 : .5, scale: on ? 1.18 : 1, duration: dur, ease: EASE, overwrite: 'auto' });
+        el.classList.toggle('is-active', on);
+      });
+      if (i !== null && stage[i]) setCaption(stage[i]);
+    }
+
+    // ---------- Панель результата: кроссфейд ----------
+    let capTl = null;
+    function setCaption(el) {
+      if (!cap || cap.hidden) return;
+      const cat = el.dataset.cat, res = el.dataset.res;
+      if (capCat.textContent === cat) return;
+      if (reduce) { capCat.textContent = cat; capRes.textContent = res; return; }
+      if (capTl) capTl.kill();
+      capTl = gsap.timeline()
+        .to(cap, { opacity: 0, y: -6, duration: .18, ease: EASE })
+        .add(() => { capCat.textContent = cat; capRes.textContent = res; })
+        .fromTo(cap, { y: 6 }, { opacity: 1, y: 0, duration: .28, ease: EASE });
+    }
+
+    // ---------- Микрожизнь ----------
+    const life = [];
+    function buildLife() {
+      life.forEach((t) => t.kill());
+      life.length = 0;
+      if (reduce) return;
+      stage.forEach((el) => {
+        const amp = num(el, 'amp', 3), rot = num(el, 'rot', 0), d = num(el, 'life', 4);
+        life.push(gsap.fromTo(part(el, '.robot-life'),
+          { y: amp * .5, rotation: rot },
+          { y: -amp * .5, rotation: -rot, duration: d / 2, ease: 'sine.inOut', yoyo: true, repeat: -1 }));
+      });
+    }
+
+    // ---------- Режим A: автоцикл ----------
+    let cycle = null, idx = -1, resume = null;
+    const stopCycle = () => {
+      if (cycle) { cycle.kill(); cycle = null; }
+      if (resume) { resume.kill(); resume = null; }
+    };
+    function startCycle(from) {
+      stopCycle();
+      if (from !== undefined && from !== null) idx = from;
+      cycle = gsap.timeline({ repeat: -1 })
+        .call(() => { idx = (idx + 1) % els.length; paint(idx, SPOT); })
+        .to({}, { duration: 4.2 });
+    }
+
+    // ---------- Режим B: лента (клоны через cloneNode, а не innerHTML) ----------
+    const BELT_DUR = 48, BELT_GAP_MIN = 28;
+    let beltTl = null;
+    const clones = [];
+    const beltGap = () => {
+      const sum = els.reduce((s, el) => s + el.offsetWidth, 0);
+      return Math.max(BELT_GAP_MIN, (innerWidth + 8 - sum) / 6);
+    };
+    function buildClones() {
+      els.forEach((el) => {
+        const c = el.cloneNode(true);
+        c.dataset.clone = '1';
+        c.setAttribute('aria-hidden', 'true');
+        c.tabIndex = -1;
+        [c].concat(Array.from(c.querySelectorAll('*'))).forEach((n) => {
+          n.style.transform = ''; n.style.opacity = ''; n.style.willChange = '';
+          n.style.translate = ''; n.style.rotate = ''; n.style.scale = '';
+        });
+        const img = c.querySelector('img');
+        if (img) img.removeAttribute('fetchpriority');
+        clones.push(c);
+        track.appendChild(c);
+        wire(c);
+      });
+    }
+    function startBelt() {
+      if (beltTl) return;
+      buildClones();
+      setStage(els.concat(clones));
+      track.style.setProperty('--belt-gap', beltGap().toFixed(2) + 'px');
+      track.classList.add('is-belt');
+      gsap.set(track, { xPercent: 0, willChange: 'transform' });
+      beltTl = gsap.timeline({ repeat: -1 }).to(track, { xPercent: -50, duration: BELT_DUR, ease: 'none' });
+      if (!inView) beltTl.pause();
+    }
+    function stopBelt() {
+      if (beltTl) { gsap.killTweensOf(beltTl); beltTl.kill(); beltTl = null; }
+      clones.forEach((c) => {
+        gsap.killTweensOf([c].concat(Array.from(c.querySelectorAll('*'))));
+        c.remove();
+      });
+      clones.length = 0;
+      track.classList.remove('is-belt');
+      track.style.removeProperty('--belt-gap');
+      gsap.set(track, { clearProps: 'all' });
+    }
+    const brake = (ts, dur) => {
+      if (beltTl) gsap.to(beltTl, { timeScale: ts, duration: dur, ease: EASE, overwrite: true });
+    };
+
+    // ---------- Ховер/фокус — вешаются ОДИН раз на узел ----------
+    function wire(el) {
+      const focusIn = () => { stopCycle(); brake(0, .4); paint(stage.indexOf(el), HOVER); };
+      const focusOut = () => {
+        brake(1, .6);
+        if (mode === 'a' && auto()) { resume = gsap.delayedCall(1.5, () => startCycle(stage.indexOf(el))); }
+        else { paint(null, { dur: .3 }); }
+      };
+      el.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') focusIn(); });
+      el.addEventListener('pointerleave', (e) => { if (e.pointerType !== 'touch') focusOut(); });
+      el.addEventListener('focus', focusIn);
+      el.addEventListener('blur', focusOut);
+      el.addEventListener('click', () => paint(stage.indexOf(el), SPOT));
+    }
+    els.forEach(wire);
+
+    // ---------- Параллакс (quickTo, пересобирается со стейджем) ----------
+    let px = [], py = [];
+    const pq = [];
+    function buildParallax() {
+      pq.forEach((t) => t.kill());
+      pq.length = 0;
+      const make = (el, prop) => {
+        const q = gsap.quickTo(el, prop, { duration: .5, ease: 'power2.out' });
+        if (q.tween) pq.push(q.tween);
+        return q;
+      };
+      px = stage.map((el) => make(el, 'x'));
+      py = stage.map((el) => make(el, 'y'));
+    }
+    scene.closest('.hero').addEventListener('pointermove', (e) => {
+      if (reduce || mqMobile.matches || e.pointerType === 'touch') return;
+      const cx = innerWidth / 2, cy = innerHeight / 2;
+      stage.forEach((el, n) => {
+        const d = num(el, 'depth', .014);
+        if (px[n]) px[n]((e.clientX - cx) * d);
+        if (py[n]) py[n]((e.clientY - cy) * d * .6);
       });
     });
 
-    // Установка текущего режима
-    document.querySelector(`.mode-option input[value="${currentMode}"]`).checked = true;
-    switchMode(currentMode);
-  };
+    function setStage(list) { stage = list; buildLife(); buildParallax(); }
 
-  // ========== SCROLL SCRUB ==========
-  const createScrollScrub = () => {
-    if (reduce || isMobile) return;
+    // ---------- Въезд роботов ----------
+    if (!reduce) {
+      gsap.set(els, { willChange: 'transform' });
+      gsap.from(els, {
+        y: 24, opacity: 0, duration: .9, ease: EASE, stagger: .07, delay: .15,
+        onComplete: () => gsap.set(els, { willChange: 'auto' }),
+      });
+    }
 
-    const scene = document.querySelector('.scene');
-    const depths = [0.008, 0.012, 0.016, 0.018, 0.020, 0.022];
+    // ---------- Скролл-скраб героя (единственный) ----------
+    gsap.matchMedia().add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+      const tl = gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
+        .to('.hero-top', { y: -120, opacity: 0, ease: 'none' }, 0)
+        .to(scene, { scale: 1.12, y: 40, transformOrigin: '50% 70%', ease: 'none' }, 0)
+        .to(scene, { opacity: 0, ease: 'none' }, .6);
+      els.forEach((el) => tl.to(part(el, '.robot-depth'), { y: -num(el, 'depth', .014) * 3600, ease: 'none' }, 0));
+      return () => tl.scrollTrigger && tl.scrollTrigger.kill();
+    });
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true
-      }
-    })
-    .to('.hero-top', { y: -120, opacity: 0, ease: 'none' }, 0)
-    .to(robots, (i) => ({
-      y: -60 * depths[i] * 100,
-      scale: 1.18,
-      opacity: 0,
-      ease: 'none'
-    }), 0);
+    // ---------- Пауза вне вьюпорта ----------
+    ScrollTrigger.create({
+      trigger: '.hero', start: 'top bottom', end: 'bottom top',
+      onToggle: (self) => {
+        inView = self.isActive;
+        if (inView) {
+          life.forEach((t) => t.play());
+          if (mode === 'a' && auto()) startCycle(idx);
+          if (beltTl) beltTl.play();
+        } else {
+          life.forEach((t) => t.pause());
+          stopCycle();
+          if (beltTl) beltTl.pause();
+        }
+      },
+    });
+
+    // ---------- Режимы ----------
+    function applyMode(next, initial) {
+      mode = next;
+      stopCycle();
+      stopBelt();
+      setStage(els);
+      if (!initial) paint(null, { dur: .3 });
+      if (cap) cap.hidden = (mode !== 'a' || !auto());
+      const go = () => {
+        if (mode !== next || !auto()) return;
+        if (mode === 'a') { if (inView) { idx = -1; startCycle(); } }
+        else if (mode === 'b') { startBelt(); }
+      };
+      if (initial && !reduce) gsap.delayedCall(1.5, go); else go();
+    }
+
+    const saved = store.get(KEY);
+    const first = radios.find((r) => r.value === saved) || radios[0];
+    if (first) first.checked = true;
+    radios.forEach((r) => r.addEventListener('change', () => {
+      if (!r.checked) return;
+      store.set(KEY, r.value);
+      applyMode(r.value.toLowerCase());
+    }));
+    applyMode(first ? first.value.toLowerCase() : 'a', true);
+    mqMobile.addEventListener('change', () => applyMode(mode));
+
+    // Ресайз меняет ширину роботов — пересобираем ленту с сохранением фазы
+    let rz = null;
+    addEventListener('resize', () => {
+      if (rz) rz.kill();
+      rz = gsap.delayedCall(.2, () => {
+        if (mode !== 'b' || !beltTl) return;
+        const phase = beltTl.progress();
+        stopBelt(); startBelt();
+        if (!beltTl) return;
+        beltTl.progress(phase);
+        beltTl.timeScale(track.querySelector('.robot:hover') ? 0 : 1);
+        paint(null, { dur: .2 });
+      });
+    });
   };
 
   // ---------- Smooth scroll (Lenis) + якоря ----------
@@ -296,13 +316,11 @@
   const heroIn = gsap.utils.toArray('.hero-in');
   if (!reduce) {
     gsap.from(heroIn, { y: 16, opacity: 0, duration: .6, ease: EASE, stagger: .08 });
-    gsap.from('.scene', { y: 40, opacity: 0, duration: 1.2, ease: EASE, delay: .2 });
   }
   document.querySelectorAll('.metrics [data-count]').forEach(countUp);
-  
-  // Инициализация сцены героя
+
+  // Инициализация сцены героя (режимы, микрожизнь, параллакс, скролл-скраб — всё внутри)
   initHeroScene();
-  createScrollScrub();
 
   // ---------- Reveal (общий) ----------
   ScrollTrigger.batch('.reveal', {
@@ -367,13 +385,6 @@
   // ---------- Закрепления: только десктоп и без reduced-motion ----------
   const mm = gsap.matchMedia();
   mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
-
-    // Hero: наезд на подиум и уход текста. Картинка гаснет заранее (после 60% прогресса),
-    // чтобы не обрезаться о границу секции при заезде под следующий блок.
-    gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
-      .to('.hero-top', { y: -120, opacity: 0, ease: 'none' }, 0)
-      .to(podium, { scale: 1.18, y: 60, transformOrigin: '50% 60%', ease: 'none' }, 0)
-      .to(podium, { opacity: 0, ease: 'none' }, 0.6);
 
     // 02 Задачи: горизонтальная лента (единственный остающийся data-hpin — «Внедрение»
     // теперь вертикальный скролл, см. блок выше). SLOWDOWN растягивает дистанцию скролла
