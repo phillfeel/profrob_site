@@ -20,6 +20,14 @@
 
   --container: 1320px;
   --gutter: 40px;
+  /* Правая полоса под фиксированный счётчик разделов: right 40px + ширина счётчика 44px + воздух 12px.
+     Контент в неё не заходит ни на одной ширине — ни текст, ни ленты, ни роботы. */
+  --rail: 96px;
+  /* Расстояние от края экрана до контента: слева — обычный gutter, справа — не меньше --rail */
+  --edge-l: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  --edge-r: max(var(--rail), var(--edge-l));
+  /* Маска для полос, которые уходят за правый край: гаснут до счётчика */
+  --rail-mask: linear-gradient(to left, transparent var(--rail), #000 calc(var(--rail) + 48px));
   --ease: cubic-bezier(0.2, 0, 0, 1);
   --fast: 140ms; --base: 240ms; --slow: 600ms;
 }
@@ -42,7 +50,11 @@ a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 :focus-visible { outline: none; box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); border-radius: 8px; }
 
-.wrap { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.wrap {
+  max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter);
+  /* Пока свободного поля справа меньше --rail, добираем отступ до полосы счётчика */
+  padding-right: max(var(--gutter), calc(var(--rail) - max(0px, (100vw - var(--container)) / 2)));
+}
 section { position: relative; z-index: 2; }
 .sec { padding: 128px 0; }
 
@@ -125,7 +137,8 @@ section { position: relative; z-index: 2; }
 @keyframes pulse { 50% { opacity: .3; } }
 /* ================= HERO SCENE ================= */
 :root {
-  --robot-base: min(300px, 30vh, 16vw);
+  /* Ряд из шести роботов ≈ 5,3 × base; последний член держит ряд между полосами счётчика */
+  --robot-base: min(300px, 30vh, 16vw, calc((100vw - 2 * var(--rail) - 24px) / 5.3));
   --plate-h: calc(var(--robot-base) * .30);
   --plate-ellipse: calc(var(--robot-base) * .26);
   --plate-bottom: calc(var(--robot-base) * .16);
@@ -137,7 +150,7 @@ section { position: relative; z-index: 2; }
   position: relative;
   width: 100%;
   height: var(--scene-h);
-  margin-top: clamp(8px, 2vh, 32px);
+  margin-top: clamp(32px, 6vh, 72px);
   overflow: hidden;
   overflow-x: clip;
   overflow-y: visible;
@@ -165,6 +178,10 @@ section { position: relative; z-index: 2; }
   position: absolute; left: 8%; right: 8%; top: 100%; height: var(--plate-bottom);
   background: radial-gradient(46% 100% at 50% 0%, #1c1e2226 0%, #1c1e2200 76%);
 }
+
+/* Полоса роботов: в режиме ленты они уходят за край, маска гасит их до счётчика.
+   Маска на обёртке, а не на .scene-track, — трек едет трансформом и увёз бы маску с собой. */
+.scene-lane { position: absolute; inset: 0; -webkit-mask-image: var(--rail-mask); mask-image: var(--rail-mask); }
 
 .scene-track {
   position: absolute; left: 0; right: 0; bottom: var(--feet);
@@ -196,7 +213,8 @@ section { position: relative; z-index: 2; }
 
 .robot-glow {
   position: absolute; z-index: 0; left: 20%; right: 20%;
-  bottom: calc(var(--robot-base) * var(--k) * -.05);
+  /* Тень остаётся на подиуме, даже когда фигура приподнята (--lf у дрона) */
+  bottom: calc(var(--robot-base) * var(--k) * -.05 - var(--robot-base) * var(--lf, 0) * var(--lift-on, 1));
   height: calc(var(--robot-base) * var(--k) * .1);
   border-radius: 50%; opacity: .5;
   background: radial-gradient(closest-side, #c8ff3c1a 30%, #c8ff3c73 72%, #c8ff3c00 100%);
@@ -224,52 +242,81 @@ section { position: relative; z-index: 2; }
 .scene-caption__cat { color: var(--accent-ink); }
 .scene-caption__res { font-size: 15px; font-weight: 500; color: var(--ink); }
 
-/* Логобар */
-.logobar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  margin-top: 32px;
-  padding: 0 var(--gutter);
+/* ================= ПРОИЗВОДИТЕЛИ (под героем) — тёмная панель подбора ================= */
+.brands { padding: clamp(48px, 7vh, 80px) 0 0; }
+.brands-panel {
+  position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: center;
+  padding: 40px 40px 40px 48px; border-radius: var(--r-xl); overflow: hidden;
+  background: var(--stage); color: var(--on-stage); box-shadow: var(--shadow-md);
 }
-
-.logobar-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  color: var(--ink-muted);
+/* Акцентное свечение из угла — связывает панель с подсветкой подиума героя */
+.brands-panel::before {
+  content: ""; position: absolute; inset: auto auto -40% -10%; width: 60%; height: 120%; pointer-events: none;
+  background: radial-gradient(closest-side, #2f3bff38, transparent);
 }
+.brands-copy { position: relative; display: grid; gap: 16px; }
+.brands-h { font-size: clamp(24px, 2.1vw, 30px); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; text-wrap: balance; }
+.brands-copy p { font-size: 15px; line-height: 1.5; color: var(--on-stage-muted); max-width: 34ch; }
 
-.logobar-logos {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  justify-content: center;
+/* Сетка 5×2 с волосяными линиями: 1px-зазор на фоне линии */
+.brands-grid {
+  position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px;
+  background: var(--stage-line); border: 1px solid var(--stage-line); border-radius: var(--r-md); overflow: hidden;
 }
-
-.logobar-logos img {
-  height: 32px;
-  width: auto;
-  opacity: .6;
-  transition: opacity var(--fast) var(--ease);
+.brand {
+  --ls: .72; /* общий множитель размера логотипов — уменьшается на узких экранах */
+  position: relative; display: grid; place-items: center; height: 104px; padding: 16px 12px 28px; background: var(--stage);
 }
-
-.logobar-logos img:hover { opacity: 1; }
-
-.logo-placeholder {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-muted);
-  opacity: .6;
+.brand img {
+  position: relative; z-index: 1; height: calc(var(--h, 28px) * var(--ls)); width: auto; max-width: 100%;
+  filter: brightness(0) invert(1); opacity: .45; transition: opacity var(--base) var(--ease);
 }
+.brand-cat {
+  position: absolute; z-index: 1; left: 8px; right: 8px; bottom: 12px; text-align: center;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent-ink-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  opacity: 0; transform: translateY(4px); transition: opacity var(--base) var(--ease), transform var(--base) var(--ease);
+}
+.brand.is-active img { opacity: 1; }
+.brand.is-active .brand-cat { opacity: 1; transform: none; }
 
-.logobar-more {
-  font-size: 13px;
-  color: var(--accent-ink);
-  text-decoration: underline;
+/* Селектор: одна рамка, которая скользит между ячейками (позицию ставит main.js) */
+.brands-cursor {
+  position: absolute; z-index: 1; top: 0; left: 0; width: 0; height: 0; pointer-events: none; opacity: 0;
+  border-radius: 10px; border: 1px solid var(--accent);
+  background: radial-gradient(90% 90% at 50% 100%, #2f3bff40, #2f3bff0a 70%);
+  box-shadow: 0 0 0 4px #2f3bff1f, 0 8px 32px -8px #2f3bffaa;
+  transition: transform 520ms var(--ease), width 520ms var(--ease), height 520ms var(--ease), opacity var(--base) var(--ease);
+}
+.brands-grid.has-cursor .brands-cursor { opacity: 1; }
+
+.brand--more { padding: 0; }
+.brand--more a {
+  position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 14px; font-weight: 500; color: var(--on-stage-muted); transition: color var(--fast) var(--ease);
+}
+.brand--more svg { width: 16px; height: 16px; transition: transform var(--base) var(--ease); }
+.brand--more a:hover, .brand--more.is-active a { color: var(--on-stage); }
+.brand--more a:hover svg { transform: translateX(3px); }
+
+@media (max-width: 1199px) {
+  .brands-panel { grid-template-columns: 1fr; gap: 28px; padding: 36px; }
+  .brands-h { max-width: 22ch; }
+  .brands-copy p { max-width: 52ch; }
+}
+@media (max-width: 639px) {
+  .brands { padding-top: 40px; }
+  .brands-panel { padding: 28px 16px 16px; border-radius: var(--r-lg); gap: 24px; }
+  .brands-copy { padding: 0 8px; }
+  .brands-h { font-size: 24px; }
+  .brands-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .brand { --ls: .55; height: 84px; padding: 12px 6px 26px; }
+  .brand--more { grid-column: 1 / -1; height: 52px; }
+  .brand-cat { bottom: 9px; font-size: 9px; letter-spacing: .03em; }
+}
+/* На тач-экранах наведения нет — показываем всё сразу, селектор только декоративно перебирает */
+@media (hover: none) {
+  .brand img { opacity: .75; }
 }
 
 /* Переключатель режимов */
@@ -347,7 +394,7 @@ section { position: relative; z-index: 2; }
 
 /* ================= HORIZONTAL PINNED CHAPTERS ================= */
 .hpin { height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 0; }
-.hpin-inner { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: center; padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))); }
+.hpin-inner { display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: center; padding-left: var(--edge-l); }
 /* Заголовок закрыт фоном слева до края экрана — лента уезжает «под» него */
 .hpin-head { display: grid; gap: 24px; align-self: stretch; align-content: center; position: relative; z-index: 3; background: var(--surface); box-shadow: -60vw 0 0 60vw var(--surface); }
 .hpin-head::after { content: ""; position: absolute; top: 0; bottom: 0; right: -48px; width: 48px; background: linear-gradient(90deg, var(--surface), transparent); }
@@ -355,7 +402,15 @@ section { position: relative; z-index: 2; }
 .progress .track-bar { width: 120px; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
 .progress .track-bar i { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
 .progress b { color: var(--ink); font-weight: 500; }
-.viewport { overflow: visible; }
+.viewport {
+  overflow: visible;
+  /* Лента карточек гаснет перед счётчиком. min-width: 0 — иначе ячейка грида растягивается
+     на всю ленту и маска уезжает за экран. Поля — чтобы маска не срезала тень, ховер
+     и уход карточек под градиент заголовка слева (он шириной в gap 48px). */
+  min-width: 0;
+  padding: 24px 0 24px 48px; margin: -24px 0 -24px -48px;
+  -webkit-mask-image: var(--rail-mask); mask-image: var(--rail-mask);
+}
 .track { display: flex; gap: 24px; width: max-content; padding-right: 20vw; will-change: transform; }
 
 /* Задачи — карточки */
@@ -433,10 +488,11 @@ section { position: relative; z-index: 2; }
 .round svg { width: 20px; height: 20px; }
 .cases {
   display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
-  padding: 8px max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))) 24px;
+  padding: 8px var(--edge-r) 24px var(--edge-l);
+  -webkit-mask-image: var(--rail-mask); mask-image: var(--rail-mask);
 }
 .cases::-webkit-scrollbar { display: none; }
-.case { flex: 0 0 min(560px, 82vw); scroll-snap-align: start; scroll-margin-left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))); background: var(--surface-raised); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease); }
+.case { flex: 0 0 min(560px, 82vw); scroll-snap-align: start; scroll-margin-left: var(--edge-l); background: var(--surface-raised); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease); }
 .case:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .case .ph { aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, #e9e7e2 0 12px, #efede8 12px 24px); display: grid; place-items: center; }
 .case .ph span { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); background: var(--surface-raised); padding: 6px 10px; border-radius: var(--r-pill); }
@@ -505,7 +561,7 @@ section { position: relative; z-index: 2; }
 .ui[data-f="3"] .ui-map .zone { opacity: 1; }
 
 /* 08 CTA */
-.final .stage { padding: 96px 56px; text-align: center; display: grid; justify-items: center; gap: 32px; }
+.final .stage { padding: 96px var(--rail); text-align: center; display: grid; justify-items: center; gap: 32px; }
 .final .h2 { max-width: 18ch; }
 .final .lead { margin: 0 auto; }
 .trust { display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; font-size: 14px; color: var(--on-stage-muted); }
@@ -514,14 +570,81 @@ section { position: relative; z-index: 2; }
 .contacts { font-size: 15px; color: var(--on-stage-muted); }
 .contacts a { color: var(--on-stage); border-bottom: 1px solid var(--stage-line); }
 
-/* Футер */
+/* Футер — «пульт»: тёмная сцена в языке блоков 04/07. Контент справа не заходит в полосу счётчика. */
+.site-foot { position: relative; z-index: 2; padding-bottom: 16px; }
 .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; padding: 80px 0 56px; }
 .stats b { display: block; font-size: 40px; font-weight: 700; letter-spacing: -.03em; font-feature-settings: "tnum"; }
 .stats .l { font-size: 14px; color: var(--ink-muted); }
-.foot { display: flex; justify-content: space-between; gap: 24px; padding: 24px 0 40px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-muted); flex-wrap: wrap; }
+
+.foot { padding: 72px var(--rail) 0 56px; display: grid; gap: 56px; }
+.foot a { transition: color var(--fast) var(--ease), border-color var(--fast) var(--ease); }
+.foot .mono { color: var(--on-stage-muted); }
+
+.foot-top { display: flex; justify-content: space-between; align-items: end; gap: 40px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid var(--stage-line); }
+.foot-brand { display: grid; gap: 20px; max-width: 420px; }
+.foot-brand img { height: 28px; width: auto; }
+.foot-brand p { font-size: 15px; line-height: 1.55; color: var(--on-stage-muted); }
+.foot-call { display: grid; gap: 8px; justify-items: end; text-align: right; }
+.foot-phone { font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
+.foot-phone:hover { color: var(--accent-ink-dark); }
+.foot-mail { font-size: 17px; color: var(--on-stage-muted); border-bottom: 1px solid var(--stage-line); }
+.foot-mail:hover { color: var(--on-stage); border-color: var(--on-stage-muted); }
+
+.foot-grid { display: grid; grid-template-columns: repeat(3, 1fr) 1.3fr; gap: 32px; }
+.foot-col { display: grid; gap: 12px; align-content: start; font-size: 15px; }
+.foot-col h3 { font-weight: 500; margin-bottom: 8px; }
+.foot-col h3 b { color: var(--accent-ink-dark); font-weight: 500; margin-right: 6px; }
+.foot-col > a, .foot-col > span { color: var(--on-stage-muted); width: fit-content; }
+.foot-col > a { position: relative; }
+/* Ховер: стрелка-курсор выезжает слева, как указатель маршрута */
+.foot-col > a::before {
+  content: "→"; position: absolute; left: -18px; opacity: 0; transform: translateX(-6px);
+  color: var(--accent-ink-dark); transition: opacity var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.foot-col > a:hover { color: var(--on-stage); }
+.foot-col > a:hover::before { opacity: 1; transform: none; }
+.foot-status { padding: 20px; border: 1px solid var(--stage-line); border-radius: var(--r-md); background: var(--stage-raised); gap: 14px; }
+.foot-status h3 { margin-bottom: 0; }
+@media (min-width: 1024px) { .foot-status { margin-top: -21px; } }
+.foot-status .badge-online { width: fit-content; background: rgba(200,255,60,.12); color: var(--lime); }
+.foot-status .badge-online i { background: var(--lime); }
+.foot-status p { font-size: 11px; line-height: 1.7; }
+.foot-status p span { color: var(--on-stage); }
+.foot-status ul { display: grid; gap: 8px; font-size: 14px; color: var(--on-stage-muted); }
+.foot-status li { display: flex; gap: 8px; align-items: center; }
+.foot-status li i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); flex: none; }
+
+/* Вордмарк во всю ширину: SVG с textLength тянется ровно по контейнеру на любой ширине */
+.foot-mark { position: relative; margin: 0 0 -1.2%; }
+.foot-mark svg { display: block; width: 100%; height: auto; overflow: visible; }
+.foot-mark text { font: 700 150px/1 var(--sans); }
+.foot-mark svg:first-child text { fill: rgba(243,242,239,.06); }
+.foot-mark__lit { position: absolute; inset: 0; opacity: 0; transition: opacity var(--base) var(--ease);
+  -webkit-mask-image: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 70%);
+          mask-image: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 70%); }
+.foot-mark__lit text { fill: var(--accent-ink-dark); }
+.foot-mark:hover .foot-mark__lit { opacity: 1; }
+
+.foot-bot {
+  position: relative; display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap;
+  padding: 20px 0 28px; margin-top: -56px; border-top: 1px solid var(--stage-line);
+  font-size: 13px; color: var(--on-stage-muted);
+}
+.foot-bot a:hover { color: var(--on-stage); }
+.foot-up { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border: 1px solid var(--stage-line); border-radius: var(--r-pill); color: var(--on-stage); }
+.foot-up svg { width: 16px; height: 16px; transition: transform var(--fast) var(--ease); }
+.foot-up:hover { border-color: var(--on-stage-muted); }
+.foot-up:hover svg { transform: translateY(-2px); }
 
 /* Появление */
 .reveal { opacity: 0; transform: translateY(16px); }
+
+/* Широкий десктоп: H1 делит строку с карточкой метрик. 5.2vw этого не учитывает и на 1200–1300
+   и 1920+ ломает заголовок в три строки. Считаем кегль от остатка: контентная ширина
+   минус карточка (~526px) и gap 40px, делённый на длину строки «которая окупается.» (8.97em + запас). */
+@media (min-width: 1200px) {
+  .hero .h1 { font-size: clamp(40px, min(5.2vw, (100vw - var(--edge-l) - var(--edge-r) - 566px) / 9.1), 80px); }
+}
 
 /* Узкий десктоп: карточке метрик и заголовку уже тесно в одной строке */
 @media (max-width: 1199px) {
@@ -533,7 +656,8 @@ section { position: relative; z-index: 2; }
 
 /* ================= MOBILE / FALLBACK (без закреплений) ================= */
 @media (max-width: 1023px) {
-  :root { --gutter: 16px; --robot-base: min(190px, 40vw, 26vh); }
+  :root { --gutter: 16px; --rail: 16px; --robot-base: min(190px, 40vw, 26vh); }
+  .scene-lane, .viewport, .cases { -webkit-mask-image: none; mask-image: none; }
   .sec { padding: 80px 0; }
   .nav-links, .counter, .mode-switcher { display: none; }
   .nav { padding-left: 16px; gap: 12px; justify-content: space-between; }
@@ -552,7 +676,7 @@ section { position: relative; z-index: 2; }
   .hpin-inner { grid-template-columns: 1fr; padding-left: var(--gutter); gap: 32px; }
   .hpin-head { box-shadow: none; background: none; }
   .hpin-head::after { display: none; }
-  .viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: 0; }
+  .viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0; padding: 0; }
   .viewport::-webkit-scrollbar { display: none; }
   .track { padding-right: var(--gutter); }
   .task { scroll-snap-align: start; width: 82vw; max-width: 400px; min-height: 360px; }
@@ -575,6 +699,14 @@ section { position: relative; z-index: 2; }
   .ui-side { display: none; }
   .final .stage { padding: 64px 20px; }
   .stats { grid-template-columns: 1fr 1fr; }
+  .site-foot { padding-bottom: 8px; }
+  .foot { padding: 48px 20px 0; gap: 40px; }
+  .foot-top { padding-bottom: 32px; }
+  .foot-call { justify-items: start; text-align: left; }
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .foot-status { grid-column: 1 / -1; }
+  .foot-col > a::before { display: none; }
+  .foot-bot { margin-top: -32px; }
   .cases-head { flex-direction: column; align-items: start; }
 }
 @media (prefers-reduced-motion: reduce) {

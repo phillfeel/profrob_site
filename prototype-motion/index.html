@@ -248,16 +248,8 @@ section { position: relative; z-index: 2; }
   transition: opacity var(--base) var(--ease), filter var(--base) var(--ease);
 }
 .logobar__list li:hover img { opacity: 1; filter: grayscale(0); }
-/* Два файла-заглушки нарисованы белым по прозрачному фону — на светлой странице их просто нет.
-   Инверсия — подпорка под заглушки, с настоящими логотипами эти две строки уходят. */
-.logobar__list img[data-ink="light"] { filter: grayscale(1) invert(1); }
-.logobar__list li:hover img[data-ink="light"] { filter: invert(1); }
 .logobar__more { font-size: 13px; color: var(--ink-muted); border-bottom: 1px solid var(--line-strong); }
 .logobar__more:hover { color: var(--accent-ink); }
-.logobar__note {
-  font-family: var(--mono); font-size: 10px; line-height: 1.4; letter-spacing: .04em;
-  color: var(--line-strong); opacity: .65; max-width: 62ch;
-}
 
 /* ================= ПАНЕЛЬ ПЕСОЧНИЦЫ — в продакшен не едет ================= */
 .sandbox {
@@ -448,18 +440,16 @@ section { position: relative; z-index: 2; }
       <div class="wrap logobar__inner">
         <p class="logobar__title" id="logobar-title">Работаем с ведущими мировыми производителями</p>
         <ul class="logobar__list">
-          <!-- --oh = 1 / доля краски по вертикали в самом файле, замерено по альфа-боксу.
-               data-ink="light" — файл нарисован белым по прозрачному и без инверсии невидим. -->
-          <li><img src="../homepage/logos/pudu.svg"      alt="PUDU"      style="--oh:1"    loading="lazy"></li>
-          <li><img src="../homepage/logos/gausium.svg"   alt="GAUSIUM"   style="--oh:1.03" loading="lazy"></li>
-          <li><img src="../homepage/logos/keenon.png"    alt="KEENON"    style="--oh:1.24" loading="lazy"></li>
-          <li><img src="../homepage/logos/hikrobot.svg"  alt="HIKROBOT"  style="--oh:2.66" loading="lazy"></li>
-          <li><img src="../homepage/logos/forwardx.png"  alt="ForwardX"  style="--oh:2.78" loading="lazy" data-ink="light"></li>
-          <li><img src="../homepage/logos/unitree.svg"   alt="UNITREE"   style="--oh:1.17" loading="lazy"></li>
-          <li><img src="../homepage/logos/orionstar.png" alt="OrionStar" style="--oh:1.01" loading="lazy" data-ink="light"></li>
+          <!-- Файлы из assets/brands обрезаны по краске и приведены к одному серому.
+               --oh = оптическая высота из главной (--h в index.html) / 30px. -->
+          <li><img src="../assets/brands/pudu.svg"      alt="PUDU"      style="--oh:1"    loading="lazy"></li>
+          <li><img src="../assets/brands/keenon.png"    alt="KEENON"    style="--oh:1.03" loading="lazy"></li>
+          <li><img src="../assets/brands/hikrobot.svg"  alt="HIKROBOT"  style="--oh:.67"  loading="lazy"></li>
+          <li><img src="../assets/brands/forwardx.png"  alt="ForwardX"  style="--oh:.77"  loading="lazy"></li>
+          <li><img src="../assets/brands/unitree.svg"   alt="UNITREE"   style="--oh:.87"  loading="lazy"></li>
+          <li><img src="../assets/brands/orionstar.png" alt="OrionStar" style="--oh:1"    loading="lazy"></li>
         </ul>
         <a class="logobar__more" href="#">и другие</a>
-        <p class="logobar__note">Настоящий логотип пока только у GAUSIUM, остальные — заглушки; forwardx и orionstar нарисованы белым и выводятся с инверсией. Подмена файла правок вёрстки не требует: оптическая высота задаётся --oh.</p>
       </div>
     </section>
   </main>

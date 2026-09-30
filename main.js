@@ -5,6 +5,75 @@
   const pad2 = (n) => String(n).padStart(2, '0');
   const fmt = (v, dec) => v.toFixed(dec).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
+  // ---------- Футер: часы МСК и подсветка вордмарка (не зависят от GSAP) ----------
+  const clock = document.getElementById('foot-clock');
+  if (clock) {
+    const fmtTime = new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit' });
+    const tick = () => { clock.textContent = fmtTime.format(new Date()); };
+    tick();
+    setInterval(tick, 15000);
+  }
+  const mark = document.querySelector('.foot-mark');
+  if (mark && matchMedia('(hover: hover)').matches) {
+    mark.addEventListener('pointermove', (e) => {
+      const r = mark.getBoundingClientRect();
+      mark.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      mark.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  }
+
+  // ---------- Производители: селектор, перебирающий бренды (не зависит от GSAP) ----------
+  // Рамка сама переходит между ячейками; при наведении следует за курсором, вне экрана — стоит.
+  const initBrands = (panel) => {
+    const grid = panel.querySelector('.brands-grid');
+    const cursor = panel.querySelector('.brands-cursor');
+    const cells = [...panel.querySelectorAll('.brand:not(.brand--more)')];
+    if (!grid || !cursor || !cells.length) return;
+
+    let active = null;
+    const select = (cell) => {
+      if (cell === active) return;
+      if (active) active.classList.remove('is-active');
+      active = cell;
+      cell.classList.add('is-active');
+      cursor.style.transform = `translate(${cell.offsetLeft}px, ${cell.offsetTop}px)`;
+      cursor.style.width = `${cell.offsetWidth}px`;
+      cursor.style.height = `${cell.offsetHeight}px`;
+      grid.classList.add('has-cursor');
+    };
+
+    const STEP = 1800;
+    let timer = 0, visible = false, hovering = false;
+    // Случайный соседний шаг, но не на ту же ячейку — движение выглядит как поиск, а не как бегущая строка
+    const next = () => {
+      const i = cells.indexOf(active);
+      let j = i;
+      while (j === i) j = Math.floor(Math.random() * cells.length);
+      select(cells[j]);
+    };
+    const stop = () => { clearInterval(timer); timer = 0; };
+    const start = () => { if (!timer && !reduce && visible && !hovering) timer = setInterval(next, STEP); };
+
+    select(cells[0]);
+    window.addEventListener('resize', () => { const c = active; active = null; if (c) select(c); });
+
+    if (matchMedia('(hover: hover)').matches) {
+      grid.addEventListener('pointerover', (e) => {
+        const cell = e.target.closest('.brand');
+        if (!cell || !grid.contains(cell)) return;
+        hovering = true; stop(); select(cell);
+      });
+      grid.addEventListener('pointerleave', () => { hovering = false; start(); });
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible) start(); else stop();
+      }).observe(panel);
+    } else { visible = true; start(); }
+  };
+  document.querySelectorAll('[data-brands]').forEach(initBrands);
+
   // Без GSAP (CDN недоступен) страница остаётся полностью читаемой: снимаем скрытие.
   if (!window.gsap || !window.ScrollTrigger) {
     document.querySelectorAll('.reveal').forEach((el) => { el.style.opacity = 1; el.style.transform = 'none'; });
