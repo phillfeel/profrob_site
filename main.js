@@ -76,6 +76,7 @@
 
   // Без GSAP (CDN недоступен) страница остаётся полностью читаемой: снимаем скрытие.
   if (!window.gsap || !window.ScrollTrigger) {
+    document.documentElement.classList.remove('js');
     document.querySelectorAll('.reveal').forEach((el) => { el.style.opacity = 1; el.style.transform = 'none'; });
     document.querySelectorAll('[data-count]').forEach((el) => { el.textContent = fmt(+el.dataset.count, +(el.dataset.dec || 0)); });
     return;
@@ -94,22 +95,14 @@
     const cap    = document.querySelector('#caption');
     const capCat = document.querySelector('#caption-cat');
     const capRes = document.querySelector('#caption-res');
-    const radios = Array.from(document.querySelectorAll('.mode-option input[name="mode"]'));
-    const KEY = 'heroMode';
-    const store = {
-      get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
-      set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* приватный режим */ } },
-    };
     const part = (el, sel) => el.querySelector(sel);
     const num  = (el, key, def) => (el.dataset[key] !== undefined ? parseFloat(el.dataset[key]) : def);
     const auto = () => !reduce && !mqMobile.matches;
 
-    let mode = 'a';
     let inView = true;
     let stage = els;
 
     // ---------- Состояние сцены: одна функция красит всё ----------
-    const SPOT  = { y: -18, scale: 1.06, dim: .62, dur: .7  };
     const HOVER = { y: -12, scale: 1.05, dim: .68, dur: .24 };
 
     function paint(i, cfg) {
@@ -123,21 +116,31 @@
         gsap.to(part(el, '.robot-glow'), { opacity: on ? 1 : .5, scale: on ? 1.18 : 1, duration: dur, ease: EASE, overwrite: 'auto' });
         el.classList.toggle('is-active', on);
       });
-      if (i !== null && stage[i]) setCaption(stage[i]);
+      if (i !== null && stage[i]) showCaption(stage[i]); else hideCaption();
     }
 
-    // ---------- Панель результата: кроссфейд ----------
-    let capTl = null;
-    function setCaption(el) {
+    // ---------- Панель результата: появляется на ховер/фокус, между роботами — кроссфейд ----------
+    let capTl = null, capShown = false;
+    function showCaption(el) {
       if (!cap || cap.hidden) return;
       const cat = el.dataset.cat, res = el.dataset.res;
-      if (capCat.textContent === cat) return;
-      if (reduce) { capCat.textContent = cat; capRes.textContent = res; return; }
+      if (capShown && capCat.textContent === cat) return;
+      const wasShown = capShown;
+      capShown = true;
       if (capTl) capTl.kill();
-      capTl = gsap.timeline()
-        .to(cap, { opacity: 0, y: -6, duration: .18, ease: EASE })
-        .add(() => { capCat.textContent = cat; capRes.textContent = res; })
-        .fromTo(cap, { y: 6 }, { opacity: 1, y: 0, duration: .28, ease: EASE });
+      const fill = () => { capCat.textContent = cat; capRes.textContent = res; };
+      if (reduce) { fill(); capTl = gsap.set(cap, { opacity: 1, y: 0 }); return; }
+      capTl = gsap.timeline();
+      if (wasShown) capTl.to(cap, { opacity: 0, y: -6, duration: .18, ease: EASE });
+      capTl.add(fill).fromTo(cap, { y: 6 }, { opacity: 1, y: 0, duration: .28, ease: EASE });
+    }
+    function hideCaption() {
+      if (!cap || !capShown) return;
+      capShown = false;
+      if (capTl) capTl.kill();
+      capTl = reduce
+        ? gsap.set(cap, { opacity: 0 })
+        : gsap.to(cap, { opacity: 0, y: -6, duration: .24, ease: EASE });
     }
 
     // ---------- Микрожизнь ----------
@@ -154,21 +157,7 @@
       });
     }
 
-    // ---------- Режим A: автоцикл ----------
-    let cycle = null, idx = -1, resume = null;
-    const stopCycle = () => {
-      if (cycle) { cycle.kill(); cycle = null; }
-      if (resume) { resume.kill(); resume = null; }
-    };
-    function startCycle(from) {
-      stopCycle();
-      if (from !== undefined && from !== null) idx = from;
-      cycle = gsap.timeline({ repeat: -1 })
-        .call(() => { idx = (idx + 1) % els.length; paint(idx, SPOT); })
-        .to({}, { duration: 4.2 });
-    }
-
-    // ---------- Режим B: лента (клоны через cloneNode, а не innerHTML) ----------
+    // ---------- Лента (клоны через cloneNode, а не innerHTML) ----------
     const BELT_DUR = 48, BELT_GAP_MIN = 28;
     let beltTl = null;
     const clones = [];
@@ -193,6 +182,43 @@
         wire(c);
       });
     }
+    // ---------- Лента по дуге подиума ----------
+    // Верх подиума — эллипс шире экрана: у краёв его передняя кромка поднимается, а трек прямой,
+    // и низкие фигуры (опоры Стройки) вылезали за кромку. Каждый робот поднимается на подъём дуги
+    // в своей точке — все одинаково, поэтому глубина ряда не меняется. Считаем по offset* (без
+    // getBoundingClientRect в тике) и пишем в CSS translate — transform слоёв занят GSAP.
+    const plate = scene.querySelector('.scene-plate');
+    const plateTop = scene.querySelector('.scene-plate__top');
+    let arc = null;
+    const measureArc = () => {
+      if (!plate || !plateTop) { arc = null; return; }
+      const a = plate.offsetWidth / 2;
+      arc = { cx: plate.offsetLeft + a, a, b: plateTop.offsetHeight / 2, tw: track.offsetWidth, tl: track.offsetLeft };
+    };
+    const arcRise = (x) => {
+      const t = Math.min(1, Math.abs(x - arc.cx) / arc.a);
+      return arc.b * (1 - Math.sqrt(1 - t * t));
+    };
+    // Подпись под роботом ложится вдоль кромки: угол касательной к эллипсу в точке x.
+    // t ограничен (у вершины эллипса наклон уходит в бесконечность), угол — LABEL_TILT_MAX.
+    const LABEL_TILT_MAX = 12;
+    const arcTilt = (x) => {
+      const d = x - arc.cx;
+      const t = Math.min(.97, Math.abs(d) / arc.a);
+      const deg = Math.atan((arc.b / arc.a) * t / Math.sqrt(1 - t * t)) * 180 / Math.PI;
+      return -Math.sign(d) * Math.min(LABEL_TILT_MAX, deg);
+    };
+    const labelOf = (el) => el._label || (el._label = el.querySelector('.robot-label'));
+    function followArc() {
+      if (!arc) return;
+      const shift = arc.tl + (gsap.getProperty(track, 'xPercent') / 100) * arc.tw;
+      stage.forEach((el) => {
+        const x = shift + el.offsetLeft + el.offsetWidth / 2;
+        el.style.translate = `0 ${(-arcRise(x)).toFixed(2)}px`;
+        const label = labelOf(el);
+        if (label) label.style.rotate = `${arcTilt(x).toFixed(2)}deg`;
+      });
+    }
     function startBelt() {
       if (beltTl) return;
       buildClones();
@@ -201,9 +227,18 @@
       track.classList.add('is-belt');
       gsap.set(track, { xPercent: 0, willChange: 'transform' });
       beltTl = gsap.timeline({ repeat: -1 }).to(track, { xPercent: -50, duration: BELT_DUR, ease: 'none' });
+      measureArc();
+      followArc();
+      gsap.ticker.add(followArc);
       if (!inView) beltTl.pause();
     }
     function stopBelt() {
+      gsap.ticker.remove(followArc);
+      els.forEach((el) => {
+        el.style.translate = '';
+        const label = labelOf(el);
+        if (label) label.style.rotate = '';
+      });
       if (beltTl) { gsap.killTweensOf(beltTl); beltTl.kill(); beltTl = null; }
       clones.forEach((c) => {
         gsap.killTweensOf([c].concat(Array.from(c.querySelectorAll('*'))));
@@ -220,17 +255,13 @@
 
     // ---------- Ховер/фокус — вешаются ОДИН раз на узел ----------
     function wire(el) {
-      const focusIn = () => { stopCycle(); brake(0, .4); paint(stage.indexOf(el), HOVER); };
-      const focusOut = () => {
-        brake(1, .6);
-        if (mode === 'a' && auto()) { resume = gsap.delayedCall(1.5, () => startCycle(stage.indexOf(el))); }
-        else { paint(null, { dur: .3 }); }
-      };
+      const focusIn = () => { brake(0, .4); paint(stage.indexOf(el), HOVER); };
+      const focusOut = () => { brake(1, .6); paint(null, { dur: .3 }); };
       el.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') focusIn(); });
       el.addEventListener('pointerleave', (e) => { if (e.pointerType !== 'touch') focusOut(); });
       el.addEventListener('focus', focusIn);
       el.addEventListener('blur', focusOut);
-      el.addEventListener('click', () => paint(stage.indexOf(el), SPOT));
+      el.addEventListener('click', () => paint(stage.indexOf(el), HOVER));
     }
     els.forEach(wire);
 
@@ -258,7 +289,16 @@
       });
     });
 
-    function setStage(list) { stage = list; buildLife(); buildParallax(); }
+    // ---------- Подъём по глубине при скролле ----------
+    // Прогресс скролла хранится отдельно и красится на весь stage: клоны ленты рождаются
+    // посреди скролла и должны сразу встать на ту же высоту, что и оригиналы.
+    const DEPTH_RISE = 3600;
+    let depthP = 0;
+    function applyDepth() {
+      stage.forEach((el) => gsap.set(part(el, '.robot-depth'), { y: -num(el, 'depth', .014) * DEPTH_RISE * depthP }));
+    }
+
+    function setStage(list) { stage = list; buildLife(); buildParallax(); applyDepth(); }
 
     // ---------- Въезд роботов ----------
     if (!reduce) {
@@ -271,12 +311,19 @@
 
     // ---------- Скролл-скраб героя (единственный) ----------
     gsap.matchMedia().add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
-      const tl = gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
+      const syncDepth = (self) => { depthP = self.progress; applyDepth(); };
+      const tl = gsap.timeline({ scrollTrigger: {
+        trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true,
+        onUpdate: syncDepth, onRefresh: syncDepth,
+      } })
         .to('.hero-top', { y: -120, opacity: 0, ease: 'none' }, 0)
         .to(scene, { scale: 1.12, y: 40, transformOrigin: '50% 70%', ease: 'none' }, 0)
         .to(scene, { opacity: 0, ease: 'none' }, .6);
-      els.forEach((el) => tl.to(part(el, '.robot-depth'), { y: -num(el, 'depth', .014) * 3600, ease: 'none' }, 0));
-      return () => tl.scrollTrigger && tl.scrollTrigger.kill();
+      return () => {
+        if (tl.scrollTrigger) tl.scrollTrigger.kill();
+        depthP = 0;
+        applyDepth();
+      };
     });
 
     // ---------- Пауза вне вьюпорта ----------
@@ -286,49 +333,43 @@
         inView = self.isActive;
         if (inView) {
           life.forEach((t) => t.play());
-          if (mode === 'a' && auto()) startCycle(idx);
           if (beltTl) beltTl.play();
         } else {
           life.forEach((t) => t.pause());
-          stopCycle();
           if (beltTl) beltTl.pause();
         }
       },
     });
 
-    // ---------- Режимы ----------
-    function applyMode(next, initial) {
-      mode = next;
-      stopCycle();
+    // ---------- Запуск: лента на десктопе, статичный ряд на мобиле / reduced motion ----------
+    let startTimer = null;
+    function setup(initial) {
+      if (startTimer) { startTimer.kill(); startTimer = null; }
       stopBelt();
       setStage(els);
       if (!initial) paint(null, { dur: .3 });
-      if (cap) cap.hidden = (mode !== 'a' || !auto());
-      const go = () => {
-        if (mode !== next || !auto()) return;
-        if (mode === 'a') { if (inView) { idx = -1; startCycle(); } }
-        else if (mode === 'b') { startBelt(); }
-      };
-      if (initial && !reduce) gsap.delayedCall(1.5, go); else go();
+      if (cap) cap.hidden = mqMobile.matches;
+      if (!auto()) return;
+      // Раскладка ленты — сразу, иначе роботы сначала стоят статичным рядом и потом «разлепляются».
+      // При первом запуске лента стоит, пока идёт въезд, и затем плавно разгоняется.
+      startBelt();
+      if (initial && beltTl) {
+        beltTl.timeScale(0);
+        startTimer = gsap.delayedCall(1.5, () => {
+          startTimer = null;
+          if (!track.querySelector('.robot:hover, .robot:focus')) brake(1, 1.2);
+        });
+      }
     }
-
-    const saved = store.get(KEY);
-    const first = radios.find((r) => r.value === saved) || radios[0];
-    if (first) first.checked = true;
-    radios.forEach((r) => r.addEventListener('change', () => {
-      if (!r.checked) return;
-      store.set(KEY, r.value);
-      applyMode(r.value.toLowerCase());
-    }));
-    applyMode(first ? first.value.toLowerCase() : 'a', true);
-    mqMobile.addEventListener('change', () => applyMode(mode));
+    setup(true);
+    mqMobile.addEventListener('change', () => setup(false));
 
     // Ресайз меняет ширину роботов — пересобираем ленту с сохранением фазы
     let rz = null;
     addEventListener('resize', () => {
       if (rz) rz.kill();
       rz = gsap.delayedCall(.2, () => {
-        if (mode !== 'b' || !beltTl) return;
+        if (!beltTl) return;
         const phase = beltTl.progress();
         stopBelt(); startBelt();
         if (!beltTl) return;
@@ -436,6 +477,7 @@
   const cases = document.querySelector('.cases');
   const caseCards = [...cases.children];
   const cCaseCur = document.querySelector('.c-cur');
+  document.querySelector('.c-total').textContent = pad2(caseCards.length);
   const [prevBtn, nextBtn] = document.querySelectorAll('.slider-ctrl .round');
   const caseIndex = () => Math.round(cases.scrollLeft / (caseCards[0].offsetWidth + 24));
   const syncCases = () => {

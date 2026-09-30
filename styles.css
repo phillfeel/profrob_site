@@ -179,9 +179,9 @@ section { position: relative; z-index: 2; }
   background: radial-gradient(46% 100% at 50% 0%, #1c1e2226 0%, #1c1e2200 76%);
 }
 
-/* Полоса роботов: в режиме ленты они уходят за край, маска гасит их до счётчика.
-   Маска на обёртке, а не на .scene-track, — трек едет трансформом и увёз бы маску с собой. */
-.scene-lane { position: absolute; inset: 0; -webkit-mask-image: var(--rail-mask); mask-image: var(--rail-mask); }
+/* Полоса роботов: в режиме ленты они уходят за оба края экрана без маски — справа так же, как слева,
+   под фиксированным счётчиком (z-index 40). Маска-растворение давала светлое пятно у правого края. */
+.scene-lane { position: absolute; inset: 0; }
 
 .scene-track {
   position: absolute; left: 0; right: 0; bottom: var(--feet);
@@ -196,11 +196,19 @@ section { position: relative; z-index: 2; }
   --lift-on: 0;
 }
 .scene-track.is-belt > .robot { margin-left: 0; margin-right: var(--belt-gap, 40px); }
+/* До запуска ленты (GSAP ещё грузится) роботы стояли бы статичным рядом и потом «разлетались».
+   На десктопе прячем их до .is-belt — въезд в main.js проявляет их уже в раскладке ленты.
+   Без GSAP main.js снимает класс .js, и ряд виден как есть. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .js .scene-track:not(.is-belt) > .robot { opacity: 0; }
+}
 
 .robot {
   position: relative; flex: 0 0 auto; appearance: none; background: none; border: 0; padding: 0;
   cursor: pointer; color: inherit; font: inherit;
-  margin-bottom: calc(var(--robot-base) * var(--lf, 0) * var(--lift-on, 1));
+  /* --sink опускает фигуру ниже линии подиума: у Стройки низ картинки — концы выносных опор,
+     а гусеницы (визуальное днище) выше; без сдвига робот стоит выше соседей */
+  margin-bottom: calc(var(--robot-base) * var(--lf, 0) * var(--lift-on, 1) - var(--robot-base) * var(--k) * var(--sink, 0));
 }
 .robot-depth, .robot-life, .robot-fig { display: block; }
 .robot-fig { position: relative; }
@@ -213,8 +221,10 @@ section { position: relative; z-index: 2; }
 
 .robot-glow {
   position: absolute; z-index: 0; left: 20%; right: 20%;
-  /* Тень остаётся на подиуме, даже когда фигура приподнята (--lf у дрона) */
-  bottom: calc(var(--robot-base) * var(--k) * -.05 - var(--robot-base) * var(--lf, 0) * var(--lift-on, 1));
+  /* Центр эллипса — на днище: --pad = доля прозрачного поля под силуэтом в webp (задаётся на .robot),
+     +.01 заводит заднюю половину под корпус, чтобы робот стоял в тени, а не над ней.
+     Тень остаётся на подиуме, даже когда фигура приподнята (--lf у дрона) — дрон парит по задумке. */
+  bottom: calc(var(--robot-base) * var(--k) * (var(--pad, 0) + .01 - .05) - var(--robot-base) * var(--lf, 0) * var(--lift-on, 1));
   height: calc(var(--robot-base) * var(--k) * .1);
   border-radius: 50%; opacity: .5;
   background: radial-gradient(closest-side, #c8ff3c1a 30%, #c8ff3c73 72%, #c8ff3c00 100%);
@@ -222,11 +232,12 @@ section { position: relative; z-index: 2; }
 
 .robot-label {
   position: absolute; left: 50%;
-  bottom: calc(-1 * (var(--feet) - var(--robot-base) * .245 + 8px)
-                 - var(--robot-base) * var(--lf, 0) * var(--lift-on, 1));
+  bottom: calc(-1 * (var(--feet) - var(--robot-base) * .25 + 8px)
+                 - var(--robot-base) * var(--lf, 0) * var(--lift-on, 1)
+                 + var(--robot-base) * var(--k) * var(--sink, 0));
   translate: -50% 0;
-  font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--on-stage-muted); white-space: nowrap; opacity: .72;
+  font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--on-stage-muted); white-space: nowrap; opacity: .85;
   transition: color var(--base) var(--ease), opacity var(--base) var(--ease);
 }
 .robot-label::before { content: "[\00a0"; } .robot-label::after { content: "\00a0]"; }
@@ -237,6 +248,7 @@ section { position: relative; z-index: 2; }
 .scene-caption {
   display: grid; gap: 4px; justify-items: end; text-align: right;
   min-height: 52px; max-width: 340px;
+  opacity: 0; /* показывается только на ховер/фокус робота — см. showCaption в main.js */
 }
 .scene-caption[hidden] { display: none; }
 .scene-caption__cat { color: var(--accent-ink); }
@@ -317,66 +329,6 @@ section { position: relative; z-index: 2; }
 /* На тач-экранах наведения нет — показываем всё сразу, селектор только декоративно перебирает */
 @media (hover: none) {
   .brand img { opacity: .75; }
-}
-
-/* Переключатель режимов */
-.mode-switcher {
-  position: fixed;
-  top: 80px;
-  right: 40px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 16px;
-  background: var(--glass);
-  border: 1px solid var(--glass-line);
-  border-radius: var(--r-pill);
-  backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-md);
-}
-
-.mode-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  color: var(--ink-muted);
-}
-
-.mode-option {
-  cursor: pointer;
-}
-
-.mode-option input {
-  display: none;
-}
-
-.mode-option span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ink-muted);
-  background: transparent;
-  transition: all var(--fast) var(--ease);
-}
-
-.mode-option input:checked + span {
-  background: var(--accent);
-  color: #fff;
-}
-
-.mode-option:hover span {
-  background: var(--surface-sunken);
-}
-
-.mode-option input:checked + span:hover {
-  background: var(--accent-hover);
 }
 
 /* Фокус на роботах */
@@ -657,9 +609,9 @@ section { position: relative; z-index: 2; }
 /* ================= MOBILE / FALLBACK (без закреплений) ================= */
 @media (max-width: 1023px) {
   :root { --gutter: 16px; --rail: 16px; --robot-base: min(190px, 40vw, 26vh); }
-  .scene-lane, .viewport, .cases { -webkit-mask-image: none; mask-image: none; }
+  .viewport, .cases { -webkit-mask-image: none; mask-image: none; }
   .sec { padding: 80px 0; }
-  .nav-links, .counter, .mode-switcher { display: none; }
+  .nav-links, .counter { display: none; }
   .nav { padding-left: 16px; gap: 12px; justify-content: space-between; }
   .hero { padding-top: 104px; min-height: 0; }
   .hero-top { grid-template-columns: 1fr; }
@@ -714,3 +666,5 @@ section { position: relative; z-index: 2; }
   .reveal { opacity: 1; transform: none; }
   .vstep { opacity: 1; }
 }
+.case .ph { position: relative; overflow: hidden; }
+.case .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }

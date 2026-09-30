@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -53,9 +54,9 @@
             <span>SLA <b class="tnum" data-count="98.2" data-dec="1">98,2</b><b>%</b></span>
             <span class="badge-online"><i></i>Система онлайн</span>
           </div>
-          <div class="scene-caption hero-in" id="caption" aria-live="polite">
-            <span class="mono scene-caption__cat" id="caption-cat">Уборка</span>
-            <span class="scene-caption__res" id="caption-res">снижение затрат на клининг на 32%</span>
+          <div class="scene-caption" id="caption" aria-live="polite">
+            <span class="mono scene-caption__cat" id="caption-cat"></span>
+            <span class="scene-caption__res" id="caption-res"></span>
           </div>
         </div>
       </div>
@@ -68,7 +69,7 @@
         <div class="scene-lane">
           <div class="scene-track" id="track">
             <button class="robot" type="button"
-                    style="--k:.62; --lf:.035"
+                    style="--k:.62; --lf:.035; --pad:.007"
                     data-life="5.9" data-amp="6" data-rot=".4" data-depth=".010"
                     data-cat="Агро" data-res="точное внесение и мониторинг полей"
                     data-robot="agro" aria-label="Агродрон — роботизация сельского хозяйства">
@@ -79,7 +80,7 @@
               <span class="robot-label">Агро</span>
             </button>
             <button class="robot" type="button"
-                    style="--k:.88; --lf:0"
+                    style="--k:.88; --lf:0; --pad:.055; --sink:.045"
                     data-life="4.3" data-amp="3" data-depth=".014"
                     data-cat="Стройка" data-res="снижение трудозатрат на демонтаж на 40%"
                     data-robot="demolition" aria-label="Демонтажный робот — роботизация строительства">
@@ -90,7 +91,7 @@
               <span class="robot-label">Стройка</span>
             </button>
             <button class="robot" type="button"
-                    style="--k:.74; --lf:0"
+                    style="--k:.74; --lf:0; --pad:.013"
                     data-life="3.1" data-amp="3" data-depth=".020"
                     data-cat="Уборка" data-res="снижение затрат на клининг на 32%"
                     data-robot="cleaning" aria-label="Клининговый робот-полотёр — автоматизация уборки">
@@ -101,7 +102,7 @@
               <span class="robot-label">Уборка</span>
             </button>
             <button class="robot" type="button"
-                    style="--k:.82; --lf:0"
+                    style="--k:.82; --lf:0; --pad:.032"
                     data-life="3.7" data-amp="3" data-depth=".022"
                     data-cat="Производство" data-res="до 80% снижение зависимости от ручного труда"
                     data-robot="manipulator" aria-label="Промышленный манипулятор — автоматизация производства">
@@ -112,7 +113,7 @@
               <span class="robot-label">Производство</span>
             </button>
             <button class="robot" type="button"
-                    style="--k:1; --lf:0"
+                    style="--k:1; --lf:0; --pad:.031"
                     data-life="4.9" data-amp="3" data-depth=".016"
                     data-cat="Склад" data-res="рост пропускной способности склада на 35%"
                     data-robot="amr" aria-label="Складской AMR-робот — автоматизация логистики">
@@ -123,7 +124,7 @@
               <span class="robot-label">Склад</span>
             </button>
             <button class="robot" type="button"
-                    style="--k:.72; --lf:0"
+                    style="--k:.72; --lf:0; --pad:.038"
                     data-life="5.3" data-amp="2" data-depth=".012"
                     data-cat="Велнес" data-res="сервис в зонах отдыха без участия персонала"
                     data-robot="wellness" aria-label="Велнес-робот — роботизация wellness-услуг">
@@ -135,21 +136,6 @@
             </button>
           </div>
         </div>
-      </div>
-      <div class="mode-switcher" aria-label="Переключатель режима анимации">
-        <span class="mode-label">Режим:</span>
-        <label class="mode-option">
-          <input type="radio" name="mode" value="A" checked>
-          <span>A</span>
-        </label>
-        <label class="mode-option">
-          <input type="radio" name="mode" value="B">
-          <span>B</span>
-        </label>
-        <label class="mode-option">
-          <input type="radio" name="mode" value="C">
-          <span>C</span>
-        </label>
       </div>
     </section>
 
@@ -286,16 +272,18 @@
           <h2 class="h2">Кейсы и результаты.</h2>
         </div>
         <div class="slider-ctrl">
-          <span class="mono tnum"><b class="c-cur">01</b> / 04</span>
+          <span class="mono tnum"><b class="c-cur">01</b> / <span class="c-total">05</span></span>
           <button class="round" data-dir="-1" aria-label="Предыдущий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
           <button class="round" data-dir="1" aria-label="Следующий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
       <div class="cases" tabindex="0" aria-label="Кейсы, прокрутка по горизонтали">
-        <article class="case"><div class="ph"><span>ФОТО ОБЪЕКТА · БИЗНЕС-ЦЕНТР</span></div><div class="body"><span class="tag"><i></i>Бизнес-центр</span><div class="res"><b>−32%</b></div><h3>Снижение затрат на клининг</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
-        <article class="case"><div class="ph"><span>ФОТО ОБЪЕКТА · ТОРГОВЫЙ ЦЕНТР</span></div><div class="body"><span class="tag"><i></i>Торговый центр</span><div class="res"><b>0</b><span class="mono">ночных бригад</span></div><h3>Оптимизация уборки в ночное время</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
-        <article class="case"><div class="ph"><span>ФОТО ОБЪЕКТА · СКЛАД</span></div><div class="body"><span class="tag"><i></i>Складской комплекс</span><div class="res"><b>+35%</b></div><h3>Рост пропускной способности склада</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
-        <article class="case"><div class="ph"><span>ФОТО ОБЪЕКТА · СТРОЙКА</span></div><div class="body"><span class="tag"><i></i>Строительство</span><div class="res"><b>−40%</b></div><h3>Снижение трудозатрат на демонтаж</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img src="assets/cases_images/case-business-center.webp" alt="Робот-уборщик в холле бизнес-центра" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Бизнес-центр</span><div class="res"><b>−32%</b></div><h3>Снижение затрат на клининг</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <!-- Результаты кейсов «Агро» и «Производство» — плейсхолдеры, в ТЗ их нет. Заменить цифрами клиента. -->
+        <article class="case"><div class="ph"><img src="assets/cases_images/case-agro.webp" alt="Агродрон опрыскивает пшеничное поле ранним утром" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Агрохолдинг</span><div class="res"><b>−30%</b></div><h3>Снижение расхода СЗР при обработке полей</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img src="assets/cases_images/case-warehouse.webp" alt="Автономный складской робот везёт стеллаж с коробками по проходу склада" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Складской комплекс</span><div class="res"><b>+35%</b></div><h3>Рост пропускной способности склада</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img src="assets/cases_images/case-manufacturing.webp" alt="Коллаборативный манипулятор на мобильной базе загружает станок с ЧПУ" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Производство</span><div class="res"><b>−2</b><span class="mono">оператора в смену</span></div><h3>Автоматизация загрузки станков с ЧПУ</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img src="assets/cases_images/case-construction.webp" alt="Демонтажный робот разрушает бетонную стену на объекте реконструкции" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Строительство</span><div class="res"><b>−40%</b></div><h3>Снижение трудозатрат на демонтаж</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
       </div>
       <div class="wrap" style="margin-top:24px"><a class="btn btn-sec" href="#">Все кейсы</a></div>
     </section>
