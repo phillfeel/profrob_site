@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ROI-калькулятор робота-уборщика | ПРОФРОБОТ</title>
+  <meta name="description" content="Посчитайте, сколько сэкономит робот-уборщик на вашем объекте: экономия в год, окупаемость и эффект за 5 лет. Рыночные данные по Москве, 2026.">
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="Сколько сэкономит робот-уборщик — ROI-калькулятор ПРОФРОБОТ">
+  <meta property="og:description" content="Экономия в год, окупаемость и эффект за 5 лет для офиса, ТЦ, склада, клиники или отеля.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="roi.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="roi-page">
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" aria-label="Основная навигация">
+    <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+    <nav class="nav-links">
+      <a href="index.html#tasks">Решения</a>
+      <a href="index.html#industries">Отрасли</a>
+      <a href="index.html#platform">Платформа</a>
+      <a href="index.html#cases">Кейсы</a>
+      <a href="#lead">Контакты</a>
+    </nav>
+    <a class="btn btn-pri" href="#lead">Связаться</a>
+  </header>
+
+  <main>
+    <!-- ================= ШАПКА ================= -->
+    <section class="roi-head wrap">
+      <div class="roi-head__copy">
+        <span class="idx"><b>ROI</b> — КАЛЬКУЛЯТОР</span>
+        <h1 class="h1">Сколько сэкономит робот.</h1>
+        <p class="lead">Двигайте ползунки — цифры пересчитываются сразу. Расчёт на рыночных данных по Москве, 2026.</p>
+      </div>
+      <div class="roi-head__robot" aria-hidden="true">
+        <img src="assets/robots/robot-cleaning.webp" alt="" width="520" height="520">
+        <span class="roi-head__podium"></span>
+      </div>
+    </section>
+
+    <!-- ================= КАЛЬКУЛЯТОР ================= -->
+    <section class="roi wrap" id="calc" aria-label="Калькулятор">
+      <form class="roi-in" id="roi-form" novalidate onsubmit="return false">
+        <fieldset class="roi-field">
+          <legend class="roi-label">Тип объекта</legend>
+          <div class="seg seg--wrap" role="radiogroup" data-name="type">
+            <button type="button" role="radio" data-v="office">Офис / БЦ</button>
+            <button type="button" role="radio" data-v="mall">ТЦ</button>
+            <button type="button" role="radio" data-v="warehouse">Склад</button>
+            <button type="button" role="radio" data-v="clinic">Клиника</button>
+            <button type="button" role="radio" data-v="hotel">Отель</button>
+          </div>
+        </fieldset>
+
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="in-area">Площадь уборки</label>
+            <output class="roi-val tnum" id="out-area" for="in-area"></output>
+          </div>
+          <input class="range" type="range" id="in-area" step="500">
+          <div class="roi-scale mono tnum"><span id="area-min"></span><span id="area-max"></span></div>
+        </div>
+
+        <fieldset class="roi-field">
+          <legend class="roi-label">Режим уборки</legend>
+          <div class="seg" role="radiogroup" data-name="mode">
+            <button type="button" role="radio" data-v="one">1 смена</button>
+            <button type="button" role="radio" data-v="two">2 смены</button>
+            <button type="button" role="radio" data-v="h24">24/7</button>
+          </div>
+        </fieldset>
+
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="in-staff">Уборщиков сейчас</label>
+            <output class="roi-val tnum" id="out-staff" for="in-staff"></output>
+          </div>
+          <input class="range" type="range" id="in-staff" step="1">
+          <p class="roi-hint" id="staff-hint">Подставили по норме для такой площади. Можно поправить.</p>
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="in-wage">Зарплата уборщика</label>
+            <output class="roi-val tnum" id="out-wage" for="in-wage"></output>
+          </div>
+          <input class="range" type="range" id="in-wage" step="1000">
+          <div class="roi-scale mono tnum"><span>55 000 ₽</span><span>медиана по Москве — 67 000 ₽</span><span>120 000 ₽</span></div>
+        </div>
+
+        <fieldset class="roi-field">
+          <legend class="roi-label">Кто убирает сейчас</legend>
+          <div class="seg" role="radiogroup" data-name="who">
+            <button type="button" role="radio" data-v="own">Свой штат</button>
+            <button type="button" role="radio" data-v="contractor">Клининговая компания</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <!-- Результат -->
+      <aside class="roi-out stage" id="roi-out" aria-live="polite" aria-label="Результат расчёта">
+        <div class="roi-out__top">
+          <div class="seg seg--dark" role="radiogroup" data-name="fin" aria-label="Формат">
+            <button type="button" role="radio" data-v="buy">Покупка</button>
+            <button type="button" role="radio" data-v="lease">Лизинг</button>
+          </div>
+          <span class="mono roi-out__ctx" id="ctx"></span>
+        </div>
+
+        <div class="roi-big">
+          <span class="mono roi-big__l">Экономия в год</span>
+          <div class="roi-big__v tnum"><span id="r-net">0</span><small id="r-net-u">млн ₽</small></div>
+        </div>
+
+        <div class="roi-plate" id="r-plate"><b id="r-plate-v"></b><span id="r-plate-l"></span></div>
+
+        <dl class="roi-kpis">
+          <div><dt>Эффект за 5 лет</dt><dd class="tnum" id="r-5y"></dd></div>
+          <div><dt>Ставок уходит с полов</dt><dd class="tnum" id="r-freed"></dd></div>
+          <div><dt>Роботов на объект</dt><dd class="tnum" id="r-robots"></dd></div>
+        </dl>
+
+        <figure class="roi-chart">
+          <figcaption class="mono">Накопленная выгода, 5 лет</figcaption>
+          <svg id="chart" viewBox="0 0 520 170" role="img" aria-label="График накопленной выгоды"></svg>
+        </figure>
+
+        <figure class="roi-crew">
+          <figcaption class="roi-crew__l" id="crew-l"></figcaption>
+          <div class="roi-crew__grid" id="crew" aria-hidden="true"></div>
+        </figure>
+
+        <div class="roi-out__cta">
+          <a class="btn btn-pri" href="#lead" id="to-lead">Получить точный расчёт и КП <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="roi-share">
+            <button type="button" class="btn btn-ghost" id="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>Поделиться</span></button>
+            <button type="button" class="btn btn-ghost" id="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Картинка</span></button>
+          </div>
+        </div>
+        <p class="roi-note">Расчёт ориентировочный, на основе рыночных данных по Москве. Точную экономику считаем после аудита объекта.</p>
+      </aside>
+    </section>
+
+    <!-- Мобильная плашка с итогом -->
+    <a class="roi-dock" id="dock" href="#roi-out" aria-hidden="true" tabindex="-1">
+      <span class="mono">Экономия в год</span><b class="tnum" id="dock-v"></b>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+
+    <!-- ================= ОТКУДА ЦИФРЫ ================= -->
+    <section class="roi-src wrap" aria-labelledby="src-title">
+      <h2 class="roi-src__h" id="src-title">На чём стоит расчёт.</h2>
+      <div class="roi-src__grid">
+        <div class="roi-src__c"><b class="tnum">67 000 ₽</b><span>медианная зарплата уборщика в Москве по вакансиям 2026 года</span></div>
+        <div class="roi-src__c"><b class="tnum">×1,3</b><span>страховые взносы: с 2026 года большинство компаний платит 30%</span></div>
+        <div class="roi-src__c"><b class="tnum">1 000 м²</b><span>столько пола человек моет вручную за смену</span></div>
+        <div class="roi-src__c"><b class="tnum">2,2 млн ₽</b><span>цена компактного робота-поломойки класса Pudu CC1</span></div>
+      </div>
+      <details class="roi-how">
+        <summary>Как считаем <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <ol>
+          <li>Робот берёт только ровные твёрдые полы — в офисе это около 60% площади. Санузлы, столы и мусор остаются за людьми.</li>
+          <li>Считаем, сколько ставок уходит с мытья полов, с запасом: 30% работы по полу остаётся людям.</li>
+          <li>Экономия = зарплаты с взносами + химия и вода − сервис робота, расходники и доля оператора нашей платформы.</li>
+          <li>Окупаемость — за сколько месяцев экономия покроет покупку. Эффект за 5 лет — экономия за срок службы минус цена роботов.</li>
+          <li>Лизинг: аванс 20%, 36 месяцев. Показываем, сколько остаётся в плюсе каждый месяц после платежа.</li>
+        </ol>
+      </details>
+    </section>
+
+    <!-- ================= ЗАЯВКА ================= -->
+    <section class="roi-lead" id="lead" aria-labelledby="lead-title">
+      <div class="stage">
+        <div class="roi-lead__in">
+          <div class="roi-lead__copy">
+            <span class="idx"><b>КП</b> — ЗАЯВКА</span>
+            <h2 class="h2" id="lead-title">Точный расчёт под ваш объект.</h2>
+            <p class="lead">Инженер уточнит площадь, покрытия и график, подберёт модель и пришлёт КП с окупаемостью. Без обязательств.</p>
+            <p class="roi-lead__sum mono" id="lead-sum"></p>
+          </div>
+
+          <form class="roi-form" id="lead-form" novalidate data-endpoint="">
+            <div class="fld">
+              <label for="f-name">Имя</label>
+              <input id="f-name" name="name" autocomplete="name" required maxlength="80">
+              <p class="fld__err" id="e-name">Напишите, как к вам обращаться</p>
+            </div>
+            <div class="fld">
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+7 ___ ___-__-__" maxlength="18">
+              <p class="fld__err" id="e-phone">Нужен номер из 10 цифр после +7</p>
+            </div>
+            <div class="fld">
+              <label for="f-company">Компания и объект</label>
+              <input id="f-company" name="company" autocomplete="organization" maxlength="120" placeholder="Например, БЦ «Северный», Москва">
+            </div>
+            <div class="fld">
+              <label for="f-email">E-mail <span>— пришлём расчёт</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" maxlength="120">
+              <p class="fld__err" id="e-email">Проверьте адрес: в нём нет @ или домена</p>
+            </div>
+            <label class="chk">
+              <input type="checkbox" id="f-consent" required>
+              <span>Согласен на обработку персональных данных по 152-ФЗ и <a href="#">политике конфиденциальности</a></span>
+            </label>
+            <p class="fld__err" id="e-consent">Без согласия мы не можем принять заявку</p>
+            <button class="btn btn-pri" type="submit" id="f-submit">Получить расчёт и КП <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="fld__err fld__err--form" id="e-form">Не получилось отправить. Позвоните нам: +7 (495) 123-45-67</p>
+          </form>
+
+          <div class="roi-done" id="lead-done" hidden tabindex="-1">
+            <span class="badge-online"><i></i>Заявка принята</span>
+            <h3>Спасибо. Инженер свяжется с вами в течение рабочего дня.</h3>
+            <p>Параметры вашего расчёта уже у нас — повторять их не придётся.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot roi-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримым ROI и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ Отдел внедрения ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html">На главную <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="roi-model.js"></script>
+  <script src="roi.js"></script>
+</body>
+</html>
