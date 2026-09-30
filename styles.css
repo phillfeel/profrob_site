@@ -197,9 +197,9 @@ section { position: relative; z-index: 2; }
 }
 .scene-track.is-belt > .robot { margin-left: 0; margin-right: var(--belt-gap, 40px); }
 /* До запуска ленты (GSAP ещё грузится) роботы стояли бы статичным рядом и потом «разлетались».
-   На десктопе прячем их до .is-belt — въезд в main.js проявляет их уже в раскладке ленты.
+   Прячем их до .is-belt — въезд в main.js проявляет их уже в раскладке ленты.
    Без GSAP main.js снимает класс .js, и ряд виден как есть. */
-@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   .js .scene-track:not(.is-belt) > .robot { opacity: 0; }
 }
 
@@ -623,6 +623,8 @@ section { position: relative; z-index: 2; }
   .scene-track::-webkit-scrollbar { display: none; }
   .scene-track > .robot { scroll-snap-align: center; }
   .scene-track > .robot + .robot { margin-left: 0; }
+  /* Лента на мобиле: нативный скролл-ряд выше — только фолбэк для reduced motion */
+  .scene-track.is-belt { overflow: visible; padding: 0; scroll-snap-type: none; }
   .metrics { flex-wrap: wrap; white-space: normal; }
   .hpin { height: auto; padding: 80px 0; }
   .hpin-inner { grid-template-columns: 1fr; padding-left: var(--gutter); gap: 32px; }

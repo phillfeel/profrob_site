@@ -97,7 +97,11 @@
     const capRes = document.querySelector('#caption-res');
     const part = (el, sel) => el.querySelector(sel);
     const num  = (el, key, def) => (el.dataset[key] !== undefined ? parseFloat(el.dataset[key]) : def);
-    const auto = () => !reduce && !mqMobile.matches;
+    // Лента крутится везде, кроме reduced motion. На мобиле — облегчённая: без дуги подиума
+    // (per-frame запись translate в 12 узлов), без микрожизни и параллакса. Остаётся один твин
+    // transform на треке — он целиком на композиторе.
+    const auto = () => !reduce;
+    const lite = () => mqMobile.matches;
 
     let inView = true;
     let stage = els;
@@ -149,6 +153,7 @@
       life.forEach((t) => t.kill());
       life.length = 0;
       if (reduce) return;
+      if (lite()) { gsap.set(stage.map((el) => part(el, '.robot-life')), { clearProps: 'transform' }); return; }
       stage.forEach((el) => {
         const amp = num(el, 'amp', 3), rot = num(el, 'rot', 0), d = num(el, 'life', 4);
         life.push(gsap.fromTo(part(el, '.robot-life'),
@@ -227,9 +232,11 @@
       track.classList.add('is-belt');
       gsap.set(track, { xPercent: 0, willChange: 'transform' });
       beltTl = gsap.timeline({ repeat: -1 }).to(track, { xPercent: -50, duration: BELT_DUR, ease: 'none' });
-      measureArc();
-      followArc();
-      gsap.ticker.add(followArc);
+      if (!lite()) {
+        measureArc();
+        followArc();
+        gsap.ticker.add(followArc);
+      }
       if (!inView) beltTl.pause();
     }
     function stopBelt() {
@@ -254,16 +261,35 @@
     };
 
     // ---------- Ховер/фокус — вешаются ОДИН раз на узел ----------
+    // Фокус с клавиатуры тормозит ленту; фокус от тапа (Android фокусирует кнопку) — нет,
+    // иначе лента встаёт до следующего тапа мимо.
+    let touchTap = false, tapClear = null;
     function wire(el) {
+      let kbd = false;
       const focusIn = () => { brake(0, .4); paint(stage.indexOf(el), HOVER); };
       const focusOut = () => { brake(1, .6); paint(null, { dur: .3 }); };
       el.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') focusIn(); });
       el.addEventListener('pointerleave', (e) => { if (e.pointerType !== 'touch') focusOut(); });
-      el.addEventListener('focus', focusIn);
-      el.addEventListener('blur', focusOut);
-      el.addEventListener('click', () => paint(stage.indexOf(el), HOVER));
+      el.addEventListener('focus', () => { kbd = !touchTap && el.matches(':focus-visible'); if (kbd) focusIn(); });
+      el.addEventListener('blur', () => { if (kbd) { kbd = false; focusOut(); } });
+      el.addEventListener('click', () => {
+        paint(stage.indexOf(el), HOVER);
+        if (!touchTap) return;
+        // На таче подсветка — короткий отклик, ховера, который её снимет, не будет
+        if (tapClear) tapClear.kill();
+        tapClear = gsap.delayedCall(1.4, () => { tapClear = null; paint(null, { dur: .3 }); });
+      });
     }
     els.forEach(wire);
+
+    // Палец на ленте — придержать, отпустил или ушёл в вертикальный скролл (pointercancel) — поехали
+    track.addEventListener('pointerdown', (e) => {
+      touchTap = e.pointerType === 'touch';
+      if (touchTap) brake(0, .3);
+    });
+    const release = (e) => { if (e.pointerType === 'touch') brake(1, .8); };
+    track.addEventListener('pointerup', release);
+    track.addEventListener('pointercancel', release);
 
     // ---------- Параллакс (quickTo, пересобирается со стейджем) ----------
     let px = [], py = [];
@@ -341,7 +367,7 @@
       },
     });
 
-    // ---------- Запуск: лента на десктопе, статичный ряд на мобиле / reduced motion ----------
+    // ---------- Запуск: лента (на мобиле облегчённая), статичный ряд при reduced motion ----------
     let startTimer = null;
     function setup(initial) {
       if (startTimer) { startTimer.kill(); startTimer = null; }
@@ -364,9 +390,13 @@
     setup(true);
     mqMobile.addEventListener('change', () => setup(false));
 
-    // Ресайз меняет ширину роботов — пересобираем ленту с сохранением фазы
-    let rz = null;
+    // Ресайз меняет ширину роботов — пересобираем ленту с сохранением фазы.
+    // На мобиле resize сыплется от прячущейся адресной строки при скролле: высота меняется,
+    // ширина нет, а vh в мобильных браузерах от адресной строки не зависит — пересборку пропускаем.
+    let rz = null, lastW = innerWidth;
     addEventListener('resize', () => {
+      if (lite() && innerWidth === lastW) return;
+      lastW = innerWidth;
       if (rz) rz.kill();
       rz = gsap.delayedCall(.2, () => {
         if (!beltTl) return;
