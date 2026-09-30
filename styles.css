@@ -625,6 +625,14 @@ section { position: relative; z-index: 2; }
   .scene-track > .robot + .robot { margin-left: 0; }
   /* Лента на мобиле: нативный скролл-ряд выше — только фолбэк для reduced motion */
   .scene-track.is-belt { overflow: visible; padding: 0; scroll-snap-type: none; }
+  /* Подписи над роботами: под ними они вылезали за кромку подиума. Над фигурой — светлый фон
+     страницы, поэтому цвет тёмный. Сцене добавлен запас сверху под подпись самого высокого (AMR, --k:1). */
+  :root { --scene-h: calc(var(--robot-base) * 1.52 + 28px); }
+  .robot-label {
+    top: 0; bottom: auto; translate: -50% calc(-100% - 6px);
+    font-size: 12px; color: var(--ink-muted); opacity: 1;
+  }
+  .robot.is-active .robot-label { color: var(--ink); }
   .metrics { flex-wrap: wrap; white-space: normal; }
   .hpin { height: auto; padding: 80px 0; }
   .hpin-inner { grid-template-columns: 1fr; padding-left: var(--gutter); gap: 32px; }
