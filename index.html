@@ -134,6 +134,20 @@
               </span></span></span>
               <span class="robot-label">Велнес</span>
             </button>
+            <!-- После Велнеса: высокий узкий силуэт встаёт между двумя низкими (Велнес и Агро по кругу ленты)
+                 и не соседствует со Складом. --k чуть ниже AMR, чтобы Склад остался самым высоким.
+                 --air: узкий силуэт при общем шаге ленты выглядел зажатым — добавляем поля по бокам -->
+            <button class="robot" type="button"
+                    style="--k:.96; --lf:0; --pad:.004; --air:.12"
+                    data-life="4.5" data-amp="3" data-depth=".018"
+                    data-cat="Доставка" data-res="доставка по залу и этажам круглосуточно"
+                    data-robot="delivery" aria-label="Робот-доставщик — роботы-официанты для ресторанов и отелей">
+              <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
+                <span class="robot-glow" aria-hidden="true"></span>
+                <img src="assets/robots/robot-delivery.webp" alt="Робот-доставщик" width="482" height="1151" decoding="sync">
+              </span></span></span>
+              <span class="robot-label">Доставка</span>
+            </button>
           </div>
         </div>
       </div>

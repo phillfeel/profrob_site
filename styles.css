@@ -143,9 +143,9 @@ section { position: relative; z-index: 2; }
 @keyframes pulse { 50% { opacity: .3; } }
 /* ================= HERO SCENE ================= */
 :root {
-  /* Ряд из шести роботов ≈ 5,3 × base; последний член держит ряд между полосами счётчика */
-  --robot-base: min(300px, 28vh, 16vw, calc((100vw - 2 * var(--rail) - 24px) / 5.3));
-  --robot-base: min(300px, 28svh, 16vw, calc((100vw - 2 * var(--rail) - 24px) / 5.3));
+  /* Ряд из семи роботов ≈ 5,7 × base; последний член держит ряд между полосами счётчика */
+  --robot-base: min(300px, 28vh, 16vw, calc((100vw - 2 * var(--rail) - 24px) / 5.7));
+  --robot-base: min(300px, 28svh, 16vw, calc((100vw - 2 * var(--rail) - 24px) / 5.7));
   --plate-h: calc(var(--robot-base) * .30);
   --plate-ellipse: calc(var(--robot-base) * .26);
   --plate-bottom: calc(var(--robot-base) * .16);
@@ -204,6 +204,9 @@ section { position: relative; z-index: 2; }
   --lift-on: 0;
 }
 .scene-track.is-belt > .robot { margin-left: 0; margin-right: var(--belt-gap, 40px); }
+/* Ленту можно тянуть: горизонтальный жест забирает main.js, вертикальный остаётся скроллом страницы */
+.scene-track.is-belt { touch-action: pan-y; }
+.scene-track.is-dragging, .scene-track.is-dragging .robot { cursor: grabbing; user-select: none; -webkit-user-select: none; }
 /* До запуска ленты (GSAP ещё грузится) роботы стояли бы статичным рядом и потом «разлетались».
    Прячем их до .is-belt — въезд в main.js проявляет их уже в раскладке ленты.
    Без GSAP main.js снимает класс .js, и ряд виден как есть. */
@@ -213,6 +216,8 @@ section { position: relative; z-index: 2; }
 
 .robot {
   position: relative; flex: 0 0 auto; appearance: none; background: none; border: 0; padding: 0;
+  /* --air — боковые поля узких силуэтов: шаг ленты одинаковый, и узкий робот без них выглядит зажатым */
+  padding-inline: calc(var(--robot-base) * var(--air, 0));
   cursor: pointer; color: inherit; font: inherit;
   /* --sink опускает фигуру ниже линии подиума: у Стройки низ картинки — концы выносных опор,
      а гусеницы (визуальное днище) выше; без сдвига робот стоит выше соседей */

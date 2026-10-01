@@ -163,12 +163,13 @@
     }
 
     // ---------- Лента (клоны через cloneNode, а не innerHTML) ----------
-    const BELT_DUR = 48, BELT_GAP_MIN = 28;
+    // 56 с на круг из семи роботов — та же скорость, что была у шести за 48 с
+    const BELT_DUR = 56, BELT_GAP_MIN = 28;
     let beltTl = null;
     const clones = [];
     const beltGap = () => {
       const sum = els.reduce((s, el) => s + el.offsetWidth, 0);
-      return Math.max(BELT_GAP_MIN, (innerWidth + 8 - sum) / 6);
+      return Math.max(BELT_GAP_MIN, (innerWidth + 8 - sum) / els.length);
     };
     function buildClones() {
       els.forEach((el) => {
@@ -268,8 +269,9 @@
       let kbd = false;
       const focusIn = () => { brake(0, .4); paint(stage.indexOf(el), HOVER); };
       const focusOut = () => { brake(1, .6); paint(null, { dur: .3 }); };
-      el.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') focusIn(); });
-      el.addEventListener('pointerleave', (e) => { if (e.pointerType !== 'touch') focusOut(); });
+      // Во время ручной прокрутки роботы сами проезжают под курсором — это не ховер
+      el.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch' && !busy()) focusIn(); });
+      el.addEventListener('pointerleave', (e) => { if (e.pointerType !== 'touch' && !busy()) focusOut(); });
       el.addEventListener('focus', () => { kbd = !touchTap && el.matches(':focus-visible'); if (kbd) focusIn(); });
       el.addEventListener('blur', () => { if (kbd) { kbd = false; focusOut(); } });
       el.addEventListener('click', () => {
@@ -282,14 +284,104 @@
     }
     els.forEach(wire);
 
-    // Палец на ленте — придержать, отпустил или ушёл в вертикальный скролл (pointercancel) — поехали
+    // ---------- Ручная прокрутка: drag мышью/пальцем + горизонтальный свайп тачпада ----------
+    // Двигаем только фазу beltTl — это тот же transform трека, лишнего рендера нет.
+    // Круг ленты (xPercent 0 → -50) — половина ширины трека в пикселях.
+    // Палец на ленте без движения — придержать, отпустил или ушёл в вертикальный скролл — поехали.
+    const DRAG_SLOP = 6, FRICTION = .004, V_MAX = 4, WHEEL_IDLE = .35, TOUCH_READ = 1.5;
+    let drag = null, coastV = 0, coastType = 'mouse', wheelIdle = null, resumeT = null;
+    let suppressClick = false, lastPt = null;
+    function busy() { return !!(drag && drag.on) || coastV !== 0 || !!wheelIdle; }
+    const nudge = (px) => {
+      if (beltTl) beltTl.progress(gsap.utils.wrap(0, 1, beltTl.progress() - px / (track.offsetWidth / 2)));
+    };
+    const hold = () => {
+      if (resumeT) { resumeT.kill(); resumeT = null; }
+      if (!beltTl) return;
+      gsap.killTweensOf(beltTl);
+      beltTl.timeScale(0);
+    };
+    // Прокрутка закончилась: мышь стоит над роботом — показываем его, как при ховере, и лента ждёт.
+    // На таче даём дочитать подпись и только потом разгоняемся.
+    function settle(type) {
+      const hit = type !== 'touch' && lastPt && document.elementFromPoint(lastPt.x, lastPt.y);
+      const el = hit && hit.closest('#track .robot');
+      if (el) { paint(stage.indexOf(el), HOVER); return; }
+      resumeT = gsap.delayedCall(type === 'touch' ? TOUCH_READ : 0, () => { resumeT = null; brake(1, .8); });
+    }
+    function coastTick(time, dt) {
+      if (!beltTl) { stopCoast(); return; }
+      const step = Math.min(dt, 50);  // после возврата во вкладку dt бывает огромным
+      nudge(coastV * step);
+      coastV *= Math.exp(-FRICTION * step);
+      if (Math.abs(coastV) < .02) { stopCoast(); settle(coastType); }
+    }
+    function stopCoast() { coastV = 0; gsap.ticker.remove(coastTick); }
+
+    scene.addEventListener('pointermove', (e) => { lastPt = { x: e.clientX, y: e.clientY }; });
+    scene.addEventListener('pointerleave', () => { lastPt = null; });
+
     track.addEventListener('pointerdown', (e) => {
       touchTap = e.pointerType === 'touch';
       if (touchTap) brake(0, .3);
+      if (!beltTl || (e.pointerType === 'mouse' && e.button !== 0)) return;
+      if (coastV) { stopCoast(); hold(); }  // поймали ленту на инерции
+      if (resumeT) { resumeT.kill(); resumeT = null; }
+      drag = { id: e.pointerId, type: e.pointerType, x0: e.clientX, y0: e.clientY, x: e.clientX, t: e.timeStamp, v: 0, on: false };
     });
-    const release = (e) => { if (e.pointerType === 'touch') brake(1, .8); };
+    track.addEventListener('pointermove', (e) => {
+      if (!drag || e.pointerId !== drag.id) return;
+      if (!drag.on) {
+        const dx = e.clientX - drag.x0, dy = e.clientY - drag.y0;
+        if (Math.abs(dx) < DRAG_SLOP && Math.abs(dy) < DRAG_SLOP) return;
+        // Вертикальный жест — это скролл страницы, ленту не трогаем
+        if (Math.abs(dy) > Math.abs(dx)) { drag = null; return; }
+        drag.on = true;
+        hold();
+        if (tapClear) { tapClear.kill(); tapClear = null; }
+        paint(null, { dur: .2 });
+        track.setPointerCapture(e.pointerId);
+        track.classList.add('is-dragging');
+      }
+      const step = e.clientX - drag.x;
+      const dt = Math.max(1, e.timeStamp - drag.t);
+      drag.v = .8 * (step / dt) + .2 * drag.v;
+      drag.x = e.clientX; drag.t = e.timeStamp;
+      nudge(step);
+    });
+    const release = (e) => {
+      const d = drag && e.pointerId === drag.id ? drag : null;
+      drag = null;
+      if (!d || !d.on) { if (e.pointerType === 'touch') brake(1, .8); return; }
+      track.classList.remove('is-dragging');
+      lastPt = { x: e.clientX, y: e.clientY };
+      // Кнопки-роботы не должны получить клик в конце перетаскивания
+      if (e.type === 'pointerup') { suppressClick = true; setTimeout(() => { suppressClick = false; }, 0); }
+      // Палец остановился перед отпусканием — инерции нет
+      const v = e.timeStamp - d.t > 80 ? 0 : Math.max(-V_MAX, Math.min(V_MAX, d.v));
+      coastType = d.type;
+      if (Math.abs(v) < .05) { settle(d.type); return; }
+      coastV = v;
+      gsap.ticker.add(coastTick);
+    };
     track.addEventListener('pointerup', release);
     track.addEventListener('pointercancel', release);
+    track.addEventListener('click', (e) => {
+      if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
+    }, true);
+    track.addEventListener('dragstart', (e) => e.preventDefault());  // призрак картинки при drag мышью
+
+    // Горизонтальный свайп тачпада / Shift+колесо. Вертикальное колесо остаётся странице (Lenis).
+    scene.addEventListener('wheel', (e) => {
+      if (!beltTl || Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault();  // заодно глушит «назад» по свайпу в Safari/Chrome на маке
+      if (!wheelIdle) paint(null, { dur: .2 });
+      stopCoast();
+      hold();
+      nudge(-e.deltaX * (e.deltaMode === 1 ? 16 : 1));
+      if (wheelIdle) wheelIdle.kill();
+      wheelIdle = gsap.delayedCall(WHEEL_IDLE, () => { wheelIdle = null; settle('mouse'); });
+    }, { passive: false });
 
     // ---------- Параллакс (quickTo, пересобирается со стейджем) ----------
     let px = [], py = [];
@@ -383,7 +475,7 @@
         beltTl.timeScale(0);
         startTimer = gsap.delayedCall(1.5, () => {
           startTimer = null;
-          if (!track.querySelector('.robot:hover, .robot:focus')) brake(1, 1.2);
+          if (!track.querySelector('.robot:hover, .robot:focus') && !busy() && !resumeT) brake(1, 1.2);
         });
       }
     }
