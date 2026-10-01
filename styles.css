@@ -243,7 +243,7 @@ section { position: relative; z-index: 2; }
 .robot-label::before { content: "[\00a0"; } .robot-label::after { content: "\00a0]"; }
 .robot.is-active .robot-label { color: var(--on-stage); opacity: 1; }
 
-/* Колонка справа от H1: метрики + панель активного робота (как в prototype-motion) */
+/* Колонка справа от H1: метрики + панель активного робота (как в prototypes/motion) */
 .hero-side { display: grid; gap: 16px; justify-items: end; }
 .scene-caption {
   display: grid; gap: 4px; justify-items: end; text-align: right;

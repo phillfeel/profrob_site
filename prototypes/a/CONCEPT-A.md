@@ -2,8 +2,8 @@
 
 **Статус:** прототип для согласования движения и ритма (не продакшен).
 **Дата:** 2026-09-26
-**Файлы:** `prototype-a/index.html` (один файл: HTML + CSS + JS), `prototype-a/assets/` (podium.jpg, логотипы).
-**Источники:** контент — `ТЗ_ПРОФРОБОТ_контент_дистиллированный.md` (v2.1, раздел IV «Главная»); визуал — `design-system/README.md`, `design-system/tokens.json`, эталон `design-system/assets/Reference/hero-reference.png`.
+**Файлы:** `prototypes/a/index.html` (один файл: HTML + CSS + JS), `prototypes/a/assets/` (podium.jpg, логотипы).
+**Источники:** контент — `docs/content/ТЗ_ПРОФРОБОТ_контент_дистиллированный.md` (v2.1, раздел IV «Главная»); визуал — `design-system/README.md`, `design-system/tokens.json`, эталон `design-system/assets/Reference/hero-reference.png`.
 **Родственный вариант:** `prototype-c/index.html` — концепция C «Центр управления» (см. раздел 9).
 
 ---
@@ -190,6 +190,6 @@
 
 **Локальный запуск:**
 ```bash
-python3 -m http.server 4173 --directory prototype-a
+python3 -m http.server 4173 --directory prototypes/a
 ```
-(или просто открыть `index.html` двойным кликом; конфиг превью — `.claude/launch.json`, `prototype-a` на 4173, `prototype-c` на 4174).
+(или просто открыть `index.html` двойным кликом; конфиг превью — `.claude/launch.json`, `prototype-a` на 4173; `prototype-c` в репозитории больше нет).

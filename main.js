@@ -83,7 +83,7 @@
   }
   gsap.registerPlugin(ScrollTrigger);
 
-  // ========== HERO SCENE — перенос из prototype-motion, логика та же ==========
+  // ========== HERO SCENE — перенос из prototypes/motion, логика та же ==========
   // Слои: button.robot — параллакс, .robot-depth — скролл-скраб, .robot-life — микрожизнь,
   // .robot-fig — ховер/спотлайт. Два твина на одном y дерутся, поэтому слои разведены.
   const initHeroScene = () => {

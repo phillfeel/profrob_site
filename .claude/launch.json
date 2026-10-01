@@ -2,28 +2,16 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "prototype-a",
+      "name": "site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "4173",
-        "--directory",
-        "prototype-a"
-      ],
-      "port": 4173
+      "runtimeArgs": ["-m", "http.server", "3000"],
+      "port": 3000
     },
     {
-      "name": "prototype-c",
+      "name": "prototype-a",
       "runtimeExecutable": "python3",
-      "runtimeArgs": [
-        "-m",
-        "http.server",
-        "4174",
-        "--directory",
-        "prototype-c"
-      ],
-      "port": 4174
+      "runtimeArgs": ["-m", "http.server", "4173", "--directory", "prototypes/a"],
+      "port": 4173
     }
   ]
 }
