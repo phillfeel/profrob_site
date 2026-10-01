@@ -119,9 +119,15 @@ section { position: relative; z-index: 2; }
 .counter.on-dark .bar { background: var(--stage-line); }
 
 /* ================= 01 HERO ================= */
-.hero { padding-top: clamp(104px, 14vh, 136px); min-height: 100vh; overflow: visible; z-index: 3; }
+/* Первый экран считается от высоты окна (svh), а не только от ширины: заголовок, лид, кнопки и сцена
+   делят 100svh. Подиум прижат к низу экрана (margin-top: auto у .scene), лишняя высота уходит в воздух
+   между текстом и роботами. Минимум 100vh — запасной вариант для браузеров без svh. */
+.hero { padding-top: clamp(88px, 12vh, 136px); padding-top: clamp(88px, 12svh, 136px); min-height: 100vh; min-height: 100svh; overflow: visible; z-index: 3; }
 .hero-top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
-.hero-copy { display: grid; gap: clamp(16px, 2.4vh, 24px); }
+.hero-copy { display: grid; gap: clamp(12px, 2.4vh, 24px); gap: clamp(12px, 2.4svh, 24px); }
+.hero .h1 { text-wrap: balance; font-size: min(clamp(40px, 5.2vw, 80px), max(36px, 7.4vh)); font-size: min(clamp(40px, 5.2vw, 80px), max(36px, 7.4svh)); }
+.hero .lead { font-size: clamp(16px, 2.4vh, 19px); font-size: clamp(16px, 2.4svh, 19px); }
+.hero .btn { height: clamp(44px, 6.4vh, 52px); height: clamp(44px, 6.4svh, 52px); }
 .metrics {
   display: flex; align-items: center; gap: 16px; padding: 14px 16px 14px 20px; border-radius: var(--r-md);
   background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(20px); box-shadow: var(--shadow-md);
@@ -138,7 +144,8 @@ section { position: relative; z-index: 2; }
 /* ================= HERO SCENE ================= */
 :root {
   /* Ряд из шести роботов ≈ 5,3 × base; последний член держит ряд между полосами счётчика */
-  --robot-base: min(300px, 30vh, 16vw, calc((100vw - 2 * var(--rail) - 24px) / 5.3));
+  --robot-base: min(300px, 28vh, 16vw, calc((100vw - 2 * var(--rail) - 24px) / 5.3));
+  --robot-base: min(300px, 28svh, 16vw, calc((100vw - 2 * var(--rail) - 24px) / 5.3));
   --plate-h: calc(var(--robot-base) * .30);
   --plate-ellipse: calc(var(--robot-base) * .26);
   --plate-bottom: calc(var(--robot-base) * .16);
@@ -150,7 +157,8 @@ section { position: relative; z-index: 2; }
   position: relative;
   width: 100%;
   height: var(--scene-h);
-  margin-top: clamp(32px, 6vh, 72px);
+  margin-top: clamp(12px, 3vh, 56px);
+  margin-top: clamp(12px, 3svh, 56px);
   overflow: hidden;
   overflow-x: clip;
   overflow-y: visible;
@@ -472,12 +480,14 @@ section { position: relative; z-index: 2; }
 .ind-row .seo { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); margin-left: 12px; letter-spacing: .04em; }
 
 /* 07 Платформа */
-.plat { height: 100vh; display: flex; align-items: center; padding: 0 16px; }
-.plat .stage { width: 100%; height: calc(100vh - 32px); max-height: 860px; display: grid; grid-template-columns: 5fr 7fr; gap: 48px; padding: clamp(16px, 3.5vh, 40px) 104px clamp(16px, 3.5vh, 40px) 56px; align-items: center; margin: 0; }
-.plat-copy { display: grid; gap: clamp(8px, 1.8vh, 24px); min-height: 0; overflow: visible; }
-.plat-copy .lead { font-size: clamp(14px, 1.9vh, 17px); }
+/* Верхний padding 72px: плавающая навигация (top 16 + высота 56) перекрывает верх рамки и не должна резать контент */
+.plat { height: 100vh; height: 100svh; display: flex; align-items: center; padding: 0 16px; }
+.plat .stage { width: 100%; height: calc(100vh - 32px); height: calc(100svh - 32px); max-height: 860px; display: grid; grid-template-columns: 5fr 7fr; gap: 48px; padding: 72px 104px clamp(16px, 3.5vh, 40px) 56px; padding-bottom: clamp(16px, 3.5svh, 40px); align-items: center; margin: 0; }
+.plat-copy { display: grid; gap: clamp(8px, 1.8vh, 24px); gap: clamp(8px, 1.8svh, 24px); min-height: 0; overflow: visible; }
+.plat-copy .h2 { font-size: clamp(28px, min(3.4vw, 5.6vh), 48px); font-size: clamp(28px, min(3.4vw, 5.6svh), 48px); }
+.plat-copy .lead { font-size: clamp(14px, 1.9vh, 17px); font-size: clamp(14px, 1.9svh, 17px); }
 .feats { display: grid; gap: 0; border-top: 1px solid var(--stage-line); }
-.feat { display: flex; align-items: center; gap: 16px; padding: clamp(4px, 1.2vh, 14px) 0; border-bottom: 1px solid var(--stage-line); color: var(--on-stage-muted); font-size: 17px; transition: color var(--base) var(--ease), padding var(--base) var(--ease); }
+.feat { display: flex; align-items: center; gap: 16px; padding: clamp(4px, 1.2vh, 14px) 0; padding: clamp(4px, 1.2svh, 14px) 0; border-bottom: 1px solid var(--stage-line); color: var(--on-stage-muted); font-size: clamp(14px, 2.2vh, 17px); font-size: clamp(14px, 2.2svh, 17px); transition: color var(--base) var(--ease), padding var(--base) var(--ease); }
 .feat .no { font-family: var(--mono); font-size: 12px; width: 24px; }
 .feat.on { color: var(--on-stage); padding-left: 8px; }
 .feat.on .no { color: var(--accent-ink-dark); }
@@ -595,7 +605,14 @@ section { position: relative; z-index: 2; }
    и 1920+ ломает заголовок в три строки. Считаем кегль от остатка: контентная ширина
    минус карточка (~526px) и gap 40px, делённый на длину строки «которая окупается.» (8.97em + запас). */
 @media (min-width: 1200px) {
-  .hero .h1 { font-size: clamp(40px, min(5.2vw, (100vw - var(--edge-l) - var(--edge-r) - 566px) / 9.1), 80px); }
+  .hero .h1 { font-size: min(clamp(40px, min(5.2vw, (100vw - var(--edge-l) - var(--edge-r) - 566px) / 9.1), 80px), max(36px, 7.4vh)); font-size: min(clamp(40px, min(5.2vw, (100vw - var(--edge-l) - var(--edge-r) - 566px) / 9.1), 80px), max(36px, 7.4svh)); }
+}
+
+/* Десктоп: герой — колонка высотой в экран, сцена внизу */
+@media (min-width: 1024px) {
+  .hero { display: flex; flex-direction: column; }
+  .hero > .hero-top { width: 100%; padding-bottom: clamp(12px, 3vh, 56px); padding-bottom: clamp(12px, 3svh, 56px); }
+  .hero > .scene { margin-top: auto; flex: none; }
 }
 
 /* Узкий десктоп: карточке метрик и заголовку уже тесно в одной строке */
@@ -604,6 +621,12 @@ section { position: relative; z-index: 2; }
   .metrics { justify-self: start; }
   .hero-side { justify-items: start; }
   .scene-caption { justify-items: start; text-align: left; max-width: none; }
+}
+/* Узкий десктоп: подпись робота невидима до ховера, но держала в потоке 68px и выталкивала сцену за экран —
+   выводим из потока, она появляется поверх свободной зоны над подиумом */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .hero-side { position: relative; }
+  .scene-caption { position: absolute; top: calc(100% + 12px); left: 0; }
 }
 
 /* ================= MOBILE / FALLBACK (без закреплений) ================= */
@@ -615,6 +638,7 @@ section { position: relative; z-index: 2; }
   .nav { padding-left: 16px; gap: 12px; justify-content: space-between; }
   .hero { padding-top: 104px; min-height: 0; }
   .hero-top { grid-template-columns: 1fr; }
+  .scene { margin-top: clamp(32px, 6vh, 72px); }
   .scene-track {
     overflow-x: auto; overflow-y: hidden; justify-content: flex-start;
     padding: 0 40vw; scroll-snap-type: x mandatory; scrollbar-width: none;
