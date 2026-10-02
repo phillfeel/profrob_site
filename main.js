@@ -531,6 +531,8 @@
   const counter = document.querySelector('.counter');
   const cCur = counter.querySelector('.cur'), cLbl = counter.querySelector('.lbl'), cBar = counter.querySelector('.bar i');
   const sections = [...document.querySelectorAll('[data-sec]')];
+  // Раздел может состоять из нескольких секций с одним номером (Платформа: схема + диспетчерская)
+  const secTotal = new Set(sections.map((s) => s.dataset.sec)).size;
   const navLinks = [...document.querySelectorAll('.nav-links a')];
   let activeSec = null;
   // Активный раздел = последний, чей верх выше середины экрана. Работает и для закреплённых секций.
@@ -541,8 +543,8 @@
     activeSec = sec;
     cCur.textContent = sec.dataset.sec; cLbl.textContent = sec.dataset.name;
     counter.classList.toggle('on-dark', sec.hasAttribute('data-dark'));
-    gsap.to(cBar, { scaleY: +sec.dataset.sec / sections.length, duration: .6, ease: EASE });
-    navLinks.forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + sec.id));
+    gsap.to(cBar, { scaleY: +sec.dataset.sec / secTotal, duration: .6, ease: EASE });
+    navLinks.forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + (sec.dataset.nav || sec.id)));
   };
   ScrollTrigger.create({ start: 0, end: 'max', onUpdate: syncCounter, onRefresh: syncCounter });
 
@@ -561,6 +563,37 @@
     start: 'top 88%', once: true,
     onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: .6, ease: EASE, stagger: .06 }),
   });
+
+  // ---------- 05 Платформа, схема «Слои»: слои съезжаются к полосе платформы ----------
+  // Роботы приходят сверху, системы снизу, полоса раскрывается из центра. Один раз, без скраба:
+  // схема должна читаться целиком, а не зависеть от позиции скролла.
+  (() => {
+    const stack = document.querySelector('[data-stack]');
+    if (!stack) return;
+    if (reduce) { stack.classList.add('is-live'); return; }
+    const top = stack.querySelectorAll('.stk-robots .stk-node, .stk-robots .stk-cap');
+    const bottom = stack.querySelectorAll('.stk-sys .stk-node, .stk-sys .stk-cap');
+    const core = stack.querySelector('.stk-core');
+    const mods = core.querySelectorAll('.stk-mods li');
+    gsap.set(top, { opacity: 0, y: -28 });
+    gsap.set(bottom, { opacity: 0, y: 28 });
+    gsap.set(core, { opacity: 0, scaleX: .86 });
+    gsap.set(mods, { opacity: 0, y: 8 });
+    ScrollTrigger.create({
+      trigger: stack, start: 'top 75%', once: true,
+      onEnter: () => {
+        gsap.timeline({ defaults: { ease: EASE }, onComplete: () => {
+          // Снимаем inline-трансформы, иначе они перебивают :hover узлов
+          gsap.set([...top, ...bottom, core], { clearProps: 'transform' });
+          stack.classList.add('is-live');
+        } })
+          .to(core, { opacity: 1, scaleX: 1, duration: .7 })
+          .to(mods, { opacity: 1, y: 0, duration: .4, stagger: .05 }, '-=.35')
+          .to(top, { opacity: 1, y: 0, duration: .55, stagger: .04 }, '-=.5')
+          .to(bottom, { opacity: 1, y: 0, duration: .55, stagger: .04 }, '<.1');
+      },
+    });
+  })();
 
   // ---------- 03 Внедрение: вертикальный скролл, шаги заполняются по ходу ----------
   // Обычный поток документа + один scrub на весь список — без пина, лёгкий эффект,
@@ -597,7 +630,7 @@
   });
   ScrollTrigger.create({ trigger: 'footer .stats', start: 'top 85%', once: true, onEnter: () => document.querySelectorAll('footer [data-count]').forEach(countUp) });
 
-  // ---------- 05 Кейсы: слайдер ----------
+  // ---------- 06 Кейсы: слайдер ----------
   const cases = document.querySelector('.cases');
   const caseCards = [...cases.children];
   const cCaseCur = document.querySelector('.c-cur');
@@ -647,7 +680,7 @@
       });
     });
 
-    // 07 Платформа: закрепление, функции переключаются скроллом
+    // 05 Платформа, диспетчерская: закрепление, функции переключаются скроллом
     const feats = [...document.querySelectorAll('.feat')];
     const ui = document.querySelector('.ui');
     const setF = (n) => {
@@ -656,7 +689,7 @@
       ui.querySelectorAll('.ui-side .it').forEach((it) => it.classList.toggle('on', +it.dataset.f === n));
     };
     ScrollTrigger.create({
-      trigger: '#platform', start: 'top top', end: '+=' + feats.length * 55 + '%', pin: true, scrub: true, refreshPriority: 1,
+      trigger: '#platform-ui', start: 'top top', end: '+=' + feats.length * 55 + '%', pin: true, scrub: true, refreshPriority: 1,
       onUpdate: (self) => setF(Math.min(feats.length, Math.floor(self.progress * feats.length) + 1)),
     });
 

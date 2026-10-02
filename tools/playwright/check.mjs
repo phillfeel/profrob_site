@@ -8,6 +8,7 @@
 //          --widths (default 1440,390), --height (default 900; with --selector also prints block height vs viewport), --pin <section id> (scrub through pinned section),
 //          --hover <selector> (move the mouse to this element's centre before the --selector screenshot),
 //          --reduce (emulate prefers-reduced-motion),
+//          --scroll (with --selector: scroll through the whole block first, so once-only reveals below the fold fire),
 //          --out (default tools/playwright/out, gitignored), --wait ms after load/scroll (default 1500).
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -75,6 +76,11 @@ try {
       if (args.selector) {
         const el = pg.locator(args.selector).first();
         await el.scrollIntoViewIfNeeded();
+        if (args.scroll) {
+          const [top, bottom] = await el.evaluate((n) => { const r = n.getBoundingClientRect(); return [r.top + scrollY, r.bottom + scrollY]; });
+          for (let y = top - height; y < bottom; y += height / 3) { await pg.evaluate((v) => window.scrollTo(0, v), y); await pg.waitForTimeout(250); }
+          await el.scrollIntoViewIfNeeded();
+        }
         await pg.waitForTimeout(800);
         if (args.hover) { const b = await pg.locator(args.hover).first().boundingBox(); await pg.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 8 }); await pg.waitForTimeout(500); } // centre of the element: works for moving targets
         await el.screenshot({ path: file });

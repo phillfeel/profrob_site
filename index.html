@@ -31,7 +31,7 @@
   <div class="counter" aria-hidden="true">
     <span class="cur tnum">01</span>
     <span class="bar"><i></i></span>
-    <span class="tot tnum">08</span>
+    <span class="tot tnum">09</span>
     <span class="lbl">ГЕРОЙ</span>
   </div>
 
@@ -41,19 +41,19 @@
       <div class="wrap hero-top">
         <div class="hero-copy">
           <h1 class="h1 hero-in">Роботы, которые работают на ваш бизнес.</h1>
-          <p class="lead hero-in">Внедряем роботов в реальные бизнес-процессы: закрываем дефицит персонала и держим качество стабильным. Окупаемость считаем до вложений.</p>
+          <p class="lead hero-in">Внедряем роботов любого типа и управляем ими на собственной платформе ПРОФРОБОТ. Закрываем дефицит персонала, держим качество стабильным, окупаемость считаем до вложений.</p>
           <div class="btns hero-in">
             <a class="btn btn-pri" href="roi.html">Рассчитать окупаемость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a class="btn btn-sec" href="#cases" data-link>Посмотреть кейсы</a>
           </div>
         </div>
         <div class="hero-side">
-          <div class="metrics hero-in" role="status" aria-label="Единый центр управления">
+          <a class="metrics hero-in" href="#platform" data-link aria-label="Платформа ПРОФРОБОТ: 142 устройства, 14 объектов, SLA 98,2%. Перейти к платформе">
             <span><b class="tnum" data-count="142">142</b> устройства</span><span class="dot"></span>
             <span><b class="tnum" data-count="14">14</b> объектов</span><span class="dot"></span>
             <span>SLA <b class="tnum" data-count="98.2" data-dec="1">98,2</b><b>%</b></span>
-            <span class="badge-online"><i></i>Система онлайн</span>
-          </div>
+            <span class="badge-online"><i></i>Платформа онлайн</span>
+          </a>
           <div class="scene-caption" id="caption" aria-live="polite">
             <span class="mono scene-caption__cat" id="caption-cat"></span>
             <span class="scene-caption__res" id="caption-res"></span>
@@ -150,16 +150,17 @@
               <span class="robot-label">Велнес</span>
             </button>
             <!-- Гуманоид после Велнеса: высокий узкий силуэт между двумя низкими (Велнес и Агро по кругу ленты).
-                 --k чуть ниже AMR — Склад остаётся самым высоким, под его подпись рассчитан запас сцены.
+                 --k выше AMR: гуманоид — единственный в ленте в рост человека, и размером он должен выделяться.
+                 Запас сцены под его подпись рассчитан в styles.css (--scene-h).
                  --air: узкий силуэт при общем шаге ленты выглядел зажатым — добавляем поля по бокам -->
             <button class="robot" type="button"
-                    style="--k:.97; --lf:0; --pad:.003; --air:.12"
+                    style="--k:1.06; --lf:0; --pad:.003; --air:.12"
                     data-life="4.7" data-amp="3" data-depth=".018"
                     data-cat="Гуманоиды" data-res="сервис и представительские задачи под конкретный запрос"
                     data-robot="humanoid" aria-label="Гуманоидный робот — сервис и представительские задачи">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-humanoid.webp" alt="Гуманоидный робот" width="431" height="1188" decoding="sync">
+                <img src="assets/robots/robot-humanoid.webp" alt="Гуманоидный робот" width="403" height="1188" decoding="sync">
               </span></span></span>
               <span class="robot-label">Гуманоиды</span>
             </button>
@@ -169,7 +170,7 @@
     </section>
 
     <!-- ================= ПРОИЗВОДИТЕЛИ — продолжение героя, в счётчик разделов не входит ================= -->
-    <!-- Три ленты логотипов (main.js клонирует карточки и пускает ленты навстречу друг другу; без JS — статичная сетка).
+    <!-- Компактная панель: шапка в одну строку + три ленты логотипов (main.js клонирует карточки и пускает ленты навстречу друг другу; без JS — статичная сетка).
          Логотипы приведены к одному цвету (assets/brands); --h — оптическая высота, подобрана под плотность знака.
          Новый бренд = один <li class="brand"> в любую ленту.
          Цифра «40+» в шапке — число производителей из базы поставщиков (ТЗ, стр. 9: 38 названных + JAKA, Brokk), а не число логотипов в лентах; правится вручную. -->
@@ -177,10 +178,7 @@
       <div class="wrap">
         <div class="brands-panel reveal" data-brands>
           <div class="brands-head">
-            <div class="brands-copy">
-              <h2 class="brands-h" id="brands-title">Работаем с ведущими мировыми производителями</h2>
-              <p>Сравниваем решения 2–5 брендов и подбираем оборудование под задачу, а не под бренд.</p>
-            </div>
+            <h2 class="brands-h" id="brands-title">Работаем с ведущими мировыми производителями</h2>
             <div class="brands-stat">
               <b class="brands-count tnum">40<i>+</i></b>
               <span class="brands-count-l">брендов<br>в подборе</span>
@@ -189,7 +187,6 @@
           </div>
           <div class="brands-rows">
             <div class="brands-line">
-              <p class="brands-cap"><b>01</b>Сервис · клининг · склад</p>
               <div class="brands-lane">
                 <ul class="brands-row">
                 <li class="brand">
@@ -214,7 +211,6 @@
               </div>
             </div>
             <div class="brands-line">
-              <p class="brands-cap"><b>02</b>Логистика · гуманоиды · коботы</p>
               <div class="brands-lane">
                 <ul class="brands-row">
                 <li class="brand">
@@ -242,7 +238,6 @@
               </div>
             </div>
             <div class="brands-line">
-              <p class="brands-cap"><b>03</b>Манипуляторы · стройка · дроны · агро</p>
               <div class="brands-lane">
                 <ul class="brands-row">
                 <li class="brand">
@@ -319,7 +314,7 @@
           <div class="vstep"><div class="node">01</div><div class="body"><h3>Аудит и анализ</h3><p>Выезжаем на объект, разбираем процессы и цифры, считаем окупаемость.</p><div class="meta tag"><i></i>1–2 недели</div></div></div>
           <div class="vstep"><div class="node">02</div><div class="body"><h3>Подбор решения</h3><p>Оборудование от 2–5 производителей под задачу, без привязки к одному.</p><div class="meta tag"><i></i>Независимо</div></div></div>
           <div class="vstep"><div class="node">03</div><div class="body"><h3>Помощь в покупке</h3><p>Полное юридическое и транспортное сопровождение сделки: от договора до доставки оборудования на объект. Рассрочка и лизинг от ведущих банков РФ.</p><div class="meta tag"><i></i>Сопровождение</div></div></div>
-          <div class="vstep"><div class="node">04</div><div class="body"><h3>Внедрение под ключ</h3><p>Поставка, настройка, интеграция, обучение персонала и запуск.</p><div class="meta tag"><i></i>Интеграция</div></div></div>
+          <div class="vstep"><div class="node">04</div><div class="body"><h3>Внедрение под ключ</h3><p>Поставка, настройка, подключение к платформе ПРОФРОБОТ и вашим системам, обучение персонала и запуск. Не хватает функций у вендора — дописываем.</p><div class="meta tag"><i></i>Интеграция</div></div></div>
           <div class="vstep"><div class="node">05</div><div class="body"><h3>Сервис по SLA</h3><p>Собственная сервисная сеть по России. Полное сервисное обслуживание: ваш робот остаётся в строю на протяжении всей эксплуатации.</p><div class="meta tag"><i></i>24/7</div></div></div>
           <div class="vstep"><div class="node">06</div><div class="body"><h3>Аналитика и развитие</h3><p>Смотрим данные эксплуатации, дорабатываем сценарии, масштабируем.</p><div class="meta tag"><i></i>Платформа</div></div></div>
         </div>
@@ -339,18 +334,142 @@
             <div class="kpi"><div class="v"><span class="tnum" data-count="80">0</span><small>%</small></div><div class="bar"><i data-fill="0.8"></i></div><div class="l">до 80% меньше зависимость от ручного труда</div></div>
             <div class="kpi"><div class="v"><span class="tnum" data-count="98">0</span><small>%+</small></div><div class="bar"><i data-fill="0.98"></i></div><div class="l">стабильное качество уборки и услуг</div></div>
             <div class="kpi"><div class="v">24<small>/7</small></div><div class="bar"><i data-fill="1"></i></div><div class="l">автономная работа без перерывов</div></div>
-            <div class="kpi"><div class="v"><span class="tnum" data-count="100">0</span><small>%</small></div><div class="bar"><i data-fill="1"></i></div><div class="l">прозрачность и контроль в реальном времени</div></div>
+            <div class="kpi"><div class="v"><span class="tnum" data-count="100">0</span><small>%</small></div><div class="bar"><i data-fill="1"></i></div><div class="l">контроль всего парка на одной платформе в реальном времени</div></div>
           </div>
           <p class="footnote">* Диапазоны рассчитываются на аудите под конкретный объект.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= 05 КЕЙСЫ — slider ================= -->
-    <section class="sec" id="cases" data-sec="05" data-name="КЕЙСЫ" style="padding-left:0;padding-right:0">
+    <!-- ================= 05 ПЛАТФОРМА — «Слои»: любые роботы → одна платформа → ваши системы ================= -->
+    <section class="sec stk-sec" id="platform" data-sec="05" data-name="ПЛАТФОРМА">
+      <div class="wrap">
+        <div class="stk-head reveal">
+          <div class="stk-title">
+            <span class="idx"><b>05</b> — ПЛАТФОРМА</span>
+            <h2 class="h2">Любые роботы.<br>Одна платформа.</h2>
+          </div>
+          <p class="lead">ПРОФРОБОТ Platform — наша собственная разработка. Подключаем роботов разных производителей, от уборщика до гуманоида, и пишем под ваш процесс софт, которого нет у вендора.</p>
+        </div>
+
+        <!-- Схема: восемь типов роботов и шесть систем клиента сходятся в одну полосу платформы.
+             Точки на соединителях — поток данных робот → платформа → ваши системы. -->
+        <div class="stk" data-stack>
+          <div class="stk-layer stk-robots">
+            <p class="stk-cap"><b>01</b>Роботы · 40+ производителей</p>
+            <ul class="stk-row">
+              <li class="stk-node" style="--i:0"><img src="assets/robots/robot-cleaning.webp" alt="" width="964" height="1026" loading="lazy" decoding="async"><span>Уборка</span></li>
+              <li class="stk-node" style="--i:1"><img src="assets/robots/robot-delivery.webp" alt="" width="1027" height="1072" loading="lazy" decoding="async"><span>Доставка</span></li>
+              <li class="stk-node" style="--i:2"><img src="assets/robots/robot-amr.webp" alt="" width="837" height="1148" loading="lazy" decoding="async"><span>Склад</span></li>
+              <li class="stk-node" style="--i:3"><img src="assets/robots/robot-manipulator.webp" alt="" width="992" height="1116" loading="lazy" decoding="async"><span>Манипуляторы</span></li>
+              <li class="stk-node" style="--i:4"><img src="assets/robots/robot-agro.webp" alt="" width="1207" height="703" loading="lazy" decoding="async"><span>Агро</span></li>
+              <li class="stk-node" style="--i:5"><img src="assets/robots/robot-demolition.webp" alt="" width="1199" height="1015" loading="lazy" decoding="async"><span>Стройка</span></li>
+              <li class="stk-node" style="--i:6"><img src="assets/robots/robot-wellness.webp" alt="" width="1068" height="990" loading="lazy" decoding="async"><span>Велнес</span></li>
+              <li class="stk-node" style="--i:7"><img src="assets/robots/robot-humanoid.webp" alt="" width="403" height="1188" loading="lazy" decoding="async"><span>Гуманоиды</span></li>
+            </ul>
+          </div>
+
+          <div class="stk-core">
+            <div class="stk-core-head">
+              <p class="stk-logo"><b>02</b>ПРОФРОБОТ <span>Platform</span></p>
+              <span class="badge-online"><i></i><span class="tnum">142</span>&nbsp;устройства онлайн</span>
+            </div>
+            <ul class="stk-mods">
+              <li>Адаптеры производителей</li>
+              <li>Карта и диспетчеризация</li>
+              <li>Сценарии между роботами</li>
+              <li>AI-агенты</li>
+              <li>Аналитика и SLA</li>
+              <li>Open API</li>
+            </ul>
+            <p class="stk-core-foot">Своя разработка · данные хранятся в РФ · дата-центр в Сколково</p>
+          </div>
+
+          <div class="stk-layer stk-sys">
+            <ul class="stk-row">
+              <li class="stk-node" style="--i:0"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg><span>1С и ERP</span></li>
+              <li class="stk-node" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><span>WMS склада</span></li>
+              <li class="stk-node" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg><span>Лифты и двери</span></li>
+              <li class="stk-node" style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>СКУД и охрана</span></li>
+              <li class="stk-node" style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg><span>BMS здания</span></li>
+              <li class="stk-node" style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Мессенджеры и почта</span></li>
+            </ul>
+            <p class="stk-cap"><b>03</b>Ваши системы</p>
+          </div>
+        </div>
+
+        <!-- Разработка под заказ: примеры иллюстративные, ждут подтверждения клиента (docs/specs/СПЕКА_АКЦЕНТ_ПЛАТФОРМА.md) -->
+        <div class="stk-dev">
+          <div class="stk-dev-head reveal">
+            <h3>Нет нужной функции у производителя — напишем.</h3>
+            <p>Новые сценарии, интеграции и интерфейсы собираем на основе платформы, а не ждём обновления от вендора.</p>
+            <div><a class="btn btn-pri" href="#contact" data-link>Обсудить разработку <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+          <article class="stk-case reveal"><span class="no">01</span><h4>Разные бренды в одной связке</h4><p>Уборщик и доставщик от разных производителей делят лифт и маршруты, не мешая друг другу и людям.</p></article>
+          <article class="stk-case reveal"><span class="no">02</span><h4>Задачи из ваших систем</h4><p>Робот получает задание из WMS или 1С и закрывает его отчётом в той же системе.</p></article>
+          <article class="stk-case reveal"><span class="no">03</span><h4>Сценарии для гуманоида</h4><p>Встречает гостей, провожает до нужной двери, отвечает на вопросы о вашем объекте.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 05 ПЛАТФОРМА, экран 2 — диспетчерская, pinned scrollytelling ================= -->
+    <section class="plat" id="platform-ui" data-sec="05" data-name="ПЛАТФОРМА" data-nav="platform" data-dark>
+      <div class="stage">
+        <div class="plat-copy">
+          <span class="idx"><b>05</b> — ПЛАТФОРМА · ДИСПЕТЧЕРСКАЯ</span>
+          <h2 class="h2">Весь флот — в одном окне.</h2>
+          <p class="lead">Уборщики, доставщики, охранные роботы и гуманоиды разных производителей — на одной карте, с общими KPI, отчётами и оповещениями. Не «робот-одиночка», а управляемая система.</p>
+          <ul class="feats">
+            <li class="feat on" data-f="1"><span class="no">01</span>Мониторинг в реальном времени<span class="st"></span></li>
+            <li class="feat" data-f="2"><span class="no">02</span>Управление парком устройств<span class="st"></span></li>
+            <li class="feat" data-f="3"><span class="no">03</span>Контроль качества и KPI<span class="st"></span></li>
+            <li class="feat" data-f="4"><span class="no">04</span>Аналитика и отчёты<span class="st"></span></li>
+            <li class="feat" data-f="5"><span class="no">05</span>Оповещения и сценарии<span class="st"></span></li>
+            <li class="feat" data-f="6"><span class="no">06</span>Интеграция с инфраструктурой<span class="st"></span></li>
+            <li class="feat" data-f="7"><span class="no">07</span>Свой софт под ваш сценарий<span class="st"></span></li>
+          </ul>
+          <div><a class="btn btn-inv" href="#">Подробнее о платформе ↗</a></div>
+        </div>
+        <div class="ui" data-f="1" aria-hidden="true">
+          <div class="ui-side">
+            <div class="mono" style="font-size:10px;margin-bottom:8px">ПРОФРОБОТ · PLATFORM</div>
+            <div class="it on" data-f="1">Мониторинг</div><div class="it" data-f="2">Парк</div><div class="it" data-f="3">Качество</div>
+            <div class="it" data-f="4">Отчёты</div><div class="it" data-f="5">Оповещения</div><div class="it" data-f="6">Интеграции</div><div class="it" data-f="7">Сценарии</div>
+          </div>
+          <div class="ui-main">
+            <div class="ui-top"><div><b>ТЦ «Северный» · этаж 1</b><br>4 типа роботов · 3 производителя</div><span class="badge-online"><i></i>Онлайн</span></div>
+            <div class="ui-map">
+              <div class="room" style="left:6%;top:10%;width:38%;height:44%"></div>
+              <div class="room" style="left:50%;top:10%;width:44%;height:30%"></div>
+              <div class="room" style="left:6%;top:60%;width:56%;height:30%"></div>
+              <div class="room" style="left:68%;top:46%;width:26%;height:44%"></div>
+              <div class="zone" style="left:8%;top:13%;width:34%;height:38%"></div>
+              <div class="zone" style="left:70%;top:49%;width:22%;height:38%"></div>
+              <svg class="ui-route" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M80 68 C 78 52, 64 42, 70 24"/></svg>
+              <span class="bot" data-t="cl" style="left:22%;top:30%"><em>CL-03</em></span>
+              <span class="bot" data-t="dl" style="left:70%;top:24%"><em>DL-01</em></span>
+              <span class="bot" data-t="cl" style="left:36%;top:74%"><em>CL-07</em></span>
+              <span class="bot" data-t="hm" style="left:80%;top:68%"><em>HM-01</em></span>
+              <span class="bot" data-t="sc" style="left:54%;top:50%"><em>SC-02</em></span>
+              <ul class="ui-legend"><li data-t="cl">Уборка</li><li data-t="dl">Доставка</li><li data-t="hm">Гуманоид</li><li data-t="sc">Охрана</li></ul>
+              <div class="alert">Уборщик CL-07 · низкий заряд · едет на базу</div>
+              <div class="ui-flow"><b>Сценарий «Гость» · v1.3</b><ol><li>HM-01 встречает</li><li>Вызов лифта</li><li>DL-01 везёт заказ</li></ol></div>
+            </div>
+            <div class="ui-bottom">
+              <div class="ui-card fleet">Роботов в работе<b>24 / 26</b></div>
+              <div class="ui-card q">KPI смены<b>98,2%</b></div>
+              <div class="ui-card rep">Задач за смену<b>1 284</b><div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:85%"></i><i style="height:92%"></i></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 06 КЕЙСЫ — slider ================= -->
+    <section class="sec" id="cases" data-sec="06" data-name="КЕЙСЫ" style="padding-left:0;padding-right:0">
       <div class="wrap cases-head reveal">
         <div class="sec-head" style="margin:0">
-          <span class="idx"><b>05</b> — КЕЙСЫ</span>
+          <span class="idx"><b>06</b> — КЕЙСЫ</span>
           <h2 class="h2">Кейсы и результаты.</h2>
         </div>
         <div class="slider-ctrl">
@@ -370,11 +489,11 @@
       <div class="wrap cases-foot"><a class="btn btn-sec" href="#">Все кейсы</a></div>
     </section>
 
-    <!-- ================= 06 ОТРАСЛИ — sticky head ================= -->
-    <section class="sec" id="industries" data-sec="06" data-name="ОТРАСЛИ" style="padding-top:0">
+    <!-- ================= 07 ОТРАСЛИ — sticky head ================= -->
+    <section class="sec" id="industries" data-sec="07" data-name="ОТРАСЛИ" style="padding-top:0">
       <div class="wrap ind">
         <div class="ind-head">
-          <span class="idx"><b>06</b> — ОТРАСЛИ</span>
+          <span class="idx"><b>07</b> — ОТРАСЛИ</span>
           <h2 class="h2">Отрасли, в которых мы создаём результат.</h2>
           <p class="lead">Под каждую отрасль — свой лендинг со сценариями, оборудованием и расчётом.</p>
           <div><a class="btn btn-sec" href="#contact" data-link>Подобрать решение</a></div>
@@ -396,58 +515,39 @@
       </div>
     </section>
 
-    <!-- ================= 07 ПЛАТФОРМА — pinned scrollytelling ================= -->
-    <section class="plat" id="platform" data-sec="07" data-name="ПЛАТФОРМА" data-dark>
-      <div class="stage">
-        <div class="plat-copy">
-          <span class="idx"><b>07</b> — ПЛАТФОРМА</span>
-          <h2 class="h2">Весь флот — в одном окне.</h2>
-          <p class="lead">ПРОФРОБОТ Cleaning Operations Platform: парк устройств, качество, отчёты и оповещения. Не «робот-одиночка», а управляемая система.</p>
-          <ul class="feats">
-            <li class="feat on" data-f="1"><span class="no">01</span>Мониторинг в реальном времени<span class="st"></span></li>
-            <li class="feat" data-f="2"><span class="no">02</span>Управление парком устройств<span class="st"></span></li>
-            <li class="feat" data-f="3"><span class="no">03</span>Контроль качества и KPI<span class="st"></span></li>
-            <li class="feat" data-f="4"><span class="no">04</span>Аналитика и отчёты<span class="st"></span></li>
-            <li class="feat" data-f="5"><span class="no">05</span>Оповещения и сценарии<span class="st"></span></li>
-            <li class="feat" data-f="6"><span class="no">06</span>Интеграция с инфраструктурой<span class="st"></span></li>
-          </ul>
-          <div><a class="btn btn-inv" href="#">Подробнее о платформе ↗</a></div>
+    <!-- ================= 08 ПОЧЕМУ ПРОФРОБОТ — пять отличий (ТЗ п. 1.2), платформа первой ================= -->
+    <section class="sec why" id="why" data-sec="08" data-name="ПОЧЕМУ МЫ">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="idx"><b>08</b> — ПОЧЕМУ ПРОФРОБОТ</span>
+          <h2 class="h2">Чем мы отличаемся от поставщика роботов.</h2>
         </div>
-        <div class="ui" data-f="1" aria-hidden="true">
-          <div class="ui-side">
-            <div class="mono" style="font-size:10px;margin-bottom:8px">ПРОФРОБОТ · PLATFORM</div>
-            <div class="it on" data-f="1">Мониторинг</div><div class="it" data-f="2">Парк</div><div class="it" data-f="3">Качество</div>
-            <div class="it" data-f="4">Отчёты</div><div class="it" data-f="5">Оповещения</div><div class="it" data-f="6">Интеграции</div>
-          </div>
-          <div class="ui-main">
-            <div class="ui-top"><div><b>ТЦ «Северный» · этаж 1</b><br>12 400 м² · ночная смена</div><span class="badge-online"><i></i>Онлайн</span></div>
-            <div class="ui-map">
-              <div class="room" style="left:6%;top:10%;width:38%;height:44%"></div>
-              <div class="room" style="left:50%;top:10%;width:44%;height:30%"></div>
-              <div class="room" style="left:6%;top:60%;width:56%;height:30%"></div>
-              <div class="room" style="left:68%;top:46%;width:26%;height:44%"></div>
-              <div class="zone" style="left:8%;top:13%;width:34%;height:38%"></div>
-              <div class="zone" style="left:70%;top:49%;width:22%;height:38%"></div>
-              <span class="bot" style="left:22%;top:30%"></span>
-              <span class="bot" style="left:70%;top:24%"></span>
-              <span class="bot" style="left:36%;top:74%"></span>
-              <span class="bot" style="left:80%;top:68%"></span>
-              <div class="alert">Робот #07 · низкий заряд · маршрут на базу</div>
+        <div class="why-grid">
+          <article class="why-card why-card--main reveal">
+            <span class="no">01</span>
+            <div class="why-main-body">
+              <h3>Собственная платформа</h3>
+              <p>Не перепродаём софт вендора. ПРОФРОБОТ Platform — наша российская разработка: подключаем роботов любых брендов и типов и дописываем функции под ваш процесс.</p>
             </div>
-            <div class="ui-bottom">
-              <div class="ui-card fleet">Устройств в работе<b>24 / 26</b></div>
-              <div class="ui-card q">Качество уборки<b>98,2%</b></div>
-              <div class="ui-card rep">Убрано за смену<b>11 870 м²</b><div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:85%"></i><i style="height:92%"></i></div></div>
-            </div>
-          </div>
+            <ul class="why-facts">
+              <li><b class="tnum">8</b>типов роботов</li>
+              <li><b class="tnum">40+</b>производителей</li>
+              <li><b class="tnum">1</b>окно управления</li>
+            </ul>
+            <p class="why-foot">Данные хранятся в РФ · дата-центр в Сколково · <a href="#platform" data-link>Как устроена платформа</a></p>
+          </article>
+          <article class="why-card reveal"><span class="no">02</span><h3>AI-агенты своей разработки</h3><p>Предсказывают поломку до простоя и перестраивают маршруты уборки в реальном времени.</p></article>
+          <article class="why-card reveal"><span class="no">03</span><h3>Сервис по всей России</h3><p>Собственная сеть и работа по SLA. Отвечаем за то, чтобы робот работал, а не только за поставку.</p></article>
+          <article class="why-card reveal"><span class="no">04</span><h3>Не привязаны к бренду</h3><p>Сравниваем 2–5 производителей на направление и берём то, что окупится у вас, а не то, на что у нас эксклюзив.</p></article>
+          <article class="why-card reveal"><span class="no">05</span><h3>Сначала экономика</h3><p>Разговор начинается с окупаемости вашего объекта, выбор техники — потом.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- ================= 08 CTA ================= -->
-    <section class="final" id="contact" data-sec="08" data-name="ЗАЯВКА" data-dark style="padding:128px 0 0">
+    <!-- ================= 09 CTA ================= -->
+    <section class="final" id="contact" data-sec="09" data-name="ЗАЯВКА" data-dark style="padding:128px 0 0">
       <div class="stage">
-        <span class="idx reveal"><b>08</b> — ЗАЯВКА</span>
+        <span class="idx reveal"><b>09</b> — ЗАЯВКА</span>
         <h2 class="h2 reveal">Посчитаем экономику вашего объекта.</h2>
         <p class="lead reveal">Рассчитаем окупаемость и подготовим предложение. Без обязательств: сначала цифры, потом решение.</p>
         <div class="btns reveal" style="justify-content:center">
