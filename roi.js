@@ -1,4 +1,4 @@
-/* ПРОФРОБОТ — страница ROI-калькулятора. Модель расчёта — roi-model.js (window.ROI). */
+/* ПРОФРОБОТ — страница калькулятора окупаемости. Модель расчёта — roi-model.js (window.ROI). */
 (() => {
   'use strict';
   const { TYPES, MODES, K, calc, autoStaff, staffRange } = window.ROI;
@@ -226,8 +226,8 @@
     } else {
       el.plateV.textContent = signed(r.leasePlus);
       el.plateL.textContent = r.leasePlus >= 0
-        ? 'в месяц после платежа по лизингу — с первого месяца'
-        : 'в месяц, пока идёт лизинг; после — экономия целиком ваша';
+        ? 'ориентировочно в месяц после платежа по лизингу'
+        : 'ориентировочно в месяц, пока идёт лизинг';
     }
     el.fy.innerHTML = `${money(r.fiveYears).n}<small>${money(r.fiveYears).u}</small>`;
     el.freed.textContent = dec1(r.freed);
@@ -235,7 +235,7 @@
     el.dockV.textContent = moneyStr(r.net);
     drawChart(r);
     drawCrew(r);
-    el.sum.innerHTML = `${t.name} · ${group(r.area)}${NB}м² · ${MODES[r.mode].name} · ${r.staff} ${plural(r.staff, 'уборщик', 'уборщика', 'уборщиков')}<br>Экономия <b>${moneyStr(r.net)}</b> в год · ${state.fin === 'buy' ? `окупаемость ${Math.round(r.payback)} мес.` : `лизинг ${signed(r.leasePlus)}/мес`}`;
+    el.sum.innerHTML = `${t.name} · ${group(r.area)}${NB}м² · ${MODES[r.mode].name} · ${r.staff} ${plural(r.staff, 'уборщик', 'уборщика', 'уборщиков')}<br>Оценка экономии <b>${moneyStr(r.net)}</b> в год · ${state.fin === 'buy' ? `окупаемость около ${Math.round(r.payback)} мес.` : `лизинг ${signed(r.leasePlus)}/мес`}`;
 
     clearTimeout(urlTimer);
     urlTimer = setTimeout(() => history.replaceState(null, '', shareUrl()), 300);
@@ -265,10 +265,10 @@
   // ---------- Поделиться ----------
   $('#share').addEventListener('click', async () => {
     const url = shareUrl();
-    const text = `Робот сэкономит ${moneyStr(lastResult.net)} в год на нашем объекте — расчёт ПРОФРОБОТ`;
+    const text = `Предварительный расчёт ПРОФРОБОТ: робот может сэкономить около ${moneyStr(lastResult.net)} в год на нашем объекте`;
     goal('calc_share');
     try {
-      if (navigator.share && matchMedia('(pointer: coarse)').matches) { await navigator.share({ title: 'ROI-калькулятор ПРОФРОБОТ', text, url }); return; }
+      if (navigator.share && matchMedia('(pointer: coarse)').matches) { await navigator.share({ title: 'Калькулятор окупаемости ПРОФРОБОТ', text, url }); return; }
       await navigator.clipboard.writeText(url);
       toast('Ссылка на расчёт скопирована');
     } catch (err) {
@@ -295,12 +295,12 @@
       g.fillStyle = '#a3a8b1'; g.font = '500 20px "JetBrains Mono", monospace';
       g.fillText(`${t.name} · ${group(r.area)} м² · ${MODES[r.mode].name}`.toUpperCase(), 72, 176);
       g.fillStyle = '#f3f2ef'; g.font = '600 40px Onest, sans-serif';
-      g.fillText('Робот сэкономит в год', 72, 250);
+      g.fillText('Ориентировочная экономия в год', 72, 250);
       const m = money(r.net);
       g.font = '700 150px Onest, sans-serif'; g.fillText(m.n, 66, 400);
       const nw = g.measureText(m.n).width;
       g.fillStyle = '#9ba2ff'; g.font = '700 58px Onest, sans-serif'; g.fillText(m.u, 66 + nw + 20, 400);
-      const plate = state.fin === 'buy' ? `Окупаемость ${Math.round(r.payback)} мес.` : `${signed(r.leasePlus)} в месяц в лизинге`;
+      const plate = state.fin === 'buy' ? `Окупаемость около ${Math.round(r.payback)} мес.` : `${signed(r.leasePlus)} в месяц в лизинге`;
       g.font = '700 32px Onest, sans-serif';
       const pw = g.measureText(plate).width + 48;
       g.fillStyle = '#c8ff3c'; roundRect(g, 72, 446, pw, 64, 16); g.fill();

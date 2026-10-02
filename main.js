@@ -631,7 +631,7 @@
       const pBar = sec.querySelector('.progress .track-bar i');
       const pCur = sec.querySelector('.p-cur');
       const dist = () => Math.max(0, track.scrollWidth - (window.innerWidth - viewport.getBoundingClientRect().left) + 80);
-      const total = track.querySelectorAll('.task:not(.cta)').length;
+      const total = track.querySelectorAll('.task').length;
 
       gsap.to(track, {
         x: () => -dist(), ease: 'none',
