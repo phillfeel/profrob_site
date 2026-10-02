@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!-- Сгенерировано tools/industries/build.mjs из tools/industries/data.mjs. Правьте данные и пересобирайте, не этот файл. -->
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Агророботы и дроны: опрыскивание, мониторинг | ПРОФРОБОТ</title>
+  <meta name="description" content="Сельхозроботы и агродроны: точное опрыскивание, полевые работы, мониторинг посевов и уход за территорией. Экономия на СЗР и рабочих руках. Рассчитать эффект.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="/industries/agriculture/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="solutions.css">
+  <link rel="stylesheet" href="industry.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="sol-page ind-page ind--agriculture">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-people" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><path d="m3 17 14-14 4 4L7 21z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/></symbol>
+    <symbol id="i-weight" viewBox="0 0 24 24"><path d="M6 8h12l2 12H4z"/><circle cx="12" cy="5" r="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.6-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.4 12 20 12 20z"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 20h5v-5h5v-5h5V5h3"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  </defs></svg>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" aria-label="Основная навигация">
+    <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+    <nav class="nav-links">
+      <a href="solutions.html">Решения</a>
+      <a href="index.html#industries" class="on">Отрасли</a>
+      <a href="index.html#platform">Платформа</a>
+      <a href="index.html#cases">Кейсы</a>
+      <a href="#talk">Контакты</a>
+    </nav>
+    <a class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">11</span>
+    <span class="lbl">СЕЛЬСКОЕ ХОЗЯЙСТВО</span>
+  </div>
+
+  <main>
+    <!-- ================= 01 HERO ================= -->
+    <section class="ih ih--pano wrap" data-sec="01" data-name="СЕЛЬСКОЕ ХОЗЯЙСТВО">
+      <div class="ih__copy">
+          <nav class="crumbs reveal" aria-label="Хлебные крошки"><ol><li><a href="index.html">Главная</a></li><li><a href="index.html#industries">Отрасли</a></li><li aria-current="page">Сельское хозяйство</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — СЕЛЬСКОЕ ХОЗЯЙСТВО</span>
+          <h1 class="h1 ih__h1 reveal"><span>Роботы и дроны</span> <span>для сельского хозяйства.</span></h1>
+          <div class="ih__text reveal" style="--i:1">
+            <p class="lead">Сезонных рабочих рук всё меньше, а площади обрабатывать надо в срок. Агродроны и полевые роботы делают это точнее и быстрее человека.</p>
+            <p>Опрыскивают ровно там, где нужно, экономят средства защиты растений и дают объективную картину по полю. Особенно там, где вручную не успеть.</p>
+          </div>
+          <div class="ih__cta reveal" style="--i:2">
+            <a class="btn btn-pri" href="#talk">Рассчитать экономию на СЗР</a>
+            <a class="text-link" href="#talk">Обсудить обработку ваших площадей <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <p class="ih__aud reveal" style="--i:3"><span class="mono">Для кого</span> агрохолдинги · фермерские хозяйства · тепличные комплексы</p>
+      </div>
+      <!-- Место под фото Hero (21:9): Промпт 5, запасной кадр — агродрон над полем на рассвете, docs/specs/ПРОМПТЫ_HERO_ОТРАСЛИ.md. alt будущего фото: «Агродрон опрыскивает поле на рассвете» -->
+        <figure class="ph ph--wide reveal" style="--ar:21/9;--i:2">
+          <img class="ph__robot" src="assets/robots/robot-agro.webp" alt="" width="1207" height="703">
+          <figcaption class="ph__lbl mono">Место под фото · 21:9</figcaption>
+          <div class="ph__metrics"><span><b class="tnum">3</b> направления</span><span><b class="tnum">7</b> производителей</span></div>
+        </figure>
+    </section>
+
+    <!-- ================= 02 СЕЗОН ================= -->
+    <section class="sol-sec wrap" id="season" data-sec="02" data-name="СЕЗОН" aria-labelledby="season-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>02</b> — СЕЗОН</span>
+        <h2 class="h2 reveal" id="season-h">Год хозяйства с роботами.</h2>
+        <p class="lead reveal">Экономику агротехники считаем за сезон, а не за месяц. Вот где в сезоне работает каждое направление.</p>
+      </div>
+      <ol class="season">
+        <li class="season__i season__i--0 reveal" style="--i:0">
+          <span class="season__band"></span>
+          <span class="mono">Межсезонье</span>
+          <h3>Подготовка</h3>
+          <p>Аудит площадей и рельефа, подбор техники, обучение операторов.</p>
+          <span class="season__us">Работа ПРОФРОБОТ</span>
+        </li>
+        <li class="season__i season__i--1 reveal" style="--i:1">
+          <span class="season__band"></span>
+          <span class="mono">Весна</span>
+          <h3>Всходы</h3>
+          <p>Мониторинг посевов: где всходы слабые, где сорняки.</p>
+          <a class="drow__sol" href="#monitoring">Полевые работы и мониторинг ↓</a>
+        </li>
+        <li class="season__i season__i--2 reveal" style="--i:2">
+          <span class="season__band"></span>
+          <span class="mono">Лето</span>
+          <h3>Обработка</h3>
+          <p>Точечное опрыскивание в короткое окно — днём и ночью.</p>
+          <a class="drow__sol" href="#spraying">Опрыскивание ↓</a>
+        </li>
+        <li class="season__i season__i--3 reveal" style="--i:3">
+          <span class="season__band"></span>
+          <span class="mono">Осень</span>
+          <h3>Итоги сезона</h3>
+          <p>Оценка урожая, уход за территорией, расчёт экономии за сезон.</p>
+          <a class="drow__sol" href="#grounds">Уход за территорией ↓</a>
+        </li>
+      </ol>
+      <p class="season__foot">Сроки зависят от культуры и региона — календарь работ составляем на аудите.</p>
+    </section>
+
+    <!-- ================= 03 ПРОБЛЕМЫ ================= -->
+    <section class="sol-sec wrap" id="problems" data-sec="03" data-name="ПРОБЛЕМЫ" aria-labelledby="problems-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>03</b> — ПРОБЛЕМЫ</span>
+        <h2 class="h2 reveal" id="problems-h">Почему поле не ждёт.</h2>
+      </div>
+      <ol class="probs probs--strip">
+        <li class="prob reveal" style="--i:1">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-people"/></svg></span><span class="prob__no mono">01</span>
+          <h3>Сезонный дефицит рабочих</h3>
+          <p>В пик работ людей не хватает, а окно для обработки короткое.</p>
+        </li>
+        <li class="prob reveal" style="--i:2">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-map"/></svg></span><span class="prob__no mono">02</span>
+          <h3>Большие площади</h3>
+          <p>Вручную и наземной техникой не всегда успеть в срок.</p>
+        </li>
+        <li class="prob reveal" style="--i:3">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-drop"/></svg></span><span class="prob__no mono">03</span>
+          <h3>Расход СЗР</h3>
+          <p>Неточное опрыскивание — это перерасход дорогой химии.</p>
+        </li>
+        <li class="prob reveal" style="--i:4">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-eye"/></svg></span><span class="prob__no mono">04</span>
+          <h3>Мониторинг</h3>
+          <p>Оценка состояния посевов на глаз даёт ошибки и потери урожая.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ================= 04 НАПРАВЛЕНИЯ ================= -->
+    <section class="sol-sec wrap" id="directions" data-sec="04" data-name="НАПРАВЛЕНИЯ" aria-labelledby="directions-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>04</b> — НАПРАВЛЕНИЯ</span>
+        <h2 class="h2 reveal" id="directions-h">Что роботизируем.</h2>
+      </div>
+      <div class="drows">
+        <article class="drow reveal" id="spraying" style="--i:0">
+          <div class="drow__l">
+            <span class="drow__no mono">01</span>
+            <h3>Опрыскивание</h3>
+            <p>Агродроны обрабатывают поля точечно и экономят СЗР.</p>
+          </div>
+          <div class="drow__r">
+            <p class="drow__items">агродроны · роботы-опрыскиватели · роботизированное орошение</p>
+            <a class="drow__sol" href="/solutions/agro/">Решение: Агророботы <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </article>
+        <article class="drow reveal" id="monitoring" style="--i:1">
+          <div class="drow__l">
+            <span class="drow__no mono">02</span>
+            <h3>Полевые работы и мониторинг</h3>
+            <p>Роботы и дроны для оценки состояния посевов и точного земледелия.</p>
+          </div>
+          <div class="drow__r">
+            <p class="drow__items">роботы инспекции урожая · роботы для уничтожения сорняков · умное сельское хозяйство · AI-фермерство</p>
+            <a class="drow__sol" href="/solutions/agro/">Решение: Агророботы <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </article>
+        <article class="drow reveal" id="grounds" style="--i:2">
+          <div class="drow__l">
+            <span class="drow__no mono">03</span>
+            <h3>Уход за территорией</h3>
+            <p>Автономные косилки и техника для обслуживания участков и хозяйств.</p>
+          </div>
+          <div class="drow__r">
+            <p class="drow__items">автономные косилки · роботы для ухода за газонами · обслуживание участков</p>
+            <a class="drow__sol" href="/solutions/agro/">Решение: Агророботы <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 05 КЕЙС ================= -->
+    <section class="sol-sec wrap" id="case" data-sec="05" data-name="КЕЙС" aria-labelledby="case-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>05</b> — КЕЙС</span>
+        <h2 class="h2 reveal" id="case-h">Кейс.</h2>
+      </div>
+      <article class="icase reveal">
+        <div class="icase__ph"><img src="assets/cases_images/case-agro.webp" alt="Агродрон опрыскивает пшеничное поле ранним утром" loading="lazy" decoding="async"></div>
+        <div class="icase__body">
+          <span class="mono case-kicker">Агрохолдинг</span>
+          <div class="icase__res"><b class="tnum">−30%</b></div>
+          <h3>Снижение расхода СЗР при обработке полей</h3>
+          <p>Экономику считаем за сезон, а не за месяц.</p>
+          <a class="text-link" href="/cases/?industry=agriculture">Смотреть кейс <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= 06 РЕЗУЛЬТАТ ================= -->
+    <section class="sol-sec wrap" id="results" data-sec="06" data-name="РЕЗУЛЬТАТ" aria-labelledby="results-h">
+      <div class="resx">
+        <div class="resx__head">
+          <span class="idx reveal"><b>06</b> — РЕЗУЛЬТАТ</span>
+          <h2 class="h2 reveal" id="results-h">Что получает бизнес.</h2>
+        </div>
+        <ul class="res">
+          <li class="reveal" style="--i:0"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Экономия на средствах защиты растений за счёт точности.</li>
+          <li class="reveal" style="--i:1"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Покрытие больших площадей в сжатые сроки.</li>
+          <li class="reveal" style="--i:2"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Меньше зависимости от сезонных рабочих.</li>
+          <li class="reveal" style="--i:3"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Объективные данные по полю для решений.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= 07 ОБОРУДОВАНИЕ ================= -->
+    <section class="sol-sec wrap" id="vendors" data-sec="07" data-name="ОБОРУДОВАНИЕ" aria-labelledby="vendors-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>07</b> — ОБОРУДОВАНИЕ</span>
+        <h2 class="h2 reveal" id="vendors-h">Оборудование и производители.</h2>
+        <p class="lead reveal">Подбор — под культуру, площади и рельеф.</p>
+      </div>
+      <div class="vend">
+        <div class="vend__grp reveal" style="--i:0">
+          <h3 class="mono">Опрыскивание и полевые работы</h3>
+          <ul class="vend__list"><li class="vlogo"><img src="assets/brands/xag.svg" alt="XAG" style="--h:30px" width="69" height="25" loading="lazy"></li><li class="vlogo"><img src="assets/brands/dji.png" alt="DJI Agriculture" style="--h:40px" width="360" height="208" loading="lazy"></li><li class="vlogo"><img src="assets/brands/eavision.png" alt="EAVision" style="--h:34px" width="174" height="52" loading="lazy"></li><li class="vlogo"><img src="assets/brands/fjdynamics.png" alt="FJ Dynamics" style="--h:34px" width="396" height="96" loading="lazy"></li><li class="vlogo"><img src="assets/brands/aiforce.png" alt="AI Force Tech" style="--h:33px" width="1434" height="404" loading="lazy"></li></ul>
+        </div>
+        <div class="vend__grp reveal" style="--i:1">
+          <h3 class="mono">Уход за территорией</h3>
+          <ul class="vend__list"><li class="vlogo"><img src="assets/brands/koham.png" alt="Koham" style="--h:28px" width="399" height="83" loading="lazy"></li><li class="vlogo"><img src="assets/brands/leking.png" alt="Leking" style="--h:32px" width="226" height="60" loading="lazy"></li><li class="vlogo"><img src="assets/brands/fjdynamics.png" alt="FJ Dynamics" style="--h:34px" width="396" height="96" loading="lazy"></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 08 С ЧЕГО НАЧАТЬ ================= -->
+    <section class="sol-sec wrap" id="pilot" data-sec="08" data-name="С ЧЕГО НАЧАТЬ" aria-labelledby="pilot-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>08</b> — С ЧЕГО НАЧАТЬ</span>
+        <h2 class="h2 reveal" id="pilot-h">Начните с одного поля.</h2>
+      </div>
+      <ol class="steps">
+        <li class="steps__i reveal" style="--i:0"><span class="steps__no mono tnum">01</span><h3>Аудит</h3><p>Культура, площади, рельеф и окна обработки.</p></li>
+        <li class="steps__i reveal" style="--i:1"><span class="steps__no mono tnum">02</span><h3>Пилот на сезон</h3><p>Агродрон на одном поле — сравниваем расход СЗР с обычной обработкой.</p></li>
+        <li class="steps__i reveal" style="--i:2"><span class="steps__no mono tnum">03</span><h3>Масштабирование</h3><p>Остальные поля, мониторинг, уход за территорией.</p></li>
+      </ol>
+    </section>
+
+    <!-- ================= 09 ПОЧЕМУ ПРОФРОБОТ ================= -->
+    <section class="sol-sec wrap" id="why" data-sec="09" data-name="ПОЧЕМУ ПРОФРОБОТ" aria-labelledby="why-h">
+      <div class="whyn reveal">
+        <span class="idx reveal"><b>09</b> — ПОЧЕМУ ПРОФРОБОТ</span>
+        <h2 class="whyn__h" id="why-h">Сезон не ждёт ремонта.</h2>
+        <p>Окно обработки — несколько дней. Обслуживаем технику по SLA по всей России, чтобы дрон не простаивал в пик работ.</p>
+        <a class="text-link" href="/services/maintenance/">Сервисное обслуживание <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ================= 10 ЗАЯВКА ================= -->
+    <section class="sol-sec wrap" id="talk" data-sec="10" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>10</b> — ЗАЯВКА</span>
+          <h2 class="h2 reveal" id="talk-h">Обсудим обработку ваших площадей.</h2>
+          <p class="lead reveal">Напишите культуру и площадь — прикинем экономию на СЗР и подберём технику.</p>
+          <a class="text-link reveal" href="tel:+74951234567">Или позвоните: +7 (495) 123-45-67</a>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="industries/agriculture" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label for="f-dir">Направление <small>необязательно</small></label>
+            <select id="f-dir" name="direction">
+              <option value="">Пока не знаю</option>
+              <option value="spraying">Опрыскивание</option>
+              <option value="monitoring">Полевые работы и мониторинг</option>
+              <option value="grounds">Уход за территорией</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label>Не заполняйте <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Обсудить сезон</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b>Заявка принята.</b>
+            <p>Перезвоним в рабочее время.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= 11 СМОТРИТЕ ТАКЖЕ ================= -->
+    <section class="sol-sec wrap" id="see" data-sec="11" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>11</b> — СМОТРИТЕ ТАКЖЕ</span>
+        <h2 class="h2 reveal" id="see-h">Смотрите также.</h2>
+      </div>
+      <div class="seeg">
+        <a class="seel reveal" style="--i:0" href="/solutions/agro/">
+          <span class="dir__no">РЕШЕНИЕ</span>
+          <h3>Агророботы</h3>
+          <p>Дроны, полевые роботы, косилки.</p>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="seel reveal" style="--i:1" href="/services/selection/">
+          <span class="dir__no">УСЛУГА</span>
+          <h3>Подбор решения</h3>
+          <p>Под культуру, площади и рельеф.</p>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="seel reveal" style="--i:2" href="/services/maintenance/">
+          <span class="dir__no">УСЛУГА</span>
+          <h3>Сервисное обслуживание</h3>
+          <p>Чтобы техника не встала в сезон.</p>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="seel reveal" style="--i:3" href="/cases/?industry=agriculture">
+          <span class="dir__no">КЕЙСЫ</span>
+          <h3>Кейсы: агро</h3>
+          <p>Обработка полей, мониторинг.</p>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="seel reveal" style="--i:4" href="/industries/">
+          <span class="dir__no">ОТРАСЛИ</span>
+          <h3>Все отрасли</h3>
+          <p>Отели · Строительство · Медицина · Производство · Агро</p>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">Отдел внедрения</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html#industries">Все отрасли <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"/"},{"@type":"ListItem","position":2,"name":"Отрасли","item":"/industries/"},{"@type":"ListItem","position":3,"name":"Сельское хозяйство","item":"/industries/agriculture/"}]},{"@type":"Service","name":"Роботы и дроны для сельского хозяйства","serviceType":"Роботизация","areaServed":"RU","provider":{"@type":"Organization","name":"ПРОФРОБОТ"},"audience":{"@type":"BusinessAudience","audienceType":"агрохолдинги, фермерские хозяйства, тепличные комплексы"}},{"@type":"ItemList","name":"Направления","itemListElement":[{"@type":"ListItem","position":1,"name":"Опрыскивание","url":"/industries/agriculture/#spraying"},{"@type":"ListItem","position":2,"name":"Полевые работы и мониторинг","url":"/industries/agriculture/#monitoring"},{"@type":"ListItem","position":3,"name":"Уход за территорией","url":"/industries/agriculture/#grounds"}]}]}
+  </script>
+  <script src="solutions.js"></script>
+  <script src="industry.js"></script>
+</body>
+</html>

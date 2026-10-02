@@ -152,7 +152,7 @@
 .text-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--fast) var(--ease); }
 .text-link:hover svg { transform: translateX(3px); }
 
-.form { position: relative; display: grid; gap: 20px; padding: 36px; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm); }
+.form { position: relative; display: grid; gap: 20px; padding: 36px; border-radius: var(--r-lg); color: var(--ink); background: var(--surface-raised); box-shadow: var(--shadow-sm); }
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .fld { display: grid; gap: 8px; }
 .fld label { font-size: 14px; font-weight: 500; }
@@ -194,6 +194,8 @@
 .form__ok p { color: var(--ink-muted); }
 
 .sol-foot .foot { padding-top: 56px; gap: 40px; }
+/* No link grid / wordmark here, so foot-bot's top border is the only divider */
+.sol-foot .foot-top { padding-bottom: 0; border-bottom: 0; }
 .sol-foot .foot-bot { margin-top: 0; }
 
 /* ---------- Страница направления: хлебные крошки, «Где применяется» ---------- */

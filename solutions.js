@@ -113,7 +113,8 @@
       name: els.name.value.trim(),
       phone: '+' + els.phone.value.replace(/\D/g, ''),
       direction: els.direction.value || null,
-      source: 'solutions',
+      // Отраслевые лендинги переиспользуют этот скрипт и задают свой источник (с якорем направления)
+      source: form.dataset.source || 'solutions',
     };
     const endpoint = form.dataset.endpoint;
     // Пока бэкенда нет, прототип имитирует ответ. Заявка никуда не уходит.
