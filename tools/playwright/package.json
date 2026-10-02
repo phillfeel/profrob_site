@@ -1,0 +1,12 @@
+{
+  "name": "profrobot-playwright-tools",
+  "private": true,
+  "type": "module",
+  "description": "Reusable Playwright checks for the static landing (screenshots, overflow, console errors)",
+  "scripts": {
+    "check": "node check.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.63.0"
+  }
+}
