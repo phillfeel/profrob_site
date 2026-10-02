@@ -22,55 +22,57 @@
     });
   }
 
-  // ---------- Производители: селектор, перебирающий бренды (не зависит от GSAP) ----------
-  // Рамка сама переходит между ячейками; при наведении следует за курсором, вне экрана — стоит.
+  // ---------- Производители: три встречные ленты (не зависит от GSAP) ----------
+  // Карточки клонируются так, чтобы одна «смена» перекрывала ленту; сдвиг на ширину смены даёт бесшовный цикл.
+  // Наведение ставит ленту на паузу (CSS), прожектор следует за курсором. При prefers-reduced-motion остаётся статичная сетка.
   const initBrands = (panel) => {
-    const grid = panel.querySelector('.brands-grid');
-    const cursor = panel.querySelector('.brands-cursor');
-    const cells = [...panel.querySelectorAll('.brand:not(.brand--more)')];
-    if (!grid || !cursor || !cells.length) return;
-
-    let active = null;
-    const select = (cell) => {
-      if (cell === active) return;
-      if (active) active.classList.remove('is-active');
-      active = cell;
-      cell.classList.add('is-active');
-      cursor.style.transform = `translate(${cell.offsetLeft}px, ${cell.offsetTop}px)`;
-      cursor.style.width = `${cell.offsetWidth}px`;
-      cursor.style.height = `${cell.offsetHeight}px`;
-      grid.classList.add('has-cursor');
-    };
-
-    const STEP = 1800;
-    let timer = 0, visible = false, hovering = false;
-    // Случайный соседний шаг, но не на ту же ячейку — движение выглядит как поиск, а не как бегущая строка
-    const next = () => {
-      const i = cells.indexOf(active);
-      let j = i;
-      while (j === i) j = Math.floor(Math.random() * cells.length);
-      select(cells[j]);
-    };
-    const stop = () => { clearInterval(timer); timer = 0; };
-    const start = () => { if (!timer && !reduce && visible && !hovering) timer = setInterval(next, STEP); };
-
-    select(cells[0]);
-    window.addEventListener('resize', () => { const c = active; active = null; if (c) select(c); });
+    const lanes = [...panel.querySelectorAll('.brands-lane')];
+    if (!lanes.length) return;
 
     if (matchMedia('(hover: hover)').matches) {
-      grid.addEventListener('pointerover', (e) => {
+      panel.addEventListener('pointermove', (e) => {
         const cell = e.target.closest('.brand');
-        if (!cell || !grid.contains(cell)) return;
-        hovering = true; stop(); select(cell);
+        if (!cell) return;
+        const r = cell.getBoundingClientRect();
+        cell.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        cell.style.setProperty('--my', `${e.clientY - r.top}px`);
       });
-      grid.addEventListener('pointerleave', () => { hovering = false; start(); });
     }
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(([entry]) => {
-        visible = entry.isIntersecting;
-        if (visible) start(); else stop();
-      }).observe(panel);
-    } else { visible = true; start(); }
+    if (reduce) return;
+
+    const SPEEDS = [34, 46, 38]; // px/с на ленту — разные скорости убирают эффект «конвейера» с общим ритмом
+    const build = () => lanes.forEach((lane, idx) => {
+      const row = lane.querySelector('.brands-row');
+      row.querySelectorAll('[data-clone]').forEach((n) => n.remove());
+      lane.classList.add('is-live');
+      const originals = [...row.children];
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      const setW = originals.reduce((w, el) => w + el.offsetWidth + gap, 0);
+      if (!setW) return;
+      const copies = Math.ceil(lane.clientWidth / setW) + 1; // смена должна быть не уже окна, иначе в ленте будет «дыра»
+      const frag = document.createDocumentFragment();
+      for (let c = 1; c < copies * 2; c++) {
+        originals.forEach((el) => {
+          const clone = el.cloneNode(true);
+          clone.setAttribute('data-clone', '');
+          clone.setAttribute('aria-hidden', 'true');
+          frag.appendChild(clone);
+        });
+      }
+      row.appendChild(frag);
+      const shift = setW * copies;
+      row.style.setProperty('--shift', `${shift}px`);
+      row.style.setProperty('--dur', `${shift / SPEEDS[idx % SPEEDS.length]}s`);
+      row.style.setProperty('--dir', idx % 2 ? 'reverse' : 'normal');
+    });
+
+    build();
+    let rt = 0, lastW = window.innerWidth;
+    window.addEventListener('resize', () => {
+      if (window.innerWidth === lastW) return; // мобильные браузеры шлют resize при прокрутке (адресная строка)
+      lastW = window.innerWidth;
+      clearTimeout(rt); rt = setTimeout(build, 200);
+    });
   };
   document.querySelectorAll('[data-brands]').forEach(initBrands);
 
@@ -163,8 +165,8 @@
     }
 
     // ---------- Лента (клоны через cloneNode, а не innerHTML) ----------
-    // 56 с на круг из семи роботов — та же скорость, что была у шести за 48 с
-    const BELT_DUR = 56, BELT_GAP_MIN = 28;
+    // 64 с на круг из восьми роботов — та же скорость, что была у шести за 48 с
+    const BELT_DUR = 64, BELT_GAP_MIN = 28;
     let beltTl = null;
     const clones = [];
     const beltGap = () => {
@@ -629,7 +631,7 @@
       const pBar = sec.querySelector('.progress .track-bar i');
       const pCur = sec.querySelector('.p-cur');
       const dist = () => Math.max(0, track.scrollWidth - (window.innerWidth - viewport.getBoundingClientRect().left) + 80);
-      const total = 6;
+      const total = track.querySelectorAll('.task:not(.cta)').length;
 
       gsap.to(track, {
         x: () => -dist(), ease: 'none',

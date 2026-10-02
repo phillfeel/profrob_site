@@ -5,7 +5,9 @@
 //
 // Prints: console/page errors, horizontal page overflow per width, and the screenshot paths.
 // Options: --page (default index.html), --selector (element screenshot; default full viewport),
-//          --widths (default 1440,390), --height (default 900), --pin <section id> (scrub through pinned section),
+//          --widths (default 1440,390), --height (default 900; with --selector also prints block height vs viewport), --pin <section id> (scrub through pinned section),
+//          --hover <selector> (move the mouse to this element's centre before the --selector screenshot),
+//          --reduce (emulate prefers-reduced-motion),
 //          --out (default tools/playwright/out, gitignored), --wait ms after load/scroll (default 1500).
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -44,7 +46,7 @@ const browser = await chromium.launch();
 const tag = page.replace(/\W+/g, '_');
 try {
   for (const width of widths) {
-    const pg = await browser.newPage({ viewport: { width, height } });
+    const pg = await browser.newPage({ viewport: { width, height }, reducedMotion: args.reduce ? 'reduce' : 'no-preference' });
     const errors = [];
     pg.on('pageerror', (e) => errors.push(String(e)));
     pg.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
@@ -74,7 +76,10 @@ try {
         const el = pg.locator(args.selector).first();
         await el.scrollIntoViewIfNeeded();
         await pg.waitForTimeout(800);
+        if (args.hover) { const b = await pg.locator(args.hover).first().boundingBox(); await pg.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 8 }); await pg.waitForTimeout(500); } // centre of the element: works for moving targets
         await el.screenshot({ path: file });
+        const h = await el.evaluate((n) => Math.round(n.getBoundingClientRect().height));
+        console.log(`[${width}x${height}] ${args.selector} height: ${h}px, ${h <= height ? 'fits' : `overflows viewport by ${h - height}px`}`);
       } else await pg.screenshot({ path: file });
       console.log(`[${width}px] screenshot: ${file}`);
     }

@@ -16,6 +16,8 @@
     return { n: s + group(a / 1e3), u: `тыс.${NB}₽` };
   };
   const moneyStr = (v) => { const m = money(v); return `${m.n}${NB}${m.u}`; };
+  /** Со знаком: «+1,8 млн ₽» или «−27 тыс. ₽». */
+  const signed = (v) => `${v >= 0 ? '+' : ''}${moneyStr(v)}`;
   const plural = (n, one, few, many) => {
     const m10 = n % 10, m100 = n % 100;
     if (m10 === 1 && m100 !== 11) return one;
@@ -163,7 +165,7 @@
       svg.append(node('text', { class: 'hl', x: right ? x + 14 : x - 14, y: y + 22, 'text-anchor': right ? 'start' : 'end' }, `окупился на ${pm}-м мес.`));
     }
     const end = pts[60];
-    svg.append(node('text', { class: 'hl', x: W - R, y: Math.max(14, Y(end) - 10), 'text-anchor': 'end' }, `+${moneyStr(end)}`));
+    svg.append(node('text', { class: 'hl', x: W - R, y: Math.max(14, Y(end) - 10), 'text-anchor': 'end' }, signed(end)));
   }
 
   // ---------- Бригада: роботы + люди, высвобожденные ставки подсвечены ----------
@@ -222,8 +224,10 @@
       el.plateV.textContent = `${Math.max(1, Math.round(r.payback))}${NB}${plural(Math.round(r.payback), 'месяц', 'месяца', 'месяцев')}`;
       el.plateL.textContent = 'окупаемость покупки';
     } else {
-      el.plateV.textContent = `+${moneyStr(r.leasePlus)}`;
-      el.plateL.textContent = 'в месяц после платежа по лизингу — с первого месяца';
+      el.plateV.textContent = signed(r.leasePlus);
+      el.plateL.textContent = r.leasePlus >= 0
+        ? 'в месяц после платежа по лизингу — с первого месяца'
+        : 'в месяц, пока идёт лизинг; после — экономия целиком ваша';
     }
     el.fy.innerHTML = `${money(r.fiveYears).n}<small>${money(r.fiveYears).u}</small>`;
     el.freed.textContent = dec1(r.freed);
@@ -231,7 +235,7 @@
     el.dockV.textContent = moneyStr(r.net);
     drawChart(r);
     drawCrew(r);
-    el.sum.innerHTML = `${t.name} · ${group(r.area)}${NB}м² · ${MODES[r.mode].name} · ${r.staff} ${plural(r.staff, 'уборщик', 'уборщика', 'уборщиков')}<br>Экономия <b>${moneyStr(r.net)}</b> в год · ${state.fin === 'buy' ? `окупаемость ${Math.round(r.payback)} мес.` : `лизинг +${moneyStr(r.leasePlus)}/мес`}`;
+    el.sum.innerHTML = `${t.name} · ${group(r.area)}${NB}м² · ${MODES[r.mode].name} · ${r.staff} ${plural(r.staff, 'уборщик', 'уборщика', 'уборщиков')}<br>Экономия <b>${moneyStr(r.net)}</b> в год · ${state.fin === 'buy' ? `окупаемость ${Math.round(r.payback)} мес.` : `лизинг ${signed(r.leasePlus)}/мес`}`;
 
     clearTimeout(urlTimer);
     urlTimer = setTimeout(() => history.replaceState(null, '', shareUrl()), 300);
@@ -296,13 +300,13 @@
       g.font = '700 150px Onest, sans-serif'; g.fillText(m.n, 66, 400);
       const nw = g.measureText(m.n).width;
       g.fillStyle = '#9ba2ff'; g.font = '700 58px Onest, sans-serif'; g.fillText(m.u, 66 + nw + 20, 400);
-      const plate = state.fin === 'buy' ? `Окупаемость ${Math.round(r.payback)} мес.` : `+${moneyStr(r.leasePlus)} в месяц в лизинге`;
+      const plate = state.fin === 'buy' ? `Окупаемость ${Math.round(r.payback)} мес.` : `${signed(r.leasePlus)} в месяц в лизинге`;
       g.font = '700 32px Onest, sans-serif';
       const pw = g.measureText(plate).width + 48;
       g.fillStyle = '#c8ff3c'; roundRect(g, 72, 446, pw, 64, 16); g.fill();
       g.fillStyle = '#16181c'; g.fillText(plate, 96, 489);
       g.fillStyle = '#a3a8b1'; g.font = '500 20px "JetBrains Mono", monospace';
-      g.fillText(`ЗА 5 ЛЕТ: +${moneyStr(r.fiveYears).toUpperCase()}`, 72, 566);
+      g.fillText(`ЗА 5 ЛЕТ: ${signed(r.fiveYears).toUpperCase()}`, 72, 566);
       g.textAlign = 'right'; g.fillStyle = '#f3f2ef'; g.fillText('PROFROBOT.RU/ROI', W - 72, 566);
       const blob = await new Promise((res, rej) => c.toBlob((b) => (b ? res(b) : rej(new Error('toBlob'))), 'image/png'));
       const file = new File([blob], 'profrobot-roi.png', { type: 'image/png' });

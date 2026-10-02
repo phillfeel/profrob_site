@@ -267,81 +267,110 @@ section { position: relative; z-index: 2; }
 .scene-caption__cat { color: var(--accent-ink); }
 .scene-caption__res { font-size: 15px; font-weight: 500; color: var(--ink); }
 
-/* ================= ПРОИЗВОДИТЕЛИ (под героем) — тёмная панель подбора ================= */
+/* ================= ПРОИЗВОДИТЕЛИ (под героем) — тёмная панель, три встречные ленты ================= */
 .brands { padding: clamp(48px, 7vh, 80px) 0 0; }
 .brands-panel {
-  position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: center;
-  padding: 40px 40px 40px 48px; border-radius: var(--r-xl); overflow: hidden;
+  --pad: 48px;
+  position: relative; display: grid; gap: 40px; padding: 44px var(--pad) 40px; border-radius: var(--r-xl); overflow: hidden;
   background: var(--stage); color: var(--on-stage); box-shadow: var(--shadow-md);
 }
 /* Акцентное свечение из угла — связывает панель с подсветкой подиума героя */
 .brands-panel::before {
-  content: ""; position: absolute; inset: auto auto -40% -10%; width: 60%; height: 120%; pointer-events: none;
+  content: ""; position: absolute; inset: auto auto -50% -10%; width: 60%; height: 120%; pointer-events: none;
   background: radial-gradient(closest-side, #2f3bff38, transparent);
 }
-.brands-copy { position: relative; display: grid; gap: 16px; }
-.brands-h { font-size: clamp(24px, 2.1vw, 30px); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; text-wrap: balance; }
-.brands-copy p { font-size: 15px; line-height: 1.5; color: var(--on-stage-muted); max-width: 34ch; }
 
-/* Сетка 5×2 с волосяными линиями: 1px-зазор на фоне линии */
-.brands-grid {
-  position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px;
-  background: var(--stage-line); border: 1px solid var(--stage-line); border-radius: var(--r-md); overflow: hidden;
+.brands-head { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+.brands-copy { display: grid; gap: 16px; }
+.brands-h { font-size: clamp(26px, 2.6vw, 38px); font-weight: 700; letter-spacing: -.035em; line-height: 1.08; text-wrap: balance; max-width: 22ch; }
+.brands-copy p { font-size: 15px; line-height: 1.5; color: var(--on-stage-muted); max-width: 46ch; }
+
+/* Крупная цифра — вес «40+» делает блок скриншотным; значение ручное (см. комментарий в index.html) */
+.brands-stat { display: grid; grid-template-columns: auto auto; column-gap: 16px; row-gap: 14px; align-items: center; justify-items: start; }
+.brands-count {
+  font-size: clamp(64px, 6.4vw, 96px); font-weight: 700; letter-spacing: -.06em; line-height: .8; color: var(--on-stage);
+  background: linear-gradient(180deg, var(--on-stage) 30%, var(--accent-ink-dark)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
+.brands-count i { font-style: normal; margin-left: .04em; -webkit-text-fill-color: var(--lime); color: var(--lime); } /* «+» акцентом: «и это не всё» */
+.brands-count-l { font-family: var(--mono); font-size: 11px; line-height: 1.5; letter-spacing: .06em; text-transform: uppercase; color: var(--on-stage-muted); }
+.brands-more {
+  grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;
+  color: var(--on-stage-muted); transition: color var(--fast) var(--ease);
+}
+.brands-more svg { width: 16px; height: 16px; transition: transform var(--base) var(--ease); }
+.brands-more:hover { color: var(--on-stage); }
+.brands-more:hover svg { transform: translateX(3px); }
+
+/* Ленты выходят на края панели и гаснут по бокам */
+.brands-rows { position: relative; display: grid; gap: 18px; margin: 0 calc(var(--pad) * -1); }
+.brands-line { display: grid; gap: 10px; }
+.brands-cap {
+  padding: 0 var(--pad); display: flex; align-items: center; gap: 12px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--on-stage-muted);
+}
+.brands-cap b { font-weight: 500; color: var(--accent-ink-dark); }
+.brands-cap::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--stage-line), transparent); }
+.brands-lane { overflow: hidden; padding: 6px 0; margin: -6px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 var(--pad), #000 calc(100% - var(--pad)), transparent); mask-image: linear-gradient(90deg, transparent, #000 var(--pad), #000 calc(100% - var(--pad)), transparent); }
+
+/* Без JS и при prefers-reduced-motion — статичные ряды в несколько строк */
+.brands-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; padding: 0 var(--pad); }
+.brands-row [data-clone] { display: none; }
+.brands-lane.is-live .brands-row {
+  flex-wrap: nowrap; justify-content: flex-start; width: max-content; padding: 0 0 0 12px;
+  animation: brands-slide var(--dur, 60s) linear infinite; animation-direction: var(--dir, normal);
+  will-change: transform;
+}
+.brands-lane.is-live .brands-row [data-clone] { display: grid; }
+.brands-lane.is-live:hover .brands-row, .brands-lane.is-live:focus-within .brands-row { animation-play-state: paused; }
+@keyframes brands-slide { to { transform: translateX(calc(var(--shift, 0px) * -1)); } }
+
 .brand {
-  --ls: .72; /* общий множитель размера логотипов — уменьшается на узких экранах */
-  position: relative; display: grid; place-items: center; height: 104px; padding: 16px 12px 28px; background: var(--stage);
+  --ls: .8; /* общий множитель размера логотипов — уменьшается на узких экранах */
+  position: relative; flex: none; display: grid; place-items: center; min-width: 168px; height: 92px; padding: 0 32px 6px;
+  border: 1px solid var(--stage-line); border-radius: var(--r-md); background: #ffffff05; overflow: hidden;
+  transition: border-color var(--base) var(--ease), background-color var(--base) var(--ease), transform var(--base) var(--ease), box-shadow var(--base) var(--ease);
+}
+/* Прожектор под курсором: --mx/--my ставит main.js */
+.brand::before {
+  content: ""; position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity var(--base) var(--ease);
+  background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 100%), #2f3bff55, transparent 70%);
 }
 .brand img {
   position: relative; z-index: 1; height: calc(var(--h, 28px) * var(--ls)); width: auto; max-width: 100%;
-  filter: brightness(0) invert(1); opacity: .45; transition: opacity var(--base) var(--ease);
+  filter: brightness(0) invert(1); opacity: .5; transition: opacity var(--base) var(--ease), transform var(--base) var(--ease);
 }
 .brand-cat {
-  position: absolute; z-index: 1; left: 8px; right: 8px; bottom: 12px; text-align: center;
+  position: absolute; z-index: 1; left: 8px; right: 8px; bottom: 10px; text-align: center;
   font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
   color: var(--accent-ink-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   opacity: 0; transform: translateY(4px); transition: opacity var(--base) var(--ease), transform var(--base) var(--ease);
 }
-.brand.is-active img { opacity: 1; }
-.brand.is-active .brand-cat { opacity: 1; transform: none; }
-
-/* Селектор: одна рамка, которая скользит между ячейками (позицию ставит main.js) */
-.brands-cursor {
-  position: absolute; z-index: 1; top: 0; left: 0; width: 0; height: 0; pointer-events: none; opacity: 0;
-  border-radius: 10px; border: 1px solid var(--accent);
-  background: radial-gradient(90% 90% at 50% 100%, #2f3bff40, #2f3bff0a 70%);
-  box-shadow: 0 0 0 4px #2f3bff1f, 0 8px 32px -8px #2f3bffaa;
-  transition: transform 520ms var(--ease), width 520ms var(--ease), height 520ms var(--ease), opacity var(--base) var(--ease);
+@media (hover: hover) {
+  .brand:hover { border-color: var(--accent); background: #2f3bff14; transform: translateY(-3px); box-shadow: 0 0 0 4px #2f3bff1f, 0 12px 32px -10px #2f3bffaa; }
+  .brand:hover::before { opacity: 1; }
+  .brand:hover img { opacity: 1; transform: translateY(-7px); }
+  .brand:hover .brand-cat { opacity: 1; transform: none; }
 }
-.brands-grid.has-cursor .brands-cursor { opacity: 1; }
-
-.brand--more { padding: 0; }
-.brand--more a {
-  position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 8px;
-  font-size: 14px; font-weight: 500; color: var(--on-stage-muted); transition: color var(--fast) var(--ease);
-}
-.brand--more svg { width: 16px; height: 16px; transition: transform var(--base) var(--ease); }
-.brand--more a:hover, .brand--more.is-active a { color: var(--on-stage); }
-.brand--more a:hover svg { transform: translateX(3px); }
 
 @media (max-width: 1199px) {
-  .brands-panel { grid-template-columns: 1fr; gap: 28px; padding: 36px; }
-  .brands-h { max-width: 22ch; }
-  .brands-copy p { max-width: 52ch; }
+  .brands-panel { --pad: 36px; padding-top: 36px; gap: 32px; }
+  .brands-head { gap: 28px; }
+}
+@media (max-width: 767px) {
+  .brands-head { grid-template-columns: 1fr; align-items: start; }
+  .brands-stat { grid-template-columns: auto 1fr; }
 }
 @media (max-width: 639px) {
   .brands { padding-top: 40px; }
-  .brands-panel { padding: 28px 16px 16px; border-radius: var(--r-lg); gap: 24px; }
-  .brands-copy { padding: 0 8px; }
-  .brands-h { font-size: 24px; }
-  .brands-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .brand { --ls: .55; height: 84px; padding: 12px 6px 26px; }
-  .brand--more { grid-column: 1 / -1; height: 52px; }
-  .brand-cat { bottom: 9px; font-size: 9px; letter-spacing: .03em; }
+  .brands-panel { --pad: 20px; padding-top: 28px; padding-bottom: 28px; border-radius: var(--r-lg); gap: 28px; }
+  .brands-h { font-size: 26px; }
+  .brands-rows { gap: 14px; }
+  .brand { --ls: .62; min-width: 128px; height: 72px; padding: 0 22px; border-radius: 12px; }
+  .brand-cat { display: none; }
 }
-/* На тач-экранах наведения нет — показываем всё сразу, селектор только декоративно перебирает */
+/* На тач-экранах наведения нет — логотипы читаются сразу */
 @media (hover: none) {
-  .brand img { opacity: .75; }
+  .brand img { opacity: .78; }
 }
 
 /* Фокус на роботах */
@@ -457,6 +486,7 @@ section { position: relative; z-index: 2; }
   -webkit-mask-image: var(--rail-mask); mask-image: var(--rail-mask);
 }
 .cases::-webkit-scrollbar { display: none; }
+.cases-foot { margin-top: 24px; }
 .case { flex: 0 0 min(560px, 82vw); scroll-snap-align: start; scroll-margin-left: var(--edge-l); background: var(--surface-raised); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease); }
 .case:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .case .ph { aspect-ratio: 16 / 10; background: repeating-linear-gradient(135deg, #e9e7e2 0 12px, #efede8 12px 24px); display: grid; place-items: center; }
@@ -467,6 +497,27 @@ section { position: relative; z-index: 2; }
 .case h3 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
 .case .more { font-size: 14px; font-weight: 500; color: var(--accent-ink); display: inline-flex; gap: 6px; align-items: center; }
 .case .more svg { width: 16px; height: 16px; }
+/* Десктоп: блок не ниже экрана (как герой, «Задачи», «Платформа»). Всё содержимое масштабируется единым --u:
+   ширина карточки, фото (всегда 16:10, не обрезается), шрифты, отступы. --u ≈ 1px на высоких окнах и уменьшается
+   на низких. 88px сверху — зазор под плавающую навигацию.
+   Высота содержимого = 290px (не масштабируется: кнопка, подписи, запас) + 564·u, отсюда (100svh - 88 - 290) / 564.
+   Поменялась вёрстка блока — перемерить обе константы. */
+@media (min-width: 1024px) {
+  #cases { --u: clamp(.6px, calc((100svh - 378px) / 564), 1px);
+    min-height: 100vh; min-height: 100svh; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
+    padding-top: 88px; padding-bottom: calc(32 * var(--u)); }
+  #cases > .wrap { width: 100%; flex: none; }
+  #cases .cases-head { margin-bottom: calc(40 * var(--u)); }
+  #cases .sec-head { gap: calc(24 * var(--u)); }
+  #cases .h2 { font-size: max(32px, min(4.4vw, calc(60 * var(--u)))); }
+  #cases .round { width: max(40px, calc(52 * var(--u))); height: max(40px, calc(52 * var(--u))); }
+  #cases .cases { gap: calc(24 * var(--u)); padding-bottom: calc(24 * var(--u)); }
+  #cases .case { flex-basis: min(calc(560 * var(--u)), 82vw); }
+  #cases .case .body { padding: calc(28 * var(--u)) calc(32 * var(--u)) calc(32 * var(--u)); gap: calc(16 * var(--u)); }
+  #cases .case .res b { font-size: max(34px, calc(56 * var(--u))); }
+  #cases .case h3 { font-size: max(15px, calc(20 * var(--u))); }
+  #cases .cases-foot { margin-top: calc(24 * var(--u)); }
+}
 
 /* 06 Отрасли */
 .ind { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }

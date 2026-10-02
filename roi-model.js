@@ -5,11 +5,11 @@
   'use strict';
 
   const TYPES = {
-    office:    { name: 'Офис / БЦ', floor: 0.60, norm: 500,  price: 2200000, speed: 550,  manual: 1000, area: [3500, 50000],  area0: 6000,  mode0: 'one' },
-    mall:      { name: 'ТЦ',        floor: 0.75, norm: 700,  price: 2600000, speed: 650,  manual: 1100, area: [4000, 50000],  area0: 8000,  mode0: 'one' },
-    warehouse: { name: 'Склад',     floor: 0.85, norm: 1500, price: 3500000, speed: 1100, manual: 2500, area: [10000, 100000], area0: 20000, mode0: 'two', modes: ['two', 'h24'] },
-    clinic:    { name: 'Клиника',   floor: 0.55, norm: 350,  price: 2200000, speed: 500,  manual: 900,  area: [3500, 50000],  area0: 6000,  mode0: 'one' },
-    hotel:     { name: 'Отель',     floor: 0.40, norm: 400,  price: 2200000, speed: 500,  manual: 900,  area: [5000, 50000],  area0: 10000, mode0: 'one' },
+    office:    { name: 'Офис / БЦ', floor: 0.60, norm: 800,  price: 2200000, speed: 550,  manual: 1000, area: [3500, 50000],  area0: 6000,  mode0: 'one' },
+    mall:      { name: 'ТЦ',        floor: 0.75, norm: 1000, price: 2600000, speed: 650,  manual: 1100, area: [4000, 50000],  area0: 8000,  mode0: 'one' },
+    warehouse: { name: 'Склад',     floor: 0.85, norm: 2000, price: 3500000, speed: 1100, manual: 2500, area: [10000, 100000], area0: 20000, mode0: 'two', modes: ['two', 'h24'] },
+    clinic:    { name: 'Клиника',   floor: 0.55, norm: 500,  price: 2200000, speed: 500,  manual: 900,  area: [3500, 50000],  area0: 6000,  mode0: 'one' },
+    hotel:     { name: 'Отель',     floor: 0.40, norm: 600,  price: 2200000, speed: 500,  manual: 900,  area: [5000, 50000],  area0: 10000, mode0: 'one' },
   };
 
   const MODES = {
@@ -40,10 +40,10 @@
     return Math.max(2, Math.ceil(area / t.norm * m.staff));
   }
 
-  /** Допустимый диапазон ползунка «уборщиков»: от 80% до 200% от нормы для площади. */
+  /** Допустимый диапазон ползунка «уборщиков»: от 60% до 200% от нормы для площади. */
   function staffRange(type, area, mode) {
     const a = autoStaff(type, area, mode);
-    return [Math.max(2, Math.round(a * 0.8)), Math.max(4, Math.round(a * 2))];
+    return [Math.max(2, Math.round(a * 0.6)), Math.max(4, Math.round(a * 2))];
   }
 
   function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)); }
@@ -66,7 +66,11 @@
 
     const robotArea = area * t.floor * m.passes;
     const robots = Math.max(1, Math.ceil(robotArea / (t.speed * m.hours)));
-    const freed = Math.min(robotArea / t.manual * K.manualLeft, robots * m.cap, staff * K.staffShareMax);
+    // Сколько ставок робот высвобождает при штате по норме. Если людей больше нормы, каждый убирает
+    // меньше, и та же работа робота равна пропорционально большему числу ставок (и наоборот).
+    const freedAtNorm = Math.min(robotArea / t.manual * K.manualLeft, robots * m.cap);
+    const normStaff = autoStaff(input.type, area, input.mode);
+    const freed = Math.min(freedAtNorm * staff / normStaff, staff * K.staffShareMax);
 
     const payrollMult = K.payroll * (input.contractor ? K.contractorMargin : 1);
     const savedPeople = freed * wage * 12 * payrollMult;
