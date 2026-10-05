@@ -6,6 +6,8 @@
 **Источники:** контент — `docs/content/ТЗ_ПРОФРОБОТ_контент_дистиллированный.md` (v2.1, раздел IV «Главная»); визуал — `design-system/README.md`, `design-system/tokens.json`, эталон `design-system/assets/Reference/hero-reference.png`.
 **Родственный вариант:** `prototype-c/index.html` — концепция C «Центр управления» (см. раздел 9).
 
+
+
 ---
 
 ## 1. Суть концепции
