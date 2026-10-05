@@ -1,6 +1,6 @@
 # Промпты для фото Hero отраслевых лендингов
 
-Задача: пять фотографий, которые выглядят как настоящая съёмка на объекте, а не как картинка из генератора. Одно и то же фото используется в Hero лендинга (4:5) и в карточке хаба (16:9 или 4:3), поэтому генерируем с запасом по краям.
+Задача: фотографии для каждой отрасли (промпты 1–5 — первые пять лендингов, 6–11 — добавлены 2026-10-06 для новых), которые выглядят как настоящая съёмка на объекте, а не как картинка из генератора. Одно и то же фото используется в Hero лендинга (4:5) и в карточке хаба (16:9 или 4:3), поэтому генерируем с запасом по краям.
 
 ---
 
@@ -92,6 +92,94 @@ An older green farm tractor with a modern aftermarket autosteer kit retrofitted:
 
 ```
 A large agricultural spraying drone with six rotors and a white tank, hovering low over rows of sunflowers at sunrise, a fine mist of spray visible below it. A pilot in a cap stands at the edge of the field with a remote controller, a pickup truck parked on the dirt track behind. Light haze, dew on leaves.
+```
+
+---
+
+Промпты 6–11 — для лендингов из `docs/research/2026-10-06-empty-industries-research.md`. Сюжеты взяты из реальных внедрений, найденных в исследовании: робот моет холл БЦ днём, при арендаторах; убирает ТЦ и паркинг; моет вокзал; подметает парк; моет рекреацию школы во время урока. Для фитнеса кейса нет, поэтому сюжет — типовой.
+
+## 6. Бизнес-центры и офисы
+
+Робот моет лифтовый холл БЦ в рабочее время, при людях. Это главный аргумент страницы: уборка днём и тихо.
+
+```
+A compact autonomous floor-scrubbing robot, low boxy grey body about knee height with a soft bumper and a small lidar dome on top, cleaning the elevator lobby of a mid-range office building in Moscow on a weekday afternoon. Large-format porcelain floor tiles with a slightly wet sheen behind the robot, brushed steel elevator doors, a ficus in a planter, a security turnstile area at the edge of the frame. Two office workers with laptops and coffee walk past without paying attention, motion-blurred, one holding a lanyard badge. Mixed cool daylight from a glass facade and warm ceiling downlights. The robot is in the right third of the frame, slightly turned as it navigates around a person's feet.
+```
+
+Запасной кадр (паркинг БЦ, если в Hero нужна техника крупнее):
+
+```
+A ride-size autonomous scrubber-sweeper without a driver's seat, moving between parked cars in an underground parking garage of an office building, painted concrete floor with faded yellow bay lines and tyre marks, fluorescent tube lighting with one tube flickering darker, concrete columns with numbered stripes (numbers unreadable), a wet clean stripe behind the machine.
+```
+
+## 7. Торговые центры и ритейл
+
+Робот моет галерею ТЦ ранним утром, до открытия магазинов: роллеты опущены, светятся только витрины.
+
+```
+An autonomous commercial floor-scrubbing robot, grey and white with a squeegee at the back leaving a glossy wet trail, cleaning the wide central gallery of a Russian shopping mall early in the morning before opening. Shop shutters are half down, display windows dimly lit, an escalator in the background with its handrail moving, a single security guard walking far away. Polished light stone floor with faint scuffs and a temporary yellow wet-floor stand nearby. Cold overhead lighting mixed with pale dawn light from a glass roof. The robot is in the right third, mid-turn around a planter bench.
+```
+
+Запасной кадр (продуктовый магазин):
+
+```
+A compact autonomous cleaning robot washing the floor of a supermarket fresh produce aisle in the evening, wooden crates of apples and cabbages on low shelves, a stray onion skin and a wet leaf on the floor ahead of the robot, a store employee in a plain uniform restocking bananas in the background, out of focus. Warm produce lighting, worn grey floor tiles.
+```
+
+## 8. Общественные пространства
+
+Робот моет зал ожидания вокзала, поток людей идёт мимо. Привязка к кейсу РЖД, но без узнаваемого вокзала и без символики.
+
+```
+A large autonomous floor-scrubbing robot, grey and white, cleaning the marble floor of a busy main hall of a historic railway station in Russia, high arched ceiling with chandeliers far above, rows of waiting-room benches, travellers with wheeled suitcases crossing the frame and motion-blurred, a person sitting on a bench looking at a phone. Natural daylight from tall arched windows mixed with warm chandelier light. The departure board in the far background is out of focus and unreadable. The robot is in the right third of the frame with a fresh wet stripe behind it.
+```
+
+Запасной кадр (терминал аэропорта):
+
+```
+An autonomous cleaning robot moving along a long airport terminal concourse at night, polished terrazzo floor reflecting ceiling lights, a closed coffee kiosk with shutters down, a few passengers asleep on seats with backpacks, a cleaner with a manual trolley in the distance. Large dark windows with blurred runway lights outside.
+```
+
+## 9. Муниципальные службы
+
+Небольшой электрический робот-подметальщик на аллее городского парка осенью. Ориентир — класс машин вроде «Пикселя», но без его узнаваемого дизайна и без надписей.
+
+```
+A small four-wheeled electric autonomous street-sweeping robot, the size of a compact garden tractor, no driver seat, rounded white-grey body with a dark camera mast and two rotating side brushes, slowly sweeping fallen yellow leaves from an asphalt alley in a Moscow city park on an overcast October morning. Birch and maple trees, a cast-iron park bench, a black street lamp, a woman walking a dog in the background, out of focus. Wet asphalt with leaf litter ahead of the machine and a clean strip behind it. The robot is in the right third, slightly angled away from the camera.
+```
+
+Запасной кадр (зима):
+
+```
+The same class of small electric autonomous utility robot with a narrow snow-plow blade, clearing fresh snow from a pedestrian path along a city embankment at dusk, snowflakes in the air, street lamps with warm light, granite parapet and frozen river beside, a pedestrian in a winter coat walking away. Tyre and blade marks in the snow, slushy edges.
+```
+
+## 10. Образовательные учреждения
+
+Робот моет рекреацию школы во время урока: коридор пустой, двери классов закрыты. Привязка к кейсу московских школ.
+
+```
+A compact autonomous floor-washing robot, about knee height, grey and white, cleaning an empty school corridor during a lesson in a typical Russian public school. Linoleum floor with a subtle pattern and scuff marks, painted walls with the lower half in a pale green, closed classroom doors with small windows, a row of windows with radiators beneath and a potted geranium on the sill, a bulletin board with blurred papers (no readable text). Soft daylight from the windows. A teacher's silhouette visible through one door window, out of focus. The robot is in the right third, heading away down the corridor.
+```
+
+Запасной кадр (университетская лаборатория, сценарий «учебная робототехника»):
+
+```
+Two university students in casual clothes working on a bipedal humanoid research robot suspended from a safety gantry in a university robotics lab, one typing on a laptop on a cluttered workbench with cables, tools and a multimeter, the other adjusting the robot's leg. Fluorescent lights, a whiteboard with blurred formulas, cardboard boxes on shelves. Faces turned away or in profile.
+```
+
+## 11. Фитнес-клубы и спорткомплексы
+
+Робот моет зону свободных весов в фитнес-клубе рано утром, пока в зале один-два человека.
+
+```
+A compact autonomous floor-scrubbing robot, grey and dark, cleaning the rubber flooring in the free-weights area of a mid-range fitness club early in the morning. Dumbbell racks, a squat rack, chalk marks and a few rubber plates on the floor, mirrors along the wall reflecting the room (no readable text, no logos). One person in workout clothes stretching on a mat in the background, motion-blurred, not looking at the camera. Cool LED ceiling strips mixed with grey morning daylight from high windows. The robot is in the right third, navigating around a bench.
+```
+
+Запасной кадр (бассейн спорткомплекса):
+
+```
+An underwater robotic pool cleaner with a cable trailing to the surface, crawling along the tiled floor of an empty 25-metre public swimming pool in a sports complex, seen from the poolside at a low angle through slightly rippled water. Lane ropes on the surface, a starting block at the edge, chlorine-blue water, overhead halogen lights reflected on the surface, a lifeguard chair empty in the background.
 ```
 
 ---

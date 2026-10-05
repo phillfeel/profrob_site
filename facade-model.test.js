@@ -65,3 +65,10 @@ test('пустой ввод считается по значениям по ум
   assert.equal(r.washes, F.K.washes0);
   assert.ok(Number.isFinite(r.net));
 });
+
+test('цена 1 м² с роботом учитывает домывку вручную и сходится с экономией', () => {
+  const r = F.calc({ area: 30000, washes: 2, manualPrice: 60 });
+  assert.ok(r.withRobotPerM2 > r.manualPrice * (1 - F.K.robotShare));
+  // Подрядчик минус робот, умноженное на объём, равно экономии за вычетом амортизации
+  assert.ok(Math.abs((r.manualPrice - r.withRobotPerM2) * r.volume - (r.net - r.amort)) < 1);
+});

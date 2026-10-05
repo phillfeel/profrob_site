@@ -54,7 +54,7 @@ const SOL = {
   agro: { label: 'Агророботы', href: '/solutions/agro/' },
 };
 
-const ALL_INDUSTRIES = { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Отели · Строительство · Медицина · Производство · Агро', href: '/industries/' };
+const ALL_INDUSTRIES = { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' };
 
 export const INDUSTRIES = [
   // ───────────────────────────── 1. Отели и HoReCa ─────────────────────────────

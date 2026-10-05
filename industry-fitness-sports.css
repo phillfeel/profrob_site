@@ -1,0 +1,170 @@
+/* ================= Фитнес-клубы и спорткомплексы (industries-fitness-sports.html) =================
+   Свой Hero: крупный заголовок на всю ширину, под ним фото и «дорожки» зон клуба, как дорожки бассейна или стадиона.
+   Фирменный блок: карта зон клуба — матрица «зона → санправила → техника → люди», колонка техники идёт одной дорожкой.
+   Все селекторы под .ind--fitness-sports, чтобы не задеть другие страницы. */
+
+/* ---------- Hero ---------- */
+.ind--fitness-sports .fz-hero { padding-bottom: 104px; }
+.ind--fitness-sports .fz-hero__top { display: grid; gap: 24px; justify-items: start; }
+.ind--fitness-sports .fz-hero__h1 { font-size: clamp(42px, 6.2vw, 96px); letter-spacing: -.05em; line-height: .96; text-wrap: balance; }
+.ind--fitness-sports .fz-hero__h1 span { display: block; }
+.ind--fitness-sports .fz-hero__h1 span + span { color: var(--ink-muted); }
+.ind--fitness-sports .fz-hero__mid {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px 56px; align-items: end;
+  margin: 36px 0 48px;
+}
+.ind--fitness-sports .fz-hero__act { display: grid; gap: 20px; justify-items: start; }
+
+.ind--fitness-sports .fz-hero__deck { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px; align-items: stretch; }
+.ind--fitness-sports .fz-hero__ph { height: 100%; }
+
+/* Дорожки зон: номер, название, стрелка; снизу «разделитель дорожки» из точек, как поплавки на канате */
+.ind--fitness-sports .fz-lanes {
+  display: grid; grid-template-rows: auto 1fr; padding: 24px 24px 12px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm);
+}
+.ind--fitness-sports .fz-lanes__h { color: var(--ink-muted); padding-bottom: 12px; }
+.ind--fitness-sports .fz-lanes ol { display: grid; grid-auto-rows: minmax(76px, 1fr); }
+.ind--fitness-sports .fz-lane { position: relative; }
+.ind--fitness-sports .fz-lane::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+  background: radial-gradient(circle, var(--line-strong) 1.5px, transparent 2px) 0 50% / 12px 4px repeat-x;
+  opacity: .5;
+}
+.ind--fitness-sports .fz-lane:last-child::after { display: none; }
+.ind--fitness-sports .fz-lane a {
+  display: grid; grid-template-columns: 44px 1fr 36px; gap: 12px; align-items: center; height: 100%; padding: 12px 4px;
+  border-radius: var(--r-sm); transition: background var(--fast) var(--ease);
+}
+.ind--fitness-sports .fz-lane__no { font-size: 13px; color: var(--accent-ink); }
+.ind--fitness-sports .fz-lane__t { font-size: clamp(18px, 1.6vw, 22px); font-weight: 600; letter-spacing: -.015em; line-height: 1.2; }
+.ind--fitness-sports .fz-lane__go {
+  display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--surface);
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ind--fitness-sports .fz-lane__go svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.ind--fitness-sports .fz-lane a:hover { background: var(--surface); }
+.ind--fitness-sports .fz-lane a:hover .fz-lane__go { background: var(--accent); color: #fff; transform: translateX(2px); }
+
+/* ---------- Проблемы: асимметричная сетка, главный факт крупнее ---------- */
+.ind--fitness-sports .fz-probs {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 4fr); gap: 20px;
+}
+.ind--fitness-sports .fz-prob {
+  display: grid; gap: 12px; align-content: start; padding: 28px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ind--fitness-sports .fz-prob:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ind--fitness-sports .fz-prob.reveal:hover { transition-delay: 0ms; }
+.ind--fitness-sports .fz-prob h3 { font-size: 21px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2; }
+.ind--fitness-sports .fz-prob p { font-size: 15px; line-height: 1.55; color: var(--ink-muted); }
+.ind--fitness-sports .fz-prob .ic-tile { margin-bottom: 8px; }
+.ind--fitness-sports .fz-prob--key { grid-row: span 2; background: var(--accent-soft); box-shadow: none; padding: 36px; align-content: space-between; }
+.ind--fitness-sports .fz-prob--key h3 { font-size: clamp(28px, 2.6vw, 38px); font-weight: 700; letter-spacing: -.035em; line-height: 1.05; margin-top: 48px; }
+.ind--fitness-sports .fz-prob--key p { font-size: 17px; color: var(--ink); }
+.ind--fitness-sports .fz-prob--key .ic-tile { background: var(--surface-raised); }
+.ind--fitness-sports .fz-prob:nth-child(2) { grid-column: 2 / span 2; }
+
+/* Подпись источника рядом с цифрой */
+.ind--fitness-sports .fz-src.mono { font-size: 11px; letter-spacing: .02em; text-transform: none; line-height: 1.5; color: var(--ink-muted); }
+.ind--fitness-sports .fz-src a { text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.ind--fitness-sports .fz-src a:hover { color: var(--accent-ink); text-decoration-color: currentColor; }
+
+/* ---------- Карта зон клуба ---------- */
+.ind--fitness-sports .fz-map {
+  --cols: minmax(220px, 1.1fr) minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr);
+  padding: 8px 8px 0; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm);
+}
+.ind--fitness-sports .fz-map__head, .ind--fitness-sports .fz-zone { display: grid; grid-template-columns: var(--cols); }
+.ind--fitness-sports .fz-map__head span { padding: 20px 24px 16px; color: var(--ink-muted); font-size: 11px; }
+.ind--fitness-sports .fz-map__head span:nth-child(3) { background: var(--accent); color: #fff; border-radius: var(--r-md) var(--r-md) 0 0; }
+.ind--fitness-sports .fz-zone > * { padding: 24px; border-top: 1px solid var(--line); }
+.ind--fitness-sports .fz-zone__name { display: grid; grid-template-columns: 32px 1fr; gap: 8px 12px; align-content: start; }
+.ind--fitness-sports .fz-zone__no { padding-top: 5px; color: var(--accent-ink); font-size: 12px; }
+.ind--fitness-sports .fz-zone__name h3 { font-size: 20px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2; }
+.ind--fitness-sports .fz-zone__freq {
+  grid-column: 2; width: fit-content; padding: 4px 10px; border-radius: var(--r-pill); font-size: 10px;
+  background: var(--surface-sunken); color: var(--ink-muted);
+}
+.ind--fitness-sports .fz-zone__freq.is-daily { background: var(--lime-soft); color: var(--lime-ink); }
+.ind--fitness-sports .fz-zone__c p { font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
+/* Колонка техники — одна сплошная дорожка с бегущей разметкой слева */
+.ind--fitness-sports .fz-zone__robot {
+  position: relative; display: grid; gap: 4px; align-content: start; background: var(--accent-soft); border-top-color: #2f3bff1f;
+}
+.ind--fitness-sports .fz-zone__robot::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: repeating-linear-gradient(180deg, var(--accent) 0 10px, transparent 10px 20px);
+}
+.ind--fitness-sports .fz-zone__robot p { color: var(--ink); }
+.ind--fitness-sports .fz-zone__robot .drow__sol { min-height: 40px; font-size: 14px; }
+.ind--fitness-sports .fz-zone:last-child .fz-zone__robot { border-radius: 0 0 var(--r-md) var(--r-md); }
+.ind--fitness-sports .fz-zone:last-child > * { padding-bottom: 28px; }
+.ind--fitness-sports .fz-zone__lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ind--fitness-sports .fz-zone:hover .fz-zone__name h3 { color: var(--accent-ink); }
+.ind--fitness-sports .fz-map__foot { margin-top: 16px; font-size: 13px; color: var(--ink-muted); }
+.ind--fitness-sports .fz-map__foot a { text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .ind--fitness-sports .fz-zone__robot::before { animation: fz-lane 1.4s linear infinite; }
+  @keyframes fz-lane { to { background-position: 0 20px; } }
+}
+
+/* ---------- Направления: факт с источником ---------- */
+.ind--fitness-sports .fz-fact { display: grid; gap: 4px; padding: 4px 0 4px 16px; border-left: 2px solid var(--accent); }
+.ind--fitness-sports .fz-fact b { font-size: clamp(26px, 2.4vw, 34px); font-weight: 700; letter-spacing: -.035em; line-height: 1.05; color: var(--ink); }
+.ind--fitness-sports .fz-fact > span { font-size: 15px; line-height: 1.45; }
+
+/* ---------- С чего начать ---------- */
+.ind--fitness-sports .fz-steps .steps__i:first-child { box-shadow: var(--shadow-sm), inset 0 4px 0 var(--lime); }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .ind--fitness-sports .fz-map { --cols: minmax(180px, 1fr) minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, 1fr); }
+  .ind--fitness-sports .fz-zone > * { padding: 20px 18px; }
+  .ind--fitness-sports .fz-map__head span { padding: 18px 18px 14px; }
+}
+@media (max-width: 1023px) {
+  .ind--fitness-sports .fz-hero__mid, .ind--fitness-sports .fz-hero__deck { grid-template-columns: 1fr; }
+  .ind--fitness-sports .fz-hero__ph { height: auto; }
+  .ind--fitness-sports .fz-probs { grid-template-columns: 1fr 1fr; }
+  .ind--fitness-sports .fz-prob--key { grid-row: auto; grid-column: 1 / -1; }
+  .ind--fitness-sports .fz-prob--key h3 { margin-top: 24px; }
+  .ind--fitness-sports .fz-prob:nth-child(2) { grid-column: 1 / -1; }
+
+  /* Карта зон: каждая зона — карточка, подписи колонок видны внутри */
+  .ind--fitness-sports .fz-map { padding: 0; background: none; box-shadow: none; }
+  .ind--fitness-sports .fz-map__head { display: none; }
+  .ind--fitness-sports .fz-map__rows { display: grid; gap: 16px; }
+  .ind--fitness-sports .fz-zone {
+    grid-template-columns: 1fr 1fr; gap: 0; border-radius: var(--r-lg); overflow: hidden; background: var(--surface-raised); box-shadow: var(--shadow-sm);
+  }
+  .ind--fitness-sports .fz-zone > * { border-top: 0; padding: 20px; }
+  .ind--fitness-sports .fz-zone__name { grid-column: 1 / -1; padding-bottom: 8px; }
+  .ind--fitness-sports .fz-zone__robot { grid-column: 1 / -1; grid-row: 2; border-radius: 0; }
+  .ind--fitness-sports .fz-zone:last-child .fz-zone__robot { border-radius: 0; }
+  .ind--fitness-sports .fz-zone:last-child > * { padding-bottom: 20px; }
+  .ind--fitness-sports .fz-zone__rules { border-right: 1px solid var(--line); }
+  .ind--fitness-sports .fz-zone__lbl {
+    position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal;
+    display: block; margin-bottom: 6px; font-size: 10px; color: var(--ink-muted);
+  }
+  .ind--fitness-sports .fz-zone__robot .fz-zone__lbl { color: var(--accent-ink); }
+}
+@media (max-width: 767px) {
+  .ind--fitness-sports .fz-hero { padding-bottom: 64px; }
+  .ind--fitness-sports .fz-hero__h1 { font-size: clamp(36px, 10.4vw, 56px); }
+  .ind--fitness-sports .fz-hero__mid { margin: 28px 0 36px; }
+  .ind--fitness-sports .fz-lanes { padding: 20px 16px 8px; }
+  .ind--fitness-sports .fz-lanes ol { grid-auto-rows: minmax(64px, auto); }
+  .ind--fitness-sports .fz-lane a { grid-template-columns: 32px 1fr 32px; gap: 10px; }
+  .ind--fitness-sports .fz-lane__go { width: 32px; height: 32px; }
+  .ind--fitness-sports .fz-probs { grid-template-columns: 1fr; }
+  .ind--fitness-sports .fz-prob, .ind--fitness-sports .fz-prob--key { padding: 24px; }
+  .ind--fitness-sports .fz-zone { grid-template-columns: 1fr; }
+  .ind--fitness-sports .fz-zone__rules { border-right: 0; border-bottom: 1px solid var(--line); }
+  .ind--fitness-sports .fz-zone__robot { grid-row: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ind--fitness-sports .fz-zone__robot::before { animation: none; }
+}

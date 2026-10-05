@@ -26,6 +26,8 @@
   box-shadow: var(--shadow-sm);
 }
 .ph__robot { position: absolute; left: 50%; top: 10%; height: 66%; width: auto; max-width: 80%; object-fit: contain; transform: translateX(-50%); filter: drop-shadow(0 24px 32px #16181c26); }
+.ph--photo { background: var(--surface-raised); }
+.ph__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .ph__lbl { position: absolute; top: 16px; right: 16px; padding: 6px 10px; border-radius: var(--r-pill); background: var(--surface-raised); font-size: 10px; color: var(--ink-muted); }
 .ph__metrics {
   position: absolute; left: 16px; bottom: 16px; display: flex; gap: 20px; padding: 14px 18px; border-radius: var(--r-md);

@@ -12,10 +12,18 @@
 .roi-head .h1 { font-size: clamp(40px, 6vw, 88px); }
 .roi-head__robot { position: relative; width: clamp(160px, 18vw, 240px); margin-bottom: -12px; }
 .roi-head__robot img { position: relative; z-index: 1; width: 100%; height: auto; }
+/* Подвесной робот-мойщик: без подиума, тросы уходят вверх и растворяются */
+.roi-head__robot--hang { margin-bottom: 0; align-self: stretch; display: flex; align-items: flex-end; }
+.roi-head__robot--hang img { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%); mask-image: linear-gradient(to bottom, transparent 0, #000 22%); }
 .roi-head__podium {
   position: absolute; left: 6%; right: 6%; bottom: 4%; height: 18%; border-radius: 50%;
   background: var(--stage); box-shadow: var(--glow-edge);
 }
+
+/* Переключатель расчёта и блоки, которые видны только в одном из них */
+.seg--calc { margin-top: 8px; }
+.seg--calc button { height: 48px; padding: 0 24px; font-size: 16px; font-weight: 600; }
+.roi-page [data-for][hidden] { display: none; }
 
 /* ---------- Сетка калькулятора ---------- */
 .roi { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 24px; align-items: start; padding-bottom: 96px; }
@@ -114,6 +122,20 @@
 .roi-chart .pt { fill: var(--lime); stroke: var(--stage); stroke-width: 3; }
 .roi-chart text { font: 500 11px var(--mono); fill: var(--on-stage-muted); letter-spacing: .04em; }
 .roi-chart text.hl { fill: var(--on-stage); font: 600 13px var(--sans); letter-spacing: 0; }
+
+/* Предупреждение вместо окупаемости: светлая обводка вместо лайма */
+.roi-plate.is-warn { background: transparent; color: var(--on-stage); box-shadow: inset 0 0 0 1px var(--on-stage-muted); }
+/* Фасад не подходит роботу: цифры остаются, но приглушены */
+.roi-out.is-unfit .roi-big, .roi-out.is-unfit .roi-kpis, .roi-out.is-unfit .roi-chart, .roi-out.is-unfit .roi-cmp { opacity: .4; }
+
+/* Цена 1 м²: подрядчик против робота */
+.roi-cmp { display: grid; gap: 10px; }
+.roi-cmp figcaption { font-size: 11px; color: var(--on-stage-muted); }
+.roi-cmp__row { display: grid; grid-template-columns: 88px minmax(0, 1fr) 56px; align-items: center; gap: 12px; font-size: 13px; color: var(--on-stage-muted); }
+.roi-cmp__row b { font-size: 16px; font-weight: 700; color: var(--on-stage); text-align: right; }
+.roi-cmp__bar { display: block; height: 10px; border-radius: 5px; background: var(--stage-line); min-width: 4px; transition: width var(--base) var(--ease); }
+.roi-cmp__row.is-bot .roi-cmp__bar { background: var(--accent-ink-dark); }
+.roi-cmp__n { font-size: 13px; color: var(--on-stage-muted); }
 
 /* Бригада: люди и роботы */
 .roi-crew { display: grid; gap: 12px; }
@@ -222,6 +244,8 @@
   .roi-head__robot { display: none; }
   .roi-in { padding: 24px 20px; gap: 28px; }
   .seg button { padding: 0 14px; height: 38px; font-size: 13px; }
+  .seg--calc { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .seg--calc button { height: 44px; padding: 0 8px; font-size: 14px; }
   .roi-out.stage { padding: 24px 20px 28px; gap: 24px; }
   .roi-kpis { grid-template-columns: 1fr 1fr; }
   .roi-kpis > div:nth-child(3) { grid-column: 1 / -1; border-left: 0; padding-left: 0; border-top: 1px solid var(--stage-line); margin-top: 16px; }
@@ -236,7 +260,7 @@
   .roi-foot .foot-call { justify-items: start; text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .roi-crew__grid i, .roi-dock, .toast, .range::-webkit-slider-thumb { transition: none; }
+  .roi-crew__grid i, .roi-cmp__bar, .roi-dock, .toast, .range::-webkit-slider-thumb { transition: none; }
 }
 
 /* hidden должен побеждать display: grid у формы и экрана «спасибо» */

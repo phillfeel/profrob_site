@@ -1,7 +1,9 @@
-/* ПРОФРОБОТ — страница калькулятора окупаемости. Модель расчёта — roi-model.js (window.ROI). */
+/* ПРОФРОБОТ — страница калькулятора окупаемости. Два расчёта на одной странице:
+   мойка фасадов — facade-model.js (window.FACADE), уборка помещений — roi-model.js (window.ROI). */
 (() => {
   'use strict';
-  const { TYPES, MODES, K, calc, autoStaff, staffRange } = window.ROI;
+  const { TYPES, MODES, K, calc, autoStaff } = window.ROI;
+  const FA = window.FACADE;
   const $ = (s) => document.querySelector(s);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const NB = ' ';
@@ -31,17 +33,32 @@
   };
 
   // ---------- Состояние: из ссылки или по умолчанию ----------
-  const FIN = ['buy', 'lease'], WHO = ['own', 'contractor'];
-  const state = { type: 'office', area: TYPES.office.area0, mode: 'one', staff: null, wage: K.wage0, who: 'own', fin: 'buy' };
+  const FIN = ['buy', 'lease'], WHO = ['own', 'contractor'], CALCS = ['facade', 'floor'], GLASS = ['flat', 'frames'];
+  const state = {
+    calc: 'facade', fin: 'buy',
+    // Мойка фасадов
+    faArea: FA.K.area0, washes: String(FA.K.washes0), price: FA.K.manualPrice0, faWage: FA.K.wage0, glass: 'flat',
+    // Уборка помещений
+    type: 'office', area: TYPES.office.area0, mode: 'one', staff: null, wage: K.wage0, who: 'own',
+  };
   (() => {
     const q = new URLSearchParams(location.search);
+    const int = (k) => parseInt(q.get(k), 10);
+    // Старые ссылки (отраслевые страницы, «Поделиться») без k, но с типом объекта — это уборка помещений
+    if (CALCS.includes(q.get('k'))) state.calc = q.get('k');
+    else if (q.has('t')) state.calc = 'floor';
+    if (FIN.includes(q.get('f'))) state.fin = q.get('f');
+    if (Number.isFinite(int('ga'))) state.faArea = int('ga');
+    if (Number.isFinite(int('n'))) state.washes = String(int('n'));
+    if (Number.isFinite(int('p'))) state.price = int('p');
+    if (Number.isFinite(int('fw'))) state.faWage = int('fw');
+    if (GLASS.includes(q.get('g'))) state.glass = q.get('g');
     if (TYPES[q.get('t')]) { state.type = q.get('t'); state.area = TYPES[state.type].area0; state.mode = TYPES[state.type].mode0; }
     if (MODES[q.get('m')]) state.mode = q.get('m');
     const a = parseInt(q.get('a'), 10); if (Number.isFinite(a)) state.area = a;
     const s = parseInt(q.get('s'), 10); if (Number.isFinite(s)) state.staff = s;
     const w = parseInt(q.get('w'), 10); if (Number.isFinite(w)) state.wage = w;
     if (WHO.includes(q.get('c'))) state.who = q.get('c');
-    if (FIN.includes(q.get('f'))) state.fin = q.get('f');
   })();
 
   const el = {
@@ -51,12 +68,17 @@
     net: $('#r-net'), netU: $('#r-net-u'), plateV: $('#r-plate-v'), plateL: $('#r-plate-l'),
     fy: $('#r-5y'), freed: $('#r-freed'), robots: $('#r-robots'), ctx: $('#ctx'),
     chart: $('#chart'), crew: $('#crew'), crewL: $('#crew-l'), sum: $('#lead-sum'),
-    dock: $('#dock'), dockV: $('#dock-v'), out: $('#roi-out'),
+    dock: $('#dock'), dockV: $('#dock-v'), out: $('#roi-out'), k2: $('#r-k2-l'),
+    faArea: $('#fa-area'), faPrice: $('#fa-price'), faWage: $('#fa-wage'),
+    outFaArea: $('#out-fa-area'), outFaPrice: $('#out-fa-price'), outFaWage: $('#out-fa-wage'),
+    faAreaMin: $('#fa-area-min'), faAreaMax: $('#fa-area-max'), faHint: $('#fa-hint'),
+    cmpMan: $('#cmp-man'), cmpBot: $('#cmp-bot'), cmpManV: $('#cmp-man-v'), cmpBotV: $('#cmp-bot-v'), cmpN: $('#cmp-n'),
   };
+  const switched = [...document.querySelectorAll('[data-for]')];
 
   // ---------- Сегмент-контролы (радиогруппы с клавиатурой) ----------
   const segs = [...document.querySelectorAll('.seg[data-name]')];
-  const segKey = { type: 'type', mode: 'mode', who: 'who', fin: 'fin' };
+  const segKey = { calc: 'calc', type: 'type', mode: 'mode', who: 'who', fin: 'fin', washes: 'washes', glass: 'glass' };
   segs.forEach((seg) => {
     const key = segKey[seg.dataset.name];
     seg.addEventListener('click', (e) => {
@@ -79,6 +101,7 @@
   function setSeg(key, v) {
     if (state[key] === v) return;
     state[key] = v;
+    if (key === 'calc') goal('calc_switch', { calc: v });
     if (key === 'type') {
       const t = TYPES[v];
       state.staff = null;
@@ -97,6 +120,9 @@
   el.area.addEventListener('input', () => { state.area = +el.area.value; touched(); render(); });
   el.wage.addEventListener('input', () => { state.wage = +el.wage.value; touched(); render(); });
   el.staff.addEventListener('input', () => { state.staff = +el.staff.value; touched(); render(); });
+  el.faArea.addEventListener('input', () => { state.faArea = +el.faArea.value; touched(); render(); });
+  el.faPrice.addEventListener('input', () => { state.price = +el.faPrice.value; touched(); render(); });
+  el.faWage.addEventListener('input', () => { state.faWage = +el.faWage.value; touched(); render(); });
   el.hint.addEventListener('click', (e) => {
     if (e.target.closest('button')) { state.staff = null; render(); el.staff.focus(); }
   });
@@ -137,7 +163,7 @@
     for (let m = 0; m <= 60; m++) {
       let v;
       if (state.fin === 'buy') v = -r.invest + r.net / 12 * m;
-      else v = -r.leaseAdvance + r.net / 12 * m - r.leaseMonthly * Math.min(m, K.leaseMonths);
+      else v = -r.leaseAdvance + r.net / 12 * m - r.leaseMonthly * Math.min(m, r.leaseMonths);
       pts.push(v);
     }
     return pts;
@@ -182,26 +208,52 @@
 
   // ---------- Главный рендер ----------
   let lastResult = null, urlTimer = 0;
-  function render() {
-    const t = TYPES[state.type];
+  const unfit = () => state.calc === 'facade' && state.glass === 'frames';
+
+  /** Считает активный калькулятор и добавляет поля, общие для блока итогов. */
+  function compute() {
+    if (state.calc === 'facade') {
+      const r = FA.calc({ area: state.faArea, washes: +state.washes, manualPrice: state.price, wage: state.faWage });
+      state.faArea = r.area; state.washes = String(r.washes); state.price = r.manualPrice; state.faWage = r.wage;
+      return Object.assign(r, {
+        paybackMonths: r.payback * 12, leaseMonths: FA.K.leaseMonths,
+        ctx: `Фасад · ${group(r.area)} м² · ${r.washes} ${plural(r.washes, 'мойка', 'мойки', 'моек')} в год`,
+        detail: ` · ${r.manualPrice}${NB}₽/м² у подрядчика`,
+      });
+    }
     const input = { type: state.type, area: state.area, mode: state.mode, staff: state.staff ?? undefined, wage: state.wage, contractor: state.who === 'contractor' };
     const r = calc(input);
     state.area = r.area; state.mode = r.mode; state.wage = r.wage;
     if (state.staff != null) state.staff = r.staff;
-    lastResult = r;
-
-    // Сегменты
-    segs.forEach((seg) => {
-      const key = segKey[seg.dataset.name];
-      seg.querySelectorAll('button[data-v]').forEach((b) => {
-        if (key === 'mode') b.hidden = !!(t.modes && !t.modes.includes(b.dataset.v));
-        const on = b.dataset.v === state[key];
-        b.setAttribute('aria-checked', String(on));
-        b.tabIndex = on ? 0 : -1;
-      });
+    return Object.assign(r, {
+      paybackMonths: r.payback, leaseMonths: K.leaseMonths,
+      ctx: `${TYPES[state.type].name} · ${group(r.area)} м² · ${MODES[r.mode].name}`,
+      detail: ` · ${r.staff} ${plural(r.staff, 'уборщик', 'уборщика', 'уборщиков')}`,
     });
+  }
 
-    // Ползунки
+  /** Лаймовая плашка: окупаемость, плюс в лизинге или предупреждение. */
+  function plate(r) {
+    if (unfit()) return { v: 'Нужен аудит фасада', l: 'робот не проходит рамы выше 10 мм', warn: true };
+    if (state.fin === 'buy') {
+      if (!(r.paybackMonths <= 60)) return { v: 'Не окупается', l: 'за 5 лет при таком объёме', warn: true };
+      const m = Math.max(1, Math.round(r.paybackMonths));
+      return { v: `${m}${NB}${plural(m, 'месяц', 'месяца', 'месяцев')}`, l: 'окупаемость покупки' };
+    }
+    return {
+      v: signed(r.leasePlus),
+      l: r.leasePlus >= 0 ? 'ориентировочно в месяц после платежа по лизингу' : 'ориентировочно в месяц, пока идёт лизинг',
+    };
+  }
+  /** Одна строка для заявки и картинки. */
+  function plateShort(r) {
+    const p = plate(r);
+    if (p.warn) return `${p.v}: ${p.l}`;
+    return state.fin === 'buy' ? `Окупаемость около ${Math.max(1, Math.round(r.paybackMonths))} мес.` : `${signed(r.leasePlus)} в месяц в лизинге`;
+  }
+
+  function renderFloor(r) {
+    const t = TYPES[state.type];
     Object.assign(el.area, { min: t.area[0], max: t.area[1] }); el.area.value = r.area;
     Object.assign(el.staff, { min: r.staffRange[0], max: r.staffRange[1] }); el.staff.value = r.staff;
     Object.assign(el.wage, { min: K.wage[0], max: K.wage[1] }); el.wage.value = r.wage;
@@ -216,26 +268,76 @@
     el.hint.innerHTML = state.staff == null
       ? 'Подставили по норме для такой площади. Можно поправить.'
       : `Ваше значение. Норма для площади — ${autoStaff(state.type, r.area, r.mode)}. <button type="button">Вернуть норму</button>`;
-
-    // Результат
-    tweenNet(r.net);
-    el.ctx.textContent = `${t.name} · ${group(r.area)} м² · ${MODES[r.mode].name}`;
-    if (state.fin === 'buy') {
-      el.plateV.textContent = `${Math.max(1, Math.round(r.payback))}${NB}${plural(Math.round(r.payback), 'месяц', 'месяца', 'месяцев')}`;
-      el.plateL.textContent = 'окупаемость покупки';
-    } else {
-      el.plateV.textContent = signed(r.leasePlus);
-      el.plateL.textContent = r.leasePlus >= 0
-        ? 'ориентировочно в месяц после платежа по лизингу'
-        : 'ориентировочно в месяц, пока идёт лизинг';
-    }
-    el.fy.innerHTML = `${money(r.fiveYears).n}<small>${money(r.fiveYears).u}</small>`;
+    el.k2.textContent = 'Ставок уходит с полов';
     el.freed.textContent = dec1(r.freed);
+    drawCrew(r);
+  }
+
+  function renderFacade(r) {
+    const k = FA.K;
+    Object.assign(el.faArea, { min: k.area[0], max: k.area[1] }); el.faArea.value = r.area;
+    Object.assign(el.faPrice, { min: k.manualPrice[0], max: k.manualPrice[1] }); el.faPrice.value = r.manualPrice;
+    Object.assign(el.faWage, { min: k.wage[0], max: k.wage[1] }); el.faWage.value = r.wage;
+    [el.faArea, el.faPrice, el.faWage].forEach(setP);
+    el.outFaArea.innerHTML = `${group(r.area)}<small>м²</small>`;
+    el.outFaPrice.innerHTML = `${r.manualPrice}<small>₽/м²</small>`;
+    el.outFaWage.innerHTML = `${group(r.wage)}<small>₽/мес</small>`;
+    el.faArea.setAttribute('aria-valuetext', `${group(r.area)} квадратных метров`);
+    el.faPrice.setAttribute('aria-valuetext', `${r.manualPrice} рублей за квадратный метр`);
+    el.faWage.setAttribute('aria-valuetext', `${group(r.wage)} рублей в месяц`);
+    el.faAreaMin.textContent = `${group(k.area[0])} м²`; el.faAreaMax.textContent = `${group(k.area[1])} м²`;
+    // Порог округляем до тысячи: точнее модель не знает
+    const be = Number.isFinite(r.breakEven) ? `${group(Math.ceil(r.breakEven / 1000) * 1000)}${NB}м²` : null;
+    el.faHint.textContent = `Мойки в год — ${group(r.volume)}${NB}м². ` + (be
+      ? `При цене ${r.manualPrice}${NB}₽ робот выгоднее подрядчика от ${be} в год.`
+      : 'При такой цене подрядчика робот не выгоднее ручной мойки.');
+
+    el.k2.textContent = 'Загрузка сезона';
+    el.freed.innerHTML = `${Math.round(r.load * 100)}<small>%</small>`;
+
+    // Цена 1 м²: подрядчик против робота с амортизацией и домывкой вручную
+    const top = Math.max(r.manualPrice, r.withRobotPerM2);
+    el.cmpMan.style.width = `${r.manualPrice / top * 100}%`;
+    el.cmpBot.style.width = `${r.withRobotPerM2 / top * 100}%`;
+    el.cmpManV.textContent = `${Math.round(r.manualPrice)}${NB}₽`;
+    el.cmpBotV.textContent = `${Math.round(r.withRobotPerM2)}${NB}₽`;
+    const diff = Math.round(r.manualPrice - r.withRobotPerM2);
+    el.cmpN.textContent = diff > 0
+      ? `Дешевле на ${diff}${NB}₽ за м² с учётом покупки робота и домывки вручную.`
+      : 'При таком объёме робот дороже подрядчика: большую часть сезона он простаивает.';
+  }
+
+  function render() {
+    const r = compute();
+    lastResult = r;
+    switched.forEach((n) => { n.hidden = n.dataset.for !== state.calc; });
+
+    // Сегменты
+    const t = TYPES[state.type];
+    segs.forEach((seg) => {
+      const key = segKey[seg.dataset.name];
+      seg.querySelectorAll('button[data-v]').forEach((b) => {
+        if (key === 'mode') b.hidden = !!(t.modes && !t.modes.includes(b.dataset.v));
+        const on = b.dataset.v === state[key];
+        b.setAttribute('aria-checked', String(on));
+        b.tabIndex = on ? 0 : -1;
+      });
+    });
+
+    if (state.calc === 'facade') renderFacade(r); else renderFloor(r);
+
+    // Итог: общий для обоих расчётов
+    tweenNet(r.net);
+    el.ctx.textContent = r.ctx;
+    const p = plate(r);
+    el.plateV.textContent = p.v; el.plateL.textContent = p.l;
+    $('#r-plate').classList.toggle('is-warn', !!p.warn);
+    el.out.classList.toggle('is-unfit', unfit());
+    el.fy.innerHTML = `${money(r.fiveYears).n}<small>${money(r.fiveYears).u}</small>`;
     el.robots.textContent = String(r.robots);
     el.dockV.textContent = moneyStr(r.net);
     drawChart(r);
-    drawCrew(r);
-    el.sum.innerHTML = `${t.name} · ${group(r.area)}${NB}м² · ${MODES[r.mode].name} · ${r.staff} ${plural(r.staff, 'уборщик', 'уборщика', 'уборщиков')}<br>Оценка экономии <b>${moneyStr(r.net)}</b> в год · ${state.fin === 'buy' ? `окупаемость около ${Math.round(r.payback)} мес.` : `лизинг ${signed(r.leasePlus)}/мес`}`;
+    el.sum.innerHTML = `${r.ctx}${r.detail}<br>Оценка экономии <b>${moneyStr(r.net)}</b> в год · ${plateShort(r)}`;
 
     clearTimeout(urlTimer);
     urlTimer = setTimeout(() => history.replaceState(null, '', shareUrl()), 300);
@@ -243,14 +345,24 @@
 
   function snapshot() {
     const r = lastResult;
-    return {
-      type: state.type, area: r.area, mode: r.mode, staff: r.staff, wage: r.wage, who: state.who, fin: state.fin,
-      net: Math.round(r.net), payback: Math.round(r.payback), fiveYears: Math.round(r.fiveYears), robots: r.robots, freed: +r.freed.toFixed(1),
+    const common = {
+      calc: state.calc, fin: state.fin, net: Math.round(r.net), robots: r.robots, fiveYears: Math.round(r.fiveYears),
+      payback: Number.isFinite(r.paybackMonths) ? Math.round(r.paybackMonths) : null,
     };
+    if (state.calc === 'facade') {
+      return Object.assign(common, { area: r.area, washes: r.washes, price: r.manualPrice, wage: r.wage, glass: state.glass, load: +r.load.toFixed(2) });
+    }
+    return Object.assign(common, { type: state.type, area: r.area, mode: r.mode, staff: r.staff, wage: r.wage, who: state.who, freed: +r.freed.toFixed(1) });
   }
   function shareUrl() {
-    const r = lastResult, q = new URLSearchParams({ t: state.type, a: r.area, m: r.mode, w: r.wage, c: state.who, f: state.fin });
-    if (state.staff != null) q.set('s', r.staff);
+    const r = lastResult, q = new URLSearchParams({ k: state.calc });
+    if (state.calc === 'facade') {
+      Object.entries({ ga: r.area, n: r.washes, p: r.manualPrice, fw: r.wage, g: state.glass }).forEach(([k, v]) => q.set(k, v));
+    } else {
+      Object.entries({ t: state.type, a: r.area, m: r.mode, w: r.wage, c: state.who }).forEach(([k, v]) => q.set(k, v));
+      if (state.staff != null) q.set('s', r.staff);
+    }
+    q.set('f', state.fin);
     return `${location.origin}${location.pathname}?${q}`;
   }
 
@@ -283,7 +395,7 @@
     goal('calc_card');
     try {
       await document.fonts.ready;
-      const r = lastResult, t = TYPES[state.type], W = 1200, H = 630;
+      const r = lastResult, W = 1200, H = 630;
       const c = document.createElement('canvas'); c.width = W; c.height = H;
       const g = c.getContext('2d');
       g.fillStyle = '#1c1e22'; g.fillRect(0, 0, W, H);
@@ -293,18 +405,18 @@
       g.fillStyle = '#2f3bff'; g.fillRect(0, H - 6, W, 6);
       if (logo.complete && logo.naturalWidth) g.drawImage(logo, 72, 64, 176, 176 * logo.naturalHeight / logo.naturalWidth);
       g.fillStyle = '#a3a8b1'; g.font = '500 20px "JetBrains Mono", monospace';
-      g.fillText(`${t.name} · ${group(r.area)} м² · ${MODES[r.mode].name}`.toUpperCase(), 72, 176);
+      g.fillText(r.ctx.toUpperCase(), 72, 176);
       g.fillStyle = '#f3f2ef'; g.font = '600 40px Onest, sans-serif';
       g.fillText('Ориентировочная экономия в год', 72, 250);
       const m = money(r.net);
       g.font = '700 150px Onest, sans-serif'; g.fillText(m.n, 66, 400);
       const nw = g.measureText(m.n).width;
       g.fillStyle = '#9ba2ff'; g.font = '700 58px Onest, sans-serif'; g.fillText(m.u, 66 + nw + 20, 400);
-      const plate = state.fin === 'buy' ? `Окупаемость около ${Math.round(r.payback)} мес.` : `${signed(r.leasePlus)} в месяц в лизинге`;
+      const line = plateShort(r);
       g.font = '700 32px Onest, sans-serif';
-      const pw = g.measureText(plate).width + 48;
+      const pw = g.measureText(line).width + 48;
       g.fillStyle = '#c8ff3c'; roundRect(g, 72, 446, pw, 64, 16); g.fill();
-      g.fillStyle = '#16181c'; g.fillText(plate, 96, 489);
+      g.fillStyle = '#16181c'; g.fillText(line, 96, 489);
       g.fillStyle = '#a3a8b1'; g.font = '500 20px "JetBrains Mono", monospace';
       g.fillText(`ЗА 5 ЛЕТ: ${signed(r.fiveYears).toUpperCase()}`, 72, 566);
       g.textAlign = 'right'; g.fillStyle = '#f3f2ef'; g.fillText('PROFROBOT.RU/ROI', W - 72, 566);

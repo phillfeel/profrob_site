@@ -1,0 +1,242 @@
+/* ================= Отрасль: образовательные учреждения (industries-education.html) =================
+   Только эта страница: все селекторы начинаются с .ind--education.
+   Hero «две двери»: сценарий А (здание) и Б (лаборатория) по бокам фото коридора.
+   Фирменный блок — расписание звонков: робот моет на уроках и стоит на станции на переменах. */
+
+/* ---------- Подписи источников ---------- */
+.ind--education .edu-src { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--line-strong); transition: color var(--fast) var(--ease), text-decoration-color var(--fast) var(--ease); }
+.ind--education .edu-src:hover { color: var(--accent-ink); text-decoration-color: currentColor; }
+.ind--education .edu-src-line, .ind--education .edu-note { font-size: 13px; line-height: 1.5; color: var(--ink-muted); }
+
+/* Табличка сценария: А — синяя, Б — лайм */
+.ind--education .edu-scen__plate {
+  display: inline-grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 10px;
+  background: var(--accent); color: #fff; font: 700 20px/1 var(--sans); letter-spacing: 0; text-transform: none;
+}
+.ind--education .edu-scen + .edu-scen .edu-scen__plate,
+.ind--education .edu-case + .edu-case .edu-scen__plate { background: var(--lime); color: var(--ink); }
+
+/* ---------- Hero: две двери ---------- */
+.ind--education .edu-hero__meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 32px; margin-bottom: 40px; }
+.ind--education .edu-hero__top { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 24px 64px; align-items: start; margin-bottom: 56px; }
+.ind--education .edu-hero__side { display: grid; gap: 28px; padding-top: 10px; }
+.ind--education .edu-hall { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+.ind--education .edu-hero .ih__aud { margin-top: 28px; }
+
+.ind--education .edu-door {
+  position: relative; display: flex; flex-direction: column; gap: 12px; padding: 32px;
+  border-radius: var(--r-lg) var(--r-lg) 10px 10px; background: var(--surface-raised); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease), border-color var(--fast) var(--ease);
+}
+/* Дверь класса: узкое окно сверху справа и ручка */
+.ind--education .edu-door__win {
+  position: absolute; top: 32px; right: 32px; width: 44px; height: 112px; border-radius: 8px;
+  background: linear-gradient(160deg, var(--surface) 0%, var(--surface-sunken) 100%); box-shadow: inset 0 0 0 1px var(--line);
+  transition: background var(--base) var(--ease), box-shadow var(--base) var(--ease);
+}
+.ind--education .edu-door::after {
+  content: ""; position: absolute; right: 26px; top: 52%; width: 32px; height: 8px; border-radius: var(--r-pill);
+  background: var(--ink); opacity: .82; transform-origin: right center; transition: transform var(--base) var(--ease);
+}
+.ind--education .edu-door__plate {
+  display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 20px; border-radius: 14px;
+  background: var(--accent); color: #fff; font-size: 32px; font-weight: 700; letter-spacing: -.02em;
+}
+.ind--education .edu-door:last-child .edu-door__plate { background: var(--lime); color: var(--ink); }
+.ind--education .edu-door__k { color: var(--ink-muted); }
+.ind--education .edu-door__t { font-size: clamp(30px, 2.8vw, 40px); font-weight: 700; letter-spacing: -.035em; line-height: 1; }
+.ind--education .edu-door__v { padding-right: 52px; font-size: 17px; line-height: 1.5; color: var(--ink); }
+.ind--education .edu-door__who { display: grid; gap: 4px; margin-top: auto; padding-top: 20px; font-size: 14px; line-height: 1.45; color: var(--ink-muted); }
+.ind--education .edu-door__who .mono { font-size: 11px; color: var(--ink); }
+.ind--education .edu-door__go { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 15px; font-weight: 500; color: var(--accent-ink); }
+.ind--education .edu-door__go svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--fast) var(--ease); }
+.ind--education .edu-door:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: transparent; }
+.ind--education .edu-door:hover .edu-door__win { background: linear-gradient(160deg, var(--lime-soft) 0%, #f7fde6 100%); box-shadow: inset 0 0 0 1px #c8ff3c80; }
+.ind--education .edu-door:hover::after { transform: rotate(-14deg); }
+.ind--education .edu-door:hover .edu-door__go svg { transform: translateY(2px); }
+.ind--education .edu-door.reveal:hover { transition-delay: 0ms; }
+.ind--education .edu-hall__ph { height: 100%; }
+
+/* ---------- Проблемы: листы в линейку ---------- */
+.ind--education .edu-probs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.ind--education .edu-prob {
+  position: relative; display: grid; gap: 12px; align-content: start; min-height: 320px; padding: 28px 24px 28px 68px;
+  border-radius: var(--r-lg); box-shadow: var(--shadow-sm);
+  background:
+    linear-gradient(90deg, transparent 51px, #2f3bff40 51px, #2f3bff40 52px, transparent 52px),
+    repeating-linear-gradient(180deg, transparent 0 27px, #e0ded880 27px 28px) 0 12px / 100% 100% no-repeat,
+    var(--surface-raised);
+}
+.ind--education .edu-prob__no { position: absolute; left: 16px; top: 30px; color: var(--accent-ink); font-size: 12px; }
+.ind--education .edu-prob .ic-tile { width: 44px; height: 44px; margin-bottom: 8px; }
+.ind--education .edu-prob h3 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+.ind--education .edu-prob p { font-size: 15px; line-height: 1.6; color: var(--ink-muted); }
+.ind--education .edu-prob p.edu-prob__src { margin-top: auto; padding-top: 8px; font-size: 12px; line-height: 1.5; }
+
+/* ---------- Фирменный блок: расписание звонков ---------- */
+.ind--education .edu-bells { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+.ind--education .edu-bells__copy { display: grid; gap: 20px; position: sticky; top: 120px; }
+.ind--education .edu-facts { display: grid; margin-top: 12px; border-top: 1px solid var(--line); }
+.ind--education .edu-facts div { display: grid; grid-template-columns: 88px 1fr; gap: 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.ind--education .edu-facts dd { order: -1; font-size: 36px; font-weight: 700; letter-spacing: -.04em; line-height: 1; color: var(--accent-ink); }
+.ind--education .edu-facts dt { font-size: 15px; line-height: 1.45; color: var(--ink-muted); }
+
+.ind--education .edu-board { margin: 0; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-md); overflow: hidden; }
+.ind--education .edu-board__head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; padding: 28px 28px 20px;
+  border-bottom: 2px solid var(--ink);
+}
+.ind--education .edu-board__t { font-size: clamp(24px, 2.2vw, 30px); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+.ind--education .edu-board__head .mono { color: var(--ink-muted); }
+.ind--education .edu-board__rows { display: grid; }
+.ind--education .edu-bell { display: grid; grid-template-columns: 112px 96px minmax(0, 1fr); gap: 16px; align-items: center; padding: 10px 28px; border-bottom: 1px solid var(--line); }
+.ind--education .edu-bell__t { font-size: 12px; color: var(--ink-muted); letter-spacing: .02em; text-transform: none; }
+.ind--education .edu-bell__l { font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
+.ind--education .edu-bell__bar {
+  position: relative; overflow: hidden; display: flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px;
+  border-radius: 10px; background: var(--accent); color: #fff; font-size: 14px; line-height: 1.25;
+}
+.ind--education .edu-bell__bar b { font-weight: 600; }
+.ind--education .edu-bell--break { padding-top: 6px; padding-bottom: 6px; background: var(--surface); border-bottom-style: dashed; }
+.ind--education .edu-bell--break .edu-bell__l { font-size: 13px; font-weight: 500; color: var(--ink-muted); }
+.ind--education .edu-bell__st { display: flex; align-items: center; gap: 10px; min-height: 28px; font-size: 13px; color: var(--ink-muted); }
+.ind--education .edu-bell__st i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--lime-ink); box-shadow: 0 0 0 4px var(--lime-soft); }
+.ind--education .edu-bell--gym .edu-bell__bar { background: var(--lime); color: var(--ink); }
+.ind--education .edu-bell--people { border-bottom: 0; }
+.ind--education .edu-bell--people .edu-bell__bar { background: transparent; color: var(--ink-muted); box-shadow: inset 0 0 0 1px var(--line-strong); }
+.ind--education .edu-bell--people .edu-bell__bar b { color: var(--ink); }
+.ind--education .edu-board__foot { padding: 16px 28px 24px; font-size: 13px; line-height: 1.5; color: var(--ink-muted); background: var(--surface); border-top: 1px solid var(--line); }
+
+/* Проход робота по рекреации: светлая полоса едет по полосе урока. Только при разрешённом движении. */
+@media (prefers-reduced-motion: no-preference) {
+  .ind--education .edu-bell--lesson .edu-bell__bar::after,
+  .ind--education .edu-bell--gym .edu-bell__bar::after {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 56px; pointer-events: none;
+    background: linear-gradient(90deg, transparent, #ffffff40, transparent);
+    animation: edu-pass 6s var(--ease) infinite; animation-delay: calc(var(--i, 0) * .45s);
+  }
+  .ind--education .edu-bell__st i { animation: edu-dock 2.4s ease-in-out infinite; }
+  @keyframes edu-pass { from { transform: translateX(-56px); } 60%, to { transform: translateX(calc(100cqw + 56px)); } }
+  @keyframes edu-dock { 50% { box-shadow: 0 0 0 7px var(--lime-soft); } }
+}
+.ind--education .edu-bell__bar { container-type: inline-size; }
+
+/* ---------- Направления по сценариям ---------- */
+.ind--education .edu-scens { display: grid; gap: 64px; }
+.ind--education .edu-scen__head { display: grid; grid-template-columns: 40px 1fr; gap: 4px 16px; align-items: center; margin-bottom: 20px; }
+.ind--education .edu-scen__head .edu-scen__plate { grid-row: span 2; }
+.ind--education .edu-scen__head h3 { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.ind--education .edu-scen__head p { font-size: 15px; color: var(--ink-muted); }
+.ind--education .drow h4 { font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; letter-spacing: -.025em; line-height: 1.1; }
+
+/* ---------- Внедрения ---------- */
+.ind--education .edu-proof { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.ind--education .edu-case {
+  display: grid; gap: 16px; align-content: start; padding: 40px; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ind--education .edu-case:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ind--education .edu-case.reveal:hover { transition-delay: 0ms; }
+.ind--education .edu-case__k { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+.ind--education .edu-case__k .edu-scen__plate { width: 32px; height: 32px; font-size: 16px; border-radius: 8px; }
+.ind--education .edu-case__num { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; margin-top: 8px; }
+.ind--education .edu-case__num b { font-size: clamp(56px, 6vw, 88px); font-weight: 700; letter-spacing: -.05em; line-height: 1; color: var(--accent-ink); }
+.ind--education .edu-case + .edu-case .edu-case__num b { color: var(--ink); }
+.ind--education .edu-case__num span { font-size: 18px; color: var(--ink-muted); }
+.ind--education .edu-case__lead { font-size: 17px; line-height: 1.55; }
+.ind--education .edu-quote { margin: 8px 0 0; padding: 20px 24px; border-radius: var(--r-md); background: var(--surface); border-left: 3px solid var(--lime); }
+.ind--education .edu-quote p { font-size: 22px; font-weight: 600; letter-spacing: -.02em; line-height: 1.25; }
+.ind--education .edu-quote footer { margin-top: 8px; font-size: 13px; color: var(--ink-muted); }
+.ind--education .edu-case__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 8px; border-top: 1px solid var(--line); }
+.ind--education .edu-case__list li { display: grid; gap: 6px; align-content: start; padding: 20px 16px 0 0; }
+.ind--education .edu-case__list li + li { padding-left: 16px; border-left: 1px solid var(--line); }
+.ind--education .edu-case__list b { font-size: 36px; font-weight: 700; letter-spacing: -.04em; line-height: 1; }
+.ind--education .edu-case__list span { font-size: 14px; line-height: 1.4; color: var(--ink-muted); }
+
+/* ---------- Честная экономика ---------- */
+.ind--education .edu-econ { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px; align-items: start; }
+.ind--education .edu-calc { display: grid; gap: 24px; padding: 40px; border-radius: var(--r-lg); background: var(--surface-raised); border: 1px dashed var(--line-strong); }
+.ind--education .edu-calc__flag { width: fit-content; padding: 6px 10px; border-radius: var(--r-pill); background: var(--surface-sunken); color: var(--ink); font-size: 11px; }
+.ind--education .edu-calc h3 { font-size: 24px; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; }
+.ind--education .edu-shift { display: grid; gap: 10px; }
+.ind--education .edu-shift__bar {
+  height: 32px; border-radius: 10px; overflow: hidden;
+  background: repeating-linear-gradient(90deg, var(--surface-sunken) 0 calc(12.5% - 3px), var(--surface-raised) calc(12.5% - 3px) 12.5%);
+}
+.ind--education .edu-shift__bar i { display: block; width: 31.25%; height: 100%; border-radius: 10px 0 0 10px; background: var(--accent); }
+.ind--education .edu-shift__scale { position: relative; height: 16px; font-size: 11px; color: var(--ink-muted); text-transform: none; letter-spacing: .02em; }
+.ind--education .edu-shift__scale span { position: absolute; top: 0; }
+.ind--education .edu-shift__scale span:nth-child(1) { left: 0; }
+.ind--education .edu-shift__scale span:nth-child(2) { left: 31.25%; transform: translateX(-50%); color: var(--accent-ink); }
+.ind--education .edu-shift__scale span:nth-child(3) { right: 0; }
+.ind--education .edu-calc__nums { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ind--education .edu-calc__nums div { display: grid; gap: 8px; align-content: start; padding: 20px 20px 20px 0; background: var(--surface-raised); }
+.ind--education .edu-calc__nums div:nth-child(even) { padding-left: 20px; }
+.ind--education .edu-calc__nums dd { order: -1; font-size: clamp(26px, 2.6vw, 36px); font-weight: 700; letter-spacing: -.04em; line-height: 1; }
+.ind--education .edu-calc__nums div:nth-child(3) dd { color: var(--accent-ink); }
+.ind--education .edu-calc__nums dt { font-size: 14px; line-height: 1.4; color: var(--ink-muted); }
+
+.ind--education .edu-ways { display: grid; gap: 16px; }
+.ind--education .edu-ways__h { font-size: 15px; font-weight: 600; padding: 8px 0 4px; }
+.ind--education .edu-way {
+  display: grid; gap: 10px; align-content: start; padding: 28px; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ind--education .edu-way:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ind--education .edu-way.reveal:hover { transition-delay: 0ms; }
+.ind--education .edu-way__no { color: var(--accent-ink); font-size: 12px; }
+.ind--education .edu-way h3 { font-size: 22px; font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+.ind--education .edu-way p { font-size: 15px; line-height: 1.55; color: var(--ink-muted); }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .ind--education .edu-hero__top { grid-template-columns: 1fr; align-items: start; }
+  .ind--education .edu-hall { grid-template-columns: 1fr 1fr; }
+  .ind--education .edu-hall__ph { grid-column: 1 / -1; grid-row: 1; --ar: 16 / 9 !important; height: auto; }
+  .ind--education .edu-probs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ind--education .edu-prob { min-height: 0; }
+  .ind--education .edu-bells { grid-template-columns: 1fr; gap: 40px; }
+  .ind--education .edu-bells__copy { position: static; }
+  .ind--education .edu-econ { grid-template-columns: 1fr; }
+}
+@media (max-width: 1023px) {
+  .ind--education .edu-proof { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .ind--education .edu-hero__top { margin-bottom: 32px; }
+  .ind--education .edu-hall { grid-template-columns: 1fr; gap: 16px; }
+  .ind--education .edu-hall__ph { --ar: 4 / 3 !important; }
+  .ind--education .edu-door { padding: 24px 24px 20px; }
+  .ind--education .edu-door__win { top: 24px; right: 24px; width: 36px; height: 84px; }
+  .ind--education .edu-door::after { top: auto; bottom: 34px; right: 20px; }
+  .ind--education .edu-door__v { padding-right: 0; }
+  .ind--education .edu-hero__meta { margin-bottom: 24px; }
+  .ind--education .edu-door__plate { width: 52px; height: 52px; font-size: 26px; margin-bottom: 8px; }
+  .ind--education .edu-door__who { padding-top: 8px; }
+  .ind--education .edu-probs { grid-template-columns: 1fr; }
+  .ind--education .edu-prob { padding: 24px 20px 24px 60px; background:
+    linear-gradient(90deg, transparent 43px, #2f3bff40 43px, #2f3bff40 44px, transparent 44px),
+    repeating-linear-gradient(180deg, transparent 0 27px, #e0ded880 27px 28px) 0 12px / 100% 100% no-repeat,
+    var(--surface-raised); }
+  .ind--education .edu-prob__no { left: 12px; top: 26px; }
+  .ind--education .edu-facts div { grid-template-columns: 72px 1fr; }
+  .ind--education .edu-facts dd { font-size: 30px; }
+  .ind--education .edu-board__head { padding: 20px 16px 16px; }
+  .ind--education .edu-bell { grid-template-columns: auto 1fr; gap: 6px 12px; padding: 12px 16px; }
+  .ind--education .edu-bell__t { order: 2; justify-self: end; }
+  .ind--education .edu-bell__bar, .ind--education .edu-bell__st { grid-column: 1 / -1; order: 3; }
+  .ind--education .edu-bell__bar { flex-wrap: wrap; padding: 8px 12px; }
+  .ind--education .edu-bell--break { padding-top: 8px; padding-bottom: 8px; }
+  .ind--education .edu-board__foot { padding: 14px 16px 18px; }
+  .ind--education .edu-case { padding: 24px; }
+  .ind--education .edu-quote p { font-size: 19px; }
+  .ind--education .edu-case__list b { font-size: 28px; }
+  .ind--education .edu-case__list li + li { padding-left: 10px; }
+  .ind--education .edu-calc { padding: 24px 20px; }
+  .ind--education .edu-calc__nums { grid-template-columns: 1fr; }
+  .ind--education .edu-calc__nums div, .ind--education .edu-calc__nums div:nth-child(even) { padding: 16px 0; }
+  .ind--education .edu-way { padding: 24px 20px; }
+}
+
+/* Real hero photo is 3:2 in a 4:5 frame: keep the robot (right side of the shot) in view. */
+.ind--education .ph--photo .ph__img { object-position: 88% 50%; }

@@ -1,18 +1,42 @@
-// Builds the five industry landings (industries-<slug>.html in the project root) from data.mjs.
+// Builds the industry landings (industries-<slug>.html in the project root).
 // One shell (nav, form, footer) for all pages; each industry picks its own hero layout, section order and a
 // signature block, so the pages share a design system but don't look like copies.
 //
-//   node tools/industries/build.mjs
+//   node tools/industries/build.mjs                 # all pages
+//   node tools/industries/build.mjs --only retail   # one page
 //
-// Edit data.mjs or this file, then rebuild. Don't edit the generated HTML by hand.
-import { writeFile } from 'node:fs/promises';
+// Sources: the first five industries live in data.mjs. Newer ones live one per file in pages/<slug>.mjs:
+//   export default { industry, brands?, renderers?, icons? }
+//   - industry: same shape as an INDUSTRIES entry, plus optional heads, problemsStyle, secNames;
+//   - brands: extra BRANDS entries (no `file` → shown as a text name);
+//   - renderers: { [sectionKey]: (ind, n, h) => html } — own hero or signature blocks; h holds the helpers below;
+//   - icons: extra <symbol id="i-…"> strings for the sprite.
+// A page's own styles go to industry-<slug>.css, its own script to industry-<slug>.js (both in the root);
+// they are linked automatically when present.
+// Edit the sources, then rebuild. Don't edit the generated HTML by hand.
+import { writeFile, readdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { createRequire } from 'node:module';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
-import { BRANDS, INDUSTRIES } from './data.mjs';
+import { BRANDS, INDUSTRIES as BASE_INDUSTRIES } from './data.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+const here = dirname(fileURLToPath(import.meta.url));
+const root = join(here, '..', '..');
 const ROI = createRequire(import.meta.url)(join(root, 'roi-model.js'));
+
+const pagesDir = join(here, 'pages');
+const PAGE_MODULES = existsSync(pagesDir)
+  ? await Promise.all((await readdir(pagesDir)).filter((f) => f.endsWith('.mjs')).sort()
+    .map(async (f) => (await import(pathToFileURL(join(pagesDir, f)).href)).default))
+  : [];
+for (const m of PAGE_MODULES) {
+  if (!m || !m.industry) throw new Error('pages/*.mjs must export default { industry, ... }');
+  for (const [k, b] of Object.entries(m.brands || {})) if (!BRANDS[k]) BRANDS[k] = b;
+  m.industry.renderers = m.renderers || {};
+}
+const INDUSTRIES = [...BASE_INDUSTRIES, ...PAGE_MODULES.map((m) => m.industry)];
+const EXTRA_ICONS = PAGE_MODULES.flatMap((m) => m.icons || []).join('\n    ');
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const pad = (n) => String(n).padStart(2, '0');
@@ -46,7 +70,7 @@ const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden=
     <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 20h5v-5h5v-5h5V5h3"/></symbol>
     <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></symbol>
     <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>${EXTRA_ICONS ? `\n    ${EXTRA_ICONS}` : ''}
   </defs></svg>`;
 
 // Section titles that differ per industry. Anything missing falls back to DEFAULT_HEADS.
@@ -65,7 +89,7 @@ const HEADS = {
   manufacturing: { problems: 'Что мешает производству расти.', pilot: 'Начните с одного маршрута.' },
   agriculture: { problems: 'Почему поле не ждёт.', pilot: 'Начните с одного поля.' },
 };
-const head = (ind, key) => (HEADS[ind.slug] && HEADS[ind.slug][key]) || DEFAULT_HEADS[key];
+const head = (ind, key) => (ind.heads && ind.heads[key]) || (HEADS[ind.slug] && HEADS[ind.slug][key]) || DEFAULT_HEADS[key];
 
 const SEC_NAMES = {
   problems: 'ПРОБЛЕМЫ', day: 'СУТКИ ОТЕЛЯ', directions: 'НАПРАВЛЕНИЯ', stairs: 'НАПРАВЛЕНИЯ', economy: 'ЭКОНОМИКА',
@@ -92,11 +116,18 @@ const logo = (slug, k = 'vlogo') => {
 const photo = (ind, ratio, cls = '') => {
   const p = ind.photo;
   const nDir = ind.directions.length, nBr = uniqueBrands(ind).length;
+  const metrics = `<div class="ph__metrics"><span><b class="tnum">${nDir}</b> ${plural(nDir, 'направление', 'направления', 'направлений')}</span><span><b class="tnum">${nBr}</b> ${plural(nBr, 'производитель', 'производителя', 'производителей')}</span></div>`;
+  if (existsSync(join(root, 'assets', 'industry_hero', `${ind.slug}.webp`))) {
+    return `<figure class="ph ph--photo ${cls} reveal" style="--ar:${ratio.replace(':', '/')};--i:2">
+          <img class="ph__img" src="assets/industry_hero/${ind.slug}.webp" alt="${esc(p.alt)}" width="1536" height="1024" decoding="async">
+          ${metrics}
+        </figure>`;
+  }
   return `<!-- Место под фото Hero (${ratio}): ${esc(p.note)}, docs/specs/ПРОМПТЫ_HERO_ОТРАСЛИ.md. alt будущего фото: «${esc(p.alt)}» -->
         <figure class="ph ${cls} reveal" style="--ar:${ratio.replace(':', '/')};--i:2">
           <img class="ph__robot" src="assets/robots/${p.robot}" alt="" width="${p.w}" height="${p.h}">
           <figcaption class="ph__lbl mono">Место под фото · ${ratio}</figcaption>
-          <div class="ph__metrics"><span><b class="tnum">${nDir}</b> ${plural(nDir, 'направление', 'направления', 'направлений')}</span><span><b class="tnum">${nBr}</b> ${plural(nBr, 'производитель', 'производителя', 'производителей')}</span></div>
+          ${metrics}
         </figure>`;
 };
 
@@ -172,7 +203,7 @@ S.hero = (ind, n) => {
 
 const PROB_STYLE = { hotels: 'cards', construction: 'list', 'medical-wellness': 'soft', manufacturing: 'table', agriculture: 'strip' };
 S.problems = (ind, n) => {
-  const style = PROB_STYLE[ind.slug] || 'cards';
+  const style = ind.problemsStyle || PROB_STYLE[ind.slug] || 'cards';
   const items = ind.problems.map((p, i) => `<li class="prob reveal" style="--i:${i + 1}">
           <span class="ic-tile">${icon(p.icon)}</span><span class="prob__no mono">${pad(i + 1)}</span>
           <h3>${esc(p.title)}</h3>
@@ -491,9 +522,12 @@ S.season = (ind, n) => `<section class="sol-sec wrap" id="season" data-sec="${n}
 const page = (ind) => {
   const order = ind.sections;
   const total = order.length;
+  const own = ind.renderers || {};
   const body = order.map((key, i) => {
-    if (!S[key]) throw new Error(`No renderer for section "${key}" (${ind.slug})`);
-    return `    <!-- ================= ${pad(i + 1)} ${(key === 'hero' ? 'HERO' : SEC_NAMES[key])} ================= -->\n    ${S[key](ind, pad(i + 1))}`;
+    const render = own[key] || S[key];
+    if (!render) throw new Error(`No renderer for section "${key}" (${ind.slug})`);
+    const name = key === 'hero' ? 'HERO' : (ind.secNames && ind.secNames[key]) || SEC_NAMES[key] || key.toUpperCase();
+    return `    <!-- ================= ${pad(i + 1)} ${name} ================= -->\n    ${render(ind, pad(i + 1), H)}`;
   }).join('\n\n');
   const url = `/industries/${ind.slug}/`;
   const schema = {
@@ -512,7 +546,7 @@ const page = (ind) => {
   };
   const needsRoi = order.includes('economy');
   return `<!DOCTYPE html>
-<!-- Сгенерировано tools/industries/build.mjs из tools/industries/data.mjs. Правьте данные и пересобирайте, не этот файл. -->
+<!-- Сгенерировано tools/industries/build.mjs из ${ind.renderers ? `tools/industries/pages/${ind.slug}.mjs` : 'tools/industries/data.mjs'}. Правьте данные и пересобирайте, не этот файл. -->
 <html lang="ru">
 <head>
   <meta charset="utf-8">
@@ -527,7 +561,7 @@ const page = (ind) => {
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="solutions.css">
   <link rel="stylesheet" href="industry.css">
-  <script>document.documentElement.classList.add('js');</script>
+${existsSync(join(root, `industry-${ind.slug}.css`)) ? `  <link rel="stylesheet" href="industry-${ind.slug}.css">\n` : ''}  <script>document.documentElement.classList.add('js');</script>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body class="sol-page ind-page ind--${ind.slug}">
@@ -583,12 +617,20 @@ ${body}
   </script>
 ${needsRoi ? '  <script src="roi-model.js"></script>\n' : ''}  <script src="solutions.js"></script>
   <script src="industry.js"></script>
-</body>
+${existsSync(join(root, `industry-${ind.slug}.js`)) ? `  <script src="industry-${ind.slug}.js"></script>\n` : ''}</body>
 </html>
 `;
 };
 
-for (const ind of INDUSTRIES) {
+// Helpers for renderers in pages/*.mjs (passed as the third argument).
+const H = { S, esc, pad, plural, idx, secHead, logo, photo, heroCopy, crumbs, icon, head, uniqueBrands,
+  ARROW_UR, ARROW_R, goArrow, SEC_NAMES, ROI, fmtMonths, fmtMln };
+
+const onlyArg = process.argv.indexOf('--only');
+const only = onlyArg > -1 ? process.argv[onlyArg + 1] : null;
+if (only && !INDUSTRIES.some((i) => i.slug === only)) throw new Error(`--only: unknown slug "${only}"`);
+
+for (const ind of INDUSTRIES.filter((i) => !only || i.slug === only)) {
   const file = join(root, `industries-${ind.slug}.html`);
   await writeFile(file, page(ind));
   console.log('wrote', `industries-${ind.slug}.html`);

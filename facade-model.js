@@ -25,6 +25,7 @@
     weatherLoss: 0.25,       // доля сезонных дней, потерянных на дождь и ветер
     workWeek: 5 / 7,
     robotShare: 0.9,         // доля остекления, которую робот моет; остальное — руками
+    maxFrameMm: 10,          // выступающие горизонтальные рамы выше этого робот не проходит
     leaseAdvance: 0.2, leaseMonths: 36, leaseMarkup: 1.3,   // как в roi-model.js
     area: [2000, 150000], area0: 30000,
     washes: [1, 6], washes0: 2,
@@ -78,6 +79,8 @@
 
     // Полная цена 1 м² роботом (амортизация + сервис + расчёт + расходники)
     const costPerM2 = (amort + service + crewCost + wear) / robotVolume;
+    // Цена 1 м² с роботом для клиента: робот с амортизацией + домывка подрядчиком
+    const withRobotPerM2 = (amort + opex) / volume;
     // Объём, при котором робот с амортизацией обходится как подрядчик (на один робот)
     const margin = K.robotShare * (manualPrice - varPerM2);
     const breakEven = margin > 0 ? (K.price / K.lifeYears + K.price * K.serviceRate) / margin : Infinity;
@@ -90,7 +93,7 @@
       area, washes, manualPrice, wage,
       volume, robotVolume, robots, robotDays, workDays: days, capacity, load,
       shift, varPerM2, invest, amort, service, crewCost, wear, leftManual,
-      costBefore, opex, net, payback, fiveYears, costPerM2, breakEven,
+      costBefore, opex, net, payback, fiveYears, costPerM2, withRobotPerM2, breakEven,
       leaseMonthly, leaseAdvance, leasePlus,
     };
   }
