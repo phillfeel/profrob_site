@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Роботы для фитнес-клубов и спорткомплексов: уборка залов, бассейн, газон | ПРОФРОБОТ</title>
-  <meta name="description" content="Роботы для уборки тренажёрных залов, раздевалок и санузлов, подводные роботы для бассейнов, косилки и разметка для стадионов. Пилот на одной зоне клуба.">
+  <title data-i18n="industries.fitnessSports.title">Роботы для фитнес-клубов и спорткомплексов: уборка залов, бассейн, газон | ПРОФРОБОТ</title>
+  <meta name="description" content="Роботы для уборки тренажёрных залов, раздевалок и санузлов, подводные роботы для бассейнов, косилки и разметка для стадионов. Пилот на одной зоне клуба." data-i18n-attr="content:industries.fitnessSports.description">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="/industries/fitness-sports/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,43 @@
   <link rel="stylesheet" href="industry.css">
   <link rel="stylesheet" href="industry-fitness-sports.css">
   <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body class="sol-page ind-page ind--fitness-sports">
@@ -43,79 +80,81 @@
   </defs></svg>
 
   <!-- ================= NAV ================= -->
-  <header class="nav" aria-label="Основная навигация">
-    <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+  <header class="nav" data-i18n-attr="aria-label:common.nav.label" aria-label="Основная навигация">
+    <a href="index.html" data-i18n-attr="aria-label:common.brand.homeLabel" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" data-i18n-attr="alt:common.brand.logoAlt" alt="ПРОФРОБОТ"></a>
     <nav class="nav-links">
-      <a href="solutions.html">Решения</a>
-      <a href="index.html#industries" class="on">Отрасли</a>
-      <a href="index.html#platform">Платформа</a>
-      <a href="index.html#cases">Кейсы</a>
-      <a href="#talk">Контакты</a>
+      <a href="solutions.html" data-i18n="common.nav.solutions">Решения</a>
+      <a href="index.html#industries" class="on" data-i18n="common.nav.industries">Отрасли</a>
+      <a href="products.html" data-i18n="common.nav.products">Продукты</a>
+      <a href="index.html#platform" data-i18n="common.nav.platform">Платформа</a>
+      <a href="index.html#cases" data-i18n="common.nav.cases">Кейсы</a>
+      <a href="#talk" data-i18n="common.nav.contacts">Контакты</a>
     </nav>
-    <a class="btn btn-pri" href="#talk">Связаться</a>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a class="btn btn-pri" href="#talk" data-i18n="common.cta.contact">Связаться</a>
   </header>
 
   <div class="counter" aria-hidden="true">
     <span class="cur tnum">01</span>
     <span class="bar"><i></i></span>
     <span class="tot tnum">09</span>
-    <span class="lbl">ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ</span>
+    <span class="lbl" data-i18n="industries.fitnessSports.nameCaps">ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ</span>
   </div>
 
   <main>
     <!-- ================= 01 HERO ================= -->
-    <section class="ih fz-hero wrap" data-sec="01" data-name="ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ">
+    <section class="ih fz-hero wrap" data-sec="01" data-name="ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ" data-i18n-attr="data-name:industries.fitnessSports.nameCaps">
       <div class="fz-hero__top">
-        <nav class="crumbs reveal" aria-label="Хлебные крошки"><ol><li><a href="index.html">Главная</a></li><li><a href="index.html#industries">Отрасли</a></li><li aria-current="page">Фитнес-клубы и спорткомплексы</li></ol></nav>
-        <span class="idx reveal"><b>01</b> — ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ</span>
-        <h1 class="h1 fz-hero__h1 reveal"><span>Роботы для фитнес-клубов</span> <span>и спорткомплексов.</span></h1>
+        <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li><a data-i18n="common.crumbs.industries" href="index.html#industries">Отрасли</a></li><li data-i18n="industries.fitnessSports.name" aria-current="page">Фитнес-клубы и спорткомплексы</li></ol></nav>
+        <span class="idx reveal"><b>01</b> — <span data-i18n="industries.fitnessSports.nameCaps">ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ</span></span>
+        <h1 class="h1 fz-hero__h1 reveal"><span data-i18n="industries.fitnessSports.h1.items.0">Роботы для фитнес-клубов</span> <span data-i18n="industries.fitnessSports.h1.items.1">и спорткомплексов.</span></h1>
       </div>
       <div class="fz-hero__mid">
         <div class="ih__text reveal" style="--i:1">
-          <p class="lead">Санправила требуют мыть все помещения спортобъекта каждый день, а залы, инвентарь, душевые и раздевалки ещё и дезинфицировать. Клуб при этом открыт с утра до вечера, и уборку приходится вписывать между тренировками.</p>
-          <p>Роботы берут на себя пол в зале и санузлах, дно бассейна, газон и разметку поля. Люди занимаются инвентарём, дезинфекцией поверхностей и контролем.</p>
+          <p class="lead" data-i18n="industries.fitnessSports.lead">Санправила требуют мыть все помещения спортобъекта каждый день, а залы, инвентарь, душевые и раздевалки ещё и дезинфицировать. Клуб при этом открыт с утра до вечера, и уборку приходится вписывать между тренировками.</p>
+          <p data-i18n="industries.fitnessSports.lead2">Роботы берут на себя пол в зале и санузлах, дно бассейна, газон и разметку поля. Люди занимаются инвентарём, дезинфекцией поверхностей и контролем.</p>
         </div>
         <div class="fz-hero__act reveal" style="--i:2">
           <div class="ih__cta">
-            <a class="btn btn-pri" href="#talk">Подобрать технику для клуба</a>
-            <a class="text-link" href="#zones">Карта зон клуба <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-pri" href="#talk" data-i18n="industries.fitnessSports.primaryCta.label">Подобрать технику для клуба</a>
+            <a class="text-link" href="#zones"><span data-i18n="industries.fitnessSports.secondaryCta.label">Карта зон клуба</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <p class="ih__aud"><span class="mono">Для кого</span> сети фитнес-клубов · спорткомплексы · бассейны · стадионы и арены</p>
+          <p class="ih__aud"><span class="mono" data-i18n="industries.common.hero.audience">Для кого</span> <span><span data-i18n="industries.fitnessSports.audiences.items.0">сети фитнес-клубов</span> · <span data-i18n="industries.fitnessSports.audiences.items.1">спорткомплексы</span> · <span data-i18n="industries.fitnessSports.audiences.items.2">бассейны</span> · <span data-i18n="industries.fitnessSports.audiences.items.3">стадионы и арены</span></span></p>
         </div>
       </div>
       <div class="fz-hero__deck">
         <figure class="ph ph--photo fz-hero__ph reveal" style="--ar:4/3;--i:2">
-          <img class="ph__img" src="assets/industry_hero/fitness-sports.webp" alt="Компактный поломоечный робот объезжает скамью в зоне свободных весов фитнес-клуба ранним утром" width="1536" height="1024" decoding="async">
-          <div class="ph__metrics"><span><b class="tnum">4</b> направления</span><span><b class="tnum">4</b> производителя</span></div>
+          <img class="ph__img" src="assets/industry_hero/fitness-sports.webp" alt="Компактный поломоечный робот объезжает скамью в зоне свободных весов фитнес-клуба ранним утром" data-i18n-attr="alt:industries.fitnessSports.photo.alt" width="1536" height="1024" decoding="async">
+          <div class="ph__metrics"><span data-i18n-html="industries.common.hero.metrics.directions" data-i18n-args='{"n":4}'><b class="tnum">4</b> направления</span><span data-i18n-html="industries.common.hero.metrics.makers" data-i18n-args='{"n":4}'><b class="tnum">4</b> производителя</span></div>
         </figure>
-        <nav class="fz-lanes" aria-label="Зоны клуба">
-          <p class="fz-lanes__h mono reveal" style="--i:1">Зоны клуба</p>
+        <nav class="fz-lanes" data-i18n-attr="aria-label:industries.fitnessSports.hero.lanesLabel" aria-label="Зоны клуба">
+          <p class="fz-lanes__h mono reveal" style="--i:1" data-i18n="industries.fitnessSports.hero.lanesTitle">Зоны клуба</p>
           <ol>
           <li class="fz-lane reveal" style="--i:2">
             <a href="#gym-floor">
               <span class="fz-lane__no mono tnum">01</span>
-              <span class="fz-lane__t">Уборка залов и зон тренажёров</span>
+              <span class="fz-lane__t" data-i18n="industries.fitnessSports.directions.items.0.title">Уборка залов и зон тренажёров</span>
               <span class="fz-lane__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </a>
           </li>
           <li class="fz-lane reveal" style="--i:3">
             <a href="#locker-rooms">
               <span class="fz-lane__no mono tnum">02</span>
-              <span class="fz-lane__t">Раздевалки, душевые и санузлы</span>
+              <span class="fz-lane__t" data-i18n="industries.fitnessSports.directions.items.1.title">Раздевалки, душевые и санузлы</span>
               <span class="fz-lane__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </a>
           </li>
           <li class="fz-lane reveal" style="--i:4">
             <a href="#pool">
               <span class="fz-lane__no mono tnum">03</span>
-              <span class="fz-lane__t">Бассейн</span>
+              <span class="fz-lane__t" data-i18n="industries.fitnessSports.directions.items.2.title">Бассейн</span>
               <span class="fz-lane__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </a>
           </li>
           <li class="fz-lane reveal" style="--i:5">
             <a href="#fields">
               <span class="fz-lane__no mono tnum">04</span>
-              <span class="fz-lane__t">Стадионы и поля</span>
+              <span class="fz-lane__t" data-i18n="industries.fitnessSports.directions.items.3.title">Стадионы и поля</span>
               <span class="fz-lane__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </a>
           </li>
@@ -125,323 +164,322 @@
     </section>
 
     <!-- ================= 02 ПРОБЛЕМЫ ================= -->
-    <section class="sol-sec wrap" id="problems" data-sec="02" data-name="ПРОБЛЕМЫ" aria-labelledby="problems-h">
+    <section class="sol-sec wrap" id="problems" data-sec="02" data-name="ПРОБЛЕМЫ" data-i18n-attr="data-name:industries.common.sections.problems" aria-labelledby="problems-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>02</b> — ПРОБЛЕМЫ</span>
-        <h2 class="h2 reveal" id="problems-h">Чистота по санправилам, а людей меньше.</h2>
+        <span class="idx reveal"><b>02</b> — <span data-i18n="industries.common.sections.problems">ПРОБЛЕМЫ</span></span>
+        <h2 class="h2 reveal" id="problems-h" data-i18n="industries.fitnessSports.problems.title">Чистота по санправилам, а людей меньше.</h2>
       </div>
       <ol class="fz-probs">
         <li class="fz-prob fz-prob--key reveal" style="--i:1">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>
-          <h3>Каждый день — влажная уборка всех помещений.</h3>
-          <p>Объект спорта убирают влажным способом с моющими и дезинфицирующими средствами ежедневно. Залы и инвентарь (тренажёры, маты), туалеты, душевые, раздевалки и медпункт ежедневно дезинфицируют.</p>
-          <p class="fz-src mono">Источник: <a href="https://cgon.rospotrebnadzor.ru/biznesu/articles/sanitarnaya-bezopasnost-v-trenazhernom-zale/" target="_blank" rel="noopener">СП 2.1.3678-20 в изложении ЦГОН Роспотребнадзора</a></p>
+          <h3 data-i18n="industries.fitnessSports.problems.items.0.title">Каждый день — влажная уборка всех помещений.</h3>
+          <p data-i18n="industries.fitnessSports.problems.items.0.text">Объект спорта убирают влажным способом с моющими и дезинфицирующими средствами ежедневно. Залы и инвентарь (тренажёры, маты), туалеты, душевые, раздевалки и медпункт ежедневно дезинфицируют.</p>
+          <p class="fz-src mono"><span data-i18n="industries.fitnessSports.sources.sp.label">СП 2.1.3678-20 в изложении ЦГОН Роспотребнадзора</span></p>
         </li>
         <li class="fz-prob reveal" style="--i:2">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-people"/></svg></span>
-          <h3>Рук в клининге меньше.</h3>
-          <p>Больше 80% персонала клининга — иностранцы, а фонд оплаты труда клининговых компаний за пять лет вырос в два-три раза. В 2025 году наём мигрантов дополнительно ограничили в 11 регионах.</p>
-          <p class="fz-src mono">Источник: <a href="https://www.kommersant.ru/doc/7755385" target="_blank" rel="noopener">CORE.XP и DAKO Professional, «Коммерсантъ», 2025</a> · <a href="https://ru.themoscowtimes.com/2025/08/19/vlasti-zadumali-ogranichit-naem-migrantov-v-obschepite-stroitelstve-i-esche-semi-otraslyah-a172057" target="_blank" rel="noopener">The Moscow Times, 19.08.2025</a></p>
+          <h3 data-i18n="industries.fitnessSports.problems.items.1.title">Рук в клининге меньше.</h3>
+          <p data-i18n="industries.fitnessSports.problems.items.1.text">Больше 80% персонала клининга — иностранцы, а фонд оплаты труда клининговых компаний за пять лет вырос в два-три раза. В 2025 году наём мигрантов дополнительно ограничили в 11 регионах.</p>
         </li>
         <li class="fz-prob reveal" style="--i:3">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
-          <h3>Убирать приходится между тренировками.</h3>
-          <p>Пол в зале моют, пока в зоне почти никого нет: рано утром, поздно вечером или в провалы между пиками.</p>
+          <h3 data-i18n="industries.fitnessSports.problems.items.2.title">Убирать приходится между тренировками.</h3>
+          <p data-i18n="industries.fitnessSports.problems.items.2.text">Пол в зале моют, пока в зоне почти никого нет: рано утром, поздно вечером или в провалы между пиками.</p>
         </li>
         <li class="fz-prob reveal" style="--i:4">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-ruler"/></svg></span>
-          <h3>У спорткомплекса не только полы.</h3>
-          <p>Чаша бассейна, газон стадиона и разметка поля — отдельная работа со своим графиком и своей техникой.</p>
+          <h3 data-i18n="industries.fitnessSports.problems.items.3.title">У спорткомплекса не только полы.</h3>
+          <p data-i18n="industries.fitnessSports.problems.items.3.text">Чаша бассейна, газон стадиона и разметка поля — отдельная работа со своим графиком и своей техникой.</p>
         </li>
       </ol>
     </section>
 
     <!-- ================= 03 КАРТА ЗОН ================= -->
-    <section class="sol-sec wrap" id="zones" data-sec="03" data-name="КАРТА ЗОН" aria-labelledby="zones-h">
+    <section class="sol-sec wrap" id="zones" data-sec="03" data-name="КАРТА ЗОН" data-i18n-attr="data-name:industries.fitnessSports.secNames.zones" aria-labelledby="zones-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>03</b> — КАРТА ЗОН</span>
-        <h2 class="h2 reveal" id="zones-h">Карта зон клуба.</h2>
-        <p class="lead reveal">Пять зон, три вопроса: что требуют санправила, что берёт на себя техника и что остаётся у людей. Робот моет пол, человек отвечает за поверхности и инвентарь.</p>
+        <span class="idx reveal"><b>03</b> — <span data-i18n="industries.fitnessSports.secNames.zones">КАРТА ЗОН</span></span>
+        <h2 class="h2 reveal" id="zones-h" data-i18n="industries.fitnessSports.zones.title">Карта зон клуба.</h2>
+        <p class="lead reveal" data-i18n="industries.fitnessSports.zones.lead">Пять зон, три вопроса: что требуют санправила, что берёт на себя техника и что остаётся у людей. Робот моет пол, человек отвечает за поверхности и инвентарь.</p>
       </div>
       <div class="fz-map">
         <div class="fz-map__head mono" aria-hidden="true">
-          <span>Зона</span><span>Что требуют санправила</span><span>Что берёт техника</span><span>Что остаётся у людей</span>
+          <span data-i18n="industries.fitnessSports.zones.head.zone">Зона</span><span data-i18n="industries.fitnessSports.zones.head.rules">Что требуют санправила</span><span data-i18n="industries.fitnessSports.zones.head.robot">Что берёт техника</span><span data-i18n="industries.fitnessSports.zones.head.people">Что остаётся у людей</span>
         </div>
         <ol class="fz-map__rows">
         <li class="fz-zone reveal" style="--i:0">
           <div class="fz-zone__name">
             <span class="fz-zone__no mono tnum">01</span>
-            <h3>Тренажёрный зал и свободные веса</h3>
-            <span class="fz-zone__freq mono is-daily">ежедневно</span>
+            <h3 data-i18n="industries.fitnessSports.zones.items.0.name">Тренажёрный зал и свободные веса</h3>
+            <span class="fz-zone__freq mono is-daily" data-i18n="industries.fitnessSports.zones.items.0.freq">ежедневно</span>
           </div>
-          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono">Санправила</span><p>Влажная уборка с моющими и дезсредствами, дезинфекция зала и инвентаря.</p></div>
-          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono">Техника</span><p>Моет пол по маршруту, объезжает тренажёры и скамьи. Работает до открытия или в непик.</p><a class="drow__sol" href="#gym-floor">Подробнее <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono">Люди</span><p>Дезинфекция тренажёров, гантелей и матов, места под стойками.</p></div>
+          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.rules">Санправила</span><p data-i18n="industries.fitnessSports.zones.items.0.rules">Влажная уборка с моющими и дезсредствами, дезинфекция зала и инвентаря.</p></div>
+          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.robot">Техника</span><p data-i18n="industries.fitnessSports.zones.items.0.robot">Моет пол по маршруту, объезжает тренажёры и скамьи. Работает до открытия или в непик.</p><a class="drow__sol" href="#gym-floor"><span data-i18n="industries.fitnessSports.zones.more">Подробнее</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.people">Люди</span><p data-i18n="industries.fitnessSports.zones.items.0.people">Дезинфекция тренажёров, гантелей и матов, места под стойками.</p></div>
         </li>
         <li class="fz-zone reveal" style="--i:1">
           <div class="fz-zone__name">
             <span class="fz-zone__no mono tnum">02</span>
-            <h3>Раздевалки</h3>
-            <span class="fz-zone__freq mono is-daily">ежедневно</span>
+            <h3 data-i18n="industries.fitnessSports.zones.items.1.name">Раздевалки</h3>
+            <span class="fz-zone__freq mono is-daily" data-i18n="industries.fitnessSports.zones.items.1.freq">ежедневно</span>
           </div>
-          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono">Санправила</span><p>Влажная уборка и ежедневная дезинфекция.</p></div>
-          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono">Техника</span><p>Компактный робот моет проходы между шкафчиками.</p><a class="drow__sol" href="#locker-rooms">Подробнее <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono">Люди</span><p>Скамьи, дверцы и ручки шкафчиков, фены и зеркала.</p></div>
+          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.rules">Санправила</span><p data-i18n="industries.fitnessSports.zones.items.1.rules">Влажная уборка и ежедневная дезинфекция.</p></div>
+          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.robot">Техника</span><p data-i18n="industries.fitnessSports.zones.items.1.robot">Компактный робот моет проходы между шкафчиками.</p><a class="drow__sol" href="#locker-rooms"><span data-i18n="industries.fitnessSports.zones.more">Подробнее</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.people">Люди</span><p data-i18n="industries.fitnessSports.zones.items.1.people">Скамьи, дверцы и ручки шкафчиков, фены и зеркала.</p></div>
         </li>
         <li class="fz-zone reveal" style="--i:2">
           <div class="fz-zone__name">
             <span class="fz-zone__no mono tnum">03</span>
-            <h3>Душевые и санузлы</h3>
-            <span class="fz-zone__freq mono is-daily">ежедневно</span>
+            <h3 data-i18n="industries.fitnessSports.zones.items.2.name">Душевые и санузлы</h3>
+            <span class="fz-zone__freq mono is-daily" data-i18n="industries.fitnessSports.zones.items.2.freq">ежедневно</span>
           </div>
-          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono">Санправила</span><p>Ежедневная дезинфекция.</p></div>
-          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono">Техника</span><p>Моет пол санузлов и узкие места, куда не пройдёт большая машина.</p><a class="drow__sol" href="#locker-rooms">Подробнее <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono">Люди</span><p>Сантехника, перегородки, расходники и контроль чистоты.</p></div>
+          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.rules">Санправила</span><p data-i18n="industries.fitnessSports.zones.items.2.rules">Ежедневная дезинфекция.</p></div>
+          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.robot">Техника</span><p data-i18n="industries.fitnessSports.zones.items.2.robot">Моет пол санузлов и узкие места, куда не пройдёт большая машина.</p><a class="drow__sol" href="#locker-rooms"><span data-i18n="industries.fitnessSports.zones.more">Подробнее</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.people">Люди</span><p data-i18n="industries.fitnessSports.zones.items.2.people">Сантехника, перегородки, расходники и контроль чистоты.</p></div>
         </li>
         <li class="fz-zone reveal" style="--i:3">
           <div class="fz-zone__name">
             <span class="fz-zone__no mono tnum">04</span>
-            <h3>Бассейн</h3>
-            <span class="fz-zone__freq mono is-daily">ежедневно</span>
+            <h3 data-i18n="industries.fitnessSports.zones.items.3.name">Бассейн</h3>
+            <span class="fz-zone__freq mono is-daily" data-i18n="industries.fitnessSports.zones.items.3.freq">ежедневно</span>
           </div>
-          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono">Санправила</span><p>Помещения бассейна — ежедневная влажная уборка, как и все помещения объекта.</p></div>
-          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono">Техника</span><p>Подводный робот-пылесос чистит дно чаши, пока бассейн закрыт.</p><a class="drow__sol" href="#pool">Подробнее <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono">Люди</span><p>Обходные дорожки, водоподготовка, проверка после чистки.</p></div>
+          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.rules">Санправила</span><p data-i18n="industries.fitnessSports.zones.items.3.rules">Помещения бассейна — ежедневная влажная уборка, как и все помещения объекта.</p></div>
+          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.robot">Техника</span><p data-i18n="industries.fitnessSports.zones.items.3.robot">Подводный робот-пылесос чистит дно чаши, пока бассейн закрыт.</p><a class="drow__sol" href="#pool"><span data-i18n="industries.fitnessSports.zones.more">Подробнее</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.people">Люди</span><p data-i18n="industries.fitnessSports.zones.items.3.people">Обходные дорожки, водоподготовка, проверка после чистки.</p></div>
         </li>
         <li class="fz-zone reveal" style="--i:4">
           <div class="fz-zone__name">
             <span class="fz-zone__no mono tnum">05</span>
-            <h3>Поле и газон</h3>
-            <span class="fz-zone__freq mono">по графику</span>
+            <h3 data-i18n="industries.fitnessSports.zones.items.4.name">Поле и газон</h3>
+            <span class="fz-zone__freq mono" data-i18n="industries.fitnessSports.zones.items.4.freq">по графику</span>
           </div>
-          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono">Санправила</span><p>Санитарной нормы для газона нет: график задают календарь игр и регламент поля.</p></div>
-          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono">Техника</span><p>Косилка стрижёт газон без провода по периметру, робот наносит разметку.</p><a class="drow__sol" href="#fields">Подробнее <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono">Люди</span><p>Уход за газоном, подготовка поля к игре.</p></div>
+          <div class="fz-zone__c fz-zone__rules"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.rules">Санправила</span><p data-i18n="industries.fitnessSports.zones.items.4.rules">Санитарной нормы для газона нет: график задают календарь игр и регламент поля.</p></div>
+          <div class="fz-zone__c fz-zone__robot"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.robot">Техника</span><p data-i18n="industries.fitnessSports.zones.items.4.robot">Косилка стрижёт газон без провода по периметру, робот наносит разметку.</p><a class="drow__sol" href="#fields"><span data-i18n="industries.fitnessSports.zones.more">Подробнее</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          <div class="fz-zone__c fz-zone__people"><span class="fz-zone__lbl mono" data-i18n="industries.fitnessSports.zones.people">Люди</span><p data-i18n="industries.fitnessSports.zones.items.4.people">Уход за газоном, подготовка поля к игре.</p></div>
         </li>
         </ol>
       </div>
-      <p class="fz-map__foot">Санитарные требования — <a href="https://cgon.rospotrebnadzor.ru/biznesu/articles/sanitarnaya-bezopasnost-v-trenazhernom-zale/" target="_blank" rel="noopener">СП 2.1.3678-20 в изложении ЦГОН Роспотребнадзора</a>. Распределение работ — пример, на обходе собираем его под ваш клуб.</p>
+      <p class="fz-map__foot"><span data-i18n="industries.fitnessSports.zones.footLead">Санитарные требования —</span> <span data-i18n="industries.fitnessSports.sources.sp.label">СП 2.1.3678-20 в изложении ЦГОН Роспотребнадзора</span><span data-i18n="industries.fitnessSports.zones.footTail">. Распределение работ — пример, на обходе собираем его под ваш клуб.</span></p>
     </section>
 
     <!-- ================= 04 НАПРАВЛЕНИЯ ================= -->
-    <section class="sol-sec wrap" id="directions" data-sec="04" data-name="НАПРАВЛЕНИЯ" aria-labelledby="directions-h">
+    <section class="sol-sec wrap" id="directions" data-sec="04" data-name="НАПРАВЛЕНИЯ" data-i18n-attr="data-name:industries.common.sections.directions" aria-labelledby="directions-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>04</b> — НАПРАВЛЕНИЯ</span>
-        <h2 class="h2 reveal" id="directions-h">Что берёт на себя техника.</h2>
+        <span class="idx reveal"><b>04</b> — <span data-i18n="industries.common.sections.directions">НАПРАВЛЕНИЯ</span></span>
+        <h2 class="h2 reveal" id="directions-h" data-i18n="industries.fitnessSports.heads.directions">Что берёт на себя техника.</h2>
       </div>
       <div class="drows">
         <article class="drow fz-drow reveal" id="gym-floor" style="--i:0">
           <div class="drow__l">
             <span class="drow__no mono">01</span>
-            <h3>Уборка залов и зон тренажёров</h3>
-            <p>Робот моет пол зала по заданному маршруту, объезжает тренажёры и сам возвращается на базу. Уборку ставим на часы, когда в зале пусто.</p>
+            <h3 data-i18n="industries.fitnessSports.directions.items.0.title">Уборка залов и зон тренажёров</h3>
+            <p data-i18n="industries.fitnessSports.directions.items.0.text">Робот моет пол зала по заданному маршруту, объезжает тренажёры и сам возвращается на базу. Уборку ставим на часы, когда в зале пусто.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">тренажёрные залы · зоны свободных весов · кардиозоны · холлы и коридоры</p>
+            <p class="drow__items"><span data-i18n="industries.fitnessSports.directions.items.0.items.items.0">тренажёрные залы</span> · <span data-i18n="industries.fitnessSports.directions.items.0.items.items.1">зоны свободных весов</span> · <span data-i18n="industries.fitnessSports.directions.items.0.items.items.2">кардиозоны</span> · <span data-i18n="industries.fitnessSports.directions.items.0.items.items.3">холлы и коридоры</span></p>
             <div class="fz-fact">
-              <b class="tnum">700–1 000 м²/ч</b><span>производительность Pudu CC1</span>
-              <p class="fz-src mono">Источник: <a href="https://www.pudurobotics.com/en/solutions/entertainment-and-sports" target="_blank" rel="noopener">по данным производителя, Pudu</a></p>
+              <b class="tnum" data-i18n="industries.fitnessSports.directions.items.0.fact.value">700–1 000 м²/ч</b><span data-i18n="industries.fitnessSports.directions.items.0.fact.text">производительность Pudu CC1</span>
+              <p class="fz-src mono"><span data-i18n="industries.fitnessSports.sources.pudu.label">по данным производителя, Pudu</span></p>
             </div>
-            <a class="drow__sol" href="/solutions/cleaning/">Решение: Роботизированный клининг <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="drow__sol" href="/solutions/cleaning/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="drow fz-drow reveal" id="locker-rooms" style="--i:1">
           <div class="drow__l">
             <span class="drow__no mono">02</span>
-            <h3>Раздевалки, душевые и санузлы</h3>
-            <p>Компактные роботы для узких проходов и санузлов, где большой поломоечной машине не развернуться.</p>
+            <h3 data-i18n="industries.fitnessSports.directions.items.1.title">Раздевалки, душевые и санузлы</h3>
+            <p data-i18n="industries.fitnessSports.directions.items.1.text">Компактные роботы для узких проходов и санузлов, где большой поломоечной машине не развернуться.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">раздевалки · душевые · санузлы · узкие коридоры</p>
+            <p class="drow__items"><span data-i18n="industries.fitnessSports.directions.items.1.items.items.0">раздевалки</span> · <span data-i18n="industries.fitnessSports.directions.items.1.items.items.1">душевые</span> · <span data-i18n="industries.fitnessSports.directions.items.1.items.items.2">санузлы</span> · <span data-i18n="industries.fitnessSports.directions.items.1.items.items.3">узкие коридоры</span></p>
             <div class="fz-fact">
-              <span>Pudu SH1 — для санузлов и узких мест</span>
-              <p class="fz-src mono">Источник: <a href="https://www.pudurobotics.com/en/solutions/entertainment-and-sports" target="_blank" rel="noopener">по описанию производителя, Pudu</a></p>
+              <span data-i18n="industries.fitnessSports.directions.items.1.fact.text">Pudu SH1 — для санузлов и узких мест</span>
+              <p class="fz-src mono"><span data-i18n="industries.fitnessSports.directions.items.1.fact.src.label">по описанию производителя, Pudu</span></p>
             </div>
-            <a class="drow__sol" href="/solutions/cleaning/">Решение: Роботизированный клининг <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="drow__sol" href="/solutions/cleaning/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="drow fz-drow reveal" id="pool" style="--i:2">
           <div class="drow__l">
             <span class="drow__no mono">03</span>
-            <h3>Бассейн</h3>
-            <p>Профессиональный подводный робот-пылесос для больших бассейнов чистит дно чаши ночью или в санитарный час.</p>
+            <h3 data-i18n="industries.fitnessSports.directions.items.2.title">Бассейн</h3>
+            <p data-i18n="industries.fitnessSports.directions.items.2.text">Профессиональный подводный робот-пылесос для больших бассейнов чистит дно чаши ночью или в санитарный час.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">подводные роботы-пылесосы · большие и олимпийские бассейны · аквазоны спорткомплексов</p>
+            <p class="drow__items"><span data-i18n="industries.fitnessSports.directions.items.2.items.items.0">подводные роботы-пылесосы</span> · <span data-i18n="industries.fitnessSports.directions.items.2.items.items.1">большие и олимпийские бассейны</span> · <span data-i18n="industries.fitnessSports.directions.items.2.items.items.2">аквазоны спорткомплексов</span></p>
             <div class="fz-fact">
-              <b class="tnum">до ~50 м</b><span>длина бассейна для Maytronics Dolphin Wave 300 XL</span>
-              <p class="fz-src mono">Источник: <span>по данным дилеров Maytronics</span></p>
+              <b class="tnum" data-i18n="industries.fitnessSports.directions.items.2.fact.value">до ~50 м</b><span data-i18n="industries.fitnessSports.directions.items.2.fact.text">длина бассейна для Maytronics Dolphin Wave 300 XL</span>
+              <p class="fz-src mono"><span data-i18n="industries.fitnessSports.directions.items.2.fact.src.label">по данным дилеров Maytronics</span></p>
             </div>
-            <a class="drow__sol" href="/solutions/cleaning/">Решение: Роботизированный клининг <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="drow__sol" href="/solutions/cleaning/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="drow fz-drow reveal" id="fields" style="--i:3">
           <div class="drow__l">
             <span class="drow__no mono">04</span>
-            <h3>Стадионы и поля</h3>
-            <p>Роботы-косилки стригут газон по графику, без провода по периметру. Роботы разметки наносят линии спортивного поля.</p>
+            <h3 data-i18n="industries.fitnessSports.directions.items.3.title">Стадионы и поля</h3>
+            <p data-i18n="industries.fitnessSports.directions.items.3.text">Роботы-косилки стригут газон по графику, без провода по периметру. Роботы разметки наносят линии спортивного поля.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">роботы-косилки · разметка полей · газоны стадионов и тренировочных полей</p>
+            <p class="drow__items"><span data-i18n="industries.fitnessSports.directions.items.3.items.items.0">роботы-косилки</span> · <span data-i18n="industries.fitnessSports.directions.items.3.items.items.1">разметка полей</span> · <span data-i18n="industries.fitnessSports.directions.items.3.items.items.2">газоны стадионов и тренировочных полей</span></p>
             <div class="fz-fact">
-              <b class="tnum">до 38 000 м²</b><span>Husqvarna CEORA 544 EPOS; при ежедневном «спортивном» кошении — до 20 000 м²</span>
-              <p class="fz-src mono">Источник: <a href="https://husqvarna.com/au/robotic-lawn-mowers/ceora-544epos-rz43l-cs4" target="_blank" rel="noopener">по данным производителя, Husqvarna</a></p>
+              <b class="tnum" data-i18n="industries.fitnessSports.directions.items.3.fact.value">до 38 000 м²</b><span data-i18n="industries.fitnessSports.directions.items.3.fact.text">Husqvarna CEORA 544 EPOS; при ежедневном «спортивном» кошении — до 20 000 м²</span>
+              <p class="fz-src mono"><span data-i18n="industries.fitnessSports.sources.husqvarna.label">по данным производителя, Husqvarna</span></p>
             </div>
             <div class="fz-fact">
-              <span>FJ Dynamics PaintMaster — роботы разметки спортивных полей</span>
-              <p class="fz-src mono">Источник: <a href="https://landscaping.fjdynamics.com/" target="_blank" rel="noopener">по данным производителя, FJ Dynamics</a></p>
+              <span data-i18n="industries.fitnessSports.directions.items.3.fact2.text">FJ Dynamics PaintMaster — роботы разметки спортивных полей</span>
+              <p class="fz-src mono"><span data-i18n="industries.fitnessSports.sources.fjd.label">по данным производителя, FJ Dynamics</span></p>
             </div>
-            <a class="drow__sol" href="/solutions/agro/">Решение: Агророботы и уход за территорией <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="drow__sol" href="/solutions/agro/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.agroGrounds">Агророботы и уход за территорией</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
       </div>
     </section>
 
     <!-- ================= 05 С ЧЕГО НАЧАТЬ ================= -->
-    <section class="sol-sec wrap" id="pilot" data-sec="05" data-name="С ЧЕГО НАЧАТЬ" aria-labelledby="pilot-h">
+    <section class="sol-sec wrap" id="pilot" data-sec="05" data-name="С ЧЕГО НАЧАТЬ" data-i18n-attr="data-name:industries.common.sections.pilot" aria-labelledby="pilot-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>05</b> — С ЧЕГО НАЧАТЬ</span>
-        <h2 class="h2 reveal" id="pilot-h">Начните с одной зоны.</h2>
-        <p class="lead reveal">Публичных внедрений роботов в российских фитнес-клубах мы не нашли, поэтому не показываем чужих цифр. Предлагаем пилот на вашем объекте: результат будет вашим.</p>
+        <span class="idx reveal"><b>05</b> — <span data-i18n="industries.common.sections.pilot">С ЧЕГО НАЧАТЬ</span></span>
+        <h2 class="h2 reveal" id="pilot-h" data-i18n="industries.fitnessSports.heads.pilot">Начните с одной зоны.</h2>
+        <p class="lead reveal" data-i18n="industries.fitnessSports.pilotLead">Публичных внедрений роботов в российских фитнес-клубах мы не нашли, поэтому не показываем чужих цифр. Предлагаем пилот на вашем объекте: результат будет вашим.</p>
       </div>
       <ol class="steps fz-steps">
-        <li class="steps__i reveal" style="--i:0"><span class="steps__no mono tnum">01</span><h3>Обход клуба</h3><p>Проходим зоны, меряем площади, смотрим покрытия, пороги, проходы между тренажёрами и часы работы.</p></li>
-        <li class="steps__i reveal" style="--i:1"><span class="steps__no mono tnum">02</span><h3>Одна зона</h3><p>Удобнее всего начать с зала: площадь большая, уборка ежедневная. Робот работает до открытия или в непик.</p></li>
-        <li class="steps__i reveal" style="--i:2"><span class="steps__no mono tnum">03</span><h3>Решение по итогам</h3><p>Сравниваем, сколько времени уборки освободилось и как держится чистота. Решаем, отдавать ли технике раздевалки, бассейн или поле.</p></li>
+        <li class="steps__i reveal" style="--i:0"><span class="steps__no mono tnum">01</span><h3 data-i18n="industries.fitnessSports.pilot.items.0.title">Обход клуба</h3><p data-i18n="industries.fitnessSports.pilot.items.0.text">Проходим зоны, меряем площади, смотрим покрытия, пороги, проходы между тренажёрами и часы работы.</p></li>
+        <li class="steps__i reveal" style="--i:1"><span class="steps__no mono tnum">02</span><h3 data-i18n="industries.fitnessSports.pilot.items.1.title">Одна зона</h3><p data-i18n="industries.fitnessSports.pilot.items.1.text">Удобнее всего начать с зала: площадь большая, уборка ежедневная. Робот работает до открытия или в непик.</p></li>
+        <li class="steps__i reveal" style="--i:2"><span class="steps__no mono tnum">03</span><h3 data-i18n="industries.fitnessSports.pilot.items.2.title">Решение по итогам</h3><p data-i18n="industries.fitnessSports.pilot.items.2.text">Сравниваем, сколько времени уборки освободилось и как держится чистота. Решаем, отдавать ли технике раздевалки, бассейн или поле.</p></li>
       </ol>
     </section>
 
     <!-- ================= 06 ОБОРУДОВАНИЕ ================= -->
-    <section class="sol-sec wrap" id="vendors" data-sec="06" data-name="ОБОРУДОВАНИЕ" aria-labelledby="vendors-h">
+    <section class="sol-sec wrap" id="vendors" data-sec="06" data-name="ОБОРУДОВАНИЕ" data-i18n-attr="data-name:industries.common.sections.vendors" aria-labelledby="vendors-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>06</b> — ОБОРУДОВАНИЕ</span>
-        <h2 class="h2 reveal" id="vendors-h">Оборудование и производители.</h2>
-        <p class="lead reveal">Pudu выделяет спорт и развлечения в отдельное решение: CC1 для залов, MT1 для больших площадей, SH1 для санузлов (по данным производителя). Технику подбираем под площадь, покрытие и часы работы клуба.</p>
+        <span class="idx reveal"><b>06</b> — <span data-i18n="industries.common.sections.vendors">ОБОРУДОВАНИЕ</span></span>
+        <h2 class="h2 reveal" id="vendors-h" data-i18n="industries.common.heads.vendors">Оборудование и производители.</h2>
+        <p class="lead reveal" data-i18n="industries.fitnessSports.vendorsLead">Pudu выделяет спорт и развлечения в отдельное решение: CC1 для залов, MT1 для больших площадей, SH1 для санузлов (по данным производителя). Технику подбираем под площадь, покрытие и часы работы клуба.</p>
       </div>
       <div class="vend">
         <div class="vend__grp reveal" style="--i:0">
-          <h3 class="mono">Залы, раздевалки и санузлы</h3>
+          <h3 class="mono" data-i18n="industries.fitnessSports.vendors.items.0.group">Залы, раздевалки и санузлы</h3>
           <ul class="vend__list"><li class="vlogo"><img src="assets/brands/pudu.svg" alt="Pudu Robotics" style="--h:30px" width="93" height="24" loading="lazy"></li></ul>
         </div>
         <div class="vend__grp reveal" style="--i:1">
-          <h3 class="mono">Бассейн</h3>
+          <h3 class="mono" data-i18n="industries.fitnessSports.vendors.items.1.group">Бассейн</h3>
           <ul class="vend__list"><li class="vlogo vlogo--text">Maytronics</li></ul>
         </div>
         <div class="vend__grp reveal" style="--i:2">
-          <h3 class="mono">Газон и разметка поля</h3>
+          <h3 class="mono" data-i18n="industries.fitnessSports.vendors.items.2.group">Газон и разметка поля</h3>
           <ul class="vend__list"><li class="vlogo vlogo--text">Husqvarna</li><li class="vlogo"><img src="assets/brands/fjdynamics.png" alt="FJ Dynamics" style="--h:34px" width="396" height="96" loading="lazy"></li></ul>
         </div>
       </div>
     </section>
 
     <!-- ================= 07 ПОЧЕМУ ПРОФРОБОТ ================= -->
-    <section class="sol-sec wrap" id="why" data-sec="07" data-name="ПОЧЕМУ ПРОФРОБОТ" aria-labelledby="why-h">
+    <section class="sol-sec wrap" id="why" data-sec="07" data-name="ПОЧЕМУ ПРОФРОБОТ" data-i18n-attr="data-name:industries.common.sections.why" aria-labelledby="why-h">
       <div class="whyn reveal">
-        <span class="idx reveal"><b>07</b> — ПОЧЕМУ ПРОФРОБОТ</span>
-        <h2 class="whyn__h" id="why-h">Сначала пилот, потом парк.</h2>
-        <p>Робота можно взять в аренду на время пилота, а не покупать сразу. Технику разных производителей для зала, бассейна и поля подбираем, запускаем и обслуживаем по SLA.</p>
-        <a class="text-link" href="/services/pilot/">Пилотный проект <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="idx reveal"><b>07</b> — <span data-i18n="industries.common.sections.why">ПОЧЕМУ ПРОФРОБОТ</span></span>
+        <h2 class="whyn__h" id="why-h" data-i18n="industries.fitnessSports.why.title">Сначала пилот, потом парк.</h2>
+        <p data-i18n="industries.fitnessSports.why.text">Робота можно взять в аренду на время пилота, а не покупать сразу. Технику разных производителей для зала, бассейна и поля подбираем, запускаем и обслуживаем по SLA.</p>
+        <a class="text-link" href="/services/pilot/"><span data-i18n="common.linkNames.pilotProject">Пилотный проект</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
 
     <!-- ================= 08 ЗАЯВКА ================= -->
-    <section class="sol-sec wrap" id="talk" data-sec="08" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+    <section class="sol-sec wrap" id="talk" data-sec="08" data-name="ЗАЯВКА" data-i18n-attr="data-name:industries.common.sections.form" aria-labelledby="talk-h">
       <div class="talk">
         <div class="talk__copy">
-          <span class="idx reveal"><b>08</b> — ЗАЯВКА</span>
-          <h2 class="h2 reveal" id="talk-h">Покажем робота в вашем клубе.</h2>
-          <p class="lead reveal">Привезём робота на демо, проедем маршрут по залу и подскажем, какую зону отдать технике первой.</p>
-          <a class="text-link reveal" href="tel:+74951234567">Или позвоните: +7 (495) 123-45-67</a>
+          <span class="idx reveal"><b>08</b> — <span data-i18n="industries.common.sections.form">ЗАЯВКА</span></span>
+          <h2 class="h2 reveal" id="talk-h" data-i18n="industries.fitnessSports.form.title">Покажем робота в вашем клубе.</h2>
+          <p class="lead reveal" data-i18n="industries.fitnessSports.form.lead">Привезём робота на демо, проедем маршрут по залу и подскажем, какую зону отдать технике первой.</p>
+          <a class="text-link reveal" href="tel:+74951234567" data-i18n="industries.common.form.callUs">Или позвоните: +7 (495) 123-45-67</a>
         </div>
 
         <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="industries/fitness-sports" aria-labelledby="talk-h">
           <div class="form__row">
             <div class="fld">
-              <label for="f-name">Имя</label>
+              <label for="f-name" data-i18n="common.form.name">Имя</label>
               <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
               <span class="fld__err" id="f-name-err" role="alert"></span>
             </div>
             <div class="fld">
-              <label for="f-phone">Телефон</label>
+              <label for="f-phone" data-i18n="common.form.phone">Телефон</label>
               <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
               <span class="fld__err" id="f-phone-err" role="alert"></span>
             </div>
           </div>
           <div class="fld">
-            <label for="f-dir">Направление <small>необязательно</small></label>
+            <label for="f-dir" data-i18n-html="industries.common.form.directionLabel">Направление <small>необязательно</small></label>
             <select id="f-dir" name="direction">
-              <option value="">Пока не знаю</option>
-              <option value="gym-floor">Уборка залов и зон тренажёров</option>
-              <option value="locker-rooms">Раздевалки, душевые и санузлы</option>
-              <option value="pool">Бассейн</option>
-              <option value="fields">Стадионы и поля</option>
+              <option value="" data-i18n="common.form.directionUnknown">Пока не знаю</option>
+              <option value="gym-floor" data-i18n="industries.fitnessSports.directions.items.0.title">Уборка залов и зон тренажёров</option>
+              <option value="locker-rooms" data-i18n="industries.fitnessSports.directions.items.1.title">Раздевалки, душевые и санузлы</option>
+              <option value="pool" data-i18n="industries.fitnessSports.directions.items.2.title">Бассейн</option>
+              <option value="fields" data-i18n="industries.fitnessSports.directions.items.3.title">Стадионы и поля</option>
             </select>
           </div>
-          <div class="hp" aria-hidden="true"><label>Не заполняйте <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="fld">
-            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
             <span class="fld__err" id="f-consent-err" role="alert"></span>
           </div>
           <div class="form__foot">
-            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Заказать демо</span></button>
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t" data-i18n="industries.fitnessSports.form.button">Заказать демо</span></button>
             <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
           </div>
           <div class="form__ok" role="status">
             <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
-            <b>Заявка принята.</b>
-            <p>Перезвоним в рабочее время.</p>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
           </div>
         </form>
       </div>
     </section>
 
     <!-- ================= 09 СМОТРИТЕ ТАКЖЕ ================= -->
-    <section class="sol-sec wrap" id="see" data-sec="09" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+    <section class="sol-sec wrap" id="see" data-sec="09" data-name="СМОТРИТЕ ТАКЖЕ" data-i18n-attr="data-name:industries.common.sections.see" aria-labelledby="see-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>09</b> — СМОТРИТЕ ТАКЖЕ</span>
-        <h2 class="h2 reveal" id="see-h">Смотрите также.</h2>
+        <span class="idx reveal"><b>09</b> — <span data-i18n="industries.common.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 class="h2 reveal" id="see-h" data-i18n="industries.common.heads.see">Смотрите также.</h2>
       </div>
       <div class="seeg">
         <a class="seel reveal" style="--i:0" href="/solutions/cleaning/">
-          <span class="dir__no">РЕШЕНИЕ</span>
-          <h3>Роботизированный клининг</h3>
-          <p>Поломоечные роботы для залов и санузлов.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.solution">РЕШЕНИЕ</span>
+          <h3 data-i18n="common.solutionNames.cleaning">Роботизированный клининг</h3>
+          <p data-i18n="industries.fitnessSports.links.items.0.text">Поломоечные роботы для залов и санузлов.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:1" href="/solutions/agro/">
-          <span class="dir__no">РЕШЕНИЕ</span>
-          <h3>Агророботы</h3>
-          <p>Косилки и уход за территорией.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.solution">РЕШЕНИЕ</span>
+          <h3 data-i18n="common.solutionNames.agro">Агророботы</h3>
+          <p data-i18n="industries.fitnessSports.links.items.1.text">Косилки и уход за территорией.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:2" href="/services/pilot/">
-          <span class="dir__no">УСЛУГА</span>
-          <h3>Пилотный проект</h3>
-          <p>Одна зона, понятный результат.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.service">УСЛУГА</span>
+          <h3 data-i18n="common.linkNames.pilotProject">Пилотный проект</h3>
+          <p data-i18n="industries.fitnessSports.links.items.2.text">Одна зона, понятный результат.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:3" href="/services/audit/">
-          <span class="dir__no">УСЛУГА</span>
-          <h3>Аудит объекта</h3>
-          <p>Зоны, площади, маршруты и расчёт.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.service">УСЛУГА</span>
+          <h3 data-i18n="common.linkNames.audit">Аудит объекта</h3>
+          <p data-i18n="industries.fitnessSports.links.items.3.text">Зоны, площади, маршруты и расчёт.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
-        <a class="seel reveal" style="--i:4" href="/products/raas/">
-          <span class="dir__no">ПРОДУКТ</span>
-          <h3>Аренда роботов (RaaS)</h3>
-          <p>Робот на пилот без покупки.</p>
+        <a class="seel reveal" style="--i:4" href="products.html#raas">
+          <span class="dir__no" data-i18n="industries.common.kickers.product">ПРОДУКТ</span>
+          <h3 data-i18n="common.linkNames.raas">Аренда роботов (RaaS)</h3>
+          <p data-i18n="industries.fitnessSports.links.items.4.text">Робот на пилот без покупки.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
-        <a class="seel reveal" style="--i:5" href="/products/cleaning-operations/">
-          <span class="dir__no">ПРОДУКТ</span>
-          <h3>Cleaning Operations Platform</h3>
-          <p>Уборка всех зон и отчёты в одном окне.</p>
+        <a class="seel reveal" style="--i:5" href="products.html#platform">
+          <span class="dir__no" data-i18n="industries.common.kickers.product">ПРОДУКТ</span>
+          <h3 data-i18n="industries.fitnessSports.links.items.5.title">Cleaning Operations Platform</h3>
+          <p data-i18n="industries.fitnessSports.links.items.5.text">Уборка всех зон и отчёты в одном окне.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:6" href="/industries/">
-          <span class="dir__no">ОТРАСЛИ</span>
-          <h3>Все отрасли</h3>
-          <p>Все 11 отраслевых страниц.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.industries">ОТРАСЛИ</span>
+          <h3 data-i18n="industries.common.links.allIndustries">Все отрасли</h3>
+          <p data-i18n="industries.common.links.allIndustriesText">Все 11 отраслевых страниц.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </div>
@@ -452,19 +490,19 @@
     <div class="stage foot">
       <div class="foot-top">
         <div class="foot-brand">
-          <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
-          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+          <a href="index.html" data-i18n-attr="aria-label:common.brand.homeLabel" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" data-i18n-attr="alt:common.brand.logoAlt" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
         </div>
         <div class="foot-call">
-          <span class="mono">Отдел внедрения</span>
+          <span class="mono" data-i18n="common.footer.dept">Отдел внедрения</span>
           <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
           <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
         </div>
       </div>
       <div class="foot-bot">
-        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
-        <a href="#">Политика конфиденциальности</a>
-        <a class="foot-up" href="index.html#industries">Все отрасли <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <span data-i18n="common.footer.rights">© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a href="#" data-i18n="common.footer.privacy">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html#industries"><span data-i18n="common.footer.allIndustries">Все отрасли</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
   </footer>

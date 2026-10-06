@@ -1,14 +1,18 @@
-(() => {
+(window.i18n ? window.i18n.ready : Promise.resolve()).then(() => {
   'use strict';
   const EASE = 'power3.out';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pad2 = (n) => String(n).padStart(2, '0');
-  const fmt = (v, dec) => v.toFixed(dec).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  // Язык страницы: русский — как раньше (запятая, неразрывный пробел между тысячами), английский — Intl
+  const lang = window.i18n ? window.i18n.lang : 'ru';
+  const fmt = lang === 'ru'
+    ? (v, dec) => v.toFixed(dec).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+    : (v, dec) => new Intl.NumberFormat(lang, { useGrouping: 'always', minimumFractionDigits: dec, maximumFractionDigits: dec }).format(v);
 
   // ---------- Футер: часы МСК и подсветка вордмарка (не зависят от GSAP) ----------
   const clock = document.getElementById('foot-clock');
   if (clock) {
-    const fmtTime = new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit' });
+    const fmtTime = new Intl.DateTimeFormat(lang === 'ru' ? 'ru-RU' : 'en-GB', { timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit' });
     const tick = () => { clock.textContent = fmtTime.format(new Date()); };
     tick();
     setInterval(tick, 15000);
@@ -707,6 +711,7 @@
   ScrollTrigger.refresh();
 
   // Пересчёт после загрузки шрифтов и картинок, чтобы pin-дистанции были точными
-  window.addEventListener('load', () => ScrollTrigger.refresh());
+  if (document.readyState === 'complete') ScrollTrigger.refresh(); // (English: the dictionary may arrive after load)
+  else window.addEventListener('load', () => ScrollTrigger.refresh());
   if (document.fonts) document.fonts.ready.then(() => ScrollTrigger.refresh());
-})();
+});

@@ -6,16 +6,6 @@
 // Signature block: a school bell schedule — the robot cleans during lessons and goes to its station at breaks.
 // Styles: industry-education.css (every selector starts with .ind--education).
 
-const SRC = {
-  ria: { label: 'ДОНМ, РИА Новости, 30.10.2025', href: 'https://ria.ru/20251030/roboty-uborschiki-2051891712.html' },
-  aif: { label: 'АиФ, 17.11.2025', href: 'https://aif.ru/techno/technology/shvabry-v-storonu-kak-v-stolichnoy-shkole-poyavilis-roboty-uborshchiki' },
-  tj: { label: 'расчёт Т—Ж, 20.08.2026', href: 'https://t-j.ru/short/ne-topchite-tut/' },
-  comnews: { label: 'ComNews, 28.11.2024', href: 'https://www.comnews.ru/content/236559/2024-11-28/2024-w48/1008/gumanoidnye-roboty-poselilis-rtu-mirea' },
-  kommersant: { label: 'CORE.XP и DAKO Professional, «Коммерсантъ», 2025', href: 'https://www.kommersant.ru/doc/7755385' },
-  mt: { label: 'The Moscow Times, 19.08.2025', href: 'https://ru.themoscowtimes.com/2025/08/19/vlasti-zadumali-ogranichit-naem-migrantov-v-obschepite-stroitelstve-i-esche-semi-otraslyah-a172057' },
-  robo: { label: 'по данным производителя, robo.ooo', href: 'https://robo.ooo/' },
-};
-
 const SOL = {
   cleaning: { label: 'Роботизированный клининг', href: '/solutions/cleaning/' },
   humanoid: { label: 'Гуманоидные роботы', href: '/solutions/humanoid/' },
@@ -38,7 +28,6 @@ const BELLS = [
   { kind: 'people', t: 'с 14:15', what: 'Уборщицы', note: 'классы и санузлы' },
 ];
 
-const src = (h, s) => `<a class="edu-src" href="${s.href}" target="_blank" rel="noopener">${h.esc(s.label)}</a>`;
 const ARROW_D = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
 
 const industry = {
@@ -70,25 +59,24 @@ const industry = {
     // TODO(legal): сверить пункт СП 2.4.3648-20 (в исследовании п. 2.11.2 виден только в пересказе) и только потом ставить номер.
     { icon: 'drop', title: 'Убирать нужно каждый день', text: 'Ежедневная влажная уборка всех помещений — требование санитарных правил для образовательных организаций.' },
     { icon: 'clock', title: 'Удобное время одно — урок', text: 'Рекреации пачкаются на переменах, а мыть пол при детях неудобно. Остаётся время уроков, пока все в классах.' },
-    { icon: 'people', title: 'Людей на уборку всё меньше', text: 'Больше 80% персонала в клининге — иностранцы, а регионы ужесточают наём мигрантов.', src: [SRC.kommersant, SRC.mt] },
-    { icon: 'weight', title: 'Уборка дорожает', text: 'Фонд оплаты труда клининговых компаний за пять лет вырос в два-три раза — это идёт в цену контракта на уборку.', src: [SRC.kommersant] },
+    { icon: 'people', title: 'Людей на уборку всё меньше', text: 'Больше 80% персонала в клининге — иностранцы, а регионы ужесточают наём мигрантов.' },
+    { icon: 'weight', title: 'Уборка дорожает', text: 'Фонд оплаты труда клининговых компаний за пять лет вырос в два-три раза — это идёт в цену контракта на уборку.' },
   ],
   directions: [
-    { anchor: 'corridors', scenario: 'А', title: 'Уборка рекреаций и коридоров во время уроков', text: 'Поломоечный робот моет рекреации, пока дети в классах, и сам уходит на станцию. Станция заряжает его, сливает грязную воду и наливает чистую.', items: ['рекреации на всех этажах', 'коридоры и холлы', 'вестибюль и гардероб'], solution: SOL.cleaning },
-    { anchor: 'gym-canteen', scenario: 'А', title: 'Уборка спортзала и столовой', text: 'Отдельный цикл по расписанию: спортзал — когда в нём нет урока, обеденный зал — после потока учеников.', items: ['спортивный зал', 'обеденный зал', 'актовый зал'], solution: SOL.cleaning },
+    { anchor: 'corridors', scenario: 'building', title: 'Уборка рекреаций и коридоров во время уроков', text: 'Поломоечный робот моет рекреации, пока дети в классах, и сам уходит на станцию. Станция заряжает его, сливает грязную воду и наливает чистую.', items: ['рекреации на всех этажах', 'коридоры и холлы', 'вестибюль и гардероб'], solution: SOL.cleaning },
+    { anchor: 'gym-canteen', scenario: 'building', title: 'Уборка спортзала и столовой', text: 'Отдельный цикл по расписанию: спортзал — когда в нём нет урока, обеденный зал — после потока учеников.', items: ['спортивный зал', 'обеденный зал', 'актовый зал'], solution: SOL.cleaning },
     // TODO(client): какой объём работ по лабораториям берёт ПРОФРОБОТ (поставка, запуск, обучение преподавателей, сервис)?
-    { anchor: 'labs', scenario: 'Б', title: 'Учебные лаборатории робототехники', text: 'Гуманоиды, четвероногие и мобильные платформы для кафедр и колледжей: подбираем состав под учебную программу и бюджет, поставляем и запускаем.', items: ['гуманоидные роботы', 'мобильные платформы', 'манипуляторы для учебных стендов'], solution: SOL.humanoid },
+    { anchor: 'labs', scenario: 'lab', title: 'Учебные лаборатории робототехники', text: 'Гуманоиды, четвероногие и мобильные платформы для кафедр и колледжей: подбираем состав под учебную программу и бюджет, поставляем и запускаем.', items: ['гуманоидные роботы', 'мобильные платформы', 'манипуляторы для учебных стендов'], solution: SOL.humanoid },
   ],
   scenarios: {
-    'А': { name: 'Здание', who: 'Покупатель: школа, департамент образования, АХЧ вуза или колледжа.' },
-    'Б': { name: 'Лаборатория', who: 'Покупатель: вуз, колледж, кафедра.' },
+    building: { letter: 'А', name: 'Здание', who: 'Покупатель: школа, департамент образования, АХЧ вуза или колледжа.' },
+    lab: { letter: 'Б', name: 'Лаборатория', who: 'Покупатель: вуз, колледж, кафедра.' },
   },
   vendors: [
     { group: 'Уборка рекреаций и залов', brands: ['gausium', 'pudu', 'lionsbot'] },
-    // TODO(client): подтвердить, что работаем с ROBO и R2B. Без российских производителей сценарий А слабее:
-    // школы и госвузы покупают по 44-ФЗ/223-ФЗ (исследование, разделы 7 и 10).
+    // Russian makers we do not work with are competitors and are not named. Школы и госвузы покупают по
+    // 44-ФЗ/223-ФЗ (исследование, разделы 7 и 10): если появится российский партнёр, добавить его сюда.
     // Нацрежим (ПП №1875) по поломоечным роботам позиций не найдено — на страницу не выносим, уточнить с юристом.
-    { group: 'Российские уборочные роботы', brands: ['robo', 'r2b'] },
     { group: 'Учебная робототехника', brands: ['unitree', 'agilex', 'ubtech'] },
   ],
   vendorsLead: 'Технику для здания и для лаборатории подбираем отдельно: у них разные задачи и разные закупки.',
@@ -102,8 +90,8 @@ const industry = {
   links: [
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Поломоечные роботы для рекреаций и залов.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Гуманоидные роботы', text: 'Платформы для учебных лабораторий.', href: SOL.humanoid.href },
-    { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Робот без покупки и без капитальных затрат.', href: '/products/raas/' },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Циклы уборки и отчёты в одном окне.', href: '/products/cleaning-operations/' },
+    { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Робот без покупки и без капитальных затрат.', href: 'products.html#raas' },
+    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Циклы уборки и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'УСЛУГА', title: 'Пилот', text: 'Один этаж, понятные критерии успеха.', href: '/services/pilot/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: образование', text: 'Внедрения в школах и вузах.', href: '/cases/?industry=education' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
@@ -116,30 +104,30 @@ const renderers = {
   hero: (ind, n, h) => {
     const door = (d, i) => `<a class="edu-door reveal" href="#${d.anchor}" style="--i:${i + 2}">
             <span class="edu-door__win" aria-hidden="true"></span>
-            <span class="edu-door__plate" aria-hidden="true">${h.esc(d.letter)}</span>
-            <span class="edu-door__k mono">Сценарий ${h.esc(d.letter)}</span>
-            <b class="edu-door__t">${h.esc(d.name)}</b>
-            <span class="edu-door__v">${h.esc(d.value)}</span>
-            <span class="edu-door__who"><span class="mono">Покупатель</span>${h.esc(d.who)}</span>
-            <span class="edu-door__go">К сценарию ${ARROW_D}</span>
+            <span class="edu-door__plate" aria-hidden="true"${h.T(d, 'letter')}>${h.esc(d.letter)}</span>
+            <span class="edu-door__k mono"${h.L(`doors.items.${i}.scenario`)}>Сценарий ${h.esc(d.letter)}</span>
+            <b class="edu-door__t"${h.T(d, 'name')}>${h.esc(d.name)}</b>
+            <span class="edu-door__v"${h.T(d, 'value')}>${h.esc(d.value)}</span>
+            <span class="edu-door__who"><span class="mono"${h.L('doors.buyer')}>Покупатель</span><bdi${h.T(d, 'who')}>${h.esc(d.who)}</bdi></span>
+            <span class="edu-door__go"><bdi${h.L('doors.go')}>К сценарию</bdi> ${ARROW_D}</span>
           </a>`;
-    return `<section class="ih edu-hero wrap" data-sec="${n}" data-name="${h.esc(ind.name.toUpperCase())}">
+    return `<section class="ih edu-hero wrap" data-sec="${n}"${h.dnName(ind)}>
       <div class="edu-hero__meta">
         ${h.crumbs(ind)}
-        ${h.idx(n, ind.name.toUpperCase())}
+        ${h.idx(n, h.nameCaps(ind))}
       </div>
       <div class="edu-hero__top">
         <div class="ih__copy">
-          <h1 class="h1 ih__h1 reveal">${ind.h1.map((l) => `<span>${h.esc(l)}</span>`).join(' ')}</h1>
+          <h1 class="h1 ih__h1 reveal">${h.h1(ind)}</h1>
         </div>
         <div class="edu-hero__side">
           <div class="ih__text reveal" style="--i:1">
-            <p class="lead">${h.esc(ind.lead)}</p>
-            <p>${h.esc(ind.lead2)}</p>
+            <p class="lead"${h.T(ind, 'lead')}>${h.esc(ind.lead)}</p>
+            <p${h.T(ind, 'lead2')}>${h.esc(ind.lead2)}</p>
           </div>
           <div class="ih__cta reveal" style="--i:2">
-            <a class="btn btn-pri" href="${ind.primaryCta.href}">${h.esc(ind.primaryCta.label)}</a>
-            <a class="text-link" href="${ind.secondaryCta.href}">${h.esc(ind.secondaryCta.label)} ${h.ARROW_R}</a>
+            <a class="btn btn-pri" href="${ind.primaryCta.href}"${h.T(ind.primaryCta, 'label')}>${h.esc(ind.primaryCta.label)}</a>
+            <a class="text-link" href="${ind.secondaryCta.href}"><span${h.T(ind.secondaryCta, 'label')}>${h.esc(ind.secondaryCta.label)}</span> ${h.ARROW_R}</a>
           </div>
         </div>
       </div>
@@ -148,19 +136,19 @@ const renderers = {
           ${h.photo(ind, '4:5', 'edu-hall__ph')}
           ${door(ind.doors[1], 1)}
       </div>
-      <p class="ih__aud reveal"><span class="mono">Для кого</span> ${ind.audiences.map(h.esc).join(' · ')}</p>
+      <p class="ih__aud reveal">${h.audience(ind)}</p>
     </section>`;
   },
 
   // Problems on ruled «exercise book» sheets, each figure signed with its source.
-  problems: (ind, n, h) => `<section class="sol-sec wrap" id="problems" data-sec="${n}" data-name="${h.SEC_NAMES.problems}" aria-labelledby="problems-h">
-      ${h.secHead(n, h.SEC_NAMES.problems, h.head(ind, 'problems'), null, 'problems-h')}
+  problems: (ind, n, h) => `<section class="sol-sec wrap" id="problems" data-sec="${n}"${h.dn(ind, 'problems')} aria-labelledby="problems-h">
+      ${h.secHead(n, h.secName(ind, 'problems'), h.head(ind, 'problems'), null, 'problems-h')}
       <ol class="edu-probs">
         ${ind.problems.map((p, i) => `<li class="edu-prob reveal" style="--i:${i + 1}">
           <span class="edu-prob__no mono tnum">${h.pad(i + 1)}</span>
           <span class="ic-tile">${h.icon(p.icon)}</span>
-          <h3>${h.esc(p.title)}</h3>
-          <p>${h.esc(p.text)}</p>${p.src ? `\n          <p class="edu-prob__src">Источник: ${p.src.map((s) => src(h, s)).join('; ')}</p>` : ''}
+          <h3${h.T(p, 'title')}>${h.esc(p.title)}</h3>
+          <p${h.T(p, 'text')}>${h.esc(p.text)}</p>${p.src ? `\n          <p class="edu-prob__src"><span${h.C('sources.labelColon')}>Источник:</span> ${p.src.map((s) => src(h, s)).join('; ')}</p>` : ''}
         </li>`).join('\n        ')}
       </ol>
     </section>`,
@@ -168,38 +156,43 @@ const renderers = {
   // Signature block: the bell schedule. Lessons — the robot cleans; breaks — it's on the station.
   bells: (ind, n, h) => {
     const rows = BELLS.map((b, i) => {
-      const label = b.kind === 'break' ? b.what : b.kind === 'people' ? 'После уроков' : `${b.no} урок`;
+      const mLesson = b.kind === 'lesson' || b.kind === 'gym' ? h.msg('industries.education.bells.lesson', { n: b.no }) : null;
+      const label = b.kind === 'break'
+        ? `<span class="edu-bell__l"${h.T(b, 'what')}>${h.esc(b.what)}</span>`
+        : b.kind === 'people'
+          ? `<span class="edu-bell__l"${h.L('bells.afterLessons')}>После уроков</span>`
+          : `<span class="edu-bell__l"${mLesson.attr}>${mLesson.text}</span>`;
       const state = b.kind === 'break'
-        ? '<span class="edu-bell__st"><i aria-hidden="true"></i>Робот на станции · в коридоре дети</span>'
-        : `<span class="edu-bell__bar"><b>${h.esc(b.what)}</b> ${h.esc(b.note)}</span>`;
+        ? `<span class="edu-bell__st"><i aria-hidden="true"></i><bdi${h.L('bells.breakState')}>Робот на станции · в коридоре дети</bdi></span>`
+        : `<span class="edu-bell__bar"><b${h.T(b, 'what')}>${h.esc(b.what)}</b> <bdi${h.T(b, 'note')}>${h.esc(b.note)}</bdi></span>`;
       return `<li class="edu-bell edu-bell--${b.kind} reveal" style="--i:${Math.min(i, 8)}">
-            <span class="edu-bell__t mono tnum">${h.esc(b.t)}</span>
-            <span class="edu-bell__l">${h.esc(label)}</span>
+            <span class="edu-bell__t mono tnum"${h.TN(h.dk(b, 't'), b.t)}>${h.esc(b.t)}</span>
+            ${label}
             ${state}
           </li>`;
     }).join('\n          ');
-    return `<section class="sol-sec wrap" id="bells" data-sec="${n}" data-name="${ind.secNames.bells}" aria-labelledby="bells-h">
+    return `<section class="sol-sec wrap" id="bells" data-sec="${n}"${h.dn(ind, 'bells')} aria-labelledby="bells-h">
       <div class="edu-bells">
         <div class="edu-bells__copy">
-          ${h.idx(n, ind.secNames.bells)}
-          <h2 class="h2 reveal" id="bells-h">Робот моет, пока идут уроки.</h2>
-          <p class="lead reveal">На перемене коридор принадлежит детям, поэтому робот уходит на станцию. Звенит звонок на урок — он выезжает на следующий цикл.</p>
+          ${h.idx(n, h.secName(ind, 'bells'))}
+          <h2 class="h2 reveal" id="bells-h"${h.L('bells.title')}>Робот моет, пока идут уроки.</h2>
+          <p class="lead reveal"${h.L('bells.lead')}>На перемене коридор принадлежит детям, поэтому робот уходит на станцию. Звенит звонок на урок — он выезжает на следующий цикл.</p>
           <dl class="edu-facts reveal">
-            <div><dt>роботов в школе №281</dt><dd class="tnum">5</dd></div>
-            <div><dt>циклов в день на этаж, шестой — в спортзале</dt><dd class="tnum">5</dd></div>
-            <div><dt>станция: заряд, слив грязной воды, налив чистой</dt><dd>3 в 1</dd></div>
+            <div><dt${h.L('bells.facts.robots')}>роботов в школе №281</dt><dd class="tnum">5</dd></div>
+            <div><dt${h.L('bells.facts.cycles')}>циклов в день на этаж, шестой — в спортзале</dt><dd class="tnum">5</dd></div>
+            <div><dt${h.L('bells.facts.station')}>станция: заряд, слив грязной воды, налив чистой</dt><dd${h.L('bells.facts.stationValue')}>3 в 1</dd></div>
           </dl>
-          <p class="edu-note reveal">Школа №281, Москва — ${src(h, SRC.aif)}. Уборщицы в школе остались и работают на классах.</p>
+          <p class="edu-note reveal"><span${h.L('bells.note')}>Школа №281, Москва. Уборщицы в школе остались и работают на классах.</span></p>
         </div>
         <figure class="edu-board reveal" aria-labelledby="bells-cap">
           <figcaption class="edu-board__head" id="bells-cap">
-            <span class="edu-board__t">Расписание звонков</span>
-            <span class="mono">Пример расписания</span>
+            <span class="edu-board__t"${h.L('bells.board.title')}>Расписание звонков</span>
+            <span class="mono"${h.L('bells.board.example')}>Пример расписания</span>
           </figcaption>
           <ol class="edu-board__rows">
           ${rows}
           </ol>
-          <p class="edu-board__foot">Время звонков условное. Циклы и спортзал — как в школе №281; расписание робота собираем под ваши звонки.</p>
+          <p class="edu-board__foot"${h.L('bells.board.foot')}>Время звонков условное. Циклы и спортзал — как в школе №281; расписание робота собираем под ваши звонки.</p>
         </figure>
       </div>
     </section>`;
@@ -215,97 +208,95 @@ const renderers = {
         return `<article class="drow reveal" id="${d.anchor}" style="--i:${k}">
             <div class="drow__l">
               <span class="drow__no mono">${h.pad(k + 1)}</span>
-              <h4>${h.esc(d.title)}</h4>
-              <p>${h.esc(d.text)}</p>
+              <h4${h.T(d, 'title')}>${h.esc(d.title)}</h4>
+              <p${h.T(d, 'text')}>${h.esc(d.text)}</p>
             </div>
             <div class="drow__r">
-              <p class="drow__items">${d.items.map(h.esc).join(' · ')}</p>
-              <a class="drow__sol" href="${d.solution.href}">Решение: ${h.esc(d.solution.label)} ${h.ARROW_UR}</a>
+              <p class="drow__items">${h.itemsList(d.items)}</p>
+              ${h.solLink(d.solution)}
             </div>
           </article>`;
       }).join('\n          ');
       return `<div class="edu-scen">
           <div class="edu-scen__head reveal">
-            <span class="edu-scen__plate" aria-hidden="true">${h.esc(key)}</span>
-            <h3>Сценарий ${h.esc(key)} — ${h.esc(sc.name)}</h3>
-            <p>${h.esc(sc.who)}</p>
+            <span class="edu-scen__plate" aria-hidden="true"${h.T(sc, 'letter')}>${h.esc(sc.letter)}</span>
+            <h3${h.L(`scenarios.${key}.heading`)}>Сценарий ${h.esc(sc.letter)} — ${h.esc(sc.name)}</h3>
+            <p${h.T(sc, 'who')}>${h.esc(sc.who)}</p>
           </div>
           <div class="drows">
           ${rows}
           </div>
         </div>`;
     };
-    return `<section class="sol-sec wrap" id="directions" data-sec="${n}" data-name="${h.SEC_NAMES.directions}" aria-labelledby="directions-h">
-      ${h.secHead(n, h.SEC_NAMES.directions, h.head(ind, 'directions'), 'Уборку здания закупает хозяйственная служба, лабораторию — кафедра или программа развития вуза. Поэтому и считаем их отдельно.', 'directions-h')}
+    return `<section class="sol-sec wrap" id="directions" data-sec="${n}"${h.dn(ind, 'directions')} aria-labelledby="directions-h">
+      ${h.secHead(n, h.secName(ind, 'directions'), h.head(ind, 'directions'), h.lt('directions.lead', 'Уборку здания закупает хозяйственная служба, лабораторию — кафедра или программа развития вуза. Поэтому и считаем их отдельно.'), 'directions-h')}
       <div class="edu-scens">
-        ${group('А')}
-        ${group('Б')}
+        ${group('building')}
+        ${group('lab')}
       </div>
     </section>`;
   },
 
   // Other companies' deployments, one per scenario. Not ProfRobot projects — said so in the lead.
-  proof: (ind, n, h) => `<section class="sol-sec wrap" id="proof" data-sec="${n}" data-name="${ind.secNames.proof}" aria-labelledby="proof-h">
-      ${h.secHead(n, ind.secNames.proof, 'Это уже работает в школах и вузах.', 'Ниже чужие внедрения, не проекты ПРОФРОБОТ. Показываем их, чтобы было видно: оба сценария проверены на реальных зданиях и студентах.', 'proof-h')}
+  proof: (ind, n, h) => `<section class="sol-sec wrap" id="proof" data-sec="${n}"${h.dn(ind, 'proof')} aria-labelledby="proof-h">
+      ${h.secHead(n, h.secName(ind, 'proof'), h.lt('proof.title', 'Это уже работает в школах и вузах.'), h.lt('proof.lead', 'Ниже чужие внедрения, не проекты ПРОФРОБОТ. Показываем их, чтобы было видно: оба сценария проверены на реальных зданиях и студентах.'), 'proof-h')}
       <div class="edu-proof">
         <article class="edu-case reveal">
-          <span class="edu-case__k mono"><span class="edu-scen__plate" aria-hidden="true">А</span>Московские школы</span>
-          <p class="edu-case__num"><b class="tnum">4 800</b><span>м² в день</span></p>
-          <p class="edu-case__lead">Больше 4 800 м² в день моют роботы в рекреациях трёх школ — №1514, №281 и №1387. Работают во время уроков, на всех этажах, сами уходят на станцию.</p>
-          <p class="edu-src-line">Объявил Департамент образования и науки Москвы — ${src(h, SRC.ria)}</p>
+          <span class="edu-case__k mono"><span class="edu-scen__plate" aria-hidden="true"${h.T(ind.scenarios.building, 'letter')}>А</span><bdi${h.L('proof.schools.place')}>Московские школы</bdi></span>
+          <p class="edu-case__num"><b class="tnum"${h.L('proof.schools.value')}>4 800</b><span${h.L('proof.schools.unit')}>м² в день</span></p>
+          <p class="edu-case__lead"${h.L('proof.schools.lead')}>Больше 4 800 м² в день моют роботы в рекреациях трёх школ — №1514, №281 и №1387. Работают во время уроков, на всех этажах, сами уходят на станцию.</p>
+          <p class="edu-src-line"${h.L('proof.schools.announced')}>Объявил Департамент образования и науки Москвы.</p>
           <blockquote class="edu-quote">
-            <p>«Теперь не представляем работу без них».</p>
-            <footer>Заместитель директора школы №281 — ${src(h, SRC.aif)}</footer>
+            <p${h.L('proof.schools.quote')}>«Теперь не представляем работу без них».</p>
+            <footer${h.L('proof.schools.quoteBy')}>Заместитель директора школы №281</footer>
           </blockquote>
-          <p class="edu-src-line">Роботов ROBO RUBY-S производитель называет работающими в школах №1514 и №281 — ${src(h, SRC.robo)}.</p>
         </article>
         <article class="edu-case reveal" style="--i:1">
-          <span class="edu-case__k mono"><span class="edu-scen__plate" aria-hidden="true">Б</span>РТУ МИРЭА</span>
-          <p class="edu-case__num"><b class="tnum">122</b><span>млн ₽ — оборудование лаборатории</span></p>
-          <p class="edu-case__lead">Программа «Шагающие роботы»: 9 гуманоидов Unitree H1 и 4 манипулятора. В 2024 году в лаборатории занимались больше 250 студентов.</p>
-          <p class="edu-src-line">${src(h, SRC.comnews)}</p>
+          <span class="edu-case__k mono"><span class="edu-scen__plate" aria-hidden="true"${h.T(ind.scenarios.lab, 'letter')}>Б</span><bdi${h.L('proof.lab.place')}>РТУ МИРЭА</bdi></span>
+          <p class="edu-case__num"><b class="tnum">122</b><span${h.L('proof.lab.unit')}>млн ₽ — оборудование лаборатории</span></p>
+          <p class="edu-case__lead"${h.L('proof.lab.lead')}>Программа «Шагающие роботы»: 9 гуманоидов Unitree H1 и 4 манипулятора. В 2024 году в лаборатории занимались больше 250 студентов.</p>
           <ul class="edu-case__list">
-            <li><b class="tnum">9</b><span>гуманоидов Unitree H1</span></li>
-            <li><b class="tnum">4</b><span>манипулятора</span></li>
-            <li><b class="tnum">250+</b><span>студентов в 2024</span></li>
+            <li><b class="tnum">9</b><span${h.L('proof.lab.humanoids')}>гуманоидов Unitree H1</span></li>
+            <li><b class="tnum">4</b><span${h.L('proof.lab.arms')}>манипулятора</span></li>
+            <li><b class="tnum">250+</b><span${h.L('proof.lab.students')}>студентов в 2024</span></li>
           </ul>
         </article>
       </div>
     </section>`,
 
   // Honest economics: buying pays back slowly (T—Zh calculation), so offer rent / cleaning as a service.
-  economy: (ind, n, h) => `<section class="sol-sec wrap" id="economy" data-sec="${n}" data-name="${h.SEC_NAMES.economy}" aria-labelledby="economy-h">
-      ${h.secHead(n, h.SEC_NAMES.economy, 'Покупка окупается долго. Так и говорим.', 'Робот берёт на себя не всю смену уборщицы, а её часть. Поэтому при покупке срок окупаемости в школе — годы, а не месяцы.', 'economy-h')}
+  economy: (ind, n, h) => `<section class="sol-sec wrap" id="economy" data-sec="${n}"${h.dn(ind, 'economy')} aria-labelledby="economy-h">
+      ${h.secHead(n, h.secName(ind, 'economy'), h.lt('economy.title', 'Покупка окупается долго. Так и говорим.'), h.lt('economy.lead', 'Робот берёт на себя не всю смену уборщицы, а её часть. Поэтому при покупке срок окупаемости в школе — годы, а не месяцы.'), 'economy-h')}
       <div class="edu-econ">
         <article class="edu-calc reveal" aria-labelledby="edu-calc-h">
-          <span class="edu-calc__flag mono">Расчёт журнала Т—Ж, не наш</span>
-          <h3 id="edu-calc-h">Один робот в школе</h3>
-          <div class="edu-shift" role="img" aria-label="Восьмичасовая смена уборщицы: робот закрывает 2,5 часа из 8, это 31 процент">
+          <span class="edu-calc__flag mono"${h.L('economy.flag')}>Расчёт журнала Т—Ж, не наш</span>
+          <h3 id="edu-calc-h"${h.L('economy.calcTitle')}>Один робот в школе</h3>
+          <div class="edu-shift" role="img"${h.TA(['aria-label', h.pk('economy.shiftLabel')])} aria-label="Восьмичасовая смена уборщицы: робот закрывает 2,5 часа из 8, это 31 процент">
             <div class="edu-shift__bar"><i></i></div>
-            <div class="edu-shift__scale mono tnum" aria-hidden="true"><span>0 ч</span><span>2,5 ч</span><span>8 ч смены</span></div>
+            <div class="edu-shift__scale mono tnum" aria-hidden="true"><span${h.L('economy.scale.zero')}>0 ч</span><span${h.L('economy.scale.part')}>2,5 ч</span><span${h.L('economy.scale.shift')}>8 ч смены</span></div>
           </div>
           <dl class="edu-calc__nums">
-            <div><dt>цена робота</dt><dd class="tnum">≈ 2 млн ₽</dd></div>
-            <div><dt>смены уборщицы закрывает робот</dt><dd class="tnum">2,5 из 8 ч</dd></div>
-            <div><dt>окупаемость при покупке, зарплата 65 тыс. ₽ на руки</dt><dd class="tnum">≈ 5,5 года</dd></div>
-            <div><dt>при зарплате 30 тыс. ₽</dt><dd class="tnum">почти 12 лет</dd></div>
+            <div><dt${h.L('economy.nums.price')}>цена робота</dt><dd class="tnum"${h.L('economy.nums.priceValue')}>≈ 2 млн ₽</dd></div>
+            <div><dt${h.L('economy.nums.covers')}>смены уборщицы закрывает робот</dt><dd class="tnum"${h.L('economy.nums.coversValue')}>2,5 из 8 ч</dd></div>
+            <div><dt${h.L('economy.nums.payback')}>окупаемость при покупке, зарплата 65 тыс. ₽ на руки</dt><dd class="tnum"${h.L('economy.nums.paybackValue')}>≈ 5,5 года</dd></div>
+            <div><dt${h.L('economy.nums.lowWage')}>при зарплате 30 тыс. ₽</dt><dd class="tnum"${h.L('economy.nums.lowWageValue')}>почти 12 лет</dd></div>
           </dl>
-          <p class="edu-src-line">Сервис робота в расчёт не входит — ${src(h, SRC.tj)}</p>
+          <p class="edu-src-line"${h.L('economy.serviceNote')}>Сервис робота в расчёт не входит.</p>
         </article>
         <div class="edu-ways">
-          <p class="edu-ways__h">Что из этого следует</p>
+          <p class="edu-ways__h"${h.L('economy.ways.title')}>Что из этого следует</p>
           <!-- TODO(legal): сверить формулировку про закупку уборки как услуги по 44-ФЗ (ОКПД2 81.2, распоряжение №471-р в исследовании помечено [?]). -->
           <article class="edu-way reveal" style="--i:1">
             <span class="edu-way__no mono tnum">01</span>
-            <h3>Аренда или уборка как услуга</h3>
-            <p>Без капитальных затрат и без пяти лет ожидания. Уборку роботами можно закупать как услугу — так же, как школа уже закупает услуги уборки по 44-ФЗ.</p>
-            <a class="drow__sol" href="/products/raas/">Аренда роботов (RaaS) ${h.ARROW_UR}</a>
+            <h3${h.L('economy.ways.rent.title')}>Аренда или уборка как услуга</h3>
+            <p${h.L('economy.ways.rent.text')}>Без капитальных затрат и без пяти лет ожидания. Уборку роботами можно закупать как услугу — так же, как школа уже закупает услуги уборки по 44-ФЗ.</p>
+            <a class="drow__sol" href="products.html#raas"><span${h.K('common.linkNames.raas')}>Аренда роботов (RaaS)</span> ${h.ARROW_UR}</a>
           </article>
           <article class="edu-way reveal" style="--i:2">
             <span class="edu-way__no mono tnum">02</span>
-            <h3>Уборщицы — на классы и санузлы</h3>
-            <p>Робот моет длинные рекреации, люди — то, что ему не под силу: классы, санузлы, лестницы. Так в школе №281: уборщицы остались и работают на классах.</p>
-            <a class="drow__sol" href="#bells">Как это выглядит по звонкам ↑</a>
+            <h3${h.L('economy.ways.staff.title')}>Уборщицы — на классы и санузлы</h3>
+            <p${h.L('economy.ways.staff.text')}>Робот моет длинные рекреации, люди — то, что ему не под силу: классы, санузлы, лестницы. Так в школе №281: уборщицы остались и работают на классах.</p>
+            <a class="drow__sol" href="#bells"${h.L('economy.ways.staff.link')}>Как это выглядит по звонкам ↑</a>
           </article>
         </div>
       </div>
@@ -314,11 +305,7 @@ const renderers = {
 
 export default {
   industry,
-  brands: {
-    // TODO(client): подтвердить, что работаем с ROBO.
-    robo: { name: 'ROBO' },
-    // TODO(client): подтвердить, что работаем с R2B.
-    r2b: { name: 'R2B' },
-  },
   renderers,
+  data: { bells: BELLS },
+  templates: { 'industries.education.bells.lesson': '{n} урок' },
 };

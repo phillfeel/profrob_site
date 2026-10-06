@@ -96,11 +96,20 @@ section { position: relative; z-index: 2; }
   background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   box-shadow: var(--shadow-md);
 }
-.nav img { height: 24px; width: auto; }
+.nav img { height: 24px; width: auto; object-fit: contain; object-position: left center; } /* (contain: on a very narrow phone the logo gets smaller, not squeezed) */
 .nav-links { display: flex; gap: 28px; margin: 0 auto; font-size: 14px; font-weight: 500; }
 .nav-links a { color: var(--ink-muted); transition: color var(--fast) var(--ease); }
 .nav-links a:hover, .nav-links a.on { color: var(--ink); }
 .nav .btn { height: 40px; padding: 0 20px; font-size: 14px; }
+/* Language switch: sunken track and a white pill for the chosen language, as the segment controls of the calculator */
+.lang { display: flex; gap: 2px; padding: 3px; border-radius: var(--r-pill); background: var(--surface-sunken); flex: none; }
+.lang button {
+  height: 30px; min-width: 40px; padding: 0 10px; border: 0; border-radius: var(--r-pill); background: transparent;
+  font: 500 13px/1 var(--sans); letter-spacing: .02em; color: var(--ink-muted); cursor: pointer;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.lang button:hover { color: var(--ink); }
+.lang button[aria-pressed="true"] { background: var(--surface-raised); color: var(--ink); box-shadow: var(--shadow-sm); cursor: default; }
 
 /* ================= SECTION COUNTER ================= */
 .counter {
@@ -865,6 +874,10 @@ html:not(.js) .stk-sys .stk-node::after, .stk.is-live .stk-sys .stk-node::after 
   .sec { padding: 80px 0; }
   .nav-links, .counter { display: none; }
   .nav { padding-left: 16px; gap: 12px; justify-content: space-between; }
+  .nav { gap: 8px; }
+  .nav .lang { margin-left: auto; padding: 2px; }
+  .lang button { height: 28px; min-width: 28px; padding: 0 5px; font-size: 12px; }
+  .nav .btn { padding: 0 14px; }
   .hero { padding-top: 104px; min-height: 0; }
   .hero-top { grid-template-columns: 1fr; }
   .scene { margin-top: clamp(32px, 6vh, 72px); }

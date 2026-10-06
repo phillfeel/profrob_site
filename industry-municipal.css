@@ -1,6 +1,6 @@
 /* ================= Муниципальные службы (industries-municipal.html) =================
    Свои блоки страницы: Hero «план территории» (SVG-схема сверху, зоны — ссылки на направления),
-   проблемы карточками с цифрой, направления со значком зоны, тёмный блок «Пиксель» в парках Москвы,
+   проблемы карточками с цифрой, направления со значком зоны,
    фирменный блок «Как это купить» (нацрежим и два маршрута закупки). Все селекторы — под .ind--municipal. */
 
 .ind--municipal {
@@ -127,25 +127,6 @@
 .ind--municipal .g-park { fill: var(--surface-sunken); }
 .ind--municipal .g-stall { stroke: #fff; stroke-width: 2.5; }
 
-/* ---------- Практика: «Пиксель» в парках Москвы (тёмный блок) ---------- */
-.ind--municipal .mproof { padding: 72px 56px 56px; }
-.ind--municipal .mproof__top { position: relative; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: end; }
-.ind--municipal .mproof__copy { display: grid; gap: 20px; }
-.ind--municipal .mproof__copy .lead { max-width: 60ch; }
-.ind--municipal .mproof__fig { display: grid; gap: 16px; margin: 0; }
-.ind--municipal .mproof__num { display: flex; align-items: flex-start; gap: 8px; line-height: .8; }
-.ind--municipal .mproof__num b { font-size: clamp(96px, 12vw, 176px); font-weight: 700; letter-spacing: -.06em; color: var(--lime); }
-.ind--municipal .mproof__approx { font-size: clamp(40px, 4vw, 64px); color: var(--on-stage-muted); padding-top: .2em; }
-.ind--municipal .mproof__fig p:not(.mn-src) { font-size: 17px; line-height: 1.5; color: var(--on-stage); max-width: 36ch; }
-.ind--municipal .stage .mn-src { color: var(--on-stage-muted); }
-.ind--municipal .stage .mn-src a { text-decoration-color: var(--stage-line); }
-.ind--municipal .stage .mn-src a:hover { color: var(--on-stage); }
-.ind--municipal .mproof__line { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 64px; border-top: 1px solid var(--stage-line); }
-.ind--municipal .mproof__line li { position: relative; display: grid; gap: 8px; align-content: start; padding: 28px 20px 0 0; }
-.ind--municipal .mproof__line li::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--lime); }
-.ind--municipal .mproof__line .mono { color: var(--on-stage); font-size: 11px; }
-.ind--municipal .mproof__line p:not(.mn-src) { font-size: 15px; line-height: 1.45; color: var(--on-stage-muted); }
-
 /* ---------- Как это купить ---------- */
 .ind--municipal .mbuy { display: grid; gap: 20px; }
 .ind--municipal .mbuy__doc {
@@ -211,14 +192,11 @@
 @media (max-width: 1279px) {
   .ind--municipal .mprobs { grid-template-columns: 1fr 1fr; }
   .ind--municipal .mprob { min-height: 0; }
-  .ind--municipal .mproof__top { grid-template-columns: 1fr; gap: 40px; }
-  .ind--municipal .mproof__line { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 32px; }
   .ind--municipal .mdir { grid-template-columns: 1fr; gap: 20px; }
   .ind--municipal .mdir__r { padding-left: 92px; }
 }
 @media (max-width: 1023px) {
   .ind--municipal .mhero { grid-template-columns: 1fr; grid-template-areas: "copy" "plan" "ph"; }
-  .ind--municipal .mproof { padding: 48px 20px 40px; }
   .ind--municipal .mbuy__doc { grid-template-columns: 1fr; padding: 28px; }
   .ind--municipal .mbuy__stamp { justify-self: start; order: -1; padding: 12px 20px; }
   .ind--municipal .mbuy__ways { grid-template-columns: 1fr; padding-top: 20px; }
@@ -237,9 +215,6 @@
   .ind--municipal .mdir__l { grid-template-columns: 56px 1fr; gap: 6px 16px; }
   .ind--municipal .mdir__g { width: 56px; height: 56px; padding: 6px; }
   .ind--municipal .mdir__r { padding-left: 0; }
-  .ind--municipal .mproof__line { grid-template-columns: 1fr; row-gap: 0; border-top: 0; border-left: 1px solid var(--stage-line); margin-left: 4px; }
-  .ind--municipal .mproof__line li { padding: 0 0 24px 24px; }
-  .ind--municipal .mproof__line li::before { top: 4px; left: -5px; }
   .ind--municipal .mbuy__doc { padding: 24px 20px; }
   .ind--municipal .mbuy__req { grid-template-columns: 1fr; }
   .ind--municipal .mbuy__way { padding: 24px 20px; }

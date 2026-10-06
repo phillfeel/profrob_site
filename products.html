@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="products.meta.title">Продукты ПРОФРОБОТ: платформа, RaaS, Retrofit</title>
+  <meta data-i18n-attr="content:products.meta.description" name="description" content="Платформа управления парком роботов, аренда роботов (RaaS), модернизация вашей техники (Retrofit), AI-модули и интеграция по Open API. Продукты ПРОФРОБОТ.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="/products/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="solutions.css">
+  <link rel="stylesheet" href="products.css">
+  <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="sol-page pr-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.6-.6-.6-2.6z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-fleet" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><path d="M14 17.5h7M17.5 14v7"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 18.4 5.6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15v4M17 17h4M5 17v3M3.5 18.5h3"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3"/></symbol>
+    <symbol id="i-retrofit" viewBox="0 0 24 24"><path d="M3 17h13l2-5h-5l-1.5-3H6z"/><circle cx="7" cy="19" r="2"/><circle cx="15" cy="19" r="2"/><path d="M19 4v5M16.5 6.5h5"/></symbol>
+  </defs></svg>
+
+  <!-- ================= NAV ================= -->
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="ПРОФРОБОТ — на главную"><img data-i18n-attr="alt:common.brand.logoAlt" src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+    <nav class="nav-links">
+      <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+      <a data-i18n="common.nav.industries" href="index.html#industries">Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html" class="on" aria-current="page">Продукты</a>
+      <a data-i18n="common.nav.platform" href="index.html#platform">Платформа</a>
+      <a data-i18n="common.nav.cases" href="index.html#cases">Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="#talk">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">07</span>
+    <span data-i18n="products.sections.hero" class="lbl">ПРОДУКТЫ</span>
+  </div>
+
+  <main>
+    <!-- ================= 01 HERO ================= -->
+    <section data-i18n-attr="data-name:products.sections.hero" class="sol-hero wrap" data-sec="01" data-name="ПРОДУКТЫ">
+      <div class="sol-hero__grid">
+        <div class="sol-hero__copy">
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li data-i18n="products.crumb" aria-current="page">Продукты</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="products.sections.hero">ПРОДУКТЫ</span></span>
+          <h1 class="h1 reveal" data-i18n="products.hero.title">Продукты и модели работы ПРОФРОБОТ.</h1>
+          <div class="sol-hero__text reveal">
+            <p data-i18n="products.hero.lead" class="lead">Купить робота — половина дела. Дальше им нужно управлять, обслуживать и понимать, окупается ли он.</p>
+            <p data-i18n="products.hero.text">Наши продукты закрывают именно это: платформа для контроля парка, аренда вместо покупки, модернизация уже имеющейся техники и интеграция с вашими системами.</p>
+          </div>
+          <div class="btns reveal">
+            <a class="btn btn-pri" href="#raas"><span data-i18n="products.hero.ctaRaas">Узнать про аренду (RaaS)</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-sec" href="#talk" data-pick="platform"><span data-i18n="products.hero.ctaDemo">Запросить демо платформы</span></a>
+          </div>
+        </div>
+
+        <aside data-i18n-attr="aria-label:products.catalog.label" class="cat reveal" style="--i:2" aria-label="Содержание страницы: семь продуктов">
+          <p class="cat__grp mono"><b>A</b> <span data-i18n="products.catalog.groupPlatform">ПЛАТФОРМА И МОДУЛИ</span></p>
+          <ul>
+            <li><a class="cat__row" href="#platform"><span class="cat__no">01</span><span class="cat__name"><bdi data-i18n="products.names.platform">ПРОФРОБОТ Platform</bdi><small data-i18n="products.catalog.platform">единое окно для всего парка</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></li>
+            <li><a class="cat__row" href="#fleet"><span class="cat__no">02</span><span class="cat__name"><bdi>Fleet Management</bdi><small data-i18n="products.catalog.fleet">управление парком</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></li>
+            <li><a class="cat__row" href="#dispatch"><span class="cat__no">03</span><span class="cat__name"><bdi data-i18n="products.names.dispatch">Диспетчеризация и мониторинг</bdi></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></li>
+            <li><a class="cat__row" href="#ai"><span class="cat__no">04</span><span class="cat__name"><bdi data-i18n="products.names.ai">AI-модули и аналитика</bdi></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></li>
+            <li><a class="cat__row" href="#api"><span class="cat__no">05</span><span class="cat__name"><bdi data-i18n="products.names.api">Open API и интеграции</bdi></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></li>
+          </ul>
+          <p class="cat__grp mono"><b>B</b> <span data-i18n="products.catalog.groupModels">МОДЕЛИ РАБОТЫ</span></p>
+          <ul>
+            <li><a class="cat__row" href="#raas"><span class="cat__no">06</span><span class="cat__name"><bdi data-i18n="products.names.raas">Аренда роботов (RaaS)</bdi><small data-i18n="products.catalog.raas">вместо покупки</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></li>
+            <li><a class="cat__row" href="#retrofit"><span class="cat__no">07</span><span class="cat__name"><bdi>Retrofit</bdi><small data-i18n="products.catalog.retrofit">модернизация вашей техники</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= 02 ПЛАТФОРМА ================= -->
+    <section data-i18n-attr="data-name:products.sections.platform" class="sol-sec" id="platform" data-sec="02" data-name="ПЛАТФОРМА" data-dark aria-labelledby="plat-h">
+      <div class="stage pr-stage">
+        <div class="pr-stage__top">
+          <div class="pr-stage__copy">
+            <span class="idx reveal"><b>02</b> — <span data-i18n="products.sections.platform">ПЛАТФОРМА</span></span>
+            <h2 data-i18n="products.platform.title" class="h2 reveal" id="plat-h">Платформа, на которой живёт весь парк.</h2>
+            <p data-i18n-html="products.platform.lead" class="lead reveal"><b>ПРОФРОБОТ Platform</b> — наша собственная разработка. Она управляет роботами любых типов и производителей, от уборщика до гуманоида, а недостающие функции мы пишем под вашу задачу.</p>
+            <ul class="pr-trust reveal">
+              <li data-i18n="products.platform.trust.russia">Российская разработка</li>
+              <li data-i18n="products.platform.trust.data">Данные в РФ, дата-центр в Сколково</li>
+              <li data-i18n="products.platform.trust.makers">40+ производителей, 8 типов роботов</li>
+            </ul>
+            <div class="btns reveal">
+              <a class="btn btn-inv" href="#talk" data-pick="platform"><span data-i18n="products.platform.ctaDemo">Запросить демо платформы</span></a>
+              <a class="btn btn-ghost-dark" href="index.html#platform"><span data-i18n="products.platform.ctaMore">Схема платформы на главной</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+          </div>
+
+          <!-- Витрина: те же показатели, что в виджете главной. Статичная иллюстрация, не живые данные. -->
+          <div class="pr-board reveal" style="--i:2" role="img" data-i18n-attr="aria-label:products.platform.board.label" aria-label="Пример панели платформы: 142 устройства, 14 объектов, 98,2% SLA, 24 активные операции">
+            <div class="pr-board__head">
+              <span class="pr-board__brand"><bdi data-i18n="products.platform.board.brand">ПРОФРОБОТ</bdi> <span>Platform</span></span>
+              <span class="badge-online"><i></i><span data-i18n="products.platform.board.online">Платформа онлайн</span></span>
+            </div>
+            <dl class="pr-board__kpis">
+              <div><dt data-i18n="products.platform.board.devices">устройства</dt><dd class="tnum">142</dd></div>
+              <div><dt data-i18n="products.platform.board.sites">объектов</dt><dd class="tnum">14</dd></div>
+              <div><dt data-i18n="products.platform.board.sla">SLA и качество</dt><dd class="tnum" data-i18n="products.platform.board.slaValue">98,2%</dd></div>
+              <div><dt data-i18n="products.platform.board.ops">активные операции</dt><dd class="tnum">24</dd></div>
+            </dl>
+            <div class="pr-board__fleet" aria-hidden="true">
+              <i style="--w:92%"></i><i style="--w:64%"></i><i style="--w:81%"></i><i style="--w:38%" class="warn"></i><i style="--w:73%"></i><i style="--w:55%"></i>
+            </div>
+            <p class="pr-board__foot mono" data-i18n="products.platform.board.foot">Уборка · доставка · склад · гуманоиды — на одной карте</p>
+          </div>
+        </div>
+
+        <ol class="pr-mods">
+          <li class="mod reveal" id="fleet" style="--i:0">
+            <span class="mod__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-fleet"/></svg></span><span class="mod__no mono">02</span></span>
+            <h3>Fleet Management</h3>
+            <p class="mod__ru mono" data-i18n="products.platform.fleet.ru">Управление парком</p>
+            <p data-i18n="products.platform.fleet.text">Парк устройств на нескольких объектах из одного центра: группировка по объектам и статусам, массовые команды, удалённая настройка и обновления.</p>
+          </li>
+          <li class="mod reveal" id="dispatch" style="--i:1">
+            <span class="mod__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-radar"/></svg></span><span class="mod__no mono">03</span></span>
+            <h3 data-i18n="products.names.dispatch">Диспетчеризация и мониторинг</h3>
+            <p class="mod__ru mono" data-i18n="products.platform.dispatch.ru">Задачи и контроль</p>
+            <p data-i18n="products.platform.dispatch.text">Контроль операций и распределение задач между устройствами: карта, статусы и ошибки в реальном времени, оповещения о сбоях.</p>
+          </li>
+          <li class="mod reveal" id="ai" style="--i:2">
+            <span class="mod__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-spark"/></svg></span><span class="mod__no mono">04</span></span>
+            <h3 data-i18n="products.names.ai">AI-модули и аналитика</h3>
+            <p class="mod__ru mono" data-i18n="products.platform.ai.ru">Сценарии и предсказания</p>
+            <p data-i18n="products.platform.ai.text">Распознавание, сценарии и аналитика эксплуатации поверх базового оборудования. AI-агенты нашей разработки предсказывают поломку до простоя.</p>
+          </li>
+          <li class="mod reveal" id="api" style="--i:3">
+            <span class="mod__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-link"/></svg></span><span class="mod__no mono">05</span></span>
+            <h3 data-i18n="products.names.api">Open API и интеграции</h3>
+            <p class="mod__ru mono" data-i18n="products.platform.api.ru">Стыковка с системами</p>
+            <p data-i18n="products.platform.api.text">Стыковка с ERP, BMS и учётными системами клиента. Платформа встраивается в вашу инфраструктуру, а не заменяет её.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= 03 АРЕНДА (RaaS) ================= -->
+    <section data-i18n-attr="data-name:products.sections.raas" class="sol-sec wrap" id="raas" data-sec="03" data-name="АРЕНДА" aria-labelledby="raas-h">
+      <div class="pr-split">
+        <div class="pr-split__copy">
+          <span class="idx reveal"><b>03</b> — <span data-i18n="products.sections.raasLabel">АРЕНДА РОБОТОВ</span></span>
+          <h2 data-i18n="products.raas.title" class="h2 reveal" id="raas-h">Аренда вместо покупки. Начните без крупных вложений.</h2>
+          <p data-i18n-html="products.raas.lead" class="lead reveal">Аренда роботов (RaaS, Robot as a Service) убирает крупный разовый платёж: <b>ниже барьер входа, быстрее старт, платите за использование.</b></p>
+          <ul class="pr-points">
+            <li class="reveal" style="--i:1"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-key"/></svg></span><div><h3 data-i18n="products.raas.points.entry.title">Ниже барьер входа</h3><p data-i18n="products.raas.points.entry.text">Вместо крупной покупки — регулярный платёж. Бюджет на технику не нужно согласовывать заранее.</p></div></li>
+            <li class="reveal" style="--i:2"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-gear"/></svg></span><div><h3 data-i18n="products.raas.points.start.title">Быстрее старт</h3><p data-i18n="products.raas.points.start.text">Проверяете робота на своём объекте, а решение о покупке принимаете по реальным цифрам.</p></div></li>
+            <li class="reveal" style="--i:3"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span><div><h3 data-i18n="products.raas.points.use.title">Платите за использование</h3><p data-i18n="products.raas.points.use.text">Взяли на высокий сезон или пилот и вернули, когда загрузка упала. Технику подбираем из нескольких брендов.</p></div></li>
+          </ul>
+          <div class="btns reveal"><a class="btn btn-pri" href="#talk" data-pick="raas"><span data-i18n="products.raas.cta">Узнать про аренду (RaaS)</span></a></div>
+        </div>
+
+        <!-- Пример экономики: расчёт на рыночных ориентирах, не тариф ПРОФРОБОТ (источники: docs/research/2026-10-02-roi-competitors.md, roi-model.js) -->
+        <div class="calc reveal" style="--i:2" id="raas-calc">
+          <div class="calc__head">
+            <h3 data-i18n="products.raas.calc.title">Покупка или аренда: пример</h3>
+            <p class="mono" data-i18n="products.raas.calc.sub">Накопленные расходы по месяцам</p>
+          </div>
+          <figure class="calc__chart">
+            <svg id="raas-chart" viewBox="0 0 560 240" role="img" data-i18n-attr="aria-label:products.raas.calc.chartLabel" aria-label="График накопленных расходов: покупка и аренда"></svg>
+            <figcaption class="calc__legend"><span class="lg lg--buy" data-i18n="products.raas.calc.buy">Покупка</span><span class="lg lg--rent" data-i18n="products.raas.calc.rent">Аренда</span><span class="calc__axis" data-i18n="products.raas.calc.axis">месяцы использования</span></figcaption>
+          </figure>
+          <div class="calc__ctrls">
+            <label class="ctl"><span class="ctl__row"><span data-i18n="products.raas.calc.priceLabel">Цена робота</span><output data-out id="out-price" for="in-price"></output></span><input id="in-price" type="range" min="1.5" max="4" step="0.1" value="2.2" data-i18n-attr="aria-label:products.raas.calc.priceLabel" aria-label="Цена робота"></label>
+            <label class="ctl"><span class="ctl__row"><span data-i18n="products.raas.calc.rentLabel">Аренда в месяц</span><output data-out id="out-rent" for="in-rent"></output></span><input id="in-rent" type="range" min="60" max="250" step="5" value="100" data-i18n-attr="aria-label:products.raas.calc.rentLabel" aria-label="Аренда в месяц"></label>
+            <label class="ctl"><span class="ctl__row"><span data-i18n="products.raas.calc.termLabel">Срок использования</span><output data-out id="out-term" for="in-term"></output></span><input id="in-term" type="range" min="3" max="60" step="1" value="12" data-i18n-attr="aria-label:products.raas.calc.termLabel" aria-label="Срок использования"></label>
+          </div>
+          <dl class="calc__res">
+            <div><dt data-i18n="products.raas.calc.resBuy">Покупка за срок</dt><dd data-out id="out-buy" class="tnum"></dd></div>
+            <div><dt data-i18n="products.raas.calc.resRent">Аренда за срок</dt><dd data-out id="out-rentsum" class="tnum"></dd></div>
+          </dl>
+          <p class="calc__verdict" id="out-verdict" data-out role="status" aria-live="polite"></p>
+          <p class="calc__note" data-i18n="products.raas.calc.note">Иллюстрация на рыночных ориентирах, а не тариф ПРОФРОБОТ. При покупке к цене добавлены расходы владения (сервис, расходники, доля оператора) — 16% цены в год. Аренда — условно с обслуживанием. Ставку и срок считаем под ваш объект.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04 RETROFIT ================= -->
+    <section data-i18n-attr="data-name:products.sections.retrofit" class="sol-sec wrap" id="retrofit" data-sec="04" data-name="RETROFIT" aria-labelledby="retro-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>04</b> — <span data-i18n="products.sections.retrofitLabel">RETROFIT</span></span>
+        <h2 data-i18n="products.retrofit.title" class="h2 reveal" id="retro-h">Retrofit: техника, которую вы уже купили, продолжает работать.</h2>
+        <p data-i18n="products.retrofit.lead" class="lead reveal">Модернизируем существующую технику: ставим камеры, навигацию, датчики и полуавтоматические сценарии. Часто это быстрее и дешевле, чем покупать нового робота.</p>
+      </div>
+      <div class="retro">
+        <figure class="retro__cmp reveal" data-i18n-attr="aria-label:products.retrofit.cmp.label" aria-label="Схема: что оплачивается при покупке нового робота и при модернизации">
+          <div class="bar-row">
+            <p class="bar-row__t"><b data-i18n="products.retrofit.cmp.newTitle">Новый робот</b><span data-i18n="products.retrofit.cmp.newNote">платите за машину и за автономность</span></p>
+            <div class="bar"><span class="bar__seg bar__seg--hw" style="--w:58"><bdi data-i18n="products.retrofit.cmp.hardware">Техника</bdi></span><span class="bar__seg bar__seg--ai" style="--w:42"><bdi data-i18n="products.retrofit.cmp.autonomy">Автономность</bdi></span></div>
+          </div>
+          <div class="bar-row">
+            <p class="bar-row__t"><b>Retrofit</b><span data-i18n="products.retrofit.cmp.retroNote">платите только за автономность</span></p>
+            <div class="bar"><span class="bar__seg bar__seg--own" style="--w:58"><bdi data-i18n="products.retrofit.cmp.own">Ваша техника — уже есть</bdi></span><span class="bar__seg bar__seg--ai" style="--w:42"><bdi data-i18n="products.retrofit.cmp.autonomy">Автономность</bdi></span></div>
+          </div>
+          <figcaption data-i18n="products.retrofit.cmp.caption">Схема состава затрат, не масштаб. Что дешевле на вашем объекте, считаем на аудите: сравниваем доработку и замену.</figcaption>
+        </figure>
+
+        <div class="retro__add reveal" style="--i:2">
+          <h3 data-i18n="products.retrofit.add.title">Что добавляем к технике</h3>
+          <ul>
+            <li><span class="ic-tile"><svg aria-hidden="true"><use href="#i-radar"/></svg></span><span data-i18n="products.retrofit.add.cameras">Камеры</span></li>
+            <li><span class="ic-tile"><svg aria-hidden="true"><use href="#i-retrofit"/></svg></span><span data-i18n="products.retrofit.add.navigation">Навигация</span></li>
+            <li><span class="ic-tile"><svg aria-hidden="true"><use href="#i-gear"/></svg></span><span data-i18n="products.retrofit.add.sensors">Датчики</span></li>
+            <li><span class="ic-tile"><svg aria-hidden="true"><use href="#i-spark"/></svg></span><span data-i18n="products.retrofit.add.scenarios">Полуавтоматические сценарии</span></li>
+          </ul>
+          <a class="text-link" href="#talk" data-pick="retrofit"><span data-i18n="products.retrofit.cta">Обсудить доработку вашей техники</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 05 ПОЧЕМУ ПРОФРОБОТ ================= -->
+    <section data-i18n-attr="data-name:products.sections.why" class="sol-sec wrap" id="why" data-sec="05" data-name="ПОЧЕМУ МЫ" aria-labelledby="why-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>05</b> — <span data-i18n="products.sections.whyLabel">ПОЧЕМУ ПРОФРОБОТ</span></span>
+        <h2 data-i18n="products.why.title" class="h2 reveal" id="why-h">Чем наши продукты отличаются от каталога.</h2>
+      </div>
+      <div class="why">
+        <article class="why__card why__card--main reveal">
+          <span class="dir__no">01</span>
+          <h3 data-i18n="products.why.platform.title">Платформа своя</h3>
+          <p data-i18n="products.why.platform.text">Это не лицензия вендора, а российская разработка ПРОФРОБОТ. Подключаем роботов любых брендов, а чего не хватает — дописываем. Данные хранятся в РФ, дата-центр в Сколково.</p>
+          <ul class="why__stats"><li><b>8</b><span data-i18n="products.why.platform.types">типов роботов</span></li><li><b>40+</b><span data-i18n="products.why.platform.makers">производителей</span></li><li><b>1</b><span data-i18n="products.why.platform.window">окно управления</span></li></ul>
+        </article>
+        <article class="why__card reveal" style="--i:1"><span class="dir__no">02</span><h3 data-i18n="products.why.ai.title">AI-агенты нашей разработки</h3><p data-i18n="products.why.ai.text">Предсказывают поломку до простоя и перестраивают маршруты уборки в реальном времени.</p></article>
+        <article class="why__card reveal" style="--i:2"><span class="dir__no">03</span><h3 data-i18n="products.why.service.title">Сервис по всей России</h3><p data-i18n="products.why.service.text">Собственная сервисная сеть и работа по SLA. Платформа видит сбой, сервис его закрывает.</p></article>
+        <article class="why__card reveal" style="--i:3"><span class="dir__no">04</span><h3 data-i18n="products.why.makers.title">Любой производитель</h3><p data-i18n="products.why.makers.text">2–5 вендоров на направление: берём то, что подходит задаче и экономике, а не то, на что есть эксклюзив.</p></article>
+        <a class="why__card why__card--link reveal" style="--i:4" href="roi.html"><span class="dir__no">05</span><h3 data-i18n="products.why.roi.title">Сначала экономика</h3><p data-i18n="products.why.roi.text">Разговор начинается с окупаемости вашего объекта.</p><span class="why__go"><span data-i18n="products.why.roi.cta">Рассчитать ROI</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+      </div>
+    </section>
+
+    <!-- ================= 06 СМОТРИТЕ ТАКЖЕ ================= -->
+    <section data-i18n-attr="data-name:products.sections.see" class="sol-sec wrap" id="see" data-sec="06" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>06</b> — <span data-i18n="products.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 data-i18n="products.see.title" class="h2 reveal" id="see-h">Смотрите также.</h2>
+      </div>
+      <div class="see">
+        <a class="see-card reveal" href="solutions.html">
+          <span class="dir__no"><span data-i18n="products.see.solutions.kicker">9 НАПРАВЛЕНИЙ</span></span>
+          <h3 data-i18n="products.see.solutions.title">Решения</h3>
+          <p data-i18n="products.see.solutions.text">Клининг · Склады · Сервисные роботы · Промышленность · Строительство · Медицина · Агро · Безопасность · Гуманоиды</p>
+          <div class="see-card__foot"><span data-i18n="products.see.solutions.foot" class="mono" style="color:var(--ink-muted)">Где применяются продукты</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+        <a class="see-card reveal" style="--i:1" href="index.html#process">
+          <span class="dir__no"><span data-i18n="products.see.services.kicker">6 ШАГОВ</span></span>
+          <h3 data-i18n="products.see.services.title">Услуги</h3>
+          <p data-i18n="products.see.services.text">Аудит · Подбор решения · Покупка · Внедрение · Сервис по SLA · Аналитика</p>
+          <div class="see-card__foot"><span data-i18n="products.see.services.foot" class="mono" style="color:var(--ink-muted)">Как проходит внедрение</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= 07 ЗАЯВКА ================= -->
+    <section data-i18n-attr="data-name:products.sections.talk" class="sol-sec wrap" id="talk" data-sec="07" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>07</b> — <span data-i18n="products.sections.talk">ЗАЯВКА</span></span>
+          <h2 data-i18n="products.talk.title" class="h2 reveal" id="talk-h">Хотите начать без крупных вложений?</h2>
+          <p data-i18n="products.talk.lead" class="lead reveal">Оставьте контакты. Перезвоним, зададим пару вопросов и подскажем, что подойдёт: аренда, платформа для вашего парка или модернизация техники.</p>
+          <a class="text-link reveal" href="roi.html"><span data-i18n="products.talk.roiLink">Или сами рассчитайте окупаемость</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="products" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label data-i18n="common.form.name" for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label data-i18n="common.form.phone" for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label data-i18n-html="products.talk.form.productLabel" for="f-dir">Что интересует <small>необязательно</small></label>
+            <select id="f-dir" name="direction">
+              <option data-i18n="common.form.directionUnknown" value="">Пока не знаю</option>
+              <option data-i18n="products.names.platform" value="platform">ПРОФРОБОТ Platform</option>
+              <option data-i18n="products.names.raas" value="raas">Аренда роботов (RaaS)</option>
+              <option value="retrofit">Retrofit</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span data-i18n="solutions.talk.form.submit" class="btn__t">Заказать звонок</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="ПРОФРОБОТ — на главную"><img data-i18n-attr="alt:common.brand.logoAlt" src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span data-i18n="common.footer.rights">© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html"><span data-i18n="common.footer.backHome">На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"/"},{"@type":"ListItem","position":2,"name":"Продукты","item":"/products/"}]},
+    {"@type":"ItemList","name":"Продукты ПРОФРОБОТ","itemListElement":[
+{"@type":"ListItem","position":1,"item":{"@type":"Product","name":"ПРОФРОБОТ Platform","description":"Собственная платформа управления роботами любых типов и производителей. Данные хранятся в РФ.","brand":{"@type":"Brand","name":"ПРОФРОБОТ"},"url":"/products/#platform"}},
+{"@type":"ListItem","position":2,"item":{"@type":"Product","name":"Fleet Management","description":"Управление парком устройств на нескольких объектах из одного центра.","brand":{"@type":"Brand","name":"ПРОФРОБОТ"},"url":"/products/#fleet"}},
+{"@type":"ListItem","position":3,"item":{"@type":"Product","name":"Диспетчеризация и мониторинг","description":"Контроль операций и распределение задач между устройствами.","brand":{"@type":"Brand","name":"ПРОФРОБОТ"},"url":"/products/#dispatch"}},
+{"@type":"ListItem","position":4,"item":{"@type":"Product","name":"AI-модули и аналитика","description":"Распознавание, сценарии и аналитика эксплуатации поверх базового оборудования.","brand":{"@type":"Brand","name":"ПРОФРОБОТ"},"url":"/products/#ai"}},
+{"@type":"ListItem","position":5,"item":{"@type":"Product","name":"Open API и интеграции","description":"Стыковка платформы с ERP, BMS и учётными системами клиента.","brand":{"@type":"Brand","name":"ПРОФРОБОТ"},"url":"/products/#api"}},
+{"@type":"ListItem","position":6,"item":{"@type":"Service","name":"Аренда роботов (RaaS)","description":"Аренда роботов вместо покупки: ниже барьер входа, быстрее старт, оплата за использование.","provider":{"@type":"Organization","name":"ПРОФРОБОТ"},"url":"/products/#raas"}},
+{"@type":"ListItem","position":7,"item":{"@type":"Service","name":"Retrofit","description":"Модернизация существующей техники: камеры, навигация, датчики и полуавтоматические сценарии.","provider":{"@type":"Organization","name":"ПРОФРОБОТ"},"url":"/products/#retrofit"}}
+    ]}
+  ]}
+  </script>
+  <script src="solutions.js"></script>
+  <script src="products.js"></script>
+</body>
+</html>

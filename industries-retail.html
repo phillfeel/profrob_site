@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Робот-уборщик для торговых центров и магазинов | ПРОФРОБОТ</title>
-  <meta name="description" content="Робот-уборщик для торговых центров, супермаркетов и гипермаркетов: уборка галерей, торгового зала и паркингов, промо-роботы. Кейсы «Ленты» и «Перекрёстка», пилот в 26 ТЦ Москвы.">
+  <title data-i18n="industries.retail.title">Робот-уборщик для торговых центров и магазинов | ПРОФРОБОТ</title>
+  <meta name="description" content="Робот-уборщик для торговых центров, супермаркетов и гипермаркетов: уборка галерей, торгового зала и паркингов, промо-роботы. Кейсы «Ленты» и «Перекрёстка», пилот в 26 ТЦ Москвы." data-i18n-attr="content:industries.retail.description">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="/industries/retail/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,43 @@
   <link rel="stylesheet" href="industry.css">
   <link rel="stylesheet" href="industry-retail.css">
   <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body class="sol-page ind-page ind--retail">
@@ -43,345 +80,338 @@
   </defs></svg>
 
   <!-- ================= NAV ================= -->
-  <header class="nav" aria-label="Основная навигация">
-    <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+  <header class="nav" data-i18n-attr="aria-label:common.nav.label" aria-label="Основная навигация">
+    <a href="index.html" data-i18n-attr="aria-label:common.brand.homeLabel" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" data-i18n-attr="alt:common.brand.logoAlt" alt="ПРОФРОБОТ"></a>
     <nav class="nav-links">
-      <a href="solutions.html">Решения</a>
-      <a href="index.html#industries" class="on">Отрасли</a>
-      <a href="index.html#platform">Платформа</a>
-      <a href="index.html#cases">Кейсы</a>
-      <a href="#talk">Контакты</a>
+      <a href="solutions.html" data-i18n="common.nav.solutions">Решения</a>
+      <a href="index.html#industries" class="on" data-i18n="common.nav.industries">Отрасли</a>
+      <a href="products.html" data-i18n="common.nav.products">Продукты</a>
+      <a href="index.html#platform" data-i18n="common.nav.platform">Платформа</a>
+      <a href="index.html#cases" data-i18n="common.nav.cases">Кейсы</a>
+      <a href="#talk" data-i18n="common.nav.contacts">Контакты</a>
     </nav>
-    <a class="btn btn-pri" href="#talk">Связаться</a>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a class="btn btn-pri" href="#talk" data-i18n="common.cta.contact">Связаться</a>
   </header>
 
   <div class="counter" aria-hidden="true">
     <span class="cur tnum">01</span>
     <span class="bar"><i></i></span>
     <span class="tot tnum">10</span>
-    <span class="lbl">ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ</span>
+    <span class="lbl" data-i18n="industries.retail.nameCaps">ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ</span>
   </div>
 
   <main>
     <!-- ================= 01 HERO ================= -->
-    <section class="ih rh wrap" data-sec="01" data-name="ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ">
+    <section class="ih rh wrap" data-sec="01" data-name="ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ" data-i18n-attr="data-name:industries.retail.nameCaps">
       <div class="rh__grid">
         <div class="rh__l">
         <div class="rh__head">
-          <nav class="crumbs reveal" aria-label="Хлебные крошки"><ol><li><a href="index.html">Главная</a></li><li><a href="index.html#industries">Отрасли</a></li><li aria-current="page">Торговые центры и ритейл</li></ol></nav>
-          <span class="idx reveal"><b>01</b> — ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ</span>
-          <h1 class="h1 rh__h1 reveal"><span>Робот-уборщик</span> <span>для торговых центров</span> <span>и магазинов.</span></h1>
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li><a data-i18n="common.crumbs.industries" href="index.html#industries">Отрасли</a></li><li data-i18n="industries.retail.name" aria-current="page">Торговые центры и ритейл</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="industries.retail.nameCaps">ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ</span></span>
+          <h1 class="h1 rh__h1 reveal"><span data-i18n="industries.retail.h1.items.0">Робот-уборщик</span> <span data-i18n="industries.retail.h1.items.1">для торговых центров</span> <span data-i18n="industries.retail.h1.items.2">и магазинов.</span></h1>
         </div>
         <div class="rh__body">
           <div class="ih__text reveal" style="--i:2">
-            <p class="lead">Робот-уборщик для торговых центров моет галереи, торговый зал и паркинг по расписанию: ночью до открытия и днём между покупателями.</p>
-            <p>Уборщики остаются там, где нужны руки: санузлы, фудкорт, разлитое у кассы. Повторные проходы по большим площадям берёт робот.</p>
+            <p class="lead" data-i18n="industries.retail.lead">Робот-уборщик для торговых центров моет галереи, торговый зал и паркинг по расписанию: ночью до открытия и днём между покупателями.</p>
+            <p data-i18n="industries.retail.lead2">Уборщики остаются там, где нужны руки: санузлы, фудкорт, разлитое у кассы. Повторные проходы по большим площадям берёт робот.</p>
           </div>
           <div class="ih__cta reveal" style="--i:3">
-            <a class="btn btn-pri" href="#talk">Обсудить пилот в ТЦ</a>
-            <a class="text-link" href="#economy">Посчитать окупаемость <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-pri" href="#talk" data-i18n="industries.retail.primaryCta.label">Обсудить пилот в ТЦ</a>
+            <a class="text-link" href="#economy"><span data-i18n="industries.retail.secondaryCta.label">Посчитать окупаемость</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <p class="ih__aud reveal" style="--i:4"><span class="mono">Для кого</span> УК торговых центров и ТРЦ · продуктовые сети и гипермаркеты · DIY и fashion-ритейл</p>
+          <p class="ih__aud reveal" style="--i:4"><span class="mono" data-i18n="industries.common.hero.audience">Для кого</span> <span><span data-i18n="industries.retail.audiences.items.0">УК торговых центров и ТРЦ</span> · <span data-i18n="industries.retail.audiences.items.1">продуктовые сети и гипермаркеты</span> · <span data-i18n="industries.retail.audiences.items.2">DIY и fashion-ритейл</span></span></p>
         </div>
         </div>
         <div class="rh__r">
         <aside class="proof reveal" style="--i:1" aria-labelledby="proof-h">
-          <div class="proof__top mono"><span id="proof-h">Пилот Москвы · 26 ТЦ</span><span>с 27.05.2026</span></div>
+          <div class="proof__top mono"><span id="proof-h" data-i18n="industries.retail.hero.proof.title">Пилот Москвы · 26 ТЦ</span><span data-i18n="industries.retail.hero.proof.since">с 27.05.2026</span></div>
           <dl class="proof__nums">
-            <div><dt>торговых центров в пилоте</dt><dd class="tnum">26</dd></div>
-            <div><dt>млн м² их площадей</dt><dd class="tnum"><small>более</small>1,1</dd></div>
+            <div><dt data-i18n="industries.retail.hero.proof.malls">торговых центров в пилоте</dt><dd class="tnum">26</dd></div>
+            <div><dt data-i18n="industries.retail.hero.proof.area">млн м² их площадей</dt><dd class="tnum" data-i18n-html="industries.retail.hero.proof.areaValue"><small>более</small>1,1</dd></div>
           </dl>
-          <p class="proof__status"><i aria-hidden="true"></i><span><b>Пилот идёт.</b> Роботы российских производителей убирают торговые залы и паркинги, потом их сравнят с ручной уборкой. Итоги сравнения ещё не опубликованы.</span></p>
-          <p class="proof__src"><span class="mono">Источник</span> <a href="https://www.mos.ru/news/item/170443073/" target="_blank" rel="noopener">mos.ru, 27.05.2026 — ФЦ БАС и Департамент торговли и услуг</a></p>
+          <p class="proof__status"><i aria-hidden="true"></i><span data-i18n-html="industries.retail.hero.proof.status"><b>Пилот идёт.</b> Роботы российских производителей убирают торговые залы и паркинги, потом их сравнят с ручной уборкой. Итоги сравнения ещё не опубликованы.</span></p>
           <span class="proof__code" aria-hidden="true"></span>
         </aside>
         <figure class="ph ph--photo rh__ph reveal" style="--ar:3/2;--i:2">
-          <img class="ph__img" src="assets/industry_hero/retail.webp" alt="Поломоечный робот моет центральную галерею торгового центра ранним утром, роллеты магазинов ещё опущены" width="1536" height="1024" decoding="async">
-          <div class="ph__metrics"><span><b class="tnum">4</b> направления</span><span><b class="tnum">8</b> производителей</span></div>
+          <img class="ph__img" src="assets/industry_hero/retail.webp" alt="Поломоечный робот моет центральную галерею торгового центра ранним утром, роллеты магазинов ещё опущены" data-i18n-attr="alt:industries.retail.photo.alt" width="1536" height="1024" decoding="async">
+          <div class="ph__metrics"><span data-i18n-html="industries.common.hero.metrics.directions" data-i18n-args='{"n":4}'><b class="tnum">4</b> направления</span><span data-i18n-html="industries.common.hero.metrics.makers" data-i18n-args='{"n":4}'><b class="tnum">4</b> производителя</span></div>
         </figure>
         </div>
       </div>
     </section>
 
     <!-- ================= 02 ПРОБЛЕМЫ ================= -->
-    <section class="sol-sec wrap" id="problems" data-sec="02" data-name="ПРОБЛЕМЫ" aria-labelledby="problems-h">
+    <section class="sol-sec wrap" id="problems" data-sec="02" data-name="ПРОБЛЕМЫ" data-i18n-attr="data-name:industries.common.sections.problems" aria-labelledby="problems-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>02</b> — ПРОБЛЕМЫ</span>
-        <h2 class="h2 reveal" id="problems-h">Почему торговле нужен робот.</h2>
-        <p class="lead reveal">Рук на уборку становится меньше по причинам, на которые магазин не влияет.</p>
+        <span class="idx reveal"><b>02</b> — <span data-i18n="industries.common.sections.problems">ПРОБЛЕМЫ</span></span>
+        <h2 class="h2 reveal" id="problems-h" data-i18n="industries.retail.heads.problems">Почему торговле нужен робот.</h2>
+        <p class="lead reveal" data-i18n="industries.retail.problems.lead">Рук на уборку становится меньше по причинам, на которые магазин не влияет.</p>
       </div>
       <ol class="rfacts">
         <li class="rfact reveal" style="--i:1">
           <b class="rfact__fig tnum">&gt; 80%</b>
-          <h3>Клининг держится на мигрантах.</h3>
-          <p>Больше 80% персонала клининга — иностранцы. В 2025 году 11 регионов ввели дополнительные ограничения на их наём.</p>
-          <p class="rsrc"><span class="mono">Источник</span> <a href="https://www.kommersant.ru/doc/7755385" target="_blank" rel="noopener">CORE.XP в «Коммерсанте», 2025</a> · <a href="https://ru.themoscowtimes.com/2025/08/19/vlasti-zadumali-ogranichit-naem-migrantov-v-obschepite-stroitelstve-i-esche-semi-otraslyah-a172057" target="_blank" rel="noopener">The Moscow Times, 19.08.2025</a></p>
+          <h3 data-i18n="industries.retail.problems.items.0.title">Клининг держится на мигрантах.</h3>
+          <p data-i18n="industries.retail.problems.items.0.text">Больше 80% персонала клининга — иностранцы. В 2025 году 11 регионов ввели дополнительные ограничения на их наём.</p>
+          
         </li>
         <li class="rfact reveal" style="--i:2">
           <b class="rfact__fig tnum">×2–3</b>
-          <h3>Фонд оплаты растёт.</h3>
-          <p>За пять лет ФОТ клининговых компаний вырос в два-три раза. Это уходит в цену договора на уборку.</p>
-          <p class="rsrc"><span class="mono">Источник</span> <a href="https://www.kommersant.ru/doc/7755385" target="_blank" rel="noopener">DAKO Professional в «Коммерсанте», 2025</a></p>
+          <h3 data-i18n="industries.retail.problems.items.1.title">Фонд оплаты растёт.</h3>
+          <p data-i18n="industries.retail.problems.items.1.text">За пять лет ФОТ клининговых компаний вырос в два-три раза. Это уходит в цену договора на уборку.</p>
+          
         </li>
         <li class="rfact reveal" style="--i:3">
           <b class="rfact__fig tnum">15%</b>
-          <h3>Не хватает линейного персонала.</h3>
-          <p>15% ритейлеров называют нехватку линейного персонала главной причиной модернизации.</p>
-          <p class="rsrc"><span class="mono">Источник</span> <a href="https://www.dp.ru/a/2025/10/08/kadrovij-deficit-v-torgovih" target="_blank" rel="noopener">Финам в «Деловом Петербурге», 08.10.2025</a></p>
+          <h3 data-i18n="industries.retail.problems.items.2.title">Не хватает линейного персонала.</h3>
+          <p data-i18n="industries.retail.problems.items.2.text">15% ритейлеров называют нехватку линейного персонала главной причиной модернизации.</p>
+          
         </li>
         <li class="rfact reveal" style="--i:4">
           <span class="rfact__fig rfact__fig--ic"><svg aria-hidden="true"><use href="#i-moon"/></svg></span>
-          <h3>Большая площадь, короткое окно.</h3>
-          <p>Галереи, зал и паркинг нужно отмыть до открытия, а днём убирать так, чтобы не мешать покупателям.</p>
-          <p class="rsrc"><span class="mono">Наблюдение</span> без цифры</p>
+          <h3 data-i18n="industries.retail.problems.items.3.title">Большая площадь, короткое окно.</h3>
+          <p data-i18n="industries.retail.problems.items.3.text">Галереи, зал и паркинг нужно отмыть до открытия, а днём убирать так, чтобы не мешать покупателям.</p>
+          
         </li>
       </ol>
     </section>
 
     <!-- ================= 03 ЧАСТОТА УБОРКИ ================= -->
-    <section class="sol-sec wrap" id="frequency" data-sec="03" data-name="ЧАСТОТА УБОРКИ" aria-labelledby="frequency-h">
+    <section class="sol-sec wrap" id="frequency" data-sec="03" data-name="ЧАСТОТА УБОРКИ" data-i18n-attr="data-name:industries.retail.secNames.frequency" aria-labelledby="frequency-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>03</b> — ЧАСТОТА УБОРКИ</span>
-        <h2 class="h2 reveal" id="frequency-h">Торговый зал моют по нескольку раз в день.</h2>
-        <p class="lead reveal">Каждая уборка — отдельный проход по всей площади. Чем чаще проход, тем выгоднее отдать его роботу и оставить людям точечную работу.</p>
+        <span class="idx reveal"><b>03</b> — <span data-i18n="industries.retail.secNames.frequency">ЧАСТОТА УБОРКИ</span></span>
+        <h2 class="h2 reveal" id="frequency-h" data-i18n="industries.retail.frequency.title">Торговый зал моют по нескольку раз в день.</h2>
+        <p class="lead reveal" data-i18n="industries.retail.frequency.lead">Каждая уборка — отдельный проход по всей площади. Чем чаще проход, тем выгоднее отдать его роботу и оставить людям точечную работу.</p>
       </div>
       <div class="fq reveal" data-freq>
         <div class="fq__main">
-          <h3 class="fq__h">Сколько раз в день убирают магазин.</h3>
-          <div class="fq__scale mono" aria-hidden="true"><span class="fq__scale-l">раз в день</span><span class="fq__scale-n"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></span></div>
+          <h3 class="fq__h" data-i18n="industries.retail.frequency.mainTitle">Сколько раз в день убирают магазин.</h3>
+          <div class="fq__scale mono" aria-hidden="true"><span class="fq__scale-l" data-i18n="industries.retail.frequency.scale">раз в день</span><span class="fq__scale-n"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></span></div>
           <ol class="fq__rows">
             <li class="fq__row" style="--r:0">
-              <span class="fq__zone"><b>Торговый зал</b><span>обычный день</span></span>
-              <span class="fq__track" role="img" aria-label="Торговый зал, обычный день: 2 раза в день"><i class="fq__c fq__c--on" style="--c:0"></i><i class="fq__c fq__c--on" style="--c:1"></i><i class="fq__c" style="--c:2"></i><i class="fq__c" style="--c:3"></i><i class="fq__c" style="--c:4"></i><i class="fq__c" style="--c:5"></i><i class="fq__c" style="--c:6"></i><i class="fq__c" style="--c:7"></i><i class="fq__c" style="--c:8"></i><i class="fq__c" style="--c:9"></i></span>
-              <span class="fq__val"><b class="tnum">2</b><span>минимум</span></span>
+              <span class="fq__zone"><b data-i18n="industries.retail.frequency.items.0.zone">Торговый зал</b><span data-i18n="industries.retail.frequency.items.0.when">обычный день</span></span>
+              <span class="fq__track" role="img" aria-label="Торговый зал, обычный день: 2 раза в день" data-i18n-attr="aria-label:industries.retail.frequency.items.0.ariaLabel"><i class="fq__c fq__c--on" style="--c:0"></i><i class="fq__c fq__c--on" style="--c:1"></i><i class="fq__c" style="--c:2"></i><i class="fq__c" style="--c:3"></i><i class="fq__c" style="--c:4"></i><i class="fq__c" style="--c:5"></i><i class="fq__c" style="--c:6"></i><i class="fq__c" style="--c:7"></i><i class="fq__c" style="--c:8"></i><i class="fq__c" style="--c:9"></i></span>
+              <span class="fq__val"><b class="tnum">2</b><span data-i18n="industries.retail.frequency.items.0.note">минимум</span></span>
             </li>
             <li class="fq__row" style="--r:1">
-              <span class="fq__zone"><b>Торговый зал</b><span>осень и зима</span></span>
-              <span class="fq__track" role="img" aria-label="Торговый зал, осень и зима: 5 раз в день"><i class="fq__c fq__c--on" style="--c:0"></i><i class="fq__c fq__c--on" style="--c:1"></i><i class="fq__c fq__c--on" style="--c:2"></i><i class="fq__c fq__c--on" style="--c:3"></i><i class="fq__c fq__c--on" style="--c:4"></i><i class="fq__c" style="--c:5"></i><i class="fq__c" style="--c:6"></i><i class="fq__c" style="--c:7"></i><i class="fq__c" style="--c:8"></i><i class="fq__c" style="--c:9"></i></span>
-              <span class="fq__val"><b class="tnum">5</b><span>в сезон</span></span>
+              <span class="fq__zone"><b data-i18n="industries.retail.frequency.items.1.zone">Торговый зал</b><span data-i18n="industries.retail.frequency.items.1.when">осень и зима</span></span>
+              <span class="fq__track" role="img" aria-label="Торговый зал, осень и зима: 5 раз в день" data-i18n-attr="aria-label:industries.retail.frequency.items.1.ariaLabel"><i class="fq__c fq__c--on" style="--c:0"></i><i class="fq__c fq__c--on" style="--c:1"></i><i class="fq__c fq__c--on" style="--c:2"></i><i class="fq__c fq__c--on" style="--c:3"></i><i class="fq__c fq__c--on" style="--c:4"></i><i class="fq__c" style="--c:5"></i><i class="fq__c" style="--c:6"></i><i class="fq__c" style="--c:7"></i><i class="fq__c" style="--c:8"></i><i class="fq__c" style="--c:9"></i></span>
+              <span class="fq__val"><b class="tnum">5</b><span data-i18n="industries.retail.frequency.items.1.note">в сезон</span></span>
             </li>
             <li class="fq__row" style="--r:2">
-              <span class="fq__zone"><b>Овощи и фрукты</b><span>весь день</span></span>
-              <span class="fq__track" role="img" aria-label="Овощи и фрукты, весь день: от 5 до 10 раз в день"><i class="fq__c fq__c--on" style="--c:0"></i><i class="fq__c fq__c--on" style="--c:1"></i><i class="fq__c fq__c--on" style="--c:2"></i><i class="fq__c fq__c--on" style="--c:3"></i><i class="fq__c fq__c--on" style="--c:4"></i><i class="fq__c fq__c--range" style="--c:5"></i><i class="fq__c fq__c--range" style="--c:6"></i><i class="fq__c fq__c--range" style="--c:7"></i><i class="fq__c fq__c--range" style="--c:8"></i><i class="fq__c fq__c--range" style="--c:9"></i></span>
-              <span class="fq__val"><b class="tnum">5–10</b><span>по ситуации</span></span>
+              <span class="fq__zone"><b data-i18n="industries.retail.frequency.items.2.zone">Овощи и фрукты</b><span data-i18n="industries.retail.frequency.items.2.when">весь день</span></span>
+              <span class="fq__track" role="img" aria-label="Овощи и фрукты, весь день: от 5 до 10 раз в день" data-i18n-attr="aria-label:industries.retail.frequency.items.2.ariaLabel"><i class="fq__c fq__c--on" style="--c:0"></i><i class="fq__c fq__c--on" style="--c:1"></i><i class="fq__c fq__c--on" style="--c:2"></i><i class="fq__c fq__c--on" style="--c:3"></i><i class="fq__c fq__c--on" style="--c:4"></i><i class="fq__c fq__c--range" style="--c:5"></i><i class="fq__c fq__c--range" style="--c:6"></i><i class="fq__c fq__c--range" style="--c:7"></i><i class="fq__c fq__c--range" style="--c:8"></i><i class="fq__c fq__c--range" style="--c:9"></i></span>
+              <span class="fq__val"><b class="tnum">5–10</b><span data-i18n="industries.retail.frequency.items.2.note">по ситуации</span></span>
             </li>
           </ol>
-          <ul class="fq__legend" aria-hidden="true"><li><i class="fq__c fq__c--on"></i>уборка</li><li><i class="fq__c fq__c--range"></i>по ситуации</li></ul>
-          <p class="fq__note">Так рассказывают в «Перекрёстке»: это практика сети, а не санитарный норматив. <p class="rsrc rsrc--in"><span class="mono">Источник</span> <a href="https://www.retail.ru/cases/kak-perekryestok-optimiziruet-klining-s-pomoshchyu-robotov-/" target="_blank" rel="noopener">Retail.ru, 2024</a></p></p>
+          <ul class="fq__legend" aria-hidden="true"><li><i class="fq__c fq__c--on"></i><bdi data-i18n="industries.retail.frequency.legend.cleaning">уборка</bdi></li><li><i class="fq__c fq__c--range"></i><bdi data-i18n="industries.retail.frequency.legend.range">по ситуации</bdi></li></ul>
+          <p class="fq__note"><span data-i18n="industries.retail.frequency.note">Так рассказывают в «Перекрёстке»: это практика сети, а не санитарный норматив.</span></p>
         </div>
         <div class="fq__side">
-          <h3 class="fq__h">Ресурсы на один магазин «Перекрёстка» за год.</h3>
+          <h3 class="fq__h" data-i18n="industries.retail.frequency.resourcesTitle">Ресурсы на один магазин «Перекрёстка» за год.</h3>
           <div class="cmp">
-            <p class="cmp__t"><span>Вода</span><span class="mono">т в год</span></p>
-            <div class="cmp__row"><span>Ручная поломоечная машина</span><span class="cmp__bar"><i style="--w:100%"></i></span><b class="tnum">73</b></div>
-            <div class="cmp__row cmp__row--bot"><span>Робот</span><span class="cmp__bar"><i style="--w:15.1%"></i></span><b class="tnum">11</b></div>
+            <p class="cmp__t"><span data-i18n="industries.retail.frequency.cmp.water">Вода</span><span class="mono" data-i18n="industries.retail.frequency.cmp.waterUnit">т в год</span></p>
+            <div class="cmp__row"><span data-i18n="industries.retail.frequency.cmp.manual">Ручная поломоечная машина</span><span class="cmp__bar"><i style="--w:100%"></i></span><b class="tnum">73</b></div>
+            <div class="cmp__row cmp__row--bot"><span data-i18n="industries.retail.frequency.cmp.robot">Робот</span><span class="cmp__bar"><i style="--w:15.1%"></i></span><b class="tnum">11</b></div>
           </div>
           <div class="cmp">
-            <p class="cmp__t"><span>Моющие средства</span><span class="mono">в 10 раз меньше</span></p>
-            <div class="cmp__row"><span>Ручная поломоечная машина</span><span class="cmp__bar"><i style="--w:100%"></i></span><b class="tnum">1×</b></div>
-            <div class="cmp__row cmp__row--bot"><span>Робот</span><span class="cmp__bar"><i style="--w:10%"></i></span><b class="tnum">0,1×</b></div>
+            <p class="cmp__t"><span data-i18n="industries.retail.frequency.cmp.chemicals">Моющие средства</span><span class="mono" data-i18n="industries.retail.frequency.cmp.chemicalsNote">в 10 раз меньше</span></p>
+            <div class="cmp__row"><span data-i18n="industries.retail.frequency.cmp.manual">Ручная поломоечная машина</span><span class="cmp__bar"><i style="--w:100%"></i></span><b class="tnum">1×</b></div>
+            <div class="cmp__row cmp__row--bot"><span data-i18n="industries.retail.frequency.cmp.robot">Робот</span><span class="cmp__bar"><i style="--w:10%"></i></span><b class="tnum" data-i18n="industries.retail.frequency.cmp.robotChemicals">0,1×</b></div>
           </div>
-          <p class="cmp__svc"><b class="tnum">10–15 мин</b> в день — уход за роботом, остальное делает док-станция.</p>
-          <p class="rsrc"><span class="mono">Источник</span> <a href="https://www.retail.ru/cases/kak-perekryestok-optimiziruet-klining-s-pomoshchyu-robotov-/" target="_blank" rel="noopener">по данным интегратора SPI robotics и директора магазина, Retail.ru, 2024</a></p>
+          <p class="cmp__svc" data-i18n-html="industries.retail.frequency.service"><b class="tnum">10–15 мин</b> в день — уход за роботом, остальное делает док-станция.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= 04 НАПРАВЛЕНИЯ ================= -->
-    <section class="sol-sec wrap" id="directions" data-sec="04" data-name="НАПРАВЛЕНИЯ" aria-labelledby="directions-h">
+    <section class="sol-sec wrap" id="directions" data-sec="04" data-name="НАПРАВЛЕНИЯ" data-i18n-attr="data-name:industries.common.sections.directions" aria-labelledby="directions-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>04</b> — НАПРАВЛЕНИЯ</span>
-        <h2 class="h2 reveal" id="directions-h">Что роботизируем в ТЦ и магазине.</h2>
+        <span class="idx reveal"><b>04</b> — <span data-i18n="industries.common.sections.directions">НАПРАВЛЕНИЯ</span></span>
+        <h2 class="h2 reveal" id="directions-h" data-i18n="industries.retail.heads.directions">Что роботизируем в ТЦ и магазине.</h2>
       </div>
       <div class="drows">
         <article class="drow reveal" id="sales-floor" style="--i:0">
           <div class="drow__l">
             <span class="drow__no mono">01</span>
-            <h3>Уборка торгового зала и галерей</h3>
-            <p>Поломоечные роботы моют галереи ТЦ и торговый зал ночью до открытия, а днём делают повторные проходы между покупателями.</p>
+            <h3 data-i18n="industries.retail.directions.items.0.title">Уборка торгового зала и галерей</h3>
+            <p data-i18n="industries.retail.directions.items.0.text">Поломоечные роботы моют галереи ТЦ и торговый зал ночью до открытия, а днём делают повторные проходы между покупателями.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">поломоечные роботы · ночная уборка галерей · дневные проходы по залу · зоны у входов и касс</p>
-            <a class="drow__sol" href="/solutions/cleaning/">Решение: Роботизированный клининг <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <p class="drow__items"><span data-i18n="industries.retail.directions.items.0.items.items.0">поломоечные роботы</span> · <span data-i18n="industries.retail.directions.items.0.items.items.1">ночная уборка галерей</span> · <span data-i18n="industries.retail.directions.items.0.items.items.2">дневные проходы по залу</span> · <span data-i18n="industries.retail.directions.items.0.items.items.3">зоны у входов и касс</span></p>
+            <a class="drow__sol" href="/solutions/cleaning/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="drow reveal" id="parking" style="--i:1">
           <div class="drow__l">
             <span class="drow__no mono">02</span>
-            <h3>Уборка паркингов</h3>
-            <p>Подметальные и поломоечные роботы для крытых и подземных паркингов. В московском пилоте роботы убирают не только помещения ТЦ, но и паркинги.</p>
+            <h3 data-i18n="industries.retail.directions.items.1.title">Уборка паркингов</h3>
+            <p data-i18n="industries.retail.directions.items.1.text">Подметальные и поломоечные роботы для крытых и подземных паркингов. В московском пилоте роботы убирают не только помещения ТЦ, но и паркинги.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">подметальные роботы · крытые и подземные паркинги · ночная смена без оператора на машине</p>
-            <a class="drow__sol" href="/solutions/cleaning/">Решение: Роботизированный клининг <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <p class="drow__items"><span data-i18n="industries.retail.directions.items.1.items.items.0">подметальные роботы</span> · <span data-i18n="industries.retail.directions.items.1.items.items.1">крытые и подземные паркинги</span> · <span data-i18n="industries.retail.directions.items.1.items.items.2">ночная смена без оператора на машине</span></p>
+            <a class="drow__sol" href="/solutions/cleaning/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="drow reveal" id="promo" style="--i:2">
           <div class="drow__l">
             <span class="drow__no mono">03</span>
-            <h3>Промо и навигация в зале</h3>
-            <p>Сервисный робот с рекламным экраном возит промо по залу и подсказывает дорогу. BellaBot так работает в двух магазинах «Перекрёстка»; по данным интегратора SPI robotics, продажи отдельных товаров растут до 100%.</p>
+            <h3 data-i18n="industries.retail.directions.items.2.title">Промо и навигация в зале</h3>
+            <p data-i18n="industries.retail.directions.items.2.text">Сервисный робот с рекламным экраном возит промо по залу и подсказывает дорогу. BellaBot так работает в двух магазинах «Перекрёстка»; по данным участников проекта, продажи отдельных товаров растут до 100%.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">роботы с рекламным экраном · навигация покупателей · Pudu BellaBot, Keenon</p>
-            <a class="drow__sol" href="/solutions/service-robots/">Решение: Сервисные роботы <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <p class="drow__items"><span data-i18n="industries.retail.directions.items.2.items.items.0">роботы с рекламным экраном</span> · <span data-i18n="industries.retail.directions.items.2.items.items.1">навигация покупателей</span> · <span data-i18n="industries.retail.directions.items.2.items.items.2">Pudu BellaBot, Keenon</span></p>
+            <a class="drow__sol" href="/solutions/service-robots/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.service">Сервисные роботы</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="drow reveal" id="backstore" style="--i:3">
           <div class="drow__l">
             <span class="drow__no mono">04</span>
-            <h3>Склады и дарксторы</h3>
-            <p>Сборка онлайн-заказов и движение товара за залом — это складская роботизация. О ней отдельная страница.</p>
+            <h3 data-i18n="industries.retail.directions.items.3.title">Склады и дарксторы</h3>
+            <p data-i18n="industries.retail.directions.items.3.text">Сборка онлайн-заказов и движение товара за залом — это складская роботизация. О ней отдельная страница.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">дарксторы · склады сетей · AMR и сортировка</p>
-            <a class="drow__sol" href="/solutions/warehouse/">Решение: Складская роботизация <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <p class="drow__items"><span data-i18n="industries.retail.directions.items.3.items.items.0">дарксторы</span> · <span data-i18n="industries.retail.directions.items.3.items.items.1">склады сетей</span> · <span data-i18n="industries.retail.directions.items.3.items.items.2">AMR и сортировка</span></p>
+            <a class="drow__sol" href="/solutions/warehouse/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.warehouse">Складская роботизация</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
       </div>
     </section>
 
     <!-- ================= 05 КЕЙСЫ ================= -->
-    <section class="sol-sec wrap" id="case" data-sec="05" data-name="КЕЙСЫ" aria-labelledby="case-h">
+    <section class="sol-sec wrap" id="case" data-sec="05" data-name="КЕЙСЫ" data-i18n-attr="data-name:industries.retail.secNames.case" aria-labelledby="case-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>05</b> — КЕЙСЫ</span>
-        <h2 class="h2 reveal" id="case-h">Сети уже моют залы роботами.</h2>
-        <p class="lead reveal">Названные объекты и цифры из открытых источников. Это не наши проекты, а рынок, на который можно опереться.</p>
+        <span class="idx reveal"><b>05</b> — <span data-i18n="industries.retail.secNames.case">КЕЙСЫ</span></span>
+        <h2 class="h2 reveal" id="case-h" data-i18n="industries.retail.case.title">Сети уже моют залы роботами.</h2>
+        <p class="lead reveal" data-i18n="industries.retail.case.lead">Названные объекты и цифры из открытых источников. Это не наши проекты, а рынок, на который можно опереться.</p>
       </div>
       <div class="rcases">
         <article class="rcase reveal" style="--i:0">
-          <div class="rcase__top mono"><span>Кейс 01</span><span>Гипермаркеты · 2025</span></div>
-          <div class="rcase__fig"><b class="tnum">42</b><span class="mono">робота-уборщика</span></div>
-          <h3>«Гипер Лента»: роботы в гипермаркетах по стране.</h3>
-          <p>Волгоград, Нижний Новгород, Москва, Петербург и другие города. Начали с пилота: 10 роботов в 9 гипермаркетах, затем докупили 32. Экономия — на персонале и на отказе от аренды поломоечных машин.</p>
-          <p class="rcase__q">По данным пресс-службы «Ленты», штат клининга сократился на 30–40%.</p>
-          <p class="rsrc rcase__src"><span class="mono">Источник</span> <a href="https://www.retail.ru/news/giper-lenta-trudoustroila-42-robota-uborshchika-v-gipermarkety-strany-23-sentyabrya-2025-269375/" target="_blank" rel="noopener">Retail.ru, 23.09.2025</a> · <a href="https://www.dp.ru/a/2025/10/08/kadrovij-deficit-v-torgovih" target="_blank" rel="noopener">«Деловой Петербург», 08.10.2025</a></p>
+          <div class="rcase__top mono"><span data-i18n="industries.common.case.number" data-i18n-args='{"no":"01"}'>Кейс 01</span><span data-i18n="industries.retail.cases.items.0.kicker">Гипермаркеты · 2025</span></div>
+          <div class="rcase__fig"><b class="tnum">42</b><span class="mono" data-i18n="industries.retail.cases.items.0.unit">робота-уборщика</span></div>
+          <h3 data-i18n="industries.retail.cases.items.0.title">«Гипер Лента»: роботы в гипермаркетах по стране.</h3>
+          <p data-i18n="industries.retail.cases.items.0.text">Волгоград, Нижний Новгород, Москва, Петербург и другие города. Начали с пилота: 10 роботов в 9 гипермаркетах, затем докупили 32. Экономия — на персонале и на отказе от аренды поломоечных машин.</p>
+          <p class="rcase__q" data-i18n="industries.retail.cases.items.0.quote">По данным пресс-службы «Ленты», штат клининга сократился на 30–40%.</p>
         </article>
         <article class="rcase reveal" style="--i:1">
-          <div class="rcase__top mono"><span>Кейс 02</span><span>Супермаркеты · 2024</span></div>
-          <div class="rcase__fig"><b class="tnum">11</b><span class="mono">супермаркетов</span></div>
-          <h3>«Перекрёсток»: Pudu CC1 через интегратора SPI robotics.</h3>
-          <p>9 магазинов в Москве, 1 в Петербурге, 1 в Сочи (на июнь 2024). Уход за роботом с док-станцией — 10–15 минут в день.</p>
-          <p class="rcase__q">Воды — 11 т в год на магазин против 73 т у ручной поломоечной машины, по данным SPI robotics и директора магазина.</p>
-          <p class="rsrc rcase__src"><span class="mono">Источник</span> <a href="https://www.retail.ru/cases/kak-perekryestok-optimiziruet-klining-s-pomoshchyu-robotov-/" target="_blank" rel="noopener">Retail.ru, 2024</a></p>
+          <div class="rcase__top mono"><span data-i18n="industries.common.case.number" data-i18n-args='{"no":"02"}'>Кейс 02</span><span data-i18n="industries.retail.cases.items.1.kicker">Супермаркеты · 2024</span></div>
+          <div class="rcase__fig"><b class="tnum">11</b><span class="mono" data-i18n="industries.retail.cases.items.1.unit">супермаркетов</span></div>
+          <h3 data-i18n="industries.retail.cases.items.1.title">«Перекрёсток»: Pudu CC1 в супермаркетах сети.</h3>
+          <p data-i18n="industries.retail.cases.items.1.text">9 магазинов в Москве, 1 в Петербурге, 1 в Сочи (на июнь 2024). Уход за роботом с док-станцией — 10–15 минут в день.</p>
+          <p class="rcase__q" data-i18n="industries.retail.cases.items.1.quote">Воды — 11 т в год на магазин против 73 т у ручной поломоечной машины, по данным участников проекта.</p>
         </article>
         <article class="rcase reveal" style="--i:2">
-          <div class="rcase__top mono"><span>Кейс 03</span><span>Пилот Москвы · 2026</span></div>
-          <div class="rcase__fig"><small>более</small><b class="tnum">16 000</b><span class="mono">м² за первую неделю</span></div>
-          <h3>ЦДМ на Лубянке: первая неделя пилота.</h3>
-          <p>Пилот ФЦ БАС при Департаменте предпринимательства и инноваций: 26 ТЦ, роботы R2B, «Яку Роботикс», ROBO и «Вейбот Автомакон Роботикс». Убирают помещения и паркинги.</p>
-          <p class="rcase__q">Пилот идёт несколько месяцев, потом сравнение с ручной уборкой. Итоги пока не опубликованы.</p>
-          <p class="rsrc rcase__src"><span class="mono">Источник</span> <a href="https://www.mos.ru/news/item/170443073/" target="_blank" rel="noopener">mos.ru, 27.05.2026</a></p>
+          <div class="rcase__top mono"><span data-i18n="industries.common.case.number" data-i18n-args='{"no":"03"}'>Кейс 03</span><span data-i18n="industries.retail.cases.items.2.kicker">Пилот Москвы · 2026</span></div>
+          <div class="rcase__fig"><small data-i18n="industries.retail.cases.items.2.pre">более</small><b class="tnum" data-i18n="industries.retail.cases.items.2.value">16 000</b><span class="mono" data-i18n="industries.retail.cases.items.2.unit">м² за первую неделю</span></div>
+          <h3 data-i18n="industries.retail.cases.items.2.title">ЦДМ на Лубянке: первая неделя пилота.</h3>
+          <p data-i18n="industries.retail.cases.items.2.text">Пилот ФЦ БАС при Департаменте предпринимательства и инноваций: 26 ТЦ, роботы четырёх российских производителей. Убирают помещения и паркинги.</p>
+          <p class="rcase__q" data-i18n="industries.retail.cases.items.2.quote">Пилот идёт несколько месяцев, потом сравнение с ручной уборкой. Итоги пока не опубликованы.</p>
         </article>
       </div>
     </section>
 
     <!-- ================= 06 ЭКОНОМИКА ================= -->
-    <section class="sol-sec wrap" id="economy" data-sec="06" data-name="ЭКОНОМИКА" aria-labelledby="economy-h">
+    <section class="sol-sec wrap" id="economy" data-sec="06" data-name="ЭКОНОМИКА" data-i18n-attr="data-name:industries.retail.secNames.economy" aria-labelledby="economy-h">
       <div class="econ">
         <div class="econ__copy">
-          <span class="idx reveal"><b>06</b> — ЭКОНОМИКА</span>
-          <h2 class="h2 reveal" id="economy-h">Посчитайте свой торговый центр.</h2>
-          <p class="lead reveal">Модель считает уборку полов: площадь, режим, сколько роботов нужно и когда они окупятся. Тип «ТЦ» уже выбран.</p>
-          <p class="reveal rh-est"><span class="mono">Расчётный ориентир</span> Это расчёт по нашей модели, не результат внедрения. Цифры по вашему объекту — после аудита или пилота.</p>
+          <span class="idx reveal"><b>06</b> — <span data-i18n="industries.retail.secNames.economy">ЭКОНОМИКА</span></span>
+          <h2 class="h2 reveal" id="economy-h" data-i18n="industries.retail.economy.title">Посчитайте свой торговый центр.</h2>
+          <p class="lead reveal" data-i18n="industries.retail.economy.lead">Модель считает уборку полов: площадь, режим, сколько роботов нужно и когда они окупятся. Тип «ТЦ» уже выбран.</p>
+          <p class="reveal rh-est" data-i18n-html="industries.retail.economy.estimate"><span class="mono">Расчётный ориентир</span> Это расчёт по нашей модели, не результат внедрения. Цифры по вашему объекту — после аудита или пилота.</p>
         </div>
-        <form class="calc reveal" data-calc aria-label="Быстрый расчёт окупаемости уборки">
-          <fieldset class="calc__f"><legend>Объект</legend><div class="seg"><label class="seg__o"><input type="radio" name="calc-type" value="office"><span>Офис / БЦ</span></label><label class="seg__o"><input type="radio" name="calc-type" value="mall" checked><span>ТЦ</span></label><label class="seg__o"><input type="radio" name="calc-type" value="warehouse"><span>Склад</span></label><label class="seg__o"><input type="radio" name="calc-type" value="clinic"><span>Клиника</span></label><label class="seg__o"><input type="radio" name="calc-type" value="hotel"><span>Отель</span></label></div></fieldset>
+        <form class="calc reveal" data-calc data-i18n-attr="aria-label:industries.common.calc.formLabel" aria-label="Быстрый расчёт окупаемости уборки">
+          <fieldset class="calc__f"><legend data-i18n="industries.common.calc.object">Объект</legend><div class="seg"><label class="seg__o"><input type="radio" name="calc-type" value="office"><span data-i18n="calc.types.office">Офис / БЦ</span></label><label class="seg__o"><input type="radio" name="calc-type" value="mall" checked><span data-i18n="calc.types.mall">ТЦ</span></label><label class="seg__o"><input type="radio" name="calc-type" value="warehouse"><span data-i18n="calc.types.warehouse">Склад</span></label><label class="seg__o"><input type="radio" name="calc-type" value="clinic"><span data-i18n="calc.types.clinic">Клиника</span></label><label class="seg__o"><input type="radio" name="calc-type" value="hotel"><span data-i18n="calc.types.hotel">Отель</span></label></div></fieldset>
           <div class="calc__f">
-            <label for="calc-area">Площадь</label>
+            <label for="calc-area" data-i18n="industries.common.calc.area">Площадь</label>
             <div class="calc__range"><input id="calc-area" type="range" min="4000" max="50000" step="500" value="8000" aria-valuetext="8 000 м²"><output for="calc-area" class="tnum" data-out="area">8 000 м²</output></div>
           </div>
-          <fieldset class="calc__f"><legend>Режим уборки</legend><div class="seg"><label class="seg__o"><input type="radio" name="calc-mode" value="one" checked><span>1 смена</span></label><label class="seg__o"><input type="radio" name="calc-mode" value="two"><span>2 смены</span></label><label class="seg__o"><input type="radio" name="calc-mode" value="h24"><span>24/7</span></label></div></fieldset>
+          <fieldset class="calc__f"><legend data-i18n="industries.common.calc.mode">Режим уборки</legend><div class="seg"><label class="seg__o"><input type="radio" name="calc-mode" value="one" checked><span data-i18n="calc.modes.one">1 смена</span></label><label class="seg__o"><input type="radio" name="calc-mode" value="two"><span data-i18n="calc.modes.two">2 смены</span></label><label class="seg__o"><input type="radio" name="calc-mode" value="h24"><span>24/7</span></label></div></fieldset>
           <dl class="calc__res" aria-live="polite">
-            <div><dt>Окупаемость</dt><dd class="tnum" data-out="payback">≈ 19 мес</dd></div>
-            <div><dt>Экономия в год</dt><dd class="tnum" data-out="net">≈ 3,3 млн ₽</dd></div>
+            <div><dt data-i18n="industries.common.calc.payback">Окупаемость</dt><dd class="tnum" data-out="payback">≈ 19 мес</dd></div>
+            <div><dt data-i18n="industries.common.calc.savings">Экономия в год</dt><dd class="tnum" data-out="net">≈ 3,3 млн ₽</dd></div>
           </dl>
-          <p class="calc__note"><b class="mono">Расчётный ориентир</b> по нашей ROI-модели. Точный расчёт — после аудита объекта.</p>
-          <a class="btn btn-pri" data-out="link" href="roi.html?t=mall&amp;a=8000&amp;m=one">Полный расчёт ROI <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="calc__note" data-i18n-html="industries.retail.economy.note"><b class="mono">Расчётный ориентир</b> по нашей ROI-модели. Точный расчёт — после аудита объекта.</p>
+          <a class="btn btn-pri" data-out="link" href="roi.html?t=mall&amp;a=8000&amp;m=one"><span data-i18n="industries.common.calc.fullRoi">Полный расчёт ROI</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </form>
       </div>
     </section>
 
     <!-- ================= 07 ОБОРУДОВАНИЕ ================= -->
-    <section class="sol-sec wrap" id="vendors" data-sec="07" data-name="ОБОРУДОВАНИЕ" aria-labelledby="vendors-h">
+    <section class="sol-sec wrap" id="vendors" data-sec="07" data-name="ОБОРУДОВАНИЕ" data-i18n-attr="data-name:industries.common.sections.vendors" aria-labelledby="vendors-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>07</b> — ОБОРУДОВАНИЕ</span>
-        <h2 class="h2 reveal" id="vendors-h">Оборудование и производители.</h2>
-        <p class="lead reveal">Подбираем технику под площадь, покрытие и график уборки, без привязки к одному бренду. Московский пилот в ТЦ идёт на российских роботах.</p>
+        <span class="idx reveal"><b>07</b> — <span data-i18n="industries.common.sections.vendors">ОБОРУДОВАНИЕ</span></span>
+        <h2 class="h2 reveal" id="vendors-h" data-i18n="industries.retail.heads.vendors">Оборудование и производители.</h2>
+        <p class="lead reveal" data-i18n="industries.retail.vendorsLead">Подбираем технику под площадь, покрытие и график уборки, без привязки к одному бренду. Московский пилот в ТЦ идёт на российских роботах.</p>
       </div>
       <div class="vend">
         <div class="vend__grp reveal" style="--i:0">
-          <h3 class="mono">Уборка зала и галерей</h3>
+          <h3 class="mono" data-i18n="industries.retail.vendors.items.0.group">Уборка зала и галерей</h3>
           <ul class="vend__list"><li class="vlogo"><img src="assets/brands/gausium.svg" alt="Gausium" style="--h:33px" width="195" height="56" loading="lazy"></li><li class="vlogo"><img src="assets/brands/pudu.svg" alt="Pudu Robotics" style="--h:30px" width="93" height="24" loading="lazy"></li><li class="vlogo"><img src="assets/brands/keenon.png" alt="KEENON Robotics" style="--h:31px" width="1845" height="433" loading="lazy"></li><li class="vlogo"><img src="assets/brands/lionsbot.png" alt="LionsBot" style="--h:40px" width="402" height="120" loading="lazy"></li></ul>
         </div>
         <div class="vend__grp reveal" style="--i:1">
-          <h3 class="mono">Промо и навигация</h3>
+          <h3 class="mono" data-i18n="industries.retail.vendors.items.1.group">Промо и навигация</h3>
           <ul class="vend__list"><li class="vlogo"><img src="assets/brands/pudu.svg" alt="Pudu Robotics" style="--h:30px" width="93" height="24" loading="lazy"></li><li class="vlogo"><img src="assets/brands/keenon.png" alt="KEENON Robotics" style="--h:31px" width="1845" height="433" loading="lazy"></li></ul>
-        </div>
-        <div class="vend__grp reveal" style="--i:2">
-          <h3 class="mono">Российские производители</h3>
-          <ul class="vend__list"><li class="vlogo vlogo--text">R2B</li><li class="vlogo vlogo--text">ROBO</li><li class="vlogo vlogo--text">YaCu</li><li class="vlogo vlogo--text">Waybot</li></ul>
         </div>
       </div>
     </section>
 
     <!-- ================= 08 ПОЧЕМУ ПРОФРОБОТ ================= -->
-    <section class="sol-sec wrap" id="why" data-sec="08" data-name="ПОЧЕМУ ПРОФРОБОТ" aria-labelledby="why-h">
+    <section class="sol-sec wrap" id="why" data-sec="08" data-name="ПОЧЕМУ ПРОФРОБОТ" data-i18n-attr="data-name:industries.common.sections.why" aria-labelledby="why-h">
       <div class="whyn reveal">
-        <span class="idx reveal"><b>08</b> — ПОЧЕМУ ПРОФРОБОТ</span>
-        <h2 class="whyn__h" id="why-h">Свой пилот — раньше городского.</h2>
-        <p>Итоги московского пилота обещают после нескольких месяцев работы. Ждать их не обязательно: запустим робота на одной галерее или одном этаже вашего ТЦ и сравним с ручной уборкой на ваших цифрах.</p>
-        <a class="text-link" href="/services/pilot/">Пилотный проект <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="idx reveal"><b>08</b> — <span data-i18n="industries.common.sections.why">ПОЧЕМУ ПРОФРОБОТ</span></span>
+        <h2 class="whyn__h" id="why-h" data-i18n="industries.retail.why.title">Свой пилот — раньше городского.</h2>
+        <p data-i18n="industries.retail.why.text">Итоги московского пилота обещают после нескольких месяцев работы. Ждать их не обязательно: запустим робота на одной галерее или одном этаже вашего ТЦ и сравним с ручной уборкой на ваших цифрах.</p>
+        <a class="text-link" href="/services/pilot/"><span data-i18n="common.linkNames.pilotProject">Пилотный проект</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
 
     <!-- ================= 09 ЗАЯВКА ================= -->
-    <section class="sol-sec" id="talk" data-sec="09" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+    <section class="sol-sec" id="talk" data-sec="09" data-name="ЗАЯВКА" data-i18n-attr="data-name:industries.common.sections.form" aria-labelledby="talk-h">
       <div class="stage talk-stage">
       <div class="talk">
         <div class="talk__copy">
-          <span class="idx reveal"><b>09</b> — ЗАЯВКА</span>
-          <h2 class="h2 reveal" id="talk-h">Обсудим робота для вашего ТЦ или сети.</h2>
-          <p class="lead reveal">Посмотрим планировку, зоны и график уборки. Предложим технику, режим работы и формат: покупка, аренда или уборка как услуга.</p>
-          <a class="text-link reveal" href="tel:+74951234567">Или позвоните: +7 (495) 123-45-67</a>
+          <span class="idx reveal"><b>09</b> — <span data-i18n="industries.common.sections.form">ЗАЯВКА</span></span>
+          <h2 class="h2 reveal" id="talk-h" data-i18n="industries.retail.form.title">Обсудим робота для вашего ТЦ или сети.</h2>
+          <p class="lead reveal" data-i18n="industries.retail.form.lead">Посмотрим планировку, зоны и график уборки. Предложим технику, режим работы и формат: покупка, аренда или уборка как услуга.</p>
+          <a class="text-link reveal" href="tel:+74951234567" data-i18n="industries.common.form.callUs">Или позвоните: +7 (495) 123-45-67</a>
         </div>
 
         <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="industries/retail" aria-labelledby="talk-h">
           <div class="form__row">
             <div class="fld">
-              <label for="f-name">Имя</label>
+              <label for="f-name" data-i18n="common.form.name">Имя</label>
               <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
               <span class="fld__err" id="f-name-err" role="alert"></span>
             </div>
             <div class="fld">
-              <label for="f-phone">Телефон</label>
+              <label for="f-phone" data-i18n="common.form.phone">Телефон</label>
               <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
               <span class="fld__err" id="f-phone-err" role="alert"></span>
             </div>
           </div>
           <div class="fld">
-            <label for="f-dir">Направление <small>необязательно</small></label>
+            <label for="f-dir" data-i18n-html="industries.common.form.directionLabel">Направление <small>необязательно</small></label>
             <select id="f-dir" name="direction">
-              <option value="">Пока не знаю</option>
-              <option value="sales-floor">Уборка торгового зала и галерей</option>
-              <option value="parking">Уборка паркингов</option>
-              <option value="promo">Промо и навигация в зале</option>
-              <option value="backstore">Склады и дарксторы</option>
+              <option value="" data-i18n="common.form.directionUnknown">Пока не знаю</option>
+              <option value="sales-floor" data-i18n="industries.retail.directions.items.0.title">Уборка торгового зала и галерей</option>
+              <option value="parking" data-i18n="industries.retail.directions.items.1.title">Уборка паркингов</option>
+              <option value="promo" data-i18n="industries.retail.directions.items.2.title">Промо и навигация в зале</option>
+              <option value="backstore" data-i18n="industries.retail.directions.items.3.title">Склады и дарксторы</option>
             </select>
           </div>
-          <div class="hp" aria-hidden="true"><label>Не заполняйте <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="fld">
-            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
             <span class="fld__err" id="f-consent-err" role="alert"></span>
           </div>
           <div class="form__foot">
-            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Обсудить пилот</span></button>
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t" data-i18n="industries.retail.form.button">Обсудить пилот</span></button>
             <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
           </div>
           <div class="form__ok" role="status">
             <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
-            <b>Заявка принята.</b>
-            <p>Перезвоним в рабочее время.</p>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
           </div>
         </form>
       </div>
@@ -389,58 +419,58 @@
     </section>
 
     <!-- ================= 10 СМОТРИТЕ ТАКЖЕ ================= -->
-    <section class="sol-sec wrap" id="see" data-sec="10" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+    <section class="sol-sec wrap" id="see" data-sec="10" data-name="СМОТРИТЕ ТАКЖЕ" data-i18n-attr="data-name:industries.common.sections.see" aria-labelledby="see-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>10</b> — СМОТРИТЕ ТАКЖЕ</span>
-        <h2 class="h2 reveal" id="see-h">Смотрите также.</h2>
+        <span class="idx reveal"><b>10</b> — <span data-i18n="industries.common.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 class="h2 reveal" id="see-h" data-i18n="industries.common.heads.see">Смотрите также.</h2>
       </div>
       <div class="seeg">
         <a class="seel reveal" style="--i:0" href="/solutions/cleaning/">
-          <span class="dir__no">РЕШЕНИЕ</span>
-          <h3>Роботизированный клининг</h3>
-          <p>Поломоечные и подметальные роботы.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.solution">РЕШЕНИЕ</span>
+          <h3 data-i18n="common.solutionNames.cleaning">Роботизированный клининг</h3>
+          <p data-i18n="industries.retail.links.items.0.text">Поломоечные и подметальные роботы.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:1" href="/solutions/service-robots/">
-          <span class="dir__no">РЕШЕНИЕ</span>
-          <h3>Сервисные роботы</h3>
-          <p>Промо, навигация, доставка в зале.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.solution">РЕШЕНИЕ</span>
+          <h3 data-i18n="common.solutionNames.service">Сервисные роботы</h3>
+          <p data-i18n="industries.retail.links.items.1.text">Промо, навигация, доставка в зале.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:2" href="/solutions/warehouse/">
-          <span class="dir__no">РЕШЕНИЕ</span>
-          <h3>Складская роботизация</h3>
-          <p>Дарксторы и склады сетей.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.solution">РЕШЕНИЕ</span>
+          <h3 data-i18n="common.solutionNames.warehouse">Складская роботизация</h3>
+          <p data-i18n="industries.retail.links.items.2.text">Дарксторы и склады сетей.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
-        <a class="seel reveal" style="--i:3" href="/products/cleaning-operations/">
-          <span class="dir__no">ПРОДУКТ</span>
-          <h3>Cleaning Operations Platform</h3>
-          <p>Уборка всех точек сети в одном окне.</p>
+        <a class="seel reveal" style="--i:3" href="products.html#platform">
+          <span class="dir__no" data-i18n="industries.common.kickers.product">ПРОДУКТ</span>
+          <h3 data-i18n="industries.retail.links.items.3.title">Cleaning Operations Platform</h3>
+          <p data-i18n="industries.retail.links.items.3.text">Уборка всех точек сети в одном окне.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
-        <a class="seel reveal" style="--i:4" href="/products/raas/">
-          <span class="dir__no">ПРОДУКТ</span>
-          <h3>Аренда роботов (RaaS)</h3>
-          <p>Без капзатрат, с обслуживанием.</p>
+        <a class="seel reveal" style="--i:4" href="products.html#raas">
+          <span class="dir__no" data-i18n="industries.common.kickers.product">ПРОДУКТ</span>
+          <h3 data-i18n="common.linkNames.raas">Аренда роботов (RaaS)</h3>
+          <p data-i18n="industries.retail.links.items.4.text">Без капзатрат, с обслуживанием.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:5" href="/services/pilot/">
-          <span class="dir__no">УСЛУГА</span>
-          <h3>Пилотный проект</h3>
-          <p>Одна галерея или один магазин.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.service">УСЛУГА</span>
+          <h3 data-i18n="common.linkNames.pilotProject">Пилотный проект</h3>
+          <p data-i18n="industries.retail.links.items.5.text">Одна галерея или один магазин.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:6" href="/cases/?industry=retail">
-          <span class="dir__no">КЕЙСЫ</span>
-          <h3>Кейсы: ритейл</h3>
-          <p>Внедрения в ТЦ и магазинах.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.cases">КЕЙСЫ</span>
+          <h3 data-i18n="industries.retail.links.items.6.title">Кейсы: ритейл</h3>
+          <p data-i18n="industries.retail.links.items.6.text">Внедрения в ТЦ и магазинах.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:7" href="/industries/">
-          <span class="dir__no">ОТРАСЛИ</span>
-          <h3>Все отрасли</h3>
-          <p>Все 11 отраслевых страниц.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.industries">ОТРАСЛИ</span>
+          <h3 data-i18n="industries.common.links.allIndustries">Все отрасли</h3>
+          <p data-i18n="industries.common.links.allIndustriesText">Все 11 отраслевых страниц.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </div>
@@ -451,19 +481,19 @@
     <div class="stage foot">
       <div class="foot-top">
         <div class="foot-brand">
-          <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
-          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+          <a href="index.html" data-i18n-attr="aria-label:common.brand.homeLabel" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" data-i18n-attr="alt:common.brand.logoAlt" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
         </div>
         <div class="foot-call">
-          <span class="mono">Отдел внедрения</span>
+          <span class="mono" data-i18n="common.footer.dept">Отдел внедрения</span>
           <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
           <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
         </div>
       </div>
       <div class="foot-bot">
-        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
-        <a href="#">Политика конфиденциальности</a>
-        <a class="foot-up" href="index.html#industries">Все отрасли <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <span data-i18n="common.footer.rights">© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a href="#" data-i18n="common.footer.privacy">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html#industries"><span data-i18n="common.footer.allIndustries">Все отрасли</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
   </footer>

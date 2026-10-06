@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Роботы для уборки парков, улиц и набережных: муниципальным службам | ПРОФРОБОТ</title>
-  <meta name="description" content="Роботы-подметальщики для парков, тротуаров и набережных, зимнее содержание, косилки для газонов и откосов, уборка паркингов. Как купить по 44-ФЗ и 223-ФЗ с учётом нацрежима.">
+  <title data-i18n="industries.municipal.title">Роботы для уборки парков, улиц и набережных: муниципальным службам | ПРОФРОБОТ</title>
+  <meta name="description" content="Роботы-подметальщики для парков, тротуаров и набережных, зимнее содержание, косилки для газонов и откосов, уборка паркингов. Как купить по 44-ФЗ и 223-ФЗ с учётом нацрежима." data-i18n-attr="content:industries.municipal.description">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="/industries/municipal/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,43 @@
   <link rel="stylesheet" href="industry.css">
   <link rel="stylesheet" href="industry-municipal.css">
   <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body class="sol-page ind-page ind--municipal">
@@ -43,47 +80,49 @@
   </defs></svg>
 
   <!-- ================= NAV ================= -->
-  <header class="nav" aria-label="Основная навигация">
-    <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+  <header class="nav" data-i18n-attr="aria-label:common.nav.label" aria-label="Основная навигация">
+    <a href="index.html" data-i18n-attr="aria-label:common.brand.homeLabel" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" data-i18n-attr="alt:common.brand.logoAlt" alt="ПРОФРОБОТ"></a>
     <nav class="nav-links">
-      <a href="solutions.html">Решения</a>
-      <a href="index.html#industries" class="on">Отрасли</a>
-      <a href="index.html#platform">Платформа</a>
-      <a href="index.html#cases">Кейсы</a>
-      <a href="#talk">Контакты</a>
+      <a href="solutions.html" data-i18n="common.nav.solutions">Решения</a>
+      <a href="index.html#industries" class="on" data-i18n="common.nav.industries">Отрасли</a>
+      <a href="products.html" data-i18n="common.nav.products">Продукты</a>
+      <a href="index.html#platform" data-i18n="common.nav.platform">Платформа</a>
+      <a href="index.html#cases" data-i18n="common.nav.cases">Кейсы</a>
+      <a href="#talk" data-i18n="common.nav.contacts">Контакты</a>
     </nav>
-    <a class="btn btn-pri" href="#talk">Связаться</a>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a class="btn btn-pri" href="#talk" data-i18n="common.cta.contact">Связаться</a>
   </header>
 
   <div class="counter" aria-hidden="true">
     <span class="cur tnum">01</span>
     <span class="bar"><i></i></span>
-    <span class="tot tnum">10</span>
-    <span class="lbl">МУНИЦИПАЛЬНЫЕ СЛУЖБЫ</span>
+    <span class="tot tnum">09</span>
+    <span class="lbl" data-i18n="industries.municipal.nameCaps">МУНИЦИПАЛЬНЫЕ СЛУЖБЫ</span>
   </div>
 
   <main>
     <!-- ================= 01 HERO ================= -->
-    <section class="ih ih--plan wrap" data-sec="01" data-name="МУНИЦИПАЛЬНЫЕ СЛУЖБЫ">
+    <section class="ih ih--plan wrap" data-sec="01" data-name="МУНИЦИПАЛЬНЫЕ СЛУЖБЫ" data-i18n-attr="data-name:industries.municipal.nameCaps">
       <div class="mhero">
         <div class="ih__copy mhero__copy">
-          <nav class="crumbs reveal" aria-label="Хлебные крошки"><ol><li><a href="index.html">Главная</a></li><li><a href="index.html#industries">Отрасли</a></li><li aria-current="page">Муниципальные службы</li></ol></nav>
-          <span class="idx reveal"><b>01</b> — МУНИЦИПАЛЬНЫЕ СЛУЖБЫ</span>
-          <h1 class="h1 ih__h1 reveal"><span>Роботы для уборки</span> <span>парков, улиц и набережных.</span></h1>
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li><a data-i18n="common.crumbs.industries" href="index.html#industries">Отрасли</a></li><li data-i18n="industries.municipal.name" aria-current="page">Муниципальные службы</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="industries.municipal.nameCaps">МУНИЦИПАЛЬНЫЕ СЛУЖБЫ</span></span>
+          <h1 class="h1 ih__h1 reveal"><span data-i18n="industries.municipal.h1.items.0">Роботы для уборки</span> <span data-i18n="industries.municipal.h1.items.1">парков, улиц и набережных.</span></h1>
           <div class="ih__text reveal" style="--i:1">
-            <p class="lead">Территории большие, работы много, а людей на неё всё меньше. Листопад, снегопад и тополиный пух короче от этого не становятся.</p>
-            <p>Роботы берут длинные однообразные проходы по аллеям, тротуарам и паркингам, люди — то, где нужны руки и глаза. Технику подбираем с учётом того, как вы закупаете.</p>
+            <p class="lead" data-i18n="industries.municipal.lead">Территории большие, работы много, а людей на неё всё меньше. Листопад, снегопад и тополиный пух короче от этого не становятся.</p>
+            <p data-i18n="industries.municipal.lead2">Роботы берут длинные однообразные проходы по аллеям, тротуарам и паркингам, люди — то, где нужны руки и глаза. Технику подбираем с учётом того, как вы закупаете.</p>
           </div>
           <div class="ih__cta reveal" style="--i:2">
-            <a class="btn btn-pri" href="#talk">Обсудить пилот на территории</a>
-            <a class="text-link" href="#procurement">Как это купить <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-pri" href="#talk" data-i18n="industries.municipal.primaryCta.label">Обсудить пилот на территории</a>
+            <a class="text-link" href="#procurement"><span data-i18n="industries.municipal.secondaryCta.label">Как это купить</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <p class="ih__aud reveal" style="--i:3"><span class="mono">Для кого</span> ГБУ «Жилищник» · дирекции парков · ГБУ по содержанию дорог · УК жилых комплексов · операторы набережных и благоустроенных территорий</p>
+          <p class="ih__aud reveal" style="--i:3"><span class="mono" data-i18n="industries.common.hero.audience">Для кого</span> <span><span data-i18n="industries.municipal.audiences.items.0">ГБУ «Жилищник»</span> · <span data-i18n="industries.municipal.audiences.items.1">дирекции парков</span> · <span data-i18n="industries.municipal.audiences.items.2">ГБУ по содержанию дорог</span> · <span data-i18n="industries.municipal.audiences.items.3">УК жилых комплексов</span> · <span data-i18n="industries.municipal.audiences.items.4">операторы набережных и благоустроенных территорий</span></span></p>
         </div>
         <div class="mplan reveal" style="--i:1">
-          <div class="mplan__head"><span class="mono">Схема территории · без масштаба</span><span class="mplan__hint">Нажмите на зону</span></div>
+          <div class="mplan__head"><span class="mono" data-i18n="industries.municipal.plan.caption">Схема территории · без масштаба</span><span class="mplan__hint" data-i18n="industries.municipal.plan.hint">Нажмите на зону</span></div>
           <svg class="mplan__svg" viewBox="0 0 760 560" role="group" aria-labelledby="mplan-t">
-          <title id="mplan-t">Схема городской территории сверху: аллеи и набережная, площадь, газоны с откосом к реке и паркинг. Каждая зона ведёт к своему направлению.</title>
+          <title id="mplan-t" data-i18n="industries.municipal.plan.title">Схема городской территории сверху: аллеи и набережная, площадь, газоны с откосом к реке и паркинг. Каждая зона ведёт к своему направлению.</title>
           <defs>
             <pattern id="mp-grass" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><path d="M0 0v9" class="mp-grass"/></pattern>
             <pattern id="mp-slope" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M0 14 7 2 14 14" class="mp-slope"/></pattern>
@@ -94,7 +133,7 @@
           <path class="mp-road__axis" d="M0 28H760"/>
           <rect class="mp-water" x="0" y="462" width="760" height="98"/>
           <rect x="0" y="462" width="760" height="98" fill="url(#mp-water)"/>
-          <a class="mz mz--lawns" href="#lawns" aria-label="03 — Газоны и откос: направление «Газоны и откосы»">
+          <a class="mz mz--lawns" href="#lawns" aria-label="03 — Газоны и откос: направление «Газоны и откосы»" data-i18n-attr="aria-label:industries.municipal.plan.zones.lawns.label">
             <rect class="mz__fill" x="0" y="78" width="500" height="326"/>
             <path class="mz__fill" d="M500 270H760V404H500Z"/>
             <rect x="0" y="78" width="500" height="326" fill="url(#mp-grass)"/>
@@ -102,15 +141,15 @@
             <rect class="mz__fill mz__fill--slope" x="0" y="404" width="760" height="26"/>
             <rect x="0" y="404" width="760" height="26" fill="url(#mp-slope)"/>
             <g class="mz__mk"><circle cx="76" cy="150" r="17"/><text x="76" y="154" text-anchor="middle">03</text></g>
-            <text class="mz__lbl" x="98" y="155">Газоны и откос</text>
+            <text class="mz__lbl" x="98" y="155" data-i18n="industries.municipal.directions.items.2.zone">Газоны и откос</text>
           </a>
-          <a class="mz mz--parking" href="#parking" aria-label="04 — Паркинг: направление «Паркинги и большие площадки»">
+          <a class="mz mz--parking" href="#parking" aria-label="04 — Паркинг: направление «Паркинги и большие площадки»" data-i18n-attr="aria-label:industries.municipal.plan.zones.parking.label">
             <rect class="mz__fill" x="508" y="96" width="236" height="160" rx="10"/>
             <path class="mp-stalls" d="M520 104v40M520 208v40M542 104v40M542 208v40M564 104v40M564 208v40M586 104v40M586 208v40M608 104v40M608 208v40M630 104v40M630 208v40M652 104v40M652 208v40M674 104v40M674 208v40M696 104v40M696 208v40M718 104v40M718 208v40"/>
             <g class="mz__mk"><circle cx="630" cy="176" r="17"/><text x="630" y="180" text-anchor="middle">04</text></g>
-            <text class="mz__lbl" x="548" y="282">Паркинг</text>
+            <text class="mz__lbl" x="548" y="282" data-i18n="industries.municipal.directions.items.3.zone">Паркинг</text>
           </a>
-          <a class="mz mz--streets" href="#streets" aria-label="01 — Аллеи и набережная: направление «Дорожки, тротуары, набережные, парки»">
+          <a class="mz mz--streets" href="#streets" aria-label="01 — Аллеи и набережная: направление «Дорожки, тротуары, набережные, парки»" data-i18n-attr="aria-label:industries.municipal.plan.zones.streets.label">
             <rect class="mz__fill" x="0" y="56" width="760" height="22"/>
             <path class="mz__alley" d="M240 78 V200 C 300 250, 380 280, 432 318 S 540 400, 560 430 M240 200 C 190 260, 120 330, 84 430 M240 200 C 320 182, 420 170, 520 176"/>
             <path class="mz__alley-in" d="M240 78 V200 C 300 250, 380 280, 432 318 S 540 400, 560 430 M240 200 C 190 260, 120 330, 84 430 M240 200 C 320 182, 420 170, 520 176"/>
@@ -118,372 +157,337 @@
             <path class="mp-parapet" d="M0 458H760"/>
             <path class="mp-trail" pathLength="100" d="M240 92 V200 C 300 250, 380 280, 432 318 S 540 400, 560 430 H 740"/>
             <g class="mz__mk"><circle cx="432" cy="318" r="17"/><text x="432" y="322" text-anchor="middle">01</text></g>
-            <text class="mz__lbl" x="452" y="323">Аллеи и набережная</text>
+            <text class="mz__lbl" x="452" y="323" data-i18n="industries.municipal.directions.items.0.zone">Аллеи и набережная</text>
           </a>
-          <a class="mz mz--winter" href="#winter" aria-label="02 — Площадь: снег и реагенты: направление «Зимнее содержание: снег и реагенты»">
+          <a class="mz mz--winter" href="#winter" aria-label="02 — Площадь: снег и реагенты: направление «Зимнее содержание: снег и реагенты»" data-i18n-attr="aria-label:industries.municipal.plan.zones.winter.label">
             <circle class="mz__fill" cx="240" cy="200" r="50"/>
             <circle cx="240" cy="200" r="50" fill="url(#mp-snow)"/>
             <g class="mz__mk"><circle cx="240" cy="200" r="17"/><text x="240" y="204" text-anchor="middle">02</text></g>
-            <text class="mz__lbl" x="296" y="160">Площадь: снег и реагенты</text>
+            <text class="mz__lbl" x="296" y="160" data-i18n="industries.municipal.directions.items.1.zone">Площадь: снег и реагенты</text>
           </a>
           <g class="mp-trees" aria-hidden="true"><circle cx="40" cy="110" r="10"/><circle cx="60" cy="210" r="13"/><circle cx="170" cy="110" r="16"/><circle cx="330" cy="110" r="10"/><circle cx="380" cy="140" r="13"/><circle cx="440" cy="110" r="16"/><circle cx="330" cy="380" r="10"/><circle cx="380" cy="400" r="13"/><circle cx="250" cy="330" r="16"/><circle cx="200" cy="390" r="10"/><circle cx="620" cy="330" r="13"/><circle cx="680" cy="370" r="16"/><circle cx="600" cy="390" r="10"/><circle cx="700" cy="300" r="13"/><circle cx="160" cy="300" r="16"/><circle cx="300" cy="300" r="10"/></g>
-          <text class="mp-cap" x="16" y="36">УЛИЦА</text>
-          <text class="mp-cap" x="16" y="530">РЕКА</text>
-          <text class="mp-cap" x="600" y="70">ТРОТУАР</text>
+          <text class="mp-cap" x="16" y="36" data-i18n="industries.municipal.plan.caps.street">УЛИЦА</text>
+          <text class="mp-cap" x="16" y="530" data-i18n="industries.municipal.plan.caps.river">РЕКА</text>
+          <text class="mp-cap" x="600" y="70" data-i18n="industries.municipal.plan.caps.sidewalk">ТРОТУАР</text>
         </svg>
-          <ol class="mplan__legend" aria-label="Зоны территории и направления"><li><a href="#streets" data-zone="streets"><span class="mono tnum">01</span><b>Аллеи и набережная</b><small>подметание · листва · пух</small></a></li><li><a href="#winter" data-zone="winter"><span class="mono tnum">02</span><b>Площадь: снег и реагенты</b><small>отвал · щётка · реагенты</small></a></li><li><a href="#lawns" data-zone="lawns"><span class="mono tnum">03</span><b>Газоны и откос</b><small>косилки · откосы · склоны</small></a></li><li><a href="#parking" data-zone="parking"><span class="mono tnum">04</span><b>Паркинг</b><small>подметание больших площадей</small></a></li></ol>
+          <ol class="mplan__legend" data-i18n-attr="aria-label:industries.municipal.plan.legendLabel" aria-label="Зоны территории и направления"><li><a href="#streets" data-zone="streets"><span class="mono tnum">01</span><b data-i18n="industries.municipal.directions.items.0.zone">Аллеи и набережная</b><small data-i18n="industries.municipal.directions.items.0.short">подметание · листва · пух</small></a></li><li><a href="#winter" data-zone="winter"><span class="mono tnum">02</span><b data-i18n="industries.municipal.directions.items.1.zone">Площадь: снег и реагенты</b><small data-i18n="industries.municipal.directions.items.1.short">отвал · щётка · реагенты</small></a></li><li><a href="#lawns" data-zone="lawns"><span class="mono tnum">03</span><b data-i18n="industries.municipal.directions.items.2.zone">Газоны и откос</b><small data-i18n="industries.municipal.directions.items.2.short">косилки · откосы · склоны</small></a></li><li><a href="#parking" data-zone="parking"><span class="mono tnum">04</span><b data-i18n="industries.municipal.directions.items.3.zone">Паркинг</b><small data-i18n="industries.municipal.directions.items.3.short">подметание больших площадей</small></a></li></ol>
         </div>
         <figure class="ph ph--photo mhero__ph reveal" style="--ar:16/10;--i:2">
-          <img class="ph__img" src="assets/industry_hero/municipal.webp" alt="Небольшой электрический робот-подметальщик сметает жёлтую листву с аллеи городского парка пасмурным октябрьским утром" width="1536" height="1024" decoding="async">
+          <img class="ph__img" src="assets/industry_hero/municipal.webp" alt="Небольшой электрический робот-подметальщик сметает жёлтую листву с аллеи городского парка пасмурным октябрьским утром" data-i18n-attr="alt:industries.municipal.photo.alt" width="1536" height="1024" decoding="async">
         </figure>
       </div>
     </section>
 
     <!-- ================= 02 ПРОБЛЕМЫ ================= -->
-    <section class="sol-sec wrap" id="problems" data-sec="02" data-name="ПРОБЛЕМЫ" aria-labelledby="problems-h">
+    <section class="sol-sec wrap" id="problems" data-sec="02" data-name="ПРОБЛЕМЫ" data-i18n-attr="data-name:industries.common.sections.problems" aria-labelledby="problems-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>02</b> — ПРОБЛЕМЫ</span>
-        <h2 class="h2 reveal" id="problems-h">Территория та же, рук всё меньше.</h2>
+        <span class="idx reveal"><b>02</b> — <span data-i18n="industries.common.sections.problems">ПРОБЛЕМЫ</span></span>
+        <h2 class="h2 reveal" id="problems-h" data-i18n="industries.municipal.heads.problems">Территория та же, рук всё меньше.</h2>
       </div>
       <ol class="mprobs">
         <li class="mprob reveal" style="--i:1">
           <p class="mprob__fig"><b class="tnum">&gt;80%</b></p>
-          <h3>Уборка держится на иностранцах.</h3>
-          <p class="mprob__t">Такая доля иностранцев в персонале клининга. Любое ужесточение миграционных правил бьёт по уборке напрямую.</p>
-          <p class="mn-src mono">Источник: <a href="https://www.kommersant.ru/doc/7755385" target="_blank" rel="noopener">CORE.XP, «Коммерсантъ», 2025</a></p>
+          <h3 data-i18n="industries.municipal.problems.items.0.title">Уборка держится на иностранцах.</h3>
+          <p class="mprob__t"><span data-i18n="industries.municipal.problems.items.0.text">Такая доля иностранцев в персонале клининга. Любое ужесточение миграционных правил бьёт по уборке напрямую.</span></p>
+          
         </li>
         <li class="mprob reveal" style="--i:2">
-          <p class="mprob__fig"><b class="tnum">11</b><span>регионов</span></p>
-          <h3>Наём мигрантов ограничивают.</h3>
-          <p class="mprob__t">В 2025 году дополнительные ограничения ввели в 11 регионах, на 2026-й предложены отраслевые квоты.</p>
-          <p class="mn-src mono">Источник: <a href="https://ru.themoscowtimes.com/2025/08/19/vlasti-zadumali-ogranichit-naem-migrantov-v-obschepite-stroitelstve-i-esche-semi-otraslyah-a172057" target="_blank" rel="noopener">The Moscow Times, 19.08.2025</a></p>
+          <p class="mprob__fig"><b class="tnum">11</b><span data-i18n="industries.municipal.problems.items.1.unit">регионов</span></p>
+          <h3 data-i18n="industries.municipal.problems.items.1.title">Наём мигрантов ограничивают.</h3>
+          <p class="mprob__t"><span data-i18n="industries.municipal.problems.items.1.text">В 2025 году дополнительные ограничения ввели в 11 регионах, на 2026-й предложены отраслевые квоты.</span></p>
+          
         </li>
         <li class="mprob reveal" style="--i:3">
           <p class="mprob__fig"><b class="tnum">+31%</b></p>
-          <h3>Исполнителей ищут всё активнее.</h3>
-          <p class="mprob__t">Рост спроса на исполнителей в клининге в первом полугодии 2026 года к тому же периоду 2025-го.</p>
-          <p class="mn-src mono">Источник: <a href="https://www.kommersant.ru/doc/8740708" target="_blank" rel="noopener">Авито Работа, «Коммерсантъ», 18.06.2026</a></p>
+          <h3 data-i18n="industries.municipal.problems.items.2.title">Исполнителей ищут всё активнее.</h3>
+          <p class="mprob__t"><span data-i18n="industries.municipal.problems.items.2.text">Рост спроса на исполнителей в клининге в первом полугодии 2026 года к тому же периоду 2025-го.</span></p>
+          
         </li>
         <li class="mprob mprob--law reveal" style="--i:4">
-          <p class="mprob__fig"><b class="tnum">п. 98</b></p>
-          <h3>Иностранную коммунальную технику закупить нельзя.</h3>
-          <p class="mprob__t">Позиция в перечне запретов нацрежима для госзакупок. Что это значит для роботов — в блоке «Как это купить». <a href="#procurement">Как это купить ↓</a></p>
-          <p class="mn-src mono">Источник: <a href="https://www.alta.ru/tamdoc/24ps1875/" target="_blank" rel="noopener">ПП РФ № 1875, текст на alta.ru</a></p>
+          <p class="mprob__fig"><b class="tnum" data-i18n="industries.municipal.problems.items.3.fig">п. 98</b></p>
+          <h3 data-i18n="industries.municipal.problems.items.3.title">Иностранную коммунальную технику закупить нельзя.</h3>
+          <p class="mprob__t"><span data-i18n="industries.municipal.problems.items.3.text">Позиция в перечне запретов нацрежима для госзакупок. Что это значит для роботов — в блоке «Как это купить».</span> <a href="#procurement" data-i18n="industries.municipal.problems.howToBuy">Как это купить ↓</a></p>
+          <p class="mn-src mono"><span data-i18n="industries.common.sources.labelColon">Источник:</span> <span data-i18n="industries.municipal.sources.pp1875.label">ПП РФ № 1875</span></p>
         </li>
       </ol>
     </section>
 
     <!-- ================= 03 НАПРАВЛЕНИЯ ================= -->
-    <section class="sol-sec wrap" id="directions" data-sec="03" data-name="НАПРАВЛЕНИЯ" aria-labelledby="directions-h">
+    <section class="sol-sec wrap" id="directions" data-sec="03" data-name="НАПРАВЛЕНИЯ" data-i18n-attr="data-name:industries.common.sections.directions" aria-labelledby="directions-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>03</b> — НАПРАВЛЕНИЯ</span>
-        <h2 class="h2 reveal" id="directions-h">Четыре зоны — четыре задачи.</h2>
-        <p class="lead reveal">Каждой зоне на схеме — своя техника. Где техника пока экспериментальная или управляется с пульта, так и пишем.</p>
+        <span class="idx reveal"><b>03</b> — <span data-i18n="industries.common.sections.directions">НАПРАВЛЕНИЯ</span></span>
+        <h2 class="h2 reveal" id="directions-h" data-i18n="industries.municipal.heads.directions">Четыре зоны — четыре задачи.</h2>
+        <p class="lead reveal" data-i18n="industries.municipal.directions.lead">Каждой зоне на схеме — своя техника. Где техника пока экспериментальная или управляется с пульта, так и пишем.</p>
       </div>
       <div class="mdirs">
         <article class="mdir reveal" id="streets" style="--i:0">
           <div class="mdir__l">
             <svg class="mdir__g" viewBox="0 0 64 64" aria-hidden="true"><path class="g-alley" d="M8 56C20 40 30 34 32 22S44 8 56 6"/><path class="g-alley-in" d="M8 56C20 40 30 34 32 22S44 8 56 6"/></svg>
-            <span class="mdir__no mono tnum">01 · Аллеи и набережная</span>
-            <h3>Дорожки, тротуары, набережные, парки</h3>
+            <span class="mdir__no mono tnum">01 · <bdi data-i18n="industries.municipal.directions.items.0.zone">Аллеи и набережная</bdi></span>
+            <h3 data-i18n="industries.municipal.directions.items.0.title">Дорожки, тротуары, набережные, парки</h3>
           </div>
           <div class="mdir__r">
-            <p class="mdir__t">Подметание, мойка покрытий, сбор листвы и тополиного пуха. Робот проходит длинные маршруты по графику, бригада занимается урнами, клумбами и тем, что требует рук.</p>
-            <p class="drow__items">подметание аллей и дорожек · мойка покрытий · сбор листвы · тополиный пух</p>
-            <ul class="mdir__facts">
-              <li><p>В парках Москвы с 2024 года работают беспилотные уборщики «Пиксель» компании «Автономика» — подробнее ниже. <a href="#proof">Смотреть ↓</a></p><p class="mn-src mono">Источник: <a href="https://www.vesti.ru/article/3802486" target="_blank" rel="noopener">Вести, 01.2024</a></p></li>
-              <li><p>Насадку-пылесос для тополиного пуха тестируют в Сколково.</p><p class="mn-src mono">Источник: <a href="https://www.fontanka.ru/2026/06/15/76479904/" target="_blank" rel="noopener">Фонтанка, 15.06.2026</a></p></li>
-            </ul>
-            <a class="drow__sol" href="/solutions/cleaning/">Решение: Роботизированный клининг <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <p class="mdir__t" data-i18n="industries.municipal.directions.items.0.text">Подметание, мойка покрытий, сбор листвы и тополиного пуха. Робот проходит длинные маршруты по графику, бригада занимается урнами, клумбами и тем, что требует рук.</p>
+            <p class="drow__items"><span data-i18n="industries.municipal.directions.items.0.items.items.0">подметание аллей и дорожек</span> · <span data-i18n="industries.municipal.directions.items.0.items.items.1">мойка покрытий</span> · <span data-i18n="industries.municipal.directions.items.0.items.items.2">сбор листвы</span> · <span data-i18n="industries.municipal.directions.items.0.items.items.3">тополиный пух</span></p>
+            
+            <a class="drow__sol" href="/solutions/cleaning/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="mdir reveal" id="winter" style="--i:1">
           <div class="mdir__l">
             <svg class="mdir__g" viewBox="0 0 64 64" aria-hidden="true"><circle class="g-plaza" cx="32" cy="32" r="22"/><path class="g-flake" d="M32 20v24M21.6 26l20.8 12M21.6 38l20.8-12"/></svg>
-            <span class="mdir__no mono tnum">02 · Площадь: снег и реагенты</span>
-            <h3>Зимнее содержание: снег и реагенты</h3>
+            <span class="mdir__no mono tnum">02 · <bdi data-i18n="industries.municipal.directions.items.1.zone">Площадь: снег и реагенты</bdi></span>
+            <h3 data-i18n="industries.municipal.directions.items.1.title">Зимнее содержание: снег и реагенты</h3>
           </div>
           <div class="mdir__r">
-            <p class="mdir__t">Сменные отвалы и щётки — для расчистки дорожек, площадей и входных групп. Одна машина работает круглый год, меняется навесное оборудование.</p>
-            <p class="drow__items">расчистка дорожек от снега · щётки для свежего снега · распределение реагентов</p>
+            <p class="mdir__t" data-i18n="industries.municipal.directions.items.1.text">Сменные отвалы и щётки — для расчистки дорожек, площадей и входных групп. Одна машина работает круглый год, меняется навесное оборудование.</p>
+            <p class="drow__items"><span data-i18n="industries.municipal.directions.items.1.items.items.0">расчистка дорожек от снега</span> · <span data-i18n="industries.municipal.directions.items.1.items.items.1">щётки для свежего снега</span> · <span data-i18n="industries.municipal.directions.items.1.items.items.2">распределение реагентов</span></p>
             <ul class="mdir__facts">
-              <li><p>Распределение антигололёдной смеси у «Пикселя» — экспериментальный модуль, а не серийная функция.</p><p class="mn-src mono">Источник: <a href="https://rtvi.com/news/v-moskve-na-forume-oblachnye-goroda-predstavili-obnovlennogo-robota-uborshhika-piksel/" target="_blank" rel="noopener">RTVI, 17.09.2025</a></p></li>
-              <li><p>Беспилотный снегоуборщик Московского политеха и «Конкордии» пока в разработке, серийного продукта нет.</p><p class="mn-src mono">Источник: <a href="https://moskvichmag.ru/?p=277697" target="_blank" rel="noopener">Москвич Mag</a></p></li>
+              <li><p><span data-i18n="industries.municipal.directions.items.1.facts.items.0.text">Серийных беспилотных снегоуборщиков в России мы пока не нашли: известные проекты в разработке.</span></p></li>
             </ul>
-            <a class="drow__sol" href="/solutions/cleaning/">Решение: Роботизированный клининг <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="drow__sol" href="/solutions/cleaning/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="mdir reveal" id="lawns" style="--i:2">
           <div class="mdir__l">
             <svg class="mdir__g" viewBox="0 0 64 64" aria-hidden="true"><rect class="g-lawn" x="6" y="6" width="52" height="34" rx="4"/><path class="g-hatch" d="M10 36 22 10M20 36 32 10M30 36 42 10M40 36 52 10"/><path class="g-slope" d="M6 56l8-12 8 12 8-12 8 12 8-12 8 12 6-9"/></svg>
-            <span class="mdir__no mono tnum">03 · Газоны и откос</span>
-            <h3>Газоны и откосы</h3>
+            <span class="mdir__no mono tnum">03 · <bdi data-i18n="industries.municipal.directions.items.2.zone">Газоны и откос</bdi></span>
+            <h3 data-i18n="industries.municipal.directions.items.2.title">Газоны и откосы</h3>
           </div>
           <div class="mdir__r">
-            <p class="mdir__t">Коммерческие роботизированные косилки — для ровных газонов парков и дворов. Для откосов, дамб и склонов — дистанционно управляемая техника: оператор стоит на безопасном месте, а не на склоне.</p>
-            <p class="drow__items">роботизированные косилки · газоны парков и дворов · откосы, дамбы, склоны</p>
+            <p class="mdir__t" data-i18n="industries.municipal.directions.items.2.text">Коммерческие роботизированные косилки — для ровных газонов парков и дворов. Для откосов, дамб и склонов — дистанционно управляемая техника: оператор стоит на безопасном месте, а не на склоне.</p>
+            <p class="drow__items"><span data-i18n="industries.municipal.directions.items.2.items.items.0">роботизированные косилки</span> · <span data-i18n="industries.municipal.directions.items.2.items.items.1">газоны парков и дворов</span> · <span data-i18n="industries.municipal.directions.items.2.items.items.2">откосы, дамбы, склоны</span></p>
             <ul class="mdir__facts">
-              <li><p>FJ Dynamics — коммерческие роботизированные косилки.</p><p class="mn-src mono">Источник: <a href="https://landscaping.fjdynamics.com/" target="_blank" rel="noopener">сайт производителя, FJ Dynamics</a></p></li>
-              <li><p>Koham и Leking — дистанционно управляемая техника для откосов, без автономного режима.</p><p class="mn-src mono">Источник: <a href="https://kohammowers.com" target="_blank" rel="noopener">kohammowers.com</a> · <a href="https://www.leking.net/Product-12/" target="_blank" rel="noopener">leking.net</a></p></li>
+              <li><p><span data-i18n="industries.municipal.directions.items.2.facts.items.0.text">FJ Dynamics — коммерческие роботизированные косилки.</span></p></li>
+              <li><p><span data-i18n="industries.municipal.directions.items.2.facts.items.1.text">Koham и Leking — дистанционно управляемая техника для откосов, без автономного режима.</span></p></li>
             </ul>
-            <a class="drow__sol" href="/solutions/agro/">Решение: Агророботы и уход за территорией <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="drow__sol" href="/solutions/agro/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.agroGrounds">Агророботы и уход за территорией</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="mdir reveal" id="parking" style="--i:3">
           <div class="mdir__l">
             <svg class="mdir__g" viewBox="0 0 64 64" aria-hidden="true"><rect class="g-park" x="6" y="10" width="52" height="44" rx="5"/><path class="g-stall" d="M16 14v14M26 14v14M36 14v14M46 14v14M16 36v14M26 36v14M36 36v14M46 36v14"/></svg>
-            <span class="mdir__no mono tnum">04 · Паркинг</span>
-            <h3>Паркинги и большие площадки</h3>
+            <span class="mdir__no mono tnum">04 · <bdi data-i18n="industries.municipal.directions.items.3.zone">Паркинг</bdi></span>
+            <h3 data-i18n="industries.municipal.directions.items.3.title">Паркинги и большие площадки</h3>
           </div>
           <div class="mdir__r">
-            <p class="mdir__t">Автономные подметальные машины для открытых и крытых паркингов, площадей и стоянок. Удобно убирать ночью, когда машин меньше.</p>
-            <p class="drow__items">открытые паркинги · крытые паркинги · площади и стоянки</p>
+            <p class="mdir__t" data-i18n="industries.municipal.directions.items.3.text">Автономные подметальные машины для открытых и крытых паркингов, площадей и стоянок. Удобно убирать ночью, когда машин меньше.</p>
+            <p class="drow__items"><span data-i18n="industries.municipal.directions.items.3.items.items.0">открытые паркинги</span> · <span data-i18n="industries.municipal.directions.items.3.items.items.1">крытые паркинги</span> · <span data-i18n="industries.municipal.directions.items.3.items.items.2">площади и стоянки</span></p>
             <ul class="mdir__facts">
-              <li><p>Pudu MT1 — до 1 800 м²/ч в стандартном режиме, 4–8 ч работы на одном заряде.</p><p class="mn-src mono">Источник: <a href="https://cdn.robotshop.com/media/P/Pud/RB-Pud-10/pdf/pudu-mt1-datasheet.pdf" target="_blank" rel="noopener">даташит производителя, Pudu</a></p></li>
+              <li><p><span data-i18n="industries.municipal.directions.items.3.facts.items.0.text">Pudu MT1 — до 1 800 м²/ч в стандартном режиме, 4–8 ч работы на одном заряде.</span></p><p class="mn-src mono"><span data-i18n="industries.common.sources.labelColon">Источник:</span> <span data-i18n="industries.municipal.sources.mt1.label">даташит производителя, Pudu</span></p></li>
             </ul>
-            <a class="drow__sol" href="/solutions/cleaning/">Решение: Роботизированный клининг <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a class="drow__sol" href="/solutions/cleaning/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- ================= 04 ПРАКТИКА ================= -->
-    <section class="sol-sec" id="proof" data-sec="04" data-name="ПРАКТИКА" aria-labelledby="proof-h">
-      <div class="stage mproof">
-        <div class="mproof__top">
-          <div class="mproof__copy">
-            <span class="idx reveal"><b>04</b> — ПРАКТИКА</span>
-            <h2 class="h2 reveal" id="proof-h">В парках Москвы роботы уже убирают.</h2>
-            <p class="lead reveal">«Пиксель» — электрический беспилотный уборщик компании «Автономика» (резидент кластера «Ломоносов») со сменным навесным оборудованием, работает круглый год. Это не продукт ПРОФРОБОТ: показываем его как доказательство, что класс техники работает в городе.</p>
-          </div>
-          <figure class="mproof__fig reveal" style="--i:1">
-            <p class="mproof__num"><span class="mproof__approx">≈</span><b class="tnum">1/3</b></p>
-            <figcaption>
-              <p>Настолько сократилась потребность в ручном труде на испытаниях 2024–2025 годов на 600+ га парков.</p>
-              <p class="mn-src mono">Источник: <a href="https://abnews.ru/center/news/msk/2026/1/21/robot-uborshhik-piksel-sledit-za-poryadkom-v-stolichnyh-parkah" target="_blank" rel="noopener">МИК в изложении АБН24, 21.01.2026</a></p>
-            </figcaption>
-          </figure>
-        </div>
-        <ol class="mproof__line">
-          <li class="reveal" style="--i:0"><span class="mono">Весна 2023</span><p>Испытания в парках Москвы, две машины.</p><p class="mn-src mono">Источник: <a href="https://www.vesti.ru/article/3802486" target="_blank" rel="noopener">Вести, 01.2024</a></p></li>
-          <li class="reveal" style="--i:1"><span class="mono">Январь 2024</span><p>В парках работают 10 машин.</p><p class="mn-src mono">Источник: <a href="https://www.vesti.ru/article/3802486" target="_blank" rel="noopener">Вести, 01.2024</a></p></li>
-          <li class="reveal" style="--i:2"><span class="mono">Апрель 2024</span><p>Решено расширить парк до 12 машин.</p><p class="mn-src mono">Источник: <a href="https://www.mos.ru/en/news/item/137249073/" target="_blank" rel="noopener">mos.ru, 13.04.2024</a></p></li>
-          <li class="reveal" style="--i:3"><span class="mono">2024–2025</span><p>Испытания Московского инновационного кластера на 600+ га.</p><p class="mn-src mono">Источник: <a href="https://abnews.ru/center/news/msk/2026/1/21/robot-uborshhik-piksel-sledit-za-poryadkom-v-stolichnyh-parkah" target="_blank" rel="noopener">МИК в изложении АБН24, 21.01.2026</a></p></li>
-          <li class="reveal" style="--i:4"><span class="mono">2026</span><p>Парк Победы, Коломенская набережная. В Сколково тестируют насадку для тополиного пуха.</p><p class="mn-src mono">Источник: <a href="https://www.fontanka.ru/2026/06/15/76479904/" target="_blank" rel="noopener">Фонтанка, 15.06.2026</a></p></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ================= 05 КАК КУПИТЬ ================= -->
-    <section class="sol-sec wrap" id="procurement" data-sec="05" data-name="КАК КУПИТЬ" aria-labelledby="procurement-h">
+    <!-- ================= 04 КАК КУПИТЬ ================= -->
+    <section class="sol-sec wrap" id="procurement" data-sec="04" data-name="КАК КУПИТЬ" data-i18n-attr="data-name:industries.municipal.secNames.procurement" aria-labelledby="procurement-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>05</b> — КАК КУПИТЬ</span>
-        <h2 class="h2 reveal" id="procurement-h">Сначала закон о закупках, потом модель робота.</h2>
-        <p class="lead reveal">Муниципальные службы покупают по 44-ФЗ и 223-ФЗ. От того, как вы закупаете, зависит, какую технику вообще можно рассматривать.</p>
+        <span class="idx reveal"><b>04</b> — <span data-i18n="industries.municipal.secNames.procurement">КАК КУПИТЬ</span></span>
+        <h2 class="h2 reveal" id="procurement-h" data-i18n="industries.municipal.procurement.title">Сначала закон о закупках, потом модель робота.</h2>
+        <p class="lead reveal" data-i18n="industries.municipal.procurement.lead">Муниципальные службы покупают по 44-ФЗ и 223-ФЗ. От того, как вы закупаете, зависит, какую технику вообще можно рассматривать.</p>
       </div>
       <div class="mbuy">
         <article class="mbuy__doc reveal" aria-labelledby="mbuy-doc-h">
           <div class="mbuy__doc-l">
-            <span class="mono">Национальный режим в госзакупках</span>
-            <h3 id="mbuy-doc-h">«Средства транспортные для коммунального хозяйства и содержания дорог».</h3>
+            <span class="mono" data-i18n="industries.municipal.procurement.doc.kicker">Национальный режим в госзакупках</span>
+            <h3 id="mbuy-doc-h" data-i18n="industries.municipal.procurement.doc.title">«Средства транспортные для коммунального хозяйства и содержания дорог».</h3>
             <dl class="mbuy__req">
-              <div><dt>Документ</dt><dd>ПП РФ № 1875 от 23.12.2024</dd></div>
-              <div><dt>Перечень</dt><dd>Приложение 1 — запрет закупки иностранных товаров</dd></div>
-              <div><dt>Код ОКПД2</dt><dd class="tnum">29.10.59.130</dd></div>
-              <div><dt>По 223-ФЗ</dt><dd>минимальная доля российских товаров — 90% (Приложение 3, п. 197)</dd></div>
+              <div><dt data-i18n="industries.municipal.procurement.doc.document">Документ</dt><dd data-i18n="industries.municipal.procurement.doc.documentValue">ПП РФ № 1875 от 23.12.2024</dd></div>
+              <div><dt data-i18n="industries.municipal.procurement.doc.list">Перечень</dt><dd data-i18n="industries.municipal.procurement.doc.listValue">Приложение 1 — запрет закупки иностранных товаров</dd></div>
+              <div><dt data-i18n="industries.municipal.procurement.doc.okpd">Код ОКПД2</dt><dd class="tnum">29.10.59.130</dd></div>
+              <div><dt data-i18n="industries.municipal.procurement.doc.law223">По 223-ФЗ</dt><dd data-i18n="industries.municipal.procurement.doc.law223Value">минимальная доля российских товаров — 90% (Приложение 3, п. 197)</dd></div>
             </dl>
-            <p class="mn-src mono">Источник: <a href="https://www.alta.ru/tamdoc/24ps1875/" target="_blank" rel="noopener">ПП РФ № 1875, текст на alta.ru</a></p>
+            <p class="mn-src mono"><span data-i18n="industries.common.sources.labelColon">Источник:</span> <span data-i18n="industries.municipal.sources.pp1875.label">ПП РФ № 1875</span></p>
           </div>
-          <p class="mbuy__stamp" aria-hidden="true"><span class="mono">Позиция</span><b class="tnum">п. 98</b></p>
+          <p class="mbuy__stamp" aria-hidden="true"><span class="mono" data-i18n="industries.municipal.procurement.stamp.label">Позиция</span><b class="tnum" data-i18n="industries.municipal.procurement.stamp.value">п. 98</b></p>
         </article>
 
         <div class="mbuy__fork">
-          <p class="mbuy__root reveal"><span class="mono tnum">00</span><b>Обследование территории и ТЗ</b><span>Площади, покрытия, сезонные работы — и как вы закупаете.</span></p>
+          <p class="mbuy__root reveal"><span class="mono tnum">00</span><b data-i18n="industries.municipal.procurement.root.title">Обследование территории и ТЗ</b><span data-i18n="industries.municipal.procurement.root.text">Площади, покрытия, сезонные работы — и как вы закупаете.</span></p>
           <div class="mbuy__ways">
             <article class="mbuy__way reveal" style="--i:1">
-              <span class="mono">Маршрут А</span>
-              <h3>Покупаете технику.</h3>
+              <span class="mono" data-i18n="industries.municipal.procurement.routeA.label">Маршрут А</span>
+              <h3 data-i18n="industries.municipal.procurement.routeA.title">Покупаете технику.</h3>
               <ol>
-                <li>Код ОКПД2 определяет заказчик — по документам производителя.</li>
-                <li>Если робот закупается под кодом из п. 98, иностранную машину купить нельзя.</li>
-                <li>Значит, российский производитель — или маршрут Б.</li>
+                <li data-i18n="industries.municipal.procurement.routeA.steps.0">Код ОКПД2 определяет заказчик — по документам производителя.</li>
+                <li data-i18n="industries.municipal.procurement.routeA.steps.1">Если робот закупается под кодом из п. 98, иностранную машину купить нельзя.</li>
+                <li data-i18n="industries.municipal.procurement.routeA.steps.2">Значит, российский производитель — или маршрут Б.</li>
               </ol>
-              <a class="drow__sol" href="#vendors">Производители ↓</a>
+              <a class="drow__sol" href="#vendors" data-i18n="industries.municipal.procurement.routeA.link">Производители ↓</a>
             </article>
             <article class="mbuy__way mbuy__way--svc reveal" style="--i:2">
-              <span class="mono">Маршрут Б</span>
-              <h3>Покупаете уборку.</h3>
+              <span class="mono" data-i18n="industries.municipal.procurement.routeB.label">Маршрут Б</span>
+              <h3 data-i18n="industries.municipal.procurement.routeB.title">Покупаете уборку.</h3>
               <ol>
-                <li>Предмет закупки — содержание территории: площади, регламент, качество.</li>
-                <li>Подрядчик сам владеет роботами, обслуживает их и отвечает за результат.</li>
-                <li>Удобно для пилота и сезонных работ: платите за убранную территорию, а не за машину.</li>
+                <li data-i18n="industries.municipal.procurement.routeB.steps.0">Предмет закупки — содержание территории: площади, регламент, качество.</li>
+                <li data-i18n="industries.municipal.procurement.routeB.steps.1">Подрядчик сам владеет роботами, обслуживает их и отвечает за результат.</li>
+                <li data-i18n="industries.municipal.procurement.routeB.steps.2">Удобно для пилота и сезонных работ: платите за убранную территорию, а не за машину.</li>
               </ol>
-              <a class="drow__sol" href="#talk">Обсудить уборку как услугу ↓</a>
+              <a class="drow__sol" href="#talk" data-i18n="industries.municipal.procurement.routeB.link">Обсудить уборку как услугу ↓</a>
             </article>
           </div>
         </div>
 
         <div class="mbuy__notes">
-          <aside class="mbuy__note reveal" aria-label="Оговорка"><svg aria-hidden="true"><use href="#i-shield"/></svg><p><b>Это не юридическая консультация.</b> Под какой код ОКПД2 попадает конкретный робот, определяет заказчик по документам производителя. Для компактных роботов это может быть и другой код. Перед закупкой сверьте актуальную редакцию постановления с юристом.</p></aside>
-          <aside class="mbuy__note reveal" style="--i:1" aria-label="Тротуары"><svg aria-hidden="true"><use href="#i-map"/></svg><p><b>Тротуары.</b> Экспериментальный режим для роботов на тротуарах (ПП РФ № 1247 от 30.09.2026) написан под роботов-доставщиков. Распространяется ли он на уборочных роботов, из открытых источников не следует. В парках робот работает на территории заказчика.</p><p class="mn-src mono">Источник: <a href="https://www.comnews.ru/content/247624/2026-09-30/2026-w40/1008/pravitelstvo-rf-zapustilo-epr-dlya-roverov-dostavschikov" target="_blank" rel="noopener">ComNews, 30.09.2026</a></p></aside>
+          <aside class="mbuy__note reveal" data-i18n-attr="aria-label:industries.municipal.procurement.notes.legal.label" aria-label="Оговорка"><svg aria-hidden="true"><use href="#i-shield"/></svg><p data-i18n-html="industries.municipal.procurement.notes.legal.text"><b>Это не юридическая консультация.</b> Под какой код ОКПД2 попадает конкретный робот, определяет заказчик по документам производителя. Для компактных роботов это может быть и другой код. Перед закупкой сверьте актуальную редакцию постановления с юристом.</p></aside>
+          <aside class="mbuy__note reveal" style="--i:1" data-i18n-attr="aria-label:industries.municipal.procurement.notes.sidewalks.label" aria-label="Тротуары"><svg aria-hidden="true"><use href="#i-map"/></svg><p data-i18n-html="industries.municipal.procurement.notes.sidewalks.text"><b>Тротуары.</b> Экспериментальный режим для роботов на тротуарах (ПП РФ № 1247 от 30.09.2026) написан под роботов-доставщиков. Распространяется ли он на уборочных роботов, из открытых источников не следует. В парках робот работает на территории заказчика.</p></aside>
         </div>
       </div>
     </section>
 
-    <!-- ================= 06 С ЧЕГО НАЧАТЬ ================= -->
-    <section class="sol-sec wrap" id="pilot" data-sec="06" data-name="С ЧЕГО НАЧАТЬ" aria-labelledby="pilot-h">
+    <!-- ================= 05 С ЧЕГО НАЧАТЬ ================= -->
+    <section class="sol-sec wrap" id="pilot" data-sec="05" data-name="С ЧЕГО НАЧАТЬ" data-i18n-attr="data-name:industries.common.sections.pilot" aria-labelledby="pilot-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>06</b> — С ЧЕГО НАЧАТЬ</span>
-        <h2 class="h2 reveal" id="pilot-h">Начните с одной аллеи.</h2>
+        <span class="idx reveal"><b>05</b> — <span data-i18n="industries.common.sections.pilot">С ЧЕГО НАЧАТЬ</span></span>
+        <h2 class="h2 reveal" id="pilot-h" data-i18n="industries.municipal.heads.pilot">Начните с одной аллеи.</h2>
       </div>
       <ol class="steps">
-        <li class="steps__i reveal" style="--i:0"><span class="steps__no mono tnum">01</span><h3>Обследование территории</h3><p>Покрытия, уклоны, бордюры, маршруты, где хранить и заряжать технику. Отдельно — как вы закупаете.</p></li>
-        <li class="steps__i reveal" style="--i:1"><span class="steps__no mono tnum">02</span><h3>Пилот на одной аллее или паркинге</h3><p>Сравниваем с текущим регламентом уборки: проходы, время, что остаётся бригаде.</p></li>
-        <li class="steps__i reveal" style="--i:2"><span class="steps__no mono tnum">03</span><h3>Решение о закупке</h3><p>Техника по 44-ФЗ или 223-ФЗ, аренда или уборка как услуга. Затем — остальная территория.</p></li>
+        <li class="steps__i reveal" style="--i:0"><span class="steps__no mono tnum">01</span><h3 data-i18n="industries.municipal.pilot.items.0.title">Обследование территории</h3><p data-i18n="industries.municipal.pilot.items.0.text">Покрытия, уклоны, бордюры, маршруты, где хранить и заряжать технику. Отдельно — как вы закупаете.</p></li>
+        <li class="steps__i reveal" style="--i:1"><span class="steps__no mono tnum">02</span><h3 data-i18n="industries.municipal.pilot.items.1.title">Пилот на одной аллее или паркинге</h3><p data-i18n="industries.municipal.pilot.items.1.text">Сравниваем с текущим регламентом уборки: проходы, время, что остаётся бригаде.</p></li>
+        <li class="steps__i reveal" style="--i:2"><span class="steps__no mono tnum">03</span><h3 data-i18n="industries.municipal.pilot.items.2.title">Решение о закупке</h3><p data-i18n="industries.municipal.pilot.items.2.text">Техника по 44-ФЗ или 223-ФЗ, аренда или уборка как услуга. Затем — остальная территория.</p></li>
       </ol>
     </section>
 
-    <!-- ================= 07 ОБОРУДОВАНИЕ ================= -->
-    <section class="sol-sec wrap" id="vendors" data-sec="07" data-name="ОБОРУДОВАНИЕ" aria-labelledby="vendors-h">
+    <!-- ================= 06 ОБОРУДОВАНИЕ ================= -->
+    <section class="sol-sec wrap" id="vendors" data-sec="06" data-name="ОБОРУДОВАНИЕ" data-i18n-attr="data-name:industries.common.sections.vendors" aria-labelledby="vendors-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>07</b> — ОБОРУДОВАНИЕ</span>
-        <h2 class="h2 reveal" id="vendors-h">Оборудование и производители.</h2>
-        <p class="lead reveal">Бюджетному заказчику сначала смотрим российских производителей: по части кодов ОКПД2 иностранную технику закупить нельзя.</p>
+        <span class="idx reveal"><b>06</b> — <span data-i18n="industries.common.sections.vendors">ОБОРУДОВАНИЕ</span></span>
+        <h2 class="h2 reveal" id="vendors-h" data-i18n="industries.municipal.heads.vendors">Оборудование и производители.</h2>
+        <p class="lead reveal" data-i18n="industries.municipal.vendorsLead">Бюджетному заказчику сначала смотрим российских производителей: по части кодов ОКПД2 иностранную технику закупить нельзя.</p>
       </div>
       <div class="vend">
         <div class="vend__grp reveal" style="--i:0">
-          <h3 class="mono">Подметание и паркинги</h3>
+          <h3 class="mono" data-i18n="industries.municipal.vendors.items.0.group">Подметание и паркинги</h3>
           <ul class="vend__list"><li class="vlogo"><img src="assets/brands/pudu.svg" alt="Pudu Robotics" style="--h:30px" width="93" height="24" loading="lazy"></li></ul>
         </div>
         <div class="vend__grp reveal" style="--i:1">
-          <h3 class="mono">Роботизированные косилки</h3>
+          <h3 class="mono" data-i18n="industries.municipal.vendors.items.1.group">Роботизированные косилки</h3>
           <ul class="vend__list"><li class="vlogo"><img src="assets/brands/fjdynamics.png" alt="FJ Dynamics" style="--h:34px" width="396" height="96" loading="lazy"></li></ul>
         </div>
         <div class="vend__grp reveal" style="--i:2">
-          <h3 class="mono">Дистанционно управляемая техника для откосов</h3>
+          <h3 class="mono" data-i18n="industries.municipal.vendors.items.2.group">Дистанционно управляемая техника для откосов</h3>
           <ul class="vend__list"><li class="vlogo"><img src="assets/brands/koham.png" alt="Koham" style="--h:28px" width="399" height="83" loading="lazy"></li><li class="vlogo"><img src="assets/brands/leking.png" alt="Leking" style="--h:32px" width="226" height="60" loading="lazy"></li></ul>
         </div>
-        <div class="vend__grp reveal" style="--i:3">
-          <h3 class="mono">Российские производители</h3>
-          <ul class="vend__list"><li class="vlogo vlogo--text">«Автономика»</li></ul>
-        </div>
       </div>
     </section>
 
-    <!-- ================= 08 ПОЧЕМУ ПРОФРОБОТ ================= -->
-    <section class="sol-sec wrap" id="why" data-sec="08" data-name="ПОЧЕМУ ПРОФРОБОТ" aria-labelledby="why-h">
+    <!-- ================= 07 ПОЧЕМУ ПРОФРОБОТ ================= -->
+    <section class="sol-sec wrap" id="why" data-sec="07" data-name="ПОЧЕМУ ПРОФРОБОТ" data-i18n-attr="data-name:industries.common.sections.why" aria-labelledby="why-h">
       <div class="whyn reveal">
-        <span class="idx reveal"><b>08</b> — ПОЧЕМУ ПРОФРОБОТ</span>
-        <h2 class="whyn__h" id="why-h">Техника или результат — выбирать вам.</h2>
-        <p>Роботов можно купить, взять в аренду или заказать уборку как услугу, где техникой владеет подрядчик. Обслуживаем по SLA, чтобы машина не стояла в листопад и снегопад.</p>
-        <a class="text-link" href="/products/raas/">Аренда роботов (RaaS) <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="idx reveal"><b>07</b> — <span data-i18n="industries.common.sections.why">ПОЧЕМУ ПРОФРОБОТ</span></span>
+        <h2 class="whyn__h" id="why-h" data-i18n="industries.municipal.why.title">Техника или результат — выбирать вам.</h2>
+        <p data-i18n="industries.municipal.why.text">Роботов можно купить, взять в аренду или заказать уборку как услугу, где техникой владеет подрядчик. Обслуживаем по SLA, чтобы машина не стояла в листопад и снегопад.</p>
+        <a class="text-link" href="products.html#raas"><span data-i18n="common.linkNames.raas">Аренда роботов (RaaS)</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
 
-    <!-- ================= 09 ЗАЯВКА ================= -->
-    <section class="sol-sec wrap" id="talk" data-sec="09" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+    <!-- ================= 08 ЗАЯВКА ================= -->
+    <section class="sol-sec wrap" id="talk" data-sec="08" data-name="ЗАЯВКА" data-i18n-attr="data-name:industries.common.sections.form" aria-labelledby="talk-h">
       <div class="talk">
         <div class="talk__copy">
-          <span class="idx reveal"><b>09</b> — ЗАЯВКА</span>
-          <h2 class="h2 reveal" id="talk-h">Обсудим вашу территорию.</h2>
-          <p class="lead reveal">Опишите территорию и как вы закупаете — подскажем технику, участок для пилота и модель покупки.</p>
-          <a class="text-link reveal" href="tel:+74951234567">Или позвоните: +7 (495) 123-45-67</a>
+          <span class="idx reveal"><b>08</b> — <span data-i18n="industries.common.sections.form">ЗАЯВКА</span></span>
+          <h2 class="h2 reveal" id="talk-h" data-i18n="industries.municipal.form.title">Обсудим вашу территорию.</h2>
+          <p class="lead reveal" data-i18n="industries.municipal.form.lead">Опишите территорию и как вы закупаете — подскажем технику, участок для пилота и модель покупки.</p>
+          <a class="text-link reveal" href="tel:+74951234567" data-i18n="industries.common.form.callUs">Или позвоните: +7 (495) 123-45-67</a>
         </div>
 
         <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="industries/municipal" aria-labelledby="talk-h">
           <div class="form__row">
             <div class="fld">
-              <label for="f-name">Имя</label>
+              <label for="f-name" data-i18n="common.form.name">Имя</label>
               <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
               <span class="fld__err" id="f-name-err" role="alert"></span>
             </div>
             <div class="fld">
-              <label for="f-phone">Телефон</label>
+              <label for="f-phone" data-i18n="common.form.phone">Телефон</label>
               <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
               <span class="fld__err" id="f-phone-err" role="alert"></span>
             </div>
           </div>
           <div class="fld">
-            <label for="f-dir">Направление <small>необязательно</small></label>
+            <label for="f-dir" data-i18n-html="industries.common.form.directionLabel">Направление <small>необязательно</small></label>
             <select id="f-dir" name="direction">
-              <option value="">Пока не знаю</option>
-              <option value="streets">Дорожки, тротуары, набережные, парки</option>
-              <option value="winter">Зимнее содержание: снег и реагенты</option>
-              <option value="lawns">Газоны и откосы</option>
-              <option value="parking">Паркинги и большие площадки</option>
+              <option value="" data-i18n="common.form.directionUnknown">Пока не знаю</option>
+              <option value="streets" data-i18n="industries.municipal.directions.items.0.title">Дорожки, тротуары, набережные, парки</option>
+              <option value="winter" data-i18n="industries.municipal.directions.items.1.title">Зимнее содержание: снег и реагенты</option>
+              <option value="lawns" data-i18n="industries.municipal.directions.items.2.title">Газоны и откосы</option>
+              <option value="parking" data-i18n="industries.municipal.directions.items.3.title">Паркинги и большие площадки</option>
             </select>
           </div>
-          <div class="hp" aria-hidden="true"><label>Не заполняйте <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="fld">
-            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
             <span class="fld__err" id="f-consent-err" role="alert"></span>
           </div>
           <div class="form__foot">
-            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Обсудить пилот</span></button>
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t" data-i18n="industries.municipal.form.button">Обсудить пилот</span></button>
             <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
           </div>
           <div class="form__ok" role="status">
             <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
-            <b>Заявка принята.</b>
-            <p>Перезвоним в рабочее время.</p>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
           </div>
         </form>
       </div>
     </section>
 
-    <!-- ================= 10 СМОТРИТЕ ТАКЖЕ ================= -->
-    <section class="sol-sec wrap" id="see" data-sec="10" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+    <!-- ================= 09 СМОТРИТЕ ТАКЖЕ ================= -->
+    <section class="sol-sec wrap" id="see" data-sec="09" data-name="СМОТРИТЕ ТАКЖЕ" data-i18n-attr="data-name:industries.common.sections.see" aria-labelledby="see-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>10</b> — СМОТРИТЕ ТАКЖЕ</span>
-        <h2 class="h2 reveal" id="see-h">Смотрите также.</h2>
+        <span class="idx reveal"><b>09</b> — <span data-i18n="industries.common.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 class="h2 reveal" id="see-h" data-i18n="industries.common.heads.see">Смотрите также.</h2>
       </div>
       <div class="seeg">
         <a class="seel reveal" style="--i:0" href="/solutions/cleaning/">
-          <span class="dir__no">РЕШЕНИЕ</span>
-          <h3>Роботизированный клининг</h3>
-          <p>Подметальные и поломоечные роботы.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.solution">РЕШЕНИЕ</span>
+          <h3 data-i18n="common.solutionNames.cleaning">Роботизированный клининг</h3>
+          <p data-i18n="industries.municipal.links.items.0.text">Подметальные и поломоечные роботы.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:1" href="/solutions/agro/">
-          <span class="dir__no">РЕШЕНИЕ</span>
-          <h3>Агророботы и уход за территорией</h3>
-          <p>Косилки и техника для газонов.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.solution">РЕШЕНИЕ</span>
+          <h3 data-i18n="common.solutionNames.agroGrounds">Агророботы и уход за территорией</h3>
+          <p data-i18n="industries.municipal.links.items.1.text">Косилки и техника для газонов.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
-        <a class="seel reveal" style="--i:2" href="/products/raas/">
-          <span class="dir__no">ПРОДУКТ</span>
-          <h3>Аренда роботов (RaaS)</h3>
-          <p>Техника без покупки, на сезон или дольше.</p>
+        <a class="seel reveal" style="--i:2" href="products.html#raas">
+          <span class="dir__no" data-i18n="industries.common.kickers.product">ПРОДУКТ</span>
+          <h3 data-i18n="common.linkNames.raas">Аренда роботов (RaaS)</h3>
+          <p data-i18n="industries.municipal.links.items.2.text">Техника без покупки, на сезон или дольше.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
-        <a class="seel reveal" style="--i:3" href="/products/cleaning-operations/">
-          <span class="dir__no">ПРОДУКТ</span>
-          <h3>Cleaning Operations Platform</h3>
-          <p>Регламенты уборки и отчёты в одном окне.</p>
+        <a class="seel reveal" style="--i:3" href="products.html#platform">
+          <span class="dir__no" data-i18n="industries.common.kickers.product">ПРОДУКТ</span>
+          <h3 data-i18n="industries.municipal.links.items.3.title">Cleaning Operations Platform</h3>
+          <p data-i18n="industries.municipal.links.items.3.text">Регламенты уборки и отчёты в одном окне.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:4" href="/services/audit/">
-          <span class="dir__no">УСЛУГА</span>
-          <h3>Аудит территории</h3>
-          <p>Покрытия, маршруты, модель закупки.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.service">УСЛУГА</span>
+          <h3 data-i18n="common.linkNames.auditTerritory">Аудит территории</h3>
+          <p data-i18n="industries.municipal.links.items.4.text">Покрытия, маршруты, модель закупки.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:5" href="/services/pilot/">
-          <span class="dir__no">УСЛУГА</span>
-          <h3>Пилот</h3>
-          <p>Одна аллея или паркинг — до решения о закупке.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.service">УСЛУГА</span>
+          <h3 data-i18n="common.linkNames.pilot">Пилот</h3>
+          <p data-i18n="industries.municipal.links.items.5.text">Одна аллея или паркинг — до решения о закупке.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:6" href="/cases/?industry=municipal">
-          <span class="dir__no">КЕЙСЫ</span>
-          <h3>Кейсы: муниципальные службы</h3>
-          <p>Внедрения на городских территориях.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.cases">КЕЙСЫ</span>
+          <h3 data-i18n="industries.municipal.links.items.6.title">Кейсы: муниципальные службы</h3>
+          <p data-i18n="industries.municipal.links.items.6.text">Внедрения на городских территориях.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:7" href="/industries/">
-          <span class="dir__no">ОТРАСЛИ</span>
-          <h3>Все отрасли</h3>
-          <p>Все 11 отраслевых страниц.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.industries">ОТРАСЛИ</span>
+          <h3 data-i18n="industries.common.links.allIndustries">Все отрасли</h3>
+          <p data-i18n="industries.common.links.allIndustriesText">Все 11 отраслевых страниц.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </div>
@@ -494,19 +498,19 @@
     <div class="stage foot">
       <div class="foot-top">
         <div class="foot-brand">
-          <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
-          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+          <a href="index.html" data-i18n-attr="aria-label:common.brand.homeLabel" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" data-i18n-attr="alt:common.brand.logoAlt" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
         </div>
         <div class="foot-call">
-          <span class="mono">Отдел внедрения</span>
+          <span class="mono" data-i18n="common.footer.dept">Отдел внедрения</span>
           <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
           <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
         </div>
       </div>
       <div class="foot-bot">
-        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
-        <a href="#">Политика конфиденциальности</a>
-        <a class="foot-up" href="index.html#industries">Все отрасли <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <span data-i18n="common.footer.rights">© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a href="#" data-i18n="common.footer.privacy">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html#industries"><span data-i18n="common.footer.allIndustries">Все отрасли</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
   </footer>

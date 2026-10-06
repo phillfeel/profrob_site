@@ -36,6 +36,7 @@ const WINDOWS = [
 const PEAKS = [{ at: 8, label: 'Утренний пик' }, { at: 18, label: 'Вечерний пик' }];
 
 // Other companies' deployments (not PROFROBOT's) — wording says «работают», not «мы внедрили».
+// Competitors (Russian makers we do not work with) are not named.
 const PROOF = {
   main: {
     place: 'Вокзалы РЖД',
@@ -43,24 +44,12 @@ const PROOF = {
     value: '1 980',
     unit: 'м²/ч',
     text: 'Автономные роботы-уборщики подметают и моют залы, сами строят карту помещений и фиксируют степень загрязнения. Производительность — до 1 980 м² в час. Модель и число роботов РЖД не называли.',
-    source: { label: 'Telegram-канал РЖД в пересказе iXBT, 06.05.2026', href: 'https://www.ixbt.com/news/2026/05/06/v-rzhd-zapustili-avtonomnyh-robotovuborshikov-na-vokzalah-moskvy-i-sanktpeterburga.html' },
   },
   more: [
     {
       place: 'Аэропорт Пулково',
       text: 'Роботы-уборщики с лидарами и камерами в залах регистрации и прилёта.',
       value: '5 000 м²', valueNote: 'на одном заряде',
-      source: { label: 'KudaGo, 2025', href: 'https://kudago.com/spb/news/v-aeroportu-pulkovo-poyavilis/' },
-    },
-    {
-      place: 'Шереметьево (терминал B), Толмачёво',
-      text: 'Роботы ROBO RUBY-S. Производитель заявляет рост производительности уборки «в 2+ раза».',
-      source: { label: 'по данным производителя ROBO', href: 'https://robo.ooo/' },
-    },
-    {
-      place: 'Аэропорты Красноярска и Краснодара',
-      text: 'Роботы R2B Mark 2 SE. Цифр эффекта производитель не публикует.',
-      source: { label: 'по данным производителя R2B' },
     },
   ],
 };
@@ -93,10 +82,6 @@ const industry = {
   staffing: {
     value: '> 80%',
     text: 'персонала клининга в России — иностранные граждане. А регионы ужесточают наём мигрантов: в 2025 году дополнительные ограничения ввели в 11 регионах.',
-    sources: [
-      { label: 'CORE.XP в «Коммерсанте», 2025', href: 'https://www.kommersant.ru/doc/7755385' },
-      { label: 'The Moscow Times, 19.08.2025', href: 'https://ru.themoscowtimes.com/2025/08/19/vlasti-zadumali-ogranichit-naem-migrantov-v-obschepite-stroitelstve-i-esche-semi-otraslyah-a172057' },
-    ],
   },
   directions: [
     {
@@ -130,8 +115,6 @@ const industry = {
   vendors: [
     { group: 'Уборка залов и терминалов', brands: ['gausium', 'pudu', 'orionstar', 'lionsbot'] },
     { group: 'Навигация и информирование', brands: ['orionstar', 'ubtech', 'keenon', 'pudu'] },
-    // TODO(client): подтвердить, что работаем с ROBO и R2B.
-    { group: 'Российские производители', brands: ['robo', 'r2b'] },
   ],
   vendorsLead: 'Технику подбираем под площадь, покрытие пола и режим объекта, без привязки к одному вендору.',
   why: {
@@ -149,8 +132,8 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Поломоечные роботы для больших площадей.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Сервисные роботы', text: 'Навигация и ответы посетителям.', href: SOL.service.href },
     { kicker: 'РЕШЕНИЕ', title: 'Роботы безопасности', text: 'Патрулирование периметра и паркингов.', href: SOL.security.href },
-    { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Уборка как услуга, без покупки техники.', href: '/products/raas/' },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Управление уборкой и отчёты в одном окне.', href: '/products/cleaning-operations/' },
+    { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Уборка как услуга, без покупки техники.', href: 'products.html#raas' },
+    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'ОТРАСЛЬ', title: 'Муниципальные службы', text: 'Парки и улицы — там.', href: '/industries/municipal/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: общественные пространства', text: 'Внедрения на вокзалах и в аэропортах.', href: '/cases/?industry=public-spaces' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
@@ -160,45 +143,42 @@ const industry = {
 
 // ───────── renderers ─────────
 
-const ext = (s, h) => (s.href
-  ? `<a href="${s.href}" target="_blank" rel="noopener">${h.esc(s.label)}</a>`
-  : h.esc(s.label));
-
 const hero = (ind, n, h) => {
   const rows = BOARD.map((r, i) => `<li class="psb__row" style="--r:${i}">
                 <a href="#${r.anchor}">
                   <span class="psb__no tnum">${h.pad(i + 1)}</span>
-                  <span class="psb__zone">${h.esc(r.zone)}</span>
-                  <span class="psb__task">${h.esc(r.task)}</span>
-                  <span class="psb__mode">${h.esc(r.mode)}</span>
+                  <span class="psb__zone"${h.T(r, 'zone')}>${h.esc(r.zone)}</span>
+                  <span class="psb__task"${h.T(r, 'task')}>${h.esc(r.task)}</span>
+                  <span class="psb__mode"${h.T(r, 'mode')}>${h.esc(r.mode)}</span>
                   <span class="psb__go">${h.ARROW_R}</span>
                 </a>
               </li>`).join('\n              ');
   const p = ind.photo;
-  return `<section class="ih ih--board wrap" data-sec="${n}" data-name="${ind.name.toUpperCase()}">
+  const mPh = h.msg('industries.common.photo.placeholder', { ratio: '4:3' });
+  return `<section class="ih ih--board wrap" data-sec="${n}"${h.dnName(ind)}>
       <div class="ih__grid">
         <div class="ih__copy">
           ${h.heroCopy(ind, n)}
         </div>
         <div class="psh__media">
           ${heroPhoto(ind.slug) ? `<figure class="ph ph--photo psh__ph reveal" style="--ar:4/3;--i:1">
-            <img class="ph__img" src="${heroPhoto(ind.slug)}" alt="${h.esc(p.alt)}" width="1536" height="1024" decoding="async">
+            <img class="ph__img" src="${heroPhoto(ind.slug)}" alt="${h.esc(p.alt)}"${h.TA(['alt', h.dk(p, 'alt')])} width="1536" height="1024" decoding="async">
           </figure>` : `<!-- Место под фото Hero (4:3): ${h.esc(p.note)}, docs/specs/ПРОМПТЫ_HERO_ОТРАСЛИ.md. alt будущего фото: «${h.esc(p.alt)}» -->
           <figure class="ph psh__ph reveal" style="--ar:4/3;--i:1">
             <img class="ph__robot" src="assets/robots/${p.robot}" alt="" width="${p.w}" height="${p.h}">
-            <figcaption class="ph__lbl mono">Место под фото · 4:3</figcaption>
+            <figcaption class="ph__lbl mono"${mPh.attr}>${mPh.text}</figcaption>
           </figure>`}
           <div class="psb reveal" style="--i:2">
             <div class="psb__head">
-              <span>Роботы на смене</span>
+              <span${h.L('hero.board.title')}>Роботы на смене</span>
               <span class="psb__clock tnum" data-ps-clock aria-hidden="true">--<i>:</i>--</span>
             </div>
-            <div class="psb__cols" aria-hidden="true"><span>№</span><span>Зона · что делает робот</span><span class="psb__cm">Режим</span></div>
-            <ol class="psb__list" aria-label="Сценарии работы роботов по зонам">
+            <div class="psb__cols" aria-hidden="true"><span>№</span><span${h.L('hero.board.cols.zone')}>Зона · что делает робот</span><span class="psb__cm"${h.L('hero.board.cols.mode')}>Режим</span></div>
+            <ol class="psb__list"${h.TA(['aria-label', h.pk('hero.board.listLabel')])} aria-label="Сценарии работы роботов по зонам">
               ${rows}
             </ol>
           </div>
-          <p class="psb__note">Сценарии примерные. Режим работы составляем на аудите объекта.</p>
+          <p class="psb__note"${h.L('hero.board.note')}>Сценарии примерные. Режим работы составляем на аудите объекта.</p>
         </div>
       </div>
     </section>`;
@@ -208,18 +188,17 @@ const problems = (ind, n, h) => {
   const s = ind.staffing;
   const items = ind.problems.map((p, i) => `<li class="psp__i reveal" style="--i:${i + 1}">
           <span class="ic-tile">${h.icon(p.icon)}</span>
-          <h3>${h.esc(p.title)}</h3>
-          <p>${h.esc(p.text)}</p>
+          <h3${h.T(p, 'title')}>${h.esc(p.title)}</h3>
+          <p${h.T(p, 'text')}>${h.esc(p.text)}</p>
         </li>`).join('\n        ');
-  return `<section class="sol-sec wrap" id="problems" data-sec="${n}" data-name="${h.SEC_NAMES.problems}" aria-labelledby="problems-h">
-      ${h.secHead(n, h.SEC_NAMES.problems, h.head(ind, 'problems'), null, 'problems-h')}
+  return `<section class="sol-sec wrap" id="problems" data-sec="${n}"${h.dn(ind, 'problems')} aria-labelledby="problems-h">
+      ${h.secHead(n, h.secName(ind, 'problems'), h.head(ind, 'problems'), null, 'problems-h')}
       <div class="psp">
         <div class="psp__fact reveal">
           <span class="ic-tile">${h.icon('people')}</span>
-          <h3>Рук не хватает</h3>
-          <p class="psp__v tnum">${h.esc(s.value)}</p>
-          <p>${h.esc(s.text)}</p>
-          <p class="psp__src mono">Источник: ${s.sources.map((x) => ext(x, h)).join('; ')}</p>
+          <h3${h.L('problems.staffingTitle')}>Рук не хватает</h3>
+          <p class="psp__v tnum"${h.TN(h.dk(s, 'value'), s.value)}>${h.esc(s.value)}</p>
+          <p${h.T(s, 'text')}>${h.esc(s.text)}</p>
         </div>
         <ol class="psp__list">
         ${items}
@@ -252,83 +231,83 @@ const flow = (ind, n, h) => {
   const bands = WINDOWS.map((w, i) => `<rect class="psf__band" style="--i:${i}" x="${xAt(w.from).toFixed(1)}" y="0" width="${(xAt(w.to) - xAt(w.from)).toFixed(1)}" height="${HGT}"/>`).join('');
   const grid = [6, 12, 18].map((hr) => `<line class="psf__grid" x1="${xAt(hr)}" x2="${xAt(hr)}" y1="0" y2="${HGT}"/>`).join('');
   const marks = WINDOWS.map((w, i) => `<span class="psf__mark tnum" style="--at:${(w.from + w.to) / 2}">${i + 1}</span>`).join('');
-  const peaks = PEAKS.map((p) => `<span class="psf__peak" style="--at:${p.at}">${h.esc(p.label)}</span>`).join('');
+  const peaks = PEAKS.map((p) => `<span class="psf__peak" style="--at:${p.at}"${h.T(p, 'label')}>${h.esc(p.label)}</span>`).join('');
   const ticks = [0, 6, 12, 18, 24].map((hr) => `<span style="--at:${hr}">${h.pad(hr)}:00</span>`).join('');
   const legend = WINDOWS.map((w, i) => `<li class="reveal" style="--i:${i}">
             <span class="psf__lno tnum">${i + 1}</span>
             <span class="psf__lt tnum">${fmtH(w.from, h)}–${fmtH(w.to, h)}</span>
-            <b>${h.esc(w.title)}</b>
-            <span class="psf__lx">${h.esc(w.text)}</span>
+            <b${h.T(w, 'title')}>${h.esc(w.title)}</b>
+            <span class="psf__lx"${h.T(w, 'text')}>${h.esc(w.text)}</span>
           </li>`).join('\n          ');
   const desc = `Условный график пассажиропотока за сутки: утренний пик около 8 часов, вечерний около 18 часов. Окна уборки: ${WINDOWS.map((w) => `${fmtH(w.from, h)}–${fmtH(w.to, h)} ${w.title.toLowerCase()}`).join('; ')}.`;
-  return `<section class="sol-sec wrap" id="flow" data-sec="${n}" data-name="${ind.secNames.flow}" aria-labelledby="flow-h">
+  return `<section class="sol-sec wrap" id="flow" data-sec="${n}"${h.dn(ind, 'flow')} aria-labelledby="flow-h">
       <div class="psf">
         <div class="psf__head">
-          ${h.idx(n, ind.secNames.flow)}
-          <h2 class="h2 reveal" id="flow-h">Между волнами пассажиров.</h2>
-          <p class="lead reveal">Поток людей идёт волнами. Робот моет залы ночью и в провалах между пиками: не мешает пассажирам и не ездит по мокрому полу в толпе.</p>
+          ${h.idx(n, h.secName(ind, 'flow'))}
+          <h2 class="h2 reveal" id="flow-h"${h.L('flow.title')}>Между волнами пассажиров.</h2>
+          <p class="lead reveal"${h.L('flow.lead')}>Поток людей идёт волнами. Робот моет залы ночью и в провалах между пиками: не мешает пассажирам и не ездит по мокрому полу в толпе.</p>
         </div>
         <figure class="psf__fig reveal" data-ps-flow>
           <div class="psf__chart">
             <div class="psf__peaks" aria-hidden="true">${peaks}</div>
             <svg class="psf__svg" viewBox="0 0 ${W} ${HGT}" preserveAspectRatio="none" role="img" aria-labelledby="flow-svg-t">
-              <title id="flow-svg-t">${h.esc(desc)}</title>
+              <title id="flow-svg-t"${h.L('flow.chartDescription')}>${h.esc(desc)}</title>
               ${grid}${bands}
               <path class="psf__area" d="${area}"/>
               <path class="psf__line" d="${line}"/>
             </svg>
             <div class="psf__marks" aria-hidden="true">${marks}</div>
-            <div class="psf__now" data-ps-now hidden><span class="tnum">Сейчас <b data-ps-now-t></b></span></div>
+            <div class="psf__now" data-ps-now hidden><span class="tnum"><bdi${h.L('flow.now')}>Сейчас</bdi> <b data-ps-now-t></b></span></div>
           </div>
           <div class="psf__scale" aria-hidden="true">${ticks}</div>
-          <figcaption class="psf__cap"><span class="psf__key psf__key--flow"></span>поток людей <span class="psf__key psf__key--win"></span>окно уборки <span class="psf__sep">·</span> Условный график: форма потока показана для примера. Часы пиков на вашем объекте снимаем на аудите и по ним составляем расписание робота.</figcaption>
+          <figcaption class="psf__cap"><span class="psf__key psf__key--flow"></span><bdi${h.L('flow.legend.flow')}>поток людей</bdi> <span class="psf__key psf__key--win"></span><bdi${h.L('flow.legend.window')}>окно уборки</bdi> <span class="psf__sep">·</span> <bdi${h.L('flow.legend.note')}>Условный график: форма потока показана для примера. Часы пиков на вашем объекте снимаем на аудите и по ним составляем расписание робота.</bdi></figcaption>
         </figure>
         <ol class="psf__legend">
           ${legend}
         </ol>
-        <a class="drow__sol psf__to" href="#halls">Направление: уборка залов ожидания, терминалов, переходов ↓</a>
+        <a class="drow__sol psf__to" href="#halls"${h.L('flow.toDirection')}>Направление: уборка залов ожидания, терминалов, переходов ↓</a>
       </div>
     </section>`;
 };
 
-const directions = (ind, n, h) => `<section class="sol-sec wrap" id="directions" data-sec="${n}" data-name="${h.SEC_NAMES.directions}" aria-labelledby="directions-h">
-      ${h.secHead(n, h.SEC_NAMES.directions, h.head(ind, 'directions'), 'Вокзалы, аэропорты, музеи, выставочные центры, МФЦ и концертные площадки. Парки и улицы — на странице «Муниципальные службы».', 'directions-h')}
+const directions = (ind, n, h) => `<section class="sol-sec wrap" id="directions" data-sec="${n}"${h.dn(ind, 'directions')} aria-labelledby="directions-h">
+      ${h.secHead(n, h.secName(ind, 'directions'), h.head(ind, 'directions'), h.lt('directions.lead', 'Вокзалы, аэропорты, музеи, выставочные центры, МФЦ и концертные площадки. Парки и улицы — на странице «Муниципальные службы».'), 'directions-h')}
       <div class="drows">
         ${ind.directions.map((d, i) => `<article class="drow psd reveal" id="${d.anchor}" style="--i:${i}">
           <div class="drow__l">
             <span class="drow__no mono">${h.pad(i + 1)}</span>
-            <h3>${h.esc(d.title)}</h3>
-            <p>${h.esc(d.text)}</p>
+            <h3${h.T(d, 'title')}>${h.esc(d.title)}</h3>
+            <p${h.T(d, 'text')}>${h.esc(d.text)}</p>
           </div>
           <div class="drow__r">
-            <span class="psd__st mono${d.proven ? ' psd__st--on' : ''}">${h.esc(d.status)}</span>
-            <p class="drow__items">${d.items.map(h.esc).join(' · ')}</p>
-            <a class="drow__sol" href="${d.solution.href}">Решение: ${h.esc(d.solution.label)} ${h.ARROW_UR}</a>
+            <span class="psd__st mono${d.proven ? ' psd__st--on' : ''}"${h.T(d, 'status')}>${h.esc(d.status)}</span>
+            <p class="drow__items">${h.itemsList(d.items)}</p>
+            ${h.solLink(d.solution)}
           </div>
         </article>`).join('\n        ')}
       </div>
-      <p class="psd__more">Ищете уборку парков и улиц? <a class="text-link" href="/industries/municipal/">Муниципальные службы ${h.ARROW_R}</a></p>
+      <p class="psd__more"><span${h.L('directions.more')}>Ищете уборку парков и улиц?</span> <a class="text-link" href="/industries/municipal/"><span${h.K('industries.municipal.name')}>Муниципальные службы</span> ${h.ARROW_R}</a></p>
     </section>`;
 
 const proof = (ind, n, h) => {
   const m = PROOF.main;
   const more = PROOF.more.map((c, i) => `<li class="psw__i reveal" style="--i:${i + 1}">
-            <h3>${h.esc(c.place)}</h3>
-            ${c.value ? `<p class="psw__v"><b class="tnum">${h.esc(c.value)}</b> ${h.esc(c.valueNote)}</p>` : ''}
-            <p>${h.esc(c.text)}</p>
-            <p class="psw__src mono">Источник: ${ext(c.source, h)}</p>
+            <h3${h.T(c, 'place')}>${h.esc(c.place)}</h3>
+            ${c.value ? `<p class="psw__v"><b class="tnum"${h.T(c, 'value')}>${h.esc(c.value)}</b> <bdi${h.T(c, 'valueNote')}>${h.esc(c.valueNote)}</bdi></p>` : ''}
+            <p${h.T(c, 'text')}>${h.esc(c.text)}</p>
           </li>`).join('\n          ');
-  return `<section class="sol-sec wrap" id="proof" data-sec="${n}" data-name="${ind.secNames.proof}" aria-labelledby="proof-h">
-      ${h.secHead(n, ind.secNames.proof, 'Роботы-уборщики уже работают на вокзалах и в аэропортах.', 'Это внедрения других компаний, не ПРОФРОБОТ. Показываем их, чтобы было видно: техника справляется с залами и потоком людей.', 'proof-h')}
+  // «1 980»: the gap between the groups of digits is an element, so the message is the number {n}, formatted per language
+  const mValue = h.msg('industries.publicSpaces.proof.main.value', { n: Number(m.value.replace(/\s/g, '')) });
+  return `<section class="sol-sec wrap" id="proof" data-sec="${n}"${h.dn(ind, 'proof')} aria-labelledby="proof-h">
+      ${h.secHead(n, h.secName(ind, 'proof'), h.lt('proof.title', 'Роботы-уборщики уже работают на вокзалах и в аэропортах.'), h.lt('proof.lead', 'Это внедрения других компаний, не ПРОФРОБОТ. Показываем их, чтобы было видно: техника справляется с залами и потоком людей.'), 'proof-h')}
       <div class="psw">
         <article class="psw__main reveal">
           <div class="psw__mhead">
-            <h3>${h.esc(m.place)}</h3>
-            <ul class="psw__st" aria-label="Вокзалы">${m.stations.map((s) => `<li>${h.esc(s)}</li>`).join('')}</ul>
+            <h3${h.T(m, 'place')}>${h.esc(m.place)}</h3>
+            <ul class="psw__st"${h.TA(['aria-label', h.pk('proof.stationsLabel')])} aria-label="Вокзалы">${m.stations.map((s, i) => `<li${h.T(m.stations, i)}>${h.esc(s)}</li>`).join('')}</ul>
           </div>
-          <p class="psw__big"><span class="psw__upto">до</span><b>${m.value.split(' ').map(h.esc).join('<span class="psw__gap"></span>')}</b><span class="psw__unit">${m.unit}</span></p>
-          <p class="psw__txt">${h.esc(m.text)}</p>
-          <p class="psw__src mono">Источник: ${ext(m.source, h)}</p>
+          <p class="psw__big"><span class="psw__upto"${h.L('proof.upTo')}>до</span><b${mValue.attr}>${m.value.split(' ').map(h.esc).join('<span class="psw__gap"></span>')}</b><span class="psw__unit"${h.T(m, 'unit')}>${m.unit}</span></p>
+          <p class="psw__txt"${h.T(m, 'text')}>${h.esc(m.text)}</p>
         </article>
         <ul class="psw__more">
           ${more}
@@ -339,10 +318,7 @@ const proof = (ind, n, h) => {
 
 export default {
   industry,
-  // Russian manufacturers: text names until logos are added. TODO(client): подтвердить, что работаем с ROBO и R2B.
-  brands: {
-    robo: { name: 'ROBO' },
-    r2b: { name: 'R2B' },
-  },
   renderers: { hero, problems, flow, directions, proof },
+  data: { board: BOARD, windows: WINDOWS, peaks: PEAKS, proof: PROOF },
+  templates: { 'industries.publicSpaces.proof.main.value': '{n, number}' },
 };

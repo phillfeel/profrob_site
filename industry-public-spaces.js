@@ -1,6 +1,6 @@
 /* Общественные пространства: часы на табло в Hero, отметка «сейчас» на условном графике потока
    и появление окон уборки, когда график попал в кадр. Без библиотек; анимацию выключает prefers-reduced-motion (в CSS). */
-(() => {
+(window.i18n ? window.i18n.ready : Promise.resolve()).then(() => {
   'use strict';
 
   const pad = (n) => String(n).padStart(2, '0');
@@ -32,4 +32,4 @@
     entries.forEach((e) => { if (e.isIntersecting) { fig.classList.add('is-on'); io.disconnect(); } });
   }, { threshold: 0.3 });
   io.observe(fig);
-})();
+});

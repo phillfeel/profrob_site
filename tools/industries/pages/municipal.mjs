@@ -4,17 +4,15 @@
 // Own blocks:
 //   - hero «plan»: a top-down SVG plan of a territory (alleys, plaza, lawns, embankment, parking); every zone links to
 //     its direction, an HTML legend duplicates the zones for small screens and screen readers;
-//   - «proof» (dark): robots «Пиксель» in Moscow parks — someone else's deployment, not ours;
 //   - signature «procurement»: how a budget customer buys (44-FZ / 223-FZ, national regime, «cleaning as a service»).
 // The ROI calculator is not used: roi-model.js counts indoor floor cleaning only.
 //
-// TODO(client): можем ли мы поставлять и интегрировать «Пиксель» («Автономика»)? Если нет — блок #proof остаётся
-//   как рыночное доказательство, но из оборудования «Автономику» убрать.
+// Competitors (Russian makers we do not work with) are not named, so there is no proof block with their deployments.
 // TODO(client): поставляет ли ПРОФРОБОТ уличную технику (подметальные роботы, косилки, снег) или только перечислил
 //   направления в docx? От ответа зависят направления #winter и #lawns.
 // TODO(client): готовы ли вы продавать «уборку территории как услугу» (подрядчик владеет роботами)? На этом стоит
 //   маршрут Б в блоке «Как это купить».
-// TODO(client): нужен ли реальный кейс ПРОФРОБОТ в муниципальном секторе? Пока на странице только чужое внедрение.
+// TODO(client): нужен ли реальный кейс ПРОФРОБОТ в муниципальном секторе? Пока на странице кейсов нет.
 import { existsSync } from 'node:fs';
 
 // Real hero photo from assets/industry_hero/<slug>.webp, if it has been added; otherwise the robot placeholder.
@@ -22,21 +20,8 @@ const heroPhoto = (slug) => (existsSync(new URL(`../../../assets/industry_hero/$
   ? `assets/industry_hero/${slug}.webp` : null);
 
 const SRC = {
-  kommersant25: { label: 'CORE.XP, «Коммерсантъ», 2025', href: 'https://www.kommersant.ru/doc/7755385' },
-  kommersant26: { label: 'Авито Работа, «Коммерсантъ», 18.06.2026', href: 'https://www.kommersant.ru/doc/8740708' },
-  mt: { label: 'The Moscow Times, 19.08.2025', href: 'https://ru.themoscowtimes.com/2025/08/19/vlasti-zadumali-ogranichit-naem-migrantov-v-obschepite-stroitelstve-i-esche-semi-otraslyah-a172057' },
-  pp1875: { label: 'ПП РФ № 1875, текст на alta.ru', href: 'https://www.alta.ru/tamdoc/24ps1875/' },
-  pp1247: { label: 'ComNews, 30.09.2026', href: 'https://www.comnews.ru/content/247624/2026-09-30/2026-w40/1008/pravitelstvo-rf-zapustilo-epr-dlya-roverov-dostavschikov' },
-  abn: { label: 'МИК в изложении АБН24, 21.01.2026', href: 'https://abnews.ru/center/news/msk/2026/1/21/robot-uborshhik-piksel-sledit-za-poryadkom-v-stolichnyh-parkah' },
-  vesti: { label: 'Вести, 01.2024', href: 'https://www.vesti.ru/article/3802486' },
-  mos: { label: 'mos.ru, 13.04.2024', href: 'https://www.mos.ru/en/news/item/137249073/' },
-  fontanka: { label: 'Фонтанка, 15.06.2026', href: 'https://www.fontanka.ru/2026/06/15/76479904/' },
-  mospolytech: { label: 'Москвич Mag', href: 'https://moskvichmag.ru/?p=277697' },
-  rtvi: { label: 'RTVI, 17.09.2025', href: 'https://rtvi.com/news/v-moskve-na-forume-oblachnye-goroda-predstavili-obnovlennogo-robota-uborshhika-piksel/' },
-  mt1: { label: 'даташит производителя, Pudu', href: 'https://cdn.robotshop.com/media/P/Pud/RB-Pud-10/pdf/pudu-mt1-datasheet.pdf' },
-  fjd: { label: 'сайт производителя, FJ Dynamics', href: 'https://landscaping.fjdynamics.com/' },
-  koham: { label: 'kohammowers.com', href: 'https://kohammowers.com' },
-  leking: { label: 'leking.net', href: 'https://www.leking.net/Product-12/' },
+  pp1875: { label: 'ПП РФ № 1875' },
+  mt1: { label: 'даташит производителя, Pudu' },
 };
 
 const SOL = {
@@ -64,12 +49,12 @@ const industry = {
     vendors: 'Оборудование и производители.',
     pilot: 'Начните с одной аллеи.',
   },
-  secNames: { proof: 'ПРАКТИКА', procurement: 'КАК КУПИТЬ' },
+  secNames: { procurement: 'КАК КУПИТЬ' },
   // Figure-led problem cards; every figure is signed with its source.
   problems: [
-    { fig: '>80%', title: 'Уборка держится на иностранцах.', text: 'Такая доля иностранцев в персонале клининга. Любое ужесточение миграционных правил бьёт по уборке напрямую.', src: SRC.kommersant25 },
-    { fig: '11', unit: 'регионов', title: 'Наём мигрантов ограничивают.', text: 'В 2025 году дополнительные ограничения ввели в 11 регионах, на 2026-й предложены отраслевые квоты.', src: SRC.mt },
-    { fig: '+31%', title: 'Исполнителей ищут всё активнее.', text: 'Рост спроса на исполнителей в клининге в первом полугодии 2026 года к тому же периоду 2025-го.', src: SRC.kommersant26 },
+    { fig: '>80%', title: 'Уборка держится на иностранцах.', text: 'Такая доля иностранцев в персонале клининга. Любое ужесточение миграционных правил бьёт по уборке напрямую.' },
+    { fig: '11', unit: 'регионов', title: 'Наём мигрантов ограничивают.', text: 'В 2025 году дополнительные ограничения ввели в 11 регионах, на 2026-й предложены отраслевые квоты.' },
+    { fig: '+31%', title: 'Исполнителей ищут всё активнее.', text: 'Рост спроса на исполнителей в клининге в первом полугодии 2026 года к тому же периоду 2025-го.' },
     { fig: 'п. 98', title: 'Иностранную коммунальную технику закупить нельзя.', text: 'Позиция в перечне запретов нацрежима для госзакупок. Что это значит для роботов — в блоке «Как это купить».', src: SRC.pp1875, href: '#procurement' },
   ],
   directions: [
@@ -77,18 +62,14 @@ const industry = {
       title: 'Дорожки, тротуары, набережные, парки',
       text: 'Подметание, мойка покрытий, сбор листвы и тополиного пуха. Робот проходит длинные маршруты по графику, бригада занимается урнами, клумбами и тем, что требует рук.',
       items: ['подметание аллей и дорожек', 'мойка покрытий', 'сбор листвы', 'тополиный пух'],
-      facts: [
-        { text: 'В парках Москвы с 2024 года работают беспилотные уборщики «Пиксель» компании «Автономика» — подробнее ниже.', src: SRC.vesti, href: '#proof' },
-        { text: 'Насадку-пылесос для тополиного пуха тестируют в Сколково.', src: SRC.fontanka },
-      ],
+      facts: [],
       solution: SOL.cleaning },
     { anchor: 'winter', zone: 'Площадь: снег и реагенты', short: 'отвал · щётка · реагенты',
       title: 'Зимнее содержание: снег и реагенты',
       text: 'Сменные отвалы и щётки — для расчистки дорожек, площадей и входных групп. Одна машина работает круглый год, меняется навесное оборудование.',
       items: ['расчистка дорожек от снега', 'щётки для свежего снега', 'распределение реагентов'],
       facts: [
-        { text: 'Распределение антигололёдной смеси у «Пикселя» — экспериментальный модуль, а не серийная функция.', src: SRC.rtvi },
-        { text: 'Беспилотный снегоуборщик Московского политеха и «Конкордии» пока в разработке, серийного продукта нет.', src: SRC.mospolytech },
+        { text: 'Серийных беспилотных снегоуборщиков в России мы пока не нашли: известные проекты в разработке.' },
       ],
       solution: SOL.cleaning },
     { anchor: 'lawns', zone: 'Газоны и откос', short: 'косилки · откосы · склоны',
@@ -96,8 +77,8 @@ const industry = {
       text: 'Коммерческие роботизированные косилки — для ровных газонов парков и дворов. Для откосов, дамб и склонов — дистанционно управляемая техника: оператор стоит на безопасном месте, а не на склоне.',
       items: ['роботизированные косилки', 'газоны парков и дворов', 'откосы, дамбы, склоны'],
       facts: [
-        { text: 'FJ Dynamics — коммерческие роботизированные косилки.', src: SRC.fjd },
-        { text: 'Koham и Leking — дистанционно управляемая техника для откосов, без автономного режима.', src: [SRC.koham, SRC.leking] },
+        { text: 'FJ Dynamics — коммерческие роботизированные косилки.' },
+        { text: 'Koham и Leking — дистанционно управляемая техника для откосов, без автономного режима.' },
       ],
       solution: SOL.agro },
     { anchor: 'parking', zone: 'Паркинг', short: 'подметание больших площадей',
@@ -113,8 +94,6 @@ const industry = {
     { group: 'Подметание и паркинги', brands: ['pudu'] },
     { group: 'Роботизированные косилки', brands: ['fjdynamics'] },
     { group: 'Дистанционно управляемая техника для откосов', brands: ['koham', 'leking'] },
-    // TODO(client): подтвердить, что работаем с «Автономикой» («Пиксель»).
-    { group: 'Российские производители', brands: ['autonomika'] },
   ],
   vendorsLead: 'Бюджетному заказчику сначала смотрим российских производителей: по части кодов ОКПД2 иностранную технику закупить нельзя.',
   pilot: [
@@ -122,29 +101,24 @@ const industry = {
     { title: 'Пилот на одной аллее или паркинге', text: 'Сравниваем с текущим регламентом уборки: проходы, время, что остаётся бригаде.' },
     { title: 'Решение о закупке', text: 'Техника по 44-ФЗ или 223-ФЗ, аренда или уборка как услуга. Затем — остальная территория.' },
   ],
-  why: { title: 'Техника или результат — выбирать вам.', text: 'Роботов можно купить, взять в аренду или заказать уборку как услугу, где техникой владеет подрядчик. Обслуживаем по SLA, чтобы машина не стояла в листопад и снегопад.', link: { label: 'Аренда роботов (RaaS)', href: '/products/raas/' } },
+  why: { title: 'Техника или результат — выбирать вам.', text: 'Роботов можно купить, взять в аренду или заказать уборку как услугу, где техникой владеет подрядчик. Обслуживаем по SLA, чтобы машина не стояла в листопад и снегопад.', link: { label: 'Аренда роботов (RaaS)', href: 'products.html#raas' } },
   form: { title: 'Обсудим вашу территорию.', lead: 'Опишите территорию и как вы закупаете — подскажем технику, участок для пилота и модель покупки.', button: 'Обсудить пилот' },
   formStage: false,
   links: [
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Подметальные и поломоечные роботы.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Агророботы и уход за территорией', text: 'Косилки и техника для газонов.', href: SOL.agro.href },
-    { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Техника без покупки, на сезон или дольше.', href: '/products/raas/' },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Регламенты уборки и отчёты в одном окне.', href: '/products/cleaning-operations/' },
+    { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Техника без покупки, на сезон или дольше.', href: 'products.html#raas' },
+    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Регламенты уборки и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'УСЛУГА', title: 'Аудит территории', text: 'Покрытия, маршруты, модель закупки.', href: '/services/audit/' },
     { kicker: 'УСЛУГА', title: 'Пилот', text: 'Одна аллея или паркинг — до решения о закупке.', href: '/services/pilot/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: муниципальные службы', text: 'Внедрения на городских территориях.', href: '/cases/?industry=municipal' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
   ],
-  sections: ['hero', 'problems', 'directions', 'proof', 'procurement', 'pilot', 'vendors', 'why', 'form', 'see'],
+  sections: ['hero', 'problems', 'directions', 'procurement', 'pilot', 'vendors', 'why', 'form', 'see'],
 };
 
-// TODO(client): подтвердить, что работаем с «Автономикой» (робот «Пиксель»).
-const brands = {
-  autonomika: { name: '«Автономика»' },
-};
-
-const ext = (h, s) => `<a href="${s.href}" target="_blank" rel="noopener">${h.esc(s.label)}</a>`;
-const srcLine = (h, src, cls = 'mn-src') => `<p class="${cls} mono">Источник: ${[].concat(src).map((s) => ext(h, s)).join(' · ')}</p>`;
+const ext = (h, s) => `<span${h.T(s, 'label')}>${h.esc(s.label)}</span>`;
+const srcLine = (h, src, cls = 'mn-src') => `<p class="${cls} mono"><span${h.C('sources.labelColon')}>Источник:</span> ${[].concat(src).map((s) => ext(h, s)).join(' · ')}</p>`;
 
 // ───────── Hero: plan of a territory ─────────
 // Zones are drawn back to front: lawns (park ground) → parking → alleys/embankment → plaza → trees → markers.
@@ -157,10 +131,10 @@ const ZONE_MARK = {
 
 const zoneA = (h, d, i, shapes) => {
   const m = ZONE_MARK[d.anchor];
-  return `<a class="mz mz--${d.anchor}" href="#${d.anchor}" aria-label="${h.pad(i + 1)} — ${h.esc(d.zone)}: направление «${h.esc(d.title)}»">
+  return `<a class="mz mz--${d.anchor}" href="#${d.anchor}" aria-label="${h.pad(i + 1)} — ${h.esc(d.zone)}: направление «${h.esc(d.title)}»"${h.TA(['aria-label', h.pk(`plan.zones.${d.anchor}.label`)])}>
             ${shapes}
             <g class="mz__mk"><circle cx="${m.x}" cy="${m.y}" r="17"/><text x="${m.x}" y="${m.y + 4}" text-anchor="middle">${h.pad(i + 1)}</text></g>
-            <text class="mz__lbl" x="${m.lx}" y="${m.ly}">${h.esc(d.zone)}</text>
+            <text class="mz__lbl" x="${m.lx}" y="${m.ly}"${h.T(d, 'zone')}>${h.esc(d.zone)}</text>
           </a>`;
 };
 
@@ -171,7 +145,7 @@ const plan = (ind, h) => {
   const trees = [[40, 110], [60, 210], [170, 110], [330, 110], [380, 140], [440, 110], [330, 380], [380, 400], [250, 330], [200, 390], [620, 330], [680, 370], [600, 390], [700, 300], [160, 300], [300, 300]]
     .map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${10 + (i % 3) * 3}"/>`).join('');
   return `<svg class="mplan__svg" viewBox="0 0 760 560" role="group" aria-labelledby="mplan-t">
-          <title id="mplan-t">Схема городской территории сверху: аллеи и набережная, площадь, газоны с откосом к реке и паркинг. Каждая зона ведёт к своему направлению.</title>
+          <title id="mplan-t"${h.L('plan.title')}>Схема городской территории сверху: аллеи и набережная, площадь, газоны с откосом к реке и паркинг. Каждая зона ведёт к своему направлению.</title>
           <defs>
             <pattern id="mp-grass" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><path d="M0 0v9" class="mp-grass"/></pattern>
             <pattern id="mp-slope" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M0 14 7 2 14 14" class="mp-slope"/></pattern>
@@ -199,45 +173,46 @@ const plan = (ind, h) => {
           ${z('winter', `<circle class="mz__fill" cx="240" cy="200" r="50"/>
             <circle cx="240" cy="200" r="50" fill="url(#mp-snow)"/>`)}
           <g class="mp-trees" aria-hidden="true">${trees}</g>
-          <text class="mp-cap" x="16" y="36">УЛИЦА</text>
-          <text class="mp-cap" x="16" y="530">РЕКА</text>
-          <text class="mp-cap" x="600" y="70">ТРОТУАР</text>
+          <text class="mp-cap" x="16" y="36"${h.L('plan.caps.street')}>УЛИЦА</text>
+          <text class="mp-cap" x="16" y="530"${h.L('plan.caps.river')}>РЕКА</text>
+          <text class="mp-cap" x="600" y="70"${h.L('plan.caps.sidewalk')}>ТРОТУАР</text>
         </svg>`;
 };
 
 const hero = (ind, n, h) => {
   const p = ind.photo;
-  const legend = ind.directions.map((d, i) => `<li><a href="#${d.anchor}" data-zone="${d.anchor}"><span class="mono tnum">${h.pad(i + 1)}</span><b>${h.esc(d.zone)}</b><small>${h.esc(d.short)}</small></a></li>`).join('');
-  return `<section class="ih ih--plan wrap" data-sec="${n}" data-name="${ind.name.toUpperCase()}">
+  const legend = ind.directions.map((d, i) => `<li><a href="#${d.anchor}" data-zone="${d.anchor}"><span class="mono tnum">${h.pad(i + 1)}</span><b${h.T(d, 'zone')}>${h.esc(d.zone)}</b><small${h.T(d, 'short')}>${h.esc(d.short)}</small></a></li>`).join('');
+  const mPh = h.msg('industries.common.photo.placeholder', { ratio: '16:10' });
+  return `<section class="ih ih--plan wrap" data-sec="${n}"${h.dnName(ind)}>
       <div class="mhero">
         <div class="ih__copy mhero__copy">
           ${h.heroCopy(ind, n)}
         </div>
         <div class="mplan reveal" style="--i:1">
-          <div class="mplan__head"><span class="mono">Схема территории · без масштаба</span><span class="mplan__hint">Нажмите на зону</span></div>
+          <div class="mplan__head"><span class="mono"${h.L('plan.caption')}>Схема территории · без масштаба</span><span class="mplan__hint"${h.L('plan.hint')}>Нажмите на зону</span></div>
           ${plan(ind, h)}
-          <ol class="mplan__legend" aria-label="Зоны территории и направления">${legend}</ol>
+          <ol class="mplan__legend"${h.TA(['aria-label', h.pk('plan.legendLabel')])} aria-label="Зоны территории и направления">${legend}</ol>
         </div>
         ${heroPhoto(ind.slug) ? `<figure class="ph ph--photo mhero__ph reveal" style="--ar:16/10;--i:2">
-          <img class="ph__img" src="${heroPhoto(ind.slug)}" alt="${h.esc(p.alt)}" width="1536" height="1024" decoding="async">
+          <img class="ph__img" src="${heroPhoto(ind.slug)}" alt="${h.esc(p.alt)}"${h.TA(['alt', h.dk(p, 'alt')])} width="1536" height="1024" decoding="async">
         </figure>` : `<!-- Место под фото Hero (16:10): ${h.esc(p.note)}, docs/specs/ПРОМПТЫ_HERO_ОТРАСЛИ.md. alt будущего фото: «${h.esc(p.alt)}» -->
         <figure class="ph mhero__ph reveal" style="--ar:16/10;--i:2">
           <img class="ph__robot" src="assets/robots/${p.robot}" alt="" width="${p.w}" height="${p.h}">
-          <figcaption class="ph__lbl mono">Место под фото · 16:10</figcaption>
+          <figcaption class="ph__lbl mono"${mPh.attr}>${mPh.text}</figcaption>
         </figure>`}
       </div>
     </section>`;
 };
 
 // ───────── Problems: figure-led cards ─────────
-const problems = (ind, n, h) => `<section class="sol-sec wrap" id="problems" data-sec="${n}" data-name="${h.SEC_NAMES.problems}" aria-labelledby="problems-h">
-      ${h.secHead(n, h.SEC_NAMES.problems, h.head(ind, 'problems'), null, 'problems-h')}
+const problems = (ind, n, h) => `<section class="sol-sec wrap" id="problems" data-sec="${n}"${h.dn(ind, 'problems')} aria-labelledby="problems-h">
+      ${h.secHead(n, h.secName(ind, 'problems'), h.head(ind, 'problems'), null, 'problems-h')}
       <ol class="mprobs">
         ${ind.problems.map((p, i) => `<li class="mprob${p.href ? ' mprob--law' : ''} reveal" style="--i:${i + 1}">
-          <p class="mprob__fig"><b class="tnum">${h.esc(p.fig)}</b>${p.unit ? `<span>${h.esc(p.unit)}</span>` : ''}</p>
-          <h3>${h.esc(p.title)}</h3>
-          <p class="mprob__t">${h.esc(p.text)}${p.href ? ` <a href="${p.href}">Как это купить ↓</a>` : ''}</p>
-          ${srcLine(h, p.src)}
+          <p class="mprob__fig"><b class="tnum"${h.TN(h.dk(p, 'fig'), p.fig)}>${h.esc(p.fig)}</b>${p.unit ? `<span${h.T(p, 'unit')}>${h.esc(p.unit)}</span>` : ''}</p>
+          <h3${h.T(p, 'title')}>${h.esc(p.title)}</h3>
+          <p class="mprob__t"><span${h.T(p, 'text')}>${h.esc(p.text)}</span>${p.href ? ` <a href="${p.href}"${h.L('problems.howToBuy')}>Как это купить ↓</a>` : ''}</p>
+          ${p.src ? srcLine(h, p.src) : ''}
         </li>`).join('\n        ')}
       </ol>
     </section>`;
@@ -250,110 +225,79 @@ const GLYPH = {
   parking: '<rect class="g-park" x="6" y="10" width="52" height="44" rx="5"/><path class="g-stall" d="M16 14v14M26 14v14M36 14v14M46 14v14M16 36v14M26 36v14M36 36v14M46 36v14"/>',
 };
 
-const directions = (ind, n, h) => `<section class="sol-sec wrap" id="directions" data-sec="${n}" data-name="${h.SEC_NAMES.directions}" aria-labelledby="directions-h">
-      ${h.secHead(n, h.SEC_NAMES.directions, h.head(ind, 'directions'), 'Каждой зоне на схеме — своя техника. Где техника пока экспериментальная или управляется с пульта, так и пишем.', 'directions-h')}
+const directions = (ind, n, h) => `<section class="sol-sec wrap" id="directions" data-sec="${n}"${h.dn(ind, 'directions')} aria-labelledby="directions-h">
+      ${h.secHead(n, h.secName(ind, 'directions'), h.head(ind, 'directions'), h.lt('directions.lead', 'Каждой зоне на схеме — своя техника. Где техника пока экспериментальная или управляется с пульта, так и пишем.'), 'directions-h')}
       <div class="mdirs">
         ${ind.directions.map((d, i) => `<article class="mdir reveal" id="${d.anchor}" style="--i:${i}">
           <div class="mdir__l">
             <svg class="mdir__g" viewBox="0 0 64 64" aria-hidden="true">${GLYPH[d.anchor]}</svg>
-            <span class="mdir__no mono tnum">${h.pad(i + 1)} · ${h.esc(d.zone)}</span>
-            <h3>${h.esc(d.title)}</h3>
+            <span class="mdir__no mono tnum">${h.pad(i + 1)} · <bdi${h.T(d, 'zone')}>${h.esc(d.zone)}</bdi></span>
+            <h3${h.T(d, 'title')}>${h.esc(d.title)}</h3>
           </div>
           <div class="mdir__r">
-            <p class="mdir__t">${h.esc(d.text)}</p>
-            <p class="drow__items">${d.items.map(h.esc).join(' · ')}</p>
-            <ul class="mdir__facts">
-              ${d.facts.map((f) => `<li><p>${h.esc(f.text)}${f.href ? ` <a href="${f.href}">Смотреть ↓</a>` : ''}</p>${f.src ? srcLine(h, f.src) : ''}</li>`).join('\n              ')}
-            </ul>
-            <a class="drow__sol" href="${d.solution.href}">Решение: ${h.esc(d.solution.label)} ${h.ARROW_UR}</a>
+            <p class="mdir__t"${h.T(d, 'text')}>${h.esc(d.text)}</p>
+            <p class="drow__items">${h.itemsList(d.items)}</p>
+            ${d.facts.length ? `<ul class="mdir__facts">
+              ${d.facts.map((f) => `<li><p><span${h.T(f, 'text')}>${h.esc(f.text)}</span>${f.href ? ` <a href="${f.href}"${h.L('directions.see')}>Смотреть ↓</a>` : ''}</p>${f.src ? srcLine(h, f.src) : ''}</li>`).join('\n              ')}
+            </ul>` : ''}
+            ${h.solLink(d.solution)}
           </div>
         </article>`).join('\n        ')}
-      </div>
-    </section>`;
-
-// ───────── Proof: «Пиксель» in Moscow parks (someone else's deployment) ─────────
-const TIMELINE = [
-  { when: 'Весна 2023', text: 'Испытания в парках Москвы, две машины.', src: SRC.vesti },
-  { when: 'Январь 2024', text: 'В парках работают 10 машин.', src: SRC.vesti },
-  { when: 'Апрель 2024', text: 'Решено расширить парк до 12 машин.', src: SRC.mos },
-  { when: '2024–2025', text: 'Испытания Московского инновационного кластера на 600+ га.', src: SRC.abn },
-  { when: '2026', text: 'Парк Победы, Коломенская набережная. В Сколково тестируют насадку для тополиного пуха.', src: SRC.fontanka },
-];
-
-const proof = (ind, n, h) => `<section class="sol-sec" id="proof" data-sec="${n}" data-name="${ind.secNames.proof}" aria-labelledby="proof-h">
-      <div class="stage mproof">
-        <div class="mproof__top">
-          <div class="mproof__copy">
-            ${h.idx(n, ind.secNames.proof)}
-            <h2 class="h2 reveal" id="proof-h">В парках Москвы роботы уже убирают.</h2>
-            <p class="lead reveal">«Пиксель» — электрический беспилотный уборщик компании «Автономика» (резидент кластера «Ломоносов») со сменным навесным оборудованием, работает круглый год. Это не продукт ПРОФРОБОТ: показываем его как доказательство, что класс техники работает в городе.</p>
-          </div>
-          <figure class="mproof__fig reveal" style="--i:1">
-            <p class="mproof__num"><span class="mproof__approx">≈</span><b class="tnum">1/3</b></p>
-            <figcaption>
-              <p>Настолько сократилась потребность в ручном труде на испытаниях 2024–2025 годов на 600+ га парков.</p>
-              ${srcLine(h, SRC.abn)}
-            </figcaption>
-          </figure>
-        </div>
-        <ol class="mproof__line">
-          ${TIMELINE.map((t, i) => `<li class="reveal" style="--i:${i}"><span class="mono">${h.esc(t.when)}</span><p>${h.esc(t.text)}</p>${srcLine(h, t.src)}</li>`).join('\n          ')}
-        </ol>
       </div>
     </section>`;
 
 // ───────── Signature: how a budget customer buys ─────────
 // TODO(legal): формулировки блока согласовать с юристом (применение ПП № 1875, код ОКПД2, закупка услуги вместо техники,
 //   кто из покупателей работает по 44-ФЗ, 223-ФЗ или без них).
-const procurement = (ind, n, h) => `<section class="sol-sec wrap" id="procurement" data-sec="${n}" data-name="${ind.secNames.procurement}" aria-labelledby="procurement-h">
-      ${h.secHead(n, ind.secNames.procurement, 'Сначала закон о закупках, потом модель робота.', 'Муниципальные службы покупают по 44-ФЗ и 223-ФЗ. От того, как вы закупаете, зависит, какую технику вообще можно рассматривать.', 'procurement-h')}
+const procurement = (ind, n, h) => `<section class="sol-sec wrap" id="procurement" data-sec="${n}"${h.dn(ind, 'procurement')} aria-labelledby="procurement-h">
+      ${h.secHead(n, h.secName(ind, 'procurement'), h.lt('procurement.title', 'Сначала закон о закупках, потом модель робота.'), h.lt('procurement.lead', 'Муниципальные службы покупают по 44-ФЗ и 223-ФЗ. От того, как вы закупаете, зависит, какую технику вообще можно рассматривать.'), 'procurement-h')}
       <div class="mbuy">
         <article class="mbuy__doc reveal" aria-labelledby="mbuy-doc-h">
           <div class="mbuy__doc-l">
-            <span class="mono">Национальный режим в госзакупках</span>
-            <h3 id="mbuy-doc-h">«Средства транспортные для коммунального хозяйства и содержания дорог».</h3>
+            <span class="mono"${h.L('procurement.doc.kicker')}>Национальный режим в госзакупках</span>
+            <h3 id="mbuy-doc-h"${h.L('procurement.doc.title')}>«Средства транспортные для коммунального хозяйства и содержания дорог».</h3>
             <dl class="mbuy__req">
-              <div><dt>Документ</dt><dd>ПП РФ № 1875 от 23.12.2024</dd></div>
-              <div><dt>Перечень</dt><dd>Приложение 1 — запрет закупки иностранных товаров</dd></div>
-              <div><dt>Код ОКПД2</dt><dd class="tnum">29.10.59.130</dd></div>
-              <div><dt>По 223-ФЗ</dt><dd>минимальная доля российских товаров — 90% (Приложение 3, п. 197)</dd></div>
+              <div><dt${h.L('procurement.doc.document')}>Документ</dt><dd${h.L('procurement.doc.documentValue')}>ПП РФ № 1875 от 23.12.2024</dd></div>
+              <div><dt${h.L('procurement.doc.list')}>Перечень</dt><dd${h.L('procurement.doc.listValue')}>Приложение 1 — запрет закупки иностранных товаров</dd></div>
+              <div><dt${h.L('procurement.doc.okpd')}>Код ОКПД2</dt><dd class="tnum">29.10.59.130</dd></div>
+              <div><dt${h.L('procurement.doc.law223')}>По 223-ФЗ</dt><dd${h.L('procurement.doc.law223Value')}>минимальная доля российских товаров — 90% (Приложение 3, п. 197)</dd></div>
             </dl>
             ${srcLine(h, SRC.pp1875)}
           </div>
-          <p class="mbuy__stamp" aria-hidden="true"><span class="mono">Позиция</span><b class="tnum">п. 98</b></p>
+          <p class="mbuy__stamp" aria-hidden="true"><span class="mono"${h.L('procurement.stamp.label')}>Позиция</span><b class="tnum"${h.L('procurement.stamp.value')}>п. 98</b></p>
         </article>
 
         <div class="mbuy__fork">
-          <p class="mbuy__root reveal"><span class="mono tnum">00</span><b>Обследование территории и ТЗ</b><span>Площади, покрытия, сезонные работы — и как вы закупаете.</span></p>
+          <p class="mbuy__root reveal"><span class="mono tnum">00</span><b${h.L('procurement.root.title')}>Обследование территории и ТЗ</b><span${h.L('procurement.root.text')}>Площади, покрытия, сезонные работы — и как вы закупаете.</span></p>
           <div class="mbuy__ways">
             <article class="mbuy__way reveal" style="--i:1">
-              <span class="mono">Маршрут А</span>
-              <h3>Покупаете технику.</h3>
+              <span class="mono"${h.L('procurement.routeA.label')}>Маршрут А</span>
+              <h3${h.L('procurement.routeA.title')}>Покупаете технику.</h3>
               <ol>
-                <li>Код ОКПД2 определяет заказчик — по документам производителя.</li>
-                <li>Если робот закупается под кодом из п. 98, иностранную машину купить нельзя.</li>
-                <li>Значит, российский производитель — или маршрут Б.</li>
+                <li${h.L('procurement.routeA.steps.0')}>Код ОКПД2 определяет заказчик — по документам производителя.</li>
+                <li${h.L('procurement.routeA.steps.1')}>Если робот закупается под кодом из п. 98, иностранную машину купить нельзя.</li>
+                <li${h.L('procurement.routeA.steps.2')}>Значит, российский производитель — или маршрут Б.</li>
               </ol>
-              <a class="drow__sol" href="#vendors">Производители ↓</a>
+              <a class="drow__sol" href="#vendors"${h.L('procurement.routeA.link')}>Производители ↓</a>
             </article>
             <article class="mbuy__way mbuy__way--svc reveal" style="--i:2">
-              <span class="mono">Маршрут Б</span>
-              <h3>Покупаете уборку.</h3>
+              <span class="mono"${h.L('procurement.routeB.label')}>Маршрут Б</span>
+              <h3${h.L('procurement.routeB.title')}>Покупаете уборку.</h3>
               <ol>
-                <li>Предмет закупки — содержание территории: площади, регламент, качество.</li>
-                <li>Подрядчик сам владеет роботами, обслуживает их и отвечает за результат.</li>
-                <li>Удобно для пилота и сезонных работ: платите за убранную территорию, а не за машину.</li>
+                <li${h.L('procurement.routeB.steps.0')}>Предмет закупки — содержание территории: площади, регламент, качество.</li>
+                <li${h.L('procurement.routeB.steps.1')}>Подрядчик сам владеет роботами, обслуживает их и отвечает за результат.</li>
+                <li${h.L('procurement.routeB.steps.2')}>Удобно для пилота и сезонных работ: платите за убранную территорию, а не за машину.</li>
               </ol>
-              <a class="drow__sol" href="#talk">Обсудить уборку как услугу ↓</a>
+              <a class="drow__sol" href="#talk"${h.L('procurement.routeB.link')}>Обсудить уборку как услугу ↓</a>
             </article>
           </div>
         </div>
 
         <div class="mbuy__notes">
-          <aside class="mbuy__note reveal" aria-label="Оговорка">${h.icon('shield')}<p><b>Это не юридическая консультация.</b> Под какой код ОКПД2 попадает конкретный робот, определяет заказчик по документам производителя. Для компактных роботов это может быть и другой код. Перед закупкой сверьте актуальную редакцию постановления с юристом.</p></aside>
-          <aside class="mbuy__note reveal" style="--i:1" aria-label="Тротуары">${h.icon('map')}<p><b>Тротуары.</b> Экспериментальный режим для роботов на тротуарах (ПП РФ № 1247 от 30.09.2026) написан под роботов-доставщиков. Распространяется ли он на уборочных роботов, из открытых источников не следует. В парках робот работает на территории заказчика.</p>${srcLine(h, SRC.pp1247)}</aside>
+          <aside class="mbuy__note reveal"${h.TA(['aria-label', h.pk('procurement.notes.legal.label')])} aria-label="Оговорка">${h.icon('shield')}<p${h.LH('procurement.notes.legal.text')}><b>Это не юридическая консультация.</b> Под какой код ОКПД2 попадает конкретный робот, определяет заказчик по документам производителя. Для компактных роботов это может быть и другой код. Перед закупкой сверьте актуальную редакцию постановления с юристом.</p></aside>
+          <aside class="mbuy__note reveal" style="--i:1"${h.TA(['aria-label', h.pk('procurement.notes.sidewalks.label')])} aria-label="Тротуары">${h.icon('map')}<p${h.LH('procurement.notes.sidewalks.text')}><b>Тротуары.</b> Экспериментальный режим для роботов на тротуарах (ПП РФ № 1247 от 30.09.2026) написан под роботов-доставщиков. Распространяется ли он на уборочных роботов, из открытых источников не следует. В парках робот работает на территории заказчика.</p></aside>
         </div>
       </div>
     </section>`;
 
-export default { industry, brands, renderers: { hero, problems, directions, proof, procurement } };
+export default { industry, renderers: { hero, problems, directions, procurement }, data: { sources: SRC } };

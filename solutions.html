@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Решения роботизации бизнеса | ПРОФРОБОТ</title>
-  <meta name="description" content="Направления роботизации: клининг, складская логистика, сервисные роботы, безопасность, строительство, медицина, агро. Внедрение под ключ и сервис по SLA.">
+  <title data-i18n="solutions.meta.title">Решения роботизации бизнеса | ПРОФРОБОТ</title>
+  <meta data-i18n-attr="content:solutions.meta.description" name="description" content="Направления роботизации: клининг, складская логистика, сервисные роботы, безопасность, строительство, медицина, агро. Внедрение под ключ и сервис по SLA.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="/solutions/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,43 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="solutions.css">
   <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body class="sol-page">
@@ -37,41 +74,43 @@
   </defs></svg>
 
   <!-- ================= NAV ================= -->
-  <header class="nav" aria-label="Основная навигация">
-    <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="ПРОФРОБОТ — на главную"><img data-i18n-attr="alt:common.brand.logoAlt" src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
     <nav class="nav-links">
-      <a href="solutions.html" class="on" aria-current="page">Решения</a>
-      <a href="index.html#industries">Отрасли</a>
-      <a href="index.html#platform">Платформа</a>
-      <a href="index.html#cases">Кейсы</a>
-      <a href="#talk">Контакты</a>
+      <a data-i18n="common.nav.solutions" href="solutions.html" class="on" aria-current="page">Решения</a>
+      <a data-i18n="common.nav.industries" href="index.html#industries">Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html">Продукты</a>
+      <a data-i18n="common.nav.platform" href="index.html#platform">Платформа</a>
+      <a data-i18n="common.nav.cases" href="index.html#cases">Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="#talk">Контакты</a>
     </nav>
-    <a class="btn btn-pri" href="#talk">Связаться</a>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="#talk">Связаться</a>
   </header>
 
   <div class="counter" aria-hidden="true">
     <span class="cur tnum">01</span>
     <span class="bar"><i></i></span>
     <span class="tot tnum">06</span>
-    <span class="lbl">РЕШЕНИЯ</span>
+    <span data-i18n="solutions.sections.hero" class="lbl">РЕШЕНИЯ</span>
   </div>
 
   <main>
     <!-- ================= 01 HERO ================= -->
-    <section class="sol-hero wrap" data-sec="01" data-name="РЕШЕНИЯ">
+    <section data-i18n-attr="data-name:solutions.sections.hero" class="sol-hero wrap" data-sec="01" data-name="РЕШЕНИЯ">
       <div class="sol-hero__grid">
         <div class="sol-hero__copy">
-          <span class="idx reveal"><b>01</b> — РЕШЕНИЯ</span>
-          <h1 class="h1 reveal"><span>Направления роботизации:</span> <span>от клининга до гуманоидов.</span></h1>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="solutions.sections.hero">РЕШЕНИЯ</span></span>
+          <h1 class="h1 reveal"><span data-i18n="solutions.hero.title.line1">Направления роботизации:</span> <span data-i18n="solutions.hero.title.line2">от клининга до гуманоидов.</span></h1>
           <div class="sol-hero__text reveal">
-            <p class="lead">Мы собираем решение под задачу из оборудования разных производителей — тех, что реально подходят и обслуживаются, а не тех, на кого есть эксклюзив. Ниже — направления, в которых у нас есть техника, сценарии и сервис.</p>
-            <p>Каждое направление — это не «робот», а связка: подбор оборудования, интеграция, обучение людей и обслуживание. <b>Робот без сервиса быстро встаёт.</b> Мы отвечаем за то, чтобы он работал.</p>
+            <p data-i18n="solutions.hero.lead" class="lead">Мы собираем решение под задачу из оборудования разных производителей — тех, что реально подходят и обслуживаются, а не тех, на кого есть эксклюзив. Ниже — направления, в которых у нас есть техника, сценарии и сервис.</p>
+            <p data-i18n-html="solutions.hero.text">Каждое направление — это не «робот», а связка: подбор оборудования, интеграция, обучение людей и обслуживание. <b>Робот без сервиса быстро встаёт.</b> Мы отвечаем за то, чтобы он работал.</p>
           </div>
         </div>
-        <aside class="facts reveal" style="--i:2" aria-label="Коротко о направлениях">
+        <aside data-i18n-attr="aria-label:solutions.hero.facts.label" class="facts reveal" style="--i:2" aria-label="Коротко о направлениях">
           <div class="facts__row">
-            <div><b>9</b><span>направлений роботизации</span></div>
-            <div><b>2–5</b><span>производителей на каждое направление</span></div>
+            <div><b>9</b><span data-i18n="solutions.hero.facts.areas">направлений роботизации</span></div>
+            <div><b>2–5</b><span data-i18n="solutions.hero.facts.makers">производителей на каждое направление</span></div>
           </div>
           <ul class="facts__logos">
             <li><img src="assets/brands/pudu.svg" alt="Pudu Robotics" style="--h:30px" height="30" loading="lazy"></li>
@@ -92,178 +131,178 @@
     </section>
 
     <!-- ================= 02 НАПРАВЛЕНИЯ ================= -->
-    <section class="sol-sec wrap" id="directions" data-sec="02" data-name="НАПРАВЛЕНИЯ" aria-labelledby="dirs-h">
+    <section data-i18n-attr="data-name:solutions.sections.directions" class="sol-sec wrap" id="directions" data-sec="02" data-name="НАПРАВЛЕНИЯ" aria-labelledby="dirs-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>02</b> — НАПРАВЛЕНИЯ</span>
-        <h2 class="h2 reveal" id="dirs-h">Девять направлений. Одна задача — ваша.</h2>
+        <span class="idx reveal"><b>02</b> — <span data-i18n="solutions.sections.directions">НАПРАВЛЕНИЯ</span></span>
+        <h2 data-i18n="solutions.directions.title" class="h2 reveal" id="dirs-h">Девять направлений. Одна задача — ваша.</h2>
       </div>
       <div class="dirs">
         <a class="dir dir--cleaning reveal" style="--i:1" href="/solutions/cleaning/">
           <span class="dir__art" aria-hidden="true"><img src="assets/robots/robot-cleaning.webp" alt="" width="520" height="520" loading="lazy"></span>
           <div class="dir__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-cleaning"/></svg></span><span class="dir__no">01</span></div>
-          <h3>Роботизированный клининг</h3>
+          <h3 data-i18n="common.solutionNames.cleaning">Роботизированный клининг</h3>
           <div class="dir__foot">
-            <div><span class="badge-roi">Понятная окупаемость</span><p>Поломоечные роботы для офисов, ТЦ, складов и терминалов. Самое понятное по окупаемости направление.</p></div>
+            <div><span data-i18n="solutions.directions.items.cleaning.badge" class="badge-roi">Понятная окупаемость</span><p data-i18n="solutions.directions.items.cleaning.text">Поломоечные роботы для офисов, ТЦ, складов и терминалов. Самое понятное по окупаемости направление.</p></div>
             <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
           </div>
         </a>
         <a class="dir dir--half reveal" style="--i:2" href="/solutions/warehouse/">
           <span class="dir__art" aria-hidden="true"><img src="assets/robots/robot-amr.webp" alt="" width="520" height="520" loading="lazy"></span>
           <div class="dir__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-box"/></svg></span><span class="dir__no">02</span></div>
-          <h3>Складская роботизация</h3>
-          <div class="dir__foot"><p>AMR, тележки и follow-me для внутренней логистики и перемещения грузов.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 data-i18n="common.solutionNames.warehouse">Складская роботизация</h3>
+          <div class="dir__foot"><p data-i18n="solutions.directions.items.warehouse.text">AMR, тележки и follow-me для внутренней логистики и перемещения грузов.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
         <a class="dir dir--half reveal" style="--i:3" href="/solutions/service-robots/">
           <div class="dir__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-bell"/></svg></span><span class="dir__no">03</span></div>
-          <h3>Сервисные роботы</h3>
-          <div class="dir__foot"><p>Доставка, обслуживание гостей и посетителей в отелях, ресторанах и клиниках.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 data-i18n="common.solutionNames.service">Сервисные роботы</h3>
+          <div class="dir__foot"><p data-i18n="solutions.directions.items.service.text">Доставка, обслуживание гостей и посетителей в отелях, ресторанах и клиниках.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
         <a class="dir dir--half reveal" style="--i:4" href="/solutions/industrial/">
           <span class="dir__art" aria-hidden="true"><img src="assets/robots/robot-manipulator.webp" alt="" width="520" height="520" loading="lazy"></span>
           <div class="dir__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><span class="dir__no">04</span></div>
-          <h3>Промышленная роботизация</h3>
-          <div class="dir__foot"><p>Автоматизация повторяющихся операций на производстве.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 data-i18n="common.solutionNames.industrial">Промышленная роботизация</h3>
+          <div class="dir__foot"><p data-i18n="solutions.directions.items.industrial.text">Автоматизация повторяющихся операций на производстве.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
         <a class="dir dir--half reveal" style="--i:5" href="/solutions/medical/">
           <div class="dir__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-cross"/></svg></span><span class="dir__no">05</span></div>
-          <h3>Медицинская робототехника</h3>
-          <div class="dir__foot"><p>Доставка, дезинфекция и вспомогательные задачи в клиниках.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 data-i18n="common.solutionNames.medical">Медицинская робототехника</h3>
+          <div class="dir__foot"><p data-i18n="solutions.directions.items.medical.text">Доставка, дезинфекция и вспомогательные задачи в клиниках.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
         <a class="dir dir--third reveal" style="--i:6" href="/solutions/construction/">
           <span class="dir__art" aria-hidden="true"><img src="assets/robots/robot-demolition.webp" alt="" width="520" height="520" loading="lazy"></span>
           <div class="dir__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-hat"/></svg></span><span class="dir__no">06</span></div>
-          <h3>Строительная робототехника</h3>
-          <div class="dir__foot"><p>Демонтаж, отделочные и тяжёлые работы, где людей не хватает или это опасно.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 data-i18n="common.solutionNames.construction">Строительная робототехника</h3>
+          <div class="dir__foot"><p data-i18n="solutions.directions.items.construction.text">Демонтаж, отделочные и тяжёлые работы, где людей не хватает или это опасно.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
         <a class="dir dir--third reveal" style="--i:7" href="/solutions/agro/">
           <span class="dir__art" aria-hidden="true"><img src="assets/robots/robot-agro.webp" alt="" width="520" height="520" loading="lazy"></span>
           <div class="dir__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span><span class="dir__no">07</span></div>
-          <h3>Агророботы</h3>
-          <div class="dir__foot"><p>Полевые работы, опрыскивание, мониторинг и уход за территорией.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 data-i18n="common.solutionNames.agro">Агророботы</h3>
+          <div class="dir__foot"><p data-i18n="solutions.directions.items.agro.text">Полевые работы, опрыскивание, мониторинг и уход за территорией.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
         <a class="dir dir--third reveal" style="--i:8" href="/solutions/security/">
           <div class="dir__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><span class="dir__no">08</span></div>
-          <h3>Роботы безопасности</h3>
-          <div class="dir__foot"><p>Патрулирование, инспекция и мониторинг объектов в режиме 24/7.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 data-i18n="common.solutionNames.security">Роботы безопасности</h3>
+          <div class="dir__foot"><p data-i18n="solutions.directions.items.security.text">Патрулирование, инспекция и мониторинг объектов в режиме 24/7.</p><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
         <a class="dir dir--humanoid reveal" style="--i:9" href="/solutions/humanoid/">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-android"/></svg></span>
-          <div class="dir__body"><span class="dir__no">09</span><h3>Гуманоидные роботы</h3><p>Перспективное направление для сервиса и представительских задач — под конкретный запрос.</p></div>
-          <span class="pill-note">Под запрос</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          <div class="dir__body"><span class="dir__no">09</span><h3 data-i18n="common.solutionNames.humanoid">Гуманоидные роботы</h3><p data-i18n="solutions.directions.items.humanoid.text">Перспективное направление для сервиса и представительских задач — под конкретный запрос.</p></div>
+          <span data-i18n="solutions.directions.items.humanoid.badge" class="pill-note">Под запрос</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </div>
     </section>
 
     <!-- ================= 03 СЦЕНАРИИ ================= -->
-    <section class="sol-sec wrap" id="scenarios" data-sec="03" data-name="СЦЕНАРИИ" aria-labelledby="scen-h">
+    <section data-i18n-attr="data-name:solutions.sections.scenarios" class="sol-sec wrap" id="scenarios" data-sec="03" data-name="СЦЕНАРИИ" aria-labelledby="scen-h">
       <div class="scen">
         <div class="scen__head">
-          <span class="idx reveal"><b>03</b> — СЦЕНАРИИ</span>
-          <h2 class="h2 reveal" id="scen-h">Что можно автоматизировать.</h2>
-          <p class="lead reveal">От задачи к решению: выберите, что нужно сделать, и мы покажем подходящее направление.</p>
+          <span class="idx reveal"><b>03</b> — <span data-i18n="solutions.sections.scenarios">СЦЕНАРИИ</span></span>
+          <h2 data-i18n="solutions.scenarios.title" class="h2 reveal" id="scen-h">Что можно автоматизировать.</h2>
+          <p data-i18n="solutions.scenarios.lead" class="lead reveal">От задачи к решению: выберите, что нужно сделать, и мы покажем подходящее направление.</p>
         </div>
         <div class="pills">
-          <a class="pill reveal" style="--i:0" href="/solutions/cleaning/"><svg aria-hidden="true"><use href="#i-cleaning"/></svg>Уборка</a>
-          <a class="pill reveal" style="--i:1" href="/solutions/service-robots/"><svg aria-hidden="true"><use href="#i-truck"/></svg>Доставка</a>
-          <a class="pill reveal" style="--i:2" href="/solutions/warehouse/"><svg aria-hidden="true"><use href="#i-box"/></svg>Перемещение грузов</a>
-          <a class="pill reveal" style="--i:3" href="/solutions/security/"><svg aria-hidden="true"><use href="#i-shield"/></svg>Патрулирование</a>
-          <a class="pill reveal" style="--i:4" href="/solutions/security/"><svg aria-hidden="true"><use href="#i-eye"/></svg>Инспекция</a>
-          <a class="pill reveal" style="--i:5" href="/solutions/service-robots/"><svg aria-hidden="true"><use href="#i-bell"/></svg>Обслуживание гостей</a>
-          <a class="pill reveal" style="--i:6" href="/solutions/construction/"><svg aria-hidden="true"><use href="#i-hat"/></svg>Строительство и отделка</a>
-          <a class="pill reveal" style="--i:7" href="/solutions/medical/"><svg aria-hidden="true"><use href="#i-heart"/></svg>Реабилитация и уход</a>
-          <a class="pill reveal" style="--i:8" href="/solutions/agro/"><svg aria-hidden="true"><use href="#i-sprout"/></svg>Уход за территорией</a>
+          <a class="pill reveal" style="--i:0" href="/solutions/cleaning/"><svg aria-hidden="true"><use href="#i-cleaning"/></svg><span data-i18n="solutions.scenarios.items.cleaning">Уборка</span></a>
+          <a class="pill reveal" style="--i:1" href="/solutions/service-robots/"><svg aria-hidden="true"><use href="#i-truck"/></svg><span data-i18n="solutions.scenarios.items.delivery">Доставка</span></a>
+          <a class="pill reveal" style="--i:2" href="/solutions/warehouse/"><svg aria-hidden="true"><use href="#i-box"/></svg><span data-i18n="solutions.scenarios.items.cargo">Перемещение грузов</span></a>
+          <a class="pill reveal" style="--i:3" href="/solutions/security/"><svg aria-hidden="true"><use href="#i-shield"/></svg><span data-i18n="solutions.scenarios.items.patrol">Патрулирование</span></a>
+          <a class="pill reveal" style="--i:4" href="/solutions/security/"><svg aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="solutions.scenarios.items.inspection">Инспекция</span></a>
+          <a class="pill reveal" style="--i:5" href="/solutions/service-robots/"><svg aria-hidden="true"><use href="#i-bell"/></svg><span data-i18n="solutions.scenarios.items.guests">Обслуживание гостей</span></a>
+          <a class="pill reveal" style="--i:6" href="/solutions/construction/"><svg aria-hidden="true"><use href="#i-hat"/></svg><span data-i18n="solutions.scenarios.items.construction">Строительство и отделка</span></a>
+          <a class="pill reveal" style="--i:7" href="/solutions/medical/"><svg aria-hidden="true"><use href="#i-heart"/></svg><span data-i18n="solutions.scenarios.items.rehab">Реабилитация и уход</span></a>
+          <a class="pill reveal" style="--i:8" href="/solutions/agro/"><svg aria-hidden="true"><use href="#i-sprout"/></svg><span data-i18n="solutions.scenarios.items.grounds">Уход за территорией</span></a>
         </div>
       </div>
     </section>
 
     <!-- ================= 04 СОСТАВ ================= -->
-    <section class="sol-sec wrap" id="composition" data-sec="04" data-name="СОСТАВ" aria-labelledby="parts-h">
+    <section data-i18n-attr="data-name:solutions.sections.composition" class="sol-sec wrap" id="composition" data-sec="04" data-name="СОСТАВ" aria-labelledby="parts-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>04</b> — СОСТАВ РЕШЕНИЯ</span>
-        <h2 class="h2 reveal" id="parts-h">Из чего состоит решение.</h2>
-        <p class="lead reveal">Каждое направление — это связка из четырёх частей, а не просто коробка с роботом.</p>
+        <span class="idx reveal"><b>04</b> — <span data-i18n="solutions.sections.compositionLabel">СОСТАВ РЕШЕНИЯ</span></span>
+        <h2 data-i18n="solutions.composition.title" class="h2 reveal" id="parts-h">Из чего состоит решение.</h2>
+        <p data-i18n="solutions.composition.lead" class="lead reveal">Каждое направление — это связка из четырёх частей, а не просто коробка с роботом.</p>
       </div>
       <ol class="parts">
-        <li class="part reveal" style="--i:1"><span class="dir__no"><span>01</span></span><span class="ic-tile"><svg aria-hidden="true"><use href="#i-gear"/></svg></span><h3>Подбор оборудования</h3><p>Сравниваем 2–5 производителей и берём то, что подходит и обслуживается.</p></li>
-        <li class="part reveal" style="--i:2"><span class="dir__no"><span>02</span></span><span class="ic-tile"><svg aria-hidden="true"><use href="#i-link"/></svg></span><h3>Интеграция</h3><p>Стыкуем робота с вашими процессами, помещениями и системами.</p></li>
-        <li class="part reveal" style="--i:3"><span class="dir__no"><span>03</span></span><span class="ic-tile"><svg aria-hidden="true"><use href="#i-people"/></svg></span><h3>Обучение людей</h3><p>Учим персонал работать рядом с роботом и управлять им.</p></li>
-        <li class="part part--stage reveal" style="--i:4"><span class="dir__no"><span>04</span></span><span class="ic-tile"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span><h3>Сервис по SLA</h3><p>Обслуживаем и отвечаем за результат. Робот без сервиса быстро встаёт.</p></li>
+        <li class="part reveal" style="--i:1"><span class="dir__no"><span>01</span></span><span class="ic-tile"><svg aria-hidden="true"><use href="#i-gear"/></svg></span><h3 data-i18n="solutions.composition.parts.selection.title">Подбор оборудования</h3><p data-i18n="solutions.composition.parts.selection.text">Сравниваем 2–5 производителей и берём то, что подходит и обслуживается.</p></li>
+        <li class="part reveal" style="--i:2"><span class="dir__no"><span>02</span></span><span class="ic-tile"><svg aria-hidden="true"><use href="#i-link"/></svg></span><h3 data-i18n="solutions.composition.parts.integration.title">Интеграция</h3><p data-i18n="solutions.composition.parts.integration.text">Стыкуем робота с вашими процессами, помещениями и системами.</p></li>
+        <li class="part reveal" style="--i:3"><span class="dir__no"><span>03</span></span><span class="ic-tile"><svg aria-hidden="true"><use href="#i-people"/></svg></span><h3 data-i18n="solutions.composition.parts.training.title">Обучение людей</h3><p data-i18n="solutions.composition.parts.training.text">Учим персонал работать рядом с роботом и управлять им.</p></li>
+        <li class="part part--stage reveal" style="--i:4"><span class="dir__no"><span>04</span></span><span class="ic-tile"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span><h3 data-i18n="solutions.composition.parts.service.title">Сервис по SLA</h3><p data-i18n="solutions.composition.parts.service.text">Обслуживаем и отвечаем за результат. Робот без сервиса быстро встаёт.</p></li>
       </ol>
     </section>
 
     <!-- ================= 05 СМОТРИТЕ ТАКЖЕ ================= -->
-    <section class="sol-sec wrap" id="see" data-sec="05" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+    <section data-i18n-attr="data-name:solutions.sections.see" class="sol-sec wrap" id="see" data-sec="05" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>05</b> — СМОТРИТЕ ТАКЖЕ</span>
-        <h2 class="h2 reveal" id="see-h">Смотрите также.</h2>
+        <span class="idx reveal"><b>05</b> — <span data-i18n="solutions.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 data-i18n="solutions.see.title" class="h2 reveal" id="see-h">Смотрите также.</h2>
       </div>
       <div class="see">
         <a class="see-card reveal" href="/industries/">
-          <span class="dir__no"><span>5 ОТРАСЛЕЙ</span></span>
-          <h3>Отрасли</h3>
-          <p>Отели и HoReCa · Строительство · Медицина и велнес · Промышленность · Сельское хозяйство</p>
-          <div class="see-card__foot"><span class="mono" style="color:var(--ink-muted)">Решения по типу объекта</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <span class="dir__no"><span data-i18n="solutions.see.industries.kicker">5 ОТРАСЛЕЙ</span></span>
+          <h3 data-i18n="solutions.see.industries.title">Отрасли</h3>
+          <p data-i18n="solutions.see.industries.text">Отели и HoReCa · Строительство · Медицина и велнес · Промышленность · Сельское хозяйство</p>
+          <div class="see-card__foot"><span data-i18n="solutions.see.industries.foot" class="mono" style="color:var(--ink-muted)">Решения по типу объекта</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
-        <a class="see-card reveal" style="--i:1" href="/products/">
-          <span class="dir__no"><span>РОБОТЫ И ПЛАТФОРМА</span></span>
-          <h3>Продукты</h3>
-          <p>Платформа управления парком · Аренда роботов (RaaS) · Retrofit · AI-модули · Open API</p>
-          <div class="see-card__foot"><span class="mono" style="color:var(--ink-muted)">Свои продукты и модели работы</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        <a class="see-card reveal" style="--i:1" href="products.html">
+          <span class="dir__no"><span data-i18n="solutions.see.products.kicker">РОБОТЫ И ПЛАТФОРМА</span></span>
+          <h3 data-i18n="solutions.see.products.title">Продукты</h3>
+          <p data-i18n="solutions.see.products.text">Платформа управления парком · Аренда роботов (RaaS) · Retrofit · AI-модули · Open API</p>
+          <div class="see-card__foot"><span data-i18n="solutions.see.products.foot" class="mono" style="color:var(--ink-muted)">Свои продукты и модели работы</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
         </a>
       </div>
     </section>
 
     <!-- ================= 06 ФОРМА ================= -->
-    <section class="sol-sec wrap" id="talk" data-sec="06" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+    <section data-i18n-attr="data-name:solutions.sections.talk" class="sol-sec wrap" id="talk" data-sec="06" data-name="ЗАЯВКА" aria-labelledby="talk-h">
       <div class="talk">
         <div class="talk__copy">
-          <span class="idx reveal"><b>06</b> — ЗАЯВКА</span>
-          <h2 class="h2 reveal" id="talk-h">Не уверены, какое решение нужно?</h2>
-          <p class="lead reveal">Оставьте контакты. Перезвоним, зададим пару вопросов и подскажем.</p>
-          <a class="text-link reveal" href="roi.html">Или сами рассчитайте окупаемость <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="idx reveal"><b>06</b> — <span data-i18n="solutions.sections.talk">ЗАЯВКА</span></span>
+          <h2 data-i18n="solutions.talk.title" class="h2 reveal" id="talk-h">Не уверены, какое решение нужно?</h2>
+          <p data-i18n="solutions.talk.lead" class="lead reveal">Оставьте контакты. Перезвоним, зададим пару вопросов и подскажем.</p>
+          <a class="text-link reveal" href="roi.html"><span data-i18n="solutions.talk.roiLink">Или сами рассчитайте окупаемость</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
         <form class="form reveal" id="lead-form" novalidate data-endpoint="" aria-labelledby="talk-h">
           <div class="form__row">
             <div class="fld">
-              <label for="f-name">Имя</label>
+              <label data-i18n="common.form.name" for="f-name">Имя</label>
               <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
               <span class="fld__err" id="f-name-err" role="alert"></span>
             </div>
             <div class="fld">
-              <label for="f-phone">Телефон</label>
+              <label data-i18n="common.form.phone" for="f-phone">Телефон</label>
               <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
               <span class="fld__err" id="f-phone-err" role="alert"></span>
             </div>
           </div>
           <div class="fld">
-            <label for="f-dir">Что автоматизировать <small>необязательно</small></label>
+            <label data-i18n-html="solutions.talk.form.directionLabel" for="f-dir">Что автоматизировать <small>необязательно</small></label>
             <select id="f-dir" name="direction">
-              <option value="">Пока не знаю</option>
-              <option value="cleaning">Роботизированный клининг</option>
-              <option value="warehouse">Складская роботизация</option>
-              <option value="service-robots">Сервисные роботы</option>
-              <option value="industrial">Промышленная роботизация</option>
-              <option value="construction">Строительная робототехника</option>
-              <option value="medical">Медицинская робототехника</option>
-              <option value="agro">Агророботы</option>
-              <option value="security">Роботы безопасности</option>
-              <option value="humanoid">Гуманоидные роботы</option>
+              <option data-i18n="common.form.directionUnknown" value="">Пока не знаю</option>
+              <option data-i18n="common.solutionNames.cleaning" value="cleaning">Роботизированный клининг</option>
+              <option data-i18n="common.solutionNames.warehouse" value="warehouse">Складская роботизация</option>
+              <option data-i18n="common.solutionNames.service" value="service-robots">Сервисные роботы</option>
+              <option data-i18n="common.solutionNames.industrial" value="industrial">Промышленная роботизация</option>
+              <option data-i18n="common.solutionNames.construction" value="construction">Строительная робототехника</option>
+              <option data-i18n="common.solutionNames.medical" value="medical">Медицинская робототехника</option>
+              <option data-i18n="common.solutionNames.agro" value="agro">Агророботы</option>
+              <option data-i18n="common.solutionNames.security" value="security">Роботы безопасности</option>
+              <option data-i18n="common.solutionNames.humanoid" value="humanoid">Гуманоидные роботы</option>
             </select>
           </div>
-          <div class="hp" aria-hidden="true"><label>Не заполняйте <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="fld">
-            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
             <span class="fld__err" id="f-consent-err" role="alert"></span>
           </div>
           <div class="form__foot">
-            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Заказать звонок</span></button>
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span data-i18n="solutions.talk.form.submit" class="btn__t">Заказать звонок</span></button>
             <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
           </div>
           <div class="form__ok" role="status">
             <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
-            <b>Заявка принята.</b>
-            <p>Перезвоним в рабочее время.</p>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
           </div>
         </form>
       </div>
@@ -274,19 +313,19 @@
     <div class="stage foot">
       <div class="foot-top">
         <div class="foot-brand">
-          <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
-          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+          <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="ПРОФРОБОТ — на главную"><img data-i18n-attr="alt:common.brand.logoAlt" src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
         </div>
         <div class="foot-call">
-          <span class="mono">[ Отдел внедрения ]</span>
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
           <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
           <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
         </div>
       </div>
       <div class="foot-bot">
-        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
-        <a href="#">Политика конфиденциальности</a>
-        <a class="foot-up" href="index.html">На главную <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <span data-i18n="common.footer.rights">© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html"><span data-i18n="common.footer.backHome">На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
   </footer>

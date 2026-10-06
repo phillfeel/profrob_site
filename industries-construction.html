@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Роботы в строительстве: демонтаж, отделка | ПРОФРОБОТ</title>
-  <meta name="description" content="Строительные роботы для демонтажа, штукатурки, стяжки и тяжёлых работ. Снижаем трудозатраты и риски на площадке при дефиците рабочих. Рассчитать эффект.">
+  <title data-i18n="industries.construction.title">Роботы в строительстве: демонтаж, отделка | ПРОФРОБОТ</title>
+  <meta name="description" content="Строительные роботы для демонтажа, штукатурки, стяжки и тяжёлых работ. Снижаем трудозатраты и риски на площадке при дефиците рабочих. Рассчитать эффект." data-i18n-attr="content:industries.construction.description">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="/industries/construction/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +15,43 @@
   <link rel="stylesheet" href="solutions.css">
   <link rel="stylesheet" href="industry.css">
   <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body class="sol-page ind-page ind--construction">
@@ -42,302 +79,304 @@
   </defs></svg>
 
   <!-- ================= NAV ================= -->
-  <header class="nav" aria-label="Основная навигация">
-    <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+  <header class="nav" data-i18n-attr="aria-label:common.nav.label" aria-label="Основная навигация">
+    <a href="index.html" data-i18n-attr="aria-label:common.brand.homeLabel" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" data-i18n-attr="alt:common.brand.logoAlt" alt="ПРОФРОБОТ"></a>
     <nav class="nav-links">
-      <a href="solutions.html">Решения</a>
-      <a href="index.html#industries" class="on">Отрасли</a>
-      <a href="index.html#platform">Платформа</a>
-      <a href="index.html#cases">Кейсы</a>
-      <a href="#talk">Контакты</a>
+      <a href="solutions.html" data-i18n="common.nav.solutions">Решения</a>
+      <a href="index.html#industries" class="on" data-i18n="common.nav.industries">Отрасли</a>
+      <a href="products.html" data-i18n="common.nav.products">Продукты</a>
+      <a href="index.html#platform" data-i18n="common.nav.platform">Платформа</a>
+      <a href="index.html#cases" data-i18n="common.nav.cases">Кейсы</a>
+      <a href="#talk" data-i18n="common.nav.contacts">Контакты</a>
     </nav>
-    <a class="btn btn-pri" href="#talk">Связаться</a>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a class="btn btn-pri" href="#talk" data-i18n="common.cta.contact">Связаться</a>
   </header>
 
   <div class="counter" aria-hidden="true">
     <span class="cur tnum">01</span>
     <span class="bar"><i></i></span>
     <span class="tot tnum">10</span>
-    <span class="lbl">СТРОИТЕЛЬСТВО</span>
+    <span class="lbl" data-i18n="industries.construction.nameCaps">СТРОИТЕЛЬСТВО</span>
   </div>
 
   <main>
     <!-- ================= 01 HERO ================= -->
-    <section class="ih ih--stage" data-sec="01" data-name="СТРОИТЕЛЬСТВО">
+    <section class="ih ih--stage" data-sec="01" data-name="СТРОИТЕЛЬСТВО" data-i18n-attr="data-name:industries.construction.nameCaps">
       <div class="stage ih__stage">
         <div class="ih__grid">
           <div class="ih__copy">
-          <nav class="crumbs reveal" aria-label="Хлебные крошки"><ol><li><a href="index.html">Главная</a></li><li><a href="index.html#industries">Отрасли</a></li><li aria-current="page">Строительство</li></ol></nav>
-          <span class="idx reveal"><b>01</b> — СТРОИТЕЛЬСТВО</span>
-          <h1 class="h1 ih__h1 reveal"><span>Роботизация</span> <span>в строительстве.</span></h1>
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li><a data-i18n="common.crumbs.industries" href="index.html#industries">Отрасли</a></li><li data-i18n="industries.construction.name" aria-current="page">Строительство</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="industries.construction.nameCaps">СТРОИТЕЛЬСТВО</span></span>
+          <h1 class="h1 ih__h1 reveal"><span data-i18n="industries.construction.h1.items.0">Роботизация</span> <span data-i18n="industries.construction.h1.items.1">в строительстве.</span></h1>
           <div class="ih__text reveal" style="--i:1">
-            <p class="lead">Рабочих на площадке не хватает, а те, что есть, дорожают каждый сезон. При этом самые тяжёлые и опасные операции — демонтаж, штукатурка, стяжка — по-прежнему делаются вручную.</p>
-            <p>Строительные роботы закрывают эти участки: работают дольше человека, стабильнее по качеству и без риска для здоровья людей.</p>
+            <p class="lead" data-i18n="industries.construction.lead">Рабочих на площадке не хватает, а те, что есть, дорожают каждый сезон. При этом самые тяжёлые и опасные операции — демонтаж, штукатурка, стяжка — по-прежнему делаются вручную.</p>
+            <p data-i18n="industries.construction.lead2">Строительные роботы закрывают эти участки: работают дольше человека, стабильнее по качеству и без риска для здоровья людей.</p>
           </div>
           <div class="ih__cta reveal" style="--i:2">
-            <a class="btn btn-pri" href="#talk">Обсудить пилот на объекте</a>
-            <a class="text-link" href="#talk">Рассчитать снижение трудозатрат <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-pri" href="#talk" data-i18n="industries.construction.primaryCta.label">Обсудить пилот на объекте</a>
+            <a class="text-link" href="#talk"><span data-i18n="industries.construction.secondaryCta.label">Рассчитать снижение трудозатрат</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <p class="ih__aud reveal" style="--i:3"><span class="mono">Для кого</span> застройщики · генподрядчики · отделочные и демонтажные компании</p>
+          <p class="ih__aud reveal" style="--i:3"><span class="mono" data-i18n="industries.common.hero.audience">Для кого</span> <span><span data-i18n="industries.construction.audiences.items.0">застройщики</span> · <span data-i18n="industries.construction.audiences.items.1">генподрядчики</span> · <span data-i18n="industries.construction.audiences.items.2">отделочные и демонтажные компании</span></span></p>
           </div>
           <figure class="ph ph--photo ph--dark reveal" style="--ar:4/3;--i:2">
-          <img class="ph__img" src="assets/industry_hero/construction.webp" alt="Дистанционный демонтажный робот разрушает бетонную перегородку" width="1536" height="1024" decoding="async">
-          <div class="ph__metrics"><span><b class="tnum">3</b> направления</span><span><b class="tnum">8</b> производителей</span></div>
+          <img class="ph__img" src="assets/industry_hero/construction.webp" alt="Дистанционный демонтажный робот разрушает бетонную перегородку" data-i18n-attr="alt:industries.construction.photo.alt" width="1536" height="1024" decoding="async">
+          <div class="ph__metrics"><span data-i18n-html="industries.common.hero.metrics.directions" data-i18n-args='{"n":3}'><b class="tnum">3</b> направления</span><span data-i18n-html="industries.common.hero.metrics.makers" data-i18n-args='{"n":8}'><b class="tnum">8</b> производителей</span></div>
         </figure>
         </div>
-        <ul class="ih__ticker mono" aria-label="Направления"><li><a href="#demolition">Демонтаж</a></li><li><a href="#finishing">Отделочные работы</a></li><li><a href="#heavy">Кладка и тяжёлые операции</a></li></ul>
+        <ul class="ih__ticker mono" data-i18n-attr="aria-label:industries.common.hero.tickerLabel" aria-label="Направления"><li><a href="#demolition" data-i18n="industries.construction.directions.items.0.title">Демонтаж</a></li><li><a href="#finishing" data-i18n="industries.construction.directions.items.1.title">Отделочные работы</a></li><li><a href="#heavy" data-i18n="industries.construction.directions.items.2.title">Кладка и тяжёлые операции</a></li></ul>
       </div>
     </section>
 
     <!-- ================= 02 ПРОБЛЕМЫ ================= -->
-    <section class="sol-sec wrap" id="problems" data-sec="02" data-name="ПРОБЛЕМЫ" aria-labelledby="problems-h">
+    <section class="sol-sec wrap" id="problems" data-sec="02" data-name="ПРОБЛЕМЫ" data-i18n-attr="data-name:industries.common.sections.problems" aria-labelledby="problems-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>02</b> — ПРОБЛЕМЫ</span>
-        <h2 class="h2 reveal" id="problems-h">Что тормозит работу на площадке.</h2>
+        <span class="idx reveal"><b>02</b> — <span data-i18n="industries.common.sections.problems">ПРОБЛЕМЫ</span></span>
+        <h2 class="h2 reveal" id="problems-h" data-i18n="industries.construction.heads.problems">Что тормозит работу на площадке.</h2>
       </div>
       <ol class="probs probs--list">
         <li class="prob reveal" style="--i:1">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-people"/></svg></span><span class="prob__no mono">01</span>
-          <h3>Дефицит рабочих рук</h3>
-          <p>Квалифицированных отделочников и разнорабочих всё меньше, ФОТ растёт.</p>
+          <h3 data-i18n="industries.construction.problems.items.0.title">Дефицит рабочих рук</h3>
+          <p data-i18n="industries.construction.problems.items.0.text">Квалифицированных отделочников и разнорабочих всё меньше, ФОТ растёт.</p>
         </li>
         <li class="prob reveal" style="--i:2">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-alert"/></svg></span><span class="prob__no mono">02</span>
-          <h3>Опасные работы</h3>
-          <p>Демонтаж и высотные операции — травматизм и требования охраны труда.</p>
+          <h3 data-i18n="industries.construction.problems.items.1.title">Опасные работы</h3>
+          <p data-i18n="industries.construction.problems.items.1.text">Демонтаж и высотные операции — травматизм и требования охраны труда.</p>
         </li>
         <li class="prob reveal" style="--i:3">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-ruler"/></svg></span><span class="prob__no mono">03</span>
-          <h3>Сроки и качество отделки</h3>
-          <p>Человеческий фактор даёт разброс качества и срывы графика.</p>
+          <h3 data-i18n="industries.construction.problems.items.2.title">Сроки и качество отделки</h3>
+          <p data-i18n="industries.construction.problems.items.2.text">Человеческий фактор даёт разброс качества и срывы графика.</p>
         </li>
         <li class="prob reveal" style="--i:4">
           <span class="ic-tile"><svg aria-hidden="true"><use href="#i-weight"/></svg></span><span class="prob__no mono">04</span>
-          <h3>Тяжёлый физический труд</h3>
-          <p>Выгорание и текучка на самых трудоёмких операциях.</p>
+          <h3 data-i18n="industries.construction.problems.items.3.title">Тяжёлый физический труд</h3>
+          <p data-i18n="industries.construction.problems.items.3.text">Выгорание и текучка на самых трудоёмких операциях.</p>
         </li>
       </ol>
     </section>
 
     <!-- ================= 03 БЕЗОПАСНОСТЬ ================= -->
-    <section class="sol-sec" id="safety" data-sec="03" data-name="БЕЗОПАСНОСТЬ" aria-labelledby="safety-h">
+    <section class="sol-sec" id="safety" data-sec="03" data-name="БЕЗОПАСНОСТЬ" data-i18n-attr="data-name:industries.common.sections.safety" aria-labelledby="safety-h">
       <div class="stage zone">
         <div class="zone__grid">
           <div class="zone__copy">
-            <span class="idx reveal"><b>03</b> — БЕЗОПАСНОСТЬ</span>
-            <h2 class="h2 reveal" id="safety-h">Людей — из опасной зоны.</h2>
-            <p class="lead reveal">На демонтаже под обрушение идёт робот, а не бригада. Оператор управляет им с пульта и видит всю зону со стороны.</p>
+            <span class="idx reveal"><b>03</b> — <span data-i18n="industries.common.sections.safety">БЕЗОПАСНОСТЬ</span></span>
+            <h2 class="h2 reveal" id="safety-h" data-i18n="industries.construction.safety.title">Людей — из опасной зоны.</h2>
+            <p class="lead reveal" data-i18n="industries.construction.safety.lead">На демонтаже под обрушение идёт робот, а не бригада. Оператор управляет им с пульта и видит всю зону со стороны.</p>
           </div>
-          <svg class="zone__svg reveal" viewBox="0 0 560 300" role="img" aria-label="Схема: робот работает в зоне демонтажа, оператор с пультом стоит за её пределами">
+          <svg class="zone__svg reveal" viewBox="0 0 560 300" role="img" data-i18n-attr="aria-label:industries.construction.safety.diagramLabel" aria-label="Схема: робот работает в зоне демонтажа, оператор с пультом стоит за её пределами">
             <defs><pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v10" class="zone__hatch"/></pattern></defs>
             <circle cx="170" cy="150" r="128" class="zone__area"/>
             <circle cx="170" cy="150" r="128" fill="url(#hatch)"/>
-            <text x="170" y="44" text-anchor="middle" class="zone__lbl">ЗОНА ДЕМОНТАЖА</text>
+            <text x="170" y="44" text-anchor="middle" class="zone__lbl" data-i18n="industries.construction.safety.zoneLabel">ЗОНА ДЕМОНТАЖА</text>
             <g class="zone__bot" transform="translate(126 128)"><rect x="0" y="28" width="70" height="22" rx="6"/><rect x="10" y="10" width="40" height="20" rx="4"/><path d="M48 16 L80 -8 L96 10" /><circle cx="12" cy="50" r="7"/><circle cx="58" cy="50" r="7"/></g>
             <path d="M232 150 C 300 120, 380 120, 452 140" class="zone__signal"/>
             <g class="zone__op" transform="translate(470 104)"><circle cx="14" cy="10" r="10"/><path d="M14 22 v40 M14 62 l-12 26 M14 62 l12 26 M14 32 l-16 14 M14 32 l16 14"/><rect x="-10" y="40" width="16" height="10" rx="2"/></g>
             <path d="M298 236 H 470" class="zone__dim"/><path d="M298 228 v16 M470 228 v16" class="zone__dim"/>
-            <text x="384" y="264" text-anchor="middle" class="zone__lbl">ОПЕРАТОР ВНЕ ЗОНЫ</text>
+            <text x="384" y="264" text-anchor="middle" class="zone__lbl" data-i18n="industries.construction.safety.operatorLabel">ОПЕРАТОР ВНЕ ЗОНЫ</text>
           </svg>
         </div>
         <ul class="zone__facts">
-          <li class="reveal" style="--i:0"><b>−40%</b><span>трудозатрат на демонтаже — по кейсу</span></li>
-          <li class="reveal" style="--i:1"><b>Вне зоны</b><span>оператор управляет роботом с пульта на безопасном расстоянии</span></li>
-          <li class="reveal" style="--i:2"><b>Без усталости</b><span>одинаковое качество отделки в начале и в конце смены</span></li>
+          <li class="reveal" style="--i:0"><b data-i18n="industries.construction.safety.items.0.value">−40%</b><span data-i18n="industries.construction.safety.items.0.text">трудозатрат на демонтаже — по кейсу</span></li>
+          <li class="reveal" style="--i:1"><b data-i18n="industries.construction.safety.items.1.value">Вне зоны</b><span data-i18n="industries.construction.safety.items.1.text">оператор управляет роботом с пульта на безопасном расстоянии</span></li>
+          <li class="reveal" style="--i:2"><b data-i18n="industries.construction.safety.items.2.value">Без усталости</b><span data-i18n="industries.construction.safety.items.2.text">одинаковое качество отделки в начале и в конце смены</span></li>
         </ul>
       </div>
     </section>
 
     <!-- ================= 04 НАПРАВЛЕНИЯ ================= -->
-    <section class="sol-sec wrap" id="directions" data-sec="04" data-name="НАПРАВЛЕНИЯ" aria-labelledby="directions-h">
+    <section class="sol-sec wrap" id="directions" data-sec="04" data-name="НАПРАВЛЕНИЯ" data-i18n-attr="data-name:industries.common.sections.directions" aria-labelledby="directions-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>04</b> — НАПРАВЛЕНИЯ</span>
-        <h2 class="h2 reveal" id="directions-h">Что роботизируем.</h2>
+        <span class="idx reveal"><b>04</b> — <span data-i18n="industries.common.sections.directions">НАПРАВЛЕНИЯ</span></span>
+        <h2 class="h2 reveal" id="directions-h" data-i18n="industries.common.heads.directions">Что роботизируем.</h2>
       </div>
       <div class="drows">
         <article class="drow reveal" id="demolition" style="--i:0">
           <div class="drow__l">
             <span class="drow__no mono">01</span>
-            <h3>Демонтаж</h3>
-            <p>Дистанционно управляемые роботы для сноса и разрушения — там, где людям опасно. Оператор стоит за пределами зоны.</p>
+            <h3 data-i18n="industries.construction.directions.items.0.title">Демонтаж</h3>
+            <p data-i18n="industries.construction.directions.items.0.text">Дистанционно управляемые роботы для сноса и разрушения — там, где людям опасно. Оператор стоит за пределами зоны.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">роботизированный демонтаж · роботизированная строительная техника · дистанционное управление</p>
-            <a class="drow__sol" href="/solutions/construction/">Решение: Строительная робототехника <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <p class="drow__items"><span data-i18n="industries.construction.directions.items.0.items.items.0">роботизированный демонтаж</span> · <span data-i18n="industries.construction.directions.items.0.items.items.1">роботизированная строительная техника</span> · <span data-i18n="industries.construction.directions.items.0.items.items.2">дистанционное управление</span></p>
+            <a class="drow__sol" href="/solutions/construction/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.construction">Строительная робототехника</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="drow reveal" id="finishing" style="--i:1">
           <div class="drow__l">
             <span class="drow__no mono">02</span>
-            <h3>Отделочные работы</h3>
-            <p>Штукатурка, покраска, шпаклёвка, стяжка пола — с постоянным качеством от первого этажа до последнего.</p>
+            <h3 data-i18n="industries.construction.directions.items.1.title">Отделочные работы</h3>
+            <p data-i18n="industries.construction.directions.items.1.text">Штукатурка, покраска, шпаклёвка, стяжка пола — с постоянным качеством от первого этажа до последнего.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">роботизированная отделка · роботизированная покраска · штукатурка и шпаклёвка · стяжка пола</p>
-            <a class="drow__sol" href="/solutions/construction/">Решение: Строительная робототехника <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <p class="drow__items"><span data-i18n="industries.construction.directions.items.1.items.items.0">роботизированная отделка</span> · <span data-i18n="industries.construction.directions.items.1.items.items.1">роботизированная покраска</span> · <span data-i18n="industries.construction.directions.items.1.items.items.2">штукатурка и шпаклёвка</span> · <span data-i18n="industries.construction.directions.items.1.items.items.3">стяжка пола</span></p>
+            <a class="drow__sol" href="/solutions/construction/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.construction">Строительная робототехника</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
         <article class="drow reveal" id="heavy" style="--i:2">
           <div class="drow__l">
             <span class="drow__no mono">03</span>
-            <h3>Кладка и тяжёлые операции</h3>
-            <p>Перемещение и укладка материалов — разгружаем бригады на самой тяжёлой работе.</p>
+            <h3 data-i18n="industries.construction.directions.items.2.title">Кладка и тяжёлые операции</h3>
+            <p data-i18n="industries.construction.directions.items.2.text">Перемещение и укладка материалов — разгружаем бригады на самой тяжёлой работе.</p>
           </div>
           <div class="drow__r">
-            <p class="drow__items">роботы для кладки блоков · перемещение материалов · автономные строительные системы</p>
-            <a class="drow__sol" href="/solutions/construction/">Решение: Строительная робототехника <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <p class="drow__items"><span data-i18n="industries.construction.directions.items.2.items.items.0">роботы для кладки блоков</span> · <span data-i18n="industries.construction.directions.items.2.items.items.1">перемещение материалов</span> · <span data-i18n="industries.construction.directions.items.2.items.items.2">автономные строительные системы</span></p>
+            <a class="drow__sol" href="/solutions/construction/"><span><span data-i18n="industries.common.directions.solution">Решение:</span> <span data-i18n="common.solutionNames.construction">Строительная робототехника</span></span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </article>
       </div>
     </section>
 
     <!-- ================= 05 КЕЙС ================= -->
-    <section class="sol-sec wrap" id="case" data-sec="05" data-name="КЕЙС" aria-labelledby="case-h">
+    <section class="sol-sec wrap" id="case" data-sec="05" data-name="КЕЙС" data-i18n-attr="data-name:industries.common.sections.case" aria-labelledby="case-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>05</b> — КЕЙС</span>
-        <h2 class="h2 reveal" id="case-h">Кейс.</h2>
+        <span class="idx reveal"><b>05</b> — <span data-i18n="industries.common.sections.case">КЕЙС</span></span>
+        <h2 class="h2 reveal" id="case-h" data-i18n="industries.common.case.title">Кейс.</h2>
       </div>
       <article class="icase reveal">
-        <div class="icase__ph"><img src="assets/cases_images/case-construction.webp" alt="Демонтажный робот разрушает бетонную стену" loading="lazy" decoding="async"></div>
+        <div class="icase__ph"><img src="assets/cases_images/case-construction.webp" alt="Демонтажный робот разрушает бетонную стену" data-i18n-attr="alt:industries.construction.cases.items.0.alt" loading="lazy" decoding="async"></div>
         <div class="icase__body">
-          <span class="mono case-kicker">Строительство</span>
+          <span class="mono case-kicker" data-i18n="industries.construction.cases.items.0.tag">Строительство</span>
           <div class="icase__res"><b class="tnum">−40%</b></div>
-          <h3>Снижение трудозатрат на демонтаж</h3>
-          <a class="text-link" href="/cases/?industry=construction">Смотреть кейс <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <h3 data-i18n="industries.construction.cases.items.0.title">Снижение трудозатрат на демонтаж</h3>
+          <a class="text-link" href="/cases/?industry=construction"><span data-i18n="industries.common.case.view">Смотреть кейс</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
     </section>
 
     <!-- ================= 06 РЕЗУЛЬТАТ ================= -->
-    <section class="sol-sec wrap" id="results" data-sec="06" data-name="РЕЗУЛЬТАТ" aria-labelledby="results-h">
+    <section class="sol-sec wrap" id="results" data-sec="06" data-name="РЕЗУЛЬТАТ" data-i18n-attr="data-name:industries.common.sections.results" aria-labelledby="results-h">
       <div class="resx">
         <div class="resx__head">
-          <span class="idx reveal"><b>06</b> — РЕЗУЛЬТАТ</span>
-          <h2 class="h2 reveal" id="results-h">Что получает бизнес.</h2>
+          <span class="idx reveal"><b>06</b> — <span data-i18n="industries.common.sections.results">РЕЗУЛЬТАТ</span></span>
+          <h2 class="h2 reveal" id="results-h" data-i18n="industries.common.heads.results">Что получает бизнес.</h2>
         </div>
         <ul class="res">
-          <li class="reveal" style="--i:0"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Снижение трудозатрат на тяжёлых операциях.</li>
-          <li class="reveal" style="--i:1"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Меньше зависимости от дефицитных бригад.</li>
-          <li class="reveal" style="--i:2"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Ниже травматизм и риски по охране труда.</li>
-          <li class="reveal" style="--i:3"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Стабильное качество отделки и предсказуемые сроки.</li>
+          <li class="reveal" style="--i:0"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-i18n="industries.construction.results.items.0">Снижение трудозатрат на тяжёлых операциях.</span></li>
+          <li class="reveal" style="--i:1"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-i18n="industries.construction.results.items.1">Меньше зависимости от дефицитных бригад.</span></li>
+          <li class="reveal" style="--i:2"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-i18n="industries.construction.results.items.2">Ниже травматизм и риски по охране труда.</span></li>
+          <li class="reveal" style="--i:3"><span class="res__ic"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span data-i18n="industries.construction.results.items.3">Стабильное качество отделки и предсказуемые сроки.</span></li>
         </ul>
       </div>
     </section>
 
     <!-- ================= 07 ОБОРУДОВАНИЕ ================= -->
-    <section class="sol-sec wrap" id="vendors" data-sec="07" data-name="ОБОРУДОВАНИЕ" aria-labelledby="vendors-h">
+    <section class="sol-sec wrap" id="vendors" data-sec="07" data-name="ОБОРУДОВАНИЕ" data-i18n-attr="data-name:industries.common.sections.vendors" aria-labelledby="vendors-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>07</b> — ОБОРУДОВАНИЕ</span>
-        <h2 class="h2 reveal" id="vendors-h">Оборудование и производители.</h2>
-        <p class="lead reveal">Под каждый тип работ и объект подбираем оборудование отдельно.</p>
+        <span class="idx reveal"><b>07</b> — <span data-i18n="industries.common.sections.vendors">ОБОРУДОВАНИЕ</span></span>
+        <h2 class="h2 reveal" id="vendors-h" data-i18n="industries.common.heads.vendors">Оборудование и производители.</h2>
+        <p class="lead reveal" data-i18n="industries.construction.vendorsLead">Под каждый тип работ и объект подбираем оборудование отдельно.</p>
       </div>
       <div class="vend">
         <div class="vend__grp reveal" style="--i:0">
-          <h3 class="mono">Демонтаж и тяжёлые работы</h3>
+          <h3 class="mono" data-i18n="industries.construction.vendors.items.0.group">Демонтаж и тяжёлые работы</h3>
           <ul class="vend__list"><li class="vlogo"><img src="assets/brands/sany.svg" alt="SANY" style="--h:30px" width="109" height="29" loading="lazy"></li><li class="vlogo"><img src="assets/brands/bmr.png" alt="BMR" style="--h:37px" width="863" height="313" loading="lazy"></li><li class="vlogo"><img src="assets/brands/bzl.png" alt="Bright Dream Robotics" style="--h:31px" width="208" height="53" loading="lazy"></li></ul>
         </div>
         <div class="vend__grp reveal" style="--i:1">
-          <h3 class="mono">Отделка и стяжка</h3>
+          <h3 class="mono" data-i18n="industries.construction.vendors.items.1.group">Отделка и стяжка</h3>
           <ul class="vend__list"><li class="vlogo"><img src="assets/brands/we-i-build.png" alt="We-I-Build" style="--h:24px" width="284" height="41" loading="lazy"></li><li class="vlogo"><img src="assets/brands/fangshi.png" alt="Fangshi" style="--h:41px" width="1266" height="551" loading="lazy"></li><li class="vlogo"><img src="assets/brands/legendrobot.png" alt="Legend Robot" style="--h:29px" width="258" height="56" loading="lazy"></li><li class="vlogo"><img src="assets/brands/derutu.png" alt="Derutu" style="--h:29px" width="547" height="120" loading="lazy"></li><li class="vlogo"><img src="assets/brands/dafang.png" alt="Dafang" style="--h:36px" width="2137" height="727" loading="lazy"></li></ul>
         </div>
       </div>
     </section>
 
     <!-- ================= 08 ПОЧЕМУ ПРОФРОБОТ ================= -->
-    <section class="sol-sec wrap" id="why" data-sec="08" data-name="ПОЧЕМУ ПРОФРОБОТ" aria-labelledby="why-h">
+    <section class="sol-sec wrap" id="why" data-sec="08" data-name="ПОЧЕМУ ПРОФРОБОТ" data-i18n-attr="data-name:industries.common.sections.why" aria-labelledby="why-h">
       <div class="whyn reveal">
-        <span class="idx reveal"><b>08</b> — ПОЧЕМУ ПРОФРОБОТ</span>
-        <h2 class="whyn__h" id="why-h">Робот на площадке не простаивает.</h2>
-        <p>Простой техники на площадке срывает график. Обслуживаем технику по SLA по всей России и отвечаем за то, чтобы робот работал, а не только за поставку.</p>
-        <a class="text-link" href="/services/pilot/">Пилотный проект <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="idx reveal"><b>08</b> — <span data-i18n="industries.common.sections.why">ПОЧЕМУ ПРОФРОБОТ</span></span>
+        <h2 class="whyn__h" id="why-h" data-i18n="industries.construction.why.title">Робот на площадке не простаивает.</h2>
+        <p data-i18n="industries.construction.why.text">Простой техники на площадке срывает график. Обслуживаем технику по SLA по всей России и отвечаем за то, чтобы робот работал, а не только за поставку.</p>
+        <a class="text-link" href="/services/pilot/"><span data-i18n="common.linkNames.pilotProject">Пилотный проект</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
 
     <!-- ================= 09 ЗАЯВКА ================= -->
-    <section class="sol-sec wrap" id="talk" data-sec="09" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+    <section class="sol-sec wrap" id="talk" data-sec="09" data-name="ЗАЯВКА" data-i18n-attr="data-name:industries.common.sections.form" aria-labelledby="talk-h">
       <div class="talk">
         <div class="talk__copy">
-          <span class="idx reveal"><b>09</b> — ЗАЯВКА</span>
-          <h2 class="h2 reveal" id="talk-h">Обсудим пилот на вашем объекте.</h2>
-          <p class="lead reveal">Приедем, посмотрим участок и предложим 2–3 варианта техники под ваш тип работ.</p>
-          <a class="text-link reveal" href="tel:+74951234567">Или позвоните: +7 (495) 123-45-67</a>
+          <span class="idx reveal"><b>09</b> — <span data-i18n="industries.common.sections.form">ЗАЯВКА</span></span>
+          <h2 class="h2 reveal" id="talk-h" data-i18n="industries.construction.form.title">Обсудим пилот на вашем объекте.</h2>
+          <p class="lead reveal" data-i18n="industries.construction.form.lead">Приедем, посмотрим участок и предложим 2–3 варианта техники под ваш тип работ.</p>
+          <a class="text-link reveal" href="tel:+74951234567" data-i18n="industries.common.form.callUs">Или позвоните: +7 (495) 123-45-67</a>
         </div>
 
         <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="industries/construction" aria-labelledby="talk-h">
           <div class="form__row">
             <div class="fld">
-              <label for="f-name">Имя</label>
+              <label for="f-name" data-i18n="common.form.name">Имя</label>
               <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
               <span class="fld__err" id="f-name-err" role="alert"></span>
             </div>
             <div class="fld">
-              <label for="f-phone">Телефон</label>
+              <label for="f-phone" data-i18n="common.form.phone">Телефон</label>
               <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
               <span class="fld__err" id="f-phone-err" role="alert"></span>
             </div>
           </div>
           <div class="fld">
-            <label for="f-dir">Направление <small>необязательно</small></label>
+            <label for="f-dir" data-i18n-html="industries.common.form.directionLabel">Направление <small>необязательно</small></label>
             <select id="f-dir" name="direction">
-              <option value="">Пока не знаю</option>
-              <option value="demolition">Демонтаж</option>
-              <option value="finishing">Отделочные работы</option>
-              <option value="heavy">Кладка и тяжёлые операции</option>
+              <option value="" data-i18n="common.form.directionUnknown">Пока не знаю</option>
+              <option value="demolition" data-i18n="industries.construction.directions.items.0.title">Демонтаж</option>
+              <option value="finishing" data-i18n="industries.construction.directions.items.1.title">Отделочные работы</option>
+              <option value="heavy" data-i18n="industries.construction.directions.items.2.title">Кладка и тяжёлые операции</option>
             </select>
           </div>
-          <div class="hp" aria-hidden="true"><label>Не заполняйте <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="fld">
-            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
             <span class="fld__err" id="f-consent-err" role="alert"></span>
           </div>
           <div class="form__foot">
-            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Обсудить пилот</span></button>
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t" data-i18n="industries.construction.form.button">Обсудить пилот</span></button>
             <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
           </div>
           <div class="form__ok" role="status">
             <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
-            <b>Заявка принята.</b>
-            <p>Перезвоним в рабочее время.</p>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
           </div>
         </form>
       </div>
     </section>
 
     <!-- ================= 10 СМОТРИТЕ ТАКЖЕ ================= -->
-    <section class="sol-sec wrap" id="see" data-sec="10" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+    <section class="sol-sec wrap" id="see" data-sec="10" data-name="СМОТРИТЕ ТАКЖЕ" data-i18n-attr="data-name:industries.common.sections.see" aria-labelledby="see-h">
       <div class="sol-head">
-        <span class="idx reveal"><b>10</b> — СМОТРИТЕ ТАКЖЕ</span>
-        <h2 class="h2 reveal" id="see-h">Смотрите также.</h2>
+        <span class="idx reveal"><b>10</b> — <span data-i18n="industries.common.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 class="h2 reveal" id="see-h" data-i18n="industries.common.heads.see">Смотрите также.</h2>
       </div>
       <div class="seeg">
         <a class="seel reveal" style="--i:0" href="/solutions/construction/">
-          <span class="dir__no">РЕШЕНИЕ</span>
-          <h3>Строительная робототехника</h3>
-          <p>Классы техники, характеристики, сравнение.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.solution">РЕШЕНИЕ</span>
+          <h3 data-i18n="common.solutionNames.construction">Строительная робототехника</h3>
+          <p data-i18n="industries.construction.links.items.0.text">Классы техники, характеристики, сравнение.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:1" href="/services/pilot/">
-          <span class="dir__no">УСЛУГА</span>
-          <h3>Пилотный проект</h3>
-          <p>Один участок, понятный результат.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.service">УСЛУГА</span>
+          <h3 data-i18n="common.linkNames.pilotProject">Пилотный проект</h3>
+          <p data-i18n="industries.construction.links.items.1.text">Один участок, понятный результат.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:2" href="/services/audit/">
-          <span class="dir__no">УСЛУГА</span>
-          <h3>Аудит объекта</h3>
-          <p>Где робот окупится на вашей площадке.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.service">УСЛУГА</span>
+          <h3 data-i18n="common.linkNames.audit">Аудит объекта</h3>
+          <p data-i18n="industries.construction.links.items.2.text">Где робот окупится на вашей площадке.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:3" href="/cases/?industry=construction">
-          <span class="dir__no">КЕЙСЫ</span>
-          <h3>Кейсы: строительство</h3>
-          <p>Демонтаж и отделка на объектах.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.cases">КЕЙСЫ</span>
+          <h3 data-i18n="industries.construction.links.items.3.title">Кейсы: строительство</h3>
+          <p data-i18n="industries.construction.links.items.3.text">Демонтаж и отделка на объектах.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
         <a class="seel reveal" style="--i:4" href="/industries/">
-          <span class="dir__no">ОТРАСЛИ</span>
-          <h3>Все отрасли</h3>
-          <p>Все 11 отраслевых страниц.</p>
+          <span class="dir__no" data-i18n="industries.common.kickers.industries">ОТРАСЛИ</span>
+          <h3 data-i18n="industries.common.links.allIndustries">Все отрасли</h3>
+          <p data-i18n="industries.common.links.allIndustriesText">Все 11 отраслевых страниц.</p>
           <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </div>
@@ -348,19 +387,19 @@
     <div class="stage foot">
       <div class="foot-top">
         <div class="foot-brand">
-          <a href="index.html" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
-          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+          <a href="index.html" data-i18n-attr="aria-label:common.brand.homeLabel" aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png" data-i18n-attr="alt:common.brand.logoAlt" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
         </div>
         <div class="foot-call">
-          <span class="mono">Отдел внедрения</span>
+          <span class="mono" data-i18n="common.footer.dept">Отдел внедрения</span>
           <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
           <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
         </div>
       </div>
       <div class="foot-bot">
-        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
-        <a href="#">Политика конфиденциальности</a>
-        <a class="foot-up" href="index.html#industries">Все отрасли <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <span data-i18n="common.footer.rights">© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a href="#" data-i18n="common.footer.privacy">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html#industries"><span data-i18n="common.footer.allIndustries">Все отрасли</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
   </footer>

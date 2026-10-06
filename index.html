@@ -3,28 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Роботы-уборщики и роботизация для бизнеса | ПРОФРОБОТ</title>
-  <meta name="description" content="ПРОФРОБОТ — роботизация для бизнеса. Роботы-уборщики, AMR-роботы, промышленные манипуляторы и другие решения для автоматизации.">
+  <title data-i18n="home.meta.title">Роботы-уборщики и роботизация для бизнеса | ПРОФРОБОТ</title>
+  <meta data-i18n-attr="content:home.meta.description" name="description" content="ПРОФРОБОТ — роботизация для бизнеса. Роботы-уборщики, AMR-роботы, промышленные манипуляторы и другие решения для автоматизации.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
 </head>
 <body>
 
   <!-- ================= NAV ================= -->
-  <header class="nav" aria-label="Основная навигация">
-    <a href="#hero" data-link aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="#hero" data-link aria-label="ПРОФРОБОТ — на главную"><img data-i18n-attr="alt:common.brand.logoAlt" src="assets/profrobot-logo.png" alt="ПРОФРОБОТ"></a>
     <nav class="nav-links">
-      <a href="solutions.html">Решения</a>
-      <a href="#industries" data-link>Отрасли</a>
-      <a href="#platform" data-link>Платформа</a>
-      <a href="#cases" data-link>Кейсы</a>
-      <a href="#contact" data-link>Контакты</a>
+      <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+      <a data-i18n="common.nav.industries" href="#industries" data-link>Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html">Продукты</a>
+      <a data-i18n="common.nav.platform" href="#platform" data-link>Платформа</a>
+      <a data-i18n="common.nav.cases" href="#cases" data-link>Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="#contact" data-link>Контакты</a>
     </nav>
-    <a class="btn btn-pri" href="#contact" data-link>Связаться</a>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="#contact" data-link>Связаться</a>
   </header>
 
   <!-- ================= SECTION COUNTER ================= -->
@@ -32,27 +71,27 @@
     <span class="cur tnum">01</span>
     <span class="bar"><i></i></span>
     <span class="tot tnum">09</span>
-    <span class="lbl">ГЕРОЙ</span>
+    <span data-i18n="home.sections.hero" class="lbl">ГЕРОЙ</span>
   </div>
 
   <main>
     <!-- ================= 01 HERO ================= -->
-    <section class="hero" id="hero" data-sec="01" data-name="ГЕРОЙ">
+    <section data-i18n-attr="data-name:home.sections.hero" class="hero" id="hero" data-sec="01" data-name="ГЕРОЙ">
       <div class="wrap hero-top">
         <div class="hero-copy">
-          <h1 class="h1 hero-in">Роботы, которые работают на ваш бизнес.</h1>
-          <p class="lead hero-in">Внедряем роботов любого типа и управляем ими на собственной платформе ПРОФРОБОТ. Закрываем дефицит персонала, держим качество стабильным, окупаемость считаем до вложений.</p>
+          <h1 data-i18n="home.hero.title" class="h1 hero-in">Роботы, которые работают на ваш бизнес.</h1>
+          <p data-i18n="home.hero.lead" class="lead hero-in">Внедряем роботов любого типа и управляем ими на собственной платформе ПРОФРОБОТ. Закрываем дефицит персонала, держим качество стабильным, окупаемость считаем до вложений.</p>
           <div class="btns hero-in">
-            <a class="btn btn-pri" href="roi.html">Рассчитать окупаемость <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn-sec" href="#cases" data-link>Посмотреть кейсы</a>
+            <a class="btn btn-pri" href="roi.html"><span data-i18n="home.hero.ctaRoi">Рассчитать окупаемость</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a data-i18n="home.hero.ctaCases" class="btn btn-sec" href="#cases" data-link>Посмотреть кейсы</a>
           </div>
         </div>
         <div class="hero-side">
-          <a class="metrics hero-in" href="#platform" data-link aria-label="Платформа ПРОФРОБОТ: 142 устройства, 14 объектов, SLA 98,2%. Перейти к платформе">
-            <span><b class="tnum" data-count="142">142</b> устройства</span><span class="dot"></span>
-            <span><b class="tnum" data-count="14">14</b> объектов</span><span class="dot"></span>
+          <a data-i18n-attr="aria-label:home.hero.metrics.ariaLabel" class="metrics hero-in" href="#platform" data-link aria-label="Платформа ПРОФРОБОТ: 142 устройства, 14 объектов, SLA 98,2%. Перейти к платформе">
+            <span><b class="tnum" data-count="142">142</b> <span data-i18n="home.hero.metrics.devices">устройства</span></span><span class="dot"></span>
+            <span><b class="tnum" data-count="14">14</b> <span data-i18n="home.hero.metrics.sites">объектов</span></span><span class="dot"></span>
             <span>SLA <b class="tnum" data-count="98.2" data-dec="1">98,2</b><b>%</b></span>
-            <span class="badge-online"><i></i>Платформа онлайн</span>
+            <span class="badge-online"><i></i><span data-i18n="home.hero.metrics.online">Платформа онлайн</span></span>
           </a>
           <div class="scene-caption" id="caption" aria-live="polite">
             <span class="mono scene-caption__cat" id="caption-cat"></span>
@@ -68,101 +107,101 @@
         </div>
         <div class="scene-lane">
           <div class="scene-track" id="track">
-            <button class="robot" type="button"
+            <button data-i18n-attr="aria-label:home.hero.robots.agro.ariaLabel;data-cat:home.hero.robots.agro.cat;data-res:home.hero.robots.agro.result" class="robot" type="button"
                     style="--k:.62; --lf:.035; --pad:.007"
                     data-life="5.9" data-amp="6" data-rot=".4" data-depth=".010"
                     data-cat="Агро" data-res="точное внесение и мониторинг полей"
                     data-robot="agro" aria-label="Агродрон — роботизация сельского хозяйства">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-agro.webp" alt="Агродрон" width="1207" height="703" decoding="sync">
+                <img data-i18n-attr="alt:home.hero.robots.agro.alt" src="assets/robots/robot-agro.webp" alt="Агродрон" width="1207" height="703" decoding="sync">
               </span></span></span>
-              <span class="robot-label">Агро</span>
+              <span data-i18n="home.hero.robots.agro.cat" class="robot-label">Агро</span>
             </button>
-            <button class="robot" type="button"
+            <button data-i18n-attr="aria-label:home.hero.robots.demolition.ariaLabel;data-cat:home.hero.robots.demolition.cat;data-res:home.hero.robots.demolition.result" class="robot" type="button"
                     style="--k:.88; --lf:0; --pad:.055; --sink:.045"
                     data-life="4.3" data-amp="3" data-depth=".014"
                     data-cat="Стройка" data-res="снижение трудозатрат на демонтаж на 40%"
                     data-robot="demolition" aria-label="Демонтажный робот — роботизация строительства">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-demolition.webp" alt="Демонтажный робот" width="1199" height="1015" decoding="sync">
+                <img data-i18n-attr="alt:home.hero.robots.demolition.alt" src="assets/robots/robot-demolition.webp" alt="Демонтажный робот" width="1199" height="1015" decoding="sync">
               </span></span></span>
-              <span class="robot-label">Стройка</span>
+              <span data-i18n="home.hero.robots.demolition.cat" class="robot-label">Стройка</span>
             </button>
-            <button class="robot" type="button"
+            <button data-i18n-attr="aria-label:home.hero.robots.cleaning.ariaLabel;data-cat:home.hero.robots.cleaning.cat;data-res:home.hero.robots.cleaning.result" class="robot" type="button"
                     style="--k:.74; --lf:0; --pad:.013"
                     data-life="3.1" data-amp="3" data-depth=".020"
                     data-cat="Уборка" data-res="снижение затрат на клининг на 32%"
                     data-robot="cleaning" aria-label="Клининговый робот-полотёр — автоматизация уборки">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-cleaning.webp" alt="Клининговый робот" width="964" height="1026" fetchpriority="high" decoding="sync">
+                <img data-i18n-attr="alt:home.hero.robots.cleaning.alt" src="assets/robots/robot-cleaning.webp" alt="Клининговый робот" width="964" height="1026" fetchpriority="high" decoding="sync">
               </span></span></span>
-              <span class="robot-label">Уборка</span>
+              <span data-i18n="home.hero.robots.cleaning.cat" class="robot-label">Уборка</span>
             </button>
-            <button class="robot" type="button"
+            <button data-i18n-attr="aria-label:home.hero.robots.amr.ariaLabel;data-cat:home.hero.robots.amr.cat;data-res:home.hero.robots.amr.result" class="robot" type="button"
                     style="--k:1; --lf:0; --pad:.031"
                     data-life="4.9" data-amp="3" data-depth=".016"
                     data-cat="Склад" data-res="рост пропускной способности склада на 35%"
                     data-robot="amr" aria-label="Складской AMR-робот — автоматизация логистики">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-amr.webp" alt="Складской AMR-робот" width="837" height="1148" decoding="sync">
+                <img data-i18n-attr="alt:home.hero.robots.amr.alt" src="assets/robots/robot-amr.webp" alt="Складской AMR-робот" width="837" height="1148" decoding="sync">
               </span></span></span>
-              <span class="robot-label">Склад</span>
+              <span data-i18n="home.hero.robots.amr.cat" class="robot-label">Склад</span>
             </button>
             <!-- Доставка — низкий уличный робот: встаёт между двумя высокими, Складом и Производством,
                  и разбивает их пару. По кругу ленты рост чередуется: низкий — высокий.
                  Верх картинки — флажок на штанге, корпус занимает нижние ~70%: при --k:.76 кузов
                  по высоте на уровне Уборки и Велнеса, флажок не дотягивает до Производства. -->
-            <button class="robot" type="button"
+            <button data-i18n-attr="aria-label:home.hero.robots.delivery.ariaLabel;data-cat:home.hero.robots.delivery.cat;data-res:home.hero.robots.delivery.result" class="robot" type="button"
                     style="--k:.76; --lf:0; --pad:.004"
                     data-life="4.5" data-amp="3" data-depth=".018"
                     data-cat="Доставка" data-res="доставка последней мили без курьера"
                     data-robot="delivery" aria-label="Робот-доставщик — автономная доставка последней мили">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-delivery.webp" alt="Робот-доставщик" width="1027" height="1072" decoding="sync">
+                <img data-i18n-attr="alt:home.hero.robots.delivery.alt" src="assets/robots/robot-delivery.webp" alt="Робот-доставщик" width="1027" height="1072" decoding="sync">
               </span></span></span>
-              <span class="robot-label">Доставка</span>
+              <span data-i18n="home.hero.robots.delivery.cat" class="robot-label">Доставка</span>
             </button>
-            <button class="robot" type="button"
+            <button data-i18n-attr="aria-label:home.hero.robots.manipulator.ariaLabel;data-cat:home.hero.robots.manipulator.cat;data-res:home.hero.robots.manipulator.result" class="robot" type="button"
                     style="--k:.82; --lf:0; --pad:.032"
                     data-life="3.7" data-amp="3" data-depth=".022"
                     data-cat="Производство" data-res="до 80% снижение зависимости от ручного труда"
                     data-robot="manipulator" aria-label="Промышленный манипулятор — автоматизация производства">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-manipulator.webp" alt="Промышленный манипулятор" width="992" height="1116" fetchpriority="high" decoding="sync">
+                <img data-i18n-attr="alt:home.hero.robots.manipulator.alt" src="assets/robots/robot-manipulator.webp" alt="Промышленный манипулятор" width="992" height="1116" fetchpriority="high" decoding="sync">
               </span></span></span>
-              <span class="robot-label">Производство</span>
+              <span data-i18n="home.hero.robots.manipulator.cat" class="robot-label">Производство</span>
             </button>
-            <button class="robot" type="button"
+            <button data-i18n-attr="aria-label:home.hero.robots.wellness.ariaLabel;data-cat:home.hero.robots.wellness.cat;data-res:home.hero.robots.wellness.result" class="robot" type="button"
                     style="--k:.72; --lf:0; --pad:.038"
                     data-life="5.3" data-amp="2" data-depth=".012"
                     data-cat="Велнес" data-res="сервис в зонах отдыха без участия персонала"
                     data-robot="wellness" aria-label="Велнес-робот — роботизация wellness-услуг">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-wellness.webp" alt="Велнес-робот" width="1068" height="990" decoding="sync">
+                <img data-i18n-attr="alt:home.hero.robots.wellness.alt" src="assets/robots/robot-wellness.webp" alt="Велнес-робот" width="1068" height="990" decoding="sync">
               </span></span></span>
-              <span class="robot-label">Велнес</span>
+              <span data-i18n="home.hero.robots.wellness.cat" class="robot-label">Велнес</span>
             </button>
             <!-- Гуманоид после Велнеса: высокий узкий силуэт между двумя низкими (Велнес и Агро по кругу ленты).
                  --k выше AMR: гуманоид — единственный в ленте в рост человека, и размером он должен выделяться.
                  Запас сцены под его подпись рассчитан в styles.css (--scene-h).
                  --air: узкий силуэт при общем шаге ленты выглядел зажатым — добавляем поля по бокам -->
-            <button class="robot" type="button"
+            <button data-i18n-attr="aria-label:home.hero.robots.humanoid.ariaLabel;data-cat:home.hero.robots.humanoid.cat;data-res:home.hero.robots.humanoid.result" class="robot" type="button"
                     style="--k:1.06; --lf:0; --pad:.003; --air:.12"
                     data-life="4.7" data-amp="3" data-depth=".018"
                     data-cat="Гуманоиды" data-res="сервис и представительские задачи под конкретный запрос"
                     data-robot="humanoid" aria-label="Гуманоидный робот — сервис и представительские задачи">
               <span class="robot-depth"><span class="robot-life"><span class="robot-fig">
                 <span class="robot-glow" aria-hidden="true"></span>
-                <img src="assets/robots/robot-humanoid.webp" alt="Гуманоидный робот" width="403" height="1188" decoding="sync">
+                <img data-i18n-attr="alt:home.hero.robots.humanoid.alt" src="assets/robots/robot-humanoid.webp" alt="Гуманоидный робот" width="403" height="1188" decoding="sync">
               </span></span></span>
-              <span class="robot-label">Гуманоиды</span>
+              <span data-i18n="home.hero.robots.humanoid.cat" class="robot-label">Гуманоиды</span>
             </button>
           </div>
         </div>
@@ -178,11 +217,11 @@
       <div class="wrap">
         <div class="brands-panel reveal" data-brands>
           <div class="brands-head">
-            <h2 class="brands-h" id="brands-title">Работаем с ведущими мировыми производителями</h2>
+            <h2 data-i18n="home.brands.title" class="brands-h" id="brands-title">Работаем с ведущими мировыми производителями</h2>
             <div class="brands-stat">
               <b class="brands-count tnum">40<i>+</i></b>
-              <span class="brands-count-l">брендов<br>в подборе</span>
-              <a class="brands-more" href="#contact" data-link><span>И другие</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <span data-i18n-html="home.brands.countLabel" class="brands-count-l">брендов<br>в подборе</span>
+              <a class="brands-more" href="#contact" data-link><span data-i18n="home.brands.more">И другие</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
           <div class="brands-rows">
@@ -191,22 +230,22 @@
                 <ul class="brands-row">
                 <li class="brand">
                   <img src="assets/brands/pudu.svg" alt="Pudu Robotics" style="--h:30px" width="93" height="24" loading="lazy">
-                  <span class="brand-cat">Клининг · сервис</span></li>
+                  <span data-i18n="home.brands.cat.cleaningService" class="brand-cat">Клининг · сервис</span></li>
                 <li class="brand">
                   <img src="assets/brands/gausium.svg" alt="Gausium" style="--h:33px" width="195" height="56" loading="lazy">
-                  <span class="brand-cat">Клининг</span></li>
+                  <span data-i18n="home.brands.cat.cleaning" class="brand-cat">Клининг</span></li>
                 <li class="brand">
                   <img src="assets/brands/keenon.png" alt="KEENON Robotics" style="--h:31px" width="1845" height="433" loading="lazy">
-                  <span class="brand-cat">Сервис · HoReCa</span></li>
+                  <span data-i18n="home.brands.cat.serviceHoreca" class="brand-cat">Сервис · HoReCa</span></li>
                 <li class="brand">
                   <img src="assets/brands/lionsbot.png" alt="LionsBot" style="--h:40px" width="402" height="120" loading="lazy">
-                  <span class="brand-cat">Клининг</span></li>
+                  <span data-i18n="home.brands.cat.cleaning" class="brand-cat">Клининг</span></li>
                 <li class="brand">
                   <img src="assets/brands/orionstar.png" alt="OrionStar Robotics" style="--h:30px" width="419" height="92" loading="lazy">
-                  <span class="brand-cat">Сервисные роботы</span></li>
+                  <span data-i18n="home.brands.cat.serviceRobots" class="brand-cat">Сервисные роботы</span></li>
                 <li class="brand">
                   <img src="assets/brands/hikrobot.svg" alt="Hikrobot" style="--h:20px" width="191" height="25" loading="lazy">
-                  <span class="brand-cat">Склад · AMR</span></li>
+                  <span data-i18n="home.brands.cat.warehouseAmr" class="brand-cat">Склад · AMR</span></li>
                 </ul>
               </div>
             </div>
@@ -215,25 +254,25 @@
                 <ul class="brands-row">
                 <li class="brand">
                   <img src="assets/brands/quicktron.png" alt="Quicktron Robotics" style="--h:22px" width="1277" height="232" loading="lazy">
-                  <span class="brand-cat">Склад · AMR</span></li>
+                  <span data-i18n="home.brands.cat.warehouseAmr" class="brand-cat">Склад · AMR</span></li>
                 <li class="brand">
                   <img src="assets/brands/forwardx.png" alt="ForwardX Robotics" style="--h:23px" width="599" height="82" loading="lazy">
-                  <span class="brand-cat">Логистика · AMR</span></li>
+                  <span data-i18n="home.brands.cat.logisticsAmr" class="brand-cat">Логистика · AMR</span></li>
                 <li class="brand">
                   <img src="assets/brands/agilex.png" alt="AgileX Robotics" style="--h:44px" width="600" height="228" loading="lazy">
-                  <span class="brand-cat">Мобильные роботы</span></li>
+                  <span data-i18n="home.brands.cat.mobile" class="brand-cat">Мобильные роботы</span></li>
                 <li class="brand">
                   <img src="assets/brands/unitree.svg" alt="Unitree Robotics" style="--h:26px" width="871" height="196" loading="lazy">
-                  <span class="brand-cat">Шагающие роботы</span></li>
+                  <span data-i18n="home.brands.cat.legged" class="brand-cat">Шагающие роботы</span></li>
                 <li class="brand">
                   <img src="assets/brands/ubtech.svg" alt="UBTECH Robotics" style="--h:29px" width="1094" height="272" loading="lazy">
-                  <span class="brand-cat">Гуманоиды</span></li>
+                  <span data-i18n="home.brands.cat.humanoids" class="brand-cat">Гуманоиды</span></li>
                 <li class="brand">
                   <img src="assets/brands/jaka.png" alt="JAKA Robotics" style="--h:26px" width="774" height="193" loading="lazy">
-                  <span class="brand-cat">Коботы</span></li>
+                  <span data-i18n="home.brands.cat.cobots" class="brand-cat">Коботы</span></li>
                 <li class="brand">
                   <img src="assets/brands/elite-robots.svg" alt="Elite Robots" style="--h:28px" width="246" height="48" loading="lazy">
-                  <span class="brand-cat">Коботы</span></li>
+                  <span data-i18n="home.brands.cat.cobots" class="brand-cat">Коботы</span></li>
                 </ul>
               </div>
             </div>
@@ -242,22 +281,22 @@
                 <ul class="brands-row">
                 <li class="brand">
                   <img src="assets/brands/realman.png" alt="Realman Robotics" style="--h:22px" width="644" height="112" loading="lazy">
-                  <span class="brand-cat">Манипуляторы</span></li>
+                  <span data-i18n="home.brands.cat.manipulators" class="brand-cat">Манипуляторы</span></li>
                 <li class="brand">
                   <img src="assets/brands/brokk.png" alt="Brokk" style="--h:33px" width="250" height="65" loading="lazy">
-                  <span class="brand-cat">Демонтаж</span></li>
+                  <span data-i18n="home.brands.cat.demolition" class="brand-cat">Демонтаж</span></li>
                 <li class="brand">
                   <img src="assets/brands/sany.svg" alt="SANY" style="--h:30px" width="109" height="29" loading="lazy">
-                  <span class="brand-cat">Стройтехника</span></li>
+                  <span data-i18n="home.brands.cat.construction" class="brand-cat">Стройтехника</span></li>
                 <li class="brand">
                   <img src="assets/brands/dji.png" alt="DJI" style="--h:40px" width="360" height="208" loading="lazy">
-                  <span class="brand-cat">Дроны</span></li>
+                  <span data-i18n="home.brands.cat.drones" class="brand-cat">Дроны</span></li>
                 <li class="brand">
                   <img src="assets/brands/xag.svg" alt="XAG" style="--h:30px" width="69" height="25" loading="lazy">
-                  <span class="brand-cat">Агродроны</span></li>
+                  <span data-i18n="home.brands.cat.agrodrones" class="brand-cat">Агродроны</span></li>
                 <li class="brand">
                   <img src="assets/brands/fjdynamics.png" alt="FJDynamics" style="--h:34px" width="396" height="96" loading="lazy">
-                  <span class="brand-cat">Агро · автопилот</span></li>
+                  <span data-i18n="home.brands.cat.agroAutopilot" class="brand-cat">Агро · автопилот</span></li>
                 </ul>
               </div>
             </div>
@@ -266,178 +305,178 @@
       </section>
 
     <!-- ================= 02 ЗАДАЧИ — pinned horizontal ================= -->
-    <section class="hpin" id="tasks" data-sec="02" data-name="ЗАДАЧИ" data-hpin>
+    <section data-i18n-attr="data-name:home.sections.tasks" class="hpin" id="tasks" data-sec="02" data-name="ЗАДАЧИ" data-hpin>
       <div class="hpin-inner">
         <div class="hpin-head">
-          <span class="idx"><b>02</b> — ЗАДАЧИ</span>
-          <h2 class="h2">Какие задачи вы хотите решить?</h2>
-          <p class="lead">Начните с задачи. Решение подберём под неё, а не наоборот.</p>
+          <span class="idx"><b>02</b> — <span data-i18n="home.sections.tasks">ЗАДАЧИ</span></span>
+          <h2 data-i18n="home.tasks.title" class="h2">Какие задачи вы хотите решить?</h2>
+          <p data-i18n="home.tasks.lead" class="lead">Начните с задачи. Решение подберём под неё, а не наоборот.</p>
           <div class="progress"><b class="p-cur tnum">01</b><span class="track-bar"><i></i></span><span class="tnum">04</span></div>
         </div>
         <div class="viewport">
           <div class="track">
-            <article class="task task--facts"><div class="n"><span>01</span><span class="tag"><i></i>Уборка</span></div>
+            <article class="task task--facts"><div class="n"><span>01</span><span class="tag"><i></i><span data-i18n="home.tasks.items.cleaning.tag">Уборка</span></span></div>
               <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4M22 5h-4"/></svg></div>
-              <h3>Дорогая и нестабильная уборка</h3>
-              <dl class="facts"><div><dt>Подходит</dt><dd>Офисы и БЦ, торговые центры, склады, терминалы, клиники — где много ровных твёрдых полов.</dd></div><div><dt>Робот</dt><dd>Моет и подметает полы по заданному маршруту, в том числе ночью и в непиковые часы.</dd></div><div><dt>Людям</dt><dd>Санузлы, столы, мусор, углы и зоны, куда робот не заезжает. Вода и расходники.</dd></div><div><dt>Условия</dt><dd>Ровное твёрдое покрытие, проходы без препятствий, место для зарядки и слива воды.</dd></div></dl>
-              <p class="est">Предварительный расчёт — сразу, <a href="roi.html">в калькуляторе окупаемости</a>. Точный — после аудита объекта.</p></article>
-            <article class="task task--facts"><div class="n"><span>02</span><span class="tag"><i></i>Доставка</span></div>
+              <h3 data-i18n="home.tasks.items.cleaning.title">Дорогая и нестабильная уборка</h3>
+              <dl class="facts"><div><dt data-i18n="home.tasks.facts.fit">Подходит</dt><dd data-i18n="home.tasks.items.cleaning.fit">Офисы и БЦ, торговые центры, склады, терминалы, клиники — где много ровных твёрдых полов.</dd></div><div><dt data-i18n="home.tasks.facts.robot">Робот</dt><dd data-i18n="home.tasks.items.cleaning.robot">Моет и подметает полы по заданному маршруту, в том числе ночью и в непиковые часы.</dd></div><div><dt data-i18n="home.tasks.facts.people">Людям</dt><dd data-i18n="home.tasks.items.cleaning.people">Санузлы, столы, мусор, углы и зоны, куда робот не заезжает. Вода и расходники.</dd></div><div><dt data-i18n="home.tasks.facts.conditions">Условия</dt><dd data-i18n="home.tasks.items.cleaning.conditions">Ровное твёрдое покрытие, проходы без препятствий, место для зарядки и слива воды.</dd></div></dl>
+              <p data-i18n-html="home.tasks.items.cleaning.estimate" class="est">Предварительный расчёт — сразу, <a href="roi.html">в калькуляторе окупаемости</a>. Точный — после аудита объекта.</p></article>
+            <article class="task task--facts"><div class="n"><span>02</span><span class="tag"><i></i><span data-i18n="home.tasks.items.delivery.tag">Доставка</span></span></div>
               <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></div>
-              <h3>Курьеров не хватает</h3>
-              <dl class="facts"><div><dt>Подходит</dt><dd>Рестораны и магазины, аэропорты, кампусы, территории больниц и промплощадок.</dd></div><div><dt>Робот</dt><dd>Везёт заказ в запираемом отсеке от точки выдачи до получателя, на скорости пешехода.</dd></div><div><dt>Людям</dt><dd>Собрать и загрузить заказ, передать получателю. За парком удалённо следит оператор.</dd></div><div><dt>Условия</dt><dd>Маршрут по тротуарам и проездам, точка загрузки с зарядкой, согласие владельца территории.</dd></div></dl>
-              <p class="est">Предварительный расчёт — после описания маршрутов и объёма заказов.</p></article>
-            <article class="task task--facts"><div class="n"><span>03</span><span class="tag"><i></i>Грузы</span></div>
+              <h3 data-i18n="home.tasks.items.delivery.title">Курьеров не хватает</h3>
+              <dl class="facts"><div><dt data-i18n="home.tasks.facts.fit">Подходит</dt><dd data-i18n="home.tasks.items.delivery.fit">Рестораны и магазины, аэропорты, кампусы, территории больниц и промплощадок.</dd></div><div><dt data-i18n="home.tasks.facts.robot">Робот</dt><dd data-i18n="home.tasks.items.delivery.robot">Везёт заказ в запираемом отсеке от точки выдачи до получателя, на скорости пешехода.</dd></div><div><dt data-i18n="home.tasks.facts.people">Людям</dt><dd data-i18n="home.tasks.items.delivery.people">Собрать и загрузить заказ, передать получателю. За парком удалённо следит оператор.</dd></div><div><dt data-i18n="home.tasks.facts.conditions">Условия</dt><dd data-i18n="home.tasks.items.delivery.conditions">Маршрут по тротуарам и проездам, точка загрузки с зарядкой, согласие владельца территории.</dd></div></dl>
+              <p data-i18n="home.tasks.items.delivery.estimate" class="est">Предварительный расчёт — после описания маршрутов и объёма заказов.</p></article>
+            <article class="task task--facts"><div class="n"><span>03</span><span class="tag"><i></i><span data-i18n="home.tasks.items.cargo.tag">Грузы</span></span></div>
               <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="m7.5 4.27 9 5.15"/></svg></div>
-              <h3>Склад не справляется с потоком</h3>
-              <dl class="facts"><div><dt>Подходит</dt><dd>Склады, распределительные центры, производственные цеха с постоянными внутренними перевозками.</dd></div><div><dt>Робот</dt><dd>Возит паллеты, тележки и стеллажи между зонами, либо едет за сотрудником.</dd></div><div><dt>Людям</dt><dd>Погрузка и разгрузка, комплектация, контроль качества и нестандартные случаи.</dd></div><div><dt>Условия</dt><dd>Ровный пол, проходы нужной ширины, согласованные маршруты; интеграция со складской системой — по задаче.</dd></div></dl>
-              <p class="est">Предварительный расчёт — после аудита: считаем по маршрутам, грузообороту и сменам.</p></article>
-            <article class="task cta"><div class="n"><span>04</span><span class="tag"><i></i>Подбор</span></div>
-              <div><h3>Другая задача</h3><p style="margin:12px 0 20px">Опишите объект и задачу — подберём сценарий и подготовим предварительный расчёт.</p>
-              <ul class="other"><li>Агро</li><li>Производство</li><li>Строительство</li><li>Велнес</li><li>Медицина и отели</li><li>Безопасность</li><li>Гуманоиды</li></ul></div>
-              <a class="btn btn-inv" href="#contact" data-link>Подобрать решение</a></article>
+              <h3 data-i18n="home.tasks.items.cargo.title">Склад не справляется с потоком</h3>
+              <dl class="facts"><div><dt data-i18n="home.tasks.facts.fit">Подходит</dt><dd data-i18n="home.tasks.items.cargo.fit">Склады, распределительные центры, производственные цеха с постоянными внутренними перевозками.</dd></div><div><dt data-i18n="home.tasks.facts.robot">Робот</dt><dd data-i18n="home.tasks.items.cargo.robot">Возит паллеты, тележки и стеллажи между зонами, либо едет за сотрудником.</dd></div><div><dt data-i18n="home.tasks.facts.people">Людям</dt><dd data-i18n="home.tasks.items.cargo.people">Погрузка и разгрузка, комплектация, контроль качества и нестандартные случаи.</dd></div><div><dt data-i18n="home.tasks.facts.conditions">Условия</dt><dd data-i18n="home.tasks.items.cargo.conditions">Ровный пол, проходы нужной ширины, согласованные маршруты; интеграция со складской системой — по задаче.</dd></div></dl>
+              <p data-i18n="home.tasks.items.cargo.estimate" class="est">Предварительный расчёт — после аудита: считаем по маршрутам, грузообороту и сменам.</p></article>
+            <article class="task cta"><div class="n"><span>04</span><span class="tag"><i></i><span data-i18n="home.tasks.items.custom.tag">Подбор</span></span></div>
+              <div><h3 data-i18n="home.tasks.items.custom.title">Другая задача</h3><p data-i18n="home.tasks.items.custom.text" style="margin:12px 0 20px">Опишите объект и задачу — подберём сценарий и подготовим предварительный расчёт.</p>
+              <ul class="other"><li data-i18n="home.tasks.items.custom.areas.agro">Агро</li><li data-i18n="home.tasks.items.custom.areas.manufacturing">Производство</li><li data-i18n="home.tasks.items.custom.areas.construction">Строительство</li><li data-i18n="home.tasks.items.custom.areas.wellness">Велнес</li><li data-i18n="home.tasks.items.custom.areas.medicalHotels">Медицина и отели</li><li data-i18n="home.tasks.items.custom.areas.security">Безопасность</li><li data-i18n="home.tasks.items.custom.areas.humanoids">Гуманоиды</li></ul></div>
+              <a data-i18n="home.tasks.items.custom.cta" class="btn btn-inv" href="#contact" data-link>Подобрать решение</a></article>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ================= 03 ВНЕДРЕНИЕ — вертикальный скролл, sticky-заголовок слева ================= -->
-    <section class="vproc" id="process" data-sec="03" data-name="ВНЕДРЕНИЕ">
+    <section data-i18n-attr="data-name:home.sections.process" class="vproc" id="process" data-sec="03" data-name="ВНЕДРЕНИЕ">
       <div class="wrap vproc-grid">
         <div class="vproc-head">
-          <span class="idx"><b>03</b> — ВНЕДРЕНИЕ</span>
-          <h2 class="h2">Как проходит внедрение</h2>
-          <p class="lead">Шесть шагов от аудита до сервиса по SLA. На каждом вы видите цифры.</p>
+          <span class="idx"><b>03</b> — <span data-i18n="home.sections.process">ВНЕДРЕНИЕ</span></span>
+          <h2 data-i18n="home.process.title" class="h2">Как проходит внедрение</h2>
+          <p data-i18n="home.process.lead" class="lead">Шесть шагов от аудита до сервиса по SLA. На каждом вы видите цифры.</p>
           <div class="vp-meter"><span class="vp-cur tnum">01</span><span class="vp-bar"><i></i></span><span class="tnum">06</span></div>
         </div>
         <div class="vproc-list">
           <div class="vt-line"><i></i></div>
-          <div class="vstep"><div class="node">01</div><div class="body"><h3>Аудит и анализ</h3><p>Выезжаем на объект, разбираем процессы и цифры, считаем окупаемость.</p><div class="meta tag"><i></i>1–2 недели</div></div></div>
-          <div class="vstep"><div class="node">02</div><div class="body"><h3>Подбор решения</h3><p>Оборудование от 2–5 производителей под задачу, без привязки к одному.</p><div class="meta tag"><i></i>Независимо</div></div></div>
-          <div class="vstep"><div class="node">03</div><div class="body"><h3>Помощь в покупке</h3><p>Полное юридическое и транспортное сопровождение сделки: от договора до доставки оборудования на объект. Рассрочка и лизинг от ведущих банков РФ.</p><div class="meta tag"><i></i>Сопровождение</div></div></div>
-          <div class="vstep"><div class="node">04</div><div class="body"><h3>Внедрение под ключ</h3><p>Поставка, настройка, подключение к платформе ПРОФРОБОТ и вашим системам, обучение персонала и запуск. Не хватает функций у вендора — дописываем.</p><div class="meta tag"><i></i>Интеграция</div></div></div>
-          <div class="vstep"><div class="node">05</div><div class="body"><h3>Сервис по SLA</h3><p>Собственная сервисная сеть по России. Полное сервисное обслуживание: ваш робот остаётся в строю на протяжении всей эксплуатации.</p><div class="meta tag"><i></i>24/7</div></div></div>
-          <div class="vstep"><div class="node">06</div><div class="body"><h3>Аналитика и развитие</h3><p>Смотрим данные эксплуатации, дорабатываем сценарии, масштабируем.</p><div class="meta tag"><i></i>Платформа</div></div></div>
+          <div class="vstep"><div class="node">01</div><div class="body"><h3 data-i18n="home.process.steps.audit.title">Аудит и анализ</h3><p data-i18n="home.process.steps.audit.text">Выезжаем на объект, разбираем процессы и цифры, считаем окупаемость.</p><div class="meta tag"><i></i><span data-i18n="home.process.steps.audit.tag">1–2 недели</span></div></div></div>
+          <div class="vstep"><div class="node">02</div><div class="body"><h3 data-i18n="home.process.steps.selection.title">Подбор решения</h3><p data-i18n="home.process.steps.selection.text">Оборудование от 2–5 производителей под задачу, без привязки к одному.</p><div class="meta tag"><i></i><span data-i18n="home.process.steps.selection.tag">Независимо</span></div></div></div>
+          <div class="vstep"><div class="node">03</div><div class="body"><h3 data-i18n="home.process.steps.purchase.title">Помощь в покупке</h3><p data-i18n="home.process.steps.purchase.text">Полное юридическое и транспортное сопровождение сделки: от договора до доставки оборудования на объект. Рассрочка и лизинг от ведущих банков РФ.</p><div class="meta tag"><i></i><span data-i18n="home.process.steps.purchase.tag">Сопровождение</span></div></div></div>
+          <div class="vstep"><div class="node">04</div><div class="body"><h3 data-i18n="home.process.steps.rollout.title">Внедрение под ключ</h3><p data-i18n="home.process.steps.rollout.text">Поставка, настройка, подключение к платформе ПРОФРОБОТ и вашим системам, обучение персонала и запуск. Не хватает функций у вендора — дописываем.</p><div class="meta tag"><i></i><span data-i18n="home.process.steps.rollout.tag">Интеграция</span></div></div></div>
+          <div class="vstep"><div class="node">05</div><div class="body"><h3 data-i18n="home.process.steps.service.title">Сервис по SLA</h3><p data-i18n="home.process.steps.service.text">Собственная сервисная сеть по России. Полное сервисное обслуживание: ваш робот остаётся в строю на протяжении всей эксплуатации.</p><div class="meta tag"><i></i>24/7</div></div></div>
+          <div class="vstep"><div class="node">06</div><div class="body"><h3 data-i18n="home.process.steps.analytics.title">Аналитика и развитие</h3><p data-i18n="home.process.steps.analytics.text">Смотрим данные эксплуатации, дорабатываем сценарии, масштабируем.</p><div class="meta tag"><i></i><span data-i18n="home.process.steps.analytics.tag">Платформа</span></div></div></div>
         </div>
       </div>
     </section>
 
     <!-- ================= 04 РЕЗУЛЬТАТ ================= -->
-    <section id="results" data-sec="04" data-name="РЕЗУЛЬТАТ" data-dark>
+    <section data-i18n-attr="data-name:home.sections.results" id="results" data-sec="04" data-name="РЕЗУЛЬТАТ" data-dark>
       <div class="stage sec">
         <div class="wrap">
           <div class="sec-head reveal">
-            <span class="idx"><b>04</b> — РЕЗУЛЬТАТ</span>
-            <h2 class="h2">Результат, который получает бизнес.</h2>
+            <span class="idx"><b>04</b> — <span data-i18n="home.sections.results">РЕЗУЛЬТАТ</span></span>
+            <h2 data-i18n="home.results.title" class="h2">Результат, который получает бизнес.</h2>
           </div>
           <div class="kpis">
-            <div class="kpi"><div class="v"><span class="tnum" data-count="30">0</span><small>%</small></div><div class="bar"><i data-fill="0.3"></i></div><div class="l">до 30% снижение затрат на эксплуатацию</div></div>
-            <div class="kpi"><div class="v"><span class="tnum" data-count="80">0</span><small>%</small></div><div class="bar"><i data-fill="0.8"></i></div><div class="l">до 80% меньше зависимость от ручного труда</div></div>
-            <div class="kpi"><div class="v"><span class="tnum" data-count="98">0</span><small>%+</small></div><div class="bar"><i data-fill="0.98"></i></div><div class="l">стабильное качество уборки и услуг</div></div>
-            <div class="kpi"><div class="v">24<small>/7</small></div><div class="bar"><i data-fill="1"></i></div><div class="l">автономная работа без перерывов</div></div>
-            <div class="kpi"><div class="v"><span class="tnum" data-count="100">0</span><small>%</small></div><div class="bar"><i data-fill="1"></i></div><div class="l">контроль всего парка на одной платформе в реальном времени</div></div>
+            <div class="kpi"><div class="v"><span class="tnum" data-count="30">0</span><small>%</small></div><div class="bar"><i data-fill="0.3"></i></div><div data-i18n="home.results.kpis.costs" class="l">до 30% снижение затрат на эксплуатацию</div></div>
+            <div class="kpi"><div class="v"><span class="tnum" data-count="80">0</span><small>%</small></div><div class="bar"><i data-fill="0.8"></i></div><div data-i18n="home.results.kpis.manual" class="l">до 80% меньше зависимость от ручного труда</div></div>
+            <div class="kpi"><div class="v"><span class="tnum" data-count="98">0</span><small>%+</small></div><div class="bar"><i data-fill="0.98"></i></div><div data-i18n="home.results.kpis.quality" class="l">стабильное качество уборки и услуг</div></div>
+            <div class="kpi"><div class="v">24<small>/7</small></div><div class="bar"><i data-fill="1"></i></div><div data-i18n="home.results.kpis.nonstop" class="l">автономная работа без перерывов</div></div>
+            <div class="kpi"><div class="v"><span class="tnum" data-count="100">0</span><small>%</small></div><div class="bar"><i data-fill="1"></i></div><div data-i18n="home.results.kpis.fleet" class="l">контроль всего парка на одной платформе в реальном времени</div></div>
           </div>
-          <p class="footnote">* Диапазоны рассчитываются на аудите под конкретный объект.</p>
+          <p data-i18n="home.results.footnote" class="footnote">* Диапазоны рассчитываются на аудите под конкретный объект.</p>
         </div>
       </div>
     </section>
 
     <!-- ================= 05 ПЛАТФОРМА — «Слои»: любые роботы → одна платформа → ваши системы ================= -->
-    <section class="sec stk-sec" id="platform" data-sec="05" data-name="ПЛАТФОРМА">
+    <section data-i18n-attr="data-name:home.sections.platform" class="sec stk-sec" id="platform" data-sec="05" data-name="ПЛАТФОРМА">
       <div class="wrap">
         <div class="stk-head reveal">
           <div class="stk-title">
-            <span class="idx"><b>05</b> — ПЛАТФОРМА</span>
-            <h2 class="h2">Любые роботы.<br>Одна платформа.</h2>
+            <span class="idx"><b>05</b> — <span data-i18n="home.sections.platform">ПЛАТФОРМА</span></span>
+            <h2 data-i18n-html="home.platform.title" class="h2">Любые роботы.<br>Одна платформа.</h2>
           </div>
-          <p class="lead">ПРОФРОБОТ Platform — наша собственная разработка. Подключаем роботов разных производителей, от уборщика до гуманоида, и пишем под ваш процесс софт, которого нет у вендора.</p>
+          <p data-i18n="home.platform.lead" class="lead">ПРОФРОБОТ Platform — наша собственная разработка. Подключаем роботов разных производителей, от уборщика до гуманоида, и пишем под ваш процесс софт, которого нет у вендора.</p>
         </div>
 
         <!-- Схема: восемь типов роботов и шесть систем клиента сходятся в одну полосу платформы.
              Точки на соединителях — поток данных робот → платформа → ваши системы. -->
         <div class="stk" data-stack>
           <div class="stk-layer stk-robots">
-            <p class="stk-cap"><b>01</b>Роботы · 40+ производителей</p>
+            <p class="stk-cap"><b>01</b><span data-i18n="home.platform.layers.robots.caption">Роботы · 40+ производителей</span></p>
             <ul class="stk-row">
-              <li class="stk-node" style="--i:0"><img src="assets/robots/robot-cleaning.webp" alt="" width="964" height="1026" loading="lazy" decoding="async"><span>Уборка</span></li>
-              <li class="stk-node" style="--i:1"><img src="assets/robots/robot-delivery.webp" alt="" width="1027" height="1072" loading="lazy" decoding="async"><span>Доставка</span></li>
-              <li class="stk-node" style="--i:2"><img src="assets/robots/robot-amr.webp" alt="" width="837" height="1148" loading="lazy" decoding="async"><span>Склад</span></li>
-              <li class="stk-node" style="--i:3"><img src="assets/robots/robot-manipulator.webp" alt="" width="992" height="1116" loading="lazy" decoding="async"><span>Манипуляторы</span></li>
-              <li class="stk-node" style="--i:4"><img src="assets/robots/robot-agro.webp" alt="" width="1207" height="703" loading="lazy" decoding="async"><span>Агро</span></li>
-              <li class="stk-node" style="--i:5"><img src="assets/robots/robot-demolition.webp" alt="" width="1199" height="1015" loading="lazy" decoding="async"><span>Стройка</span></li>
-              <li class="stk-node" style="--i:6"><img src="assets/robots/robot-wellness.webp" alt="" width="1068" height="990" loading="lazy" decoding="async"><span>Велнес</span></li>
-              <li class="stk-node" style="--i:7"><img src="assets/robots/robot-humanoid.webp" alt="" width="403" height="1188" loading="lazy" decoding="async"><span>Гуманоиды</span></li>
+              <li class="stk-node" style="--i:0"><img src="assets/robots/robot-cleaning.webp" alt="" width="964" height="1026" loading="lazy" decoding="async"><span data-i18n="home.platform.layers.robots.items.cleaning">Уборка</span></li>
+              <li class="stk-node" style="--i:1"><img src="assets/robots/robot-delivery.webp" alt="" width="1027" height="1072" loading="lazy" decoding="async"><span data-i18n="home.platform.layers.robots.items.delivery">Доставка</span></li>
+              <li class="stk-node" style="--i:2"><img src="assets/robots/robot-amr.webp" alt="" width="837" height="1148" loading="lazy" decoding="async"><span data-i18n="home.platform.layers.robots.items.warehouse">Склад</span></li>
+              <li class="stk-node" style="--i:3"><img src="assets/robots/robot-manipulator.webp" alt="" width="992" height="1116" loading="lazy" decoding="async"><span data-i18n="home.platform.layers.robots.items.manipulators">Манипуляторы</span></li>
+              <li class="stk-node" style="--i:4"><img src="assets/robots/robot-agro.webp" alt="" width="1207" height="703" loading="lazy" decoding="async"><span data-i18n="home.platform.layers.robots.items.agro">Агро</span></li>
+              <li class="stk-node" style="--i:5"><img src="assets/robots/robot-demolition.webp" alt="" width="1199" height="1015" loading="lazy" decoding="async"><span data-i18n="home.platform.layers.robots.items.construction">Стройка</span></li>
+              <li class="stk-node" style="--i:6"><img src="assets/robots/robot-wellness.webp" alt="" width="1068" height="990" loading="lazy" decoding="async"><span data-i18n="home.platform.layers.robots.items.wellness">Велнес</span></li>
+              <li class="stk-node" style="--i:7"><img src="assets/robots/robot-humanoid.webp" alt="" width="403" height="1188" loading="lazy" decoding="async"><span data-i18n="home.platform.layers.robots.items.humanoids">Гуманоиды</span></li>
             </ul>
           </div>
 
           <div class="stk-core">
             <div class="stk-core-head">
-              <p class="stk-logo"><b>02</b>ПРОФРОБОТ <span>Platform</span></p>
-              <span class="badge-online"><i></i><span class="tnum">142</span>&nbsp;устройства онлайн</span>
+              <p class="stk-logo"><b>02</b><bdi data-i18n="home.platform.core.name">ПРОФРОБОТ</bdi> <span>Platform</span></p>
+              <span class="badge-online"><i></i><span class="tnum">142</span><span data-i18n="home.platform.core.devicesOnline">&nbsp;устройства онлайн</span></span>
             </div>
             <ul class="stk-mods">
-              <li>Адаптеры производителей</li>
-              <li>Карта и диспетчеризация</li>
-              <li>Сценарии между роботами</li>
-              <li>AI-агенты</li>
-              <li>Аналитика и SLA</li>
+              <li data-i18n="home.platform.core.modules.adapters">Адаптеры производителей</li>
+              <li data-i18n="home.platform.core.modules.dispatch">Карта и диспетчеризация</li>
+              <li data-i18n="home.platform.core.modules.scenarios">Сценарии между роботами</li>
+              <li data-i18n="home.platform.core.modules.agents">AI-агенты</li>
+              <li data-i18n="home.platform.core.modules.analytics">Аналитика и SLA</li>
               <li>Open API</li>
             </ul>
-            <p class="stk-core-foot">Своя разработка · данные хранятся в РФ · дата-центр в Сколково</p>
+            <p data-i18n="home.platform.core.foot" class="stk-core-foot">Своя разработка · данные хранятся в РФ · дата-центр в Сколково</p>
           </div>
 
           <div class="stk-layer stk-sys">
             <ul class="stk-row">
-              <li class="stk-node" style="--i:0"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg><span>1С и ERP</span></li>
-              <li class="stk-node" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><span>WMS склада</span></li>
-              <li class="stk-node" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg><span>Лифты и двери</span></li>
-              <li class="stk-node" style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>СКУД и охрана</span></li>
-              <li class="stk-node" style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg><span>BMS здания</span></li>
-              <li class="stk-node" style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Мессенджеры и почта</span></li>
+              <li class="stk-node" style="--i:0"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg><span data-i18n="home.platform.layers.systems.items.erp">1С и ERP</span></li>
+              <li class="stk-node" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><span data-i18n="home.platform.layers.systems.items.wms">WMS склада</span></li>
+              <li class="stk-node" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg><span data-i18n="home.platform.layers.systems.items.lifts">Лифты и двери</span></li>
+              <li class="stk-node" style="--i:3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span data-i18n="home.platform.layers.systems.items.access">СКУД и охрана</span></li>
+              <li class="stk-node" style="--i:4"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg><span data-i18n="home.platform.layers.systems.items.bms">BMS здания</span></li>
+              <li class="stk-node" style="--i:5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-i18n="home.platform.layers.systems.items.messengers">Мессенджеры и почта</span></li>
             </ul>
-            <p class="stk-cap"><b>03</b>Ваши системы</p>
+            <p class="stk-cap"><b>03</b><span data-i18n="home.platform.layers.systems.caption">Ваши системы</span></p>
           </div>
         </div>
 
         <!-- Разработка под заказ: примеры иллюстративные, ждут подтверждения клиента (docs/specs/СПЕКА_АКЦЕНТ_ПЛАТФОРМА.md) -->
         <div class="stk-dev">
           <div class="stk-dev-head reveal">
-            <h3>Нет нужной функции у производителя — напишем.</h3>
-            <p>Новые сценарии, интеграции и интерфейсы собираем на основе платформы, а не ждём обновления от вендора.</p>
-            <div><a class="btn btn-pri" href="#contact" data-link>Обсудить разработку <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            <h3 data-i18n="home.platform.dev.title">Нет нужной функции у производителя — напишем.</h3>
+            <p data-i18n="home.platform.dev.text">Новые сценарии, интеграции и интерфейсы собираем на основе платформы, а не ждём обновления от вендора.</p>
+            <div><a class="btn btn-pri" href="#contact" data-link><span data-i18n="home.platform.dev.cta">Обсудить разработку</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
           </div>
-          <article class="stk-case reveal"><span class="no">01</span><h4>Разные бренды в одной связке</h4><p>Уборщик и доставщик от разных производителей делят лифт и маршруты, не мешая друг другу и людям.</p></article>
-          <article class="stk-case reveal"><span class="no">02</span><h4>Задачи из ваших систем</h4><p>Робот получает задание из WMS или 1С и закрывает его отчётом в той же системе.</p></article>
-          <article class="stk-case reveal"><span class="no">03</span><h4>Сценарии для гуманоида</h4><p>Встречает гостей, провожает до нужной двери, отвечает на вопросы о вашем объекте.</p></article>
+          <article class="stk-case reveal"><span class="no">01</span><h4 data-i18n="home.platform.dev.cases.brands.title">Разные бренды в одной связке</h4><p data-i18n="home.platform.dev.cases.brands.text">Уборщик и доставщик от разных производителей делят лифт и маршруты, не мешая друг другу и людям.</p></article>
+          <article class="stk-case reveal"><span class="no">02</span><h4 data-i18n="home.platform.dev.cases.systems.title">Задачи из ваших систем</h4><p data-i18n="home.platform.dev.cases.systems.text">Робот получает задание из WMS или 1С и закрывает его отчётом в той же системе.</p></article>
+          <article class="stk-case reveal"><span class="no">03</span><h4 data-i18n="home.platform.dev.cases.humanoid.title">Сценарии для гуманоида</h4><p data-i18n="home.platform.dev.cases.humanoid.text">Встречает гостей, провожает до нужной двери, отвечает на вопросы о вашем объекте.</p></article>
         </div>
       </div>
     </section>
 
     <!-- ================= 05 ПЛАТФОРМА, экран 2 — диспетчерская, pinned scrollytelling ================= -->
-    <section class="plat" id="platform-ui" data-sec="05" data-name="ПЛАТФОРМА" data-nav="platform" data-dark>
+    <section data-i18n-attr="data-name:home.sections.platform" class="plat" id="platform-ui" data-sec="05" data-name="ПЛАТФОРМА" data-nav="platform" data-dark>
       <div class="stage">
         <div class="plat-copy">
-          <span class="idx"><b>05</b> — ПЛАТФОРМА · ДИСПЕТЧЕРСКАЯ</span>
-          <h2 class="h2">Весь флот — в одном окне.</h2>
-          <p class="lead">Уборщики, доставщики, охранные роботы и гуманоиды разных производителей — на одной карте, с общими KPI, отчётами и оповещениями. Не «робот-одиночка», а управляемая система.</p>
+          <span class="idx"><b>05</b> — <span data-i18n="home.sections.platformUiLabel">ПЛАТФОРМА · ДИСПЕТЧЕРСКАЯ</span></span>
+          <h2 data-i18n="home.platformUi.title" class="h2">Весь флот — в одном окне.</h2>
+          <p data-i18n="home.platformUi.lead" class="lead">Уборщики, доставщики, охранные роботы и гуманоиды разных производителей — на одной карте, с общими KPI, отчётами и оповещениями. Не «робот-одиночка», а управляемая система.</p>
           <ul class="feats">
-            <li class="feat on" data-f="1"><span class="no">01</span>Мониторинг в реальном времени<span class="st"></span></li>
-            <li class="feat" data-f="2"><span class="no">02</span>Управление парком устройств<span class="st"></span></li>
-            <li class="feat" data-f="3"><span class="no">03</span>Контроль качества и KPI<span class="st"></span></li>
-            <li class="feat" data-f="4"><span class="no">04</span>Аналитика и отчёты<span class="st"></span></li>
-            <li class="feat" data-f="5"><span class="no">05</span>Оповещения и сценарии<span class="st"></span></li>
-            <li class="feat" data-f="6"><span class="no">06</span>Интеграция с инфраструктурой<span class="st"></span></li>
-            <li class="feat" data-f="7"><span class="no">07</span>Свой софт под ваш сценарий<span class="st"></span></li>
+            <li class="feat on" data-f="1"><span class="no">01</span><span data-i18n="home.platformUi.features.monitoring">Мониторинг в реальном времени</span><span class="st"></span></li>
+            <li class="feat" data-f="2"><span class="no">02</span><span data-i18n="home.platformUi.features.fleet">Управление парком устройств</span><span class="st"></span></li>
+            <li class="feat" data-f="3"><span class="no">03</span><span data-i18n="home.platformUi.features.quality">Контроль качества и KPI</span><span class="st"></span></li>
+            <li class="feat" data-f="4"><span class="no">04</span><span data-i18n="home.platformUi.features.analytics">Аналитика и отчёты</span><span class="st"></span></li>
+            <li class="feat" data-f="5"><span class="no">05</span><span data-i18n="home.platformUi.features.alerts">Оповещения и сценарии</span><span class="st"></span></li>
+            <li class="feat" data-f="6"><span class="no">06</span><span data-i18n="home.platformUi.features.integration">Интеграция с инфраструктурой</span><span class="st"></span></li>
+            <li class="feat" data-f="7"><span class="no">07</span><span data-i18n="home.platformUi.features.software">Свой софт под ваш сценарий</span><span class="st"></span></li>
           </ul>
-          <div><a class="btn btn-inv" href="#">Подробнее о платформе ↗</a></div>
+          <div><a data-i18n="home.platformUi.more" class="btn btn-inv" href="#">Подробнее о платформе ↗</a></div>
         </div>
         <div class="ui" data-f="1" aria-hidden="true">
           <div class="ui-side">
-            <div class="mono" style="font-size:10px;margin-bottom:8px">ПРОФРОБОТ · PLATFORM</div>
-            <div class="it on" data-f="1">Мониторинг</div><div class="it" data-f="2">Парк</div><div class="it" data-f="3">Качество</div>
-            <div class="it" data-f="4">Отчёты</div><div class="it" data-f="5">Оповещения</div><div class="it" data-f="6">Интеграции</div><div class="it" data-f="7">Сценарии</div>
+            <div data-i18n="home.platformUi.ui.brand" class="mono" style="font-size:10px;margin-bottom:8px">ПРОФРОБОТ · PLATFORM</div>
+            <div data-i18n="home.platformUi.ui.nav.monitoring" class="it on" data-f="1">Мониторинг</div><div data-i18n="home.platformUi.ui.nav.fleet" class="it" data-f="2">Парк</div><div data-i18n="home.platformUi.ui.nav.quality" class="it" data-f="3">Качество</div>
+            <div data-i18n="home.platformUi.ui.nav.reports" class="it" data-f="4">Отчёты</div><div data-i18n="home.platformUi.ui.nav.alerts" class="it" data-f="5">Оповещения</div><div data-i18n="home.platformUi.ui.nav.integrations" class="it" data-f="6">Интеграции</div><div data-i18n="home.platformUi.ui.nav.scenarios" class="it" data-f="7">Сценарии</div>
           </div>
           <div class="ui-main">
-            <div class="ui-top"><div><b>ТЦ «Северный» · этаж 1</b><br>4 типа роботов · 3 производителя</div><span class="badge-online"><i></i>Онлайн</span></div>
+            <div class="ui-top"><div data-i18n-html="home.platformUi.ui.object"><b>ТЦ «Северный» · этаж 1</b><br>4 типа роботов · 3 производителя</div><span class="badge-online"><i></i><span data-i18n="home.platformUi.ui.online">Онлайн</span></span></div>
             <div class="ui-map">
               <div class="room" style="left:6%;top:10%;width:38%;height:44%"></div>
               <div class="room" style="left:50%;top:10%;width:44%;height:30%"></div>
@@ -451,14 +490,14 @@
               <span class="bot" data-t="cl" style="left:36%;top:74%"><em>CL-07</em></span>
               <span class="bot" data-t="hm" style="left:80%;top:68%"><em>HM-01</em></span>
               <span class="bot" data-t="sc" style="left:54%;top:50%"><em>SC-02</em></span>
-              <ul class="ui-legend"><li data-t="cl">Уборка</li><li data-t="dl">Доставка</li><li data-t="hm">Гуманоид</li><li data-t="sc">Охрана</li></ul>
-              <div class="alert">Уборщик CL-07 · низкий заряд · едет на базу</div>
-              <div class="ui-flow"><b>Сценарий «Гость» · v1.3</b><ol><li>HM-01 встречает</li><li>Вызов лифта</li><li>DL-01 везёт заказ</li></ol></div>
+              <ul class="ui-legend"><li data-i18n="home.platformUi.ui.legend.cleaning" data-t="cl">Уборка</li><li data-i18n="home.platformUi.ui.legend.delivery" data-t="dl">Доставка</li><li data-i18n="home.platformUi.ui.legend.humanoid" data-t="hm">Гуманоид</li><li data-i18n="home.platformUi.ui.legend.security" data-t="sc">Охрана</li></ul>
+              <div data-i18n="home.platformUi.ui.alert" class="alert">Уборщик CL-07 · низкий заряд · едет на базу</div>
+              <div class="ui-flow"><b data-i18n="home.platformUi.ui.flow.title">Сценарий «Гость» · v1.3</b><ol><li data-i18n="home.platformUi.ui.flow.greet">HM-01 встречает</li><li data-i18n="home.platformUi.ui.flow.lift">Вызов лифта</li><li data-i18n="home.platformUi.ui.flow.order">DL-01 везёт заказ</li></ol></div>
             </div>
             <div class="ui-bottom">
-              <div class="ui-card fleet">Роботов в работе<b>24 / 26</b></div>
-              <div class="ui-card q">KPI смены<b>98,2%</b></div>
-              <div class="ui-card rep">Задач за смену<b>1 284</b><div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:85%"></i><i style="height:92%"></i></div></div>
+              <div class="ui-card fleet"><span data-i18n="home.platformUi.ui.cards.fleet">Роботов в работе</span><b>24 / 26</b></div>
+              <div class="ui-card q"><span data-i18n="home.platformUi.ui.cards.kpi">KPI смены</span><b data-i18n="home.platformUi.ui.cards.kpiValue">98,2%</b></div>
+              <div class="ui-card rep"><span data-i18n="home.platformUi.ui.cards.tasks">Задач за смену</span><b data-i18n="home.platformUi.ui.cards.tasksValue">1 284</b><div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:85%"></i><i style="height:92%"></i></div></div>
             </div>
           </div>
         </div>
@@ -466,95 +505,95 @@
     </section>
 
     <!-- ================= 06 КЕЙСЫ — slider ================= -->
-    <section class="sec" id="cases" data-sec="06" data-name="КЕЙСЫ" style="padding-left:0;padding-right:0">
+    <section data-i18n-attr="data-name:home.sections.cases" class="sec" id="cases" data-sec="06" data-name="КЕЙСЫ" style="padding-left:0;padding-right:0">
       <div class="wrap cases-head reveal">
         <div class="sec-head" style="margin:0">
-          <span class="idx"><b>06</b> — КЕЙСЫ</span>
-          <h2 class="h2">Кейсы и результаты.</h2>
+          <span class="idx"><b>06</b> — <span data-i18n="home.sections.cases">КЕЙСЫ</span></span>
+          <h2 data-i18n="home.cases.title" class="h2">Кейсы и результаты.</h2>
         </div>
         <div class="slider-ctrl">
           <span class="mono tnum"><b class="c-cur">01</b> / <span class="c-total">05</span></span>
-          <button class="round" data-dir="-1" aria-label="Предыдущий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-          <button class="round" data-dir="1" aria-label="Следующий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button data-i18n-attr="aria-label:home.cases.prevLabel" class="round" data-dir="-1" aria-label="Предыдущий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button data-i18n-attr="aria-label:home.cases.nextLabel" class="round" data-dir="1" aria-label="Следующий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
-      <div class="cases" tabindex="0" aria-label="Кейсы, прокрутка по горизонтали">
-        <article class="case"><div class="ph"><img src="assets/cases_images/case-business-center.webp" alt="Робот-уборщик в холле бизнес-центра" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Бизнес-центр</span><div class="res"><b>−32%</b></div><h3>Снижение затрат на клининг</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+      <div data-i18n-attr="aria-label:home.cases.sliderLabel" class="cases" tabindex="0" aria-label="Кейсы, прокрутка по горизонтали">
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.businessCenter.alt" src="assets/cases_images/case-business-center.webp" alt="Робот-уборщик в холле бизнес-центра" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i><span data-i18n="home.cases.items.businessCenter.tag">Бизнес-центр</span></span><div class="res"><b>−32%</b></div><h3 data-i18n="home.cases.items.businessCenter.title">Снижение затрат на клининг</h3><a class="more" href="#"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
         <!-- Результаты кейсов «Агро» и «Производство» — плейсхолдеры, в ТЗ их нет. Заменить цифрами клиента. -->
-        <article class="case"><div class="ph"><img src="assets/cases_images/case-agro.webp" alt="Агродрон опрыскивает пшеничное поле ранним утром" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Агрохолдинг</span><div class="res"><b>−30%</b></div><h3>Снижение расхода СЗР при обработке полей</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
-        <article class="case"><div class="ph"><img src="assets/cases_images/case-warehouse.webp" alt="Автономный складской робот везёт стеллаж с коробками по проходу склада" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Складской комплекс</span><div class="res"><b>+35%</b></div><h3>Рост пропускной способности склада</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
-        <article class="case"><div class="ph"><img src="assets/cases_images/case-manufacturing.webp" alt="Коллаборативный манипулятор на мобильной базе загружает станок с ЧПУ" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Производство</span><div class="res"><b>−2</b><span class="mono">оператора в смену</span></div><h3>Автоматизация загрузки станков с ЧПУ</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
-        <article class="case"><div class="ph"><img src="assets/cases_images/case-construction.webp" alt="Демонтажный робот разрушает бетонную стену на объекте реконструкции" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i>Строительство</span><div class="res"><b>−40%</b></div><h3>Снижение трудозатрат на демонтаж</h3><a class="more" href="#">Смотреть кейс <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.agro.alt" src="assets/cases_images/case-agro.webp" alt="Агродрон опрыскивает пшеничное поле ранним утром" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i><span data-i18n="home.cases.items.agro.tag">Агрохолдинг</span></span><div class="res"><b>−30%</b></div><h3 data-i18n="home.cases.items.agro.title">Снижение расхода СЗР при обработке полей</h3><a class="more" href="#"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.warehouse.alt" src="assets/cases_images/case-warehouse.webp" alt="Автономный складской робот везёт стеллаж с коробками по проходу склада" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i><span data-i18n="home.cases.items.warehouse.tag">Складской комплекс</span></span><div class="res"><b>+35%</b></div><h3 data-i18n="home.cases.items.warehouse.title">Рост пропускной способности склада</h3><a class="more" href="#"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.manufacturing.alt" src="assets/cases_images/case-manufacturing.webp" alt="Коллаборативный манипулятор на мобильной базе загружает станок с ЧПУ" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i><span data-i18n="home.cases.items.manufacturing.tag">Производство</span></span><div class="res"><b>−2</b><span data-i18n="home.cases.items.manufacturing.unit" class="mono">оператора в смену</span></div><h3 data-i18n="home.cases.items.manufacturing.title">Автоматизация загрузки станков с ЧПУ</h3><a class="more" href="#"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.construction.alt" src="assets/cases_images/case-construction.webp" alt="Демонтажный робот разрушает бетонную стену на объекте реконструкции" loading="lazy" decoding="async"></div><div class="body"><span class="tag"><i></i><span data-i18n="home.cases.items.construction.tag">Строительство</span></span><div class="res"><b>−40%</b></div><h3 data-i18n="home.cases.items.construction.title">Снижение трудозатрат на демонтаж</h3><a class="more" href="#"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
       </div>
-      <div class="wrap cases-foot"><a class="btn btn-sec" href="#">Все кейсы</a></div>
+      <div class="wrap cases-foot"><a data-i18n="home.cases.all" class="btn btn-sec" href="#">Все кейсы</a></div>
     </section>
 
     <!-- ================= 07 ОТРАСЛИ — sticky head ================= -->
-    <section class="sec" id="industries" data-sec="07" data-name="ОТРАСЛИ" style="padding-top:0">
+    <section data-i18n-attr="data-name:home.sections.industries" class="sec" id="industries" data-sec="07" data-name="ОТРАСЛИ" style="padding-top:0">
       <div class="wrap ind">
         <div class="ind-head">
-          <span class="idx"><b>07</b> — ОТРАСЛИ</span>
-          <h2 class="h2">Отрасли, в которых мы создаём результат.</h2>
-          <p class="lead">Под каждую отрасль — свой лендинг со сценариями, оборудованием и расчётом.</p>
-          <div><a class="btn btn-sec" href="#contact" data-link>Подобрать решение</a></div>
+          <span class="idx"><b>07</b> — <span data-i18n="home.sections.industries">ОТРАСЛИ</span></span>
+          <h2 data-i18n="home.industries.title" class="h2">Отрасли, в которых мы создаём результат.</h2>
+          <p data-i18n="home.industries.lead" class="lead">Под каждую отрасль — свой лендинг со сценариями, оборудованием и расчётом.</p>
+          <div><a data-i18n="home.industries.cta" class="btn btn-sec" href="#contact" data-link>Подобрать решение</a></div>
         </div>
         <ol class="ind-list">
-          <li><a class="ind-row reveal" href="industries-business-centers.html"><span class="no">01</span><span>Бизнес-центры и офисы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-retail.html"><span class="no">02</span><span>Торговые центры и ритейл</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-manufacturing.html#logistics"><span class="no">03</span><span>Склады и логистика<span class="seo">AMR</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-hotels.html"><span class="no">04</span><span>Отели и HoReCa</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-medical-wellness.html"><span class="no">05</span><span>Медицинские объекты</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-construction.html"><span class="no">06</span><span>Строительство и девелопмент<span class="seo">ДЕМОНТАЖ</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-manufacturing.html"><span class="no">07</span><span>Промышленность и производство</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-public-spaces.html"><span class="no">08</span><span>Общественные пространства</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-municipal.html"><span class="no">09</span><span>Муниципальные службы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-agriculture.html"><span class="no">10</span><span>Агро и фермерские хозяйства<span class="seo">АГРОДРОНЫ</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-education.html"><span class="no">11</span><span>Образовательные учреждения</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
-          <li><a class="ind-row reveal" href="industries-fitness-sports.html"><span class="no">12</span><span>Фитнес-клубы и спорткомплексы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-business-centers.html"><span class="no">01</span><span data-i18n="home.industries.items.businessCenters">Бизнес-центры и офисы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-retail.html"><span class="no">02</span><span data-i18n="home.industries.items.retail">Торговые центры и ритейл</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-manufacturing.html#logistics"><span class="no">03</span><span><span data-i18n="home.industries.items.logistics.name">Склады и логистика</span><span class="seo">AMR</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-hotels.html"><span class="no">04</span><span data-i18n="home.industries.items.hotels">Отели и HoReCa</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-medical-wellness.html"><span class="no">05</span><span data-i18n="home.industries.items.medical">Медицинские объекты</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-construction.html"><span class="no">06</span><span><span data-i18n="home.industries.items.construction.name">Строительство и девелопмент</span><span data-i18n="home.industries.items.construction.seo" class="seo">ДЕМОНТАЖ</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-manufacturing.html"><span class="no">07</span><span data-i18n="home.industries.items.manufacturing">Промышленность и производство</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-public-spaces.html"><span class="no">08</span><span data-i18n="home.industries.items.publicSpaces">Общественные пространства</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-municipal.html"><span class="no">09</span><span data-i18n="home.industries.items.municipal">Муниципальные службы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-agriculture.html"><span class="no">10</span><span><span data-i18n="home.industries.items.agriculture.name">Агро и фермерские хозяйства</span><span data-i18n="home.industries.items.agriculture.seo" class="seo">АГРОДРОНЫ</span></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-education.html"><span class="no">11</span><span data-i18n="home.industries.items.education">Образовательные учреждения</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row reveal" href="industries-fitness-sports.html"><span class="no">12</span><span data-i18n="home.industries.items.fitness">Фитнес-клубы и спорткомплексы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
         </ol>
       </div>
     </section>
 
     <!-- ================= 08 ПОЧЕМУ ПРОФРОБОТ — пять отличий (ТЗ п. 1.2), платформа первой ================= -->
-    <section class="sec why" id="why" data-sec="08" data-name="ПОЧЕМУ МЫ">
+    <section data-i18n-attr="data-name:home.sections.why" class="sec why" id="why" data-sec="08" data-name="ПОЧЕМУ МЫ">
       <div class="wrap">
         <div class="sec-head reveal">
-          <span class="idx"><b>08</b> — ПОЧЕМУ ПРОФРОБОТ</span>
-          <h2 class="h2">Чем мы отличаемся от поставщика роботов.</h2>
+          <span class="idx"><b>08</b> — <span data-i18n="home.sections.whyLabel">ПОЧЕМУ ПРОФРОБОТ</span></span>
+          <h2 data-i18n="home.why.title" class="h2">Чем мы отличаемся от поставщика роботов.</h2>
         </div>
         <div class="why-grid">
           <article class="why-card why-card--main reveal">
             <span class="no">01</span>
             <div class="why-main-body">
-              <h3>Собственная платформа</h3>
-              <p>Не перепродаём софт вендора. ПРОФРОБОТ Platform — наша российская разработка: подключаем роботов любых брендов и типов и дописываем функции под ваш процесс.</p>
+              <h3 data-i18n="home.why.main.title">Собственная платформа</h3>
+              <p data-i18n="home.why.main.text">Не перепродаём софт вендора. ПРОФРОБОТ Platform — наша российская разработка: подключаем роботов любых брендов и типов и дописываем функции под ваш процесс.</p>
             </div>
             <ul class="why-facts">
-              <li><b class="tnum">8</b>типов роботов</li>
-              <li><b class="tnum">40+</b>производителей</li>
-              <li><b class="tnum">1</b>окно управления</li>
+              <li><b class="tnum">8</b><span data-i18n="home.why.main.facts.types">типов роботов</span></li>
+              <li><b class="tnum">40+</b><span data-i18n="home.why.main.facts.makers">производителей</span></li>
+              <li><b class="tnum">1</b><span data-i18n="home.why.main.facts.window">окно управления</span></li>
             </ul>
-            <p class="why-foot">Данные хранятся в РФ · дата-центр в Сколково · <a href="#platform" data-link>Как устроена платформа</a></p>
+            <p data-i18n-html="home.why.main.foot" class="why-foot">Данные хранятся в РФ · дата-центр в Сколково · <a href="#platform" data-link>Как устроена платформа</a></p>
           </article>
-          <article class="why-card reveal"><span class="no">02</span><h3>AI-агенты своей разработки</h3><p>Предсказывают поломку до простоя и перестраивают маршруты уборки в реальном времени.</p></article>
-          <article class="why-card reveal"><span class="no">03</span><h3>Сервис по всей России</h3><p>Собственная сеть и работа по SLA. Отвечаем за то, чтобы робот работал, а не только за поставку.</p></article>
-          <article class="why-card reveal"><span class="no">04</span><h3>Не привязаны к бренду</h3><p>Сравниваем 2–5 производителей на направление и берём то, что окупится у вас, а не то, на что у нас эксклюзив.</p></article>
-          <article class="why-card reveal"><span class="no">05</span><h3>Сначала экономика</h3><p>Разговор начинается с окупаемости вашего объекта, выбор техники — потом.</p></article>
+          <article class="why-card reveal"><span class="no">02</span><h3 data-i18n="home.why.cards.agents.title">AI-агенты своей разработки</h3><p data-i18n="home.why.cards.agents.text">Предсказывают поломку до простоя и перестраивают маршруты уборки в реальном времени.</p></article>
+          <article class="why-card reveal"><span class="no">03</span><h3 data-i18n="home.why.cards.service.title">Сервис по всей России</h3><p data-i18n="home.why.cards.service.text">Собственная сеть и работа по SLA. Отвечаем за то, чтобы робот работал, а не только за поставку.</p></article>
+          <article class="why-card reveal"><span class="no">04</span><h3 data-i18n="home.why.cards.brand.title">Не привязаны к бренду</h3><p data-i18n="home.why.cards.brand.text">Сравниваем 2–5 производителей на направление и берём то, что окупится у вас, а не то, на что у нас эксклюзив.</p></article>
+          <article class="why-card reveal"><span class="no">05</span><h3 data-i18n="home.why.cards.economics.title">Сначала экономика</h3><p data-i18n="home.why.cards.economics.text">Разговор начинается с окупаемости вашего объекта, выбор техники — потом.</p></article>
         </div>
       </div>
     </section>
 
     <!-- ================= 09 CTA ================= -->
-    <section class="final" id="contact" data-sec="09" data-name="ЗАЯВКА" data-dark style="padding:128px 0 0">
+    <section data-i18n-attr="data-name:home.sections.contact" class="final" id="contact" data-sec="09" data-name="ЗАЯВКА" data-dark style="padding:128px 0 0">
       <div class="stage">
-        <span class="idx reveal"><b>09</b> — ЗАЯВКА</span>
-        <h2 class="h2 reveal">Посчитаем экономику вашего объекта.</h2>
-        <p class="lead reveal">Рассчитаем окупаемость и подготовим предложение. Без обязательств: сначала цифры, потом решение.</p>
+        <span class="idx reveal"><b>09</b> — <span data-i18n="home.sections.contact">ЗАЯВКА</span></span>
+        <h2 data-i18n="home.contact.title" class="h2 reveal">Посчитаем экономику вашего объекта.</h2>
+        <p data-i18n="home.contact.lead" class="lead reveal">Рассчитаем окупаемость и подготовим предложение. Без обязательств: сначала цифры, потом решение.</p>
         <div class="btns reveal" style="justify-content:center">
-          <a class="btn btn-pri" href="roi.html">Рассчитать окупаемость за 2 минуты <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-pri" href="roi.html"><span data-i18n="home.contact.ctaRoi">Рассчитать окупаемость за 2 минуты</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <p class="contacts reveal">или <a href="tel:+74951234567">+7 (495) 123-45-67</a> · <a href="mailto:info@profrobot.ru">info@profrobot.ru</a></p>
-        <div class="trust reveal"><span><i></i>Сервисная сеть по всей России</span><span><i></i>Работаем по SLA и KPI</span><span><i></i>Рассрочка и лизинг от ведущих банков РФ</span><span><i></i>Данные хранятся в РФ</span></div>
+        <p class="contacts reveal"><span data-i18n="home.contact.or">или</span> <a href="tel:+74951234567">+7 (495) 123-45-67</a> · <a href="mailto:info@profrobot.ru">info@profrobot.ru</a></p>
+        <div class="trust reveal"><span><i></i><span data-i18n="home.contact.trust.network">Сервисная сеть по всей России</span></span><span><i></i><span data-i18n="home.contact.trust.sla">Работаем по SLA и KPI</span></span><span><i></i><span data-i18n="home.contact.trust.leasing">Рассрочка и лизинг от ведущих банков РФ</span></span><span><i></i><span data-i18n="home.contact.trust.data">Данные хранятся в РФ</span></span></div>
       </div>
     </section>
   </main>
@@ -562,22 +601,22 @@
   <footer class="site-foot">
     <div class="wrap">
       <div class="stats">
-        <div class="reveal"><b data-count="50">0</b><span class="l">проектов реализовано</span></div>
-        <div class="reveal"><b><span data-count="500">0</span>+</b><span class="l">роботов в эксплуатации</span></div>
-        <div class="reveal"><b><span data-count="30">0</span>%</b><span class="l">снижение затрат в среднем</span></div>
-        <div class="reveal"><b>6+</b><span class="l">лет в роботизации</span></div>
-        <div class="reveal"><b>24/7</b><span class="l">сервис по всей России</span></div>
+        <div class="reveal"><b data-count="50">0</b><span data-i18n="home.stats.projects" class="l">проектов реализовано</span></div>
+        <div class="reveal"><b><span data-count="500">0</span>+</b><span data-i18n="home.stats.robots" class="l">роботов в эксплуатации</span></div>
+        <div class="reveal"><b><span data-count="30">0</span>%</b><span data-i18n="home.stats.savings" class="l">снижение затрат в среднем</span></div>
+        <div class="reveal"><b>6+</b><span data-i18n="home.stats.years" class="l">лет в роботизации</span></div>
+        <div class="reveal"><b>24/7</b><span data-i18n="home.stats.service" class="l">сервис по всей России</span></div>
       </div>
     </div>
 
     <div class="stage foot">
       <div class="foot-top">
         <div class="foot-brand">
-          <a href="#hero" data-link aria-label="ПРОФРОБОТ — наверх"><img src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
-          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+          <a data-i18n-attr="aria-label:common.footer.toTopLabel" href="#hero" data-link aria-label="ПРОФРОБОТ — наверх"><img data-i18n-attr="alt:common.brand.logoAlt" src="assets/profrobot-logo-inverse.png" alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
         </div>
         <div class="foot-call">
-          <span class="mono">[ Отдел внедрения ]</span>
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
           <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
           <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
         </div>
@@ -585,48 +624,48 @@
 
       <div class="foot-grid">
         <nav class="foot-col" aria-labelledby="foot-nav-1">
-          <h3 class="mono" id="foot-nav-1"><b>01</b> Разделы</h3>
-          <a href="solutions.html">Решения</a>
-          <a href="#industries" data-link>Отрасли</a>
-          <a href="#">Продукты</a>
-          <a href="#platform" data-link>Платформа</a>
-          <a href="#">Услуги</a>
+          <h3 class="mono" id="foot-nav-1"><b>01</b> <span data-i18n="common.footer.nav.sections">Разделы</span></h3>
+          <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+          <a data-i18n="common.nav.industries" href="#industries" data-link>Отрасли</a>
+          <a data-i18n="common.footer.nav.products" href="products.html">Продукты</a>
+          <a data-i18n="common.nav.platform" href="#platform" data-link>Платформа</a>
+          <a data-i18n="common.footer.nav.services" href="#">Услуги</a>
         </nav>
         <nav class="foot-col" aria-labelledby="foot-nav-2">
-          <h3 class="mono" id="foot-nav-2"><b>02</b> Компания</h3>
-          <a href="#cases" data-link>Кейсы</a>
-          <a href="#">База знаний</a>
-          <a href="#">О компании</a>
-          <a href="#brands" data-link>Производители</a>
-          <a href="#contact" data-link>Контакты</a>
+          <h3 class="mono" id="foot-nav-2"><b>02</b> <span data-i18n="common.footer.nav.company">Компания</span></h3>
+          <a data-i18n="common.nav.cases" href="#cases" data-link>Кейсы</a>
+          <a data-i18n="common.footer.nav.knowledge" href="#">База знаний</a>
+          <a data-i18n="common.footer.nav.about" href="#">О компании</a>
+          <a data-i18n="common.footer.nav.makers" href="#brands" data-link>Производители</a>
+          <a data-i18n="common.nav.contacts" href="#contact" data-link>Контакты</a>
         </nav>
         <div class="foot-col">
-          <h3 class="mono"><b>03</b> Связь</h3>
+          <h3 class="mono"><b>03</b> <span data-i18n="common.footer.nav.contact">Связь</span></h3>
           <a href="#" rel="noopener">Telegram</a>
           <a href="#" rel="noopener">WhatsApp</a>
-          <span>Москва · сервис по РФ</span>
+          <span data-i18n="common.footer.location">Москва · сервис по РФ</span>
         </div>
         <div class="foot-col foot-status">
-          <h3 class="mono"><b>04</b> Статус</h3>
-          <span class="badge-online"><i></i>Сервис на связи 24/7</span>
-          <p class="mono tnum">МСК <span id="foot-clock">--:--</span><br>55.75° N · 37.62° E</p>
+          <h3 class="mono"><b>04</b> <span data-i18n="common.footer.nav.status">Статус</span></h3>
+          <span class="badge-online"><i></i><span data-i18n="common.footer.status.online">Сервис на связи 24/7</span></span>
+          <p class="mono tnum"><bdi data-i18n="common.footer.status.clock">МСК</bdi> <span id="foot-clock">--:--</span><br>55.75° N · 37.62° E</p>
           <ul>
-            <li><i></i>Работаем по SLA и KPI</li>
-            <li><i></i>Данные хранятся в РФ</li>
+            <li><i></i><span data-i18n="common.footer.status.sla">Работаем по SLA и KPI</span></li>
+            <li><i></i><span data-i18n="common.footer.status.data">Данные хранятся в РФ</span></li>
           </ul>
         </div>
       </div>
 
       <div class="foot-mark" aria-hidden="true">
-        <svg viewBox="0 0 1000 150" preserveAspectRatio="none"><text x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs">ПРОФРОБОТ</text></svg>
-        <svg class="foot-mark__lit" viewBox="0 0 1000 150" preserveAspectRatio="none"><text x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs">ПРОФРОБОТ</text></svg>
+        <svg viewBox="0 0 1000 150" preserveAspectRatio="none"><text data-i18n="common.footer.wordmark" x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs">ПРОФРОБОТ</text></svg>
+        <svg class="foot-mark__lit" viewBox="0 0 1000 150" preserveAspectRatio="none"><text data-i18n="common.footer.wordmark" x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs">ПРОФРОБОТ</text></svg>
       </div>
 
       <div class="foot-bot">
-        <span>© 2026 ПРОФРОБОТ. Все права защищены.</span>
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Реквизиты</a>
-        <a class="foot-up" href="#hero" data-link>Наверх <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+        <span data-i18n="common.footer.rights">© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="#">Политика конфиденциальности</a>
+        <a data-i18n="common.footer.requisites" href="#">Реквизиты</a>
+        <a class="foot-up" href="#hero" data-link><span data-i18n="common.footer.toTop">Наверх</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
       </div>
     </div>
   </footer>
