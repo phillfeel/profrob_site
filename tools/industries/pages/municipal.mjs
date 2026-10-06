@@ -108,7 +108,7 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Подметальные и поломоечные роботы.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Агророботы и уход за территорией', text: 'Косилки и техника для газонов.', href: SOL.agro.href },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Техника без покупки, на сезон или дольше.', href: 'products.html#raas' },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Регламенты уборки и отчёты в одном окне.', href: 'products.html#platform' },
+    { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Регламенты уборки и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'УСЛУГА', title: 'Аудит территории', text: 'Покрытия, маршруты, модель закупки.', href: '/services/audit/' },
     { kicker: 'УСЛУГА', title: 'Пилот', text: 'Одна аллея или паркинг — до решения о закупке.', href: '/services/pilot/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: муниципальные службы', text: 'Внедрения на городских территориях.', href: '/cases/?industry=municipal' },

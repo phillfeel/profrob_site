@@ -111,7 +111,7 @@ const industry = {
     { kicker: 'УСЛУГА', title: 'Пилотный проект', text: 'Одна зона, понятный результат.', href: '/services/pilot/' },
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Поломоечные и пылесосные роботы для общих зон.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Сервисные роботы', text: 'Доставка по этажам и встреча гостей.', href: SOL.service.href },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Задания, контроль и отчёты по уборке в одном окне.', href: 'products.html#platform' },
+    { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Задания, контроль и отчёты по уборке в одном окне.', href: 'products.html#platform' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: бизнес-центры', text: 'Внедрения в офисных зданиях.', href: '/cases/?industry=business-centers' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
   ],

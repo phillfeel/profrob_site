@@ -79,7 +79,7 @@ const industry = {
     { kicker: 'УСЛУГА', title: 'Пилотный проект', text: 'Одна зона, понятный результат.', href: '/services/pilot/' },
     { kicker: 'УСЛУГА', title: 'Аудит объекта', text: 'Зоны, площади, маршруты и расчёт.', href: '/services/audit/' },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Робот на пилот без покупки.', href: 'products.html#raas' },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Уборка всех зон и отчёты в одном окне.', href: 'products.html#platform' },
+    { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Уборка всех зон и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
   ],
   sections: ['hero', 'problems', 'zones', 'directions', 'pilot', 'vendors', 'why', 'form', 'see'],

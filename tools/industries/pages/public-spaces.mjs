@@ -133,7 +133,7 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Сервисные роботы', text: 'Навигация и ответы посетителям.', href: SOL.service.href },
     { kicker: 'РЕШЕНИЕ', title: 'Роботы безопасности', text: 'Патрулирование периметра и паркингов.', href: SOL.security.href },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Уборка как услуга, без покупки техники.', href: 'products.html#raas' },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
+    { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'ОТРАСЛЬ', title: 'Муниципальные службы', text: 'Парки и улицы — там.', href: '/industries/municipal/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: общественные пространства', text: 'Внедрения на вокзалах и в аэропортах.', href: '/cases/?industry=public-spaces' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },

@@ -112,7 +112,7 @@ export const INDUSTRIES = [
       { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Поломоечные роботы для общих зон.', href: SOL.cleaning.href },
       { kicker: 'РЕШЕНИЕ', title: 'Гуманоидные роботы', text: 'Ресепшн, навигация, вау-эффект.', href: SOL.humanoid.href },
       { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Сильный аргумент для сезонного бизнеса.', href: 'products.html#raas' },
-      { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
+      { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
       { kicker: 'КЕЙСЫ', title: 'Кейсы: гостиницы', text: 'Внедрения в отелях и HoReCa.', href: '/cases/?industry=hotels' },
     ],
     sections: ['hero', 'problems', 'day', 'directions', 'economy', 'results', 'vendors', 'case', 'why', 'form', 'see'],

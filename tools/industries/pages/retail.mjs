@@ -87,7 +87,7 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Поломоечные и подметальные роботы.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Сервисные роботы', text: 'Промо, навигация, доставка в зале.', href: SOL.service.href },
     { kicker: 'РЕШЕНИЕ', title: 'Складская роботизация', text: 'Дарксторы и склады сетей.', href: SOL.warehouse.href },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Уборка всех точек сети в одном окне.', href: 'products.html#platform' },
+    { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Уборка всех точек сети в одном окне.', href: 'products.html#platform' },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Без капзатрат, с обслуживанием.', href: 'products.html#raas' },
     { kicker: 'УСЛУГА', title: 'Пилотный проект', text: 'Одна галерея или один магазин.', href: '/services/pilot/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: ритейл', text: 'Внедрения в ТЦ и магазинах.', href: '/cases/?industry=retail' },

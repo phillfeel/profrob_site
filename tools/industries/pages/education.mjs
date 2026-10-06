@@ -91,7 +91,7 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Поломоечные роботы для рекреаций и залов.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Гуманоидные роботы', text: 'Платформы для учебных лабораторий.', href: SOL.humanoid.href },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Робот без покупки и без капитальных затрат.', href: 'products.html#raas' },
-    { kicker: 'ПРОДУКТ', title: 'Cleaning Operations Platform', text: 'Циклы уборки и отчёты в одном окне.', href: 'products.html#platform' },
+    { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Циклы уборки и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'УСЛУГА', title: 'Пилот', text: 'Один этаж, понятные критерии успеха.', href: '/services/pilot/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: образование', text: 'Внедрения в школах и вузах.', href: '/cases/?industry=education' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
