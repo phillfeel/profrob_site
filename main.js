@@ -284,6 +284,7 @@
     // ---------- Ховер/фокус — вешаются ОДИН раз на узел ----------
     // Фокус с клавиатуры тормозит ленту; фокус от тапа (Android фокусирует кнопку) — нет,
     // иначе лента встаёт до следующего тапа мимо.
+    const TAP_ARMED = 3;  // секунд, пока после первого тапа второй открывает страницу
     let touchTap = false, tapClear = null;
     function wire(el) {
       let kbd = false;
@@ -294,12 +295,17 @@
       el.addEventListener('pointerleave', (e) => { if (e.pointerType !== 'touch' && !busy()) focusOut(); });
       el.addEventListener('focus', () => { kbd = !touchTap && el.matches(':focus-visible'); if (kbd) focusIn(); });
       el.addEventListener('blur', () => { if (kbd) { kbd = false; focusOut(); } });
-      el.addEventListener('click', () => {
+      // Робот — ссылка на отраслевой лендинг. Мышь и клавиатура переходят сразу: подпись они уже видели
+      // на ховере/фокусе. На таче ховера нет, поэтому там, где панель подписи видна (планшет), первый тап
+      // показывает её, второй (пока робот подсвечен) открывает страницу. На телефоне панели нет —
+      // двухтаповая схема была бы тапом без видимого результата, переходим сразу.
+      el.addEventListener('click', (e) => {
+        const armed = el.classList.contains('is-active');
         paint(stage.indexOf(el), HOVER);
-        if (!touchTap) return;
-        // На таче подсветка — короткий отклик, ховера, который её снимет, не будет
+        if (!touchTap || armed || !cap || cap.hidden) return;
+        e.preventDefault();
         if (tapClear) tapClear.kill();
-        tapClear = gsap.delayedCall(1.4, () => { tapClear = null; paint(null, { dur: .3 }); });
+        tapClear = gsap.delayedCall(TAP_ARMED, () => { tapClear = null; paint(null, { dur: .3 }); });
       });
     }
     els.forEach(wire);
