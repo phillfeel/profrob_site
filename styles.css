@@ -101,15 +101,27 @@ section { position: relative; z-index: 2; }
 .nav-links a { color: var(--ink-muted); transition: color var(--fast) var(--ease); }
 .nav-links a:hover, .nav-links a.on { color: var(--ink); }
 .nav .btn { height: 40px; padding: 0 20px; font-size: 14px; }
-/* Language switch: sunken track and a white pill for the chosen language, as the segment controls of the calculator */
-.lang { display: flex; gap: 2px; padding: 3px; border-radius: var(--r-pill); background: var(--surface-sunken); flex: none; }
+/* Language switch: premium pill-toggle with animated slider and accent color */
+.lang {
+  display: flex; gap: 2px; padding: 4px; border-radius: var(--r-pill); background: var(--surface-sunken); flex: none;
+  position: relative;
+}
+.lang::before {
+  content: "";
+  position: absolute; top: 4px; bottom: 4px; left: 4px;
+  width: calc(50% - 5px);
+  border-radius: var(--r-pill); background: var(--surface-raised); box-shadow: var(--shadow-sm);
+  transition: transform var(--base) var(--ease); z-index: 1;
+}
+.lang:has(button[lang="en"][aria-pressed="true"])::before { transform: translateX(100%) translateX(2px); }
 .lang button {
-  height: 30px; min-width: 40px; padding: 0 10px; border: 0; border-radius: var(--r-pill); background: transparent;
-  font: 500 13px/1 var(--sans); letter-spacing: .02em; color: var(--ink-muted); cursor: pointer;
-  transition: background var(--fast) var(--ease), color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+  flex: 1; position: relative; z-index: 2;
+  height: 32px; min-width: 44px; padding: 0; border: 0; border-radius: var(--r-pill); background: transparent;
+  font: 600 13px/32px var(--sans); letter-spacing: .02em; color: var(--ink-muted); cursor: pointer; text-align: center;
+  transition: color var(--fast) var(--ease);
 }
 .lang button:hover { color: var(--ink); }
-.lang button[aria-pressed="true"] { background: var(--surface-raised); color: var(--ink); box-shadow: var(--shadow-sm); cursor: default; }
+.lang button[aria-pressed="true"] { color: var(--accent); cursor: default; }
 
 /* ================= SECTION COUNTER ================= */
 .counter {
@@ -875,8 +887,8 @@ html:not(.js) .stk-sys .stk-node::after, .stk.is-live .stk-sys .stk-node::after 
   .nav-links, .counter { display: none; }
   .nav { padding-left: 16px; gap: 12px; justify-content: space-between; }
   .nav { gap: 8px; }
-  .nav .lang { margin-left: auto; padding: 2px; }
-  .lang button { height: 28px; min-width: 28px; padding: 0 5px; font-size: 12px; }
+  .nav .lang { margin-left: auto; }
+  .lang button { height: 36px; min-width: 40px; font-size: 13px; line-height: 36px; }
   .nav .btn { padding: 0 14px; }
   .hero { padding-top: 104px; min-height: 0; }
   .hero-top { grid-template-columns: 1fr; }

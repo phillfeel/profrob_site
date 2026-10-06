@@ -278,6 +278,6 @@
 /* Номер рядом с иконкой на малых карточках: справа там стоит робот */
 .dir--half .dir__top, .dir--third .dir__top { justify-content: flex-start; align-items: center; }
 
-/* Чекбокс согласия: общее правило .fld input растягивало его на всю ширину */
-.fld .consent input { width: 22px; height: 22px; padding: 0; border-radius: 6px; }
+/* Чекбокс согласия: общее правило .fld input растягивало его на всю ширину и скрывало (appearance: none) */
+.fld .consent input { width: 22px; height: 22px; padding: 0; border-radius: 6px; appearance: auto; -webkit-appearance: auto; }
 @media (max-width: 767px) { .dir--humanoid .dir__body h3 { grid-column: auto; font-size: 20px; } }
