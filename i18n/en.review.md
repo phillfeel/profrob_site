@@ -51,7 +51,7 @@
 
 | Решение | Ключи | Обоснование |
 |---|---|---|
-| Бренд *PROFROBOT* | везде | ждёт решения заказчика; логотип в шапке остаётся кириллическим (R1) |
+| Бренд *Professional Robotics* | везде | решено заказчиком 2026-10-07 (переименование из ПРОФРОБОТ); у английской версии свой логотип `assets/profrobot-logo-en*.png` |
 | Индустрия «Бизнес-центры» = *Office buildings*; «Общественные пространства» = *Public venues and transport hubs*; «Отели и HoReCa» = *Hotels and hospitality* (в H1 страницы оставлено *HoReCa*, как в RU) | `industries.*.name`, `home.industries.items.*`, `industries.hotels.h1.items.1` | glossary §4 |
 | H1 страницы общественных пространств: *Robots for stations, airports and MFCs.* Расшифровка МФЦ стоит в следующей строке (`industries.publicSpaces.audiences.items.2`). Полное *public service centers* не помещается в строку H1 | `industries.publicSpaces.h1.items.1` | ограничение +15% на строку H1 |
 | Метка секции СЕЗОН = *YEAR* на странице агро (секция показывает весь год, включая межсезонье) | `industries.common.sections.season` | длина метки |

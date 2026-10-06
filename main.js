@@ -9,6 +9,13 @@
     ? (v, dec) => v.toFixed(dec).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
     : (v, dec) => new Intl.NumberFormat(lang, { useGrouping: 'always', minimumFractionDigits: dec, maximumFractionDigits: dec }).format(v);
 
+  // ---------- Бесконечные CSS-анимации вне экрана — на паузу (то же в solutions.js) ----------
+  // Иначе браузер считает их каждый кадр, даже когда секция далеко за экраном: на телефоне это заметно.
+  if (window.IntersectionObserver) {
+    const io = new IntersectionObserver((list) => list.forEach((e) => e.target.classList.toggle('anim-off', !e.isIntersecting)), { rootMargin: '200px 0px' });
+    document.querySelectorAll('section, footer').forEach((s) => io.observe(s));
+  }
+
   // ---------- Футер: часы МСК и подсветка вордмарка (не зависят от GSAP) ----------
   const clock = document.getElementById('foot-clock');
   if (clock) {
@@ -53,7 +60,9 @@
       const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
       const setW = originals.reduce((w, el) => w + el.offsetWidth + gap, 0);
       if (!setW) return;
-      const copies = Math.ceil(lane.clientWidth / setW) + 1; // смена должна быть не уже окна, иначе в ленте будет «дыра»
+      // Смена должна быть не уже окна, иначе в ленте будет «дыра». Лишняя смена сверх этого удваивала
+      // ширину ленты (до 34 000 px слоя на GPU) без видимой разницы.
+      const copies = Math.max(1, Math.ceil(lane.clientWidth / setW));
       const frag = document.createDocumentFragment();
       for (let c = 1; c < copies * 2; c++) {
         originals.forEach((el) => {
@@ -197,16 +206,20 @@
     // ---------- Лента по дуге подиума ----------
     // Верх подиума — эллипс шире экрана: у краёв его передняя кромка поднимается, а трек прямой,
     // и низкие фигуры (опоры Стройки) вылезали за кромку. Каждый робот поднимается на подъём дуги
-    // в своей точке — все одинаково, поэтому глубина ряда не меняется. Считаем по offset* (без
-    // getBoundingClientRect в тике) и пишем в CSS translate — transform слоёв занят GSAP.
+    // в своей точке — все одинаково, поэтому глубина ряда не меняется. Геометрия (offset*) снимается
+    // один раз в measureArc: чтение offset* в тике после записи translate заставляло браузер
+    // пересчитывать стили на каждом роботе каждый кадр. Пишем в CSS translate — transform слоёв занят GSAP.
     const plate = scene.querySelector('.scene-plate');
     const plateTop = scene.querySelector('.scene-plate__top');
     let arc = null;
     const measureArc = () => {
       if (!plate || !plateTop) { arc = null; return; }
       const a = plate.offsetWidth / 2;
-      arc = { cx: plate.offsetLeft + a, a, b: plateTop.offsetHeight / 2, tw: track.offsetWidth, tl: track.offsetLeft };
+      arc = { cx: plate.offsetLeft + a, a, b: plateTop.offsetHeight / 2, tw: track.offsetWidth, tl: track.offsetLeft,
+        mid: stage.map((el) => el.offsetLeft + el.offsetWidth / 2) };
     };
+    // Догрузились картинки или шрифт — ширины роботов поменялись, снимаем геометрию заново
+    if (window.ResizeObserver) new ResizeObserver(() => { if (arc) measureArc(); }).observe(track);
     const arcRise = (x) => {
       const t = Math.min(1, Math.abs(x - arc.cx) / arc.a);
       return arc.b * (1 - Math.sqrt(1 - t * t));
@@ -224,8 +237,8 @@
     function followArc() {
       if (!arc) return;
       const shift = arc.tl + (gsap.getProperty(track, 'xPercent') / 100) * arc.tw;
-      stage.forEach((el) => {
-        const x = shift + el.offsetLeft + el.offsetWidth / 2;
+      stage.forEach((el, n) => {
+        const x = shift + arc.mid[n];
         el.style.translate = `0 ${(-arcRise(x)).toFixed(2)}px`;
         const label = labelOf(el);
         if (label) label.style.rotate = `${arcTilt(x).toFixed(2)}deg`;
@@ -248,6 +261,7 @@
     }
     function stopBelt() {
       gsap.ticker.remove(followArc);
+      arc = null;
       els.forEach((el) => {
         el.style.translate = '';
         const label = labelOf(el);

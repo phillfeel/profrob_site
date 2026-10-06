@@ -24,7 +24,7 @@
 - **Не усиливать.** Нельзя добавлять *revolutionary, cutting-edge, seamless, world-class, unlock, empower, leverage, game-changing*. Если в RU нет превосходной степени, в EN её тоже нет.
 - **Не ослаблять оговорки.** «по данным производителя», «заявление девелопера», «расчётный ориентир», «это не наши проекты» переводятся всегда и так же заметно: *according to the manufacturer*, *the developer's claim*, *indicative estimate*, *these are other companies' deployments, not PROFROBOT projects*. Для инвестора это вопрос доверия.
 - **Честные формулировки сохраняем дословно по смыслу.** Пример: «Покупка окупается долго. Так и говорим.» → *Buying takes years to pay back. We say so up front.*
-- **Обращение:** клиенту — прямое *you*; компания о себе — *we*, *PROFROBOT* — когда нужно подлежащее с названием. Безличные конструкции только там, где безлично и в RU (подписи, метки). *You* без заглавной буквы (RU-правило «вы» со строчной сюда переходит естественно).
+- **Обращение:** клиенту — прямое *you*; компания о себе — *we*, *Professional Robotics* — когда нужно подлежащее с названием. Безличные конструкции только там, где безлично и в RU (подписи, метки). *You* без заглавной буквы (RU-правило «вы» со строчной сюда переходит естественно).
 - **Без канцелярита и калек:** *robotization, directions, object (в смысле «объект»), exploitation (эксплуатация), in the regime of*. Объект → *site, building, facility*; эксплуатация → *operation*; режим → *mode, schedule*.
 
 ## 4. Заголовки, метки, кнопки
@@ -41,7 +41,7 @@ H1–H3, заголовки карточек, кнопки, пункты мен�
 
 Исключения:
 - **Метки секций** (моно-шрифт, `data-name`, счётчик секций) в RU набраны капителью — в EN тоже ВСЕ ЗАГЛАВНЫЕ. Список — `glossary.md`, §6.3.
-- Названия продуктов: *PROFROBOT Platform*, *Cleaning Operations Platform*, *Fleet Management*.
+- Названия продуктов: *Professional Robotics Platform*, *Cleaning Operations Platform*, *Fleet Management*.
 
 ### 4.2 Точка в конце заголовка
 

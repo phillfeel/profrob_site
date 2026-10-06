@@ -35,7 +35,7 @@ const industry = {
   name: 'Образовательные учреждения',
   // Research, section 1: named schools and an official announcement, but no independent savings figures.
   tier: 3,
-  title: 'Роботы для школ и вузов: уборка рекреаций, учебные лаборатории | ПРОФРОБОТ',
+  title: 'Роботы для школ и вузов: уборка рекреаций, учебные лаборатории | Профессиональная Робототехника',
   description: 'Поломоечные роботы для школ моют рекреации во время уроков. Гуманоиды и платформы для учебных лабораторий робототехники в вузах и колледжах. Честная экономика: аренда и уборка как услуга.',
   h1: ['Роботы для школ,', 'колледжей и вузов.'],
   lead: 'У учебного заведения два разных повода для роботов. Здание: рекреации нужно мыть каждый день, и удобнее всего — пока идут уроки. Лаборатория: вузам и колледжам нужны гуманоиды и платформы, на которых учатся студенты.',
@@ -65,7 +65,7 @@ const industry = {
   directions: [
     { anchor: 'corridors', scenario: 'building', title: 'Уборка рекреаций и коридоров во время уроков', text: 'Поломоечный робот моет рекреации, пока дети в классах, и сам уходит на станцию. Станция заряжает его, сливает грязную воду и наливает чистую.', items: ['рекреации на всех этажах', 'коридоры и холлы', 'вестибюль и гардероб'], solution: SOL.cleaning },
     { anchor: 'gym-canteen', scenario: 'building', title: 'Уборка спортзала и столовой', text: 'Отдельный цикл по расписанию: спортзал — когда в нём нет урока, обеденный зал — после потока учеников.', items: ['спортивный зал', 'обеденный зал', 'актовый зал'], solution: SOL.cleaning },
-    // TODO(client): какой объём работ по лабораториям берёт ПРОФРОБОТ (поставка, запуск, обучение преподавателей, сервис)?
+    // TODO(client): какой объём работ по лабораториям берёт Профессиональная Робототехника (поставка, запуск, обучение преподавателей, сервис)?
     { anchor: 'labs', scenario: 'lab', title: 'Учебные лаборатории робототехники', text: 'Гуманоиды, четвероногие и мобильные платформы для кафедр и колледжей: подбираем состав под учебную программу и бюджет, поставляем и запускаем.', items: ['гуманоидные роботы', 'мобильные платформы', 'манипуляторы для учебных стендов'], solution: SOL.humanoid },
   ],
   scenarios: {
@@ -91,7 +91,7 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Поломоечные роботы для рекреаций и залов.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Гуманоидные роботы', text: 'Платформы для учебных лабораторий.', href: SOL.humanoid.href },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Робот без покупки и без капитальных затрат.', href: 'products.html#raas' },
-    { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Циклы уборки и отчёты в одном окне.', href: 'products.html#platform' },
+    { kicker: 'ПРОДУКТ', title: 'Платформа Профессиональная Робототехника', text: 'Циклы уборки и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'УСЛУГА', title: 'Пилот', text: 'Один этаж, понятные критерии успеха.', href: '/services/pilot/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: образование', text: 'Внедрения в школах и вузах.', href: '/cases/?industry=education' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
@@ -237,9 +237,9 @@ const renderers = {
     </section>`;
   },
 
-  // Other companies' deployments, one per scenario. Not ProfRobot projects — said so in the lead.
+  // Other companies' deployments, one per scenario. Not Professional Robotics projects — said so in the lead.
   proof: (ind, n, h) => `<section class="sol-sec wrap" id="proof" data-sec="${n}"${h.dn(ind, 'proof')} aria-labelledby="proof-h">
-      ${h.secHead(n, h.secName(ind, 'proof'), h.lt('proof.title', 'Это уже работает в школах и вузах.'), h.lt('proof.lead', 'Ниже чужие внедрения, не проекты ПРОФРОБОТ. Показываем их, чтобы было видно: оба сценария проверены на реальных зданиях и студентах.'), 'proof-h')}
+      ${h.secHead(n, h.secName(ind, 'proof'), h.lt('proof.title', 'Это уже работает в школах и вузах.'), h.lt('proof.lead', 'Ниже чужие внедрения, не проекты Профессиональной Робототехники. Показываем их, чтобы было видно: оба сценария проверены на реальных зданиях и студентах.'), 'proof-h')}
       <div class="edu-proof">
         <article class="edu-case reveal">
           <span class="edu-case__k mono"><span class="edu-scen__plate" aria-hidden="true"${h.T(ind.scenarios.building, 'letter')}>А</span><bdi${h.L('proof.schools.place')}>Московские школы</bdi></span>

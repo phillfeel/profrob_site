@@ -35,7 +35,7 @@ const WINDOWS = [
 ];
 const PEAKS = [{ at: 8, label: 'Утренний пик' }, { at: 18, label: 'Вечерний пик' }];
 
-// Other companies' deployments (not PROFROBOT's) — wording says «работают», not «мы внедрили».
+// Other companies' deployments (not Professional Robotics') — wording says «работают», not «мы внедрили».
 // Competitors (Russian makers we do not work with) are not named.
 const PROOF = {
   main: {
@@ -58,7 +58,7 @@ const industry = {
   slug: 'public-spaces',
   name: 'Общественные пространства',
   tier: 3, // TODO(client): tier по стратегии не задан; у отрасли сильные доказательства (РЖД), можно поднять до 2.
-  title: 'Роботы для вокзалов, аэропортов, музеев и МФЦ | ПРОФРОБОТ',
+  title: 'Роботы для вокзалов, аэропортов, музеев и МФЦ | Профессиональная Робототехника',
   description: 'Роботы-уборщики для залов ожидания, терминалов и переходов, сервисные роботы для навигации в МФЦ и музеях, патрульные роботы. Уборка ночью и между пиками потока. Аудит объекта.',
   h1: ['Роботы для вокзалов,', 'аэропортов и МФЦ.'],
   lead: 'Залы ожидания и терминалы работают почти круглые сутки, а люди идут волнами — по расписанию поездов и рейсов. Огромную площадь нужно убирать так, чтобы не мешать пассажирам.',
@@ -133,7 +133,7 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Сервисные роботы', text: 'Навигация и ответы посетителям.', href: SOL.service.href },
     { kicker: 'РЕШЕНИЕ', title: 'Роботы безопасности', text: 'Патрулирование периметра и паркингов.', href: SOL.security.href },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Уборка как услуга, без покупки техники.', href: 'products.html#raas' },
-    { kicker: 'ПРОДУКТ', title: 'ПРОФРОБОТ Platform', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
+    { kicker: 'ПРОДУКТ', title: 'Платформа Профессиональная Робототехника', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'ОТРАСЛЬ', title: 'Муниципальные службы', text: 'Парки и улицы — там.', href: '/industries/municipal/' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: общественные пространства', text: 'Внедрения на вокзалах и в аэропортах.', href: '/cases/?industry=public-spaces' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
@@ -299,7 +299,7 @@ const proof = (ind, n, h) => {
   // «1 980»: the gap between the groups of digits is an element, so the message is the number {n}, formatted per language
   const mValue = h.msg('industries.publicSpaces.proof.main.value', { n: Number(m.value.replace(/\s/g, '')) });
   return `<section class="sol-sec wrap" id="proof" data-sec="${n}"${h.dn(ind, 'proof')} aria-labelledby="proof-h">
-      ${h.secHead(n, h.secName(ind, 'proof'), h.lt('proof.title', 'Роботы-уборщики уже работают на вокзалах и в аэропортах.'), h.lt('proof.lead', 'Это внедрения других компаний, не ПРОФРОБОТ. Показываем их, чтобы было видно: техника справляется с залами и потоком людей.'), 'proof-h')}
+      ${h.secHead(n, h.secName(ind, 'proof'), h.lt('proof.title', 'Роботы-уборщики уже работают на вокзалах и в аэропортах.'), h.lt('proof.lead', 'Это внедрения других компаний, не Профессиональной Робототехники. Показываем их, чтобы было видно: техника справляется с залами и потоком людей.'), 'proof-h')}
       <div class="psw">
         <article class="psw__main reveal">
           <div class="psw__mhead">

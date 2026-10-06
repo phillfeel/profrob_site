@@ -1,4 +1,4 @@
-/* ПРОФРОБОТ — страница калькулятора окупаемости. Два расчёта на одной странице:
+/* Профессиональная Робототехника — страница калькулятора окупаемости. Два расчёта на одной странице:
    мойка фасадов — facade-model.js (window.FACADE), уборка помещений — roi-model.js (window.ROI). */
 (window.i18n ? window.i18n.ready : Promise.resolve()).then(() => {
   'use strict';
@@ -52,13 +52,13 @@
         'js.roi.cmp.cheaper': (v) => `Дешевле на ${v.diff}\u00a0₽ за м² с учётом покупки робота и домывки вручную.`,
         'js.roi.cmp.dearer': () => 'При таком объёме робот дороже подрядчика: большую часть сезона он простаивает.',
         'js.roi.summary': (v) => `${e(v.ctx)} · ${e(v.detail)}<br/>Оценка экономии <b>${e(v.amount)}</b> в год · ${e(v.plate)}`,
-        'js.roi.share.text': (v) => `Предварительный расчёт ПРОФРОБОТ: робот может сэкономить около ${v.amount} в год на нашем объекте`,
-        'js.roi.share.title': () => 'Калькулятор окупаемости ПРОФРОБОТ',
+        'js.roi.share.text': (v) => `Предварительный расчёт Профессиональной Робототехники: робот может сэкономить около ${v.amount} в год на нашем объекте`,
+        'js.roi.share.title': () => 'Калькулятор окупаемости Профессиональной Робототехники',
         'js.roi.share.copied': () => 'Ссылка на расчёт скопирована',
         'js.roi.share.prompt': () => 'Скопируйте ссылку на расчёт:',
         'js.roi.card.headline': () => 'Ориентировочная экономия в год',
         'js.roi.card.fiveYears': (v) => `ЗА 5 ЛЕТ: ${v.amount}`,
-        'js.roi.card.shareTitle': () => 'Расчёт ПРОФРОБОТ',
+        'js.roi.card.shareTitle': () => 'Расчёт Профессиональной Робототехники',
         'js.roi.card.saved': () => 'Картинка с расчётом сохранена',
         'js.roi.card.failed': () => 'Не получилось собрать картинку. Попробуйте «Поделиться»',
       },
@@ -479,7 +479,7 @@
       glow.addColorStop(0, 'rgba(255,255,255,.08)'); glow.addColorStop(1, 'rgba(255,255,255,0)');
       g.fillStyle = glow; g.fillRect(0, 0, W, H);
       g.fillStyle = '#2f3bff'; g.fillRect(0, H - 6, W, 6);
-      if (logo.complete && logo.naturalWidth) g.drawImage(logo, 72, 64, 176, 176 * logo.naturalHeight / logo.naturalWidth);
+      if (logo.complete && logo.naturalWidth) g.drawImage(logo, 72, 56, 64 * logo.naturalWidth / logo.naturalHeight, 64);
       g.fillStyle = '#a3a8b1'; g.font = '500 20px "JetBrains Mono", monospace';
       g.fillText(r.ctx.toLocaleUpperCase(i18n.lang), 72, 176);
       g.fillStyle = '#f3f2ef'; g.font = '600 40px Onest, sans-serif';

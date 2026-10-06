@@ -15,9 +15,9 @@
 
 | RU | Утверждённый EN | Заметки |
 |---|---|---|
-| ПРОФРОБОТ | **PROFROBOT** | **РЕШЕНИЕ ЗАКАЗЧИКА.** Что есть в материалах: домен `profrobot.ru`; ТЗ v2.1 (`docs/archive/initial-docs/ТЗ_ПРОФРОБОТ_контент_сайта_v2_1 -ВСЕ СТРАНИЦЫ.docx`) пишет PROFROBOT («PROFROBOT Cleaning Operations Platform»); картинка-расчёт в `roi.js` печатает `PROFROBOT.RU/ROI`; презентация для инвесторов называется `assets/ProfRobot_RU.pdf` (заголовок PDF «ПрофРобот — презентация для инвесторов»). При этом ТЗ требует не использовать латинское PROFROBOT на русском сайте — к EN-версии это не относится. Предлагаю PROFROBOT: повторяет капитель кириллического логотипа и уже стоит в ТЗ. Альтернатива — ProfRobot (как в имени файла презентации): читается легче, видна граница Prof/Robot. Если есть английская версия презентации для инвесторов, брать написание оттуда. Не склонять, без кавычек, без апострофа-s в названии продукта (*PROFROBOT Platform*, но *PROFROBOT's service network* допустимо). |
-| ПРОФРОБОТ Platform | **PROFROBOT Platform** | Первое упоминание на странице: *PROFROBOT Platform, our in-house platform for managing robots of any type*, дальше *the platform*. Так требует ТЗ (§1.9) для RU. |
-| платформа ПРОФРОБОТ для управления роботами любых типов | PROFROBOT Platform for managing robots of any type | см. выше |
+| Профессиональная Робототехника | **Professional Robotics** | **РЕШЕНИЕ ЗАКАЗЧИКА (2026-10-07):** компания переименована из ПРОФРОБОТ в «Профессиональная Робототехника», английское название — Professional Robotics (заглавные буквы как в имени собственном). Не склонять, без кавычек. Домен `profrobot.ru`, адрес `info@profrobot.ru` и подпись `PROFROBOT.RU/ROI` на картинке-расчёте пока прежние: новый домен не назван. В заголовках страниц английское название стоит после `|`, поэтому описательная часть сокращена, чтобы заголовок не превышал 60 знаков. |
+| Платформа Профессиональная Робототехника | **Professional Robotics Platform** | Первое упоминание на странице: *Professional Robotics Platform, our in-house platform for managing robots of any type*, дальше *the platform*. Так требует ТЗ (§1.9) для RU. |
+| Платформа Профессиональная Робототехника для управления роботами любых типов | Professional Robotics Platform for managing robots of any type | см. выше |
 | Cleaning Operations Platform | **Cleaning Operations Platform** | Уже по-английски, оставляем как на сайте. Внимание: ТЗ (§1.9 дистиллята) запрещает это название («платформа не только для уборки»), а отраслевые страницы его используют в «Смотрите также». Противоречие RU-версии, не переводческое; передать заказчику. |
 | Fleet Management | Fleet Management | Название продукта, не переводим. |
 | Диспетчеризация (продукт) | Dispatch | Название продукта в карточке «Смотрите также». |
@@ -222,7 +222,7 @@
 | Решения · Отрасли · Платформа · Кейсы · Контакты | Solutions · Industries · Platform · Case studies · Contact | Отвергнуто: *Cases*. |
 | Связаться | Contact us | |
 | Основная навигация (aria) | Main navigation | |
-| ПРОФРОБОТ — на главную (aria) | PROFROBOT home | |
+| Профессиональная Робототехника — на главную (aria) | Professional Robotics home | |
 | Хлебные крошки (aria) · Главная | Breadcrumbs · Home | |
 | Продукты · Услуги · База знаний · О компании · Производители | Products · Services · Knowledge base · About us · Manufacturers | |
 | Разделы · Компания · Связь · Статус | Sections · Company · Contact · Status | Колонки футера. |
@@ -230,7 +230,7 @@
 | Сервис на связи 24/7 | Service desk 24/7 | |
 | Москва · сервис по РФ | Moscow · service across Russia | |
 | МСК (часы в футере) | MSK (Moscow time, UTC+3) | В EN стоит показать *MSK* и смещение. |
-| © 2026 ПРОФРОБОТ. Все права защищены. | © 2026 PROFROBOT. All rights reserved. | |
+| © 2026 Профессиональная Робототехника. Все права защищены. | © 2026 Professional Robotics. All rights reserved. | |
 | Политика конфиденциальности | Privacy policy | |
 | Реквизиты | Company details | |
 | Наверх · На главную | Back to top · Home | |
@@ -270,7 +270,7 @@
 | ВНЕДРЕНИЕ | DEPLOYMENT | | ЭКОНОМИКА | ECONOMICS |
 | РЕЗУЛЬТАТ | RESULTS | | ОБОРУДОВАНИЕ | EQUIPMENT |
 | ПЛАТФОРМА | PLATFORM | | КЕЙС / КЕЙСЫ | CASE STUDY / CASE STUDIES |
-| ПЛАТФОРМА · ДИСПЕТЧЕРСКАЯ | PLATFORM · CONTROL ROOM | | ПОЧЕМУ ПРОФРОБОТ | WHY PROFROBOT |
+| ПЛАТФОРМА · ДИСПЕТЧЕРСКАЯ | PLATFORM · CONTROL ROOM | | ПОЧЕМУ МЫ | WHY US |
 | ОТРАСЛИ / ОТРАСЛЬ | INDUSTRIES / INDUSTRY | | ЗАЯВКА | GET IN TOUCH |
 | РЕШЕНИЯ / РЕШЕНИЕ | SOLUTIONS / SOLUTION | | СМОТРИТЕ ТАКЖЕ | SEE ALSO |
 | ПРОДУКТ / УСЛУГА | PRODUCT / SERVICE | | СОСТАВ РЕШЕНИЯ | WHAT'S INCLUDED |

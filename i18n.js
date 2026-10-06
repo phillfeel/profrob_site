@@ -1,4 +1,4 @@
-/* ПРОФРОБОТ: runtime of the English version. Loaded by the inline boot (i18n/boot.js) only when English is chosen;
+/* Профессиональная Робототехника: runtime of the English version. Loaded by the inline boot (i18n/boot.js) only when English is chosen;
    Russian visitors never request this file. The Russian text stays in the markup, this script puts the English
    messages (i18n/en.json) in its place before the page scripts start (they wait for window.i18n.ready).
 

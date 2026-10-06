@@ -1,5 +1,5 @@
 {
-  "industries.fitnessSports.title": "Fitness club robots: gym floors, pool, turf | PROFROBOT",
+  "industries.fitnessSports.title": "Fitness club robots: gym, pool | Professional Robotics",
   "industries.fitnessSports.description": "Robots that clean gyms, locker rooms and restrooms, underwater robots for pools, mowers and line markers for stadiums. A pilot in one zone of your club.",
   "industries.fitnessSports.nameCaps": "FITNESS & SPORTS FACILITIES",
   "industries.fitnessSports.name": "Fitness clubs and sports facilities",
@@ -122,6 +122,6 @@
   "industries.fitnessSports.links.items.2.text": "One zone, a clear result.",
   "industries.fitnessSports.links.items.3.text": "Zones, areas, routes and an estimate.",
   "industries.fitnessSports.links.items.4.text": "A pilot robot, no purchase.",
-  "industries.fitnessSports.links.items.5.title": "PROFROBOT Platform",
+  "industries.fitnessSports.links.items.5.title": "Professional Robotics Platform",
   "industries.fitnessSports.links.items.5.text": "Cleaning of all zones, reports in one window."
 }

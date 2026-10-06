@@ -24,6 +24,13 @@
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ---------- Бесконечные CSS-анимации вне экрана — на паузу (то же в main.js) ----------
+  // Иначе браузер считает их каждый кадр, даже когда секция далеко за экраном: на телефоне это заметно.
+  if (window.IntersectionObserver) {
+    const io = new IntersectionObserver((list) => list.forEach((e) => e.target.classList.toggle('anim-off', !e.isIntersecting)), { rootMargin: '200px 0px' });
+    document.querySelectorAll('section, footer').forEach((s) => io.observe(s));
+  }
+
   // ---------- Reveal ----------
   const revealEls = [...document.querySelectorAll('.reveal')];
   const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };

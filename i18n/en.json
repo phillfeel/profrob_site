@@ -10,8 +10,8 @@
       "contacts": "Contact"
     },
     "brand": {
-      "homeLabel": "PROFROBOT home",
-      "logoAlt": "PROFROBOT",
+      "homeLabel": "Professional Robotics home",
+      "logoAlt": "Professional Robotics",
       "logoSrc": "assets/profrobot-logo-en.png",
       "logoInverseSrc": "assets/profrobot-logo-en-inverse.png"
     },
@@ -22,7 +22,7 @@
       "contact": "Contact us"
     },
     "footer": {
-      "toTopLabel": "PROFROBOT, back to top",
+      "toTopLabel": "Professional Robotics, back to top",
       "about": "Independent robotics integrator: engineering and service. We deploy solutions with measurable payback and service them under an SLA (service level agreement) across Russia.",
       "dept": "Deployment team",
       "nav": {
@@ -43,8 +43,9 @@
         "sla": "Working to SLA and KPIs",
         "data": "Data stored in Russia"
       },
-      "wordmark": "PROFROBOT",
-      "rights": "© 2026 PROFROBOT. All rights reserved.",
+      "wordmark1": "Professional",
+      "wordmark2": "Robotics",
+      "rights": "© 2026 Professional Robotics. All rights reserved.",
       "privacy": "Privacy policy",
       "requisites": "Legal info",
       "toTop": "To top",
@@ -90,8 +91,8 @@
   },
   "home": {
     "meta": {
-      "title": "Cleaning robots and robotics for business | PROFROBOT",
-      "description": "PROFROBOT brings robotics to business: cleaning robots, autonomous mobile robots (AMRs), industrial robot arms and other automation solutions."
+      "title": "Business robotics, cleaning robots | Professional Robotics",
+      "description": "Professional Robotics brings robotics to business: cleaning robots, autonomous mobile robots (AMRs), industrial robot arms and other automation solutions."
     },
     "sections": {
       "hero": "INTRO",
@@ -103,16 +104,16 @@
       "cases": "CASES",
       "industries": "SECTORS",
       "why": "WHY US",
-      "whyLabel": "WHY PROFROBOT",
+      "whyLabel": "WHY US",
       "contact": "CONTACT"
     },
     "hero": {
       "title": "Robots that work for your business.",
-      "lead": "We deploy robots of any type and run them on our own PROFROBOT Platform. We fill staffing gaps, keep quality consistent and calculate payback before you invest.",
+      "lead": "We deploy robots of any type and run them on our own platform. We fill staffing gaps, keep quality consistent and calculate payback before you invest.",
       "ctaRoi": "Calculate payback",
       "ctaCases": "See case studies",
       "metrics": {
-        "ariaLabel": "PROFROBOT Platform: 142 devices, 14 sites, SLA 98.2%. Go to the platform",
+        "ariaLabel": "Professional Robotics Platform: 142 devices, 14 sites, SLA 98.2%. Go to the platform",
         "devices": "devices",
         "sites": "sites",
         "online": "Platform online"
@@ -266,7 +267,7 @@
         },
         "rollout": {
           "title": "Turnkey deployment",
-          "text": "Delivery, setup, connection to PROFROBOT Platform and your systems, staff training and launch. If the vendor’s software lacks a feature, we build it.",
+          "text": "Delivery, setup, connection to Professional Robotics Platform and your systems, staff training and launch. If the vendor’s software lacks a feature, we build it.",
           "tag": "Integration"
         },
         "service": {
@@ -293,7 +294,7 @@
     },
     "platform": {
       "title": "Any robots.<br/>One platform.",
-      "lead": "PROFROBOT Platform is our own development. We connect robots from different manufacturers, from cleaners to humanoids, and write the software your process needs when the vendor doesn’t have it.",
+      "lead": "Professional Robotics Platform is our own development. We connect robots from different manufacturers, from cleaners to humanoids, and write the software your process needs when the vendor doesn’t have it.",
       "layers": {
         "robots": {
           "caption": "Robots · 40+ manufacturers",
@@ -321,7 +322,7 @@
         }
       },
       "core": {
-        "name": "PROFROBOT",
+        "name": "Professional Robotics <span>Platform</span>",
         "devicesOnline": " devices online",
         "modules": {
           "adapters": "Manufacturer adapters",
@@ -366,7 +367,7 @@
       },
       "more": "More about the platform ↗",
       "ui": {
-        "brand": "PROFROBOT · PLATFORM",
+        "brand": "PROFESSIONAL ROBOTICS PLATFORM",
         "nav": {
           "monitoring": "Monitoring",
           "fleet": "Fleet",
@@ -467,7 +468,7 @@
       "title": "How we differ from a robot supplier.",
       "main": {
         "title": "Our own platform",
-        "text": "We don’t resell vendor software. PROFROBOT Platform is our own Russian development: we connect robots of any brand and type and build the features your process needs.",
+        "text": "We don’t resell vendor software. Professional Robotics Platform is our own Russian development: we connect robots of any brand and type and build the features your process needs.",
         "facts": {
           "types": "robot types",
           "makers": "manufacturers",
@@ -497,7 +498,7 @@
     "contact": {
       "title": "Let’s run the numbers for your site.",
       "lead": "We’ll calculate payback and prepare a quote. No obligation: numbers first, decision second.",
-      "ctaRoi": "Calculate payback in 2 min",
+      "ctaRoi": "Calculate payback in 2\u00a0min",
       "or": "or",
       "trust": {
         "network": "Service network across Russia",
@@ -516,7 +517,7 @@
   },
   "solutions": {
     "meta": {
-      "title": "Robotics solutions for business | PROFROBOT",
+      "title": "Robotics solutions for business | Professional Robotics",
       "description": "Robotics areas: cleaning, warehouse logistics, service robots, security, construction, healthcare, agriculture. Turnkey deployment and SLA-backed service."
     },
     "sections": {
@@ -639,9 +640,9 @@
   },
   "roi": {
     "meta": {
-      "title": "Robot payback calculator | PROFROBOT",
+      "title": "Robot payback calculator | Professional Robotics",
       "description": "See how much a facade-cleaning or floor-cleaning robot could save: estimated annual savings, payback and 5-year net gain. Moscow market data, 2026.",
-      "ogTitle": "How much can a robot save? PROFROBOT payback calculator",
+      "ogTitle": "How much can a robot save? Professional Robotics payback calculator",
       "ogDescription": "Robotic facade cleaning instead of rope access crews, and robotic floor cleaning: estimated annual savings, payback and 5-year net gain."
     },
     "head": {
@@ -667,22 +668,22 @@
       },
       "price": {
         "label": "Contractor price per m²",
-        "min": "RUB 30",
-        "note": "typically RUB 45–70/m² in Moscow",
-        "max": "RUB 150"
+        "min": "RUB\u00a030",
+        "note": "typically RUB\u00a045–70/m² in Moscow",
+        "max": "RUB\u00a0150"
       },
       "wage": {
         "label": "Operator wage",
-        "min": "RUB 80,000",
+        "min": "RUB\u00a080,000",
         "note": "take-home, per person",
-        "max": "RUB 200,000",
+        "max": "RUB\u00a0200,000",
         "hint": "The robot needs a crew of two: an operator and a roof safety attendant certified for work at height. We cost both at this rate."
       },
       "glass": {
         "legend": "Facade glazing",
         "flat": "Continuous",
         "frames": "With frames",
-        "hint": "The robot clears horizontal frames up to 10 mm high. If they are higher, the facade needs an assessment."
+        "hint": "The robot clears horizontal frames up to 10\u00a0mm high. If they are higher, the facade needs an assessment."
       }
     },
     "floor": {
@@ -702,9 +703,9 @@
       },
       "wage": {
         "label": "Cleaner wage",
-        "min": "RUB 55,000",
-        "note": "Moscow median: RUB 67,000",
-        "max": "RUB 120,000"
+        "min": "RUB\u00a055,000",
+        "note": "Moscow median: RUB\u00a067,000",
+        "max": "RUB\u00a0120,000"
       },
       "who": {
         "legend": "Who cleans now",
@@ -731,7 +732,7 @@
         "label": "Cumulative net gain chart"
       },
       "cmp": {
-        "caption": "Your cost per 1 m² cleaned",
+        "caption": "Your cost per 1\u00a0m² cleaned",
         "contractor": "Contractor",
         "robot": "With robot"
       },
@@ -747,19 +748,19 @@
       "title": "Basis of the estimate.",
       "facade": {
         "price": {
-          "value": "RUB 45–70",
+          "value": "RUB\u00a045–70",
           "text": "per m²: the usual price for rope access cleaning of continuous glazing in Moscow, from public price lists"
         },
         "output": {
-          "value": "1,500 m²",
-          "text": "per robot per shift. The manufacturer states 1,200–2,000 m² a day"
+          "value": "1,500\u00a0m²",
+          "text": "per robot per shift. The manufacturer states 1,200–2,000\u00a0m² a day"
         },
         "shifts": {
           "value": "≈98 shifts",
           "text": "per cleaning season: mid-April to mid-October, excluding rain, wind and weekends"
         },
         "kit": {
-          "value": "RUB 5.45M",
+          "value": "RUB\u00a05.45M",
           "text": "turnkey X-Human K3 kit, according to the supplier"
         },
         "how": {
@@ -782,7 +783,7 @@
       },
       "floor": {
         "wage": {
-          "value": "RUB 67,000",
+          "value": "RUB\u00a067,000",
           "text": "median cleaner wage in Moscow, from 2026 job postings"
         },
         "payroll": {
@@ -790,11 +791,11 @@
           "text": "social contributions: since 2026, most companies pay 30%"
         },
         "manual": {
-          "value": "1,000 m²",
+          "value": "1,000\u00a0m²",
           "text": "of floor one person cleans by hand per shift"
         },
         "robot": {
-          "value": "RUB 2.2M",
+          "value": "RUB\u00a02.2M",
           "text": "price of a compact scrubber robot in the Pudu CC1 class"
         },
         "how": {
@@ -821,7 +822,7 @@
         "companyPlaceholder": "e.g. Severny tower, Moscow",
         "email": "Email <span>– for the quote</span>",
         "emailError": "Check the address: it’s missing @ or a domain",
-        "consent": "I consent to the processing of my personal data under Federal Law No. 152-FZ and the <a>privacy policy</a>",
+        "consent": "I consent to the processing of my personal data under Federal Law No.\u00a0152-FZ and the <a>privacy policy</a>",
         "consentError": "We can’t accept your request without consent",
         "submit": "Get estimate and quote",
         "sendError": "Couldn’t send your request. Please call us: +7 (495) 123-45-67"
@@ -848,7 +849,7 @@
   },
   "industries": {
     "agriculture": {
-      "title": "Farm robots and drones: spraying, monitoring | PROFROBOT",
+      "title": "Farm robots and drones: spraying | Professional Robotics",
       "description": "Farm robots and drones: precision spraying, fieldwork, crop monitoring, grounds care. Savings on crop protection products and labor. Estimate the impact.",
       "nameCaps": "AGRICULTURE",
       "name": "Agriculture",
@@ -901,7 +902,7 @@
             "text": "Yield assessment, grounds care, calculating the season’s savings."
           }
         },
-        "us": "PROFROBOT’s work",
+        "us": "Professional Robotics’ work",
         "foot": "Timing depends on the crop and region; we build the work calendar during the assessment."
       },
       "directions": {
@@ -1056,7 +1057,7 @@
         "results": "RESULTS",
         "vendors": "EQUIPMENT",
         "pilot": "FIRST STEPS",
-        "why": "WHY PROFROBOT",
+        "why": "WHY US",
         "form": "CONTACT",
         "see": "SEE ALSO",
         "economy": "ECONOMICS",
@@ -1121,7 +1122,7 @@
       }
     },
     "businessCenters": {
-      "title": "Robots for office buildings: cleaning, facades | PROFROBOT",
+      "title": "Office robots: cleaning, facades | Professional Robotics",
       "description": "Cleaning robots for office buildings: daytime lobby and parking cleaning, facade washing, floor-to-floor delivery, front desk. We’ll check your building.",
       "nameCaps": "OFFICE BUILDINGS",
       "name": "Office buildings",
@@ -1207,8 +1208,8 @@
           "3": {
             "level": "Facade",
             "title": "Facades: work at height.",
-            "text": "Glass cleaning is work at height: certifications, a permit-to-work, and no work in exposed spots when wind reaches 15 m/s. Every cleaning means a contractor with rope access technicians.",
-            "srcText": "Work-at-height safety rules, Russian Ministry of Labour Order No. 782n"
+            "text": "Glass cleaning is work at height: certifications, a permit-to-work, and no work in exposed spots when wind reaches 15\u00a0m/s. Every cleaning means a contractor with rope access technicians.",
+            "srcText": "Work-at-height safety rules, Russian Ministry of Labour Order No.\u00a0782n"
           }
         }
       },
@@ -1227,12 +1228,12 @@
                 "3": "day and night cleaning"
               }
             },
-            "fact": "Developer MR Group: parking robots, up to 1,800 m²/h"
+            "fact": "Developer MR Group: parking robots, up to 1,800\u00a0m²/h"
           },
           "1": {
             "level": "Roof · facade",
             "title": "Facade and glass cleaning",
-            "text": "The K3 robot descends from the roof on a cable and cleans continuous glazing while people stay on the roof. It can’t clear horizontal frames over 10 mm, so we check the facade’s suitability during the assessment.",
+            "text": "The K3 robot descends from the roof on a cable and cleans continuous glazing while people stay on the roof. It can’t clear horizontal frames over 10\u00a0mm, so we check the facade’s suitability during the assessment.",
             "items": {
               "items": {
                 "0": "continuous glazing",
@@ -1240,7 +1241,7 @@
                 "2": "roof-mounted"
               }
             },
-            "fact": "Up to 1,500 m² per shift according to the manufacturer; pays back from ≈36,000 m² cleaned a year, our calculation at a contractor price of RUB 60/m²",
+            "fact": "Up to 1,500\u00a0m² per shift according to the manufacturer; pays back from ≈36,000\u00a0m² cleaned a year, our calculation at a contractor price of RUB\u00a060/m²",
             "solution": {
               "label": "Facade cleaning calculator"
             }
@@ -1321,7 +1322,7 @@
         "mr": {
           "kicker": "MR Group · iCITY, Symphony 34",
           "title": "Robots clean towers in Moscow City.",
-          "text": "Pudu robots clean the lobbies and common areas of the iCITY towers; separate machines clean the parking. The robots cost RUB 2–4 million. MR Group has also issued an automated cleaning standard for its buildings.",
+          "text": "Pudu robots clean the lobbies and common areas of the iCITY towers; separate machines clean the parking. The robots cost RUB\u00a02–4\u00a0million. MR Group has also issued an automated cleaning standard for its buildings.",
           "value": "up to 40%",
           "claim": "lower cleaning costs, as claimed by the developer"
         },
@@ -1377,7 +1378,7 @@
             "text": "Floor delivery and guest greeting."
           },
           "4": {
-            "title": "PROFROBOT Platform",
+            "title": "Professional Robotics Platform",
             "text": "Cleaning tasks, control and reports in one window."
           },
           "5": {
@@ -1388,7 +1389,7 @@
       }
     },
     "construction": {
-      "title": "Construction robots: demolition and finishing | PROFROBOT",
+      "title": "Construction robots: demolition | Professional Robotics",
       "description": "Construction robots for demolition, plastering, screeding and heavy work. We cut labor and on-site risk when workers are scarce. Estimate the impact.",
       "nameCaps": "CONSTRUCTION",
       "name": "Construction",
@@ -1554,7 +1555,7 @@
       }
     },
     "education": {
-      "title": "School and university robots: cleaning, labs | PROFROBOT",
+      "title": "Robots for schools and universities | Professional Robotics",
       "description": "Robotic scrubbers clean school hallways during lessons. Humanoids and platforms for robotics teaching labs. Honest economics: rental, cleaning as a service.",
       "nameCaps": "EDUCATION",
       "name": "Education",
@@ -1636,16 +1637,16 @@
         "title": "The robot cleans during lessons.",
         "lead": "At break the corridor belongs to the children, so the robot returns to its station. When the class bell rings, it heads out for the next cycle.",
         "facts": {
-          "robots": "robots at School No. 281",
+          "robots": "robots at School No.\u00a0281",
           "cycles": "cycles a day per floor, the sixth in the gym",
           "station": "station: charges, drains dirty water, refills clean",
           "stationValue": "3-in-1"
         },
-        "note": "School No. 281, Moscow. The cleaners stayed and now handle the classrooms.",
+        "note": "School No.\u00a0281, Moscow. The cleaners stayed and now handle the classrooms.",
         "board": {
           "title": "Bell schedule",
           "example": "Sample schedule",
-          "foot": "Bell times are illustrative. Cycles and the gym follow School No. 281; we build the robot’s schedule around your bells."
+          "foot": "Bell times are illustrative. Cycles and the gym follow School No.\u00a0281; we build the robot’s schedule around your bells."
         },
         "lesson": "Lesson {n}",
         "items": {
@@ -1749,15 +1750,15 @@
       },
       "proof": {
         "title": "Proven in schools and universities.",
-        "lead": "These are other companies’ deployments, not PROFROBOT projects. We show them because they prove both scenarios work in real buildings and with real students.",
+        "lead": "These are other companies’ deployments, not Professional Robotics projects. We show them because they prove both scenarios work in real buildings and with real students.",
         "schools": {
           "place": "Moscow schools",
           "value": "4,800",
           "unit": "m² a day",
-          "lead": "Robots clean more than 4,800 m² of hallways a day in three schools: No. 1514, No. 281 and No. 1387. They work during lessons, on every floor, and return to their stations on their own.",
+          "lead": "Robots clean more than 4,800\u00a0m² of hallways a day in three schools: No.\u00a01514, No.\u00a0281 and No.\u00a01387. They work during lessons, on every floor, and return to their stations on their own.",
           "announced": "Announced by Moscow’s Department of Education and Science.",
           "quote": "“We can’t imagine our work without them now.”",
-          "quoteBy": "Deputy head of School No. 281"
+          "quoteBy": "Deputy head of School No.\u00a0281"
         },
         "lab": {
           "place": "RTU MIREA",
@@ -1775,18 +1776,18 @@
         "calcTitle": "A robot in a school",
         "shiftLabel": "A cleaner’s eight-hour shift: the robot covers 2.5 hours out of 8, which is 31 percent",
         "scale": {
-          "zero": "0 h",
-          "part": "2.5 h",
-          "shift": "8 h shift"
+          "zero": "0\u00a0h",
+          "part": "2.5\u00a0h",
+          "shift": "8\u00a0h shift"
         },
         "nums": {
           "price": "robot price",
-          "priceValue": "≈ RUB 2M",
+          "priceValue": "≈ RUB\u00a02M",
           "covers": "of a cleaner’s shift: robot work",
-          "coversValue": "2.5 of 8 h",
-          "payback": "purchase payback at RUB 65K take-home pay",
+          "coversValue": "2.5 of 8\u00a0h",
+          "payback": "purchase payback at RUB\u00a065K take-home pay",
           "paybackValue": "≈ 5.5 years",
-          "lowWage": "at RUB 30K pay",
+          "lowWage": "at RUB\u00a030K pay",
           "lowWageValue": "almost 12 years"
         },
         "serviceNote": "Robot servicing is not included.",
@@ -1794,11 +1795,11 @@
           "title": "What this means",
           "rent": {
             "title": "Rental or cleaning as a service",
-            "text": "No capital spending and no five-year wait. Robotic cleaning can be bought as a service, just as schools already buy cleaning services under Federal Law No. 44-FZ."
+            "text": "No capital spending and no five-year wait. Robotic cleaning can be bought as a service, just as schools already buy cleaning services under Federal Law No.\u00a044-FZ."
           },
           "staff": {
             "title": "Cleaners: classrooms, restrooms",
-            "text": "The robot washes the long hallways; people do what it can’t: classrooms, restrooms, stairs. At School No. 281 the cleaners stayed and now handle the classrooms.",
+            "text": "The robot washes the long hallways; people do what it can’t: classrooms, restrooms, stairs. At School No.\u00a0281 the cleaners stayed and now handle the classrooms.",
             "link": "See it on the bell schedule ↑"
           }
         }
@@ -1847,7 +1848,7 @@
             "text": "A robot with no purchase and no capex."
           },
           "3": {
-            "title": "PROFROBOT Platform",
+            "title": "Professional Robotics Platform",
             "text": "Cleaning cycles and reports in one window."
           },
           "4": {
@@ -1861,7 +1862,7 @@
       }
     },
     "fitnessSports": {
-      "title": "Fitness club robots: gym floors, pool, turf | PROFROBOT",
+      "title": "Fitness club robots: gym, pool | Professional Robotics",
       "description": "Robots that clean gyms, locker rooms and restrooms, underwater robots for pools, mowers and line markers for stadiums. A pilot in one zone of your club.",
       "nameCaps": "FITNESS & SPORTS FACILITIES",
       "name": "Fitness clubs and sports facilities",
@@ -1908,7 +1909,7 @@
               }
             },
             "fact": {
-              "value": "700–1,000 m²/h",
+              "value": "700–1,000\u00a0m²/h",
               "text": "Pudu CC1 productivity"
             }
           },
@@ -1941,7 +1942,7 @@
               }
             },
             "fact": {
-              "value": "up to ~50 m",
+              "value": "up to ~50\u00a0m",
               "text": "pool length for the Maytronics Dolphin Wave 300 XL",
               "src": {
                 "label": "according to Maytronics dealers"
@@ -1959,8 +1960,8 @@
               }
             },
             "fact": {
-              "value": "up to 38,000 m²",
-              "text": "Husqvarna CEORA 544 EPOS; with daily “sports” mowing, up to 20,000 m²"
+              "value": "up to 38,000\u00a0m²",
+              "text": "Husqvarna CEORA 544 EPOS; with daily “sports” mowing, up to 20,000\u00a0m²"
             },
             "fact2": {
               "text": "FJ Dynamics PaintMaster: line-marking robots for sports fields"
@@ -2121,14 +2122,14 @@
             "text": "A pilot robot, no purchase."
           },
           "5": {
-            "title": "PROFROBOT Platform",
+            "title": "Professional Robotics Platform",
             "text": "Cleaning of all zones, reports in one window."
           }
         }
       }
     },
     "hotels": {
-      "title": "Robots for hotels: delivery, cleaning, service | PROFROBOT",
+      "title": "Hotel robots: delivery, cleaning | Professional Robotics",
       "description": "Service and cleaning robots for hotels: room delivery, lobby and corridor cleaning, front-desk support. We cut costs and staff turnover. Calculate your ROI.",
       "nameCaps": "HOSPITALITY",
       "name": "Hotels and hospitality",
@@ -2275,7 +2276,7 @@
         "estimateLink": "How we calculate"
       },
       "estimate": {
-        "object": "Hotel, 10,000 m², common areas cleaned in two shifts"
+        "object": "Hotel, 10,000\u00a0m², common areas cleaned in two shifts"
       },
       "why": {
         "title": "Rent by the season.",
@@ -2301,7 +2302,7 @@
             "text": "A strong case for seasonal businesses."
           },
           "4": {
-            "title": "PROFROBOT Platform",
+            "title": "Professional Robotics Platform",
             "text": "Cleaning management and reports in one window."
           },
           "5": {
@@ -2312,7 +2313,7 @@
       }
     },
     "manufacturing": {
-      "title": "Manufacturing robotics: logistics, inspection | PROFROBOT",
+      "title": "Manufacturing robotics: logistics | Professional Robotics",
       "description": "Industrial robotics without heavy investment: AMRs for in-plant logistics, collaborative robots, equipment inspection. Start with a pilot. Calculate your ROI.",
       "nameCaps": "MANUFACTURING AND INDUSTRY",
       "photo": {
@@ -2500,7 +2501,7 @@
       }
     },
     "medicalWellness": {
-      "title": "Healthcare robots: delivery, disinfection | PROFROBOT",
+      "title": "Healthcare robots: disinfection | Professional Robotics",
       "description": "Robots for clinics and wellness centers: delivering lab samples and medication, disinfecting rooms, rehabilitation. We relieve staff and keep hygiene standards.",
       "nameCaps": "HEALTH & WELLNESS",
       "name": "Healthcare and wellness",
@@ -2682,7 +2683,7 @@
       }
     },
     "municipal": {
-      "title": "Robots for municipal park and street cleaning | PROFROBOT",
+      "title": "Street and park cleaning robots | Professional Robotics",
       "description": "Sweeper robots for parks, sidewalks and waterfronts, winter upkeep, lawn and slope mowers, parking cleaning. How to buy under 44-FZ and 223-FZ.",
       "nameCaps": "MUNICIPAL SERVICES",
       "name": "Municipal services",
@@ -2808,7 +2809,7 @@
             "facts": {
               "items": {
                 "0": {
-                  "text": "Pudu MT1: up to 1,800 m²/h in standard mode, 4–8 h of operation per charge."
+                  "text": "Pudu MT1: up to 1,800\u00a0m²/h in standard mode, 4–8\u00a0h of operation per charge."
                 }
               }
             }
@@ -2850,7 +2851,7 @@
       },
       "sources": {
         "pp1875": {
-          "label": "Decree No. 1875"
+          "label": "Decree No.\u00a01875"
         },
         "mt1": {
           "label": "manufacturer’s datasheet, Pudu"
@@ -2866,7 +2867,7 @@
           "kicker": "National procurement regime",
           "title": "“Vehicles for municipal services and road maintenance”.",
           "document": "Document",
-          "documentValue": "Decree No. 1875, 23 Dec 2024",
+          "documentValue": "Decree No.\u00a01875, 23 Dec 2024",
           "list": "List",
           "listValue": "Annex 1: ban on buying foreign goods",
           "okpd": "OKPD2 code",
@@ -2908,7 +2909,7 @@
           },
           "sidewalks": {
             "label": "Sidewalks",
-            "text": "<b>Sidewalks.</b> The experimental legal regime for robots on sidewalks (Government Decree No. 1247 of 30 September 2026) targets delivery robots. Open sources don’t say whether it covers cleaning robots. In parks, the robot works on the customer’s own grounds."
+            "text": "<b>Sidewalks.</b> The experimental legal regime for robots on sidewalks (Government Decree No.\u00a01247 of 30 September 2026) targets delivery robots. Open sources don’t say whether it covers cleaning robots. In parks, the robot works on the customer’s own grounds."
           }
         }
       },
@@ -2963,7 +2964,7 @@
             "text": "Equipment without buying, for a season or longer."
           },
           "3": {
-            "title": "PROFROBOT Platform",
+            "title": "Professional Robotics Platform",
             "text": "Cleaning schedules and reports in one window."
           },
           "4": {
@@ -2980,7 +2981,7 @@
       }
     },
     "publicSpaces": {
-      "title": "Robots for train stations, airports and museums | PROFROBOT",
+      "title": "Robots for airports and stations | Professional Robotics",
       "description": "Cleaning robots for waiting halls and terminals, wayfinding robots for service centers and museums, patrol robots. Night and off-peak cleaning. Site assessment.",
       "nameCaps": "PUBLIC VENUES & HUBS",
       "name": "Public venues and transport hubs",
@@ -3162,7 +3163,7 @@
       },
       "proof": {
         "title": "Cleaning robots already work in stations and airports.",
-        "lead": "These are other companies’ deployments, not PROFROBOT projects. We show them to demonstrate that the equipment copes with halls and crowds.",
+        "lead": "These are other companies’ deployments, not Professional Robotics projects. We show them to demonstrate that the equipment copes with halls and crowds.",
         "main": {
           "place": "RZD stations",
           "stations": {
@@ -3177,7 +3178,7 @@
           },
           "value": "{n, number}",
           "unit": "m²/h",
-          "text": "Autonomous cleaning robots sweep and wash halls, build their own map of the space and log the level of dirt. Productivity: up to 1,980 m² per hour. Russian Railways has not named the model or the number of robots."
+          "text": "Autonomous cleaning robots sweep and wash halls, build their own map of the space and log the level of dirt. Productivity: up to 1,980\u00a0m² per hour. Russian Railways has not named the model or the number of robots."
         },
         "stationsLabel": "Stations",
         "upTo": "up to",
@@ -3185,7 +3186,7 @@
           "items": {
             "0": {
               "place": "Pulkovo Airport",
-              "value": "5,000 m²",
+              "value": "5,000\u00a0m²",
               "valueNote": "per charge",
               "text": "Cleaning robots with lidar and cameras in check-in and arrivals halls."
             }
@@ -3235,7 +3236,7 @@
             "text": "Cleaning as a service, no equipment purchase."
           },
           "4": {
-            "title": "PROFROBOT Platform",
+            "title": "Professional Robotics Platform",
             "text": "Cleaning management and reports in one window."
           },
           "5": {
@@ -3249,7 +3250,7 @@
       }
     },
     "retail": {
-      "title": "Cleaning robots for shopping centers and stores | PROFROBOT",
+      "title": "Cleaning robots for malls and stores | Professional Robotics",
       "description": "Cleaning robots for malls and supermarkets: concourses, sales floor, parking, promo robots. Lenta and Perekrestok case studies, a 26-mall Moscow pilot.",
       "nameCaps": "SHOPPING CENTERS, RETAIL",
       "name": "Shopping centers and retail",
@@ -3280,7 +3281,7 @@
           "title": "Moscow pilot · 26 malls",
           "since": "since 27 May 2026",
           "malls": "malls in the pilot",
-          "area": "million m² of space",
+          "area": "million\u00a0m² of space",
           "areaValue": "<small>over</small>1.1",
           "status": "<b>Pilot under way.</b> Robots from Russian manufacturers clean sales floors and parking, and will then be compared with manual cleaning. Results aren’t published yet."
         }
@@ -3359,7 +3360,7 @@
           "chemicalsNote": "10× less",
           "robotChemicals": "0.1×"
         },
-        "service": "<b>10–15 min</b> a day to look after the robot; the docking station does the rest."
+        "service": "<b>10–15\u00a0min</b> a day to look after the robot; the docking station does the rest."
       },
       "directions": {
         "items": {
@@ -3479,7 +3480,7 @@
             "text": "Dark stores, chain warehouses."
           },
           "3": {
-            "title": "PROFROBOT Platform",
+            "title": "Professional Robotics Platform",
             "text": "Cleaning of every chain site in one window."
           },
           "4": {
@@ -3503,8 +3504,8 @@
         "load": "Season utilization"
       },
       "money": {
-        "mln": "RUB {sign}{n}M",
-        "thou": "RUB {sign}{n}K"
+        "mln": "RUB\u00a0{sign}{n}M",
+        "thou": "RUB\u00a0{sign}{n}K"
       },
       "chart": {
         "year1": "1 year",
@@ -3523,7 +3524,7 @@
       "plate": {
         "unfit": {
           "title": "Facade check needed",
-          "text": "the robot can’t clear frames over 10 mm"
+          "text": "the robot can’t clear frames over 10\u00a0mm"
         },
         "never": {
           "title": "No payback",
@@ -3570,15 +3571,15 @@
       },
       "summary": "{ctx} · {detail}<br/>Estimated savings <b>{amount}</b> a year · {plate}",
       "share": {
-        "text": "PROFROBOT preliminary estimate: a robot could save about {amount} a year at our site",
-        "title": "PROFROBOT payback calculator",
+        "text": "Professional Robotics preliminary estimate: a robot could save about {amount} a year at our site",
+        "title": "Professional Robotics payback calculator",
         "copied": "Link to your estimate copied",
         "prompt": "Copy the link to your estimate:"
       },
       "card": {
         "headline": "Estimated annual savings",
         "fiveYears": "OVER 5 YEARS: {amount}",
-        "shareTitle": "PROFROBOT estimate",
+        "shareTitle": "Professional Robotics estimate",
         "saved": "Estimate image saved",
         "failed": "Couldn’t create the image. Try “Share” instead"
       }
@@ -3615,12 +3616,12 @@
     },
     "products": {
       "calc": {
-        "mln": "RUB {n, number, ::.0}M",
-        "thouPerMonth": "RUB {n, number}K/mo",
-        "months": "{n, number} mo",
+        "mln": "RUB\u00a0{n, number, ::.0}M",
+        "thouPerMonth": "RUB\u00a0{n, number}K/mo",
+        "months": "{n, number}\u00a0mo",
         "verdict": {
-          "rent": "Renting is RUB {diff, number, ::.0}M cheaper than buying. Costs break even after {cross, plural, one {# month} other {# months}}.",
-          "buy": "Buying comes out RUB {diff, number, ::.0}M ahead: it overtook renting after {cross, plural, one {# month} other {# months}}.",
+          "rent": "Renting is RUB\u00a0{diff, number, ::.0}M cheaper than buying. Costs break even after {cross, plural, one {# month} other {# months}}.",
+          "buy": "Buying comes out RUB\u00a0{diff, number, ::.0}M ahead: it overtook renting after {cross, plural, one {# month} other {# months}}.",
           "always": "Under these terms, renting is cheaper than buying over any period up to 5 years."
         }
       }
@@ -3628,8 +3629,8 @@
   },
   "products": {
     "meta": {
-      "title": "PROFROBOT products: platform, RaaS, Retrofit",
-      "description": "Robot fleet management platform, robot rental (RaaS), retrofit of your equipment, AI modules and Open API integration. PROFROBOT products."
+      "title": "Professional Robotics products: platform, RaaS, Retrofit",
+      "description": "Robot fleet management platform, robot rental (RaaS), retrofit of your equipment, AI modules and Open API integration. Professional Robotics products."
     },
     "sections": {
       "hero": "PRODUCTS",
@@ -3639,13 +3640,13 @@
       "retrofit": "RETROFIT",
       "retrofitLabel": "RETROFIT",
       "why": "WHY US",
-      "whyLabel": "WHY PROFROBOT",
+      "whyLabel": "WHY US",
       "see": "SEE ALSO",
       "talk": "CONTACT"
     },
     "crumb": "Products",
     "hero": {
-      "title": "PROFROBOT products and business models.",
+      "title": "Professional Robotics products and business models.",
       "lead": "Buying a robot is only half the job. Next you have to manage it, service it and know whether it pays back.",
       "text": "Our products cover exactly that: a platform to control your fleet, rental instead of buying, retrofit of equipment you already own, and integration with your systems.",
       "ctaRaas": "Explore rental (RaaS)",
@@ -3661,7 +3662,7 @@
       "retrofit": "upgrade your own equipment"
     },
     "names": {
-      "platform": "PROFROBOT Platform",
+      "platform": "Professional Robotics Platform",
       "dispatch": "Dispatch and monitoring",
       "ai": "AI modules and analytics",
       "api": "Open API, integrations",
@@ -3669,7 +3670,7 @@
     },
     "platform": {
       "title": "The platform your whole fleet runs on.",
-      "lead": "<b>PROFROBOT Platform</b> is our own development. It manages robots of any type and manufacturer, from cleaners to humanoids, and we write the features you are missing for your task.",
+      "lead": "<b>Professional Robotics Platform</b> is our own development. It manages robots of any type and manufacturer, from cleaners to humanoids, and we write the features you are missing for your task.",
       "trust": {
         "russia": "Developed in Russia",
         "data": "Data in Russia, data center in Skolkovo",
@@ -3679,7 +3680,7 @@
       "ctaMore": "See the platform diagram",
       "board": {
         "label": "Sample platform dashboard: 142 devices, 14 sites, 98.2% SLA, 24 active operations",
-        "brand": "PROFROBOT",
+        "brand": "Professional Robotics <span>Platform</span>",
         "online": "Platform online",
         "devices": "devices",
         "sites": "sites",
@@ -3735,7 +3736,7 @@
         "termLabel": "Term of use",
         "resBuy": "Purchase total",
         "resRent": "Rental total",
-        "note": "An illustration based on market benchmarks, not a PROFROBOT price list. Buying includes ownership costs (service, consumables, operator time) at 16% of the price per year. We assume rental includes maintenance. We calculate the rate and term for your site."
+        "note": "An illustration based on market benchmarks, not a Professional Robotics price list. Buying includes ownership costs (service, consumables, operator time) at 16% of the price per year. We assume rental includes maintenance. We calculate the rate and term for your site."
       }
     },
     "retrofit": {
@@ -3764,7 +3765,7 @@
       "title": "How our products differ from a catalog.",
       "platform": {
         "title": "Our own platform",
-        "text": "This is not a vendor license but PROFROBOT’s own Russian development. We connect robots of any brand and write what’s missing. Data stored in Russia, data center in Skolkovo.",
+        "text": "This is not a vendor license but Professional Robotics’ own Russian development. We connect robots of any brand and write what’s missing. Data stored in Russia, data center in Skolkovo.",
         "types": "robot types",
         "makers": "manufacturers",
         "window": "control window"

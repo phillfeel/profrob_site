@@ -213,7 +213,7 @@ const head = (ind, key) => {
 
 const SEC_NAMES = {
   problems: 'ПРОБЛЕМЫ', day: 'СУТКИ ОТЕЛЯ', directions: 'НАПРАВЛЕНИЯ', stairs: 'НАПРАВЛЕНИЯ', economy: 'ЭКОНОМИКА',
-  results: 'РЕЗУЛЬТАТ', vendors: 'ОБОРУДОВАНИЕ', case: 'КЕЙС', why: 'ПОЧЕМУ ПРОФРОБОТ', form: 'ЗАЯВКА',
+  results: 'РЕЗУЛЬТАТ', vendors: 'ОБОРУДОВАНИЕ', case: 'КЕЙС', why: 'ПОЧЕМУ МЫ', form: 'ЗАЯВКА',
   see: 'СМОТРИТЕ ТАКЖЕ', safety: 'БЕЗОПАСНОСТЬ', route: 'МАРШРУТ', pilot: 'С ЧЕГО НАЧАТЬ', season: 'СЕЗОН',
 };
 
@@ -665,7 +665,7 @@ S.season = (ind, n) => `<section class="sol-sec wrap" id="season" data-sec="${n}
           <span class="mono"${T(s, 'name')}>${esc(s.name)}</span>
           <h3${T(s, 'title')}>${esc(s.title)}</h3>
           <p${T(s, 'text')}>${esc(s.text)}</p>
-          ${s.anchor ? (() => { const d = ind.directions.find((x) => x.anchor === s.anchor); return `<a class="drow__sol" href="#${s.anchor}"><span><span${T(d, 'title')}>${esc(d.title)}</span> ↓</span></a>`; })() : `<span class="season__us"${L('season.us')}>Работа ПРОФРОБОТ</span>`}
+          ${s.anchor ? (() => { const d = ind.directions.find((x) => x.anchor === s.anchor); return `<a class="drow__sol" href="#${s.anchor}"><span><span${T(d, 'title')}>${esc(d.title)}</span> ↓</span></a>`; })() : `<span class="season__us"${L('season.us')}>Работа Профессиональной Робототехники</span>`}
         </li>`).join('\n        ')}
       </ol>
       <p class="season__foot"${L('season.foot')}>Сроки зависят от культуры и региона — календарь работ составляем на аудите.</p>
@@ -693,7 +693,7 @@ const page = (ind) => {
         { '@type': 'ListItem', position: 3, name: ind.name, item: url },
       ] },
       { '@type': 'Service', name: ind.h1.join(' ').replace(/\.$/, ''), serviceType: 'Роботизация', areaServed: 'RU',
-        provider: { '@type': 'Organization', name: 'ПРОФРОБОТ' },
+        provider: { '@type': 'Organization', name: 'Профессиональная Робототехника' },
         audience: { '@type': 'BusinessAudience', audienceType: ind.audiences.join(', ') } },
       { '@type': 'ItemList', name: 'Направления', itemListElement: ind.directions.map((d, i) => ({ '@type': 'ListItem', position: i + 1, name: d.title, url: `${url}#${d.anchor}` })) },
     ],
@@ -724,7 +724,7 @@ ${BOOT}
 
   <!-- ================= NAV ================= -->
   <header class="nav"${TA(['aria-label', 'common.nav.label'])} aria-label="Основная навигация">
-    <a href="index.html"${TA(['aria-label', 'common.brand.homeLabel'])} aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo.png"${TA(['alt', 'common.brand.logoAlt'])} alt="ПРОФРОБОТ"></a>
+    <a href="index.html"${TA(['aria-label', 'common.brand.homeLabel'])} aria-label="Профессиональная Робототехника — на главную"><img src="assets/profrobot-logo.png"${TA(['alt', 'common.brand.logoAlt'])} alt="Профессиональная Робототехника"></a>
     <nav class="nav-links">
       <a href="solutions.html"${K('common.nav.solutions')}>Решения</a>
       <a href="index.html#industries" class="on"${K('common.nav.industries')}>Отрасли</a>
@@ -752,7 +752,7 @@ ${body}
     <div class="stage foot">
       <div class="foot-top">
         <div class="foot-brand">
-          <a href="index.html"${TA(['aria-label', 'common.brand.homeLabel'])} aria-label="ПРОФРОБОТ — на главную"><img src="assets/profrobot-logo-inverse.png"${TA(['alt', 'common.brand.logoAlt'])} alt="ПРОФРОБОТ" width="880" height="136"></a>
+          <a href="index.html"${TA(['aria-label', 'common.brand.homeLabel'])} aria-label="Профессиональная Робототехника — на главную"><img src="assets/profrobot-logo-inverse.png"${TA(['alt', 'common.brand.logoAlt'])} alt="Профессиональная Робототехника" width="783" height="136"></a>
           <p${K('common.footer.about')}>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
         </div>
         <div class="foot-call">
@@ -762,7 +762,7 @@ ${body}
         </div>
       </div>
       <div class="foot-bot">
-        <span${K('common.footer.rights')}>© 2026 ПРОФРОБОТ. Все права защищены.</span>
+        <span${K('common.footer.rights')}>© 2026 Профессиональная Робототехника. Все права защищены.</span>
         <a href="#"${K('common.footer.privacy')}>Политика конфиденциальности</a>
         <a class="foot-up" href="index.html#industries"><span${K('common.footer.allIndustries')}>Все отрасли</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>

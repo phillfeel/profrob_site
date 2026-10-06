@@ -227,7 +227,7 @@
 .icase__nums dd { order: -1; font-size: clamp(30px, 3.2vw, 44px); font-weight: 700; letter-spacing: -.04em; line-height: 1; color: var(--accent-ink); }
 .icase__nums dt { font-size: 14px; color: var(--ink-muted); }
 
-/* ---------- Почему ПРОФРОБОТ ---------- */
+/* ---------- Почему мы ---------- */
 .whyn {
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px 64px; padding: 48px; border-radius: var(--r-lg);
   background: var(--accent-soft);

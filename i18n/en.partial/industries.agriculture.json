@@ -1,5 +1,5 @@
 {
-  "industries.agriculture.title": "Farm robots and drones: spraying, monitoring | PROFROBOT",
+  "industries.agriculture.title": "Farm robots and drones: spraying | Professional Robotics",
   "industries.agriculture.description": "Farm robots and drones: precision spraying, fieldwork, crop monitoring, grounds care. Savings on crop protection products and labor. Estimate the impact.",
   "industries.agriculture.nameCaps": "AGRICULTURE",
   "industries.agriculture.name": "Agriculture",
@@ -27,7 +27,7 @@
   "industries.agriculture.season.items.3.name": "Fall",
   "industries.agriculture.season.items.3.title": "Season review",
   "industries.agriculture.season.items.3.text": "Yield assessment, grounds care, calculating the season’s savings.",
-  "industries.agriculture.season.us": "PROFROBOT’s work",
+  "industries.agriculture.season.us": "Professional Robotics’ work",
   "industries.agriculture.season.foot": "Timing depends on the crop and region; we build the work calendar during the assessment.",
   "industries.agriculture.directions.items.0.title": "Spraying",
   "industries.agriculture.directions.items.0.text": "Drones treat fields precisely, saving crop protection products.",

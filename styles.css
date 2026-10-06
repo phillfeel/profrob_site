@@ -96,7 +96,7 @@ section { position: relative; z-index: 2; }
   background: var(--glass); border: 1px solid var(--glass-line); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   box-shadow: var(--shadow-md);
 }
-.nav img { height: 24px; width: auto; object-fit: contain; object-position: left center; } /* (contain: on a very narrow phone the logo gets smaller, not squeezed) */
+.nav img { height: 32px; width: auto; object-fit: contain; object-position: left center; } /* (contain: on a very narrow phone the logo gets smaller, not squeezed) */
 .nav-links { display: flex; gap: 28px; margin: 0 auto; font-size: 14px; font-weight: 500; }
 .nav-links a { color: var(--ink-muted); transition: color var(--fast) var(--ease); }
 .nav-links a:hover, .nav-links a.on { color: var(--ink); }
@@ -699,10 +699,12 @@ html:not(.js) .stk-sys .stk-node::after, .stk.is-live .stk-sys .stk-node::after 
 }
 .stk-core::after {
   content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; pointer-events: none;
-  background: linear-gradient(90deg, transparent, var(--accent-ink-dark), var(--lime), transparent) no-repeat; background-size: 35% 100%;
-  animation: bus 3.2s linear infinite;
+  background: linear-gradient(90deg, transparent, var(--accent-ink-dark), var(--lime), transparent);
+  width: 35%; right: auto; animation: bus 3.2s linear infinite;
 }
-@keyframes bus { from { background-position: -40% 0; } to { background-position: 140% 0; } }
+/* transform вместо background-position: анимация на композиторе, без перерисовки каждый кадр.
+   Тот же путь, что был у фона: -40%…140% от свободного хода (65% ширины) = -74%…260% ширины полосы */
+@keyframes bus { from { transform: translateX(-74.3%); } to { transform: translateX(260%); } }
 .stk-core > * { position: relative; }
 .stk-core-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .stk-logo { display: flex; align-items: baseline; gap: 14px; font-size: clamp(24px, 2.4vw, 34px); font-weight: 700; letter-spacing: -.035em; line-height: 1; }
@@ -733,7 +735,7 @@ html:not(.js) .stk-sys .stk-node::after, .stk.is-live .stk-sys .stk-node::after 
 .stk-case h4 { margin-top: 40px; font-size: 20px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2; }
 .stk-case p { font-size: 15px; color: var(--ink-muted); }
 
-/* ================= 08 ПОЧЕМУ ПРОФРОБОТ — бенто, платформа крупной тёмной карточкой ================= */
+/* ================= 08 ПОЧЕМУ МЫ — бенто, платформа крупной тёмной карточкой ================= */
 .why-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
 .why-card {
   display: flex; flex-direction: column; gap: 12px; min-height: 248px; padding: 32px; border-radius: var(--r-lg);
@@ -794,7 +796,7 @@ html:not(.js) .stk-sys .stk-node::after, .stk.is-live .stk-sys .stk-node::after 
 
 .foot-top { display: flex; justify-content: space-between; align-items: end; gap: 40px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid var(--stage-line); }
 .foot-brand { display: grid; gap: 20px; max-width: 420px; }
-.foot-brand img { height: 28px; width: auto; }
+.foot-brand img { height: 40px; width: auto; }
 .foot-brand p { font-size: 15px; line-height: 1.55; color: var(--on-stage-muted); }
 .foot-call { display: grid; gap: 8px; justify-items: end; text-align: right; }
 .foot-phone { font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
@@ -826,10 +828,10 @@ html:not(.js) .stk-sys .stk-node::after, .stk.is-live .stk-sys .stk-node::after 
 .foot-status li { display: flex; gap: 8px; align-items: center; }
 .foot-status li i { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); flex: none; }
 
-/* Вордмарк во всю ширину: SVG с textLength тянется ровно по контейнеру на любой ширине */
+/* Вордмарк в две строки: SVG масштабируется по ширине контейнера, размер шрифта подобран так, чтобы первая русская строка занимала всю ширину viewBox */
 .foot-mark { position: relative; margin: 0 0 -1.2%; }
 .foot-mark svg { display: block; width: 100%; height: auto; overflow: visible; }
-.foot-mark text { font: 700 150px/1 var(--sans); }
+.foot-mark text { font: 700 102px/1 var(--sans); }
 .foot-mark svg:first-child text { fill: rgba(243,242,239,.06); }
 .foot-mark__lit { position: absolute; inset: 0; opacity: 0; transition: opacity var(--base) var(--ease);
   -webkit-mask-image: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 70%);
@@ -981,6 +983,8 @@ html:not(.js) .stk-sys .stk-node::after, .stk.is-live .stk-sys .stk-node::after 
   .stk-dev, .why-grid { grid-template-columns: 1fr; }
   .why-facts b { font-size: 36px; }
 }
+/* Секция вне экрана (класс ставят main.js и solutions.js): её анимации стоят и не грузят браузер */
+.anim-off, .anim-off *, .anim-off *::before, .anim-off *::after { animation-play-state: paused !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }

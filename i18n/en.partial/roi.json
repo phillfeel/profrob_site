@@ -1,7 +1,7 @@
 {
-  "roi.meta.title": "Robot payback calculator | PROFROBOT",
+  "roi.meta.title": "Robot payback calculator | Professional Robotics",
   "roi.meta.description": "See how much a facade-cleaning or floor-cleaning robot could save: estimated annual savings, payback and 5-year net gain. Moscow market data, 2026.",
-  "roi.meta.ogTitle": "How much can a robot save? PROFROBOT payback calculator",
+  "roi.meta.ogTitle": "How much can a robot save? Professional Robotics payback calculator",
   "roi.meta.ogDescription": "Robotic facade cleaning instead of rope access crews, and robotic floor cleaning: estimated annual savings, payback and 5-year net gain.",
   "roi.head.label": "<b>PAYBACK</b> – CALCULATOR",
   "roi.head.title": "How much a robot can save.",

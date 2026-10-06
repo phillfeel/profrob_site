@@ -39,6 +39,10 @@
       "role": "alt",
       "where": "15 pages"
     },
+    "common.brand.logoSrc": {
+      "role": "attr",
+      "where": "4 pages"
+    },
     "common.nav.solutions": {
       "role": "nav",
       "where": "15 pages",
@@ -656,7 +660,8 @@
     },
     "home.platform.core.name": {
       "role": "paragraph",
-      "where": "home #platform"
+      "where": "home #platform",
+      "variables": "tags: <span>…</span>"
     },
     "home.platform.core.devicesOnline": {
       "role": "short",
@@ -1196,6 +1201,10 @@
       "role": "aria",
       "where": "home footer"
     },
+    "common.brand.logoInverseSrc": {
+      "role": "attr",
+      "where": "4 pages"
+    },
     "common.footer.about": {
       "role": "paragraph",
       "where": "15 pages"
@@ -1269,10 +1278,15 @@
       "role": "short",
       "where": "home footer"
     },
-    "common.footer.wordmark": {
+    "common.footer.wordmark1": {
       "role": "tag",
       "where": "home footer",
-      "note": "The company name drawn as a large wordmark at the bottom of the footer (SVG text, stretched to the page width). Short names look better; the length must stay similar to the RU."
+      "note": "First line of the company name drawn as a large two-line wordmark at the bottom of the footer (SVG text, not stretched: the Russian first line fills the page width). Keep the line about as long as the Russian one."
+    },
+    "common.footer.wordmark2": {
+      "role": "tag",
+      "where": "home footer",
+      "note": "Second line of the same footer wordmark. Starts in lower case in Russian because it continues the first line; capitalise it in English."
     },
     "common.footer.rights": {
       "role": "short",
@@ -1773,7 +1787,8 @@
     },
     "products.platform.board.brand": {
       "role": "paragraph",
-      "where": "products #platform"
+      "where": "products #platform",
+      "variables": "tags: <span>…</span>"
     },
     "products.platform.board.online": {
       "role": "short",
@@ -1930,7 +1945,7 @@
     "products.raas.calc.note": {
       "role": "paragraph",
       "where": "products #raas",
-      "note": "Disclaimer under the illustrative buy-or-rent calculation: market benchmarks, not a ProfRobot tariff. Keep the 16% and the wording «illustration»."
+      "note": "Disclaimer under the illustrative buy-or-rent calculation: market benchmarks, not a Professional Robotics tariff. Keep the 16% and the wording «illustration»."
     },
     "products.sections.retrofit": {
       "role": "section-label",
