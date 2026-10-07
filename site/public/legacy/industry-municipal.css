@@ -1,0 +1,222 @@
+/* ================= Муниципальные службы (industries-municipal.html) =================
+   Свои блоки страницы: Hero «план территории» (SVG-схема сверху, зоны — ссылки на направления),
+   проблемы карточками с цифрой, направления со значком зоны,
+   фирменный блок «Как это купить» (нацрежим и два маршрута закупки). Все селекторы — под .ind--municipal. */
+
+.ind--municipal {
+  --mp-lawn: #e3edcc; --mp-lawn-on: #d2e79a; --mp-grass: #b4c98a; --mp-tree: #cfe0ab; --mp-tree-line: #9fb873;
+  --mp-path: #d8d2c4; --mp-path-in: #efebe2; --mp-road: #dcd9d2; --mp-snow: #a9b2d8;
+}
+
+/* ---------- Hero: текст, план территории, место под фото ---------- */
+.ind--municipal .mhero {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "copy plan" "ph plan";
+  gap: 40px 56px; align-items: start;
+}
+.ind--municipal .mhero__copy { grid-area: copy; }
+.ind--municipal .mhero__copy .ih__h1 { font-size: clamp(36px, 4.2vw, 64px); }
+.ind--municipal .mplan { grid-area: plan; display: grid; gap: 12px; padding: 20px 20px 12px; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm); }
+.ind--municipal .mhero__ph { grid-area: ph; }
+.ind--municipal .mhero__ph .ph__robot { top: 8%; height: 84%; }
+
+.ind--municipal .mplan__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 0 4px; }
+.ind--municipal .mplan__head .mono { font-size: 11px; color: var(--ink-muted); }
+.ind--municipal .mplan__hint { font-size: 13px; color: var(--ink-muted); }
+.ind--municipal .mplan__svg { display: block; width: 100%; height: auto; border-radius: var(--r-md); overflow: hidden; }
+
+/* слои плана */
+.ind--municipal .mp-road { fill: var(--mp-road); }
+.ind--municipal .mp-road__axis { stroke: #fff; stroke-width: 2; stroke-dasharray: 14 12; }
+.ind--municipal .mp-water { fill: var(--accent-soft); }
+.ind--municipal .mp-wave { fill: none; stroke: #c9ccff; stroke-width: 1.5; }
+.ind--municipal .mp-grass { stroke: var(--mp-grass); stroke-width: 1; }
+.ind--municipal .mp-slope { fill: none; stroke: var(--mp-tree-line); stroke-width: 1; }
+.ind--municipal .mp-snow { fill: var(--mp-snow); }
+.ind--municipal .mp-stalls { stroke: #fff; stroke-width: 2; }
+.ind--municipal .mp-parapet { stroke: var(--line-strong); stroke-width: 2; }
+.ind--municipal .mp-trees { pointer-events: none; }
+.ind--municipal .mp-trees circle { fill: var(--mp-tree); stroke: var(--mp-tree-line); stroke-width: 1; opacity: .9; }
+.ind--municipal .mp-cap { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; fill: var(--ink-muted); pointer-events: none; }
+.ind--municipal .mp-trail { fill: none; stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 12 88; stroke-dashoffset: 0; pointer-events: none; opacity: .9; }
+
+/* зоны-ссылки */
+.ind--municipal .mz { cursor: pointer; outline: none; }
+.ind--municipal .mz__fill { transition: fill var(--fast) var(--ease); }
+.ind--municipal .mz--lawns .mz__fill { fill: var(--mp-lawn); }
+.ind--municipal .mz--lawns .mz__fill--slope { fill: #d9e4bd; }
+.ind--municipal .mz--parking .mz__fill { fill: var(--surface-sunken); stroke: var(--line); }
+.ind--municipal .mz--streets .mz__fill { fill: var(--mp-path-in); }
+.ind--municipal .mz__alley { fill: none; stroke: var(--mp-path); stroke-width: 26; stroke-linecap: round; transition: stroke var(--fast) var(--ease); }
+.ind--municipal .mz__alley-in { fill: none; stroke: var(--mp-path-in); stroke-width: 20; stroke-linecap: round; transition: stroke var(--fast) var(--ease); }
+.ind--municipal .mz--winter .mz__fill { fill: #fff; stroke: #cfd3e6; stroke-width: 1.5; }
+.ind--municipal .mz__mk circle { fill: #fff; stroke: var(--ink); stroke-width: 1.5; transition: fill var(--fast) var(--ease), stroke var(--fast) var(--ease); }
+.ind--municipal .mz__mk text { font-family: var(--mono); font-size: 12px; font-weight: 500; fill: var(--ink); transition: fill var(--fast) var(--ease); }
+.ind--municipal .mz__mk { transform-box: fill-box; transform-origin: center; transition: scale var(--fast) var(--ease); }
+.ind--municipal .mz__lbl { font-family: var(--sans); font-size: 14px; font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: #fffffff2; stroke-width: 5px; stroke-linejoin: round; pointer-events: none; }
+
+/* подсветка зоны: наведение и фокус на самой зоне или на пункте легенды */
+.ind--municipal .mz:is(:hover, :focus-visible) .mz__mk circle,
+.ind--municipal .mplan:has([data-zone="streets"]:is(:hover, :focus-visible)) .mz--streets .mz__mk circle,
+.ind--municipal .mplan:has([data-zone="winter"]:is(:hover, :focus-visible)) .mz--winter .mz__mk circle,
+.ind--municipal .mplan:has([data-zone="lawns"]:is(:hover, :focus-visible)) .mz--lawns .mz__mk circle,
+.ind--municipal .mplan:has([data-zone="parking"]:is(:hover, :focus-visible)) .mz--parking .mz__mk circle { fill: var(--accent); stroke: var(--accent); }
+.ind--municipal .mz:is(:hover, :focus-visible) .mz__mk text,
+.ind--municipal .mplan:has([data-zone="streets"]:is(:hover, :focus-visible)) .mz--streets .mz__mk text,
+.ind--municipal .mplan:has([data-zone="winter"]:is(:hover, :focus-visible)) .mz--winter .mz__mk text,
+.ind--municipal .mplan:has([data-zone="lawns"]:is(:hover, :focus-visible)) .mz--lawns .mz__mk text,
+.ind--municipal .mplan:has([data-zone="parking"]:is(:hover, :focus-visible)) .mz--parking .mz__mk text { fill: #fff; }
+.ind--municipal .mz:focus-visible .mz__mk circle { stroke: var(--ink); stroke-width: 3; }
+.ind--municipal .mz--lawns:is(:hover, :focus-visible) .mz__fill,
+.ind--municipal .mplan:has([data-zone="lawns"]:is(:hover, :focus-visible)) .mz--lawns .mz__fill { fill: var(--mp-lawn-on); }
+.ind--municipal .mz--parking:is(:hover, :focus-visible) .mz__fill,
+.ind--municipal .mz--winter:is(:hover, :focus-visible) .mz__fill,
+.ind--municipal .mz--streets:is(:hover, :focus-visible) .mz__fill,
+.ind--municipal .mplan:has([data-zone="parking"]:is(:hover, :focus-visible)) .mz--parking .mz__fill,
+.ind--municipal .mplan:has([data-zone="winter"]:is(:hover, :focus-visible)) .mz--winter .mz__fill,
+.ind--municipal .mplan:has([data-zone="streets"]:is(:hover, :focus-visible)) .mz--streets .mz__fill { fill: var(--accent-soft); }
+.ind--municipal .mz--streets:is(:hover, :focus-visible) .mz__alley,
+.ind--municipal .mplan:has([data-zone="streets"]:is(:hover, :focus-visible)) .mz--streets .mz__alley { stroke: #b9bdff; }
+.ind--municipal .mz--streets:is(:hover, :focus-visible) .mz__alley-in,
+.ind--municipal .mplan:has([data-zone="streets"]:is(:hover, :focus-visible)) .mz--streets .mz__alley-in { stroke: var(--accent-soft); }
+
+/* легенда под планом */
+.ind--municipal .mplan__legend { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; padding-top: 8px; border-top: 1px solid var(--line); }
+.ind--municipal .mplan__legend a { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; align-content: start; min-height: 44px; padding: 10px; border-radius: var(--r-sm); transition: background var(--fast) var(--ease); }
+.ind--municipal .mplan__legend a:hover, .ind--municipal .mplan__legend a:focus-visible { background: var(--surface); }
+.ind--municipal .mplan__legend .mono { grid-row: span 2; padding-top: 2px; font-size: 11px; color: var(--accent-ink); }
+.ind--municipal .mplan__legend b { font-size: 15px; font-weight: 600; line-height: 1.25; }
+.ind--municipal .mplan__legend small { font-size: 13px; line-height: 1.35; color: var(--ink-muted); }
+
+/* ---------- Подпись источника ---------- */
+.ind--municipal .mn-src { font-size: 10.5px; letter-spacing: .02em; text-transform: none; line-height: 1.5; color: var(--ink-muted); }
+.ind--municipal .mn-src a { color: inherit; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 2px; }
+.ind--municipal .mn-src a:hover { color: var(--ink); }
+
+/* ---------- Проблемы: цифра — главное в карточке ---------- */
+.ind--municipal .mprobs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.ind--municipal .mprob { display: grid; grid-template-rows: auto auto 1fr auto; gap: 12px; padding: 28px; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm); min-height: 340px; }
+.ind--municipal .mprob__fig { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
+.ind--municipal .mprob__fig b { font-size: clamp(44px, 4.4vw, 64px); font-weight: 700; letter-spacing: -.05em; line-height: .9; }
+.ind--municipal .mprob__fig span { font-size: 15px; color: var(--ink-muted); }
+.ind--municipal .mprob h3 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+.ind--municipal .mprob__t { font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
+.ind--municipal .mprob__t a { color: var(--accent-ink); font-weight: 500; white-space: nowrap; }
+.ind--municipal .mprob .mn-src { padding-top: 12px; border-top: 1px solid var(--line); }
+.ind--municipal .mprob--law { background: transparent; box-shadow: none; border: 1px dashed var(--line-strong); }
+.ind--municipal .mprob--law .mprob__fig b { color: var(--accent-ink); }
+
+/* ---------- Направления: значок зоны с плана ---------- */
+.ind--municipal .mdirs { border-top: 1px solid var(--line); }
+.ind--municipal .mdir { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; padding: 40px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 96px; }
+.ind--municipal .mdir__l { display: grid; grid-template-columns: 72px 1fr; gap: 8px 20px; align-content: start; }
+.ind--municipal .mdir__g { grid-row: span 2; width: 72px; height: 72px; padding: 8px; border-radius: var(--r-md); background: var(--surface-raised); box-shadow: var(--shadow-sm); }
+.ind--municipal .mdir__no { font-size: 11px; color: var(--ink-muted); padding-top: 4px; }
+.ind--municipal .mdir h3 { font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; letter-spacing: -.025em; line-height: 1.1; }
+.ind--municipal .mdir__r { display: grid; gap: 16px; align-content: start; }
+.ind--municipal .mdir__t { font-size: 17px; line-height: 1.55; color: var(--ink-muted); max-width: 62ch; }
+.ind--municipal .mdir__facts { display: grid; gap: 12px; }
+.ind--municipal .mdir__facts li { display: grid; gap: 4px; padding: 2px 0 2px 16px; border-left: 2px solid var(--lime); }
+.ind--municipal .mdir__facts p:not(.mn-src) { font-size: 15px; line-height: 1.5; }
+.ind--municipal .mdir__facts a:not(.mn-src a) { color: var(--accent-ink); font-weight: 500; white-space: nowrap; }
+.ind--municipal .g-alley { fill: none; stroke: var(--mp-path); stroke-width: 14; stroke-linecap: round; }
+.ind--municipal .g-alley-in { fill: none; stroke: var(--mp-path-in); stroke-width: 9; stroke-linecap: round; }
+.ind--municipal .g-plaza { fill: #fff; stroke: #cfd3e6; stroke-width: 1.5; }
+.ind--municipal .g-flake { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+.ind--municipal .g-lawn { fill: var(--mp-lawn); }
+.ind--municipal .g-hatch, .ind--municipal .g-slope { fill: none; stroke: var(--mp-tree-line); stroke-width: 1.5; stroke-linejoin: round; }
+.ind--municipal .g-park { fill: var(--surface-sunken); }
+.ind--municipal .g-stall { stroke: #fff; stroke-width: 2.5; }
+
+/* ---------- Как это купить ---------- */
+.ind--municipal .mbuy { display: grid; gap: 20px; }
+.ind--municipal .mbuy__doc {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; padding: 40px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm); border-top: 3px solid var(--ink);
+}
+.ind--municipal .mbuy__doc-l { display: grid; gap: 16px; }
+.ind--municipal .mbuy__doc-l > .mono { font-size: 11px; color: var(--ink-muted); }
+.ind--municipal .mbuy__doc h3 { font-size: clamp(22px, 2.4vw, 32px); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; max-width: 28ch; }
+.ind--municipal .mbuy__req { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+.ind--municipal .mbuy__req div { display: grid; gap: 4px; padding: 12px 0; border-top: 1px solid var(--line); }
+.ind--municipal .mbuy__req dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+.ind--municipal .mbuy__req dd { font-size: 16px; line-height: 1.4; }
+.ind--municipal .mbuy__stamp {
+  display: grid; justify-items: center; gap: 4px; padding: 24px 32px; border: 2px solid var(--accent-ink); border-radius: var(--r-md);
+  color: var(--accent-ink); transform: rotate(-4deg);
+}
+.ind--municipal .mbuy__stamp .mono { font-size: 11px; }
+.ind--municipal .mbuy__stamp b { font-size: clamp(48px, 5.6vw, 84px); font-weight: 700; letter-spacing: -.05em; line-height: 1; white-space: nowrap; }
+
+.ind--municipal .mbuy__fork { padding-top: 20px; }
+.ind--municipal .mbuy__root {
+  display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; width: min(560px, 100%); margin: 0 auto; padding: 18px 22px;
+  border-radius: var(--r-md); background: var(--surface-raised); border: 1px solid var(--line);
+}
+.ind--municipal .mbuy__root .mono { grid-row: span 2; padding-top: 3px; color: var(--accent-ink); }
+.ind--municipal .mbuy__root b { font-size: 17px; font-weight: 600; }
+.ind--municipal .mbuy__root span:last-child { font-size: 14px; color: var(--ink-muted); }
+.ind--municipal .mbuy__ways { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-top: 48px; }
+.ind--municipal .mbuy__ways::before { content: ""; position: absolute; top: 0; left: 50%; height: 24px; border-left: 2px solid var(--line-strong); }
+.ind--municipal .mbuy__ways::after { content: ""; position: absolute; top: 24px; left: 25%; right: 25%; border-top: 2px solid var(--line-strong); }
+.ind--municipal .mbuy__way {
+  position: relative; display: grid; gap: 14px; align-content: start; padding: 32px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm); transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ind--municipal .mbuy__way::before { content: ""; position: absolute; top: -24px; left: 50%; height: 24px; border-left: 2px solid var(--line-strong); }
+.ind--municipal .mbuy__way:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ind--municipal .mbuy__way.reveal:hover { transition-delay: 0ms; }
+.ind--municipal .mbuy__way > .mono { font-size: 11px; color: var(--accent-ink); }
+.ind--municipal .mbuy__way--svc > .mono { color: var(--lime-ink); }
+.ind--municipal .mbuy__way h3 { font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; letter-spacing: -.025em; line-height: 1.1; }
+.ind--municipal .mbuy__way ol { counter-reset: way; display: grid; }
+.ind--municipal .mbuy__way li { counter-increment: way; display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.45; }
+.ind--municipal .mbuy__way li::before { content: counter(way, decimal-leading-zero); font-family: var(--mono); font-size: 11px; padding-top: 4px; color: var(--ink-muted); }
+.ind--municipal .mbuy__way--svc li::before { color: var(--lime-ink); }
+
+.ind--municipal .mbuy__notes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 8px; }
+.ind--municipal .mbuy__note {
+  display: grid; grid-template-columns: 24px 1fr; gap: 8px 16px; align-content: start; padding: 20px 24px;
+  border: 1px solid var(--line); border-radius: var(--r-md); font-size: 15px; line-height: 1.55; color: var(--ink-muted);
+}
+.ind--municipal .mbuy__note b { color: var(--ink); font-weight: 600; }
+.ind--municipal .mbuy__note svg { width: 24px; height: 24px; fill: none; stroke: var(--ink); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.ind--municipal .mbuy__note .mn-src { grid-column: 2; }
+
+/* ---------- Движение: машинка-полоса едет по аллее к набережной ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .ind--municipal .mp-trail { animation: mp-sweep 9s linear infinite; }
+  @keyframes mp-sweep { from { stroke-dashoffset: 12; } to { stroke-dashoffset: -88; } }
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .ind--municipal .mprobs { grid-template-columns: 1fr 1fr; }
+  .ind--municipal .mprob { min-height: 0; }
+  .ind--municipal .mdir { grid-template-columns: 1fr; gap: 20px; }
+  .ind--municipal .mdir__r { padding-left: 92px; }
+}
+@media (max-width: 1023px) {
+  .ind--municipal .mhero { grid-template-columns: 1fr; grid-template-areas: "copy" "plan" "ph"; }
+  .ind--municipal .mbuy__doc { grid-template-columns: 1fr; padding: 28px; }
+  .ind--municipal .mbuy__stamp { justify-self: start; order: -1; padding: 12px 20px; }
+  .ind--municipal .mbuy__ways { grid-template-columns: 1fr; padding-top: 20px; }
+  .ind--municipal .mbuy__ways::before, .ind--municipal .mbuy__ways::after, .ind--municipal .mbuy__way::before { display: none; }
+  .ind--municipal .mbuy__notes { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .ind--municipal .mplan { padding: 12px 12px 8px; }
+  .ind--municipal .mplan__hint { display: none; }
+  .ind--municipal .mplan__legend { grid-template-columns: 1fr 1fr; }
+  .ind--municipal .mz__lbl, .ind--municipal .mp-cap { display: none; }
+  .ind--municipal .mz__mk { scale: 1.7; }
+  .ind--municipal .mprobs { grid-template-columns: 1fr; }
+  .ind--municipal .mprob { padding: 24px; }
+  .ind--municipal .mdir { padding: 28px 0; }
+  .ind--municipal .mdir__l { grid-template-columns: 56px 1fr; gap: 6px 16px; }
+  .ind--municipal .mdir__g { width: 56px; height: 56px; padding: 6px; }
+  .ind--municipal .mdir__r { padding-left: 0; }
+  .ind--municipal .mbuy__doc { padding: 24px 20px; }
+  .ind--municipal .mbuy__req { grid-template-columns: 1fr; }
+  .ind--municipal .mbuy__way { padding: 24px 20px; }
+  .ind--municipal .mbuy__note { padding: 16px; }
+}

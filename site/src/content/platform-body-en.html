@@ -1,0 +1,668 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="t-cl" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15v4M17 17h4M5 17v3M3.5 18.5h3"/></symbol>
+    <symbol id="t-dl" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="t-wh" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+    <symbol id="t-gd" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="t-hm" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="9" rx="3"/><path d="M12 4V2M9.5 8.5h.01M14.5 8.5h.01M4 21v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/></symbol>
+    <symbol id="i-center" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></symbol>
+    <symbol id="i-fleet" viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><path d="M17 14v6M14 17h6"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 18.4 5.6"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+    <symbol id="i-split" viewBox="0 0 24 24"><path d="M12 3v6M12 9 5 15M12 9l7 6M5 15v4M19 15v4"/><circle cx="12" cy="3.5" r="1.5"/><circle cx="5" cy="20" r="1.5"/><circle cx="19" cy="20" r="1.5"/></symbol>
+    <symbol id="i-remote" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M9 10l2 2 4-4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M15 7h4v4"/></symbol>
+    <symbol id="i-agent" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 14v4M17 16h4M5 17v3M3.5 18.5h3"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-sla" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8.5 7 10 4-1.5 7-5.5 7-10V6z"/><path d="M12 8v4l2.5 1.5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5 5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="6" rx="6" ry="3"/><path d="M3 6v6c0 1.7 2.7 3 6 3M3 12v6c0 1.7 2.7 3 6 3M21 12c0 1.7-2.7 3-6 3s-6-1.3-6-3 2.7-3 6-3 6 1.3 6 3zM9 12v6c0 1.7 2.7 3 6 3s6-1.3 6-3v-6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9z"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs></svg>
+
+
+  <header class="nav" aria-label="Main navigation">
+    <a href="/" aria-label="Professional Robotics home"><img src="/assets/profrobot-logo-en.png" alt="Professional Robotics"></a>
+    <nav class="nav-links">
+      <a href="/solutions/">Solutions</a>
+      <a href="/industries/">Industries</a>
+      <a href="/products/">Products</a>
+      <a href="/services/">Services</a>
+      <a href="/platform/" class="on" aria-current="page">Platform</a>
+      <a href="/cases/">Case studies</a>
+      <a href="#talk">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language"><button type="button" lang="ru" data-lang="ru" aria-pressed="false">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="true">EN</button></div>
+    <a class="btn btn-pri" href="#talk">Contact us</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">09</span>
+    <span class="lbl">PLATFORM</span>
+  </div>
+
+  <main>
+
+    <section class="sol-hero wrap" data-sec="01" data-name="PLATFORM">
+      <div class="sol-hero__grid">
+        <div class="sol-hero__copy">
+          <nav class="crumbs reveal" aria-label="Breadcrumbs"><ol><li><a href="/">Home</a></li><li aria-current="page">Platform</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span>PLATFORM</span></span>
+          <h1 class="h1 reveal">Professional Robotics Platform</h1>
+          <div class="sol-hero__text reveal">
+            <p class="lead">One platform to manage your robots, equipment and site operations.</p>
+            <p>Deploying a robot is half the job. After that you need to manage it, see what was done and where, control quality and service it on time. The platform brings it all into one window: fleet, tasks, quality, analytics and service. In effect, it is an operating system for robotic operations.</p>
+          </div>
+          <div class="btns reveal">
+            <a class="btn btn-pri" href="#talk" data-pick="demo"><span>Request a platform demo</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-sec" href="/roi/"><span>Calculate your site’s ROI</span></a>
+          </div>
+          <ul class="pf-chips reveal">
+            <li>Developed in Russia</li>
+            <li>Data in Russia</li>
+            <li>40+ manufacturers, 8 robot types</li>
+          </ul>
+        </div>
+
+
+        <div class="pf-ops reveal" style="--i:2" role="img" aria-label="Example operator console: one operator and 24 robots of five types on one screen">
+          <div class="pf-ops__head">
+            <span class="badge-online"><i></i><span>Platform online</span></span>
+            <span class="mono">Sample panel</span>
+          </div>
+          <p class="pf-ops__who"><b>1</b><span>operator</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg><b>24</b><span>robots</span></p>
+          <ul class="pf-ops__grid" aria-hidden="true">
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-01</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-02</b></li>
+            <li class="c"><svg><use href="#t-cl"/></svg><b>CL-03</b></li>
+            <li class="w"><svg><use href="#t-dl"/></svg><b>DL-01</b></li>
+            <li class="w"><svg><use href="#t-dl"/></svg><b>DL-02</b></li>
+            <li class="w"><svg><use href="#t-wh"/></svg><b>WH-01</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-04</b></li>
+            <li class="a"><svg><use href="#t-cl"/></svg><b>CL-05</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-06</b></li>
+            <li class="c"><svg><use href="#t-dl"/></svg><b>DL-03</b></li>
+            <li class="w"><svg><use href="#t-wh"/></svg><b>WH-02</b></li>
+            <li class="w"><svg><use href="#t-wh"/></svg><b>WH-03</b></li>
+            <li class="w"><svg><use href="#t-gd"/></svg><b>GD-01</b></li>
+            <li class="w"><svg><use href="#t-gd"/></svg><b>GD-02</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-07</b></li>
+            <li class="w"><svg><use href="#t-hm"/></svg><b>HM-01</b></li>
+            <li class="w"><svg><use href="#t-dl"/></svg><b>DL-04</b></li>
+            <li class="c"><svg><use href="#t-wh"/></svg><b>WH-04</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-08</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-09</b></li>
+            <li class="w"><svg><use href="#t-gd"/></svg><b>GD-03</b></li>
+            <li class="w"><svg><use href="#t-hm"/></svg><b>HM-02</b></li>
+            <li class="w"><svg><use href="#t-dl"/></svg><b>DL-05</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-10</b></li>
+          </ul>
+          <ul class="pf-ops__legend">
+            <li class="w">working</li>
+            <li class="c">charging</li>
+            <li class="a">alert</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="idea" data-sec="02" data-name="IDEA" aria-labelledby="idea-h">
+      <div class="pf-idea">
+        <div class="pf-idea__copy">
+          <span class="idx reveal"><b>02</b> — <span>IDEA</span></span>
+          <h2 class="h2 reveal" id="idea-h">We manage results and quality, not just robots.</h2>
+          <p class="lead reveal">A robot is a tool. It creates value when a system stands behind it: one that assigns tasks, tracks execution, catches deviations and gives an objective picture of operations.</p>
+          <ol class="pf-verbs reveal">
+            <li><span class="mono">01</span><b>Assigns tasks</b></li>
+            <li><span class="mono">02</span><b>Tracks execution</b></li>
+            <li><span class="mono">03</span><b>Catches deviations</b></li>
+            <li><span class="mono">04</span><b>Shows the picture</b></li>
+          </ol>
+        </div>
+        <figure class="pf-one reveal" style="--i:2">
+          <p class="pf-one__eq"><span class="pf-one__n tnum">1</span><span class="pf-one__t">operator</span><span class="pf-one__x" aria-hidden="true">=</span><span class="pf-one__n pf-one__n--many">dozens of</span><span class="pf-one__t">devices</span></p>
+          <figcaption>One operator oversees dozens of devices through the platform, with no extra headcount.</figcaption>
+        </figure>
+      </div>
+
+
+      <div class="pf-any reveal">
+        <p class="pf-any__cap"><a href="/manufacturers/">40+ manufacturers</a><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg><span>8 robot types</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg><a class="one" href="#capabilities"><b>1 platform</b></a></p>
+        <ul class="pf-any__row">
+          <li><a href="/industries/business-centers/"><img src="/assets/robots/robot-cleaning.webp" alt="" width="964" height="1026" loading="lazy" decoding="async"><span>Cleaning</span></a></li>
+          <li><a href="/industries/hotels/#delivery"><img src="/assets/robots/robot-delivery.webp" alt="" width="1027" height="1072" loading="lazy" decoding="async"><span>Delivery</span></a></li>
+          <li><a href="/industries/warehouse/"><img src="/assets/robots/robot-amr.webp" alt="" width="837" height="1148" loading="lazy" decoding="async"><span>Warehouse</span></a></li>
+          <li><a href="/industries/manufacturing/"><img src="/assets/robots/robot-manipulator.webp" alt="" width="992" height="1116" loading="lazy" decoding="async"><span>Robot arms</span></a></li>
+          <li><a href="/industries/agriculture/"><img src="/assets/robots/robot-agro.webp" alt="" width="1207" height="703" loading="lazy" decoding="async"><span>Agri</span></a></li>
+          <li><a href="/industries/construction/"><img src="/assets/robots/robot-demolition.webp" alt="" width="1199" height="1015" loading="lazy" decoding="async"><span>Building</span></a></li>
+          <li><a href="/industries/medical-wellness/"><img src="/assets/robots/robot-wellness.webp" alt="" width="1068" height="990" loading="lazy" decoding="async"><span>Wellness</span></a></li>
+          <li><a href="/industries/hotels/#reception"><img src="/assets/robots/robot-humanoid.webp" alt="" width="403" height="1188" loading="lazy" decoding="async"><span>Humanoids</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="problems" data-sec="03" data-name="PROBLEMS" aria-labelledby="prob-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>03</b> — <span>PROBLEMS</span></span>
+        <h2 class="h2 reveal" id="prob-h">Sound familiar? The platform is built for it.</h2>
+      </div>
+      <ol class="pf-probs">
+        <li class="pf-prob reveal">
+          <span class="dir__no"><span>01</span></span>
+          <h3>Staffing</h3>
+          <p>Labor shortages, high turnover, rising labor costs and dependence on shifts.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="remote"><span>Solved by:</span> <b>Remote control</b></a>
+        </li>
+        <li class="pf-prob reveal" style="--i:1">
+          <span class="dir__no"><span>02</span></span>
+          <h3>No visibility</h3>
+          <p>The site doesn’t know where work was done, what was missed, how long it took or whether it followed the standard.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="monitoring"><span>Solved by:</span> <b>Round-the-clock monitoring</b></a>
+        </li>
+        <li class="pf-prob reveal" style="--i:2">
+          <span class="dir__no"><span>03</span></span>
+          <h3>Inconsistent quality</h3>
+          <p>Results change from shift to shift and depend on the individual.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="dispatch"><span>Solved by:</span> <b>Task assignment and coordination</b></a>
+        </li>
+        <li class="pf-prob reveal" style="--i:3">
+          <span class="dir__no"><span>04</span></span>
+          <h3>High costs</h3>
+          <p>Wasted consumables, inefficient equipment, expensive quality control.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="analytics"><span>Solved by:</span> <b>AI analytics and predictive maintenance</b></a>
+        </li>
+        <li class="pf-prob reveal" style="--i:4">
+          <span class="dir__no"><span>05</span></span>
+          <h3>Work gets in the way</h3>
+          <p>Noise and blocked aisles during business hours, discomfort for visitors.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="maps"><span>Solved by:</span> <b>Digital maps and navigation</b></a>
+        </li>
+      </ol>
+    </section>
+
+
+    <section class="sol-sec" id="capabilities" data-sec="04" data-name="FEATURES" data-dark aria-labelledby="cap-h">
+      <div class="stage pr-stage pf-stage">
+        <div class="pf-cap__head">
+          <span class="idx reveal"><b>04</b> — <span>FEATURES</span></span>
+          <h2 class="h2 reveal" id="cap-h">What the platform does.</h2>
+          <p class="lead reveal">Eleven features in one window. Pick any one and see how it looks in the interface.</p>
+        </div>
+
+        <div class="pf-cap reveal" style="--i:1" data-tabs>
+          <div class="pf-cap__list" role="tablist" aria-orientation="vertical" aria-label="Platform features">
+            <button class="pf-tab" type="button" role="tab" id="t-center" aria-controls="p-center" aria-selected="true"><span class="pf-tab__no mono">01</span><span class="pf-tab__name">Single control center</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-fleet" aria-controls="p-fleet" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">02</span><span class="pf-tab__name"><span>Fleet management</span> <small>Fleet Management</small></span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-monitoring" aria-controls="p-monitoring" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">03</span><span class="pf-tab__name">Round-the-clock monitoring</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-maps" aria-controls="p-maps" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">04</span><span class="pf-tab__name">Digital maps and navigation</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-dispatch" aria-controls="p-dispatch" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">05</span><span class="pf-tab__name">Task assignment and coordination</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-remote" aria-controls="p-remote" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">06</span><span class="pf-tab__name">Remote control</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-analytics" aria-controls="p-analytics" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">07</span><span class="pf-tab__name">AI analytics and predictive maintenance</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-agents" aria-controls="p-agents" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">08</span><span class="pf-tab__name">In-house AI agents</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-api" aria-controls="p-api" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">09</span><span class="pf-tab__name"><span>Integrations</span> <small>Open API</small></span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-sla" aria-controls="p-sla" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">10</span><span class="pf-tab__name">SLA and service</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-custom" aria-controls="p-custom" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">11</span><span class="pf-tab__name">Custom software for you</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+          </div>
+
+          <div class="pf-cap__view">
+
+            <article class="pf-panel" role="tabpanel" id="p-center" aria-labelledby="t-center" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">All sites</span></div>
+                <div class="pf-win__body">
+                  <dl class="pf-kpis">
+                    <div><dt>devices</dt><dd class="tnum">142</dd></div>
+                    <div><dt>sites</dt><dd class="tnum">14</dd></div>
+                    <div><dt>online</dt><dd class="tnum">138</dd></div>
+                  </dl>
+                  <ul class="pf-sites">
+                    <li><span>Northern Mall</span><i style="--w:92%"></i><b class="tnum">38</b></li>
+                    <li><span>Park Offices</span><i style="--w:70%"></i><b class="tnum">24</b></li>
+                    <li><span>South depot</span><i style="--w:56%"></i><b class="tnum">31</b></li>
+                    <li><span>Central Clinic</span><i style="--w:38%"></i><b class="tnum">12</b></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Single control center</h3><p>One panel for all your sites: map, device status, tasks, alerts and analytics. The whole fleet is visible in real time and managed from one place.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-fleet" aria-labelledby="t-fleet" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Device fleet</span></div>
+                <div class="pf-win__body">
+                  <div class="pf-filter"><span class="on">All</span><span>Cleaning</span><span>Delivery</span><span>Warehouse</span></div>
+                  <ul class="pf-rows">
+                    <li><svg><use href="#t-cl"/></svg><b>CL-07</b><span class="pf-st work">working</span><i class="pf-batt" style="--w:78%"></i></li>
+                    <li><svg><use href="#t-dl"/></svg><b>DL-02</b><span class="pf-st work">working</span><i class="pf-batt" style="--w:54%"></i></li>
+                    <li><svg><use href="#t-wh"/></svg><b>WH-03</b><span class="pf-st charge">charging</span><i class="pf-batt" style="--w:21%"></i></li>
+                    <li><svg><use href="#t-cl"/></svg><b>CL-11</b><span class="pf-st work">working</span><i class="pf-batt" style="--w:90%"></i></li>
+                  </ul>
+                  <div class="pf-cmd"><span class="mono">Picked: 12</span><span class="pf-btn">Update</span><span class="pf-btn">Schedule</span></div>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Fleet management</h3><p>Hundreds of devices under control: grouping by site and status, bulk commands, remote setup and updates, schedule and workflow management.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-monitoring" aria-labelledby="t-monitoring" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Telemetry</span></div>
+                <div class="pf-win__body">
+                  <div class="pf-tele__top"><b>CL-07</b><span class="pf-st work">working</span></div>
+                  <svg class="pf-spark" viewBox="0 0 240 64" preserveAspectRatio="none"><path class="area" d="M0 44 L20 40 L40 46 L60 30 L80 34 L100 22 L120 28 L140 18 L160 26 L180 14 L200 20 L220 12 L240 16 V64 H0Z"/><path class="line" d="M0 44 L20 40 L40 46 L60 30 L80 34 L100 22 L120 28 L140 18 L160 26 L180 14 L200 20 L220 12 L240 16"/></svg>
+                  <dl class="pf-stats">
+                    <div><dt>hours working per day</dt><dd class="tnum">23/24</dd></div>
+                    <div><dt>errors this shift</dt><dd class="tnum">1</dd></div>
+                  </dl>
+                  <ol class="pf-log">
+                    <li><time>10:42</time><span>Task completed · floor 1</span></li>
+                    <li><time>10:51</time><span>Low battery · heading to base</span></li>
+                    <li class="warn"><time>11:03</time><span>Sensor error · alert sent</span></li>
+                  </ol>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Round-the-clock monitoring</h3><p>Live telemetry and an operations map, status and error tracking, uptime, operation history and failure alerts.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-maps" aria-labelledby="t-maps" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Map · floor 1</span></div>
+                <div class="pf-win__body">
+                  <svg class="pf-plan" viewBox="0 0 320 190">
+                    <defs><pattern id="pf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v8" stroke="currentColor" stroke-width="2" opacity=".55"/></pattern></defs>
+                    <rect class="wall" x="6" y="6" width="308" height="178" rx="10"/>
+                    <path class="wall" d="M110 6v70M110 114v70M214 6v46M214 90v94M110 76h104"/>
+                    <rect class="zone" x="14" y="14" width="88" height="162" rx="6"/>
+                    <rect class="zone" x="118" y="84" width="88" height="92" rx="6"/>
+                    <rect class="zone" x="222" y="14" width="84" height="162" rx="6"/>
+                    <rect class="nogo" x="118" y="14" width="88" height="54" rx="6"/>
+                    <path class="route" d="M30 160 V30 H90 V150 H60 M130 160 H190 V100 H140 M240 30 H292 V160 H240 V70 H270"/>
+                    <circle class="bot" cx="90" cy="86" r="5"/>
+                    <circle class="bot" cx="190" cy="130" r="5"/>
+                    <circle class="bot" cx="292" cy="96" r="5"/>
+                  </svg>
+                  <ul class="pf-legend">
+                    <li class="z">Work zone</li>
+                    <li class="r">Route</li>
+                    <li class="n">No-go zone</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Digital maps and navigation</h3><p>A site map with work zones, routes and no-go zones. Equipment is tracked on the map in real time, and zones are edited online and synced from the cloud.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-dispatch" aria-labelledby="t-dispatch" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Tasks · shift</span></div>
+                <div class="pf-win__body">
+                  <svg class="pf-plan pf-plan--split" viewBox="0 0 320 150">
+                    <rect class="wall" x="6" y="6" width="308" height="138" rx="10"/>
+                    <rect class="sec s1" x="14" y="14" width="96" height="122" rx="6"/>
+                    <rect class="sec s2" x="116" y="14" width="96" height="122" rx="6"/>
+                    <rect class="sec s3" x="218" y="14" width="88" height="122" rx="6"/>
+                    <path class="rt s1" d="M30 120V34h64v70H50"/>
+                    <path class="rt s2" d="M132 34h64v86h-64V60h40"/>
+                    <path class="rt s3" d="M234 120V34h56v86h-32V60"/>
+                    <circle class="bot s1" cx="62" cy="34" r="5"/>
+                    <circle class="bot s2" cx="196" cy="86" r="5"/>
+                    <circle class="bot s3" cx="234" cy="80" r="5"/>
+                  </svg>
+                  <ul class="pf-assign">
+                    <li class="s1"><b>CL-03</b><span>zone A</span></li>
+                    <li class="s2"><b>CL-07</b><span>zone B</span></li>
+                    <li class="s3"><b>CL-11</b><span>zone C</span></li>
+                  </ul>
+                  <p class="pf-note"><i></i><span>No overlaps, no gaps</span></p>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Task assignment and coordination</h3><p>The platform assigns tasks between devices, builds the schedule and coordinates several robots on one site, so they stay out of each other’s way and cover the area without gaps.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-remote" aria-labelledby="t-remote" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Remote console</span></div>
+                <div class="pf-win__body">
+                  <div class="pf-rc__id"><span class="pf-rc__ic"><svg><use href="#t-cl"/></svg></span><div><b>CL-07</b><small>1F · cleaning</small></div><span class="pf-st work">working</span></div>
+                  <div class="pf-rc__btns"><span class="pf-btn pri">Start</span><span class="pf-btn">Pause</span><span class="pf-btn stop">Emergency stop</span></div>
+                  <ul class="pf-diag">
+                    <li><span>Diagnostics</span><b>normal</b></li>
+                    <li><span>Link</span><b>stable</b></li>
+                    <li><span>Operator</span><b>connected remotely</b></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Remote control</h3><p>Start and stop tasks, run remote diagnostics and support, trigger an emergency stop from anywhere. The operator doesn’t need to be on site.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-analytics" aria-labelledby="t-analytics" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Analytics</span></div>
+                <div class="pf-win__body">
+                  <p class="pf-cap-t mono">Zone utilization</p>
+                  <div class="pf-heat">
+                    <i style="--v:.2"></i><i style="--v:.35"></i><i style="--v:.5"></i><i style="--v:.3"></i><i style="--v:.15"></i><i style="--v:.25"></i><i style="--v:.6"></i><i style="--v:.4"></i>
+                    <i style="--v:.3"></i><i style="--v:.7"></i><i style="--v:.95"></i><i style="--v:.8"></i><i style="--v:.45"></i><i style="--v:.3"></i><i style="--v:.5"></i><i style="--v:.35"></i>
+                    <i style="--v:.25"></i><i style="--v:.55"></i><i style="--v:.85"></i><i style="--v:1"></i><i style="--v:.65"></i><i style="--v:.4"></i><i style="--v:.2"></i><i style="--v:.3"></i>
+                    <i style="--v:.1"></i><i style="--v:.3"></i><i style="--v:.45"></i><i style="--v:.6"></i><i style="--v:.35"></i><i style="--v:.2"></i><i style="--v:.15"></i><i style="--v:.1"></i>
+                  </div>
+                  <div class="pf-pred"><span class="pf-pred__ic"><svg><use href="#i-bell"/></svg></span><div><b>CL-04: maintenance in 3 days</b><small>Wear above normal. Fix before failure.</small></div></div>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>AI analytics and predictive maintenance</h3><p>Analysis of equipment utilization, route efficiency and site performance, heat maps and recurring errors. The system flags maintenance needs ahead of time: before a breakdown, not after.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-agents" aria-labelledby="t-agents" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">AI agent · feed</span></div>
+                <div class="pf-win__body">
+                  <ul class="pf-feed">
+                    <li><span class="pf-tag">finding</span><b>Robots queue up at the elevators</b></li>
+                    <li><span class="pf-tag warn">deviation</span><b>Zone B was not done on schedule</b></li>
+                    <li><span class="pf-tag ok">advice</span><b>Move deliveries to another time to free up the elevators</b></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>In-house AI agents</h3><p>Our own intelligent agents analyze operations in real time, find problem areas, flag deviations and recommend how to optimize work and cut costs.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-api" aria-labelledby="t-api" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Systems</span></div>
+                <div class="pf-win__body">
+                  <div class="pf-net">
+                    <ul class="pf-net__row"><li>BMS</li><li>IoT</li><li>ERP</li></ul>
+                    <p class="pf-net__core"><b>Platform</b><span>Open API</span></p>
+                    <ul class="pf-net__row"><li>Security</li><li>Facility</li><li>WMS</li></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Open API, integrations</h3><p>Connects to building systems (BMS), IoT and smart-building platforms, security systems, and your ERP and facility platforms. The platform fits into your infrastructure instead of replacing it.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-sla" aria-labelledby="t-sla" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Incident</span></div>
+                <div class="pf-win__body">
+                  <ol class="pf-steps">
+                    <li class="done"><span class="mono">SIGNAL</span><b>Platform sees a fault</b></li>
+                    <li class="done"><span class="mono">TICKET</span><b>Incident created automatically</b></li>
+                    <li class="now"><span class="mono">VISIT</span><b>Engineer or remote help</b></li>
+                    <li><span class="mono">RESULT</span><b>Robot is back at work</b></li>
+                  </ol>
+                  <p class="pf-note"><i></i><span>Response time is fixed in the SLA</span></p>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>SLA and service</h3><p>Service is built into the platform: stability monitoring, incident management, remote support, predictive maintenance. The goal is minimal downtime.</p><a class="text-link sv-link-dark" href="/services/#sla"><span>How service works</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-custom" aria-labelledby="t-custom" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">“Guest” workflow · v1.3</span></div>
+                <div class="pf-win__body">
+                  <ol class="pf-flow">
+                    <li><span class="pf-flow__n mono">1</span><span class="pf-flow__ic"><svg><use href="#t-hm"/></svg></span><b>HM-01 greets the guest</b><small>humanoid, brand A</small></li>
+                    <li><span class="pf-flow__n mono">2</span><span class="pf-flow__ic"><svg><use href="#i-link"/></svg></span><b>Elevator call</b><small>site system</small></li>
+                    <li><span class="pf-flow__n mono">3</span><span class="pf-flow__ic"><svg><use href="#t-dl"/></svg></span><b>DL-01 delivers</b><small>courier, brand B</small></li>
+                  </ol>
+                </div>
+              </div>
+              <div class="pf-panel__txt">
+                <h3>Custom software for you</h3>
+                <p>If the manufacturer lacks a feature, we build it. New workflows, integrations and interfaces are built on the platform, so you don’t wait for a vendor update.</p>
+                <ul class="pf-ex"><li>Different brands, one system</li><li>Tasks from your systems</li><li>Workflows for a humanoid</li></ul>
+                <a class="text-link sv-link-dark" href="#talk" data-pick="custom"><span>Discuss development</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="trust" data-sec="05" data-name="SECURITY" aria-labelledby="trust-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>05</b> — <span>SECURITY</span></span>
+        <h2 class="h2 reveal" id="trust-h">A Russian platform. Your data stays in Russia.</h2>
+      </div>
+      <div class="pf-trust">
+        <article class="pf-trust__main reveal">
+          <svg class="pf-trust__rings" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="30"/><circle cx="120" cy="120" r="62"/><circle cx="120" cy="120" r="94"/><circle cx="120" cy="120" r="116"/><path d="M120 24v32M120 184v32M24 120h32M184 120h32"/></svg>
+          <span class="pf-trust__pin" aria-hidden="true"><i></i></span>
+          <p class="pf-trust__k mono">Data storage</p>
+          <h3>Data in Russia</h3>
+          <p>Data is stored in cloud infrastructure located in Russia. For healthcare and government sites, keeping data in Russia often decides the choice.</p>
+        </article>
+        <article class="pf-trust__card reveal" style="--i:1">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-code"/></svg></span>
+          <h3>In-house development</h3>
+          <p>Fully Russian-developed software aimed at corporate customers. Not a vendor license.</p>
+        </article>
+        <article class="pf-trust__card reveal" style="--i:2">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-sla"/></svg></span>
+          <h3>Enterprise-grade security</h3>
+          <p>Secure communication channels, redundancy, access control.</p>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="results" data-sec="06" data-name="RESULTS" aria-labelledby="res-h">
+      <div class="pf-res">
+        <div class="pf-res__head">
+          <span class="idx reveal"><b>06</b> — <span>RESULTS</span></span>
+          <h2 class="h2 reveal" id="res-h">A platform built for results.</h2>
+          <p class="lead reveal">The scale of savings depends on site type and area. The calculator shows it in a couple of minutes.</p>
+          <div class="btns reveal"><a class="btn btn-pri" href="/roi/"><span>Calculate ROI</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+        <ol class="pf-outs">
+          <li class="pf-out reveal"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-people"/></svg></span><div><h3>One operator, dozens of robots</h3><p>Fewer people on oversight, less dependence on staffing.</p></div></li>
+          <li class="pf-out reveal" style="--i:1"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-coins"/></svg></span><div><h3>Lower operating costs</h3><p>Measured use of consumables and efficient equipment operation.</p></div></li>
+          <li class="pf-out reveal" style="--i:2"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-target"/></svg></span><div><h3>Consistent quality</h3><p>Every operation follows the set workflow, with no human factor.</p></div></li>
+          <li class="pf-out reveal" style="--i:3"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-eye"/></svg></span><div><h3>Transparency</h3><p>Objective reports and KPIs, contractor oversight instead of “looks done”.</p></div></li>
+          <li class="pf-out reveal" style="--i:4"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><div><h3>More uptime</h3><p>Predictive service cuts downtime.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="objects" data-sec="07" data-name="SITES" aria-labelledby="obj-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>07</b> — <span>SITES</span></span>
+        <h2 class="h2 reveal" id="obj-h">Which sites it’s for.</h2>
+        <p class="lead reveal">The platform is designed for commercial real estate and public venues.</p>
+      </div>
+      <div class="pf-objs">
+        <a class="pf-obj reveal" href="/industries/business-centers/">
+          <span class="dir__no"><span>OFFICES</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+          <h3>Office buildings</h3>
+          <p>Cleaning outside business hours, consistent quality, transparent contractor oversight and less dependence on staff.</p>
+        </a>
+        <a class="pf-obj reveal" style="--i:1" href="/industries/medical-wellness/">
+          <span class="dir__no"><span>HEALTHCARE</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+          <h3>Clinics and healthcare facilities</h3>
+          <p>Standardized cleaning to protocol, tracking of treated zones, a digital operation history and predictable sanitary quality.</p>
+        </a>
+        <a class="pf-obj reveal" style="--i:2" href="/industries/retail/">
+          <span class="dir__no"><span>RETAIL</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+          <h3>Retail and public venues</h3>
+          <p>Constant cleanliness across large areas, round-the-clock operation and minimal impact on visitors.</p>
+        </a>
+      </div>
+      <ul class="pf-more reveal">
+        <li><a href="/industries/manufacturing/">Warehouses and logistics hubs</a></li>
+        <li><a href="/industries/hotels/">Hotels</a></li>
+        <li><a href="/industries/public-spaces/">Airports</a></li>
+        <li><a href="/industries/fitness-sports/">Fitness clubs</a></li>
+        <li><a href="/industries/education/">Education</a></li>
+        <li><a class="all" href="/industries/"><span>All industries</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      </ul>
+    </section>
+
+
+    <section class="sol-sec wrap" id="see" data-sec="08" data-name="SEE ALSO" aria-labelledby="see-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>08</b> — <span>SEE ALSO</span></span>
+        <h2 class="h2 reveal" id="see-h">See also.</h2>
+      </div>
+      <div class="see pf-see">
+        <a class="see-card reveal" href="/solutions/#directions">
+          <span class="dir__no"><span>SOLUTION</span></span>
+          <h3>Robotic cleaning</h3>
+          <p>The platform’s main scenario: cleaning with quality control and reports.</p>
+          <div class="see-card__foot"><span class="mono" style="color:var(--ink-muted)">Where the platform works today</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+        <a class="see-card reveal" style="--i:1" href="/products/#platform">
+          <span class="dir__no"><span>7 PRODUCTS</span></span>
+          <h3>Products</h3>
+          <p>Fleet Management · Dispatch · AI modules · Open API · Rental (RaaS) · Retrofit</p>
+          <div class="see-card__foot"><span class="mono" style="color:var(--ink-muted)">Platform modules one by one</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+        <a class="see-card reveal" style="--i:2" href="/cases/">
+          <span class="dir__no"><span>RESULTS IN NUMBERS</span></span>
+          <h3>Case studies</h3>
+          <p>Office building · Agribusiness · Warehouse · Manufacturing · Construction</p>
+          <div class="see-card__foot"><span class="mono" style="color:var(--ink-muted)">What it gave the business</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="talk" data-sec="09" data-name="CONTACT" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>09</b> — <span>CONTACT</span></span>
+          <h2 class="h2 reveal" id="talk-h">See the platform at work.</h2>
+          <p class="lead reveal">Leave your contact details. We’ll call you, clarify the task and arrange a demo. If you’d rather start with the economics, open the calculator.</p>
+          <div class="btns reveal"><a class="btn btn-sec" href="/roi/"><span>Calculate ROI</span></a></div>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="platform" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label for="f-dir">What to discuss <small>optional</small></label>
+            <select id="f-dir" name="direction">
+              <option value="">Not sure yet</option>
+              <option value="demo">Platform demo</option>
+              <option value="connect">Connecting my robots</option>
+              <option value="custom">Custom software for my task</option>
+              <option value="api">Integration with my systems</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span>Leave this empty</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>I give my <a>consent to the processing of personal data</a> and accept the <a>privacy policy</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Request a call</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b>Request received.</b>
+            <p>We’ll call back in business hours.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="/" aria-label="Professional Robotics home"><img src="/assets/profrobot-logo-en-inverse.png" alt="Professional Robotics" width="783" height="136"></a>
+          <p>Independent robotics integrator: engineering and service. We deploy solutions with measurable payback and service them under an SLA (service level agreement) across Russia.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span>Deployment team</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+
+      <div class="foot-grid foot-grid--site">
+        <nav class="foot-col" aria-labelledby="foot-site-1">
+          <h3 class="mono" id="foot-site-1"><b>01</b> <span>Sections</span></h3>
+          <a href="/solutions/">Solutions</a>
+          <a href="/industries/">Industries</a>
+          <a href="/products/">Products</a>
+          <a href="/platform/">Platform</a>
+          <a href="/services/">Services</a>
+          <a href="/cases/">Case studies</a>
+          <a href="/knowledge/">Knowledge base</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-2">
+          <h3 class="mono" id="foot-site-2"><b>02</b> <span>Industries</span></h3>
+          <a href="/industries/retail/">Shopping centers and retail</a>
+          <a href="/industries/business-centers/">Office buildings</a>
+          <a href="/industries/hotels/">Hotels and hospitality</a>
+          <a href="/industries/public-spaces/">Public venues and transport hubs</a>
+          <a href="/industries/medical-wellness/">Healthcare and wellness</a>
+          <a href="/industries/education/">Education</a>
+          <a href="/industries/fitness-sports/">Fitness clubs and sports facilities</a>
+          <a href="/industries/municipal/">Municipal services</a>
+          <a href="/industries/warehouse/">Warehousing and logistics</a>
+          <a href="/industries/manufacturing/">Manufacturing and industry</a>
+          <a href="/industries/construction/">Construction</a>
+          <a href="/industries/agriculture/">Agriculture</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-3">
+          <h3 class="mono" id="foot-site-3"><b>03</b> <span>Solutions</span></h3>
+          <a href="/solutions/cleaning/">Robotic cleaning</a>
+          <a href="/solutions/warehouse/">Warehouse robotics</a>
+          <a href="/solutions/#dir-service-robots">Service robots</a>
+          <a href="/solutions/#dir-industrial">Industrial robotics</a>
+          <a href="/solutions/#dir-medical">Healthcare robotics</a>
+          <a href="/solutions/#dir-construction">Construction robotics</a>
+          <a href="/solutions/#dir-agro">Agri robots</a>
+          <a href="/solutions/#dir-security">Security robots</a>
+          <a href="/solutions/#dir-humanoid">Humanoid robots</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-4">
+          <h3 class="mono" id="foot-site-4"><b>04</b> <span>Company</span></h3>
+          <a href="/about/">About us</a>
+          <a href="/manufacturers/">Manufacturers</a>
+          <a href="/contacts/">Contact</a>
+          <a href="/roi/">ROI calculator</a>
+          <a href="/contacts/#talk">Get a proposal</a>
+          <a href="/services/#pilot">Demo and pilot</a>
+        </nav>
+      </div>
+
+      <div class="foot-bot">
+        <span>© 2026 Professional Robotics. All rights reserved.</span>
+        <a href="/privacy/">Privacy policy</a>
+        <a class="foot-up" href="/"><span>Home</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>

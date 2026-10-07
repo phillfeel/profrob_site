@@ -1,0 +1,141 @@
+/* ================= Склады и логистика (industries-warehouse.html) =================
+   Свой Hero: тёмный план склада, по проходам едут роботы; зоны A–E совпадают с этапами заказа ниже.
+   Проблемы: «бухгалтерская книга» с цифрой слева. Фирменный блок: конвейер из пяти этапов заказа.
+   Внедрения: тёмная секция со столбиками «было / стало».
+   Все селекторы под .ind--warehouse, чтобы не задеть другие страницы. */
+
+/* ---------- Hero: копия слева, план склада справа ---------- */
+.ind--warehouse .wh-hero__grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 56px; align-items: center; }
+
+.ind--warehouse .wh-map {
+  position: relative; margin: 0; padding: 20px 20px 8px; border-radius: var(--r-xl); overflow: hidden;
+  background: var(--stage); color: var(--on-stage); box-shadow: var(--shadow-md);
+}
+.ind--warehouse .wh-map::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(70% 55% at 80% 0%, rgba(200,255,60,.10), transparent 70%);
+}
+.ind--warehouse .wh-map__h { position: relative; padding: 4px 8px 12px; color: var(--on-stage-muted); font-size: 11px; }
+.ind--warehouse .wh-plan { position: relative; display: block; width: 100%; height: auto; }
+
+.ind--warehouse .wh-plan__wall { fill: none; stroke: var(--stage-line); stroke-width: 2; }
+.ind--warehouse .wh-zone rect:first-child { fill: rgba(255,255,255,.03); stroke: var(--stage-line); stroke-width: 1.5; stroke-dasharray: 5 6; transition: fill var(--base) var(--ease), stroke var(--base) var(--ease); }
+.ind--warehouse .wh-zone text { font: 500 20px var(--mono); fill: var(--on-stage-muted); transition: fill var(--base) var(--ease); }
+.ind--warehouse .wh-zone.is-on rect:first-child { fill: rgba(200,255,60,.08); stroke: var(--lime); stroke-dasharray: none; }
+.ind--warehouse .wh-zone.is-on text { fill: var(--lime); }
+.ind--warehouse .wh-rack { fill: var(--stage-raised); stroke: var(--stage-line); stroke-width: 1; }
+.ind--warehouse .wh-pallet { fill: #3a3f48; stroke: #4a505b; stroke-width: 1; }
+.ind--warehouse .wh-belt { fill: none; stroke: var(--stage-line); stroke-width: 10; stroke-linecap: round; }
+.ind--warehouse .wh-aisle { fill: none; stroke: var(--stage-line); stroke-width: 2; stroke-dasharray: 3 5; }
+.ind--warehouse .wh-bot { fill: var(--lime); filter: drop-shadow(0 0 5px rgba(200,255,60,.75)); }
+
+/* Легенда: те же буквы, что на плане и в «Пути заказа» */
+.ind--warehouse .wh-leg { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0 8px; margin: 12px -8px 0; padding: 0; list-style: none; }
+.ind--warehouse .wh-leg a {
+  display: flex; align-items: center; gap: 10px; padding: 12px 8px; border-top: 1px solid var(--stage-line);
+  font-size: 14px; font-weight: 500; line-height: 1.25; color: var(--on-stage); border-radius: var(--r-sm);
+  transition: color var(--fast) var(--ease), background var(--fast) var(--ease);
+}
+.ind--warehouse .wh-leg__l { display: grid; place-items: center; flex: none; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--stage-line); color: var(--lime); font-size: 12px; font-weight: 500; }
+.ind--warehouse .wh-leg a:hover, .ind--warehouse .wh-leg a:focus-visible { background: rgba(255,255,255,.06); }
+
+/* ---------- Проблемы: цифра слева, смысл и источник справа ---------- */
+.ind--warehouse .wh-figs { display: grid; border-top: 1px solid var(--line-strong); list-style: none; }
+.ind--warehouse .wh-fig { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px 56px; padding: 32px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.ind--warehouse .wh-fig__n { display: grid; gap: 8px; }
+.ind--warehouse .wh-fig__n b { font-variant-numeric: normal; font-size: clamp(44px, 5.4vw, 84px); font-weight: 700; letter-spacing: -.05em; line-height: .95; }
+.ind--warehouse .wh-fig:first-child .wh-fig__n b { color: var(--accent-ink); }
+.ind--warehouse .wh-fig__n span { max-width: 32ch; font-size: 14px; line-height: 1.4; color: var(--ink-muted); }
+.ind--warehouse .wh-fig__t { display: grid; gap: 10px; }
+.ind--warehouse .wh-fig h3 { font-size: clamp(21px, 2vw, 26px); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+.ind--warehouse .wh-fig p { font-size: 16px; line-height: 1.55; color: var(--ink-muted); max-width: 62ch; }
+.ind--warehouse .wh-fig p.wh-src { margin-top: 4px; }
+.ind--warehouse .wh-src.mono { font-size: 11px; letter-spacing: .02em; text-transform: none; line-height: 1.5; color: var(--ink-muted); }
+
+/* ---------- Путь заказа ---------- */
+.ind--warehouse .wh-flow { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; list-style: none; counter-reset: none; }
+.ind--warehouse .wh-stage {
+  position: relative; display: grid; gap: 14px; align-content: start; padding: 24px 20px 20px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ind--warehouse .wh-stage.reveal:hover { transition-delay: 0ms; }
+.ind--warehouse .wh-stage:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ind--warehouse .wh-stage__l {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--stage); color: var(--lime); font-size: 15px; font-weight: 500;
+}
+/* Соединитель между буквами: по линии «ползёт» шаг от этапа к этапу */
+.ind--warehouse .wh-stage:not(:last-child)::after {
+  content: ""; position: absolute; top: 44px; left: calc(20px + 40px); right: calc(-16px - 20px); height: 2px; z-index: 1;
+  background: repeating-linear-gradient(90deg, var(--line-strong) 0 4px, transparent 4px 9px);
+}
+.ind--warehouse .wh-stage h3 { font-size: 19px; font-weight: 600; letter-spacing: -.015em; line-height: 1.2; min-height: 2.4em; }
+.ind--warehouse .wh-stage__c { display: grid; gap: 6px; padding-top: 12px; border-top: 1px solid var(--line); }
+.ind--warehouse .wh-stage__lbl { color: var(--ink-muted); font-size: 11px; }
+.ind--warehouse .wh-stage__robot .wh-stage__lbl { color: var(--lime-ink); }
+.ind--warehouse .wh-stage__robot { background: var(--lime-soft); margin: 0 -8px; padding: 12px 8px 12px; border-radius: var(--r-sm); border-top: 0; }
+.ind--warehouse .wh-stage p { font-size: 14px; line-height: 1.5; }
+.ind--warehouse .wh-stage__c:not(.wh-stage__robot) p { color: var(--ink-muted); }
+.ind--warehouse .wh-stage.is-on { box-shadow: 0 0 0 2px var(--lime), var(--shadow-md); }
+.ind--warehouse .wh-flow__foot { margin-top: 20px; font-size: 13px; color: var(--ink-muted); }
+
+/* ---------- Направления: факты с источниками ---------- */
+.ind--warehouse .wh-fact { display: grid; gap: 4px; padding: 14px 16px; border-radius: var(--r-md); background: var(--surface-raised); box-shadow: var(--shadow-sm); }
+.ind--warehouse .wh-fact b { font-size: 26px; font-weight: 700; letter-spacing: -.03em; line-height: 1.1; color: var(--accent-ink); }
+.ind--warehouse .wh-fact > span { font-size: 14px; line-height: 1.45; }
+.ind--warehouse .wh-fact + .wh-fact { margin-top: 10px; }
+
+/* ---------- Внедрения (тёмная секция) ---------- */
+.ind--warehouse .wh-proof { padding: 72px 56px 48px; }
+.ind--warehouse .wh-proof__head { position: relative; display: grid; gap: 16px; max-width: 760px; margin-bottom: 48px; }
+.ind--warehouse .wh-cases { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; list-style: none; border-top: 1px solid var(--stage-line); }
+.ind--warehouse .wh-case { display: grid; gap: 8px; align-content: start; padding: 28px 24px 8px 0; }
+.ind--warehouse .wh-case + .wh-case { padding-left: 24px; border-left: 1px solid var(--stage-line); }
+.ind--warehouse .wh-case__co { color: var(--on-stage-muted); font-size: 12px; }
+.ind--warehouse .wh-case__v { font-size: clamp(34px, 3.4vw, 52px); font-weight: 700; letter-spacing: -.04em; line-height: 1; color: var(--lime); margin-top: 6px; }
+.ind--warehouse .wh-case__cap { font-size: 15px; line-height: 1.35; }
+.ind--warehouse .wh-case__what { font-size: 14px; line-height: 1.45; color: var(--on-stage-muted); }
+.ind--warehouse .wh-bars { display: grid; gap: 6px; margin: 14px 0 6px; }
+.ind--warehouse .wh-bar { display: grid; gap: 4px; }
+.ind--warehouse .wh-bar i { display: block; height: 8px; width: var(--w); border-radius: 4px; background: var(--stage-line); transform-origin: left; transition: transform 900ms var(--ease) calc(var(--i, 0) * 90ms + 200ms); }
+.ind--warehouse .wh-bar--to i { background: var(--lime); }
+.ind--warehouse .wh-bar em { font: normal 500 12px var(--mono); color: var(--on-stage-muted); }
+.js .ind--warehouse .wh-bar i { transform: scaleX(0); }
+.js .ind--warehouse .wh-case.is-in .wh-bar i { transform: none; }
+.ind--warehouse .wh-proof .wh-src.mono { color: var(--on-stage-muted); margin-top: 8px; }
+.ind--warehouse .wh-market { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px; align-items: center; margin-top: 40px; padding: 24px 28px; border-radius: var(--r-lg); background: var(--stage-raised); }
+.ind--warehouse .wh-market b { font-size: clamp(40px, 4.4vw, 64px); font-weight: 700; letter-spacing: -.045em; line-height: 1; color: var(--lime); }
+.ind--warehouse .wh-market p { font-size: 15px; line-height: 1.5; max-width: 72ch; }
+.ind--warehouse .wh-proof__note { position: relative; margin-top: 24px; font-size: 13px; color: var(--on-stage-muted); }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1280px) {
+  .ind--warehouse .wh-flow { grid-template-columns: 1fr; gap: 12px; padding-left: 28px; }
+  .ind--warehouse .wh-flow::before { content: ""; position: absolute; left: 8px; top: 24px; bottom: 24px; width: 2px; background: repeating-linear-gradient(180deg, var(--line-strong) 0 4px, transparent 4px 9px); }
+  .ind--warehouse .wh-stage { grid-template-columns: 40px minmax(0, 1fr); column-gap: 16px; }
+  .ind--warehouse .wh-stage > * { grid-column: 2; }
+  .ind--warehouse .wh-stage__l { grid-column: 1; grid-row: 1 / span 2; margin-left: -48px; margin-right: 8px; box-shadow: 0 0 0 6px var(--surface); }
+  .ind--warehouse .wh-stage:not(:last-child)::after { display: none; }
+  .ind--warehouse .wh-stage h3 { min-height: 0; }
+}
+@media (max-width: 1100px) {
+  .ind--warehouse .wh-hero__grid { grid-template-columns: 1fr; gap: 40px; }
+  .ind--warehouse .wh-cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ind--warehouse .wh-case:nth-child(3) { padding-left: 0; border-left: 0; }
+  .ind--warehouse .wh-case:nth-child(n + 3) { border-top: 1px solid var(--stage-line); margin-top: 20px; }
+}
+@media (max-width: 760px) {
+  .ind--warehouse .wh-fig { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+  .ind--warehouse .wh-proof { padding: 48px 20px 32px; }
+  .ind--warehouse .wh-cases { grid-template-columns: 1fr; }
+  .ind--warehouse .wh-case, .ind--warehouse .wh-case + .wh-case, .ind--warehouse .wh-case:nth-child(3) { padding: 24px 0 8px; border-left: 0; margin-top: 0; }
+  .ind--warehouse .wh-case + .wh-case { border-top: 1px solid var(--stage-line); }
+  .ind--warehouse .wh-market { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
+  .ind--warehouse .wh-map { padding: 14px 12px 4px; border-radius: var(--r-lg); }
+  .ind--warehouse .wh-leg { grid-template-columns: 1fr 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ind--warehouse .wh-bar i, .ind--warehouse .wh-stage, .ind--warehouse .wh-zone rect, .ind--warehouse .wh-zone text { transition: none; }
+  .ind--warehouse .wh-stage:hover { transform: none; }
+}

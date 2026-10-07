@@ -1,0 +1,416 @@
+{
+  "about": {
+    "ns": "about",
+    "scripts": [
+      "solutions.js",
+      "products.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "products.css",
+      "about.css"
+    ],
+    "content": "about-body.html",
+    "bodyClass": "sol-page pr-page ab-page"
+  },
+  "products": {
+    "ns": "products",
+    "scripts": [
+      "solutions.js",
+      "products.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "products.css"
+    ],
+    "content": "products-body.html",
+    "bodyClass": "sol-page pr-page"
+  },
+  "services": {
+    "ns": "services",
+    "scripts": [
+      "solutions.js",
+      "products.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "products.css",
+      "services.css"
+    ],
+    "content": "services-body.html",
+    "bodyClass": "sol-page pr-page sv-page"
+  },
+  "solutions": {
+    "ns": "solutions",
+    "scripts": [
+      "solutions.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css"
+    ],
+    "content": "solutions-body.html",
+    "bodyClass": "sol-page"
+  },
+  "cases": {
+    "ns": "cases",
+    "scripts": [
+      "solutions.js",
+      "products.js",
+      "cases.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "products.css",
+      "cases.css"
+    ],
+    "content": "cases-body.html",
+    "bodyClass": "sol-page pr-page cs-page"
+  },
+  "contacts": {
+    "ns": "contacts",
+    "scripts": [
+      "solutions.js",
+      "contacts.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "contacts.css"
+    ],
+    "content": "contacts-body.html",
+    "bodyClass": "sol-page ct-page"
+  },
+  "industries": {
+    "ns": "industriesHub",
+    "scripts": [
+      "solutions.js",
+      "industries.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industries.css"
+    ],
+    "content": "industries-body.html",
+    "bodyClass": "sol-page ih-page"
+  },
+  "industries/agriculture": {
+    "ns": "industries.agriculture",
+    "scripts": [
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css"
+    ],
+    "content": "industries-agriculture-body.html",
+    "bodyClass": "sol-page ind-page ind--agriculture"
+  },
+  "industries/business-centers": {
+    "ns": "industries.businessCenters",
+    "scripts": [
+      "roi-model.js",
+      "solutions.js",
+      "industry.js",
+      "industry-business-centers.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "industry-business-centers.css"
+    ],
+    "content": "industries-business-centers-body.html",
+    "bodyClass": "sol-page ind-page ind--business-centers"
+  },
+  "industries/construction": {
+    "ns": "industries.construction",
+    "scripts": [
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css"
+    ],
+    "content": "industries-construction-body.html",
+    "bodyClass": "sol-page ind-page ind--construction"
+  },
+  "industries/education": {
+    "ns": "industries.education",
+    "scripts": [
+      "roi-model.js",
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "industry-education.css"
+    ],
+    "content": "industries-education-body.html",
+    "bodyClass": "sol-page ind-page ind--education"
+  },
+  "industries/fitness-sports": {
+    "ns": "industries.fitnessSports",
+    "scripts": [
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "industry-fitness-sports.css"
+    ],
+    "content": "industries-fitness-sports-body.html",
+    "bodyClass": "sol-page ind-page ind--fitness-sports"
+  },
+  "industries/hotels": {
+    "ns": "industries.hotels",
+    "scripts": [
+      "roi-model.js",
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css"
+    ],
+    "content": "industries-hotels-body.html",
+    "bodyClass": "sol-page ind-page ind--hotels"
+  },
+  "industries/manufacturing": {
+    "ns": "industries.manufacturing",
+    "scripts": [
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css"
+    ],
+    "content": "industries-manufacturing-body.html",
+    "bodyClass": "sol-page ind-page ind--manufacturing"
+  },
+  "industries/medical-wellness": {
+    "ns": "industries.medicalWellness",
+    "scripts": [
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css"
+    ],
+    "content": "industries-medical-wellness-body.html",
+    "bodyClass": "sol-page ind-page ind--medical-wellness"
+  },
+  "industries/municipal": {
+    "ns": "industries.municipal",
+    "scripts": [
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "industry-municipal.css"
+    ],
+    "content": "industries-municipal-body.html",
+    "bodyClass": "sol-page ind-page ind--municipal"
+  },
+  "industries/public-spaces": {
+    "ns": "industries.publicSpaces",
+    "scripts": [
+      "solutions.js",
+      "industry.js",
+      "industry-public-spaces.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "industry-public-spaces.css"
+    ],
+    "content": "industries-public-spaces-body.html",
+    "bodyClass": "sol-page ind-page ind--public-spaces"
+  },
+  "industries/retail": {
+    "ns": "industries.retail",
+    "scripts": [
+      "roi-model.js",
+      "solutions.js",
+      "industry.js",
+      "industry-retail.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "industry-retail.css"
+    ],
+    "content": "industries-retail-body.html",
+    "bodyClass": "sol-page ind-page ind--retail"
+  },
+  "industries/warehouse": {
+    "ns": "industries.warehouse",
+    "scripts": [
+      "solutions.js",
+      "industry.js",
+      "industry-warehouse.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "industry-warehouse.css"
+    ],
+    "content": "industries-warehouse-body.html",
+    "bodyClass": "sol-page ind-page ind--warehouse"
+  },
+  "knowledge": {
+    "ns": "knowledge",
+    "scripts": [
+      "solutions.js",
+      "knowledge.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "products.css",
+      "knowledge.css"
+    ],
+    "content": "knowledge-body.html",
+    "bodyClass": "sol-page pr-page kb-page"
+  },
+  "knowledge/cleaning-robot-basics": {
+    "ns": "kbCleaning",
+    "scripts": [
+      "solutions.js",
+      "knowledge-article.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "products.css",
+      "knowledge.css",
+      "knowledge-article.css"
+    ],
+    "content": "knowledge-cleaning-robot-basics-body.html",
+    "bodyClass": "sol-page pr-page kb-page ar-page"
+  },
+  "manufacturers": {
+    "ns": "manufacturers",
+    "scripts": [
+      "solutions.js",
+      "products.js",
+      "manufacturers.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "products.css",
+      "manufacturers.css"
+    ],
+    "content": "manufacturers-body.html",
+    "bodyClass": "sol-page pr-page mf-page"
+  },
+  "platform": {
+    "ns": "platform",
+    "scripts": [
+      "solutions.js",
+      "products.js",
+      "platform.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "products.css",
+      "platform.css"
+    ],
+    "content": "platform-body.html",
+    "bodyClass": "sol-page pr-page pf-page"
+  },
+  "privacy": {
+    "ns": "legal.privacy",
+    "scripts": [],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "legal.css"
+    ],
+    "content": "privacy-body.html",
+    "bodyClass": "sol-page"
+  },
+  "consent": {
+    "ns": "legal.consent",
+    "scripts": [],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "legal.css"
+    ],
+    "content": "consent-body.html",
+    "bodyClass": "sol-page"
+  },
+  "roi": {
+    "ns": "roi",
+    "scripts": [
+      "roi-model.js",
+      "facade-model.js",
+      "roi.js"
+    ],
+    "css": [
+      "styles.css",
+      "roi.css"
+    ],
+    "content": "roi-body.html",
+    "bodyClass": "roi-page"
+  },
+  "solutions/cleaning": {
+    "ns": "solutions.cleaning",
+    "scripts": [
+      "roi-model.js",
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "solution.css"
+    ],
+    "content": "solutions-cleaning-body.html",
+    "bodyClass": "sol-page ind-page ind--solution-cleaning sx-page"
+  },
+  "solutions/warehouse": {
+    "ns": "solutions.warehouse",
+    "scripts": [
+      "roi-model.js",
+      "solutions.js",
+      "industry.js"
+    ],
+    "css": [
+      "styles.css",
+      "solutions.css",
+      "industry.css",
+      "solution.css"
+    ],
+    "content": "solutions-warehouse-body.html",
+    "bodyClass": "sol-page ind-page ind--solution-warehouse sx-page"
+  }
+}

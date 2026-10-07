@@ -1,0 +1,170 @@
+/* ================= СТРАНИЦА «ПРОИЗВОДИТЕЛИ» (manufacturers.html) =================
+   Надстройка над styles.css, solutions.css и products.css: hero, тёмная сцена .pr-stage, see-card, форма и подвал берутся оттуда.
+   Здесь карта подбора в hero (по точке на производителя), каталог по направлениям, карточки ключевых брендов,
+   схема «несколько вендоров → один выбор» и строки критериев.
+   Логотипы — те же файлы и оптические высоты (--h), что в логобаре главной; цвет задаёт фильтр. */
+
+.mf-page [hidden] { display: none !important; }
+.mf-page .mf-grp { scroll-margin-top: 112px; }
+
+/* ---------- 01 Hero: карта подбора ---------- */
+.mf-map {
+  padding: 24px 24px 12px; border-radius: var(--r-lg); background: var(--glass); border: 1px solid var(--glass-line);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: var(--shadow-md);
+}
+.mf-map__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.mf-map__total { display: flex; align-items: flex-end; gap: 12px; }
+.mf-map__total b {
+  font-size: 64px; font-weight: 700; letter-spacing: -.06em; line-height: .8;
+  background: linear-gradient(180deg, var(--ink) 30%, var(--accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.mf-map__total span { max-width: 11ch; font-size: 14px; line-height: 1.25; color: var(--ink-muted); }
+.mf-map__head .mono { padding-bottom: 2px; font-size: 11px; letter-spacing: .04em; color: var(--ink-muted); white-space: nowrap; }
+.mf-map__rows li + li { border-top: 1px dashed var(--line); }
+.mf-map__row {
+  display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 8px 12px; align-items: baseline; padding: 14px 10px 14px; margin: 0 -10px;
+  border-radius: var(--r-sm); transition: background var(--fast) var(--ease);
+}
+.mf-map__no { font-size: 12px; color: var(--ink-muted); transition: color var(--fast) var(--ease); }
+.mf-map__name { font-size: 16px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; text-wrap: balance; }
+.mf-map__n { font-size: 20px; font-weight: 700; letter-spacing: -.03em; line-height: 1; }
+.mf-map__dots { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 5px; }
+.mf-map__dots i {
+  width: 9px; height: 9px; border-radius: 50%; background: var(--accent); opacity: .88;
+  animation: mf-pop .5s var(--ease) both; animation-delay: calc(.45s + var(--k, 0) * 18ms);
+  transition: background var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.mf-map__row:hover { background: var(--accent-soft); }
+.mf-map__row:hover .mf-map__no { color: var(--accent-ink); }
+.mf-map__row:hover .mf-map__dots i { background: var(--ink); opacity: 1; }
+@keyframes mf-pop { from { opacity: 0; transform: scale(.2); } }
+
+/* ---------- 02 Каталог ---------- */
+.mf-groups { display: grid; gap: 20px; }
+.mf-grp {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 40px; align-items: start; padding: 32px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm);
+}
+.mf-grp.reveal:hover { box-shadow: var(--shadow-md); transition-delay: 0ms; }
+.mf-grp__head { display: grid; gap: 12px; align-content: start; }
+.mf-grp__top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.mf-grp__no { color: var(--ink-muted); }
+.mf-grp h3 { font-size: clamp(22px, 2vw, 28px); font-weight: 700; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; }
+.mf-grp__head p { font-size: 15px; line-height: 1.5; color: var(--ink-muted); max-width: 36ch; }
+
+.mf-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(156px, 1fr)); gap: 10px; }
+.mf-tile {
+  --ls: .8;
+  display: grid; grid-template-rows: minmax(52px, 1fr) auto; align-items: center; justify-items: center; gap: 6px; min-height: 100px; padding: 16px 12px 12px;
+  border-radius: var(--r-md); background: var(--surface); text-align: center;
+  transition: background var(--fast) var(--ease), transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.mf-tile__logo { display: grid; place-items: center; width: 100%; }
+.mf-tile img { height: calc(var(--h, 28px) * var(--ls)); width: auto; max-width: 100%; filter: brightness(0); opacity: .62; transition: opacity var(--fast) var(--ease); }
+.mf-tile__n { font-family: var(--mono); font-size: 10.5px; line-height: 1.3; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-muted); text-wrap: balance; }
+/* Бренд без файла логотипа: название простым начертанием, подписи под ним нет */
+.mf-tile--word { grid-template-rows: 1fr; }
+.mf-word { font-size: 19px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); opacity: .7; transition: opacity var(--fast) var(--ease); }
+.mf-tile--more { grid-template-rows: 1fr; background: transparent; border: 1px dashed var(--line-strong); }
+.mf-tile--more span { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+@media (hover: hover) {
+  .mf-tile:not(.mf-tile--more):hover { background: var(--accent-soft); transform: translateY(-2px); box-shadow: 0 8px 20px -10px #2f3bff55; }
+  .mf-tile:hover img, .mf-tile:hover .mf-word { opacity: 1; }
+}
+
+/* ---------- 03 Ключевые бренды: тёмная сцена ---------- */
+.pr-page .stage.mf-stage { gap: 48px; }
+.mf-stage__copy { max-width: 720px; }
+.mf-stage .h2 { max-width: 20ch; }
+.mf-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.mf-key {
+  position: relative; display: grid; align-content: start; gap: 10px; min-height: 268px; padding: 28px; overflow: hidden;
+  border: 1px solid var(--stage-line); border-radius: var(--r-lg); background: rgba(255,255,255,.03);
+}
+.mf-page .mf-key.reveal { transition: opacity .6s var(--ease) calc(var(--i, 0) * 50ms), transform .6s var(--ease) calc(var(--i, 0) * 50ms), background var(--base) var(--ease), border-color var(--base) var(--ease), box-shadow var(--base) var(--ease); }
+/* Прожектор под курсором, как у плиток логобара на главной: --mx/--my ставит manufacturers.js */
+.mf-key::before {
+  content: ""; position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity var(--base) var(--ease);
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 0%), #2f3bff40, transparent 70%);
+}
+.mf-key > * { position: relative; }
+.mf-key__top { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 46px; margin-bottom: 16px; }
+.mf-key__logo { height: calc(var(--h, 28px) * .95); width: auto; max-width: 62%; filter: brightness(0) invert(1); opacity: .92; }
+.mf-key__cn {
+  display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border: 1px solid var(--stage-line); border-radius: var(--r-pill);
+  font-size: 10.5px; letter-spacing: .08em; color: var(--on-stage-muted); white-space: nowrap;
+}
+.mf-key h3 { font-size: 26px; font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
+.mf-key__kind { font-size: 11px; letter-spacing: .08em; color: var(--accent-ink-dark); }
+.mf-key__text { font-size: 15px; line-height: 1.5; color: var(--on-stage-muted); max-width: 38ch; }
+@media (hover: hover) {
+  .mf-key:hover { background: rgba(255,255,255,.06); border-color: #4a55ff99; transform: translateY(-2px); box-shadow: 0 0 0 4px #2f3bff1f, 0 16px 40px -16px #2f3bffaa; }
+  .mf-key:hover::before { opacity: 1; }
+}
+.mf-note { font-size: 11px; letter-spacing: .02em; text-transform: none; color: var(--on-stage-muted); max-width: 70ch; }
+
+/* ---------- 04 Как мы выбираем: заголовок со схемой слева, критерии справа ---------- */
+.mf-sel { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+.mf-sel__head { display: grid; gap: 24px; position: sticky; top: 120px; }
+.mf-sel .h2 { font-size: clamp(30px, 3.3vw, 46px); text-wrap: balance; }
+
+/* Схема: три вендора в одном направлении → выбор под задачу. Пример, а не оценка брендов */
+.mf-pick { display: grid; gap: 14px; max-width: 440px; margin-top: 8px; }
+.mf-pick__cap { font-size: 11px; letter-spacing: .06em; color: var(--ink-muted); }
+.mf-pick__grid { display: grid; grid-template-columns: 148px minmax(40px, 1fr) auto; align-items: center; }
+.mf-pick__in { display: grid; gap: 6px; }
+.mf-pick__in li { display: grid; place-items: center; height: 44px; border-radius: var(--r-sm); background: var(--surface-raised); box-shadow: var(--shadow-sm); }
+.mf-pick__in img { height: calc(var(--h, 28px) * .62); width: auto; max-width: 80%; filter: brightness(0); opacity: .6; }
+.mf-pick__lines { width: 100%; height: 144px; overflow: visible; }
+.mf-pick__lines path { fill: none; stroke: var(--accent); stroke-width: 1.5; vector-effect: non-scaling-stroke; opacity: .45; }
+.mf-pick__out b {
+  display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: var(--r-pill);
+  background: var(--accent); color: #fff; font-size: 15px; font-weight: 600; white-space: nowrap; box-shadow: var(--glow-accent);
+}
+.mf-pick__out b::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); }
+
+.mf-rows { list-style: none; display: grid; }
+.mf-row {
+  display: grid; grid-template-columns: 40px 56px minmax(0, 1fr); gap: 20px; align-items: start; padding: 32px 8px; border-top: 1px solid var(--line);
+}
+.mf-row:last-child { border-bottom: 1px solid var(--line); }
+.mf-row__no { padding-top: 6px; font-size: 13px; color: var(--accent-ink); }
+.mf-row h3 { font-size: clamp(22px, 2vw, 28px); font-weight: 600; letter-spacing: -.025em; line-height: 1.1; margin-bottom: 8px; text-wrap: balance; }
+.mf-row p { font-size: 16px; line-height: 1.55; color: var(--ink-muted); max-width: 54ch; }
+.mf-row .ic-tile { transition: background var(--fast) var(--ease), color var(--fast) var(--ease); }
+.mf-row:hover .ic-tile { background: var(--accent); color: #fff; }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .mf-map { max-width: 520px; }
+  .mf-grp { grid-template-columns: 1fr; gap: 24px; }
+  .mf-grp__head p { max-width: 56ch; }
+  .pr-page .stage.mf-stage { padding: 56px 40px; }
+  .mf-keys { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mf-sel { grid-template-columns: 1fr; gap: 32px; }
+  .mf-sel__head { position: static; }
+}
+@media (max-width: 1023px) {
+  .pr-page .stage.mf-stage { padding: 40px 20px; }
+}
+@media (max-width: 767px) {
+  .mf-map { padding: 16px 16px 8px; }
+  .mf-map__total b { font-size: 52px; }
+  .mf-grp { padding: 20px; }
+  .mf-tiles { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 8px; }
+  .mf-tile { --ls: .66; min-height: 88px; padding: 14px 8px 10px; }
+  .mf-word { font-size: 17px; }
+  .mf-keys { grid-template-columns: 1fr; }
+  .mf-key { min-height: 0; padding: 20px; }
+  .mf-pick__grid { grid-template-columns: 112px minmax(24px, 1fr) auto; }
+  .mf-pick__out b { padding: 0 12px; font-size: 14px; }
+  .mf-row { grid-template-columns: 48px minmax(0, 1fr); gap: 4px 14px; padding: 24px 0; }
+  .mf-row__no { display: none; }
+  .mf-row .ic-tile { width: 48px; height: 48px; }
+  .mf-row h3 { font-size: 20px; }
+  .mf-row p { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mf-map__dots i { animation: none; }
+  .mf-page .mf-key.reveal { transition: none; }
+}

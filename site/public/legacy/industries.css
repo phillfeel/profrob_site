@@ -1,0 +1,113 @@
+/* ================= СТРАНИЦА «ОТРАСЛИ» (industries.html) =================
+   Надстройка над styles.css и solutions.css: hero, .facts, .sol-head, .go-arrow, .badge-roi, список .ind-row (как на главной),
+   лента .cases и форма берутся оттуда. Здесь только бенто с карточками отраслей и строки «по типу объекта». */
+
+/* ---------- 02 Отрасли — бенто на 12 колонок ----------
+   Первая карточка (ритейл) — шесть колонок и две строки, остальные по три; нижние два ряда по четыре.
+   Порядок в разметке = порядок чтения, сетка раскладывает сама: feature + 4 малых | 3×4 | 3×4. */
+.ib { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 20px; }
+.ic {
+  position: relative; display: flex; flex-direction: column; grid-column: span 3; overflow: hidden;
+  border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ic--feature { grid-column: span 6; grid-row: span 2; }
+.ic--third { grid-column: span 4; }
+.ic--wide { grid-column: span 12; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ic--wide .ic__ph { aspect-ratio: auto; min-height: 240px; }
+.ic--wide .ic__ph::after { background: linear-gradient(to right, transparent 45%, var(--stage) 100%); }
+.ic--wide .ic__body { align-content: end; padding: 28px 96px 32px 32px; gap: 12px; }
+.ic--wide h3 { font-size: clamp(26px, 2.6vw, 36px); letter-spacing: -.03em; line-height: 1.06; }
+.ic--wide .go-arrow { right: 28px; bottom: 28px; }
+
+/* План склада вместо фото: тёмная сцена с роботами-точками */
+.ic--plan .ic__ph { background: var(--stage); }
+.ic__plan { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ic__plan rect { fill: var(--stage-raised); stroke: var(--stage-line); stroke-width: 1.5; }
+.ic__plan .ic__plan-wall { fill: none; }
+.ic__plan-rack { fill: none; stroke: var(--stage-line); stroke-width: 6; stroke-linecap: round; }
+.ic__plan circle { fill: var(--lime); filter: drop-shadow(0 0 4px rgba(200,255,60,.8)); }
+.ic:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ic:hover .go-arrow { background: var(--accent); color: #fff; }
+.ic:focus-visible { border-radius: var(--r-lg); }
+/* Подъём при hover не должен ждать ступенчатую задержку .reveal */
+.ih-page .ic.reveal:hover { transition-delay: 0ms; }
+
+.ic__ph { position: relative; display: block; aspect-ratio: 3 / 2; overflow: hidden; background: var(--surface-sunken); }
+.ic--feature .ic__ph { aspect-ratio: auto; flex: 1 1 auto; min-height: 340px; }
+.ic__ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 400ms var(--ease); }
+.ic:hover .ic__ph img { transform: scale(1.03); }
+
+.ic__body { display: grid; align-content: start; gap: 10px; padding: 20px 84px 24px 24px; }
+.ic__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 28px; }
+.ic h3 { font-size: 22px; font-weight: 600; letter-spacing: -.02em; line-height: 1.12; text-wrap: balance; }
+.ic p { font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
+.ic__scenes { font-size: 13px; line-height: 1.45; color: var(--ink-muted); }
+.ic .go-arrow { position: absolute; right: 20px; bottom: 20px; }
+
+.ic--feature .ic__body { padding: 28px 96px 32px 32px; gap: 12px; }
+.ic--feature h3 { font-size: clamp(30px, 3vw, 40px); letter-spacing: -.03em; line-height: 1.04; }
+.ic--feature p { font-size: 17px; max-width: 38ch; }
+.ic--feature .ic__scenes { font-size: 14px; }
+.ic--feature .go-arrow { right: 28px; bottom: 28px; }
+
+/* Тёмная карточка: графитовая сцена уравновешивает крупную светлую слева */
+.ic--stage { background: var(--stage); color: var(--on-stage); box-shadow: none; }
+.ic--stage:hover { box-shadow: var(--shadow-md); }
+.ic--stage .ic__ph { background: var(--stage-raised); }
+.ic--stage .ic__ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 45%, var(--stage) 100%); }
+.ic--stage p, .ic--stage .ic__scenes, .ic--stage .dir__no { color: var(--on-stage-muted); }
+.ic--stage .go-arrow { background: var(--stage-raised); color: var(--on-stage); }
+
+/* ---------- 03 По типу объекта: строки .ind-row главной + подпись отрасли ---------- */
+.ind-row--obj { grid-template-columns: 56px minmax(0, 1fr) auto 40px; font-size: 20px; min-height: 44px; }
+.ind-row--obj .ind-row__t { min-width: 0; }
+.ind-row--obj .go { grid-column: 4; }
+.ind-row__ind { max-width: 200px; text-align: right; font-size: 11px; line-height: 1.3; letter-spacing: .04em; color: var(--ink-muted); }
+.ind-row--obj:hover .ind-row__ind { color: var(--accent-ink); }
+
+/* ---------- 04 Кейсы: лента .cases главной, у карточки вместо «шильдика» ссылка на отрасль ---------- */
+.ih-cases .cases-head { margin-bottom: 48px; }
+.case__ind {
+  display: inline-flex; align-items: center; gap: 10px; width: fit-content; min-height: 44px; margin: -12px 0;
+  font-size: 14px; font-weight: 500; color: var(--ink); transition: color var(--fast) var(--ease);
+}
+.case__ind .mono { font-size: 11px; font-weight: 400; color: var(--ink-muted); }
+.case__ind svg { width: 16px; height: 16px; flex: none; color: var(--ink-muted); transition: transform var(--fast) var(--ease), color var(--fast) var(--ease); }
+.case__ind:hover { color: var(--accent-ink); }
+.case__ind:hover svg { color: var(--accent-ink); transform: translate(2px, -2px); }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  /* Ритейл на всю ширину (фото слева, текст справа), остальные по две в ряд */
+  .ib { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ic, .ic--third, .ic--feature { grid-column: auto; grid-row: auto; }
+  .ic--wide { grid-column: 1 / -1; }
+  .ic--feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .ic--feature .ic__ph { min-height: 360px; }
+  .ic--feature .ic__body { align-content: end; }
+}
+@media (max-width: 1023px) {
+  .ih-page .ic h3 { font-size: 21px; }
+}
+@media (max-width: 767px) {
+  .ib { grid-template-columns: 1fr; gap: 12px; }
+  .ic--feature, .ic--wide { display: flex; }
+  .ic__ph, .ic--feature .ic__ph, .ic--wide .ic__ph { aspect-ratio: 16 / 9; flex: none; min-height: 0; }
+  .ic--wide .ic__ph::after { background: linear-gradient(to bottom, transparent 45%, var(--stage) 100%); }
+  .ic__body, .ic--feature .ic__body, .ic--wide .ic__body { padding: 18px 76px 20px 20px; }
+  .ic--feature h3 { font-size: 26px; }
+  .ic--feature p { font-size: 15px; }
+  .ic .go-arrow, .ic--feature .go-arrow { right: 16px; bottom: 16px; }
+
+  /* Подпись отрасли уходит под название */
+  .ind-row--obj { grid-template-columns: 40px minmax(0, 1fr) 40px; row-gap: 2px; font-size: 18px; }
+  .ind-row--obj .no { grid-row: 1 / span 2; }
+  .ind-row--obj .go { grid-column: 3; grid-row: 1 / span 2; }
+  .ind-row__ind { grid-column: 2; grid-row: 2; max-width: none; text-align: left; }
+  .ind-row--obj:not(:has(.ind-row__ind)) .ind-row__t { grid-row: 1 / span 2; align-self: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ic, .ic__ph img, .case__ind svg { transition: none; }
+  .ic:hover, .ic:hover .ic__ph img { transform: none; }
+}

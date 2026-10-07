@@ -1,0 +1,189 @@
+/* ================= ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ (industries-retail.html) =================
+   Только эта страница: все селекторы под .ind--retail. Общие токены и компоненты — styles.css, solutions.css, industry.css.
+   Мотив страницы — торговый: цифры пилота в Hero оформлены как ценник, кейсы — как чеки,
+   фирменный блок — шкалы «сколько раз в день убирают» и сравнение ресурсов. */
+
+/* ---------- Hero: доказательство первым ---------- */
+.ind--retail .rh { padding-top: clamp(112px, 14vh, 140px); }
+.ind--retail .rh__grid {
+  display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 28px 56px; align-items: start;
+}
+/* Десктоп: две колонки (текст | ценник + фото). Мобайл: колонки растворяются, порядок — H1, ценник, текст, фото */
+.ind--retail .rh__l, .ind--retail .rh__r { display: grid; gap: 28px; align-content: start; }
+.ind--retail .rh__head { display: grid; gap: 22px; align-content: start; }
+.ind--retail .rh__body { display: grid; gap: 24px; align-content: start; }
+.ind--retail .rh__h1 { font-size: clamp(36px, 4.1vw, 62px); }
+.ind--retail .rh__h1 span { display: block; }
+
+/* Ценник: белая карточка с лаймовой кромкой, крупные цифры, источник прямо под ними */
+.ind--retail .proof {
+  position: relative; display: grid; gap: 18px; padding: 24px 28px 22px 36px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-md); overflow: hidden;
+}
+.ind--retail .proof::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: var(--lime); }
+.ind--retail .proof__top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 11px; color: var(--ink-muted); padding-right: 56px; }
+.ind--retail .proof__top span:first-child { color: var(--ink); }
+.ind--retail .proof__nums { display: grid; grid-template-columns: auto 1fr; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px dashed var(--line-strong); }
+.ind--retail .proof__nums div { display: grid; gap: 6px; padding: 16px 28px 18px 0; }
+.ind--retail .proof__nums div + div { padding-left: 28px; border-left: 1px solid var(--line); }
+.ind--retail .proof__nums dd {
+  order: -1; font-size: clamp(64px, 7.4vw, 116px); font-weight: 700; letter-spacing: -.055em; line-height: .86; color: var(--ink);
+  display: flex; align-items: baseline; gap: 8px; white-space: nowrap;
+}
+.ind--retail .proof__nums dd small { font-size: 15px; font-weight: 500; letter-spacing: 0; color: var(--ink-muted); }
+.ind--retail .proof__nums dt { font-size: 14px; color: var(--ink-muted); }
+.ind--retail .proof__status { display: grid; grid-template-columns: 12px 1fr; gap: 12px; font-size: 14px; line-height: 1.5; color: var(--ink-muted); }
+.ind--retail .proof__status b { color: var(--ink); font-weight: 600; }
+.ind--retail .proof__status i { width: 10px; height: 10px; margin-top: 6px; border-radius: 50%; background: var(--lime-ink); box-shadow: 0 0 0 4px var(--lime-soft); }
+/* Штрихкод в углу ценника — декор, скрыт от скринридера */
+.ind--retail .proof__code {
+  position: absolute; top: 20px; right: 24px; width: 44px; height: 22px; opacity: .55;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 4px, var(--ink) 4px 5px, transparent 5px 8px, var(--ink) 8px 11px, transparent 11px 13px);
+}
+
+/* Подпись источника: везде одинаковая, mono-метка + ссылка */
+.ind--retail .rsrc, .ind--retail .proof__src { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: 13px; line-height: 1.45; color: var(--ink-muted); }
+.ind--retail .rsrc .mono, .ind--retail .proof__src .mono { font-size: 10px; color: var(--ink); }
+.ind--retail .rsrc a, .ind--retail .proof__src a { color: var(--ink-muted); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.ind--retail .rsrc a:hover, .ind--retail .proof__src a:hover { color: var(--accent-ink); text-decoration-color: currentColor; }
+.ind--retail .rsrc--in { display: inline-flex; margin-left: 4px; }
+
+/* ---------- Проблемы: плитки «цифра — вывод — источник» ---------- */
+.ind--retail .rfacts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.ind--retail .rfact {
+  display: grid; grid-template-rows: auto auto 1fr auto; gap: 12px; padding: 28px 24px 22px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm); transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ind--retail .rfact:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); transition-delay: 0ms; }
+.ind--retail .rfact__fig { font-size: clamp(40px, 3.6vw, 52px); font-weight: 700; letter-spacing: -.045em; line-height: 1; padding-bottom: 18px; border-bottom: 1px dashed var(--line-strong); }
+.ind--retail .rfact__fig--ic { display: flex; align-items: center; height: calc(clamp(40px, 3.6vw, 52px) + 18px); padding-bottom: 18px; box-sizing: border-box; }
+.ind--retail .rfact__fig--ic svg { width: 40px; height: 40px; fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.ind--retail .rfact h3 { font-size: 19px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+.ind--retail .rfact > p:not(.rsrc) { font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
+.ind--retail .rfact .rsrc { padding-top: 12px; border-top: 1px solid var(--line); font-size: 12px; }
+
+/* ---------- Фирменный блок: частота уборки ---------- */
+.ind--retail .fq {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); border-radius: var(--r-lg); overflow: hidden;
+  background: var(--surface-raised); box-shadow: var(--shadow-sm);
+}
+.ind--retail .fq__main { display: grid; gap: 20px; align-content: start; padding: 40px 40px 32px; }
+.ind--retail .fq__side { display: grid; gap: 24px; align-content: start; padding: 40px 36px 32px; background: var(--surface); border-left: 1px solid var(--line); }
+.ind--retail .fq__h { font-size: 22px; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; }
+
+.ind--retail .fq__scale, .ind--retail .fq__row { display: grid; grid-template-columns: 170px minmax(0, 1fr) 112px; gap: 20px; align-items: center; }
+.ind--retail .fq__scale { font-size: 10px; color: var(--ink-muted); margin-top: 8px; }
+.ind--retail .fq__scale-n { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; text-align: center; }
+.ind--retail .fq__rows { display: grid; }
+.ind--retail .fq__row { padding: 18px 0; border-top: 1px solid var(--line); }
+.ind--retail .fq__row:last-child { border-bottom: 1px solid var(--line); }
+.ind--retail .fq__zone { display: grid; gap: 2px; line-height: 1.25; }
+.ind--retail .fq__zone b { font-size: 16px; font-weight: 600; }
+.ind--retail .fq__zone span { font-size: 14px; color: var(--ink-muted); }
+.ind--retail .fq__track { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; }
+.ind--retail .fq__c { display: block; height: 36px; border-radius: 8px; background: var(--surface-sunken); transform-origin: left center; }
+.ind--retail .fq__c--on { background: var(--ink); }
+.ind--retail .fq__c--range { background: repeating-linear-gradient(135deg, var(--ink) 0 2px, var(--surface-sunken) 2px 7px); }
+.ind--retail .fq__val { display: grid; gap: 2px; text-align: right; line-height: 1.1; }
+.ind--retail .fq__val b { font-size: 32px; font-weight: 700; letter-spacing: -.04em; }
+.ind--retail .fq__val span { font-size: 13px; color: var(--ink-muted); }
+.ind--retail .fq__legend { display: flex; gap: 20px; font-size: 13px; color: var(--ink-muted); }
+.ind--retail .fq__legend li { display: inline-flex; align-items: center; gap: 8px; }
+.ind--retail .fq__legend .fq__c { width: 18px; height: 12px; border-radius: 3px; }
+.ind--retail .fq__note { font-size: 14px; line-height: 1.5; color: var(--ink-muted); }
+
+/* Ячейки заполняются по очереди, когда блок попал в экран (класс ставит industry-retail.js) */
+@media (prefers-reduced-motion: no-preference) {
+  .js .ind--retail .fq__track .fq__c--on, .js .ind--retail .fq__track .fq__c--range {
+    transform: scaleX(0); transition: transform .5s var(--ease) calc(var(--r, 0) * 180ms + var(--c) * 55ms + 150ms);
+  }
+  .js .ind--retail .fq.is-on .fq__track .fq__c { transform: none; }
+  .js .ind--retail .cmp__bar i { transform: scaleX(0); transition: transform .9s var(--ease) .5s; }
+  .js .ind--retail .fq.is-on .cmp__bar i { transform: none; }
+}
+
+/* Сравнение ресурсов: две полосы, робот — синим */
+.ind--retail .cmp { display: grid; gap: 10px; }
+.ind--retail .cmp__t { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 600; }
+.ind--retail .cmp__t .mono { font-size: 10px; color: var(--ink-muted); }
+.ind--retail .cmp__row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 48px; gap: 12px; align-items: center; font-size: 13px; line-height: 1.25; color: var(--ink-muted); }
+.ind--retail .cmp__row b { font-size: 20px; font-weight: 700; letter-spacing: -.03em; color: var(--ink); text-align: right; }
+.ind--retail .cmp__bar { height: 14px; border-radius: 4px; background: var(--surface-sunken); overflow: hidden; }
+.ind--retail .cmp__bar i { display: block; height: 100%; width: var(--w); border-radius: 4px; background: var(--line-strong); transform-origin: left center; }
+.ind--retail .cmp__row--bot { color: var(--ink); font-weight: 500; }
+.ind--retail .cmp__row--bot .cmp__bar i { background: var(--accent); }
+.ind--retail .cmp__row--bot b { color: var(--accent-ink); }
+.ind--retail .cmp__svc { font-size: 14px; line-height: 1.5; color: var(--ink-muted); padding-top: 18px; border-top: 1px dashed var(--line-strong); }
+.ind--retail .cmp__svc b { color: var(--ink); font-weight: 600; }
+
+/* ---------- Кейсы: чеки без фото ---------- */
+.ind--retail .rcases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+.ind--retail .rcase {
+  position: relative; display: grid; grid-template-rows: auto auto auto 1fr auto auto; gap: 14px; padding: 28px 28px 36px; border-radius: var(--r-lg) var(--r-lg) 0 0;
+  background: var(--surface-raised); box-shadow: var(--shadow-sm); transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+  margin-bottom: 10px;
+}
+/* Зубчатый отрыв снизу, как у кассового чека */
+.ind--retail .rcase::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 10px;
+  background: radial-gradient(circle at 8px 0, var(--surface-raised) 7px, transparent 7.5px) 0 0 / 16px 10px repeat-x;
+}
+.ind--retail .rcase:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); transition-delay: 0ms; }
+.ind--retail .rcase__top { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; color: var(--ink-muted); padding-bottom: 14px; border-bottom: 1px dashed var(--line-strong); }
+.ind--retail .rcase__top span:first-child { color: var(--accent-ink); }
+.ind--retail .rcase__fig { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding-top: 6px; }
+.ind--retail .rcase__fig small { font-size: 15px; color: var(--ink-muted); }
+.ind--retail .rcase__fig b { font-size: clamp(52px, 5vw, 72px); font-weight: 700; letter-spacing: -.05em; line-height: .95; white-space: nowrap; }
+.ind--retail .rcase__fig .mono { font-size: 11px; color: var(--ink-muted); }
+.ind--retail .rcase h3 { font-size: 20px; font-weight: 600; letter-spacing: -.015em; line-height: 1.25; }
+.ind--retail .rcase > p:not(.rsrc) { font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
+.ind--retail .rcase .rcase__q { padding: 14px 16px; border-radius: var(--r-sm); background: var(--surface); color: var(--ink); font-size: 14px; }
+.ind--retail .rcase__src { padding-top: 14px; border-top: 1px dashed var(--line-strong); font-size: 12px; }
+
+/* ---------- Экономика: пометка расчёта ---------- */
+.ind--retail .rh-est { display: grid; gap: 8px; max-width: 46ch; padding: 16px 18px; border: 1px dashed var(--line-strong); border-radius: var(--r-md); font-size: 14px; line-height: 1.5; color: var(--ink-muted); }
+.ind--retail .rh-est .mono { font-size: 11px; color: var(--ink); }
+.ind--retail .calc__note b { font-size: 10px; color: var(--ink); margin-right: 4px; }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .ind--retail .rh__grid { column-gap: 40px; }
+  .ind--retail .rfacts { grid-template-columns: 1fr 1fr; }
+  .ind--retail .fq { grid-template-columns: 1fr; }
+  .ind--retail .fq__side { border-left: 0; border-top: 1px solid var(--line); }
+  .ind--retail .rcases { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 1023px) {
+  .ind--retail .rh__grid { grid-template-columns: 1fr; }
+  .ind--retail .rh__l, .ind--retail .rh__r { display: contents; }
+  .ind--retail .rh__head { order: 1; }
+  .ind--retail .proof { order: 2; }
+  .ind--retail .rh__body { order: 3; }
+  .ind--retail .rh__ph { order: 4; }
+  .ind--retail .rcases { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .ind--retail .rh__h1 span { display: inline; }
+  .ind--retail .proof { padding: 20px 18px 18px 26px; gap: 14px; }
+  .ind--retail .proof::before { width: 8px; }
+  .ind--retail .proof__nums div { padding: 14px 16px 14px 0; }
+  .ind--retail .proof__nums div + div { padding-left: 16px; }
+  .ind--retail .proof__nums dd { font-size: clamp(48px, 15vw, 64px); }
+  .ind--retail .proof__nums dd small { font-size: 12px; }
+  .ind--retail .proof__nums dt { font-size: 13px; }
+  .ind--retail .proof__code { top: 18px; right: 16px; width: 32px; }
+  .ind--retail .rfacts { grid-template-columns: 1fr; }
+  .ind--retail .fq__main, .ind--retail .fq__side { padding: 24px 20px; }
+  .ind--retail .fq__scale { display: none; }
+  .ind--retail .fq__row { grid-template-columns: 1fr auto; grid-template-areas: "zone val" "track track"; gap: 12px; }
+  .ind--retail .fq__zone { grid-area: zone; }
+  .ind--retail .fq__val { grid-area: val; }
+  .ind--retail .fq__track { grid-area: track; gap: 4px; }
+  .ind--retail .fq__c { height: 28px; border-radius: 6px; }
+  .ind--retail .fq__val b { font-size: 26px; }
+  .ind--retail .cmp__row { grid-template-columns: 1fr 44px; grid-template-areas: "lbl val" "bar bar"; gap: 6px 12px; }
+  .ind--retail .cmp__row > span:first-child { grid-area: lbl; }
+  .ind--retail .cmp__bar { grid-area: bar; }
+  .ind--retail .cmp__row b { grid-area: val; }
+  .ind--retail .rcase { padding: 24px 20px 28px; }
+}

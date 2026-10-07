@@ -1,0 +1,200 @@
+/* ================= Общественные пространства (industries-public-spaces.html) =================
+   Свои блоки страницы: Hero «табло» (тёмное табло зон под местом для фото — единственный тёмный блок кроме формы),
+   проблемы «факт + список», фирменный блок «Между волнами пассажиров» (условный суточный поток и окна уборки),
+   статусы направлений и «где уже работает». Все селекторы — под .ind--public-spaces. */
+
+/* ---------- Hero: табло ---------- */
+.ind--public-spaces .ih--board .ih__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: center; }
+.ind--public-spaces .ih--board .ih__h1 { font-size: clamp(36px, 4.2vw, 64px); }
+.ind--public-spaces .psh__media { display: grid; min-width: 0; }
+.ind--public-spaces .psh__ph .ph__robot { left: 60%; top: 12%; height: 56%; }
+
+.ind--public-spaces .psb {
+  position: relative; z-index: 1; margin: -72px 20px 0; padding: 18px 20px 10px; border-radius: var(--r-lg);
+  background: var(--stage); color: var(--on-stage); box-shadow: 0 24px 48px -20px #16181c66;
+  font-family: var(--mono);
+}
+.ind--public-spaces .psb__head {
+  display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; margin-bottom: 4px;
+  border-bottom: 1px solid var(--stage-line); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--on-stage-muted);
+}
+.ind--public-spaces .psb__clock { font-size: 18px; letter-spacing: .04em; color: var(--lime); }
+.ind--public-spaces .psb__clock i { font-style: normal; }
+.ind--public-spaces .psb__cols,
+.ind--public-spaces .psb__row a {
+  display: grid; grid-template-columns: 22px minmax(0, 1fr) minmax(88px, auto) 16px; gap: 4px 14px; align-items: center;
+}
+.ind--public-spaces .psb__cm { text-align: right; }
+.ind--public-spaces .psb__task { grid-column: 2 / 4; grid-row: 2; }
+.ind--public-spaces .psb__go { grid-column: 4; grid-row: 1; }
+.ind--public-spaces .psb__cols { padding: 8px 8px 6px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #6d727c; }
+.ind--public-spaces .psb__row + .psb__row { border-top: 1px dashed var(--stage-line); }
+.ind--public-spaces .psb__row a {
+  min-height: 56px; padding: 8px; border-radius: 10px; color: var(--on-stage);
+  transition: background var(--fast) var(--ease);
+}
+.ind--public-spaces .psb__row a:hover { background: var(--stage-raised); }
+.ind--public-spaces .psb__row a:focus-visible { box-shadow: 0 0 0 2px var(--accent-ink-dark); }
+.ind--public-spaces .psb__no { font-size: 11px; color: var(--on-stage-muted); }
+.ind--public-spaces .psb__zone { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.3; }
+.ind--public-spaces .psb__task { font-family: var(--sans); font-size: 13px; line-height: 1.35; color: var(--on-stage-muted); }
+.ind--public-spaces .psb__mode { text-align: right; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--lime); line-height: 1.3; }
+.ind--public-spaces .psb__go svg { width: 16px; height: 16px; fill: none; stroke: var(--on-stage-muted); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--fast) var(--ease), stroke var(--fast) var(--ease); }
+.ind--public-spaces .psb__row a:hover .psb__go svg { transform: translateX(3px); stroke: var(--on-stage); }
+.ind--public-spaces .psb__note { margin: 12px 20px 0; font-size: 13px; color: var(--ink-muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Строки табло проявляются по очереди, двоеточие часов мигает. Без «перелистывания». */
+  .js .ind--public-spaces .psb__row { animation: ps-row .5s var(--ease) both; animation-delay: calc(400ms + var(--r) * 120ms); }
+  .ind--public-spaces .psb__clock i { animation: ps-blink 2s steps(1) infinite; }
+  @keyframes ps-row { from { opacity: 0; transform: translateY(6px); } }
+  @keyframes ps-blink { 50% { opacity: .2; } }
+}
+
+/* ---------- Проблемы: факт про кадры + список ---------- */
+.ind--public-spaces .psp { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px; align-items: stretch; }
+.ind--public-spaces .psp__fact {
+  display: grid; gap: 12px; align-content: start; padding: 32px; border-radius: var(--r-lg); background: var(--accent-soft);
+}
+.ind--public-spaces .psp__fact .ic-tile { background: var(--surface-raised); }
+.ind--public-spaces .psp__fact h3 { margin-top: 12px; font-size: 22px; font-weight: 600; letter-spacing: -.01em; }
+.ind--public-spaces .psp__v { font-size: clamp(64px, 7vw, 104px); font-weight: 700; letter-spacing: -.05em; line-height: .95; color: var(--accent-ink); }
+.ind--public-spaces .psp__fact > p:not(.psp__v):not(.psp__src) { font-size: 16px; line-height: 1.5; max-width: 40ch; }
+.ind--public-spaces .psp__src, .ind--public-spaces .psw__src { margin-top: auto; padding-top: 8px; font-size: 10px; line-height: 1.6; color: var(--ink-muted); text-transform: none; letter-spacing: .02em; }
+.ind--public-spaces .psp__src a, .ind--public-spaces .psw__src a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--line-strong); }
+.ind--public-spaces .psp__src a:hover, .ind--public-spaces .psw__src a:hover { color: var(--accent-ink); }
+.ind--public-spaces .psp__list { display: grid; padding: 8px 32px; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm); }
+.ind--public-spaces .psp__i { display: grid; grid-template-columns: 56px 1fr; gap: 6px 20px; padding: 24px 0; align-content: center; }
+.ind--public-spaces .psp__i + .psp__i { border-top: 1px solid var(--line); }
+.ind--public-spaces .psp__i .ic-tile { grid-row: span 2; }
+.ind--public-spaces .psp__i h3 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; align-self: end; }
+.ind--public-spaces .psp__i p { font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
+
+/* ---------- Фирменный блок: между волнами пассажиров ---------- */
+.ind--public-spaces .psf { display: grid; gap: 32px; }
+.ind--public-spaces .psf__head { display: grid; gap: 20px; max-width: 760px; }
+.ind--public-spaces .psf__fig { margin: 0; padding: 32px 32px 24px; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-sm); }
+.ind--public-spaces .psf__chart { position: relative; height: 300px; margin-top: 28px; }
+.ind--public-spaces .psf__svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.ind--public-spaces .psf__grid { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 5; vector-effect: non-scaling-stroke; }
+.ind--public-spaces .psf__band { fill: var(--accent-soft); transform-box: fill-box; transform-origin: 50% 100%; }
+.ind--public-spaces .psf__area { fill: #16181c0f; }
+.ind--public-spaces .psf__line { fill: none; stroke: var(--ink); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.ind--public-spaces .psf__peaks, .ind--public-spaces .psf__marks { position: absolute; inset: 0; pointer-events: none; }
+.ind--public-spaces .psf__peak {
+  position: absolute; left: calc(var(--at) / 24 * 100%); top: -28px; transform: translateX(-50%);
+  font-size: 13px; font-weight: 500; white-space: nowrap; color: var(--ink);
+}
+.ind--public-spaces .psf__mark {
+  position: absolute; left: calc(var(--at) / 24 * 100%); bottom: 12px; transform: translateX(-50%);
+  display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); color: #fff; font: 500 12px/1 var(--mono); box-shadow: 0 0 0 4px var(--surface-raised);
+}
+.ind--public-spaces .psf__now { position: absolute; top: 0; bottom: 0; left: calc(var(--now, 0) * 100%); width: 0; border-left: 1.5px solid var(--ink); pointer-events: none; }
+.ind--public-spaces .psf__now[hidden] { display: none; }
+.ind--public-spaces .psf__now span {
+  position: absolute; top: 8px; left: 8px; padding: 4px 8px; border-radius: var(--r-pill); background: var(--ink); color: var(--surface);
+  font: 500 11px/1.2 var(--mono); letter-spacing: .04em; white-space: nowrap;
+}
+.ind--public-spaces .psf__now.is-flip span { left: auto; right: 8px; }
+.ind--public-spaces .psf__scale { position: relative; height: 20px; margin-top: 10px; font-family: var(--mono); font-size: 11px; color: var(--ink-muted); }
+.ind--public-spaces .psf__scale span { position: absolute; left: calc(var(--at) / 24 * 100%); transform: translateX(-50%); }
+.ind--public-spaces .psf__scale span:first-child { transform: none; }
+.ind--public-spaces .psf__scale span:last-child { transform: translateX(-100%); }
+.ind--public-spaces .psf__cap { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
+.ind--public-spaces .psf__key { display: inline-block; width: 18px; height: 10px; margin: 0 6px 0 0; vertical-align: 0; border-radius: 2px; }
+.ind--public-spaces .psf__key--flow { height: 2px; vertical-align: 3px; background: var(--ink); }
+.ind--public-spaces .psf__key--win { margin-left: 12px; background: var(--accent-soft); box-shadow: inset 0 0 0 1px #2f3bff33; }
+.ind--public-spaces .psf__sep { margin: 0 6px; }
+.ind--public-spaces .psf__legend { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.ind--public-spaces .psf__legend li { display: grid; grid-template-columns: 28px 1fr; gap: 4px 14px; align-content: start; padding: 24px 20px 0 0; }
+.ind--public-spaces .psf__legend li + li { padding-left: 20px; border-left: 1px solid var(--line); }
+.ind--public-spaces .psf__lno { grid-row: span 3; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-ink); font: 500 12px/1 var(--mono); }
+.ind--public-spaces .psf__lt { font-family: var(--mono); font-size: 12px; color: var(--accent-ink); }
+.ind--public-spaces .psf__legend b { font-size: 17px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+.ind--public-spaces .psf__lx { font-size: 14px; line-height: 1.45; color: var(--ink-muted); }
+.ind--public-spaces .psf__to { margin-top: -8px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Окна уборки «вырастают» из оси, когда график появился на экране (класс ставит industry-public-spaces.js). */
+  .js .ind--public-spaces [data-ps-flow] .psf__band { transform: scaleY(0); transition: transform .9s var(--ease) calc(200ms + var(--i) * 140ms); }
+  .js .ind--public-spaces [data-ps-flow].is-on .psf__band { transform: none; }
+}
+
+/* ---------- Направления: статус доказательств ---------- */
+.ind--public-spaces .psd__st {
+  width: fit-content; padding: 6px 10px; border-radius: var(--r-pill); font-size: 10px; letter-spacing: .08em;
+  background: var(--surface-sunken); color: var(--ink-muted);
+}
+.ind--public-spaces .psd__st--on { background: var(--lime-soft); color: var(--lime-ink); }
+.ind--public-spaces .psd__more { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-top: 24px; font-size: 16px; color: var(--ink-muted); }
+
+/* ---------- Где уже работает ---------- */
+.ind--public-spaces .psw { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px; }
+.ind--public-spaces .psw__main {
+  display: grid; grid-template-rows: auto 1fr auto auto; gap: 20px; padding: 36px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm);
+}
+.ind--public-spaces .psw__mhead { display: grid; gap: 14px; }
+.ind--public-spaces .psw__main h3 { font-size: clamp(26px, 2.6vw, 34px); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
+.ind--public-spaces .psw__st { display: flex; flex-wrap: wrap; gap: 6px 0; font-size: 15px; color: var(--ink); }
+.ind--public-spaces .psw__st li:not(:last-child)::after { content: "·"; margin: 0 10px; color: var(--line-strong); }
+.ind--public-spaces .psw__big { align-self: center; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ind--public-spaces .psw__big b { font-size: clamp(64px, 8vw, 120px); font-weight: 700; letter-spacing: -.05em; line-height: .9; color: var(--accent-ink); }
+.ind--public-spaces .psw__gap { display: inline-block; width: .16em; }
+.ind--public-spaces .psw__upto, .ind--public-spaces .psw__unit { font-family: var(--mono); font-size: 14px; letter-spacing: .06em; color: var(--ink-muted); text-transform: uppercase; }
+.ind--public-spaces .psw__unit { font: 600 22px/1 var(--sans); letter-spacing: -.01em; color: var(--ink); text-transform: none; }
+.ind--public-spaces .psw__txt { font-size: 16px; line-height: 1.55; color: var(--ink-muted); max-width: 60ch; }
+.ind--public-spaces .psw__more { display: grid; gap: 20px; align-content: start; }
+.ind--public-spaces .psw__i {
+  display: grid; gap: 10px; align-content: start; padding: 24px 28px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm);
+}
+.ind--public-spaces .psw__i h3 { font-size: 19px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+.ind--public-spaces .psw__i > p:not(.psw__src):not(.psw__v) { font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
+.ind--public-spaces .psw__v { font-size: 14px; color: var(--ink-muted); }
+.ind--public-spaces .psw__v b { margin-right: 4px; font-size: 28px; font-weight: 700; letter-spacing: -.03em; color: var(--ink); }
+.ind--public-spaces .psw__src { padding-top: 4px; }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .ind--public-spaces .ih--board .ih__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .ind--public-spaces .psp, .ind--public-spaces .psw { grid-template-columns: 1fr; }
+  .ind--public-spaces .psf__legend { grid-template-columns: 1fr 1fr; }
+  .ind--public-spaces .psf__legend li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .ind--public-spaces .psf__legend li:nth-child(n + 3) { padding-bottom: 0; margin-top: 24px; }
+}
+@media (max-width: 1023px) {
+  .ind--public-spaces .ih--board .ih__grid { grid-template-columns: 1fr; }
+  .ind--public-spaces .psb { margin: -48px 12px 0; }
+  .ind--public-spaces .psw__more { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
+@media (max-width: 767px) {
+  .ind--public-spaces .psb { margin: -32px 8px 0; padding: 14px 12px 6px; }
+  .ind--public-spaces .psb__cols { display: none; }
+  .ind--public-spaces .psb__row a { grid-template-columns: 20px minmax(0, 1fr) 16px; gap: 4px 10px; padding: 10px 6px; }
+  .ind--public-spaces .psb__zone { grid-column: 2; }
+  .ind--public-spaces .psb__task { grid-column: 2; grid-row: 2; }
+  .ind--public-spaces .psb__mode { grid-column: 2; grid-row: 3; text-align: left; }
+  .ind--public-spaces .psb__go { grid-column: 3; grid-row: 1; }
+  .ind--public-spaces .psb__note { margin: 12px 8px 0; }
+  .ind--public-spaces .psp__fact { padding: 24px 20px; }
+  .ind--public-spaces .psp__list { padding: 4px 20px; }
+  .ind--public-spaces .psp__i { grid-template-columns: 1fr; gap: 10px; }
+  .ind--public-spaces .psp__i .ic-tile { grid-row: auto; width: 48px; height: 48px; }
+  .ind--public-spaces .psf__fig { padding: 20px 16px 16px; }
+  .ind--public-spaces .psf__chart { height: 200px; }
+  .ind--public-spaces .psf__peak { font-size: 11px; }
+  .ind--public-spaces .psf__peak:first-child { transform: translateX(-30%); }
+  .ind--public-spaces .psf__peak:last-child { transform: translateX(-70%); }
+  .ind--public-spaces .psf__mark { width: 22px; height: 22px; font-size: 11px; box-shadow: 0 0 0 3px var(--surface-raised); }
+  .ind--public-spaces .psf__legend { grid-template-columns: 1fr; }
+  .ind--public-spaces .psf__legend li, .ind--public-spaces .psf__legend li:nth-child(n) { padding: 20px 0; margin: 0; border-left: 0; }
+  .ind--public-spaces .psf__legend li + li { border-top: 1px solid var(--line); }
+  .ind--public-spaces .psw__main { padding: 24px 20px; }
+  .ind--public-spaces .psw__i { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ind--public-spaces .psb__row, .ind--public-spaces .psb__clock i { animation: none; }
+  .ind--public-spaces .psf__band { transform: none; transition: none; }
+}

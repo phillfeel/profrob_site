@@ -37,6 +37,8 @@ if (argv.includes('--compare')) {
   const textOnly = argv.includes('--text-only'); // compare words and attributes only: for snapshots taken with --motion
   const files = (await readdir(a)).filter((f) => f.endsWith('.json') && (!only || f.startsWith(only))).sort();
   let bad = 0;
+  const summary = argv.includes('--summary'); // also print difference counts by type and the 10 worst snapshots
+  const byType = {}, perFile = [], perTypeFile = {};
   const near = (x, y) => Math.abs(x - y) <= TOL;
   const rectsEq = (p, q) => p.length === q.length && p.every((r, i) => r.every((v, j) => near(v, q[i][j])));
   for (const f of files) {
@@ -65,10 +67,19 @@ if (argv.includes('--compare')) {
     diffSeq('attr', A.attrs, B.attrs, (t) => `${t.n}[${t.a}]=${t.v}`, () => '');
     if (!textOnly) diffSeq('box', A.boxes, B.boxes, (t) => t.k, (x, y) => (x.r.every((v, i) => near(v, y.r[i])) ? '' : `${JSON.stringify(x.r)} -> ${JSON.stringify(y.r)}`));
     console.log(`${out.length ? 'DIFF' : 'same'} ${f} (texts ${A.texts.length}, attrs ${A.attrs.length}, boxes ${A.boxes.length})`);
+    if (summary) {
+      for (const l of out) { const key = l.startsWith('title') || l.startsWith('lang') ? l.split(':')[0] : l.replace(/^(\w+ \w+)(?::| \().*$/s, '$1').split(' ').slice(0, 2).join(' '); byType[key] = (byType[key] ?? 0) + 1; ((perTypeFile[key] ??= {})[f] = (perTypeFile[key][f] ?? 0) + 1); }
+      perFile.push([f, out.length]);
+    }
     const shown = out.filter((l) => !kind || l.startsWith(kind));
     for (const line of shown.slice(0, 40)) console.log(`     ${line}`);
     if (shown.length > 40) console.log(`     ... ${shown.length - 40} more`);
     if (out.length) bad++;
+  }
+  if (summary) {
+    console.log('SUMMARY total', perFile.reduce((n, [, c]) => n + c, 0), JSON.stringify(byType));
+    for (const [k, m] of Object.entries(perTypeFile)) console.log(`  ${k}: ${Object.entries(m).sort((x, y) => y[1] - x[1]).slice(0, 5).map(([f, c]) => `${f.replace('.json', '')}=${c}`).join(' ')}`);
+    console.log('TOP10', perFile.sort((x, y) => y[1] - x[1]).slice(0, 10).map(([f, c]) => `${f}=${c}`).join(' '));
   }
   console.log(bad ? `${bad} of ${files.length} snapshots differ` : `all ${files.length} snapshots identical`);
   process.exit(bad ? 1 : 0);
@@ -79,7 +90,11 @@ const outDir = opt('out');
 if (!outDir) { console.error('usage: snapshot.mjs --out <dir> | --compare <dirA> <dirB>'); process.exit(2); }
 const widths = (opt('widths') ?? '1440,390').split(',').map(Number);
 const siteRoot = opt('root') ? resolve(opt('root')) : root; // another copy of the site, e.g. an export of the original commit
-const pages = opt('pages') ? opt('pages').split(',') : (await readdir(siteRoot)).filter((f) => f.endsWith('.html')).sort();
+const baseUrl = opt('base-url');
+const locale = opt('locale');
+const mapFile = opt('map');
+const routeMap = mapFile ? JSON.parse(await readFile(resolve(mapFile), 'utf8')) : null;
+const pages = opt('pages') ? opt('pages').split(',') : routeMap ? Object.keys(routeMap) : (await readdir(siteRoot)).filter((f) => f.endsWith('.html')).sort();
 
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.woff2': 'font/woff2', '.json': 'application/json' };
@@ -89,8 +104,11 @@ const server = createServer(async (req, res) => {
     res.writeHead(200, { 'content-type': MIME[extname(rel)] ?? 'application/octet-stream' }).end(await readFile(join(siteRoot, rel)));
   } catch { res.writeHead(404).end('not found'); }
 });
-await new Promise((r) => server.listen(0, '127.0.0.1', r));
-const base = `http://127.0.0.1:${server.address().port}/`;
+let base = baseUrl;
+if (!base) {
+  await new Promise((r) => server.listen(0, '127.0.0.1', r));
+  base = `http://127.0.0.1:${server.address().port}/`;
+}
 await mkdir(outDir, { recursive: true });
 
 // Runs inside the page.
@@ -159,14 +177,16 @@ try {
     for (const width of widths) {
       const ctx = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: argv.includes('--motion') ? 'no-preference' : 'reduce' });
       await ctx.clock.setFixedTime(new Date('2026-06-15T09:30:00+03:00'));
-      if (lang) await ctx.addInitScript((l) => { try { localStorage.setItem('lang', l); } catch (e) { /* private mode */ } }, lang);
+      if (lang && !baseUrl) await ctx.addInitScript((l) => { try { localStorage.setItem('lang', l); } catch (e) { /* private mode */ } }, lang);
       if (dict) await ctx.route('**/i18n/en.json', (r) => r.fulfill({ contentType: 'application/json', body: dict }));
       if (runtimeSource) await ctx.route('**/i18n.js', (r) => r.fulfill({ contentType: 'text/javascript', body: runtimeSource }));
       const pg = await ctx.newPage();
       const errors = [], warnings = [];
       pg.on('pageerror', (e) => errors.push(String(e)));
       pg.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); else if (m.type() === 'warning') warnings.push(m.text()); });
-      await pg.goto(base + page, { waitUntil: 'networkidle' });
+      const mapped = routeMap?.[page] ?? `/${page}`;
+      const pathname = locale === 'en' && !mapped.startsWith('/en/') ? `/en${mapped}` : mapped;
+      await pg.goto(new URL(pathname.replace(/^\/(?!\/)/, '/'), base).toString(), { waitUntil: 'domcontentloaded', timeout: 30000 });
       await pg.evaluate(() => (window.i18n ? window.i18n.ready : null));
       await pg.evaluate(() => document.fonts.ready);
       await pg.waitForTimeout(1200);

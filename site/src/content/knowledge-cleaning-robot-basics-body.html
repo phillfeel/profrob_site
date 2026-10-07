@@ -1,0 +1,372 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  </defs></svg>
+
+
+  <header class="nav" aria-label="Основная навигация">
+    <a href="/" aria-label="Профессиональная Робототехника — на главную"><img src="/assets/profrobot-logo.png" alt="Профессиональная Робототехника"></a>
+    <nav class="nav-links">
+      <a href="/solutions/">Решения</a>
+      <a href="/industries/">Отрасли</a>
+      <a href="/products/">Продукты</a>
+      <a href="/services/">Услуги</a>
+      <a href="/platform/">Платформа</a>
+      <a href="/cases/">Кейсы</a>
+      <a href="/contacts/">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">04</span>
+    <span class="lbl">СТАТЬЯ</span>
+  </div>
+
+  <main>
+
+
+    <section class="sol-hero wrap" data-sec="01" data-name="СТАТЬЯ">
+      <div class="sol-hero__grid">
+        <div class="sol-hero__copy">
+          <nav class="crumbs reveal" aria-label="Хлебные крошки"><ol><li><a href="/">Главная</a></li><li><a href="/knowledge/">База знаний</a></li><li aria-current="page">Робот-уборщик</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span>СТАТЬЯ</span></span>
+          <h1 class="h1 reveal">Робот-уборщик: как он работает <span>и для каких площадей подходит.</span></h1>
+          <div class="sol-hero__text reveal">
+            <p class="lead">Робот-уборщик — автономная машина: по лидару и камерам строит карту помещения, ездит по заданному маршруту, сама объезжает препятствия и возвращается на станцию. Подходит для больших открытых площадей с ровным полом. В тесных помещениях со ступенями и хаотичной расстановкой чаще не оправдывает себя.</p>
+            <p>Дальше по порядку: как робот находит дорогу, что делает сам, какую площадь тянет на одной зарядке и что проверить до закупки. Цифры взяты из паспорта одной модели, мы называем её прямо. У других моделей они другие.</p>
+          </div>
+          <p class="ar-meta mono reveal"><span>Роботизированный клининг</span><span>Статья</span><span>7 минут чтения</span><span>Обновлено 7 октября 2026</span></p>
+        </div>
+
+        <aside class="ar-spec reveal" style="--i:2" aria-label="Паспортные цифры модели">
+          <p class="ar-spec__head"><span>Паспорт модели</span><span class="mono">Gausium Phantas</span></p>
+          <dl class="ar-spec__list">
+            <div><dt>Практическая производительность</dt><dd class="tnum"><bdi>350–700</bdi> <small>м²/ч</small></dd></div>
+            <div><dt>Работа на одном заряде, мойка</dt><dd class="tnum"><bdi>4,5</bdi> <small>ч</small></dd></div>
+            <div><dt>Зарядка</dt><dd class="tnum"><bdi>≈ 2</bdi> <small>ч</small></dd></div>
+          </dl>
+          <p class="ar-spec__foot">Данные производителя, <a href="#sources">источник</a>. Мы их не перепроверяли: на пилоте измеряем выработку на вашем объекте.</p>
+        </aside>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="article" data-sec="02" data-name="РАЗБОР">
+      <div class="ar-grid">
+        <nav class="ar-toc" aria-label="Содержание статьи">
+          <p class="ar-toc__head mono">Содержание</p>
+          <ol class="ar-toc__list">
+            <li><a href="#parts"><span class="mono tnum">01</span><span>Из чего состоит робот</span></a></li>
+            <li><a href="#navigation"><span class="mono tnum">02</span><span>Как он находит дорогу</span></a></li>
+            <li><a href="#split"><span class="mono tnum">03</span><span>Что делает сам, а что люди</span></a></li>
+            <li><a href="#area"><span class="mono tnum">04</span><span>Какую площадь тянет</span></a></li>
+            <li><a href="#limits"><span class="mono tnum">05</span><span>Когда не подходит</span></a></li>
+            <li><a href="#checklist"><span class="mono tnum">06</span><span>Что проверить до закупки</span></a></li>
+            <li><a href="#faq"><span class="mono tnum">07</span><span>Частые вопросы</span></a></li>
+          </ol>
+          <a class="ar-toc__roi" href="/roi/"><span>Посчитать окупаемость</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </nav>
+
+        <article class="ar-body">
+
+          <section class="ar-sec" id="parts" aria-labelledby="parts-h">
+            <h2 class="h2 reveal" id="parts-h">Из чего состоит робот</h2>
+            <p class="reveal">Четыре узла. Если понимать, за что отвечает каждый, проще читать любой паспорт и сравнивать модели.</p>
+            <ul class="ar-parts">
+              <li class="ar-part reveal">
+                <span class="ar-part__k mono">Датчики</span>
+                <h3>Лидар и камеры</h3>
+                <p>В Phantas это 2D-лидар, камеры глубины и цветная камера, плюс датчики падения и столкновения. Лидар измеряет расстояние до стен и предметов, камеры замечают препятствия, а датчики страхуют, если остальное не сработало.</p>
+              </li>
+              <li class="ar-part reveal" style="--i:1">
+                <span class="ar-part__k mono">Картирование</span>
+                <h3>Карта и положение на ней</h3>
+                <p>Программа по данным датчиков строит карту и постоянно определяет, где на ней робот (это называют SLAM). Gausium заявляет точность позиционирования ±2 см по лидару.</p>
+              </li>
+              <li class="ar-part reveal" style="--i:2">
+                <span class="ar-part__k mono">Рабочий узел</span>
+                <h3>Щётки, скребок, баки</h3>
+                <p>Бывают роботы для сухой уборки (подметание, пылесос), для мокрой (бак с водой и скребок) и комбинированные. Phantas умеет мойку, пылесос, подметание и сухое протирание. Бак чистой воды 11,5 л, сточной 10,5 л, мешок для пыли 6 л.</p>
+              </li>
+              <li class="ar-part reveal" style="--i:3">
+                <span class="ar-part__k mono">Станция</span>
+                <h3>Зарядка и вода</h3>
+                <p>Станция заряжает робота и управляет водой. Производитель добавляет, что она сама чистит скребок, всасывающую трубку и бак сточной воды. Без станции эти шаги делает человек.</p>
+              </li>
+            </ul>
+          </section>
+
+
+          <section class="ar-sec" id="navigation" aria-labelledby="navigation-h">
+            <h2 class="h2 reveal" id="navigation-h">Как робот находит дорогу</h2>
+            <p class="reveal">Разметка на полу не нужна. Робот ориентируется по карте, которую построил сам. Этим он похож на AMR на складе, а не на AGV, которому нужна лента или метки.</p>
+            <ol class="ar-steps">
+              <li class="reveal">
+                <span class="ar-steps__no mono tnum">01</span>
+                <div><h3>Карта</h3><p>Робот объезжает помещение и строит карту. Gausium называет 30 минут на площадку в 2 000 м². Реальное время зависит от планировки и числа предметов.</p></div>
+              </li>
+              <li class="reveal">
+                <span class="ar-steps__no mono tnum">02</span>
+                <div><h3>Зоны</h3><p>Оператор в приложении правит карту и выбирает зоны уборки. Убирать весь этаж одним заданием не обязательно.</p></div>
+              </li>
+              <li class="reveal">
+                <span class="ar-steps__no mono tnum">03</span>
+                <div><h3>Маршрут</h3><p>Траекторию робот прокладывает сам: «змейкой» или по спирали, как в режимах Phantas. Одну зону он проходит одинаково каждый раз, поэтому качество не зависит от смены.</p></div>
+              </li>
+              <li class="reveal">
+                <span class="ar-steps__no mono tnum">04</span>
+                <div><h3>Уборка с объездом</h3><p>Во время работы робот сверяется с картой и обходит людей и предметы, которых на ней нет. По описанию производителя, он объезжает провода на полу, но переезжает низкие пороги.</p></div>
+              </li>
+              <li class="reveal">
+                <span class="ar-steps__no mono tnum">05</span>
+                <div><h3>Станция и сообщение оператору</h3><p>Закончил задание или сел заряд — вернулся на станцию. Если рядом мусор, который он не берёт, в режиме точечной уборки он шлёт оператору сообщение.</p></div>
+              </li>
+            </ol>
+          </section>
+
+
+          <section class="ar-sec" id="split" aria-labelledby="split-h">
+            <h2 class="h2 reveal" id="split-h">Что робот делает сам, а что остаётся людям</h2>
+            <p class="reveal">Робот не заменяет уборку целиком. Он забирает ровный пол и повторяющиеся маршруты.</p>
+            <div class="ar-split">
+              <div class="ar-split__col reveal">
+                <h3><span class="ar-ic ar-ic--ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span>Делает робот</span></h3>
+                <ul>
+                  <li>Ровный пол в больших открытых зонах</li>
+                  <li>Один и тот же маршрут каждый раз</li>
+                  <li>Ночные и непиковые смены</li>
+                  <li>Обход людей и предметов на пути</li>
+                  <li>Отчёты и оповещения через платформу</li>
+                </ul>
+              </div>
+              <div class="ar-split__col reveal" style="--i:1">
+                <h3><span class="ar-ic"><svg aria-hidden="true"><use href="#i-plus"/></svg></span><span>Остаётся людям</span></h3>
+                <ul>
+                  <li>Санузлы</li>
+                  <li>Точечная уборка: углы, кромки, пятна</li>
+                  <li>Контроль качества</li>
+                  <li>Крупный мусор и разливы</li>
+                  <li>Лестницы и места, куда робот не проедет</li>
+                </ul>
+              </div>
+            </div>
+            <p class="ar-note reveal">Правая колонка — инженерная оценка по ограничениям техники, а не данные производителя. Для вашего объекта список уточняем на аудите.</p>
+          </section>
+
+
+          <section class="ar-sec" id="area" aria-labelledby="area-h">
+            <h2 class="h2 reveal" id="area-h">Какую площадь тянет робот</h2>
+            <p class="reveal">Площадь определяют две величины: сколько робот убирает в час и сколько работает без подзарядки. Перемножаем паспортные значения Phantas.</p>
+            <div class="ar-calc reveal" role="math" aria-label="4,5 часа умножить на 350–700 квадратных метров в час равно примерно 1 600–3 100 квадратных метров">
+              <div class="ar-calc__cell"><b class="tnum">4,5 ч</b><span class="mono">заряд, мойка</span></div>
+              <span class="ar-calc__op" aria-hidden="true">×</span>
+              <div class="ar-calc__cell"><b class="tnum">350–700 м²/ч</b><span class="mono">практически</span></div>
+              <span class="ar-calc__op" aria-hidden="true">=</span>
+              <div class="ar-calc__cell ar-calc__cell--sum"><b class="tnum">≈ 1 600–3 100 м²</b><span class="mono">на одной зарядке</span></div>
+            </div>
+            <p class="reveal">Это наш расчёт, а не гарантия: выработка падает от тесной планировки и числа препятствий. Если объект больше, помогают подзарядка в течение дня, вторая смена или несколько роботов. Зарядка занимает около двух часов, поэтому график надо считать заранее.</p>
+            <p class="reveal">Где это работает на практике: офисы и бизнес-центры, торговые центры, склады, клиники и отели. Наш <a href="/roi/">калькулятор окупаемости</a> считает объекты от 3 500 м², склады от 10 000 м². Это граница расчёта, а не физический предел робота: на меньшей площади работы для него обычно мало.</p>
+          </section>
+
+
+          <section class="ar-sec ar-sec--dark" id="limits" aria-labelledby="limits-h">
+            <div class="ar-limits reveal">
+              <h2 class="h2" id="limits-h">Когда робот не подходит</h2>
+              <p>Пять признаков объекта, где робот-уборщик чаще всего не окупается. Это наш инженерный вывод.</p>
+              <ul class="ar-limits__list">
+                <li><span class="ar-ic ar-ic--x"><svg aria-hidden="true"><use href="#i-x"/></svg></span><div><b>Мало работы</b><span>Небольшая площадь или одна короткая смена: робот простаивает, экономия не покрывает вложения.</span></div></li>
+                <li><span class="ar-ic ar-ic--x"><svg aria-hidden="true"><use href="#i-x"/></svg></span><div><b>Теснота</b><span>Узкие проходы и частые повороты съедают время, и выработка уходит от паспортной.</span></div></li>
+                <li><span class="ar-ic ar-ic--x"><svg aria-hidden="true"><use href="#i-x"/></svg></span><div><b>Ступени и разные уровни</b><span>Между этажами без лифта робота приходится переносить, а высокие пороги он не берёт.</span></div></li>
+                <li><span class="ar-ic ar-ic--x"><svg aria-hidden="true"><use href="#i-x"/></svg></span><div><b>Вечно заставленный пол</b><span>Коробки, мебель и поддоны каждый день на новом месте: маршрут срывается, робот останавливается.</span></div></li>
+                <li><span class="ar-ic ar-ic--x"><svg aria-hidden="true"><use href="#i-x"/></svg></span><div><b>Крупный мусор и сильные загрязнения</b><span>Такой мусор робот не берёт, его убирают люди.</span></div></li>
+              </ul>
+              <p class="ar-limits__foot">Если объект попадает в эти пункты, скажем это на аудите и предложим другое: аренду, модернизацию имеющейся техники или отказ от проекта.</p>
+            </div>
+          </section>
+
+
+          <section class="ar-sec" id="checklist" aria-labelledby="checklist-h">
+            <h2 class="h2 reveal" id="checklist-h">Что проверить до закупки</h2>
+            <p class="reveal">Шесть вопросов, на которые стоит ответить до подписания договора.</p>
+            <ol class="ar-check">
+              <li class="reveal"><span class="ar-check__no mono tnum">01</span><div><h3>Площадь по типам покрытия</h3><p>Твёрдый пол и ковёр убирают разными узлами, в паспорте это разные режимы и разная выработка.</p></div></li>
+              <li class="reveal"><span class="ar-check__no mono tnum">02</span><div><h3>Ровный ли путь</h3><p>Пороги, лифты, двери, которые открываются сами. Одно место, где робот застрянет, ломает весь маршрут.</p></div></li>
+              <li class="reveal"><span class="ar-check__no mono tnum">03</span><div><h3>Когда можно убирать</h3><p>Ночью, в смену или при людях. От этого зависят число смен и срок окупаемости.</p></div></li>
+              <li class="reveal"><span class="ar-check__no mono tnum">04</span><div><h3>Где встанет станция</h3><p>Нужны розетка и место, где можно слить воду, рядом с рабочей зоной.</p></div></li>
+              <li class="reveal"><span class="ar-check__no mono tnum">05</span><div><h3>Кто обслуживает</h3><p>Сервис и запчасти в России, срок реакции и восстановления. У нас они фиксируются <a href="/services/#sla">в SLA</a>.</p></div></li>
+              <li class="reveal"><span class="ar-check__no mono tnum">06</span><div><h3>Как посчитан срок окупаемости</h3><p>В затратах с роботом должны быть сервис, расходники и время оператора, иначе срок получается красивым и неверным.</p></div></li>
+            </ol>
+          </section>
+
+
+          <section class="ar-sec" id="faq" aria-labelledby="faq-h">
+            <h2 class="h2 reveal" id="faq-h">Частые вопросы</h2>
+            <div class="kb-qa ar-qa">
+              <details class="kb-q reveal" id="faq-markup">
+                <summary><span>Нужна ли разметка на полу?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                <p>Нет. Робот строит карту помещения по лидару и камерам и ориентируется по ней. Поэтому его можно перенастроить, когда в зале меняется расстановка.</p>
+              </details>
+              <details class="kb-q reveal" id="faq-people">
+                <summary><span>Можно ли запускать робота, пока в помещении люди?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                <p>Да, производитель заявляет обход движущихся препятствий в реальном времени. Ночью всё равно удобнее: меньше людей на пути, меньше остановок.</p>
+              </details>
+              <details class="kb-q reveal" id="faq-staff">
+                <summary><span>Робот заменит уборщика?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+                <p>Не целиком. Робот берёт ровный пол и повторяющиеся маршруты, а сотрудники переходят на задачи, которые он не делает: санузлы, точечная уборка, контроль качества. Сколько людей освободится, считаем на аудите.</p>
+              </details>
+            </div>
+          </section>
+
+
+          <section class="ar-sec ar-sources" id="sources" aria-labelledby="sources-h">
+            <h2 class="ar-sources__h mono" id="sources-h">Источники</h2>
+            <p class="ar-sources__lead">Цифры о Phantas взяты у производителя, страницы открывались 7 октября 2026. Независимо мы их не проверяли.</p>
+            <ul>
+              <li><a href="https://gausium.com/specs/phantas/" rel="noopener" target="_blank"><span>Gausium, Phantas: технические характеристики</span></a> <span>(производительность, время работы, баки, зарядка, датчики)</span></li>
+              <li><a href="https://gausium.com/products/phantas/" rel="noopener" target="_blank"><span>Gausium, Phantas: страница продукта</span></a> <span>(режимы траектории, станция, обход препятствий)</span></li>
+              <li><a href="https://gausium.com/technology/" rel="noopener" target="_blank"><span>Gausium: навигация и сенсоры</span></a> <span>(точность ±2 см, 30 минут на 2 000 м², провода и пороги, крупный мусор)</span></li>
+              <li><a href="/roi/"><span>Калькулятор окупаемости ПРОФРОБОТ</span></a> <span>(границы площади по типам объектов)</span></li>
+            </ul>
+            <a class="text-link" href="/knowledge/#materials"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg> <span>Все материалы базы знаний</span></a>
+          </section>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="talk" data-sec="03" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>03</b> — <span>ЗАЯВКА</span></span>
+          <h2 class="h2 reveal" id="talk-h">Подходит ли робот вашему объекту?</h2>
+          <p class="lead reveal">Статья объясняет принцип, а аудит даёт цифры вашего объекта: площадь, пороги, смены, срок окупаемости. Оставьте контакты, инженер уточнит задачу.</p>
+          <div class="btns reveal"><a class="btn btn-pri" href="/roi/"><span>Рассчитать ROI</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-sec" href="/solutions/"><span>Решения для клининга</span></a></div>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="knowledge-article" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label for="f-dir">Ваша отрасль <small>необязательно</small></label>
+            <select id="f-dir" name="direction">
+              <option value="">Пока не знаю</option>
+              <option value="business-centers">Бизнес-центры и офисы</option>
+              <option value="retail">Торговые центры и ритейл</option>
+              <option value="logistics">Склады и логистика</option>
+              <option value="hotels">Отели и HoReCa</option>
+              <option value="medical">Медицинские объекты</option>
+              <option value="construction">Строительство и девелопмент</option>
+              <option value="manufacturing">Промышленность и производство</option>
+              <option value="public-spaces">Общественные пространства</option>
+              <option value="municipal">Муниципальные службы</option>
+              <option value="agriculture">Агро и фермерские хозяйства</option>
+              <option value="education">Образовательные учреждения</option>
+              <option value="fitness-sports">Фитнес-клубы и спорткомплексы</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span>Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>Даю <a href="/consent/" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и принимаю <a href="/privacy/" target="_blank" rel="noopener">политику конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Заказать звонок</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b>Заявка принята.</b>
+            <p>Перезвоним в рабочее время.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="/" aria-label="Профессиональная Робототехника — на главную"><img src="/assets/profrobot-logo-inverse.png" alt="Профессиональная Робототехника" width="783" height="136"></a>
+          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span>Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+
+      <div class="foot-grid foot-grid--site">
+        <nav class="foot-col" aria-labelledby="foot-site-1">
+          <h3 class="mono" id="foot-site-1"><b>01</b> <span>Разделы</span></h3>
+          <a href="/solutions/">Решения</a>
+          <a href="/industries/">Отрасли</a>
+          <a href="/products/">Продукты</a>
+          <a href="/platform/">Платформа</a>
+          <a href="/services/">Услуги</a>
+          <a href="/cases/">Кейсы</a>
+          <a href="/knowledge/">База знаний</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-2">
+          <h3 class="mono" id="foot-site-2"><b>02</b> <span>Отрасли</span></h3>
+          <a href="/industries/retail/">Торговые центры и ритейл</a>
+          <a href="/industries/business-centers/">Бизнес-центры и офисы</a>
+          <a href="/industries/hotels/">Отели и HoReCa</a>
+          <a href="/industries/public-spaces/">Общественные пространства</a>
+          <a href="/industries/medical-wellness/">Медицина и велнес</a>
+          <a href="/industries/education/">Образовательные учреждения</a>
+          <a href="/industries/fitness-sports/">Фитнес-клубы и спорткомплексы</a>
+          <a href="/industries/municipal/">Муниципальные службы</a>
+          <a href="/industries/warehouse/">Склады и логистика</a>
+          <a href="/industries/manufacturing/">Промышленность и производство</a>
+          <a href="/industries/construction/">Строительство</a>
+          <a href="/industries/agriculture/">Сельское хозяйство</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-3">
+          <h3 class="mono" id="foot-site-3"><b>03</b> <span>Решения</span></h3>
+          <a href="/solutions/cleaning/">Роботизированный клининг</a>
+          <a href="/solutions/warehouse/">Складская роботизация</a>
+          <a href="/solutions/#dir-service-robots">Сервисные роботы</a>
+          <a href="/solutions/#dir-industrial">Промышленная роботизация</a>
+          <a href="/solutions/#dir-medical">Медицинская робототехника</a>
+          <a href="/solutions/#dir-construction">Строительная робототехника</a>
+          <a href="/solutions/#dir-agro">Агророботы</a>
+          <a href="/solutions/#dir-security">Роботы безопасности</a>
+          <a href="/solutions/#dir-humanoid">Гуманоидные роботы</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-4">
+          <h3 class="mono" id="foot-site-4"><b>04</b> <span>Компания</span></h3>
+          <a href="/about/">О компании</a>
+          <a href="/manufacturers/">Производители</a>
+          <a href="/contacts/">Контакты</a>
+          <a href="/roi/">Калькулятор ROI</a>
+          <a href="/contacts/#talk">Запросить КП</a>
+          <a href="/services/#pilot">Демо и пилот</a>
+        </nav>
+      </div>
+
+      <div class="foot-bot">
+        <span>© 2026 Профессиональная Робототехника. Все права защищены.</span>
+        <a href="/privacy/">Политика конфиденциальности</a>
+        <a class="foot-up" href="/"><span>На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>

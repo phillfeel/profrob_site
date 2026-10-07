@@ -1,0 +1,668 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="t-cl" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15v4M17 17h4M5 17v3M3.5 18.5h3"/></symbol>
+    <symbol id="t-dl" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="t-wh" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+    <symbol id="t-gd" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="t-hm" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="9" rx="3"/><path d="M12 4V2M9.5 8.5h.01M14.5 8.5h.01M4 21v-3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/></symbol>
+    <symbol id="i-center" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></symbol>
+    <symbol id="i-fleet" viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><path d="M17 14v6M14 17h6"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 18.4 5.6"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+    <symbol id="i-split" viewBox="0 0 24 24"><path d="M12 3v6M12 9 5 15M12 9l7 6M5 15v4M19 15v4"/><circle cx="12" cy="3.5" r="1.5"/><circle cx="5" cy="20" r="1.5"/><circle cx="19" cy="20" r="1.5"/></symbol>
+    <symbol id="i-remote" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M9 10l2 2 4-4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M15 7h4v4"/></symbol>
+    <symbol id="i-agent" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 14v4M17 16h4M5 17v3M3.5 18.5h3"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-sla" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8.5 7 10 4-1.5 7-5.5 7-10V6z"/><path d="M12 8v4l2.5 1.5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5 5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="6" rx="6" ry="3"/><path d="M3 6v6c0 1.7 2.7 3 6 3M3 12v6c0 1.7 2.7 3 6 3M21 12c0 1.7-2.7 3-6 3s-6-1.3-6-3 2.7-3 6-3 6 1.3 6 3zM9 12v6c0 1.7 2.7 3 6 3s6-1.3 6-3v-6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9z"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs></svg>
+
+
+  <header class="nav" aria-label="Основная навигация">
+    <a href="/" aria-label="Профессиональная Робототехника — на главную"><img src="/assets/profrobot-logo.png" alt="Профессиональная Робототехника"></a>
+    <nav class="nav-links">
+      <a href="/solutions/">Решения</a>
+      <a href="/industries/">Отрасли</a>
+      <a href="/products/">Продукты</a>
+      <a href="/services/">Услуги</a>
+      <a href="/platform/" class="on" aria-current="page">Платформа</a>
+      <a href="/cases/">Кейсы</a>
+      <a href="#talk">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">09</span>
+    <span class="lbl">ПЛАТФОРМА</span>
+  </div>
+
+  <main>
+
+    <section class="sol-hero wrap" data-sec="01" data-name="ПЛАТФОРМА">
+      <div class="sol-hero__grid">
+        <div class="sol-hero__copy">
+          <nav class="crumbs reveal" aria-label="Хлебные крошки"><ol><li><a href="/">Главная</a></li><li aria-current="page">Платформа</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span>ПЛАТФОРМА</span></span>
+          <h1 class="h1 reveal">Платформа Профессиональная Робототехника</h1>
+          <div class="sol-hero__text reveal">
+            <p class="lead">Единая платформа управления роботами, техникой и эксплуатацией объектов.</p>
+            <p>Поставить робота — половина дела. Дальше им нужно управлять, видеть, что и где сделано, контролировать качество и вовремя обслуживать. Платформа собирает всё это в одно окно: парк техники, задачи, качество, аналитику и сервис. По сути это операционная система роботизированной эксплуатации.</p>
+          </div>
+          <div class="btns reveal">
+            <a class="btn btn-pri" href="#talk" data-pick="demo"><span>Запросить демо платформы</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-sec" href="/roi/"><span>Рассчитать ROI объекта</span></a>
+          </div>
+          <ul class="pf-chips reveal">
+            <li>Российская разработка</li>
+            <li>Данные в РФ</li>
+            <li>40+ производителей, 8 типов роботов</li>
+          </ul>
+        </div>
+
+
+        <div class="pf-ops reveal" style="--i:2" role="img" aria-label="Пример панели оператора: один оператор и 24 робота пяти типов на одном экране">
+          <div class="pf-ops__head">
+            <span class="badge-online"><i></i><span>Платформа онлайн</span></span>
+            <span class="mono">Пример панели</span>
+          </div>
+          <p class="pf-ops__who"><b>1</b><span>оператор</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg><b>24</b><span>робота</span></p>
+          <ul class="pf-ops__grid" aria-hidden="true">
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-01</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-02</b></li>
+            <li class="c"><svg><use href="#t-cl"/></svg><b>CL-03</b></li>
+            <li class="w"><svg><use href="#t-dl"/></svg><b>DL-01</b></li>
+            <li class="w"><svg><use href="#t-dl"/></svg><b>DL-02</b></li>
+            <li class="w"><svg><use href="#t-wh"/></svg><b>WH-01</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-04</b></li>
+            <li class="a"><svg><use href="#t-cl"/></svg><b>CL-05</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-06</b></li>
+            <li class="c"><svg><use href="#t-dl"/></svg><b>DL-03</b></li>
+            <li class="w"><svg><use href="#t-wh"/></svg><b>WH-02</b></li>
+            <li class="w"><svg><use href="#t-wh"/></svg><b>WH-03</b></li>
+            <li class="w"><svg><use href="#t-gd"/></svg><b>GD-01</b></li>
+            <li class="w"><svg><use href="#t-gd"/></svg><b>GD-02</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-07</b></li>
+            <li class="w"><svg><use href="#t-hm"/></svg><b>HM-01</b></li>
+            <li class="w"><svg><use href="#t-dl"/></svg><b>DL-04</b></li>
+            <li class="c"><svg><use href="#t-wh"/></svg><b>WH-04</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-08</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-09</b></li>
+            <li class="w"><svg><use href="#t-gd"/></svg><b>GD-03</b></li>
+            <li class="w"><svg><use href="#t-hm"/></svg><b>HM-02</b></li>
+            <li class="w"><svg><use href="#t-dl"/></svg><b>DL-05</b></li>
+            <li class="w"><svg><use href="#t-cl"/></svg><b>CL-10</b></li>
+          </ul>
+          <ul class="pf-ops__legend">
+            <li class="w">в работе</li>
+            <li class="c">заряд</li>
+            <li class="a">внимание</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="idea" data-sec="02" data-name="ИДЕЯ" aria-labelledby="idea-h">
+      <div class="pf-idea">
+        <div class="pf-idea__copy">
+          <span class="idx reveal"><b>02</b> — <span>ИДЕЯ</span></span>
+          <h2 class="h2 reveal" id="idea-h">Управляем не роботами, а качеством и результатом.</h2>
+          <p class="lead reveal">Робот — это инструмент. Ценность появляется, когда за ним стоит система: она распределяет задачи, следит за выполнением, ловит отклонения и показывает объективную картину эксплуатации.</p>
+          <ol class="pf-verbs reveal">
+            <li><span class="mono">01</span><b>Распределяет задачи</b></li>
+            <li><span class="mono">02</span><b>Следит за выполнением</b></li>
+            <li><span class="mono">03</span><b>Ловит отклонения</b></li>
+            <li><span class="mono">04</span><b>Показывает картину</b></li>
+          </ol>
+        </div>
+        <figure class="pf-one reveal" style="--i:2">
+          <p class="pf-one__eq"><span class="pf-one__n tnum">1</span><span class="pf-one__t">оператор</span><span class="pf-one__x" aria-hidden="true">=</span><span class="pf-one__n pf-one__n--many">десятки</span><span class="pf-one__t">устройств</span></p>
+          <figcaption>Один оператор через платформу контролирует десятки устройств сразу, без раздувания штата.</figcaption>
+        </figure>
+      </div>
+
+
+      <div class="pf-any reveal">
+        <p class="pf-any__cap"><a href="/manufacturers/">40+ производителей</a><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg><span>8 типов роботов</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg><a class="one" href="#capabilities"><b>1 платформа</b></a></p>
+        <ul class="pf-any__row">
+          <li><a href="/industries/business-centers/"><img src="/assets/robots/robot-cleaning.webp" alt="" width="964" height="1026" loading="lazy" decoding="async"><span>Уборка</span></a></li>
+          <li><a href="/industries/hotels/#delivery"><img src="/assets/robots/robot-delivery.webp" alt="" width="1027" height="1072" loading="lazy" decoding="async"><span>Доставка</span></a></li>
+          <li><a href="/industries/warehouse/"><img src="/assets/robots/robot-amr.webp" alt="" width="837" height="1148" loading="lazy" decoding="async"><span>Склад</span></a></li>
+          <li><a href="/industries/manufacturing/"><img src="/assets/robots/robot-manipulator.webp" alt="" width="992" height="1116" loading="lazy" decoding="async"><span>Манипуляторы</span></a></li>
+          <li><a href="/industries/agriculture/"><img src="/assets/robots/robot-agro.webp" alt="" width="1207" height="703" loading="lazy" decoding="async"><span>Агро</span></a></li>
+          <li><a href="/industries/construction/"><img src="/assets/robots/robot-demolition.webp" alt="" width="1199" height="1015" loading="lazy" decoding="async"><span>Стройка</span></a></li>
+          <li><a href="/industries/medical-wellness/"><img src="/assets/robots/robot-wellness.webp" alt="" width="1068" height="990" loading="lazy" decoding="async"><span>Велнес</span></a></li>
+          <li><a href="/industries/hotels/#reception"><img src="/assets/robots/robot-humanoid.webp" alt="" width="403" height="1188" loading="lazy" decoding="async"><span>Гуманоиды</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="problems" data-sec="03" data-name="ПРОБЛЕМЫ" aria-labelledby="prob-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>03</b> — <span>ПРОБЛЕМЫ</span></span>
+        <h2 class="h2 reveal" id="prob-h">Узнаёте свою ситуацию? Платформа сделана для неё.</h2>
+      </div>
+      <ol class="pf-probs">
+        <li class="pf-prob reveal">
+          <span class="dir__no"><span>01</span></span>
+          <h3>Кадры</h3>
+          <p>Дефицит персонала, высокая текучка, рост стоимости труда и зависимость от смен.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="remote"><span>Решает:</span> <b>Удалённое управление</b></a>
+        </li>
+        <li class="pf-prob reveal" style="--i:1">
+          <span class="dir__no"><span>02</span></span>
+          <h3>Нет прозрачности</h3>
+          <p>Объект не знает, где работали, что пропустили, сколько это заняло и по регламенту ли.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="monitoring"><span>Решает:</span> <b>Круглосуточный мониторинг</b></a>
+        </li>
+        <li class="pf-prob reveal" style="--i:2">
+          <span class="dir__no"><span>03</span></span>
+          <h3>Нестабильное качество</h3>
+          <p>Результат меняется от смены к смене и зависит от конкретного человека.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="dispatch"><span>Решает:</span> <b>Распределение задач и координация</b></a>
+        </li>
+        <li class="pf-prob reveal" style="--i:3">
+          <span class="dir__no"><span>04</span></span>
+          <h3>Высокие затраты</h3>
+          <p>Перерасход ресурсов, неэффективная техника, дорогой контроль качества.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="analytics"><span>Решает:</span> <b>AI-аналитика и предиктивное обслуживание</b></a>
+        </li>
+        <li class="pf-prob reveal" style="--i:4">
+          <span class="dir__no"><span>05</span></span>
+          <h3>Работа мешает бизнесу</h3>
+          <p>Шум и перекрытые проходы в рабочее время, дискомфорт посетителей.</p>
+          <a class="pf-prob__go" href="#capabilities" data-cap="maps"><span>Решает:</span> <b>Цифровые карты и навигация</b></a>
+        </li>
+      </ol>
+    </section>
+
+
+    <section class="sol-sec" id="capabilities" data-sec="04" data-name="ВОЗМОЖНОСТИ" data-dark aria-labelledby="cap-h">
+      <div class="stage pr-stage pf-stage">
+        <div class="pf-cap__head">
+          <span class="idx reveal"><b>04</b> — <span>ВОЗМОЖНОСТИ</span></span>
+          <h2 class="h2 reveal" id="cap-h">Что умеет платформа.</h2>
+          <p class="lead reveal">Одиннадцать возможностей в одном окне. Выберите любую, и мы покажем, как это выглядит в интерфейсе.</p>
+        </div>
+
+        <div class="pf-cap reveal" style="--i:1" data-tabs>
+          <div class="pf-cap__list" role="tablist" aria-orientation="vertical" aria-label="Возможности платформы">
+            <button class="pf-tab" type="button" role="tab" id="t-center" aria-controls="p-center" aria-selected="true"><span class="pf-tab__no mono">01</span><span class="pf-tab__name">Единый центр управления</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-fleet" aria-controls="p-fleet" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">02</span><span class="pf-tab__name"><span>Управление парком техники</span> <small>Fleet Management</small></span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-monitoring" aria-controls="p-monitoring" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">03</span><span class="pf-tab__name">Круглосуточный мониторинг</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-maps" aria-controls="p-maps" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">04</span><span class="pf-tab__name">Цифровые карты и навигация</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-dispatch" aria-controls="p-dispatch" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">05</span><span class="pf-tab__name">Распределение задач и координация</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-remote" aria-controls="p-remote" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">06</span><span class="pf-tab__name">Удалённое управление</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-analytics" aria-controls="p-analytics" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">07</span><span class="pf-tab__name">AI-аналитика и предиктивное обслуживание</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-agents" aria-controls="p-agents" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">08</span><span class="pf-tab__name">AI-агенты собственной разработки</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-api" aria-controls="p-api" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">09</span><span class="pf-tab__name"><span>Интеграции</span> <small>Open API</small></span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-sla" aria-controls="p-sla" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">10</span><span class="pf-tab__name">SLA и сервис</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+            <button class="pf-tab" type="button" role="tab" id="t-custom" aria-controls="p-custom" aria-selected="false" tabindex="-1"><span class="pf-tab__no mono">11</span><span class="pf-tab__name">Свой софт под ваш сценарий</span><i class="pf-tab__bar" aria-hidden="true"></i></button>
+          </div>
+
+          <div class="pf-cap__view">
+
+            <article class="pf-panel" role="tabpanel" id="p-center" aria-labelledby="t-center" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Все объекты</span></div>
+                <div class="pf-win__body">
+                  <dl class="pf-kpis">
+                    <div><dt>устройств</dt><dd class="tnum">142</dd></div>
+                    <div><dt>объектов</dt><dd class="tnum">14</dd></div>
+                    <div><dt>онлайн</dt><dd class="tnum">138</dd></div>
+                  </dl>
+                  <ul class="pf-sites">
+                    <li><span>ТЦ «Северный»</span><i style="--w:92%"></i><b class="tnum">38</b></li>
+                    <li><span>БЦ «Парковый»</span><i style="--w:70%"></i><b class="tnum">24</b></li>
+                    <li><span>Склад «Юг»</span><i style="--w:56%"></i><b class="tnum">31</b></li>
+                    <li><span>Клиника «Центр»</span><i style="--w:38%"></i><b class="tnum">12</b></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Единый центр управления</h3><p>Одна панель на все объекты: карта, статусы устройств, задачи, уведомления и аналитика. Весь парк техники виден в реальном времени, управление идёт из одного места.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-fleet" aria-labelledby="t-fleet" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Парк устройств</span></div>
+                <div class="pf-win__body">
+                  <div class="pf-filter"><span class="on">Все</span><span>Уборка</span><span>Доставка</span><span>Склад</span></div>
+                  <ul class="pf-rows">
+                    <li><svg><use href="#t-cl"/></svg><b>CL-07</b><span class="pf-st work">в работе</span><i class="pf-batt" style="--w:78%"></i></li>
+                    <li><svg><use href="#t-dl"/></svg><b>DL-02</b><span class="pf-st work">в работе</span><i class="pf-batt" style="--w:54%"></i></li>
+                    <li><svg><use href="#t-wh"/></svg><b>WH-03</b><span class="pf-st charge">заряд</span><i class="pf-batt" style="--w:21%"></i></li>
+                    <li><svg><use href="#t-cl"/></svg><b>CL-11</b><span class="pf-st work">в работе</span><i class="pf-batt" style="--w:90%"></i></li>
+                  </ul>
+                  <div class="pf-cmd"><span class="mono">Выбрано: 12</span><span class="pf-btn">Обновить ПО</span><span class="pf-btn">Расписание</span></div>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Управление парком техники</h3><p>Сотни устройств под контролем: группировка по объектам и статусам, массовые команды, удалённая настройка и обновления, управление расписаниями и сценариями.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-monitoring" aria-labelledby="t-monitoring" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Телеметрия</span></div>
+                <div class="pf-win__body">
+                  <div class="pf-tele__top"><b>CL-07</b><span class="pf-st work">в работе</span></div>
+                  <svg class="pf-spark" viewBox="0 0 240 64" preserveAspectRatio="none"><path class="area" d="M0 44 L20 40 L40 46 L60 30 L80 34 L100 22 L120 28 L140 18 L160 26 L180 14 L200 20 L220 12 L240 16 V64 H0Z"/><path class="line" d="M0 44 L20 40 L40 46 L60 30 L80 34 L100 22 L120 28 L140 18 L160 26 L180 14 L200 20 L220 12 L240 16"/></svg>
+                  <dl class="pf-stats">
+                    <div><dt>часов в работе за сутки</dt><dd class="tnum">23/24</dd></div>
+                    <div><dt>ошибок за смену</dt><dd class="tnum">1</dd></div>
+                  </dl>
+                  <ol class="pf-log">
+                    <li><time>10:42</time><span>Задача выполнена · этаж 1</span></li>
+                    <li><time>10:51</time><span>Низкий заряд · едет на базу</span></li>
+                    <li class="warn"><time>11:03</time><span>Ошибка датчика · уведомление отправлено</span></li>
+                  </ol>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Круглосуточный мониторинг</h3><p>Живая телеметрия и карта операций, контроль статусов и ошибок, время безотказной работы, история операций и уведомления о сбоях.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-maps" aria-labelledby="t-maps" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Карта · этаж 1</span></div>
+                <div class="pf-win__body">
+                  <svg class="pf-plan" viewBox="0 0 320 190">
+                    <defs><pattern id="pf-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v8" stroke="currentColor" stroke-width="2" opacity=".55"/></pattern></defs>
+                    <rect class="wall" x="6" y="6" width="308" height="178" rx="10"/>
+                    <path class="wall" d="M110 6v70M110 114v70M214 6v46M214 90v94M110 76h104"/>
+                    <rect class="zone" x="14" y="14" width="88" height="162" rx="6"/>
+                    <rect class="zone" x="118" y="84" width="88" height="92" rx="6"/>
+                    <rect class="zone" x="222" y="14" width="84" height="162" rx="6"/>
+                    <rect class="nogo" x="118" y="14" width="88" height="54" rx="6"/>
+                    <path class="route" d="M30 160 V30 H90 V150 H60 M130 160 H190 V100 H140 M240 30 H292 V160 H240 V70 H270"/>
+                    <circle class="bot" cx="90" cy="86" r="5"/>
+                    <circle class="bot" cx="190" cy="130" r="5"/>
+                    <circle class="bot" cx="292" cy="96" r="5"/>
+                  </svg>
+                  <ul class="pf-legend">
+                    <li class="z">Рабочая зона</li>
+                    <li class="r">Маршрут</li>
+                    <li class="n">Запретная зона</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Цифровые карты и навигация</h3><p>Карта объекта с рабочими зонами, маршрутами и запретными зонами (no-go). Техника видна на карте в реальном времени, зоны правятся онлайн и синхронизируются из облака.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-dispatch" aria-labelledby="t-dispatch" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Задачи · смена</span></div>
+                <div class="pf-win__body">
+                  <svg class="pf-plan pf-plan--split" viewBox="0 0 320 150">
+                    <rect class="wall" x="6" y="6" width="308" height="138" rx="10"/>
+                    <rect class="sec s1" x="14" y="14" width="96" height="122" rx="6"/>
+                    <rect class="sec s2" x="116" y="14" width="96" height="122" rx="6"/>
+                    <rect class="sec s3" x="218" y="14" width="88" height="122" rx="6"/>
+                    <path class="rt s1" d="M30 120V34h64v70H50"/>
+                    <path class="rt s2" d="M132 34h64v86h-64V60h40"/>
+                    <path class="rt s3" d="M234 120V34h56v86h-32V60"/>
+                    <circle class="bot s1" cx="62" cy="34" r="5"/>
+                    <circle class="bot s2" cx="196" cy="86" r="5"/>
+                    <circle class="bot s3" cx="234" cy="80" r="5"/>
+                  </svg>
+                  <ul class="pf-assign">
+                    <li class="s1"><b>CL-03</b><span>зона A</span></li>
+                    <li class="s2"><b>CL-07</b><span>зона B</span></li>
+                    <li class="s3"><b>CL-11</b><span>зона C</span></li>
+                  </ul>
+                  <p class="pf-note"><i></i><span>Без пересечений и пропусков</span></p>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Распределение задач и координация</h3><p>Платформа сама распределяет задачи между устройствами, строит расписание и координирует несколько роботов на одном объекте: они не мешают друг другу и покрывают площадь без пропусков.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-remote" aria-labelledby="t-remote" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Удалённый пульт</span></div>
+                <div class="pf-win__body">
+                  <div class="pf-rc__id"><span class="pf-rc__ic"><svg><use href="#t-cl"/></svg></span><div><b>CL-07</b><small>Этаж 1 · уборка</small></div><span class="pf-st work">в работе</span></div>
+                  <div class="pf-rc__btns"><span class="pf-btn pri">Запустить</span><span class="pf-btn">Пауза</span><span class="pf-btn stop">Аварийная остановка</span></div>
+                  <ul class="pf-diag">
+                    <li><span>Диагностика</span><b>в норме</b></li>
+                    <li><span>Связь</span><b>стабильна</b></li>
+                    <li><span>Оператор</span><b>на связи удалённо</b></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Удалённое управление</h3><p>Запуск и остановка задач, удалённая диагностика и помощь, аварийная остановка из любой точки. Оператору не нужно быть на объекте.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-analytics" aria-labelledby="t-analytics" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Аналитика</span></div>
+                <div class="pf-win__body">
+                  <p class="pf-cap-t mono">Загрузка по зонам</p>
+                  <div class="pf-heat">
+                    <i style="--v:.2"></i><i style="--v:.35"></i><i style="--v:.5"></i><i style="--v:.3"></i><i style="--v:.15"></i><i style="--v:.25"></i><i style="--v:.6"></i><i style="--v:.4"></i>
+                    <i style="--v:.3"></i><i style="--v:.7"></i><i style="--v:.95"></i><i style="--v:.8"></i><i style="--v:.45"></i><i style="--v:.3"></i><i style="--v:.5"></i><i style="--v:.35"></i>
+                    <i style="--v:.25"></i><i style="--v:.55"></i><i style="--v:.85"></i><i style="--v:1"></i><i style="--v:.65"></i><i style="--v:.4"></i><i style="--v:.2"></i><i style="--v:.3"></i>
+                    <i style="--v:.1"></i><i style="--v:.3"></i><i style="--v:.45"></i><i style="--v:.6"></i><i style="--v:.35"></i><i style="--v:.2"></i><i style="--v:.15"></i><i style="--v:.1"></i>
+                  </div>
+                  <div class="pf-pred"><span class="pf-pred__ic"><svg><use href="#i-bell"/></svg></span><div><b>CL-04: обслуживание через 3 дня</b><small>Износ узла выше нормы. Заменим до поломки.</small></div></div>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>AI-аналитика и предиктивное обслуживание</h3><p>Анализ загрузки техники, эффективности маршрутов и производительности объектов, тепловые карты, повторяющиеся ошибки. Система заранее сигналит о необходимости обслуживания: до поломки, а не после.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-agents" aria-labelledby="t-agents" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">AI-агент · лента</span></div>
+                <div class="pf-win__body">
+                  <ul class="pf-feed">
+                    <li><span class="pf-tag">находка</span><b>У лифтов копится очередь роботов</b></li>
+                    <li><span class="pf-tag warn">отклонение</span><b>Зона B не обработана по графику</b></li>
+                    <li><span class="pf-tag ok">рекомендация</span><b>Перенести доставку на другое время, чтобы разгрузить лифты</b></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>AI-агенты собственной разработки</h3><p>Интеллектуальные агенты в реальном времени анализируют операции, находят проблемные зоны, фиксируют отклонения и дают рекомендации по оптимизации и снижению затрат.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-api" aria-labelledby="t-api" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Интеграции</span></div>
+                <div class="pf-win__body">
+                  <div class="pf-net">
+                    <ul class="pf-net__row"><li>BMS</li><li>IoT</li><li>ERP</li></ul>
+                    <p class="pf-net__core"><b>Платформа</b><span>Open API</span></p>
+                    <ul class="pf-net__row"><li>Безопасность</li><li>Facility</li><li>WMS</li></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>Open API и интеграции</h3><p>Стыковка с системами здания (BMS), IoT и умным зданием, системами безопасности, ERP и facility-платформами клиента. Платформа встраивается в инфраструктуру, а не заменяет её.</p></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-sla" aria-labelledby="t-sla" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Инцидент</span></div>
+                <div class="pf-win__body">
+                  <ol class="pf-steps">
+                    <li class="done"><span class="mono">СИГНАЛ</span><b>Платформа видит сбой</b></li>
+                    <li class="done"><span class="mono">ЗАЯВКА</span><b>Инцидент создан автоматически</b></li>
+                    <li class="now"><span class="mono">ВЫЕЗД</span><b>Инженер или удалённая помощь</b></li>
+                    <li><span class="mono">РЕЗУЛЬТАТ</span><b>Робот снова в работе</b></li>
+                  </ol>
+                  <p class="pf-note"><i></i><span>Время реакции зафиксировано в SLA</span></p>
+                </div>
+              </div>
+              <div class="pf-panel__txt"><h3>SLA и сервис</h3><p>Сервис встроен в платформу: мониторинг стабильности, управление инцидентами, удалённая поддержка, предиктивное обслуживание. Задача — минимум простоев.</p><a class="text-link sv-link-dark" href="/services/#sla"><span>Как устроен сервис</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            </article>
+
+
+            <article class="pf-panel" role="tabpanel" id="p-custom" aria-labelledby="t-custom" tabindex="0">
+              <div class="pf-win" aria-hidden="true">
+                <div class="pf-win__bar"><i></i><i></i><i></i><span class="mono">Сценарий «Гость» · v1.3</span></div>
+                <div class="pf-win__body">
+                  <ol class="pf-flow">
+                    <li><span class="pf-flow__n mono">1</span><span class="pf-flow__ic"><svg><use href="#t-hm"/></svg></span><b>HM-01 встречает гостя</b><small>гуманоид, бренд А</small></li>
+                    <li><span class="pf-flow__n mono">2</span><span class="pf-flow__ic"><svg><use href="#i-link"/></svg></span><b>Вызов лифта</b><small>система здания</small></li>
+                    <li><span class="pf-flow__n mono">3</span><span class="pf-flow__ic"><svg><use href="#t-dl"/></svg></span><b>DL-01 везёт заказ</b><small>доставщик, бренд Б</small></li>
+                  </ol>
+                </div>
+              </div>
+              <div class="pf-panel__txt">
+                <h3>Свой софт под ваш сценарий</h3>
+                <p>Нет нужной функции у производителя — напишем. Новые сценарии, интеграции и интерфейсы собираем на основе платформы, а не ждём обновления от вендора.</p>
+                <ul class="pf-ex"><li>Разные бренды в одной связке</li><li>Задачи из ваших систем</li><li>Сценарии для гуманоида</li></ul>
+                <a class="text-link sv-link-dark" href="#talk" data-pick="custom"><span>Обсудить разработку</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="trust" data-sec="05" data-name="БЕЗОПАСНОСТЬ" aria-labelledby="trust-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>05</b> — <span>БЕЗОПАСНОСТЬ</span></span>
+        <h2 class="h2 reveal" id="trust-h">Российская платформа. Данные остаются в России.</h2>
+      </div>
+      <div class="pf-trust">
+        <article class="pf-trust__main reveal">
+          <svg class="pf-trust__rings" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="30"/><circle cx="120" cy="120" r="62"/><circle cx="120" cy="120" r="94"/><circle cx="120" cy="120" r="116"/><path d="M120 24v32M120 184v32M24 120h32M184 120h32"/></svg>
+          <span class="pf-trust__pin" aria-hidden="true"><i></i></span>
+          <p class="pf-trust__k mono">Хранение данных</p>
+          <h3>Данные в России</h3>
+          <p>Данные хранятся в облачной инфраструктуре на территории России. Для медицинских и государственных объектов расположение данных в РФ часто решает выбор.</p>
+        </article>
+        <article class="pf-trust__card reveal" style="--i:1">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-code"/></svg></span>
+          <h3>Своя IT-разработка</h3>
+          <p>Полностью российская разработка, ориентированная на корпоративных заказчиков. Не лицензия вендора.</p>
+        </article>
+        <article class="pf-trust__card reveal" style="--i:2">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-sla"/></svg></span>
+          <h3>Безопасность корпоративного уровня</h3>
+          <p>Защищённые каналы связи, резервирование, контроль доступа.</p>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="results" data-sec="06" data-name="РЕЗУЛЬТАТ" aria-labelledby="res-h">
+      <div class="pf-res">
+        <div class="pf-res__head">
+          <span class="idx reveal"><b>06</b> — <span>РЕЗУЛЬТАТ</span></span>
+          <h2 class="h2 reveal" id="res-h">Платформа, ориентированная на результат.</h2>
+          <p class="lead reveal">Порядок экономии зависит от типа объекта и площади. Калькулятор покажет его за пару минут.</p>
+          <div class="btns reveal"><a class="btn btn-pri" href="/roi/"><span>Рассчитать ROI</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+        <ol class="pf-outs">
+          <li class="pf-out reveal"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-people"/></svg></span><div><h3>Один оператор — десятки роботов</h3><p>Меньше людей на контроль, ниже зависимость от кадров.</p></div></li>
+          <li class="pf-out reveal" style="--i:1"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-coins"/></svg></span><div><h3>Ниже операционные затраты</h3><p>Нормированный расход ресурсов и эффективная эксплуатация техники.</p></div></li>
+          <li class="pf-out reveal" style="--i:2"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-target"/></svg></span><div><h3>Стабильное качество</h3><p>Каждая операция идёт по заданному сценарию, без человеческого фактора.</p></div></li>
+          <li class="pf-out reveal" style="--i:3"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-eye"/></svg></span><div><h3>Прозрачность</h3><p>Объективные отчёты и KPI, контроль подрядчиков вместо «вроде сделано».</p></div></li>
+          <li class="pf-out reveal" style="--i:4"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><div><h3>Больше времени без отказов</h3><p>Предиктивный сервис снижает простои.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="objects" data-sec="07" data-name="ОБЪЕКТЫ" aria-labelledby="obj-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>07</b> — <span>ОБЪЕКТЫ</span></span>
+        <h2 class="h2 reveal" id="obj-h">Для каких объектов.</h2>
+        <p class="lead reveal">Платформа рассчитана на коммерческую недвижимость и общественные пространства.</p>
+      </div>
+      <div class="pf-objs">
+        <a class="pf-obj reveal" href="/industries/business-centers/">
+          <span class="dir__no"><span>ОФИСЫ</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+          <h3>Офисы и бизнес-центры</h3>
+          <p>Уборка вне рабочего времени, стабильное качество, прозрачный контроль подрядчика и меньше зависимости от персонала.</p>
+        </a>
+        <a class="pf-obj reveal" style="--i:1" href="/industries/medical-wellness/">
+          <span class="dir__no"><span>МЕДИЦИНА</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+          <h3>Клиники и медицинские объекты</h3>
+          <p>Стандартизированная уборка по регламенту, контроль обработанных зон, цифровая история операций, предсказуемое санитарное качество.</p>
+        </a>
+        <a class="pf-obj reveal" style="--i:2" href="/industries/retail/">
+          <span class="dir__no"><span>ТОРГОВЛЯ</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+          <h3>Торговые и общественные пространства</h3>
+          <p>Постоянная чистота на больших площадях, круглосуточная работа и минимум влияния на посетителей.</p>
+        </a>
+      </div>
+      <ul class="pf-more reveal">
+        <li><a href="/industries/manufacturing/">Склады и логистические комплексы</a></li>
+        <li><a href="/industries/hotels/">Отели</a></li>
+        <li><a href="/industries/public-spaces/">Аэропорты</a></li>
+        <li><a href="/industries/fitness-sports/">Фитнес-клубы</a></li>
+        <li><a href="/industries/education/">Образовательные учреждения</a></li>
+        <li><a class="all" href="/industries/"><span>Все отрасли</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+      </ul>
+    </section>
+
+
+    <section class="sol-sec wrap" id="see" data-sec="08" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>08</b> — <span>СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 class="h2 reveal" id="see-h">Смотрите также.</h2>
+      </div>
+      <div class="see pf-see">
+        <a class="see-card reveal" href="/solutions/#directions">
+          <span class="dir__no"><span>РЕШЕНИЕ</span></span>
+          <h3>Роботизированный клининг</h3>
+          <p>Главный сценарий платформы: уборка с контролем качества и отчётами.</p>
+          <div class="see-card__foot"><span class="mono" style="color:var(--ink-muted)">Где платформа работает сегодня</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+        <a class="see-card reveal" style="--i:1" href="/products/#platform">
+          <span class="dir__no"><span>7 ПРОДУКТОВ</span></span>
+          <h3>Продукты</h3>
+          <p>Fleet Management · Диспетчеризация · AI-модули · Open API · Аренда (RaaS) · Retrofit</p>
+          <div class="see-card__foot"><span class="mono" style="color:var(--ink-muted)">Модули платформы по отдельности</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+        <a class="see-card reveal" style="--i:2" href="/cases/">
+          <span class="dir__no"><span>РЕЗУЛЬТАТ В ЦИФРАХ</span></span>
+          <h3>Кейсы</h3>
+          <p>Бизнес-центр · Агрохолдинг · Склад · Производство · Строительство</p>
+          <div class="see-card__foot"><span class="mono" style="color:var(--ink-muted)">Что платформа дала бизнесу</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+      </div>
+    </section>
+
+
+    <section class="sol-sec wrap" id="talk" data-sec="09" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>09</b> — <span>ЗАЯВКА</span></span>
+          <h2 class="h2 reveal" id="talk-h">Покажем платформу в работе.</h2>
+          <p class="lead reveal">Оставьте контакты. Перезвоним, уточним задачу и договоримся о демо. Если хотите сначала оценить экономику, откройте калькулятор.</p>
+          <div class="btns reveal"><a class="btn btn-sec" href="/roi/"><span>Рассчитать ROI</span></a></div>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="platform" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label for="f-dir">Что хотите обсудить <small>необязательно</small></label>
+            <select id="f-dir" name="direction">
+              <option value="">Пока не знаю</option>
+              <option value="demo">Демо платформы</option>
+              <option value="connect">Подключение моих роботов</option>
+              <option value="custom">Разработка софта под задачу</option>
+              <option value="api">Интеграция с моими системами</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span>Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span>Даю <a href="/consent/" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и принимаю <a href="/privacy/" target="_blank" rel="noopener">политику конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span class="btn__t">Заказать звонок</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b>Заявка принята.</b>
+            <p>Перезвоним в рабочее время.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="/" aria-label="Профессиональная Робототехника — на главную"><img src="/assets/profrobot-logo-inverse.png" alt="Профессиональная Робототехника" width="783" height="136"></a>
+          <p>Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span>Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+
+      <div class="foot-grid foot-grid--site">
+        <nav class="foot-col" aria-labelledby="foot-site-1">
+          <h3 class="mono" id="foot-site-1"><b>01</b> <span>Разделы</span></h3>
+          <a href="/solutions/">Решения</a>
+          <a href="/industries/">Отрасли</a>
+          <a href="/products/">Продукты</a>
+          <a href="/platform/">Платформа</a>
+          <a href="/services/">Услуги</a>
+          <a href="/cases/">Кейсы</a>
+          <a href="/knowledge/">База знаний</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-2">
+          <h3 class="mono" id="foot-site-2"><b>02</b> <span>Отрасли</span></h3>
+          <a href="/industries/retail/">Торговые центры и ритейл</a>
+          <a href="/industries/business-centers/">Бизнес-центры и офисы</a>
+          <a href="/industries/hotels/">Отели и HoReCa</a>
+          <a href="/industries/public-spaces/">Общественные пространства</a>
+          <a href="/industries/medical-wellness/">Медицина и велнес</a>
+          <a href="/industries/education/">Образовательные учреждения</a>
+          <a href="/industries/fitness-sports/">Фитнес-клубы и спорткомплексы</a>
+          <a href="/industries/municipal/">Муниципальные службы</a>
+          <a href="/industries/warehouse/">Склады и логистика</a>
+          <a href="/industries/manufacturing/">Промышленность и производство</a>
+          <a href="/industries/construction/">Строительство</a>
+          <a href="/industries/agriculture/">Сельское хозяйство</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-3">
+          <h3 class="mono" id="foot-site-3"><b>03</b> <span>Решения</span></h3>
+          <a href="/solutions/cleaning/">Роботизированный клининг</a>
+          <a href="/solutions/warehouse/">Складская роботизация</a>
+          <a href="/solutions/#dir-service-robots">Сервисные роботы</a>
+          <a href="/solutions/#dir-industrial">Промышленная роботизация</a>
+          <a href="/solutions/#dir-medical">Медицинская робототехника</a>
+          <a href="/solutions/#dir-construction">Строительная робототехника</a>
+          <a href="/solutions/#dir-agro">Агророботы</a>
+          <a href="/solutions/#dir-security">Роботы безопасности</a>
+          <a href="/solutions/#dir-humanoid">Гуманоидные роботы</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-4">
+          <h3 class="mono" id="foot-site-4"><b>04</b> <span>Компания</span></h3>
+          <a href="/about/">О компании</a>
+          <a href="/manufacturers/">Производители</a>
+          <a href="/contacts/">Контакты</a>
+          <a href="/roi/">Калькулятор ROI</a>
+          <a href="/contacts/#talk">Запросить КП</a>
+          <a href="/services/#pilot">Демо и пилот</a>
+        </nav>
+      </div>
+
+      <div class="foot-bot">
+        <span>© 2026 Профессиональная Робототехника. Все права защищены.</span>
+        <a href="/privacy/">Политика конфиденциальности</a>
+        <a class="foot-up" href="/"><span>На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>

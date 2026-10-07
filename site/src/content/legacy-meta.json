@@ -1,0 +1,288 @@
+{
+  "/about": {
+    "title": "О компании: интегратор роботизации | Профессиональная Робототехника",
+    "description": "Независимый инженерно-сервисный интегратор роботизации. Не продаём роботов: внедряем решения с измеримым ROI и обслуживаем их по SLA.",
+    "robots": "noindex",
+    "canonical": "/about/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"О компании\",\"item\":\"/about/\"}]},\n    {\"@type\":\"AboutPage\",\"name\":\"О компании Профессиональная Робототехника\",\"url\":\"/about/\",\"about\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\",\"description\":\"Независимый инженерно-сервисный интегратор роботизации: подбирает, внедряет и обслуживает решения с измеримым ROI.\",\"areaServed\":\"RU\"}}\n  ]}"
+    ]
+  },
+  "/cases": {
+    "title": "Кейсы роботизации: результаты и ROI | Профессиональная Робототехника",
+    "description": "Кейсы роботизации по отраслям: снижение затрат на клининг на 32%, рост пропускной способности склада на 35%. Задача, решение и результат в цифрах.",
+    "robots": "noindex",
+    "canonical": "/cases/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Кейсы\",\"item\":\"/cases/\"}]},\n    {\"@type\":\"ItemList\",\"name\":\"Кейсы роботизации Профессиональной Робототехники\",\"itemListElement\":[\n{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Бизнес-центр: снижение затрат на клининг на 32%\",\"url\":\"/cases/#business-center\"},\n{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Агрохолдинг: снижение расхода СЗР при обработке полей на 30%\",\"url\":\"/cases/#agro\"},\n{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Складской комплекс: рост пропускной способности склада на 35%\",\"url\":\"/cases/#warehouse\"},\n{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Производство: автоматизация загрузки станков с ЧПУ, минус 2 оператора в смену\",\"url\":\"/cases/#manufacturing\"},\n{\"@type\":\"ListItem\",\"position\":5,\"name\":\"Строительство: снижение трудозатрат на демонтаж на 40%\",\"url\":\"/cases/#construction\"}\n    ]}\n  ]}"
+    ]
+  },
+  "/consent": {
+    "title": "Согласие на обработку персональных данных | Профессиональная Робототехника",
+    "description": "Текст согласия на обработку персональных данных, которое даёт пользователь при отправке формы на сайте.",
+    "robots": "noindex",
+    "canonical": null,
+    "og": {},
+    "jsonLd": []
+  },
+  "/contacts": {
+    "title": "Контакты: роботизация бизнеса в Москве | Профессиональная Робототехника",
+    "description": "Телефон, e-mail, мессенджеры и форма заявки. Офис в Москве, сервисная сеть по всей России. Ответим и рассчитаем ROI под ваш объект.",
+    "robots": "noindex",
+    "canonical": "/contacts/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Контакты\",\"item\":\"/contacts/\"}]},\n    {\"@type\":\"ContactPage\",\"name\":\"Контакты Профессиональной Робототехники\",\"url\":\"/contacts/\"},\n    {\"@type\":\"LocalBusiness\",\"name\":\"Профессиональная Робототехника\",\"url\":\"/\",\"telephone\":\"+7-495-123-45-67\",\"email\":\"info@profrobot.ru\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Москва\",\"addressCountry\":\"RU\"},\"areaServed\":\"RU\"}\n  ]}"
+    ]
+  },
+  "/": {
+    "title": "Роботы-уборщики и роботизация для бизнеса | Профессиональная Робототехника",
+    "description": "Профессиональная Робототехника — роботизация для бизнеса. Роботы-уборщики, AMR-роботы, промышленные манипуляторы и другие решения для автоматизации.",
+    "robots": "noindex",
+    "canonical": null,
+    "og": {},
+    "jsonLd": []
+  },
+  "/industries/agriculture": {
+    "title": "Агророботы и дроны: опрыскивание, мониторинг | Профессиональная Робототехника",
+    "description": "Сельхозроботы и агродроны: точное опрыскивание, полевые работы, мониторинг посевов и уход за территорией. Экономия на СЗР и рабочих руках. Рассчитать эффект.",
+    "robots": "noindex",
+    "canonical": "/industries/agriculture/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Сельское хозяйство\",\"item\":\"/industries/agriculture/\"}]},{\"@type\":\"Service\",\"name\":\"Роботы и дроны для сельского хозяйства\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"агрохолдинги, фермерские хозяйства, тепличные комплексы\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Опрыскивание\",\"url\":\"/industries/agriculture/#spraying\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Полевые работы и мониторинг\",\"url\":\"/industries/agriculture/#monitoring\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Уход за территорией\",\"url\":\"/industries/agriculture/#grounds\"}]}]}"
+    ]
+  },
+  "/industries/business-centers": {
+    "title": "Роботы для бизнес-центров и офисов: уборка, фасады | Профессиональная Робототехника",
+    "description": "Роботы-уборщики для офиса и бизнес-центра: уборка холлов и паркингов днём при арендаторах, мойка фасадов, доставка по этажам, ресепшн. Проверим здание под роботов.",
+    "robots": "noindex",
+    "canonical": "/industries/business-centers/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Бизнес-центры и офисы\",\"item\":\"/industries/business-centers/\"}]},{\"@type\":\"Service\",\"name\":\"Роботы в бизнес-центре: от паркинга до фасада\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"управляющие компании БЦ, девелоперы коммерческой недвижимости, АХО и facility-операторы\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Уборка холлов, коридоров и паркингов\",\"url\":\"/industries/business-centers/#indoor-cleaning\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Мойка фасадов и остекления\",\"url\":\"/industries/business-centers/#facades\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Доставка внутри здания\",\"url\":\"/industries/business-centers/#delivery\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Ресепшн и навигация\",\"url\":\"/industries/business-centers/#reception\"}]}]}"
+    ]
+  },
+  "/industries/construction": {
+    "title": "Роботы в строительстве: демонтаж, отделка | Профессиональная Робототехника",
+    "description": "Строительные роботы для демонтажа, штукатурки, стяжки и тяжёлых работ. Снижаем трудозатраты и риски на площадке при дефиците рабочих. Рассчитать эффект.",
+    "robots": "noindex",
+    "canonical": "/industries/construction/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Строительство\",\"item\":\"/industries/construction/\"}]},{\"@type\":\"Service\",\"name\":\"Роботизация в строительстве\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"застройщики, генподрядчики, отделочные и демонтажные компании\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Демонтаж\",\"url\":\"/industries/construction/#demolition\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отделочные работы\",\"url\":\"/industries/construction/#finishing\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Кладка и тяжёлые операции\",\"url\":\"/industries/construction/#heavy\"}]}]}"
+    ]
+  },
+  "/industries/education": {
+    "title": "Роботы для школ и вузов: уборка рекреаций, учебные лаборатории | Профессиональная Робототехника",
+    "description": "Поломоечные роботы для школ моют рекреации во время уроков. Гуманоиды и платформы для учебных лабораторий робототехники в вузах и колледжах. Честная экономика: аренда и уборка как услуга.",
+    "robots": "noindex",
+    "canonical": "/industries/education/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Образовательные учреждения\",\"item\":\"/industries/education/\"}]},{\"@type\":\"Service\",\"name\":\"Роботы для школ, колледжей и вузов\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"школы, департаменты образования, АХЧ вузов и колледжей, кафедры и лаборатории\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Уборка рекреаций и коридоров во время уроков\",\"url\":\"/industries/education/#corridors\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Уборка спортзала и столовой\",\"url\":\"/industries/education/#gym-canteen\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Учебные лаборатории робототехники\",\"url\":\"/industries/education/#labs\"}]}]}"
+    ]
+  },
+  "/industries/fitness-sports": {
+    "title": "Роботы для фитнес-клубов и спорткомплексов: уборка залов, бассейн, газон | Профессиональная Робототехника",
+    "description": "Роботы для уборки тренажёрных залов, раздевалок и санузлов, подводные роботы для бассейнов, косилки и разметка для стадионов. Пилот на одной зоне клуба.",
+    "robots": "noindex",
+    "canonical": "/industries/fitness-sports/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Фитнес-клубы и спорткомплексы\",\"item\":\"/industries/fitness-sports/\"}]},{\"@type\":\"Service\",\"name\":\"Роботы для фитнес-клубов и спорткомплексов\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"сети фитнес-клубов, спорткомплексы, бассейны, стадионы и арены\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Уборка залов и зон тренажёров\",\"url\":\"/industries/fitness-sports/#gym-floor\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Раздевалки, душевые и санузлы\",\"url\":\"/industries/fitness-sports/#locker-rooms\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Бассейн\",\"url\":\"/industries/fitness-sports/#pool\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Стадионы и поля\",\"url\":\"/industries/fitness-sports/#fields\"}]}]}"
+    ]
+  },
+  "/industries/hotels": {
+    "title": "Роботы для отелей: доставка, уборка, сервис | Профессиональная Робототехника",
+    "description": "Сервисные и клининговые роботы для отелей: доставка в номера, уборка холлов и коридоров, помощь на ресепшн. Снижаем затраты и текучку персонала. Рассчитать ROI.",
+    "robots": "noindex",
+    "canonical": "/industries/hotels/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Отели и HoReCa\",\"item\":\"/industries/hotels/\"}]},{\"@type\":\"Service\",\"name\":\"Роботизация для отелей и HoReCa\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"отели и апарт-отели, рестораны и кафе, гостиничные комплексы\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Доставка в номера и по этажам\",\"url\":\"/industries/hotels/#delivery\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Уборка общих зон\",\"url\":\"/industries/hotels/#cleaning\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Обслуживание гостей и ресепшн\",\"url\":\"/industries/hotels/#reception\"}]}]}"
+    ]
+  },
+  "/industries/manufacturing": {
+    "title": "Роботизация производства: логистика, инспекция | Профессиональная Робототехника",
+    "description": "Промышленная роботизация без тяжёлых вложений: AMR для внутрицеховой логистики, коллаборативные роботы, инспекция оборудования. Начните с пилота. Рассчитать ROI.",
+    "robots": "noindex",
+    "canonical": "/industries/manufacturing/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Промышленность и производство\",\"item\":\"/industries/manufacturing/\"}]},{\"@type\":\"Service\",\"name\":\"Роботизация производства и промышленных предприятий\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"заводы и цеха, производственные площадки, склады при производстве\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Внутрицеховая логистика (AMR)\",\"url\":\"/industries/manufacturing/#logistics\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Повторяющиеся операции\",\"url\":\"/industries/manufacturing/#cobots\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Инспекция и мониторинг\",\"url\":\"/industries/manufacturing/#inspection\"}]}]}"
+    ]
+  },
+  "/industries/medical-wellness": {
+    "title": "Медицинские роботы: доставка, дезинфекция | Профессиональная Робототехника",
+    "description": "Роботы для клиник и велнес-центров: доставка анализов и медикаментов, дезинфекция помещений, реабилитация. Разгружаем персонал и держим санитарный стандарт.",
+    "robots": "noindex",
+    "canonical": "/industries/medical-wellness/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Медицина и велнес\",\"item\":\"/industries/medical-wellness/\"}]},{\"@type\":\"Service\",\"name\":\"Роботизация для медицины и велнеса\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"больницы и клиники, реабилитационные центры, велнес-центры\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Внутренняя доставка\",\"url\":\"/industries/medical-wellness/#logistics\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Дезинфекция помещений\",\"url\":\"/industries/medical-wellness/#disinfection\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Реабилитация и велнес\",\"url\":\"/industries/medical-wellness/#rehab\"}]}]}"
+    ]
+  },
+  "/industries/municipal": {
+    "title": "Роботы для уборки парков, улиц и набережных: муниципальным службам | Профессиональная Робототехника",
+    "description": "Роботы-подметальщики для парков, тротуаров и набережных, зимнее содержание, косилки для газонов и откосов, уборка паркингов. Как купить по 44-ФЗ и 223-ФЗ с учётом нацрежима.",
+    "robots": "noindex",
+    "canonical": "/industries/municipal/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Муниципальные службы\",\"item\":\"/industries/municipal/\"}]},{\"@type\":\"Service\",\"name\":\"Роботы для уборки парков, улиц и набережных\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"ГБУ «Жилищник», дирекции парков, ГБУ по содержанию дорог, УК жилых комплексов, операторы набережных и благоустроенных территорий\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Дорожки, тротуары, набережные, парки\",\"url\":\"/industries/municipal/#streets\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Зимнее содержание: снег и реагенты\",\"url\":\"/industries/municipal/#winter\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Газоны и откосы\",\"url\":\"/industries/municipal/#lawns\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Паркинги и большие площадки\",\"url\":\"/industries/municipal/#parking\"}]}]}"
+    ]
+  },
+  "/industries/public-spaces": {
+    "title": "Роботы для вокзалов, аэропортов, музеев и МФЦ | Профессиональная Робототехника",
+    "description": "Роботы-уборщики для залов ожидания, терминалов и переходов, сервисные роботы для навигации в МФЦ и музеях, патрульные роботы. Уборка ночью и между пиками потока. Аудит объекта.",
+    "robots": "noindex",
+    "canonical": "/industries/public-spaces/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Общественные пространства\",\"item\":\"/industries/public-spaces/\"}]},{\"@type\":\"Service\",\"name\":\"Роботы для вокзалов, аэропортов и МФЦ\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"операторы вокзалов и аэропортов, музеи и выставочные комплексы, МФЦ и госучреждения, концертные площадки\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Уборка залов ожидания, терминалов, переходов\",\"url\":\"/industries/public-spaces/#halls\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Навигация и информирование посетителей\",\"url\":\"/industries/public-spaces/#wayfinding\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Патрулирование\",\"url\":\"/industries/public-spaces/#patrol\"}]}]}"
+    ]
+  },
+  "/industries/retail": {
+    "title": "Робот-уборщик для торговых центров и магазинов | Профессиональная Робототехника",
+    "description": "Робот-уборщик для торговых центров, супермаркетов и гипермаркетов: уборка галерей, торгового зала и паркингов, промо-роботы. Кейсы «Ленты» и «Перекрёстка», пилот в 26 ТЦ Москвы.",
+    "robots": "noindex",
+    "canonical": "/industries/retail/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Торговые центры и ритейл\",\"item\":\"/industries/retail/\"}]},{\"@type\":\"Service\",\"name\":\"Робот-уборщик для торговых центров и магазинов\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"УК торговых центров и ТРЦ, продуктовые сети и гипермаркеты, DIY и fashion-ритейл\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Уборка торгового зала и галерей\",\"url\":\"/industries/retail/#sales-floor\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Уборка паркингов\",\"url\":\"/industries/retail/#parking\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Промо и навигация в зале\",\"url\":\"/industries/retail/#promo\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Склады и дарксторы\",\"url\":\"/industries/retail/#backstore\"}]}]}"
+    ]
+  },
+  "/industries/warehouse": {
+    "title": "Роботы для складов и логистики: AMR, паллеты, комплектация | Профессиональная Робототехника",
+    "description": "Складская роботизация без остановки склада: паллетные роботы-погрузчики, AMR для комплектации, палетизация и сортировка. Начните с одного маршрута.",
+    "robots": "noindex",
+    "canonical": "/industries/warehouse/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Склады и логистика\",\"item\":\"/industries/warehouse/\"}]},{\"@type\":\"Service\",\"name\":\"Роботы для складов и логистики\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"распределительные центры, склады e-commerce и ритейла, 3PL-операторы, склады при производстве\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Паллетный транспорт\",\"url\":\"/industries/warehouse/#pallets\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Комплектация заказов\",\"url\":\"/industries/warehouse/#picking\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Палетизация и депалетизация\",\"url\":\"/industries/warehouse/#palletizing\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Сортировка и инвентаризация\",\"url\":\"/industries/warehouse/#sorting\"}]}]}"
+    ]
+  },
+  "/industries": {
+    "title": "Роботизация по отраслям: от отеля до поля | Профессиональная Робототехника",
+    "description": "Роботы для 12 отраслей: отели, ритейл, бизнес-центры, медицина, производство, строительство, агро и другие. Сценарии, оборудование и расчёт под вашу отрасль.",
+    "robots": "noindex",
+    "canonical": "/industries/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Отрасли\",\"item\":\"/industries/\"}]},\n    {\"@type\":\"ItemList\",\"name\":\"Отрасли роботизации\",\"itemListElement\":[\n{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Торговые центры и ритейл\",\"url\":\"/industries/retail/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Бизнес-центры и офисы\",\"url\":\"/industries/business-centers/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Отели и HoReCa\",\"url\":\"/industries/hotels/\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Общественные пространства\",\"url\":\"/industries/public-spaces/\"},{\"@type\":\"ListItem\",\"position\":5,\"name\":\"Медицина и велнес\",\"url\":\"/industries/medical-wellness/\"},{\"@type\":\"ListItem\",\"position\":6,\"name\":\"Образовательные учреждения\",\"url\":\"/industries/education/\"},{\"@type\":\"ListItem\",\"position\":7,\"name\":\"Фитнес-клубы и спорткомплексы\",\"url\":\"/industries/fitness-sports/\"},{\"@type\":\"ListItem\",\"position\":8,\"name\":\"Муниципальные службы\",\"url\":\"/industries/municipal/\"},{\"@type\":\"ListItem\",\"position\":9,\"name\":\"Сельское хозяйство\",\"url\":\"/industries/agriculture/\"},{\"@type\":\"ListItem\",\"position\":10,\"name\":\"Промышленность и производство\",\"url\":\"/industries/manufacturing/\"},{\"@type\":\"ListItem\",\"position\":11,\"name\":\"Строительство\",\"url\":\"/industries/construction/\"}\n    ]}\n  ]}"
+    ]
+  },
+  "/knowledge/cleaning-robot-basics": {
+    "title": "Робот-уборщик: как он работает и для каких площадей подходит | Профессиональная Робототехника",
+    "description": "Как устроен робот-уборщик: карта по лидару, маршрут, объезд препятствий, станция воды. Какую площадь он тянет, что остаётся людям и когда не подходит.",
+    "robots": "noindex",
+    "canonical": "/knowledge/cleaning-robot-basics/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"База знаний\",\"item\":\"/knowledge/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Робот-уборщик\",\"item\":\"/knowledge/cleaning-robot-basics/\"}]},\n    {\"@type\":\"Article\",\"headline\":\"Робот-уборщик: как он работает и для каких площадей подходит\",\"inLanguage\":\"ru\",\"datePublished\":\"2026-10-07\",\"dateModified\":\"2026-10-07\",\"mainEntityOfPage\":\"/knowledge/cleaning-robot-basics/\",\"author\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"}},\n    {\"@type\":\"FAQPage\",\"mainEntity\":[\n{\"@type\":\"Question\",\"name\":\"Нужна ли разметка на полу?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Нет. Робот строит карту помещения по лидару и камерам и ориентируется по ней. Поэтому его можно перенастроить, когда в зале меняется расстановка.\"}},\n{\"@type\":\"Question\",\"name\":\"Можно ли запускать робота, пока в помещении люди?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Да, производитель заявляет обход движущихся препятствий в реальном времени. Ночью всё равно удобнее: меньше людей на пути, меньше остановок.\"}},\n{\"@type\":\"Question\",\"name\":\"Робот заменит уборщика?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Не целиком. Робот берёт ровный пол и повторяющиеся маршруты, а сотрудники переходят на задачи, которые он не делает: санузлы, точечная уборка, контроль качества. Сколько людей освободится, считаем на аудите.\"}}\n    ]}\n  ]}"
+    ]
+  },
+  "/knowledge": {
+    "title": "База знаний о роботизации бизнеса | Профессиональная Робототехника",
+    "description": "Роботизация без маркетинга: что такое AMR и аренда роботов (RaaS), как считать окупаемость, чем отличаются модели роботов. Статьи, сравнения, ответы на частые вопросы.",
+    "robots": "noindex",
+    "canonical": "/knowledge/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"База знаний\",\"item\":\"/knowledge/\"}]},\n    {\"@type\":\"FAQPage\",\"mainEntity\":[\n{\"@type\":\"Question\",\"name\":\"За сколько окупается робот-уборщик?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Срок зависит от трёх вещей: сколько площади убирает робот, сколько смен он работает и какую ставку уборщика заменяет. Предварительную оценку даст калькулятор окупаемости за пару минут. Точный срок считаем на аудите объекта и подтверждаем на пилоте.\"}},\n{\"@type\":\"Question\",\"name\":\"Это дорого. Можно начать без крупных вложений?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Да. Аренда роботов (RaaS) убирает крупный разовый платёж: вы платите за использование. При покупке помогаем с рассрочкой и лизингом от ведущих банков РФ. А до любых вложений можно провести пилот на вашем объекте и проверить цифры.\"}},\n{\"@type\":\"Question\",\"name\":\"А если робот сломается?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Сервис входит в проект: профилактика, диагностика и ремонт силами нашей сервисной сети по России. Время реакции и восстановления фиксируем в SLA. Платформа следит за состоянием парка, а AI-агенты предсказывают поломку до простоя.\"}},\n{\"@type\":\"Question\",\"name\":\"Придётся переучивать персонал?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Обучение персонала входит во внедрение: люди на объекте учатся ставить роботу задания и работать с платформой. Переучивать никого не нужно. Обычно сотрудники переходят на задачи, которые робот не делает: санузлы, точечная уборка, контроль качества.\"}},\n{\"@type\":\"Question\",\"name\":\"Чем AMR отличается от AGV?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"AGV ездит по заранее размеченному пути: магнитной ленте или меткам на полу. AMR (автономный мобильный робот) сам строит карту помещения, прокладывает маршрут и объезжает препятствия. Поэтому AMR проще перенастроить, когда меняется планировка склада.\"}},\n{\"@type\":\"Question\",\"name\":\"Что такое аренда роботов (RaaS)?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RaaS (Robot as a Service) — вы платите за использование робота вместо покупки: ниже барьер входа и быстрее старт. Сравнить аренду и покупку на своих цифрах можно в калькуляторе на странице продуктов.\"}},\n{\"@type\":\"Question\",\"name\":\"Можно автоматизировать технику, которая у нас уже есть?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Часто да. Retrofit — модернизация имеющейся техники: ставим камеры, навигацию, датчики и полуавтоматические сценарии. Это бывает быстрее и дешевле, чем покупать нового робота.\"}},\n{\"@type\":\"Question\",\"name\":\"Вы продаёте роботов одного бренда?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Нет. Мы не производитель и не привязаны к одному бренду. На каждое направление сравниваем 2–5 производителей и выбираем тех, кто подходит задаче и кого можно обслуживать в России.\"}},\n{\"@type\":\"Question\",\"name\":\"Когда роботизация не окупается?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Бывает, что работы для робота мало: небольшая площадь, одна короткая смена или задача, которую он закрывает лишь частично. Тогда экономия не покрывает вложения. Мы скажем это прямо и предложим другой вариант: аренду, модернизацию имеющейся техники или отказ от проекта.\"}}\n    ]}\n  ]}"
+    ]
+  },
+  "/manufacturers": {
+    "title": "Производители роботов, с которыми мы работаем | Профессиональная Робототехника",
+    "description": "Работаем с ведущими производителями робототехники: Pudu, Gausium, Keenon, Hikrobot, Unitree и другими. Подбираем оборудование под задачу, без привязки к одному вендору.",
+    "robots": "noindex",
+    "canonical": "/manufacturers/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Производители\",\"item\":\"/manufacturers/\"}]},{\"@type\":\"ItemList\",\"name\":\"Производители роботов, с которыми работает Профессиональная Робототехника\",\"itemListElement\":[\n{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@type\":\"Brand\",\"name\":\"Pudu Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@type\":\"Brand\",\"name\":\"KEENON Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":3,\"item\":{\"@type\":\"Brand\",\"name\":\"OrionStar Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":4,\"item\":{\"@type\":\"Brand\",\"name\":\"Gausium\"}},\n{\"@type\":\"ListItem\",\"position\":5,\"item\":{\"@type\":\"Brand\",\"name\":\"LionsBot\"}},\n{\"@type\":\"ListItem\",\"position\":6,\"item\":{\"@type\":\"Brand\",\"name\":\"AgiBot\"}},\n{\"@type\":\"ListItem\",\"position\":7,\"item\":{\"@type\":\"Brand\",\"name\":\"Fourier\"}},\n{\"@type\":\"ListItem\",\"position\":8,\"item\":{\"@type\":\"Brand\",\"name\":\"We-I-Build\"}},\n{\"@type\":\"ListItem\",\"position\":9,\"item\":{\"@type\":\"Brand\",\"name\":\"Dafang\"}},\n{\"@type\":\"ListItem\",\"position\":10,\"item\":{\"@type\":\"Brand\",\"name\":\"Legend Robot\"}},\n{\"@type\":\"ListItem\",\"position\":11,\"item\":{\"@type\":\"Brand\",\"name\":\"Fangshi\"}},\n{\"@type\":\"ListItem\",\"position\":12,\"item\":{\"@type\":\"Brand\",\"name\":\"Derutu\"}},\n{\"@type\":\"ListItem\",\"position\":13,\"item\":{\"@type\":\"Brand\",\"name\":\"SANY\"}},\n{\"@type\":\"ListItem\",\"position\":14,\"item\":{\"@type\":\"Brand\",\"name\":\"BMR\"}},\n{\"@type\":\"ListItem\",\"position\":15,\"item\":{\"@type\":\"Brand\",\"name\":\"Bright Dream Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":16,\"item\":{\"@type\":\"Brand\",\"name\":\"Brokk\"}},\n{\"@type\":\"ListItem\",\"position\":17,\"item\":{\"@type\":\"Brand\",\"name\":\"Mare-X\"}},\n{\"@type\":\"ListItem\",\"position\":18,\"item\":{\"@type\":\"Brand\",\"name\":\"Maxpower\"}},\n{\"@type\":\"ListItem\",\"position\":19,\"item\":{\"@type\":\"Brand\",\"name\":\"Xlija\"}},\n{\"@type\":\"ListItem\",\"position\":20,\"item\":{\"@type\":\"Brand\",\"name\":\"Realman Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":21,\"item\":{\"@type\":\"Brand\",\"name\":\"Elite Robots\"}},\n{\"@type\":\"ListItem\",\"position\":22,\"item\":{\"@type\":\"Brand\",\"name\":\"SIASUN\"}},\n{\"@type\":\"ListItem\",\"position\":23,\"item\":{\"@type\":\"Brand\",\"name\":\"Slamtec\"}},\n{\"@type\":\"ListItem\",\"position\":24,\"item\":{\"@type\":\"Brand\",\"name\":\"Reeman\"}},\n{\"@type\":\"ListItem\",\"position\":25,\"item\":{\"@type\":\"Brand\",\"name\":\"Unitree Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":26,\"item\":{\"@type\":\"Brand\",\"name\":\"DEEP Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":27,\"item\":{\"@type\":\"Brand\",\"name\":\"AgileX Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":28,\"item\":{\"@type\":\"Brand\",\"name\":\"ForwardX Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":29,\"item\":{\"@type\":\"Brand\",\"name\":\"Hikrobot\"}},\n{\"@type\":\"ListItem\",\"position\":30,\"item\":{\"@type\":\"Brand\",\"name\":\"Quicktron Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":31,\"item\":{\"@type\":\"Brand\",\"name\":\"UBTECH Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":32,\"item\":{\"@type\":\"Brand\",\"name\":\"JAKA Robotics\"}},\n{\"@type\":\"ListItem\",\"position\":33,\"item\":{\"@type\":\"Brand\",\"name\":\"XAG\"}},\n{\"@type\":\"ListItem\",\"position\":34,\"item\":{\"@type\":\"Brand\",\"name\":\"DJI Agriculture\"}},\n{\"@type\":\"ListItem\",\"position\":35,\"item\":{\"@type\":\"Brand\",\"name\":\"EAVision\"}},\n{\"@type\":\"ListItem\",\"position\":36,\"item\":{\"@type\":\"Brand\",\"name\":\"FJ Dynamics\"}},\n{\"@type\":\"ListItem\",\"position\":37,\"item\":{\"@type\":\"Brand\",\"name\":\"LJ Tech\"}},\n{\"@type\":\"ListItem\",\"position\":38,\"item\":{\"@type\":\"Brand\",\"name\":\"AI Force Tech\"}},\n{\"@type\":\"ListItem\",\"position\":39,\"item\":{\"@type\":\"Brand\",\"name\":\"Koham\"}},\n{\"@type\":\"ListItem\",\"position\":40,\"item\":{\"@type\":\"Brand\",\"name\":\"Leking\"}}]}]}"
+    ]
+  },
+  "/platform": {
+    "title": "Платформа управления роботами: мониторинг, парк, KPI, Open API | Профессиональная Робототехника",
+    "description": "Собственная платформа управления роботами любых типов и производителей: мониторинг, управление парком, контроль качества и KPI, AI-аналитика, Open API. Российская разработка, данные в РФ.",
+    "robots": "noindex",
+    "canonical": "/platform/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Платформа\",\"item\":\"/platform/\"}]},\n    {\"@type\":\"Product\",\"name\":\"Платформа Профессиональная Робототехника\",\"description\":\"Собственная платформа управления роботами любых типов и производителей: мониторинг, управление парком, контроль качества и KPI, AI-аналитика, Open API. Российская разработка, данные хранятся в РФ.\",\"category\":\"Платформа управления роботами\",\"brand\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"url\":\"/platform/\"}\n  ]}"
+    ]
+  },
+  "/privacy": {
+    "title": "Политика конфиденциальности | Профессиональная Робототехника",
+    "description": "Как Профессиональная Робототехника обрабатывает и защищает персональные данные посетителей сайта.",
+    "robots": "noindex",
+    "canonical": null,
+    "og": {},
+    "jsonLd": []
+  },
+  "/products": {
+    "title": "Продукты Профессиональной Робототехники: платформа, RaaS, Retrofit",
+    "description": "Платформа управления парком роботов, аренда роботов (RaaS), модернизация вашей техники (Retrofit), AI-модули и интеграция по Open API. Продукты Профессиональной Робототехники.",
+    "robots": "noindex",
+    "canonical": "/products/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Продукты\",\"item\":\"/products/\"}]},\n    {\"@type\":\"ItemList\",\"name\":\"Продукты Профессиональной Робототехники\",\"itemListElement\":[\n{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@type\":\"Product\",\"name\":\"Платформа Профессиональная Робототехника\",\"description\":\"Собственная платформа управления роботами любых типов и производителей. Данные хранятся в РФ.\",\"brand\":{\"@type\":\"Brand\",\"name\":\"Профессиональная Робототехника\"},\"url\":\"/products/#platform\"}},\n{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@type\":\"Product\",\"name\":\"Fleet Management\",\"description\":\"Управление парком устройств на нескольких объектах из одного центра.\",\"brand\":{\"@type\":\"Brand\",\"name\":\"Профессиональная Робототехника\"},\"url\":\"/products/#fleet\"}},\n{\"@type\":\"ListItem\",\"position\":3,\"item\":{\"@type\":\"Product\",\"name\":\"Диспетчеризация и мониторинг\",\"description\":\"Контроль операций и распределение задач между устройствами.\",\"brand\":{\"@type\":\"Brand\",\"name\":\"Профессиональная Робототехника\"},\"url\":\"/products/#dispatch\"}},\n{\"@type\":\"ListItem\",\"position\":4,\"item\":{\"@type\":\"Product\",\"name\":\"AI-модули и аналитика\",\"description\":\"Распознавание, сценарии и аналитика эксплуатации поверх базового оборудования.\",\"brand\":{\"@type\":\"Brand\",\"name\":\"Профессиональная Робототехника\"},\"url\":\"/products/#ai\"}},\n{\"@type\":\"ListItem\",\"position\":5,\"item\":{\"@type\":\"Product\",\"name\":\"Open API и интеграции\",\"description\":\"Стыковка платформы с ERP, BMS и учётными системами клиента.\",\"brand\":{\"@type\":\"Brand\",\"name\":\"Профессиональная Робототехника\"},\"url\":\"/products/#api\"}},\n{\"@type\":\"ListItem\",\"position\":6,\"item\":{\"@type\":\"Service\",\"name\":\"Аренда роботов (RaaS)\",\"description\":\"Аренда роботов вместо покупки: ниже барьер входа, быстрее старт, оплата за использование.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"url\":\"/products/#raas\"}},\n{\"@type\":\"ListItem\",\"position\":7,\"item\":{\"@type\":\"Service\",\"name\":\"Retrofit\",\"description\":\"Модернизация существующей техники: камеры, навигация, датчики и полуавтоматические сценарии.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"url\":\"/products/#retrofit\"}}\n    ]}\n  ]}"
+    ]
+  },
+  "/roi": {
+    "title": "Калькулятор окупаемости роботов | Профессиональная Робототехника",
+    "description": "Оцените, сколько может сэкономить робот-мойщик фасадов или робот-уборщик: ориентировочная экономия в год, окупаемость и эффект за 5 лет. Рыночные данные по Москве, 2026.",
+    "robots": "noindex",
+    "canonical": null,
+    "og": {
+      "og:title": "Сколько может сэкономить робот — калькулятор окупаемости Профессиональной Робототехники",
+      "og:description": "Мойка фасадов роботом вместо альпинистов и уборка полов роботом: ориентировочная экономия в год, окупаемость и эффект за 5 лет.",
+      "og:type": "website"
+    },
+    "jsonLd": []
+  },
+  "/services": {
+    "title": "Услуги по роботизации: аудит, внедрение, сервис | Профессиональная Робототехника",
+    "description": "Полный цикл: аудит объекта, расчёт ROI, пилот, проектирование, интеграция, обучение и сервис по SLA. Ведём проект от первой встречи до эксплуатации.",
+    "robots": "noindex",
+    "canonical": "/services/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Услуги\",\"item\":\"/services/\"}]},\n    {\"@type\":\"ItemList\",\"name\":\"Услуги Профессиональной Робототехники: полный цикл внедрения\",\"itemListElement\":[\n{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@type\":\"Service\",\"name\":\"Аудит объекта\",\"description\":\"Выезд, разбор процессов и расчёт, где теряются деньги.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#audit\"}},\n{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@type\":\"Service\",\"name\":\"Подбор решения\",\"description\":\"Оборудование и сценарии под задачу, без привязки к одному вендору.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#selection\"}},\n{\"@type\":\"ListItem\",\"position\":3,\"item\":{\"@type\":\"Service\",\"name\":\"Расчёт ROI и экономики\",\"description\":\"Прозрачная модель окупаемости до вложений.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#roi\"}},\n{\"@type\":\"ListItem\",\"position\":4,\"item\":{\"@type\":\"Service\",\"name\":\"Пилотный проект\",\"description\":\"Тест на реальном участке и подтверждение цифр.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#pilot\"}},\n{\"@type\":\"ListItem\",\"position\":5,\"item\":{\"@type\":\"Service\",\"name\":\"Проектирование\",\"description\":\"Разработка проекта роботизации под объект.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#design\"}},\n{\"@type\":\"ListItem\",\"position\":6,\"item\":{\"@type\":\"Service\",\"name\":\"Поставка оборудования\",\"description\":\"Импорт, логистика, таможня, ввод в эксплуатацию.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#supply\"}},\n{\"@type\":\"ListItem\",\"position\":7,\"item\":{\"@type\":\"Service\",\"name\":\"Интеграция и внедрение\",\"description\":\"Настройка сценариев и стыковка с инфраструктурой.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#integration\"}},\n{\"@type\":\"ListItem\",\"position\":8,\"item\":{\"@type\":\"Service\",\"name\":\"Обучение персонала\",\"description\":\"Обучение людей на объекте работе с роботизированной системой.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#training\"}},\n{\"@type\":\"ListItem\",\"position\":9,\"item\":{\"@type\":\"Service\",\"name\":\"Сервисное обслуживание\",\"description\":\"Профилактика, диагностика, ремонт. Собственная сеть по России.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#maintenance\"}},\n{\"@type\":\"ListItem\",\"position\":10,\"item\":{\"@type\":\"Service\",\"name\":\"SLA и поддержка\",\"description\":\"Гарантированное время реакции и восстановления.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#sla\"}},\n{\"@type\":\"ListItem\",\"position\":11,\"item\":{\"@type\":\"Service\",\"name\":\"Удалённый мониторинг\",\"description\":\"Контроль состояния парка и предиктивное обслуживание.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#monitoring\"}},\n{\"@type\":\"ListItem\",\"position\":12,\"item\":{\"@type\":\"Service\",\"name\":\"Консалтинг\",\"description\":\"Стратегия роботизации для компаний с несколькими объектами.\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"areaServed\":\"RU\",\"url\":\"/services/#consulting\"}}\n    ]}\n  ]}"
+    ]
+  },
+  "/solutions/cleaning": {
+    "title": "Роботы-уборщики для бизнеса: ПО, внедрение, сервис | Профессиональная Робототехника",
+    "description": "Роботы-уборщики и платформа для управления ими: аудит, пилот, интеграция, сервис по SLA. Подключаем роботов любых производителей. Рассчитайте окупаемость.",
+    "robots": "noindex",
+    "canonical": "/solutions/cleaning/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Решения\",\"item\":\"/solutions/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Роботизированный клининг\",\"item\":\"/solutions/cleaning/\"}]},{\"@type\":\"Service\",\"name\":\"Роботы-уборщики для бизнеса\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"владельцы и управляющие объектов, клининговые подрядчики, сети магазинов и ТЦ\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Поломоечные роботы для ровных больших зон\",\"url\":\"/solutions/cleaning/#floor\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Крупные машины для складов и производств\",\"url\":\"/solutions/cleaning/#large\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Сухая уборка: подметание и пылесос\",\"url\":\"/solutions/cleaning/#dry\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Фасады и остекление\",\"url\":\"/solutions/cleaning/#facade\"}]}]}"
+    ]
+  },
+  "/solutions/warehouse": {
+    "title": "AMR-роботы и складская роботизация: ПО, внедрение, сервис | Профессиональная Робототехника",
+    "description": "AMR-роботы, паллетные роботы-погрузчики и ПО для управления парком разных брендов: аудит, пилот на одном маршруте, интеграция с WMS и 1С, сервис по SLA.",
+    "robots": "noindex",
+    "canonical": "/solutions/warehouse/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Решения\",\"item\":\"/solutions/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Складская роботизация\",\"item\":\"/solutions/warehouse/\"}]},{\"@type\":\"Service\",\"name\":\"AMR-роботы и складская роботизация\",\"serviceType\":\"Роботизация\",\"areaServed\":\"RU\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Профессиональная Робототехника\"},\"audience\":{\"@type\":\"BusinessAudience\",\"audienceType\":\"операторы складов, ритейл и e-commerce, производства с внутренней логистикой\"}},{\"@type\":\"ItemList\",\"name\":\"Направления\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Паллетные роботы-погрузчики и AMR-тележки\",\"url\":\"/solutions/warehouse/#pallets\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"AMR для комплектации\",\"url\":\"/solutions/warehouse/#picking\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Роборуки: палетизация и депалетизация\",\"url\":\"/solutions/warehouse/#palletizing\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Сортировка и инвентаризация\",\"url\":\"/solutions/warehouse/#sorting\"}]}]}"
+    ]
+  },
+  "/solutions": {
+    "title": "Решения роботизации бизнеса | Профессиональная Робототехника",
+    "description": "Направления роботизации: клининг, складская логистика, сервисные роботы, безопасность, строительство, медицина, агро. Внедрение под ключ и сервис по SLA.",
+    "robots": "noindex",
+    "canonical": "/solutions/",
+    "og": {},
+    "jsonLd": [
+      "{\"@context\":\"https://schema.org\",\"@graph\":[\n    {\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Главная\",\"item\":\"/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Решения\",\"item\":\"/solutions/\"}]},\n    {\"@type\":\"ItemList\",\"name\":\"Направления роботизации\",\"itemListElement\":[\n{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Роботизированный клининг\",\"url\":\"/solutions/cleaning/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Складская роботизация\",\"url\":\"/solutions/warehouse/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Сервисные роботы\",\"url\":\"/solutions/service-robots/\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Промышленная роботизация\",\"url\":\"/solutions/industrial/\"},{\"@type\":\"ListItem\",\"position\":5,\"name\":\"Строительная робототехника\",\"url\":\"/solutions/construction/\"},{\"@type\":\"ListItem\",\"position\":6,\"name\":\"Медицинская робототехника\",\"url\":\"/solutions/medical/\"},{\"@type\":\"ListItem\",\"position\":7,\"name\":\"Агророботы\",\"url\":\"/solutions/agro/\"},{\"@type\":\"ListItem\",\"position\":8,\"name\":\"Роботы безопасности\",\"url\":\"/solutions/security/\"},{\"@type\":\"ListItem\",\"position\":9,\"name\":\"Гуманоидные роботы\",\"url\":\"/solutions/humanoid/\"}\n    ]}\n  ]}"
+    ]
+  }
+}

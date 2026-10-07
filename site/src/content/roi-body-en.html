@@ -1,0 +1,368 @@
+<header class="nav" aria-label="Main navigation">
+    <a href="/" aria-label="Professional Robotics home"><img src="/assets/profrobot-logo-en.png" alt="Professional Robotics"></a>
+    <nav class="nav-links">
+      <a href="/solutions/">Solutions</a>
+      <a href="/industries/">Industries</a>
+      <a href="/products/">Products</a>
+      <a href="/services/">Services</a>
+      <a href="/platform/">Platform</a>
+      <a href="/cases/">Case studies</a>
+      <a href="/contacts/">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language"><button type="button" lang="ru" data-lang="ru" aria-pressed="false">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="true">EN</button></div>
+    <a class="btn btn-pri" href="#lead">Contact us</a>
+  </header>
+
+  <main>
+
+    <section class="roi-head wrap">
+      <div class="roi-head__copy">
+        <span class="idx"><b>PAYBACK</b> – CALCULATOR</span>
+        <h1 class="h1">How much a robot can save.</h1>
+        <p class="lead">Move the sliders and the numbers update instantly. Based on Moscow market data, 2026.</p>
+        <div class="seg seg--calc" role="radiogroup" data-name="calc" aria-label="What to calculate">
+          <button type="button" role="radio" data-v="facade">Facade cleaning</button>
+          <button type="button" role="radio" data-v="floor">Floor cleaning</button>
+        </div>
+      </div>
+      <div class="roi-head__robot roi-head__robot--hang" aria-hidden="true" data-for="facade">
+        <img src="/assets/robots/robot-facade.webp" alt="" width="760" height="1063">
+      </div>
+      <div class="roi-head__robot" aria-hidden="true" data-for="floor">
+        <img src="/assets/robots/robot-cleaning.webp" alt="" width="520" height="520">
+        <span class="roi-head__podium"></span>
+      </div>
+    </section>
+
+
+    <section class="roi wrap" id="calc" aria-label="Calculator">
+      <form class="roi-in" id="facade-form" data-for="facade" novalidate onsubmit="return false" aria-label="Facade cleaning parameters">
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="fa-area">Glazed area</label>
+            <output class="roi-val tnum" id="out-fa-area" for="fa-area"></output>
+          </div>
+          <input class="range" type="range" id="fa-area" step="500">
+          <div class="roi-scale mono tnum"><span id="fa-area-min"></span><span id="fa-area-max"></span></div>
+          <p class="roi-hint" id="fa-hint"></p>
+        </div>
+
+        <fieldset class="roi-field">
+          <legend class="roi-label">Washes a year</legend>
+          <div class="seg" role="radiogroup" data-name="washes">
+            <button type="button" role="radio" data-v="1">1</button>
+            <button type="button" role="radio" data-v="2">2</button>
+            <button type="button" role="radio" data-v="3">3</button>
+            <button type="button" role="radio" data-v="4">4</button>
+            <button type="button" role="radio" data-v="5">5</button>
+            <button type="button" role="radio" data-v="6">6</button>
+          </div>
+        </fieldset>
+
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="fa-price">Contractor price per m²</label>
+            <output class="roi-val tnum" id="out-fa-price" for="fa-price"></output>
+          </div>
+          <input class="range" type="range" id="fa-price" step="5">
+          <div class="roi-scale mono tnum"><span>RUB 30</span><span>typically RUB 45–70/m² in Moscow</span><span>RUB 150</span></div>
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="fa-wage">Operator wage</label>
+            <output class="roi-val tnum" id="out-fa-wage" for="fa-wage"></output>
+          </div>
+          <input class="range" type="range" id="fa-wage" step="5000">
+          <div class="roi-scale mono tnum"><span>RUB 80,000</span><span>take-home, per person</span><span>RUB 200,000</span></div>
+          <p class="roi-hint">The robot needs a crew of two: an operator and a roof safety attendant certified for work at height. We cost both at this rate.</p>
+        </div>
+
+        <fieldset class="roi-field">
+          <legend class="roi-label">Facade glazing</legend>
+          <div class="seg" role="radiogroup" data-name="glass">
+            <button type="button" role="radio" data-v="flat">Continuous</button>
+            <button type="button" role="radio" data-v="frames">With frames</button>
+          </div>
+          <p class="roi-hint">The robot clears horizontal frames up to 10 mm high. If they are higher, the facade needs an assessment.</p>
+        </fieldset>
+      </form>
+
+      <form class="roi-in" id="roi-form" data-for="floor" novalidate onsubmit="return false" aria-label="Floor cleaning parameters">
+        <fieldset class="roi-field">
+          <legend class="roi-label">Site type</legend>
+          <div class="seg seg--wrap" role="radiogroup" data-name="type">
+            <button type="button" role="radio" data-v="office">Office</button>
+            <button type="button" role="radio" data-v="mall">Mall</button>
+            <button type="button" role="radio" data-v="warehouse">Warehouse</button>
+            <button type="button" role="radio" data-v="clinic">Clinic</button>
+            <button type="button" role="radio" data-v="hotel">Hotel</button>
+          </div>
+        </fieldset>
+
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="in-area">Cleaning area</label>
+            <output class="roi-val tnum" id="out-area" for="in-area"></output>
+          </div>
+          <input class="range" type="range" id="in-area" step="500">
+          <div class="roi-scale mono tnum"><span id="area-min"></span><span id="area-max"></span></div>
+        </div>
+
+        <fieldset class="roi-field">
+          <legend class="roi-label">Shift schedule</legend>
+          <div class="seg" role="radiogroup" data-name="mode">
+            <button type="button" role="radio" data-v="one">1 shift</button>
+            <button type="button" role="radio" data-v="two">2 shifts</button>
+            <button type="button" role="radio" data-v="h24">24/7</button>
+          </div>
+        </fieldset>
+
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="in-staff">Current cleaners</label>
+            <output class="roi-val tnum" id="out-staff" for="in-staff"></output>
+          </div>
+          <input class="range" type="range" id="in-staff" step="1">
+          <p class="roi-hint" id="staff-hint">Pre-filled from the norm for this area. You can change it.</p>
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-row">
+            <label class="roi-label" for="in-wage">Cleaner wage</label>
+            <output class="roi-val tnum" id="out-wage" for="in-wage"></output>
+          </div>
+          <input class="range" type="range" id="in-wage" step="1000">
+          <div class="roi-scale mono tnum"><span>RUB 55,000</span><span>Moscow median: RUB 67,000</span><span>RUB 120,000</span></div>
+        </div>
+
+        <fieldset class="roi-field">
+          <legend class="roi-label">Who cleans now</legend>
+          <div class="seg" role="radiogroup" data-name="who">
+            <button type="button" role="radio" data-v="own">Own staff</button>
+            <button type="button" role="radio" data-v="contractor">Cleaning contractor</button>
+          </div>
+        </fieldset>
+      </form>
+
+
+      <aside class="roi-out stage" id="roi-out" aria-live="polite" aria-label="Calculation result">
+        <div class="roi-out__top">
+          <div class="seg seg--dark" role="radiogroup" data-name="fin" aria-label="Financing">
+            <button type="button" role="radio" data-v="buy">Purchase</button>
+            <button type="button" role="radio" data-v="lease">Leasing</button>
+          </div>
+          <span class="mono roi-out__ctx" id="ctx"></span>
+        </div>
+
+        <div class="roi-big">
+          <span class="mono roi-big__l">Est. annual savings</span>
+          <div class="roi-big__v tnum"><small id="r-net-p" class="pre">RUB</small><span id="r-net">0</span><small id="r-net-u">M</small></div>
+        </div>
+
+        <div class="roi-plate" id="r-plate"><b id="r-plate-v"></b><span id="r-plate-l"></span></div>
+
+        <dl class="roi-kpis">
+          <div><dt>5-year net gain</dt><dd class="tnum" id="r-5y"></dd></div>
+          <div><dt id="r-k2-l">FTEs freed from floors</dt><dd class="tnum" id="r-freed"></dd></div>
+          <div><dt>Robots for the site</dt><dd class="tnum" id="r-robots"></dd></div>
+        </dl>
+
+        <figure class="roi-chart">
+          <figcaption class="mono">Cumulative net gain, 5 years</figcaption>
+          <svg id="chart" viewBox="0 0 520 170" role="img" aria-label="Cumulative net gain chart"></svg>
+        </figure>
+
+        <figure class="roi-cmp" data-for="facade">
+          <figcaption class="mono">Your cost per 1 m² cleaned</figcaption>
+          <div class="roi-cmp__row"><span>Contractor</span><i class="roi-cmp__bar" id="cmp-man"></i><b class="tnum" id="cmp-man-v"></b></div>
+          <div class="roi-cmp__row is-bot"><span>With robot</span><i class="roi-cmp__bar" id="cmp-bot"></i><b class="tnum" id="cmp-bot-v"></b></div>
+          <p class="roi-cmp__n" id="cmp-n"></p>
+        </figure>
+
+        <figure class="roi-crew" data-for="floor">
+          <figcaption class="roi-crew__l" id="crew-l"></figcaption>
+          <div class="roi-crew__grid" id="crew" aria-hidden="true"></div>
+        </figure>
+
+        <div class="roi-out__cta">
+          <a class="btn btn-pri" href="#lead" id="to-lead"><span>Get a detailed quote</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <div class="roi-share">
+            <button type="button" class="btn btn-ghost" id="share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>Share</span></button>
+            <button type="button" class="btn btn-ghost" id="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Image</span></button>
+          </div>
+        </div>
+        <p class="roi-note">This is an indicative estimate based on Moscow market data and does not guarantee results. We calculate the exact economics after a site assessment.</p>
+      </aside>
+    </section>
+
+
+    <a class="roi-dock" id="dock" href="#roi-out" aria-hidden="true" tabindex="-1">
+      <span class="mono">Annual savings</span><b class="tnum" id="dock-v"></b>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+
+
+    <section class="roi-src wrap" aria-labelledby="src-title">
+      <h2 class="roi-src__h" id="src-title">Basis of the estimate.</h2>
+      <div class="roi-src__grid" data-for="facade">
+        <div class="roi-src__c"><b class="tnum">RUB 45–70</b><span>per m²: the usual price for rope access cleaning of continuous glazing in Moscow, from public price lists</span></div>
+        <div class="roi-src__c"><b class="tnum">1,500 m²</b><span>per robot per shift. The manufacturer states 1,200–2,000 m² a day</span></div>
+        <div class="roi-src__c"><b class="tnum">≈98 shifts</b><span>per cleaning season: mid-April to mid-October, excluding rain, wind and weekends</span></div>
+        <div class="roi-src__c"><b class="tnum">RUB 5.45M</b><span>turnkey X-Human K3 kit, according to the supplier</span></div>
+      </div>
+      <details class="roi-how" data-for="facade">
+        <summary><span>Our method</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <ol>
+          <li>We compare it with what you now pay your rope access contractor: glazed area × number of cleanings × price per m².</li>
+          <li>The robot cleans about 90% of the glazing. Rope access technicians finish corners, canopies and obstructed sections at your price.</li>
+          <li>The robot needs a crew of two: an operator and a roof safety attendant. We cost their wages, including income tax and social contributions, for every shift.</li>
+          <li>The season runs from mid-April to mid-October. A quarter of the days are lost to rain and wind, and work happens on weekdays. One robot handles about 147,000 m² a year. If the volume is larger, we include a second robot in the calculation.</li>
+          <li>Savings = what you pay the contractor now − robot cost, brushes and consumables, service at 8% of the price per year, and manual touch-up.</li>
+          <li>Payback is how many months of savings it takes to cover the purchase. The 5-year net gain is the savings over the service life minus the price of the robots.</li>
+          <li>Leasing: 20% down payment, 36 months. We show how much you keep each month after the lease payment.</li>
+          <li>The robot works on continuous glazing. We check the facade’s suitability and roof mounting space during the assessment.</li>
+        </ol>
+      </details>
+      <div class="roi-src__grid" data-for="floor">
+        <div class="roi-src__c"><b class="tnum">RUB 67,000</b><span>median cleaner wage in Moscow, from 2026 job postings</span></div>
+        <div class="roi-src__c"><b class="tnum">×1.3</b><span>social contributions: since 2026, most companies pay 30%</span></div>
+        <div class="roi-src__c"><b class="tnum">1,000 m²</b><span>of floor one person cleans by hand per shift</span></div>
+        <div class="roi-src__c"><b class="tnum">RUB 2.2M</b><span>price of a compact scrubber robot in the Pudu CC1 class</span></div>
+      </div>
+      <details class="roi-how" data-for="floor">
+        <summary><span>Our method</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <ol>
+          <li>The robot only handles flat hard floors, about 60% of the area in an office. Restrooms, desks and trash stay with people.</li>
+          <li>We calculate how many full-time positions (FTEs) are freed from floor cleaning, with a margin: 30% of the floor work stays with people.</li>
+          <li>If you have more cleaners than the norm, each one cleans less, so the same robot frees more FTEs. But never more than half the team.</li>
+          <li>Savings = wages with contributions + chemicals and water − robot service, consumables and a share of our platform operator’s time.</li>
+          <li>Payback is how many months of savings it takes to cover the purchase. The 5-year net gain is the savings over the service life minus the price of the robots.</li>
+          <li>Leasing: 20% down payment, 36 months. We show how much you keep each month after the lease payment.</li>
+        </ol>
+      </details>
+    </section>
+
+
+    <section class="roi-lead" id="lead" aria-labelledby="lead-title">
+      <div class="stage">
+        <div class="roi-lead__in">
+          <div class="roi-lead__copy">
+            <span class="idx"><b>QUOTE</b> – FORM</span>
+            <h2 class="h2" id="lead-title">Detailed estimate for your site.</h2>
+            <p class="lead" data-for="facade">An engineer will assess the facade and roof, check whether the robot can handle your glazing, and send a quote with payback and installment or leasing options from leading Russian banks. No obligation.</p>
+            <p class="lead" data-for="floor">An engineer will confirm the area, floor types and schedule, choose a model and send a quote with payback and installment or leasing options from leading Russian banks. No obligation.</p>
+            <p class="roi-lead__sum mono" id="lead-sum"></p>
+          </div>
+
+          <form class="roi-form" id="lead-form" novalidate data-endpoint="">
+            <div class="fld">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" autocomplete="name" required maxlength="80">
+              <p class="fld__err" id="e-name">Please tell us your name</p>
+            </div>
+            <div class="fld">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+7 ___ ___-__-__" maxlength="18">
+              <p class="fld__err" id="e-phone">Enter 10 digits after +7</p>
+            </div>
+            <div class="fld">
+              <label for="f-company">Company and site</label>
+              <input id="f-company" name="company" autocomplete="organization" maxlength="120" placeholder="e.g. Severny tower, Moscow">
+            </div>
+            <div class="fld">
+              <label for="f-email">Email <span>– for the quote</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" maxlength="120">
+              <p class="fld__err" id="e-email">Check the address: it’s missing @ or a domain</p>
+            </div>
+            <label class="chk">
+              <input type="checkbox" id="f-consent" required>
+              <span>I give my <a>consent to the processing of personal data</a> and accept the <a>privacy policy</a></span>
+            </label>
+            <p class="fld__err" id="e-consent">We can’t accept your request without consent</p>
+            <button class="btn btn-pri" type="submit" id="f-submit"><span>Get estimate and quote</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="fld__err fld__err--form" id="e-form">Couldn’t send your request. Please call us: +7 (495) 123-45-67</p>
+          </form>
+
+          <div class="roi-done" id="lead-done" hidden tabindex="-1">
+            <span class="badge-online"><i></i><span>Request received</span></span>
+            <h3>Thank you. An engineer will contact you within one business day.</h3>
+            <p>We already have your calculation inputs, so you won’t need to repeat them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot roi-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a href="/" aria-label="Professional Robotics home"><img src="/assets/profrobot-logo-en-inverse.png" alt="Professional Robotics" width="783" height="136"></a>
+          <p>Independent robotics integrator: engineering and service. We deploy solutions with measurable payback and service them under an SLA (service level agreement) across Russia.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span>Deployment team</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+
+      <div class="foot-grid foot-grid--site">
+        <nav class="foot-col" aria-labelledby="foot-site-1">
+          <h3 class="mono" id="foot-site-1"><b>01</b> <span>Sections</span></h3>
+          <a href="/solutions/">Solutions</a>
+          <a href="/industries/">Industries</a>
+          <a href="/products/">Products</a>
+          <a href="/platform/">Platform</a>
+          <a href="/services/">Services</a>
+          <a href="/cases/">Case studies</a>
+          <a href="/knowledge/">Knowledge base</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-2">
+          <h3 class="mono" id="foot-site-2"><b>02</b> <span>Industries</span></h3>
+          <a href="/industries/retail/">Shopping centers and retail</a>
+          <a href="/industries/business-centers/">Office buildings</a>
+          <a href="/industries/hotels/">Hotels and hospitality</a>
+          <a href="/industries/public-spaces/">Public venues and transport hubs</a>
+          <a href="/industries/medical-wellness/">Healthcare and wellness</a>
+          <a href="/industries/education/">Education</a>
+          <a href="/industries/fitness-sports/">Fitness clubs and sports facilities</a>
+          <a href="/industries/municipal/">Municipal services</a>
+          <a href="/industries/warehouse/">Warehousing and logistics</a>
+          <a href="/industries/manufacturing/">Manufacturing and industry</a>
+          <a href="/industries/construction/">Construction</a>
+          <a href="/industries/agriculture/">Agriculture</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-3">
+          <h3 class="mono" id="foot-site-3"><b>03</b> <span>Solutions</span></h3>
+          <a href="/solutions/cleaning/">Robotic cleaning</a>
+          <a href="/solutions/warehouse/">Warehouse robotics</a>
+          <a href="/solutions/#dir-service-robots">Service robots</a>
+          <a href="/solutions/#dir-industrial">Industrial robotics</a>
+          <a href="/solutions/#dir-medical">Healthcare robotics</a>
+          <a href="/solutions/#dir-construction">Construction robotics</a>
+          <a href="/solutions/#dir-agro">Agri robots</a>
+          <a href="/solutions/#dir-security">Security robots</a>
+          <a href="/solutions/#dir-humanoid">Humanoid robots</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-4">
+          <h3 class="mono" id="foot-site-4"><b>04</b> <span>Company</span></h3>
+          <a href="/about/">About us</a>
+          <a href="/manufacturers/">Manufacturers</a>
+          <a href="/contacts/">Contact</a>
+          <a href="/roi/">ROI calculator</a>
+          <a href="/contacts/#talk">Get a proposal</a>
+          <a href="/services/#pilot">Demo and pilot</a>
+        </nav>
+      </div>
+
+      <div class="foot-bot">
+        <span>© 2026 Professional Robotics. All rights reserved.</span>
+        <a href="/privacy/">Privacy policy</a>
+        <a class="foot-up" href="/"><span>Home</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
