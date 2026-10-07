@@ -11,3 +11,15 @@
 - Шлюз 0: **OK**.
 - Отклонение: baseline содержит `solutions-cleaning.html` и `solutions-warehouse.html`, добавленные и одобренные ADR 0002. Версия спеки 1.1 всё ещё содержит более старое правило «не создавать страницы решений». Эти страницы не создавались агентом; они входят в замороженный baseline-2 и должны быть перенесены как часть фактического состава `*.html`.
 - Вопрос владельцу: нет; продолжать перенос решениями из baseline-2.
+
+## 2026-10-07 Фаза 1 / scaffold
+
+- Сделано: Next.js 16.4.0 App Router + TypeScript scaffold в `site/`.
+- Сделано: `next-intl` 4.14.9, `gsap` 3.12.5, `@gsap/react` 2.1.2, `lenis` 1.1.13.
+- Сделано: RU/EN dictionaries, assets, CSS, `proxy.ts`, SSG `generateStaticParams`, health endpoint `/api/health/`.
+- Сделано: ROI/FACADE модели перенесены в `site/src/lib/*.ts`.
+- Проверки: `npm run lint` — OK; `npm run build` — OK; `/ru` и `/en` — SSG (`●`), `/api/health/` — 200.
+- HTTP: `/` — 200 через внутренний rewrite в RU; `/en/` — 200 и английский H1; внешний `/ru/` — 307 на `/`.
+- Фаза 1: **частично OK**.
+- Блокер: browser DOM `document.documentElement.lang` остаётся `ru` и на `/en/`, хотя контент английский. Нужна корректная локализованная root-layout схема до финального SEO/HTML parity.
+- Docker: `docker build -t profrobot-site:phase1 site` не запустился: локальный Docker daemon недоступен (`Cannot connect to the Docker daemon at unix:///Users/philippe/.docker/run/docker.sock`).

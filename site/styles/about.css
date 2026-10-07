@@ -1,0 +1,192 @@
+/* ================= СТРАНИЦА «О КОМПАНИИ» (about.html) =================
+   Надстройка над styles.css, solutions.css и products.css: токены, шапка, счётчик, .see-card, форма, подвал, тёмная сцена
+   .pr-stage и карточки .mod берутся оттуда. Здесь схема «производитель → мы → бизнес» в hero, лента цифр, три «интереса»,
+   цикл проекта из шести шагов и полосы сервиса, принципы крупным шрифтом и схема «окна возможностей». */
+
+.ab-page .ab-step a, .ab-page .ab-run a { scroll-margin-top: 112px; }
+
+/* ---------- 01 Hero: заголовок в две строки, схема позиции, лента цифр ---------- */
+.ab-page .sol-hero .h1 { font-size: clamp(34px, 4.2vw, 64px); text-wrap: balance; }
+.ab-page .sol-hero .h1 span:last-child { color: var(--accent-ink); }
+.ab-page .sol-hero { padding-bottom: 96px; }
+
+.ab-link {
+  padding: 24px; border-radius: var(--r-lg); background: var(--glass); border: 1px solid var(--glass-line);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: var(--shadow-md);
+}
+.ab-link__head { padding-bottom: 16px; margin-bottom: 20px; border-bottom: 1px solid var(--line); font-size: 18px; font-weight: 700; letter-spacing: -.02em; }
+.ab-link__nodes { position: relative; display: grid; }
+.ab-node { display: grid; gap: 6px; padding: 18px 20px; border-radius: var(--r-md); background: var(--surface-raised); border: 1px solid var(--line); }
+.ab-node .mono { font-size: 11px; color: var(--ink-muted); }
+.ab-node b { font-size: 18px; font-weight: 600; letter-spacing: -.015em; line-height: 1.25; }
+/* Мы: единственная заливка в схеме */
+.ab-node--us { background: var(--accent); border-color: var(--accent); box-shadow: var(--glow-accent); }
+.ab-node--us .mono { color: var(--lime); }
+.ab-node--us b { color: #fff; font-size: 20px; }
+/* Связка между узлами: линия и подпись */
+.ab-edge { position: relative; display: flex; align-items: center; min-height: 44px; padding-left: 28px; }
+.ab-edge::before { content: ""; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px; background: repeating-linear-gradient(var(--line-strong) 0 4px, transparent 4px 8px); opacity: .6; }
+.ab-edge::after {
+  content: ""; position: absolute; left: 24px; bottom: 5px; width: 10px; height: 10px; border-right: 2px solid var(--line-strong); border-bottom: 2px solid var(--line-strong);
+  transform: rotate(45deg); opacity: .8;
+}
+.ab-edge .mono { margin-left: 24px; font-size: 11px; color: var(--ink-muted); }
+
+/* Цифры компании: те же, что на главной */
+.ab-nums { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 72px; border-top: 1px solid var(--line-strong); }
+.ab-nums > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px; padding: 24px 20px 0 0; }
+.ab-nums > div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.ab-nums dd { font-size: clamp(36px, 4vw, 60px); font-weight: 700; letter-spacing: -.045em; line-height: 1; font-feature-settings: "tnum"; }
+.ab-nums > div:nth-child(2) dd { color: var(--accent-ink); }
+.ab-nums dt { font-size: 14px; line-height: 1.35; color: var(--ink-muted); max-width: 20ch; }
+
+/* ---------- 02 Чей интерес ---------- */
+.ab-page .sol-head .h2 { text-wrap: balance; }
+.ab-int { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: auto auto; gap: 20px; }
+.ab-int__card {
+  display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: var(--r-lg);
+  background: transparent; border: 1px dashed var(--line-strong);
+}
+.ab-int__card .mono { font-size: 11px; color: var(--ink-muted); }
+.ab-int__card h3 { font-size: 24px; font-weight: 600; letter-spacing: -.02em; line-height: 1.12; color: var(--ink-muted); }
+.ab-int__card p { font-size: 17px; line-height: 1.5; color: var(--ink-muted); }
+.ab-int__card--us {
+  grid-column: 2; grid-row: 1 / span 2; justify-content: flex-end; gap: 20px; padding: 40px; border: 0;
+  background: var(--stage); color: var(--on-stage); box-shadow: var(--glow-edge);
+}
+.ab-int__card--us .mono { color: var(--lime); }
+.ab-int__card--us h3 { max-width: 16ch; font-size: clamp(32px, 3.6vw, 52px); font-weight: 700; letter-spacing: -.035em; line-height: 1; color: var(--on-stage); text-wrap: balance; }
+.ab-int__card--us p { max-width: 40ch; font-size: 18px; color: var(--on-stage-muted); }
+
+/* ---------- 03 Цикл проекта ---------- */
+.ab-cycle { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; }
+.ab-step { position: relative; }
+.ab-step a {
+  display: flex; flex-direction: column; gap: 14px; height: 100%; min-height: 240px; padding: 22px 20px; border-radius: var(--r-lg);
+  background: var(--surface-raised); box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.ab-step a:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ab-step a:hover .ic-tile { background: var(--accent); color: #fff; }
+.ab-step .ic-tile { margin-top: 12px; transition: background var(--fast) var(--ease), color var(--fast) var(--ease); }
+.ab-step__no { font-size: 12px; color: var(--accent-ink); }
+.ab-step b { margin-top: auto; font-size: 19px; font-weight: 600; letter-spacing: -.02em; line-height: 1.15; text-wrap: balance; }
+.ab-step:not(:nth-child(6))::after {
+  content: ""; position: absolute; top: 50%; right: -17px; width: 14px; height: 14px; margin-top: -7px; z-index: 2;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a8883' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 5 7 7-7 7'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+/* Сервис не шаг, а полоса на весь срок эксплуатации */
+.ab-run { grid-column: 1 / -1; }
+.ab-run a {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 24px 28px; border-radius: var(--r-lg);
+  background: var(--stage); color: var(--on-stage); box-shadow: var(--glow-edge);
+  transition: transform var(--fast) var(--ease);
+}
+.ab-run a:hover { transform: translateY(-2px); }
+.ab-run .ic-tile { background: var(--stage-raised); color: var(--accent-ink-dark); }
+.ab-run__body { display: grid; gap: 4px; }
+.ab-run__body .mono { font-size: 11px; color: var(--lime); }
+.ab-run__body b { font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+.ab-run__body > span:last-child { font-size: 16px; color: var(--on-stage-muted); }
+.ab-run .go-arrow { background: var(--stage-raised); color: var(--on-stage-muted); }
+.ab-run a:hover .go-arrow { background: var(--lime); color: var(--ink); }
+
+/* ---------- 04 Принципы ---------- */
+.ab-rules { display: grid; counter-reset: rule; }
+.ab-rule {
+  display: grid; grid-template-columns: minmax(96px, 150px) minmax(0, 5fr) minmax(0, 6fr); gap: 16px 40px; align-items: center; padding: 36px 0;
+  border-top: 1px solid var(--line);
+}
+.ab-rule:last-child { border-bottom: 1px solid var(--line); }
+.ab-rule__no {
+  font-size: clamp(64px, 8vw, 120px); font-weight: 700; letter-spacing: -.06em; line-height: .85; color: transparent;
+  -webkit-text-stroke: 1.5px var(--line-strong); transition: color var(--base) var(--ease), -webkit-text-stroke-color var(--base) var(--ease);
+}
+.ab-rule:hover .ab-rule__no { color: var(--accent); -webkit-text-stroke-color: var(--accent); }
+.ab-rule h3 { font-size: clamp(24px, 2.4vw, 34px); font-weight: 700; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; }
+.ab-rule p { font-size: 17px; line-height: 1.55; color: var(--ink-muted); max-width: 52ch; }
+
+/* ---------- 05 Собственное: тёмная сцена ---------- */
+.ab-own__copy { max-width: 760px; }
+.ab-mods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ab-mods .mod { min-height: 300px; }
+.ab-mods .mod h3 { margin-top: 28px; font-size: 24px; }
+.ab-mods .text-link { color: var(--lime); margin-top: auto; }
+
+/* ---------- 06 Почему сейчас ---------- */
+.ab-now { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; align-items: center; }
+.ab-now__copy { display: grid; gap: 24px; justify-items: start; }
+.ab-now .h2 { font-size: clamp(32px, 3.6vw, 52px); max-width: 16ch; text-wrap: balance; }
+.ab-now .lead { max-width: 54ch; }
+.ab-now__p { font-size: 17px; line-height: 1.55; color: var(--ink); max-width: 54ch; }
+
+.ab-window {
+  position: relative; display: grid; grid-template-columns: 24px minmax(0, 1fr); grid-template-rows: auto auto auto; gap: 28px 20px;
+  padding: 32px; border-radius: var(--r-lg); background: var(--surface-raised); box-shadow: var(--shadow-md);
+}
+.ab-window__track { position: absolute; left: 43px; top: 52px; bottom: 60px; width: 2px; background: linear-gradient(var(--lime) 0 55%, var(--line) 55%); border-radius: 1px; }
+.ab-window__track i { position: absolute; left: -3px; top: 0; width: 8px; height: 55%; border-radius: 4px; background: var(--lime); opacity: .55; }
+.ab-window__span {
+  grid-column: 2; grid-row: 2; justify-self: start; display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: var(--r-pill);
+  background: var(--lime-soft); color: var(--lime-ink); font-size: 11px;
+}
+.ab-window__pt { position: relative; display: grid; grid-column: 1 / -1; grid-template-columns: 24px minmax(0, 1fr); column-gap: 20px; row-gap: 4px; }
+.ab-window__pt > i { grid-row: 1 / span 2; width: 24px; height: 24px; border-radius: 50%; background: var(--surface-raised); border: 2px solid var(--line-strong); z-index: 1; }
+.ab-window__pt b { font-size: 20px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.ab-window__pt > span { font-size: 15px; color: var(--ink-muted); line-height: 1.4; }
+.ab-window__pt--now { grid-row: 1; }
+.ab-window__pt--now > i { border-color: var(--ink); background: var(--lime); animation: ab-pulse 2s var(--ease) infinite; }
+.ab-window__pt--later { grid-row: 3; }
+@keyframes ab-pulse { 0%, 100% { box-shadow: 0 0 0 0 #c8ff3c99; } 50% { box-shadow: 0 0 0 7px #c8ff3c00; } }
+
+/* ---------- 07 Смотрите также: три карточки ---------- */
+.ab-see { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ab-see .see-card { padding: 32px; }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .ab-link { max-width: 560px; }
+  .ab-cycle { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ab-step:not(:nth-child(6))::after { display: none; }
+  .ab-step a { min-height: 200px; }
+  .ab-mods .mod { min-height: 260px; }
+  .ab-now { grid-template-columns: 1fr; gap: 40px; }
+  .ab-window { max-width: 520px; }
+  .ab-rule { grid-template-columns: minmax(80px, 120px) minmax(0, 1fr); }
+  .ab-rule p { grid-column: 2; }
+}
+@media (max-width: 1023px) {
+  .ab-mods { grid-template-columns: 1fr; }
+  .ab-mods .mod { min-height: 0; }
+  .ab-see { grid-template-columns: 1fr; }
+  .ab-see .see-card { min-height: 0; }
+  .ab-nums { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0; }
+  .ab-nums > div { padding-bottom: 24px; }
+  .ab-nums > div:nth-child(4) { padding-left: 0; border-left: 0; }
+  .ab-nums > div:nth-child(n+4) { border-top: 1px solid var(--line); padding-top: 24px; }
+}
+@media (max-width: 767px) {
+  .ab-link { padding: 16px; }
+  .ab-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 48px; }
+  .ab-nums > div:nth-child(n) { padding-left: 0; border-left: 0; }
+  .ab-nums > div:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+  .ab-nums > div:nth-child(n+3) { border-top: 1px solid var(--line); padding-top: 24px; }
+  .ab-nums > div:last-child { grid-column: 1 / -1; padding-left: 0; border-left: 0; }
+  .ab-int { grid-template-columns: 1fr; }
+  .ab-int__card--us { grid-column: 1; grid-row: auto; padding: 28px; order: 3; }
+  .ab-cycle { grid-template-columns: 1fr; gap: 12px; }
+  .ab-step a { flex-direction: row; align-items: center; min-height: 0; gap: 14px; padding: 16px; }
+  .ab-step .ic-tile { margin-top: 0; width: 48px; height: 48px; order: 0; }
+  .ab-step__no { order: 2; margin-left: auto; }
+  .ab-step b { order: 1; margin-top: 0; font-size: 17px; }
+  .ab-run a { grid-template-columns: auto minmax(0, 1fr); padding: 20px; gap: 16px; }
+  .ab-run .go-arrow { display: none; }
+  .ab-rule { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .ab-rule__no { font-size: 64px; }
+  .ab-rule p { grid-column: auto; font-size: 16px; }
+  .ab-window { padding: 20px; }
+  .ab-window__track { left: 31px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ab-window__pt--now > i { animation: none; }
+}

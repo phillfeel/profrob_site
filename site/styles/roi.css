@@ -1,0 +1,273 @@
+/* ================= ROI-КАЛЬКУЛЯТОР (roi.html) =================
+   Надстройка над styles.css: токены, кнопки, навигация, сцена и футер берутся оттуда. */
+
+.roi-page .wrap { padding-right: var(--gutter); }
+
+/* ---------- Шапка ---------- */
+.roi-head {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 40px;
+  padding-top: clamp(112px, 16vh, 152px); padding-bottom: 40px;
+}
+.roi-head__copy { display: grid; gap: 24px; }
+.roi-head .h1 { font-size: clamp(40px, 6vw, 88px); }
+.roi-head__robot { position: relative; width: clamp(160px, 18vw, 240px); margin-bottom: -12px; }
+.roi-head__robot img { position: relative; z-index: 1; width: 100%; height: auto; }
+/* Подвесной робот-мойщик: без подиума, тросы уходят вверх и растворяются */
+.roi-head__robot--hang { margin-bottom: 0; align-self: stretch; display: flex; align-items: flex-end; }
+.roi-head__robot--hang img { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%); mask-image: linear-gradient(to bottom, transparent 0, #000 22%); }
+.roi-head__podium {
+  position: absolute; left: 6%; right: 6%; bottom: 4%; height: 18%; border-radius: 50%;
+  background: var(--stage); box-shadow: var(--glow-edge);
+}
+
+/* Переключатель расчёта и блоки, которые видны только в одном из них */
+.seg--calc { margin-top: 8px; }
+.seg--calc button { height: 48px; padding: 0 24px; font-size: 16px; font-weight: 600; }
+.roi-page [data-for][hidden] { display: none; }
+
+/* ---------- Сетка калькулятора ---------- */
+.roi { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 24px; align-items: start; padding-bottom: 96px; }
+
+/* ---------- Ввод ---------- */
+.roi-in {
+  background: var(--surface-raised); border-radius: var(--r-lg); box-shadow: var(--shadow-sm);
+  padding: 40px; display: grid; gap: 36px;
+}
+.roi-field { border: 0; min-width: 0; display: grid; gap: 14px; }
+.roi-label { font-size: 15px; font-weight: 600; color: var(--ink); padding: 0; }
+.roi-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.roi-val { font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; letter-spacing: -.03em; line-height: 1; }
+.roi-val small { font-size: .5em; color: var(--accent-ink); margin-left: 4px; letter-spacing: 0; }
+.roi-scale { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; color: var(--ink-muted); }
+.roi-hint { font-size: 13px; color: var(--ink-muted); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.roi-hint button { font: inherit; color: var(--accent-ink); background: none; border: 0; cursor: pointer; border-bottom: 1px solid currentColor; padding: 0; }
+
+/* Сегмент-контрол: утопленный трек + белая таблетка выбранного */
+.seg {
+  display: flex; gap: 4px; padding: 4px; border-radius: var(--r-pill); background: var(--surface-sunken);
+  width: fit-content; max-width: 100%;
+}
+.seg--wrap { flex-wrap: wrap; border-radius: 26px; }
+.seg button {
+  height: 40px; padding: 0 18px; border: 0; border-radius: var(--r-pill); background: transparent;
+  font: 500 14px/1 var(--sans); color: var(--ink-muted); cursor: pointer; white-space: nowrap;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.seg button:hover { color: var(--ink); }
+.seg button[aria-checked="true"] { background: var(--surface-raised); color: var(--ink); box-shadow: var(--shadow-sm); }
+.seg button[hidden] { display: none; }
+.seg--dark { background: rgba(0,0,0,.28); }
+.seg--dark button { color: var(--on-stage-muted); }
+.seg--dark button:hover { color: var(--on-stage); }
+.seg--dark button[aria-checked="true"] { background: var(--on-stage); color: var(--ink); }
+
+/* Ползунок: трек surface-sunken, заливка accent, белая шайба с тенью */
+.range {
+  --p: 50%;
+  -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; cursor: pointer; margin: 0;
+}
+.range::-webkit-slider-runnable-track {
+  height: 6px; border-radius: 6px;
+  background: linear-gradient(to right, var(--accent) 0 var(--p), var(--surface-sunken) var(--p) 100%);
+}
+.range::-moz-range-track { height: 6px; border-radius: 6px; background: var(--surface-sunken); }
+.range::-moz-range-progress { height: 6px; border-radius: 6px; background: var(--accent); }
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 28px; height: 28px; margin-top: -11px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--line); box-shadow: 0 2px 8px #16181c29;
+  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.range::-moz-range-thumb {
+  width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 1px solid var(--line); box-shadow: 0 2px 8px #16181c29;
+}
+.range:hover::-webkit-slider-thumb, .range:active::-webkit-slider-thumb { transform: scale(1.08); box-shadow: 0 2px 8px #16181c29, 0 0 0 6px var(--accent-soft); }
+.range:focus-visible { box-shadow: none; }
+.range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--accent); }
+.range:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--accent); }
+
+/* ---------- Результат (сцена) ---------- */
+.roi-out.stage { margin: 0; padding: 32px 40px 36px; display: grid; gap: 28px; position: sticky; top: 88px; }
+.roi-out > * { position: relative; }
+.roi-out__top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.roi-out__ctx { font-size: 11px; color: var(--on-stage-muted); }
+
+.roi-big { display: grid; gap: 10px; }
+.roi-big__l { font-size: 12px; color: var(--on-stage-muted); }
+.roi-big__v { font-size: clamp(56px, 7vw, 104px); font-weight: 700; letter-spacing: -.05em; line-height: .9; white-space: nowrap; }
+.roi-big__v small { font-size: .38em; color: var(--accent-ink-dark); letter-spacing: -.02em; margin-left: 10px; }
+.roi-big__v small.pre { margin: 0 10px 0 0; } /* подпись слева от числа: в английском «RUB 1.8M» */
+
+/* Лаймовая плашка-выгода: единственная сплошная лаймовая на экране */
+.roi-plate {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; width: fit-content; max-width: 100%;
+  padding: 14px 20px; border-radius: var(--r-md); background: var(--lime); color: #16181c;
+}
+.roi-plate b { font-size: 24px; font-weight: 700; letter-spacing: -.02em; font-feature-settings: "tnum"; }
+.roi-plate span { font-size: 15px; font-weight: 500; }
+
+.roi-kpis { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--stage-line); }
+.roi-kpis > div { padding: 18px 16px 0 0; display: grid; gap: 6px; align-content: start; }
+.roi-kpis > div + div { padding-left: 16px; border-left: 1px solid var(--stage-line); }
+.roi-kpis dt { font-size: 13px; color: var(--on-stage-muted); }
+.roi-kpis dd { font-size: clamp(22px, 2.2vw, 30px); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+.roi-kpis dd small { font-size: .55em; color: var(--accent-ink-dark); margin-left: 3px; letter-spacing: 0; }
+.roi-kpis dd small.pre { margin: 0 3px 0 0; }
+
+/* График */
+.roi-chart { display: grid; gap: 10px; }
+.roi-chart figcaption, .roi-crew__l { font-size: 11px; color: var(--on-stage-muted); }
+.roi-chart svg { width: 100%; height: auto; overflow: visible; }
+.roi-chart .ax { stroke: var(--stage-line); stroke-width: 1; }
+.roi-chart .zero { stroke: var(--on-stage-muted); stroke-width: 1; stroke-dasharray: 3 4; }
+.roi-chart .area { fill: rgba(155,162,255,.14); }
+.roi-chart .ln { fill: none; stroke: var(--accent-ink-dark); stroke-width: 2.5; stroke-linejoin: round; }
+.roi-chart .pt { fill: var(--lime); stroke: var(--stage); stroke-width: 3; }
+.roi-chart text { font: 500 11px var(--mono); fill: var(--on-stage-muted); letter-spacing: .04em; }
+.roi-chart text.hl { fill: var(--on-stage); font: 600 13px var(--sans); letter-spacing: 0; }
+
+/* Предупреждение вместо окупаемости: светлая обводка вместо лайма */
+.roi-plate.is-warn { background: transparent; color: var(--on-stage); box-shadow: inset 0 0 0 1px var(--on-stage-muted); }
+/* Фасад не подходит роботу: цифры остаются, но приглушены */
+.roi-out.is-unfit .roi-big, .roi-out.is-unfit .roi-kpis, .roi-out.is-unfit .roi-chart, .roi-out.is-unfit .roi-cmp { opacity: .4; }
+
+/* Цена 1 м²: подрядчик против робота */
+.roi-cmp { display: grid; gap: 10px; }
+.roi-cmp figcaption { font-size: 11px; color: var(--on-stage-muted); }
+.roi-cmp__row { display: grid; grid-template-columns: 88px minmax(0, 1fr) 56px; align-items: center; gap: 12px; font-size: 13px; color: var(--on-stage-muted); }
+.roi-cmp__row b { font-size: 16px; font-weight: 700; color: var(--on-stage); text-align: right; }
+.roi-cmp__bar { display: block; height: 10px; border-radius: 5px; background: var(--stage-line); min-width: 4px; transition: width var(--base) var(--ease); }
+.roi-cmp__row.is-bot .roi-cmp__bar { background: var(--accent-ink-dark); }
+.roi-cmp__n { font-size: 13px; color: var(--on-stage-muted); }
+
+/* Бригада: люди и роботы */
+.roi-crew { display: grid; gap: 12px; }
+.roi-crew__l { text-transform: uppercase; font-family: var(--mono); letter-spacing: .08em; }
+.roi-crew__l b { color: var(--lime); font-weight: 500; }
+.roi-crew__grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.roi-crew__grid i {
+  width: 18px; height: 26px; display: block; border-radius: 9px 9px 4px 4px; background: var(--stage-line);
+  transition: background var(--base) var(--ease), transform var(--base) var(--ease);
+}
+.roi-crew__grid i.free { background: var(--lime); transform: translateY(-3px); }
+.roi-crew__grid i.bot { width: 26px; border-radius: 13px 13px 6px 6px; background: var(--on-stage); box-shadow: inset 0 -5px 0 var(--accent); }
+.roi-crew__grid em { font: 500 12px/26px var(--mono); color: var(--on-stage-muted); font-style: normal; margin-left: 4px; }
+
+.roi-out__cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.roi-share { display: flex; gap: 8px; }
+.btn-ghost { height: 44px; padding: 0 16px; border-color: var(--stage-line); color: var(--on-stage); background: transparent; font-size: 14px; }
+.btn-ghost:hover { border-color: var(--on-stage-muted); }
+.roi-note { font-size: 12px; line-height: 1.5; color: var(--on-stage-muted); max-width: 60ch; }
+
+/* Мобильная плашка с итогом */
+.roi-dock {
+  position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 45; display: none; align-items: center; gap: 12px;
+  height: 56px; padding: 0 20px; border-radius: var(--r-pill); background: var(--stage); color: var(--on-stage);
+  box-shadow: var(--shadow-md), var(--glow-edge); transform: translateY(140%); transition: transform var(--base) var(--ease);
+}
+.roi-dock .mono { font-size: 11px; color: var(--on-stage-muted); }
+.roi-dock b { font-size: 20px; font-weight: 700; letter-spacing: -.02em; margin-left: auto; }
+.roi-dock svg { width: 18px; height: 18px; color: var(--lime); }
+.roi-dock.on { transform: none; }
+
+/* ---------- Откуда цифры ---------- */
+.roi-src { padding-bottom: 96px; display: grid; gap: 32px; }
+.roi-src__h { font-size: clamp(28px, 3vw, 40px); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
+.roi-src__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.roi-src__c { background: var(--surface-raised); border-radius: var(--r-md); box-shadow: var(--shadow-sm); padding: 24px; display: grid; gap: 10px; align-content: start; }
+.roi-src__c b { font-size: 32px; font-weight: 700; letter-spacing: -.03em; color: var(--accent-ink); line-height: 1; }
+.roi-src__c span { font-size: 14px; color: var(--ink-muted); line-height: 1.45; }
+.roi-how { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.roi-how summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 0; font-size: 18px; font-weight: 600;
+}
+.roi-how summary::-webkit-details-marker { display: none; }
+.roi-how summary svg { width: 22px; height: 22px; transition: transform var(--base) var(--ease); }
+.roi-how[open] summary svg { transform: rotate(180deg); }
+.roi-how ol { list-style: decimal; padding: 0 0 24px 22px; display: grid; gap: 10px; max-width: 80ch; color: var(--ink-muted); font-size: 15px; }
+.roi-how li::marker { color: var(--accent-ink); font-family: var(--mono); font-size: 13px; }
+
+/* ---------- Заявка ---------- */
+.roi-lead { padding-bottom: 16px; }
+.roi-lead__in { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 88px var(--rail) 88px 56px; position: relative; }
+.roi-lead__copy { display: grid; gap: 24px; align-content: start; }
+.roi-lead__sum { font-size: 12px; color: var(--on-stage); padding: 14px 16px; border: 1px solid var(--stage-line); border-radius: var(--r-md); background: var(--stage-raised); line-height: 1.7; }
+.roi-lead__sum b { color: var(--lime); font-weight: 500; }
+.roi-form { display: grid; gap: 18px; align-content: start; }
+.fld { display: grid; gap: 8px; }
+.fld label { font-size: 14px; font-weight: 500; }
+.fld label span { color: var(--on-stage-muted); font-weight: 400; }
+.fld input {
+  height: 52px; padding: 0 16px; border-radius: var(--r-sm); border: 1px solid var(--line-strong);
+  background: var(--stage-raised); color: var(--on-stage); font: 400 16px var(--sans);
+  transition: border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.fld input::placeholder { color: #7d828c; }
+.fld input:hover { border-color: var(--on-stage-muted); }
+.fld input:focus { outline: none; border-color: var(--accent-ink-dark); box-shadow: 0 0 0 3px rgba(155,162,255,.25); }
+.fld input[aria-invalid="true"] { border-color: #ff7a6b; }
+.fld__err { display: none; font-size: 13px; color: #ff9a8e; }
+.fld__err.on { display: block; }
+.chk { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: var(--on-stage-muted); cursor: pointer; }
+.chk input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--accent); flex: none; }
+.chk a { color: var(--on-stage); border-bottom: 1px solid var(--stage-line); }
+.roi-form .btn { justify-self: start; margin-top: 6px; }
+.roi-form .btn[disabled] { opacity: .6; cursor: progress; }
+.roi-done { display: grid; gap: 16px; align-content: start; }
+.roi-done h3 { font-size: 28px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
+.roi-done p { color: var(--on-stage-muted); }
+.roi-done .badge-online { width: fit-content; background: rgba(200,255,60,.12); color: var(--lime); }
+.roi-done .badge-online i { background: var(--lime); }
+
+.roi-foot .foot { padding-top: 56px; gap: 40px; }
+.roi-foot .foot-bot { margin-top: 0; }
+
+/* Тост */
+.toast {
+  position: fixed; left: 50%; bottom: 88px; z-index: 60; transform: translate(-50%, 16px); opacity: 0; pointer-events: none;
+  padding: 12px 20px; border-radius: var(--r-pill); background: var(--ink); color: var(--surface); font-size: 14px; font-weight: 500;
+  transition: opacity var(--base) var(--ease), transform var(--base) var(--ease);
+}
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1099px) {
+  .roi { grid-template-columns: 1fr; }
+  .roi-out.stage { position: relative; top: 0; }
+  .roi-src__grid { grid-template-columns: 1fr 1fr; }
+  .roi-lead__in { grid-template-columns: 1fr; gap: 40px; padding: 64px 40px; }
+}
+@media (max-width: 1023px) {
+  .roi-dock { display: flex; }
+}
+@media (max-width: 639px) {
+  .roi-page .wrap { padding-left: 16px; padding-right: 16px; }
+  .roi-head { grid-template-columns: 1fr; padding-top: 96px; gap: 8px; }
+  .roi-head__robot { display: none; }
+  .roi-in { padding: 24px 20px; gap: 28px; }
+  .seg button { padding: 0 14px; height: 38px; font-size: 13px; }
+  .seg--calc { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .seg--calc button { height: 44px; padding: 0 8px; font-size: 14px; }
+  .roi-out.stage { padding: 24px 20px 28px; gap: 24px; }
+  .roi-kpis { grid-template-columns: 1fr 1fr; }
+  .roi-kpis > div:nth-child(3) { grid-column: 1 / -1; border-left: 0; padding-left: 0; border-top: 1px solid var(--stage-line); margin-top: 16px; }
+  .roi-out__cta .btn-pri { width: 100%; justify-content: center; }
+  .roi-share { width: 100%; }
+  .roi-share .btn { flex: 1; justify-content: center; }
+  .roi-scale span:nth-child(2):not(:last-child) { display: none; }
+  .roi-src__grid { grid-template-columns: 1fr; }
+  .roi-lead__in { padding: 48px 20px; }
+  .roi-lead .stage, .roi-foot .stage { margin: 0 8px; }
+  .roi-foot .foot { padding: 40px 20px 0; }
+  .roi-foot .foot-call { justify-items: start; text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roi-crew__grid i, .roi-cmp__bar, .roi-dock, .toast, .range::-webkit-slider-thumb { transition: none; }
+}
+
+/* hidden должен побеждать display: grid у формы и экрана «спасибо» */
+.roi-form[hidden], .roi-done[hidden] { display: none; }
+@media (max-width: 639px) {
+  .seg--wrap { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; border-radius: 22px; }
+  .seg--wrap button { padding: 0 8px; }
+}
