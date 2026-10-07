@@ -51,6 +51,5 @@
   "industries.common.calc.savingsShort": "annual savings",
   "industries.common.calc.millions": "≈ RUB {n, number, ::.0}M",
   "industries.common.calc.robots": "{n, plural, one {robot for the site} other {robots for the site}}",
-  "industries.common.photo.placeholder": "Photo slot · {ratio}",
   "industries.common.sources.labelColon": "Source:"
 }

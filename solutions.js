@@ -11,6 +11,8 @@
       m: {
         'js.solutions.errors.name': () => 'Напишите, как к вам обращаться.',
         'js.solutions.errors.phone': () => 'Укажите телефон полностью: +7 и десять цифр.',
+        'js.solutions.errors.contact': () => 'Укажите телефон или e-mail.',
+        'js.solutions.errors.email': () => 'Проверьте e-mail: нужен вид name@company.ru.',
         'js.solutions.errors.consent': () => 'Нужно согласие на обработку данных.',
         'js.solutions.status.offline': () => 'Нет соединения с интернетом. Проверьте сеть и <button>повторите</button>.',
         'js.solutions.status.failed': () => 'Не удалось отправить заявку. <button>Повторить</button>',
@@ -76,7 +78,14 @@
     consent: form.elements.namedItem('consent'),
     website: form.elements.namedItem('website'),
     direction: form.elements.namedItem('direction'),
+    // Страница «Контакты»: достаточно телефона или e-mail, плюс необязательные поля. На остальных страницах этих полей нет.
+    email: form.elements.namedItem('email'),
+    company: form.elements.namedItem('company'),
+    intent: form.elements.namedItem('intent'),
+    object: form.elements.namedItem('object'),
+    task: form.elements.namedItem('task'),
   };
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const status = document.getElementById('f-status');
   const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -118,30 +127,46 @@
     const phoneDigits = els.phone.value.replace(/\D/g, '');
     const errors = [];
     const nameErr = name.length < 2 ? t('js.solutions.errors.name') : '';
-    const phoneErr = phoneDigits.length !== 11 ? t('js.solutions.errors.phone') : '';
+    let phoneErr = phoneDigits.length !== 11 ? t('js.solutions.errors.phone') : '';
+    let emailErr = '';
+    if (els.email) {
+      const email = els.email.value.trim();
+      // Телефон или e-mail: пустой телефон не ошибка, если указан e-mail; начатый, но неполный телефон остаётся ошибкой
+      if (!phoneDigits.length) phoneErr = email ? '' : t('js.solutions.errors.contact');
+      if (email && !EMAIL_RE.test(email)) emailErr = t('js.solutions.errors.email');
+    }
     const consentErr = els.consent.checked ? '' : t('js.solutions.errors.consent');
     setError(els.name, nameErr);
     setError(els.phone, phoneErr);
+    if (els.email) setError(els.email, emailErr);
     setError(els.consent, consentErr);
     if (nameErr) errors.push(els.name);
     if (phoneErr) errors.push(els.phone);
+    if (emailErr) errors.push(els.email);
     if (consentErr) errors.push(els.consent);
     return errors;
   };
 
-  [els.name, els.phone].forEach((i) => i.addEventListener('input', () => { if (i.closest('.fld').hasAttribute('data-invalid')) validate(); }));
+  const invalidNow = (i) => i.closest('.fld').hasAttribute('data-invalid');
+  // Телефон и e-mail проверяются вместе: набрав один, человек снимает ошибку «нужен хотя бы один»
+  [els.name, els.phone, els.email].filter(Boolean).forEach((i) => i.addEventListener('input', () => {
+    if (invalidNow(i) || (els.email && (i === els.phone || i === els.email) && (invalidNow(els.phone) || invalidNow(els.email)))) validate();
+  }));
   els.consent.addEventListener('change', () => { if (els.consent.getAttribute('aria-invalid')) validate(); });
 
   const setStatus = (kind, html) => { status.dataset.kind = kind; status.innerHTML = html; };
 
   const send = async () => {
+    const phoneDigits = els.phone.value.replace(/\D/g, '');
     const payload = {
       name: els.name.value.trim(),
-      phone: '+' + els.phone.value.replace(/\D/g, ''),
-      direction: els.direction.value || null,
+      phone: phoneDigits ? '+' + phoneDigits : null,
+      // На «О компании» списка направлений нет
+      direction: (els.direction && els.direction.value) || null,
       // Отраслевые лендинги переиспользуют этот скрипт и задают свой источник (с якорем направления)
       source: form.dataset.source || 'solutions',
     };
+    for (const k of ['email', 'company', 'intent', 'object', 'task']) if (els[k]) payload[k] = els[k].value.trim() || null;
     const endpoint = form.dataset.endpoint;
     // Пока бэкенда нет, прототип имитирует ответ. Заявка никуда не уходит.
     if (!endpoint) {

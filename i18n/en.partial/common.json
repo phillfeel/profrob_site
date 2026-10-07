@@ -71,5 +71,6 @@
   "calc.types.hotel": "Hotel",
   "calc.modes.one": "1 shift",
   "calc.modes.two": "2 shifts",
-  "common.nav.products": "Products"
+  "common.nav.products": "Products",
+  "common.nav.services": "Services"
 }

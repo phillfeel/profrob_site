@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="contacts.meta.title">Контакты: роботизация бизнеса в Москве | Профессиональная Робототехника</title>
+  <meta data-i18n-attr="content:contacts.meta.description" name="description" content="Телефон, e-mail, мессенджеры и форма заявки. Офис в Москве, сервисная сеть по всей России. Ответим и рассчитаем ROI под ваш объект.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="/contacts/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="solutions.css">
+  <link rel="stylesheet" href="contacts.css">
+  <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="sol-page ct-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 4 3 11l7 3 3 7z"/><path d="m10 14 11-10"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.2 18.6z"/><path d="M9.5 8.5c.4 2 2.5 4.5 5.5 5.5l1.5-1.5-2-1-1 .8c-.8-.4-1.5-1.2-2-2l.8-1-1-2z"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M15 7h4v4"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h4"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/></symbol>
+  </defs></svg>
+
+  <!-- ================= NAV ================= -->
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoSrc" src="assets/profrobot-logo.png" alt="Профессиональная Робототехника"></a>
+    <nav class="nav-links">
+      <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+      <a data-i18n="common.nav.industries" href="index.html#industries">Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html">Продукты</a>
+      <a data-i18n="common.nav.services" href="services.html">Услуги</a>
+      <a data-i18n="common.nav.platform" href="platform.html">Платформа</a>
+      <a data-i18n="common.nav.cases" href="cases.html">Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="contacts.html" class="on" aria-current="page">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">03</span>
+    <span data-i18n="contacts.sections.hero" class="lbl">КОНТАКТЫ</span>
+  </div>
+
+  <main>
+    <!-- ================= 01 HERO + ЗАЯВКА ================= -->
+    <section data-i18n-attr="data-name:contacts.sections.hero" class="sol-hero wrap ct-hero" data-sec="01" data-name="КОНТАКТЫ">
+      <div class="ct-hero__grid">
+        <div class="ct-hero__copy">
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li data-i18n="contacts.crumb" aria-current="page">Контакты</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="contacts.sections.hero">КОНТАКТЫ</span></span>
+          <h1 class="ct-h1 reveal" data-i18n="contacts.hero.title">Контакты</h1>
+          <div class="sol-hero__text reveal">
+            <p data-i18n="contacts.hero.lead" class="lead">Расскажите про объект и задачу: вернёмся с расчётом и предложением.</p>
+            <p data-i18n="contacts.hero.text">Если удобнее сразу цифрами, заполните заявку на аудит, и мы посчитаем окупаемость под ваш случай.</p>
+          </div>
+          <p class="ct-reply reveal"><i aria-hidden="true"></i><span data-i18n="contacts.hero.reply">Отвечаем в течение рабочего дня.</span></p>
+
+          <!-- Мини-CTA из ТЗ: клиент выбирает действие сам. ROI ведёт на калькулятор, два других подставляют цель в форму. -->
+          <div class="ct-pick reveal" style="--i:2" role="group" data-i18n-attr="aria-label:contacts.pick.label" aria-label="Что вам нужно">
+            <p class="ct-pick__q" data-i18n="contacts.pick.title">Что вам нужно?</p>
+            <ul>
+              <li><a class="ct-pick__item ct-pick__item--roi" href="roi.html">
+                <span class="ic-tile"><svg aria-hidden="true"><use href="#i-calc"/></svg></span>
+                <span class="ct-pick__body"><b data-i18n="contacts.pick.roi.title">Рассчитать ROI</b><small data-i18n="contacts.pick.roi.text">Окупаемость под ваш объект за пару минут, без звонка</small></span>
+                <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </a></li>
+              <li><a class="ct-pick__item" href="#talk" data-intent="quote">
+                <span class="ic-tile"><svg aria-hidden="true"><use href="#i-quote"/></svg></span>
+                <span class="ct-pick__body"><b data-i18n="contacts.pick.quote.title">Запросить КП</b><small data-i18n="contacts.pick.quote.text">Коммерческое предложение на оборудование и внедрение</small></span>
+                <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+              <li><a class="ct-pick__item" href="#talk" data-intent="pilot">
+                <span class="ic-tile"><svg aria-hidden="true"><use href="#i-flag"/></svg></span>
+                <span class="ct-pick__body"><b data-i18n="contacts.pick.pilot.title">Заказать демо или пилот</b><small data-i18n="contacts.pick.pilot.text">Проверим решение на вашем объекте до закупки</small></span>
+                <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </a></li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="form ct-form reveal" id="lead-form" novalidate data-endpoint="" data-source="contacts" aria-labelledby="talk-h">
+          <div class="ct-form__head" id="talk">
+            <h2 class="ct-form__title" id="talk-h" data-i18n="contacts.form.title">Заявка</h2>
+            <p data-i18n="contacts.form.hint">Достаточно имени и одного контакта: телефона или e-mail.</p>
+          </div>
+          <div class="form__row">
+            <div class="fld">
+              <label data-i18n="common.form.name" for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label data-i18n-html="contacts.form.company" for="f-company">Компания <small>необязательно</small></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="120">
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="fld">
+              <label data-i18n="common.form.phone" for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" placeholder="name@company.ru" aria-describedby="f-email-err">
+              <span class="fld__err" id="f-email-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="fld">
+              <label data-i18n-html="contacts.form.intentLabel" for="f-intent">Что нужно <small>необязательно</small></label>
+              <select id="f-intent" name="intent">
+                <option data-i18n="common.form.directionUnknown" value="">Пока не знаю</option>
+                <option data-i18n="contacts.form.intent.quote" value="quote">Запросить КП</option>
+                <option data-i18n="contacts.form.intent.pilot" value="pilot">Демо или пилот</option>
+                <option data-i18n="common.linkNames.audit" value="audit">Аудит объекта</option>
+                <option data-i18n="contacts.form.intent.consult" value="consult">Консультация</option>
+              </select>
+            </div>
+            <div class="fld">
+              <label data-i18n-html="contacts.form.objectLabel" for="f-object">Тип объекта <small>необязательно</small></label>
+              <select id="f-object" name="object">
+                <option data-i18n="contacts.form.objectUnset" value="">Выберите</option>
+                <option data-i18n="home.industries.items.businessCenters" value="business-centers">Бизнес-центры и офисы</option>
+                <option data-i18n="home.industries.items.retail" value="retail">Торговые центры и ритейл</option>
+                <option data-i18n="home.industries.items.logistics.name" value="logistics">Склады и логистика</option>
+                <option data-i18n="home.industries.items.hotels" value="hotels">Отели и HoReCa</option>
+                <option data-i18n="home.industries.items.medical" value="medical-wellness">Медицинские объекты</option>
+                <option data-i18n="home.industries.items.construction.name" value="construction">Строительство и девелопмент</option>
+                <option data-i18n="home.industries.items.manufacturing" value="manufacturing">Промышленность и производство</option>
+                <option data-i18n="home.industries.items.publicSpaces" value="public-spaces">Общественные пространства</option>
+                <option data-i18n="home.industries.items.municipal" value="municipal">Муниципальные службы</option>
+                <option data-i18n="home.industries.items.agriculture.name" value="agriculture">Агро и фермерские хозяйства</option>
+                <option data-i18n="home.industries.items.education" value="education">Образовательные учреждения</option>
+                <option data-i18n="home.industries.items.fitness" value="fitness-sports">Фитнес-клубы и спорткомплексы</option>
+                <option data-i18n="contacts.form.objectOther" value="other">Другое</option>
+              </select>
+            </div>
+          </div>
+          <div class="fld">
+            <label data-i18n-html="contacts.form.taskLabel" for="f-task">Задача <small>необязательно</small></label>
+            <textarea id="f-task" name="task" rows="3" maxlength="1000" data-i18n-attr="placeholder:contacts.form.taskPlaceholder" placeholder="Что хотите автоматизировать: уборка, доставка, склад, мониторинг"></textarea>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span data-i18n="contacts.form.submit" class="btn__t">Отправить заявку</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="contacts.form.sentText">Ответим в течение рабочего дня.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= 02 СВЯЗЬ ================= -->
+    <section data-i18n-attr="data-name:contacts.sections.channels" class="sol-sec wrap" id="channels" data-sec="02" data-name="СВЯЗЬ" aria-labelledby="channels-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>02</b> — <span data-i18n="contacts.sections.channels">СВЯЗЬ</span></span>
+        <h2 data-i18n="contacts.channels.title" class="h2 reveal" id="channels-h">Выберите, как удобнее.</h2>
+        <p data-i18n="contacts.channels.lead" class="lead reveal">Позвоните, если задача уже понятна. Напишите, если хотите приложить план объекта или фото. На любой канал отвечаем в течение рабочего дня.</p>
+      </div>
+      <ul class="ct-rows">
+        <li class="reveal"><a class="ct-row" href="tel:+74951234567">
+          <span class="ct-row__label"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><span class="mono" data-i18n="contacts.channels.phone.label">Телефон</span></span>
+          <b class="ct-row__value tnum">+7 (495) 123-45-67</b>
+          <span class="ct-row__note" data-i18n="contacts.channels.phone.note">Если задача понятна и нужен быстрый разговор</span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a></li>
+        <li class="reveal" style="--i:1"><a class="ct-row" href="mailto:info@profrobot.ru">
+          <span class="ct-row__label"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><span class="mono">E-mail</span></span>
+          <b class="ct-row__value">info@profrobot.ru</b>
+          <span class="ct-row__note" data-i18n="contacts.channels.mail.note">Подойдёт для плана объекта, технического задания и фото</span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a></li>
+        <!-- TODO: ссылки на Telegram и WhatsApp не получены, как в подвале главной (href="#"). Подставить t.me/… и wa.me/… -->
+        <li class="reveal" style="--i:2"><a class="ct-row" href="#" rel="noopener">
+          <span class="ct-row__label"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-send"/></svg></span><span class="mono" data-i18n="contacts.channels.messenger.label">Мессенджер</span></span>
+          <b class="ct-row__value">Telegram</b>
+          <span class="ct-row__note" data-i18n="contacts.channels.telegram.note">Короткий вопрос или фото с объекта</span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a></li>
+        <li class="reveal" style="--i:3"><a class="ct-row" href="#" rel="noopener">
+          <span class="ct-row__label"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-chat"/></svg></span><span class="mono" data-i18n="contacts.channels.messenger.label">Мессенджер</span></span>
+          <b class="ct-row__value">WhatsApp</b>
+          <span class="ct-row__note" data-i18n="contacts.channels.whatsapp.note">То же, если удобнее в WhatsApp</span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a></li>
+      </ul>
+    </section>
+
+    <!-- ================= 03 ОФИС ================= -->
+    <section data-i18n-attr="data-name:contacts.sections.office" class="sol-sec" id="office" data-sec="03" data-name="ОФИС" data-dark aria-labelledby="office-h">
+      <div class="stage ct-stage">
+        <div class="ct-stage__top">
+          <div class="ct-stage__copy">
+            <span class="idx reveal"><b>03</b> — <span data-i18n="contacts.sections.office">ОФИС</span></span>
+            <h2 data-i18n="contacts.office.title" class="h2 reveal" id="office-h">Офис в Москве, сервис по всей России.</h2>
+            <p data-i18n="contacts.office.lead" class="lead reveal">Встречаемся в офисе или выезжаем к вам на объект. Сервисная сеть работает по всей России.</p>
+            <dl class="ct-facts reveal">
+              <div><dt class="mono" data-i18n="contacts.office.facts.office">Офис</dt><dd data-i18n="contacts.office.facts.officeValue">Москва</dd></div>
+              <div><dt class="mono" data-i18n="contacts.office.facts.service">Сервис</dt><dd data-i18n="contacts.office.facts.serviceValue">По всей России</dd></div>
+              <div><dt class="mono" data-i18n="contacts.office.facts.meeting">Встреча</dt><dd data-i18n="contacts.office.facts.meetingValue">В офисе или на вашем объекте</dd></div>
+            </dl>
+          </div>
+
+          <!-- Схема: офис в центре, сервисные точки по кольцам. Иллюстрация: не карта и не список городов. -->
+          <div class="ct-net reveal" style="--i:2" role="img" data-i18n-attr="aria-label:contacts.office.net.label" aria-label="Схема: офис в Москве в центре, вокруг него сервисная сеть по России">
+            <svg viewBox="0 0 440 400" aria-hidden="true" focusable="false">
+              <g class="ct-net__rings"><circle cx="220" cy="200" r="46"/><circle cx="220" cy="200" r="104"/><circle cx="220" cy="200" r="164"/></g>
+              <g class="ct-net__spokes"><path d="M220 200 330 82M220 200 392 176M220 200 340 318M220 200 218 372M220 200 92 330M220 200 52 190M220 200 106 76M220 200 238 30"/></g>
+              <g class="ct-net__nodes"><circle cx="330" cy="82" r="6"/><circle cx="392" cy="176" r="6"/><circle cx="340" cy="318" r="6"/><circle cx="218" cy="372" r="6"/><circle cx="92" cy="330" r="6"/><circle cx="52" cy="190" r="6"/><circle cx="106" cy="76" r="6"/><circle cx="238" cy="30" r="6"/></g>
+              <circle class="ct-net__pulse" cx="220" cy="200" r="14"/>
+              <circle class="ct-net__core" cx="220" cy="200" r="9"/>
+            </svg>
+            <span class="ct-net__tag ct-net__tag--hq mono" data-i18n="contacts.office.net.hq">ОФИС · МОСКВА</span>
+            <span class="ct-net__tag ct-net__tag--svc mono" data-i18n="contacts.office.net.service">СЕРВИСНАЯ СЕТЬ</span>
+          </div>
+        </div>
+
+        <!-- Реквизитов юрлица в материалах нет (ТЗ, п. 10.1): блок отправляет запрос, чтобы не выдумывать данные. Заменить на реальные ИНН/ОГРН/адрес. -->
+        <div class="ct-req reveal" id="requisites">
+          <span class="ic-tile"><svg aria-hidden="true"><use href="#i-doc"/></svg></span>
+          <div class="ct-req__body">
+            <h3 data-i18n="contacts.requisites.title">Реквизиты для договора</h3>
+            <p data-i18n="contacts.requisites.text">Реквизиты компании для договора и счёта пришлём по запросу в течение рабочего дня.</p>
+          </div>
+          <a class="btn btn-inv" href="mailto:info@profrobot.ru?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D1%80%D0%B5%D0%BA%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BE%D0%B2"><span data-i18n="contacts.requisites.cta">Запросить реквизиты</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoInverseSrc" src="assets/profrobot-logo-inverse.png" alt="Профессиональная Робототехника" width="783" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span data-i18n="common.footer.rights">© 2026 Профессиональная Робототехника. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html"><span data-i18n="common.footer.backHome">На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"/"},{"@type":"ListItem","position":2,"name":"Контакты","item":"/contacts/"}]},
+    {"@type":"ContactPage","name":"Контакты Профессиональной Робототехники","url":"/contacts/"},
+    {"@type":"LocalBusiness","name":"Профессиональная Робототехника","url":"/","telephone":"+7-495-123-45-67","email":"info@profrobot.ru","address":{"@type":"PostalAddress","addressLocality":"Москва","addressCountry":"RU"},"areaServed":"RU"}
+  ]}
+  </script>
+  <script src="solutions.js"></script>
+  <script src="contacts.js"></script>
+</body>
+</html>

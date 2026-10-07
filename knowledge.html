@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="knowledge.meta.title">База знаний о роботизации бизнеса | Профессиональная Робототехника</title>
+  <meta data-i18n-attr="content:knowledge.meta.description" name="description" content="Роботизация без маркетинга: что такое AMR и аренда роботов (RaaS), как считать окупаемость, чем отличаются модели роботов. Статьи, сравнения, ответы на частые вопросы.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="/knowledge/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="solutions.css">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="knowledge.css">
+  <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="sol-page pr-page kb-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-cleaning" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15v4M17 17h4M5 17v3M3.5 18.5h3"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M3 18h18M5 18a7 7 0 0 1 14 0M12 7v4M10 7h4"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l6 4v-4l6 4V4h6v17z"/><path d="M3 21h18M8 18h1M13 18h1M17 18h1"/></symbol>
+    <symbol id="i-hat" viewBox="0 0 24 24"><path d="M4 17h16v-1a8 8 0 0 0-16 0z"/><path d="M10 8V5h4v3M2 17h20v2H2z"/></symbol>
+    <symbol id="i-cross" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6z"/><path d="M12 15c0-3-2-5-6-5 0 3 2 5 6 5z"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M15 7h4v4"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12 18.4 5.6"/></symbol>
+    <symbol id="i-ask" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M10 8.5a2 2 0 1 1 2.6 1.9c-.4.2-.6.5-.6.9v.2M12 13.5h.01"/></symbol>
+  </defs></svg>
+
+  <!-- ================= NAV ================= -->
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoSrc" src="assets/profrobot-logo.png" alt="Профессиональная Робототехника"></a>
+    <nav class="nav-links">
+      <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+      <a data-i18n="common.nav.industries" href="index.html#industries">Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html">Продукты</a>
+      <a data-i18n="common.nav.services" href="services.html">Услуги</a>
+      <a data-i18n="common.nav.platform" href="platform.html">Платформа</a>
+      <a data-i18n="common.nav.cases" href="cases.html">Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="contacts.html">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">07</span>
+    <span data-i18n="knowledge.sections.hero" class="lbl">БАЗА ЗНАНИЙ</span>
+  </div>
+
+  <main>
+    <!-- ================= 01 HERO ================= -->
+    <!-- ТЗ v2.1, страница 7: H1, вводный текст. URL /knowledge/ вместо /baza-znaniy/ из ТЗ (английские слова). -->
+    <section data-i18n-attr="data-name:knowledge.sections.hero" class="sol-hero wrap" data-sec="01" data-name="БАЗА ЗНАНИЙ">
+      <div class="sol-hero__grid">
+        <div class="sol-hero__copy">
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li data-i18n="knowledge.crumb" aria-current="page">База знаний</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="knowledge.sections.hero">БАЗА ЗНАНИЙ</span></span>
+          <h1 class="h1 reveal" data-i18n-html="knowledge.hero.title">База знаний: роботизация <span>без маркетинга.</span></h1>
+          <div class="sol-hero__text reveal">
+            <p data-i18n="knowledge.hero.lead" class="lead">Собрали то, что клиенты спрашивают до сделки: как считать окупаемость, чем AMR отличается от обычной техники, что такое аренда роботов и когда выгоднее модернизировать старое оборудование.</p>
+            <p data-i18n="knowledge.hero.text">Пишем по-инженерному: ответ в первых строках, дальше цифры, сроки и честное «когда это не окупается». Если нужен ответ под конкретный объект, быстрее заказать аудит.</p>
+          </div>
+          <div class="btns reveal">
+            <a class="btn btn-pri" href="roi.html"><span data-i18n="knowledge.hero.ctaRoi">Рассчитать ROI</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-sec" href="#talk"><span data-i18n="knowledge.hero.ctaAudit">Заказать аудит</span></a>
+          </div>
+        </div>
+
+        <!-- Оглавление вопросов: возражения из ТЗ («дорого», «сломается», «окупается», «переучивать»), ведут на ответы в FAQ -->
+        <nav class="kb-toc reveal" style="--i:2" data-i18n-attr="aria-label:knowledge.toc.label" aria-label="Частые вопросы до сделки">
+          <p class="kb-toc__head"><span data-i18n="knowledge.toc.title">Вопросы до сделки</span><span class="mono" data-i18n="knowledge.toc.note">ответы ниже</span></p>
+          <ol class="kb-toc__list">
+            <li><a href="#faq-payback"><span class="kb-toc__q">?</span><span data-i18n="knowledge.faq.items.payback.q">За сколько окупается робот-уборщик?</span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+            <li><a href="#faq-cost"><span class="kb-toc__q">?</span><span data-i18n="knowledge.faq.items.cost.q">Это дорого. Можно начать без крупных вложений?</span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+            <li><a href="#faq-breakdown"><span class="kb-toc__q">?</span><span data-i18n="knowledge.faq.items.breakdown.q">А если робот сломается?</span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+            <li><a href="#faq-staff"><span class="kb-toc__q">?</span><span data-i18n="knowledge.faq.items.staff.q">Придётся переучивать персонал?</span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+            <li><a href="#faq-not-paying"><span class="kb-toc__q">?</span><span data-i18n="knowledge.faq.items.notPaying.q">Когда роботизация не окупается?</span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+          </ol>
+          <a class="kb-toc__foot" href="#faq"><span data-i18n="knowledge.toc.all">Все вопросы и ответы</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ================= 02 РАЗДЕЛЫ ================= -->
+    <!-- 12 категорий из ТЗ. Основная ссылка карточки фильтрует материалы (?topic=), вторая ведёт на коммерческую страницу направления. -->
+    <section data-i18n-attr="data-name:knowledge.sections.topics" class="sol-sec wrap" id="topics" data-sec="02" data-name="РАЗДЕЛЫ" aria-labelledby="topics-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>02</b> — <span data-i18n="knowledge.sections.topics">РАЗДЕЛЫ</span></span>
+        <h2 data-i18n="knowledge.topics.title" class="h2 reveal" id="topics-h">Двенадцать разделов: по направлениям, экономике и рынку.</h2>
+        <p data-i18n="knowledge.topics.lead" class="lead reveal">Выберите раздел: покажем его материалы. Из каждого раздела можно перейти к решению, где описано, как мы это внедряем.</p>
+      </div>
+
+      <ul class="kb-cats">
+        <li class="kb-cat reveal">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-cleaning"/></svg></span><span class="kb-cat__no mono">01</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=cleaning#materials" data-topic="cleaning" data-i18n="common.solutionNames.cleaning">Роботизированный клининг</a></h3>
+          <p data-i18n="knowledge.topics.items.cleaning.text">Как работает робот-уборщик, для каких площадей подходит и как быстро окупается.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">1</b></span><a class="kb-cat__rel" href="/solutions/cleaning/"><span data-i18n="knowledge.topics.toSolution">Решение</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal" style="--i:1">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-box"/></svg></span><span class="kb-cat__no mono">02</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=warehouse#materials" data-topic="warehouse" data-i18n="knowledge.topics.items.warehouse.name">AMR и склады</a></h3>
+          <p data-i18n="knowledge.topics.items.warehouse.text">Автономные мобильные роботы для внутренней логистики: сценарии, навигация, связка с WMS.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">1</b></span><a class="kb-cat__rel" href="/solutions/warehouse/"><span data-i18n="knowledge.topics.toSolution">Решение</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal" style="--i:2">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-bell"/></svg></span><span class="kb-cat__no mono">03</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=service#materials" data-topic="service" data-i18n="common.solutionNames.service">Сервисные роботы</a></h3>
+          <p data-i18n="knowledge.topics.items.service.text">Доставка и обслуживание гостей в отелях, ресторанах и клиниках.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">1</b></span><a class="kb-cat__rel" href="/solutions/service-robots/"><span data-i18n="knowledge.topics.toSolution">Решение</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal" style="--i:3">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><span class="kb-cat__no mono">04</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=industrial#materials" data-topic="industrial" data-i18n="common.solutionNames.industrial">Промышленная роботизация</a></h3>
+          <p data-i18n="knowledge.topics.items.industrial.text">Автоматизация производственных операций: с какого участка начинать и что считать.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">1</b></span><a class="kb-cat__rel" href="/solutions/industrial/"><span data-i18n="knowledge.topics.toSolution">Решение</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-hat"/></svg></span><span class="kb-cat__no mono">05</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=construction#materials" data-topic="construction" data-i18n="common.solutionNames.construction">Строительная робототехника</a></h3>
+          <p data-i18n="knowledge.topics.items.construction.text">Где роботов уже применяют на стройке: демонтаж, тяжёлые и опасные работы.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">1</b></span><a class="kb-cat__rel" href="/solutions/construction/"><span data-i18n="knowledge.topics.toSolution">Решение</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal" style="--i:1">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-cross"/></svg></span><span class="kb-cat__no mono">06</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=medical#materials" data-topic="medical" data-i18n="common.solutionNames.medical">Медицинская робототехника</a></h3>
+          <p data-i18n="knowledge.topics.items.medical.text">Роботы для клиник: доставка, дезинфекция и требования, которые к ним предъявляют.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">1</b></span><a class="kb-cat__rel" href="/solutions/medical/"><span data-i18n="knowledge.topics.toSolution">Решение</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal" style="--i:2">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span><span class="kb-cat__no mono">07</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=agro#materials" data-topic="agro" data-i18n="knowledge.topics.items.agro.name">AgriTech</a></h3>
+          <p data-i18n="knowledge.topics.items.agro.text">Агродроны и роботы в сельском хозяйстве: опрыскивание, сезонная экономика, работа оператора.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">2</b></span><a class="kb-cat__rel" href="/solutions/agro/"><span data-i18n="knowledge.topics.toSolution">Решение</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal" style="--i:3">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-key"/></svg></span><span class="kb-cat__no mono">08</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=raas#materials" data-topic="raas" data-i18n="common.linkNames.raas">Аренда роботов (RaaS)</a></h3>
+          <p data-i18n="knowledge.topics.items.raas.text">Как устроена аренда роботов, что входит в платёж и кому она выгоднее покупки.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">2</b></span><a class="kb-cat__rel" href="products.html#raas"><span data-i18n="knowledge.topics.toProduct">Продукт</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-chart"/></svg></span><span class="kb-cat__no mono">09</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=roi#materials" data-topic="roi" data-i18n="knowledge.topics.items.roi.name">ROI роботизации</a></h3>
+          <p data-i18n="knowledge.topics.items.roi.text">Как честно считать экономический эффект: что сравниваем, за какой период и что входит в затраты.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">2</b></span><a class="kb-cat__rel" href="roi.html"><span data-i18n="knowledge.topics.toCalc">Калькулятор</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal" style="--i:1">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-sliders"/></svg></span><span class="kb-cat__no mono">10</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=reviews#materials" data-topic="reviews" data-i18n="knowledge.topics.items.reviews.name">Обзоры и сравнения</a></h3>
+          <p data-i18n="knowledge.topics.items.reviews.text">Разбор моделей и производителей: по каким параметрам сравнивать и на что не смотреть.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">2</b></span><a class="kb-cat__rel" href="index.html#brands"><span data-i18n="common.footer.nav.makers">Производители</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a></div>
+        </li>
+        <li class="kb-cat reveal" style="--i:2">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-radar"/></svg></span><span class="kb-cat__no mono">11</span></div>
+          <h3><a class="kb-cat__go" href="knowledge.html?topic=news#materials" data-topic="news" data-i18n="knowledge.topics.items.news.name">Новости рынка</a></h3>
+          <p data-i18n="knowledge.topics.items.news.text">Что происходит в роботизации в России и мире: запуски, правила, цены.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.count">Материалов</span> <b class="tnum">0</b></span></div>
+        </li>
+        <li class="kb-cat kb-cat--faq reveal" style="--i:3">
+          <div class="kb-cat__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-ask"/></svg></span><span class="kb-cat__no mono">12</span></div>
+          <h3><a class="kb-cat__go" href="#faq" data-i18n="knowledge.topics.items.faq.name">FAQ</a></h3>
+          <p data-i18n="knowledge.topics.items.faq.text">Короткие ответы на частые вопросы: дорого ли, что будет при поломке, сколько окупается.</p>
+          <div class="kb-cat__foot"><span class="kb-cat__n mono"><span data-i18n="knowledge.topics.questions">Вопросов</span> <b class="tnum">9</b></span></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ================= 03 МАТЕРИАЛЫ ================= -->
+    <!-- Темы — информационные запросы из семантического ядра ТЗ (раздел II). Статьи ещё не написаны (батч 6 ТЗ):
+         строка показывает тему и статус «Готовится», ссылки на статью нет. Когда статья появится — строка становится ссылкой /knowledge/<slug>/. -->
+    <section data-i18n-attr="data-name:knowledge.sections.materials" class="sol-sec wrap" id="materials" data-sec="03" data-name="МАТЕРИАЛЫ" aria-labelledby="materials-h">
+      <div class="kb-mat-head">
+        <div class="sol-head">
+          <span class="idx reveal"><b>03</b> — <span data-i18n="knowledge.sections.materials">МАТЕРИАЛЫ</span></span>
+          <h2 data-i18n="knowledge.materials.title" class="h2 reveal" id="materials-h">Один материал — один вопрос из поиска.</h2>
+          <p data-i18n="knowledge.materials.lead" class="lead reveal">Каждый материал отвечает на конкретный вопрос и закрывает его полностью. Первые темы готовим сейчас.</p>
+        </div>
+
+        <!-- Поиск и фильтр: без JS видны все материалы, чипы работают как обычные ссылки -->
+        <div class="kb-tools reveal">
+          <div class="kb-search">
+            <label class="kb-search__l" for="kb-q" data-i18n="knowledge.search.label">Поиск по базе знаний</label>
+            <div class="kb-search__box">
+              <svg aria-hidden="true"><use href="#i-search"/></svg>
+              <input id="kb-q" type="search" autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:knowledge.search.placeholder" placeholder="Окупаемость, AMR, аренда…" aria-controls="kb-list faq-list">
+            </div>
+          </div>
+          <nav class="kb-filter" data-i18n-attr="aria-label:knowledge.filter.label" aria-label="Фильтр по разделу">
+            <a class="kb-chip" href="knowledge.html#materials" data-topic="" aria-current="true"><span data-i18n="knowledge.filter.all">Все</span><span class="kb-chip__n tnum">14</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=cleaning#materials" data-topic="cleaning"><span data-i18n="knowledge.filter.cleaning">Клининг</span><span class="kb-chip__n tnum">1</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=warehouse#materials" data-topic="warehouse"><span data-i18n="knowledge.filter.warehouse">Склады</span><span class="kb-chip__n tnum">1</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=service#materials" data-topic="service"><span data-i18n="knowledge.filter.service">Сервисные</span><span class="kb-chip__n tnum">1</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=industrial#materials" data-topic="industrial"><span data-i18n="knowledge.filter.industrial">Промышленность</span><span class="kb-chip__n tnum">1</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=construction#materials" data-topic="construction"><span data-i18n="knowledge.filter.construction">Стройка</span><span class="kb-chip__n tnum">1</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=medical#materials" data-topic="medical"><span data-i18n="knowledge.filter.medical">Медицина</span><span class="kb-chip__n tnum">1</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=agro#materials" data-topic="agro"><span data-i18n="knowledge.filter.agro">Агро</span><span class="kb-chip__n tnum">2</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=raas#materials" data-topic="raas"><span data-i18n="knowledge.filter.raas">Аренда</span><span class="kb-chip__n tnum">2</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=roi#materials" data-topic="roi"><span data-i18n="knowledge.filter.roi">ROI</span><span class="kb-chip__n tnum">2</span></a>
+            <a class="kb-chip" href="knowledge.html?topic=reviews#materials" data-topic="reviews"><span data-i18n="knowledge.filter.reviews">Сравнения</span><span class="kb-chip__n tnum">2</span></a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- TODO(client): темы — черновой план батча 6 по информационным запросам ядра; согласовать порядок и авторов. См. docs/specs/СПЕКА_СТРАНИЦА_БАЗА_ЗНАНИЙ_ДИЗАЙН.md -->
+      <ol class="kb-list" id="kb-list">
+        <li class="kb-item reveal" data-topic="cleaning">
+          <span class="kb-item__no mono tnum">01</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span><span data-i18n="knowledge.formats.article">Статья</span></p>
+            <h3 data-i18n="knowledge.materials.items.cleaningBasics.title">Робот-уборщик: как он работает и для каких площадей подходит</h3>
+            <p data-i18n="knowledge.materials.items.cleaningBasics.text">Навигация, режимы уборки, зарядка и станция воды. Что робот делает сам, а где по-прежнему нужен человек.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="roi">
+          <span class="kb-item__no mono tnum">02</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="knowledge.topics.items.roi.name">ROI роботизации</span><span data-i18n="knowledge.formats.calc">Расчёт</span></p>
+            <h3 data-i18n="knowledge.materials.items.cleaningPayback.title">Сколько окупается робот-уборщик: расчёт по шагам</h3>
+            <p data-i18n="knowledge.materials.items.cleaningPayback.text">Какие затраты сравниваем, откуда берётся экономия и что сильнее всего меняет срок: площадь, число смен, ставка уборщика.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="reviews">
+          <span class="kb-item__no mono tnum">03</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="knowledge.topics.items.reviews.name">Обзоры и сравнения</span><span data-i18n="knowledge.formats.compare">Сравнение</span></p>
+            <h3 data-i18n="knowledge.materials.items.robotVsMachine.title">Поломоечный робот или поломоечная машина с оператором</h3>
+            <p data-i18n="knowledge.materials.items.robotVsMachine.text">Производительность, люди на смене, расходы владения. И случаи, когда машина с оператором выгоднее робота.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="warehouse">
+          <span class="kb-item__no mono tnum">04</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="knowledge.topics.items.warehouse.name">AMR и склады</span><span data-i18n="knowledge.formats.article">Статья</span></p>
+            <h3 data-i18n="knowledge.materials.items.amr.title">AMR-робот: что это и чем он отличается от AGV</h3>
+            <p data-i18n="knowledge.materials.items.amr.text">Навигация без разметки на полу, сценарии на складе, связка с WMS. Когда хватит AGV, а когда нужен AMR.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="raas">
+          <span class="kb-item__no mono tnum">05</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="common.linkNames.raas">Аренда роботов (RaaS)</span><span data-i18n="knowledge.formats.article">Статья</span></p>
+            <h3 data-i18n="knowledge.materials.items.raasBasics.title">Аренда роботов (RaaS): как устроена и кому выгодна</h3>
+            <p data-i18n="knowledge.materials.items.raasBasics.text">Что входит в платёж, на какой срок заключают договор и кто отвечает за сервис и простой.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="raas">
+          <span class="kb-item__no mono tnum">06</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="common.linkNames.raas">Аренда роботов (RaaS)</span><span data-i18n="knowledge.formats.calc">Расчёт</span></p>
+            <h3 data-i18n="knowledge.materials.items.rentVsBuy.title">Аренда или покупка робота: как сравнить расходы</h3>
+            <p data-i18n="knowledge.materials.items.rentVsBuy.text">Накопленные расходы за срок, расходы владения при покупке и точка, после которой покупка обгоняет аренду.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="agro">
+          <span class="kb-item__no mono tnum">07</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="knowledge.topics.items.agro.name">AgriTech</span><span data-i18n="knowledge.formats.article">Статья</span></p>
+            <h3 data-i18n="knowledge.materials.items.agroDrone.title">Агродрон для опрыскивания: как работает и что нужно для запуска</h3>
+            <p data-i18n="knowledge.materials.items.agroDrone.text">Полётное задание по карте поля, норма внесения, погодное окно. Что подготовить к сезону.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="agro">
+          <span class="kb-item__no mono tnum">08</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="knowledge.topics.items.agro.name">AgriTech</span><span data-i18n="knowledge.formats.guide">Разбор</span></p>
+            <h3 data-i18n="knowledge.materials.items.droneOperator.title">Оператор агродрона: чему учиться и как организовать работу</h3>
+            <p data-i18n="knowledge.materials.items.droneOperator.text">Обучение, роли в бригаде и документы, которые стоит проверить до начала сезона.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="construction">
+          <span class="kb-item__no mono tnum">09</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="common.solutionNames.construction">Строительная робототехника</span><span data-i18n="knowledge.formats.guide">Разбор</span></p>
+            <h3 data-i18n="knowledge.materials.items.demolition.title">Демонтажный робот: где применяют и как считать экономику</h3>
+            <p data-i18n="knowledge.materials.items.demolition.text">Какие работы робот берёт на себя, как меняется бригада и с чем сравнивать трудозатраты.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="service">
+          <span class="kb-item__no mono tnum">10</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="common.solutionNames.service">Сервисные роботы</span><span data-i18n="knowledge.formats.article">Статья</span></p>
+            <h3 data-i18n="knowledge.materials.items.delivery.title">Роботы доставки в отеле и ресторане: сценарии и ограничения</h3>
+            <p data-i18n="knowledge.materials.items.delivery.text">Что робот возит сам, где ему нужны лифт и двери, и как гости на него реагируют.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="industrial">
+          <span class="kb-item__no mono tnum">11</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="common.solutionNames.industrial">Промышленная роботизация</span><span data-i18n="knowledge.formats.guide">Разбор</span></p>
+            <h3 data-i18n="knowledge.materials.items.industrialStart.title">Промышленная роботизация: с какого участка начинать</h3>
+            <p data-i18n="knowledge.materials.items.industrialStart.text">Как выбрать первую операцию, что измерить до проекта и почему начинают не с самого сложного участка.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="medical">
+          <span class="kb-item__no mono tnum">12</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="common.solutionNames.medical">Медицинская робототехника</span><span data-i18n="knowledge.formats.article">Статья</span></p>
+            <h3 data-i18n="knowledge.materials.items.clinic.title">Роботы в клиниках: доставка, дезинфекция и требования к ним</h3>
+            <p data-i18n="knowledge.materials.items.clinic.text">Какие задачи берут роботы в медицинских учреждениях и что проверить до закупки.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="reviews">
+          <span class="kb-item__no mono tnum">13</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="knowledge.topics.items.reviews.name">Обзоры и сравнения</span><span data-i18n="knowledge.formats.review">Обзор</span></p>
+            <h3 data-i18n="knowledge.materials.items.brands.title">Pudu, Gausium, Keenon: как сравнивать производителей</h3>
+            <p data-i18n="knowledge.materials.items.brands.text">По каким параметрам сравнивать роботов-уборщиков разных брендов и почему сервис в России важнее цифр в каталоге.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+        <li class="kb-item reveal" data-topic="roi">
+          <span class="kb-item__no mono tnum">14</span>
+          <div class="kb-item__body">
+            <p class="kb-item__meta mono"><span data-i18n="knowledge.topics.items.roi.name">ROI роботизации</span><span data-i18n="knowledge.formats.guide">Разбор</span></p>
+            <h3 data-i18n="knowledge.materials.items.notPaying.title">Когда роботизация не окупается</h3>
+            <p data-i18n="knowledge.materials.items.notPaying.text">Мало работы, короткие смены, сложная среда: условия, при которых мы прямо скажем, что проект не окупится.</p>
+          </div>
+          <span class="kb-item__st mono" data-i18n="knowledge.status.soon">Готовится</span>
+        </li>
+      </ol>
+
+      <!-- Пустое состояние: раздел без материалов (?topic=news) или поиск без совпадений. Показывает knowledge.js. -->
+      <div class="kb-empty" hidden>
+        <div class="kb-empty__copy">
+          <h3 data-kind="topic" data-i18n="knowledge.empty.topicTitle">В этом разделе материалов пока нет.</h3>
+          <h3 data-kind="search" hidden data-i18n="knowledge.empty.searchTitle">По этому запросу ничего не нашли.</h3>
+          <p data-i18n="knowledge.empty.text">Задайте вопрос инженеру: ответим под ваш объект, а частый вопрос добавим в базу знаний.</p>
+        </div>
+        <div class="kb-empty__acts">
+          <a class="btn btn-pri" href="#talk"><span data-i18n="knowledge.empty.ask">Задать вопрос</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="text-link" href="knowledge.html#materials" data-topic=""><span data-i18n="knowledge.empty.all">Показать все материалы</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04 ROI ================= -->
+    <!-- Обязательный блок ТЗ: ROI-калькулятор. Формула — та же, что в методике кейсов (cases.html#method-payback). -->
+    <section data-i18n-attr="data-name:knowledge.sections.roi" class="sol-sec" id="roi" data-sec="04" data-name="ОКУПАЕМОСТЬ" data-dark aria-labelledby="roi-h">
+      <div class="stage pr-stage">
+        <div class="pr-stage__top">
+          <div class="pr-stage__copy">
+            <span class="idx reveal"><b>04</b> — <span data-i18n="knowledge.sections.roi">ОКУПАЕМОСТЬ</span></span>
+            <h2 data-i18n="knowledge.roi.title" class="h2 reveal" id="roi-h">Окупаемость считаем до вложений. И по одной методике.</h2>
+            <p data-i18n-html="knowledge.roi.lead" class="lead reveal">Калькулятор даст оценку за пару минут. Точный расчёт — после аудита, а <b>подтверждаем цифры на пилоте</b>, до покупки.</p>
+            <div class="btns reveal">
+              <a class="btn btn-pri" href="roi.html"><span data-i18n="knowledge.roi.cta">Открыть калькулятор</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn-ghost-dark" href="cases.html#method"><span data-i18n="knowledge.roi.method">Методика расчёта кейсов</span></a>
+            </div>
+          </div>
+
+          <!-- Формула окупаемости: «весы» затрат до и после, экономия в месяц и срок -->
+          <div class="kb-eq reveal" style="--i:2">
+            <p class="kb-eq__head"><span data-i18n="knowledge.roi.eq.title">Формула окупаемости</span><span class="mono" data-i18n="knowledge.roi.eq.note">в месяцах</span></p>
+            <div class="kb-eq__row">
+              <div class="kb-eq__cell"><span class="mono" data-i18n="knowledge.roi.eq.before">Затраты сейчас</span><small data-i18n="knowledge.roi.eq.beforeHint">ФОТ, подрядчик, расходники</small></div>
+              <span class="kb-eq__op" aria-hidden="true">−</span>
+              <div class="kb-eq__cell"><span class="mono" data-i18n="knowledge.roi.eq.after">Затраты с роботом</span><small data-i18n="knowledge.roi.eq.afterHint">аренда или покупка, сервис, люди</small></div>
+            </div>
+            <div class="kb-eq__sum"><span data-i18n="knowledge.roi.eq.saving">Экономия в месяц</span></div>
+            <p class="kb-eq__fx" role="math" data-i18n-attr="aria-label:knowledge.roi.eq.aria" aria-label="Окупаемость равна вложениям, делённым на экономию в месяц"><span class="mono" data-i18n="knowledge.roi.eq.payback">Окупаемость</span><span class="kb-eq__op" aria-hidden="true">=</span><span class="kb-frac"><span data-i18n="knowledge.roi.eq.num">Вложения</span><span data-i18n="knowledge.roi.eq.den">Экономия в месяц</span></span></p>
+          </div>
+        </div>
+
+        <ol class="kb-rules">
+          <li class="mod reveal">
+            <span class="mod__no mono">01</span>
+            <h3 data-i18n="knowledge.roi.rules.period.title">Сопоставимые периоды</h3>
+            <p data-i18n="knowledge.roi.rules.period.text">Сравниваем одинаковые сроки до и после. Для агро — сезон к сезону, а не месяц к месяцу.</p>
+          </li>
+          <li class="mod reveal" style="--i:1">
+            <span class="mod__no mono">02</span>
+            <h3 data-i18n="knowledge.roi.rules.costs.title">Все расходы владения</h3>
+            <p data-i18n="knowledge.roi.rules.costs.text">Сервис, расходники и время оператора входят в затраты с роботом. Без них срок выходит красивым и неверным.</p>
+          </li>
+          <li class="mod reveal" style="--i:2">
+            <span class="mod__no mono">03</span>
+            <h3 data-i18n="knowledge.roi.rules.honest.title">Честное «не окупится»</h3>
+            <p data-i18n="knowledge.roi.rules.honest.text">Если экономия не покрывает вложения, говорим это прямо и предлагаем другой путь: аренду, модернизацию или отказ от проекта.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= 05 FAQ ================= -->
+    <!-- Возражения из ТЗ: «дорого», «а если сломается», «сколько окупается», «нужно ли переучивать людей». Ответы — только то, что уже сказано на сайте (см. спеку). -->
+    <section data-i18n-attr="data-name:knowledge.sections.faq" class="sol-sec wrap" id="faq" data-sec="05" data-name="ВОПРОСЫ" aria-labelledby="faq-h">
+      <div class="kb-faq">
+        <div class="sol-head kb-faq__head">
+          <span class="idx reveal"><b>05</b> — <span data-i18n="knowledge.sections.faq">ВОПРОСЫ</span></span>
+          <h2 data-i18n="knowledge.faq.title" class="h2 reveal" id="faq-h">Коротко о том, что спрашивают чаще всего.</h2>
+          <p data-i18n="knowledge.faq.lead" class="lead reveal">Не нашли свой вопрос? Задайте его инженеру, ответим под ваш объект.</p>
+          <a class="text-link reveal" href="#talk"><span data-i18n="knowledge.faq.ask">Задать вопрос</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+
+        <div class="kb-qa" id="faq-list">
+          <details class="kb-q reveal" id="faq-payback">
+            <summary><span data-i18n="knowledge.faq.items.payback.q">За сколько окупается робот-уборщик?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n-html="knowledge.faq.items.payback.a">Срок зависит от трёх вещей: сколько площади убирает робот, сколько смен он работает и какую ставку уборщика заменяет. Предварительную оценку даст <a href="roi.html">калькулятор окупаемости</a> за пару минут. Точный срок считаем на аудите объекта и подтверждаем на пилоте.</p>
+          </details>
+          <details class="kb-q reveal" id="faq-cost">
+            <summary><span data-i18n="knowledge.faq.items.cost.q">Это дорого. Можно начать без крупных вложений?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n-html="knowledge.faq.items.cost.a">Да. <a href="products.html#raas">Аренда роботов (RaaS)</a> убирает крупный разовый платёж: вы платите за использование. При покупке помогаем с рассрочкой и лизингом от ведущих банков РФ. А до любых вложений можно провести пилот на вашем объекте и проверить цифры.</p>
+          </details>
+          <details class="kb-q reveal" id="faq-breakdown">
+            <summary><span data-i18n="knowledge.faq.items.breakdown.q">А если робот сломается?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n-html="knowledge.faq.items.breakdown.a">Сервис входит в проект: профилактика, диагностика и ремонт силами нашей сервисной сети по России. Время реакции и восстановления фиксируем <a href="services.html#sla">в SLA</a>. Платформа следит за состоянием парка, а AI-агенты предсказывают поломку до простоя.</p>
+          </details>
+          <details class="kb-q reveal" id="faq-staff">
+            <summary><span data-i18n="knowledge.faq.items.staff.q">Придётся переучивать персонал?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n="knowledge.faq.items.staff.a">Обучение персонала входит во внедрение: люди на объекте учатся ставить роботу задания и работать с платформой. Переучивать никого не нужно. Обычно сотрудники переходят на задачи, которые робот не делает: санузлы, точечная уборка, контроль качества.</p>
+          </details>
+          <details class="kb-q reveal" id="faq-amr">
+            <summary><span data-i18n="knowledge.faq.items.amr.q">Чем AMR отличается от AGV?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n="knowledge.faq.items.amr.a">AGV ездит по заранее размеченному пути: магнитной ленте или меткам на полу. AMR (автономный мобильный робот) сам строит карту помещения, прокладывает маршрут и объезжает препятствия. Поэтому AMR проще перенастроить, когда меняется планировка склада.</p>
+          </details>
+          <details class="kb-q reveal" id="faq-raas">
+            <summary><span data-i18n="knowledge.faq.items.raas.q">Что такое аренда роботов (RaaS)?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n-html="knowledge.faq.items.raas.a">RaaS (Robot as a Service) — вы платите за использование робота вместо покупки: ниже барьер входа и быстрее старт. Сравнить аренду и покупку на своих цифрах можно <a href="products.html#raas-calc">в калькуляторе на странице продуктов</a>.</p>
+          </details>
+          <details class="kb-q reveal" id="faq-retrofit">
+            <summary><span data-i18n="knowledge.faq.items.retrofit.q">Можно автоматизировать технику, которая у нас уже есть?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n-html="knowledge.faq.items.retrofit.a">Часто да. <a href="products.html#retrofit">Retrofit</a> — модернизация имеющейся техники: ставим камеры, навигацию, датчики и полуавтоматические сценарии. Это бывает быстрее и дешевле, чем покупать нового робота.</p>
+          </details>
+          <details class="kb-q reveal" id="faq-vendors">
+            <summary><span data-i18n="knowledge.faq.items.vendors.q">Вы продаёте роботов одного бренда?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n="knowledge.faq.items.vendors.a">Нет. Мы не производитель и не привязаны к одному бренду. На каждое направление сравниваем 2–5 производителей и выбираем тех, кто подходит задаче и кого можно обслуживать в России.</p>
+          </details>
+          <details class="kb-q reveal" id="faq-not-paying">
+            <summary><span data-i18n="knowledge.faq.items.notPaying.q">Когда роботизация не окупается?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p data-i18n="knowledge.faq.items.notPaying.a">Бывает, что работы для робота мало: небольшая площадь, одна короткая смена или задача, которую он закрывает лишь частично. Тогда экономия не покрывает вложения. Мы скажем это прямо и предложим другой вариант: аренду, модернизацию имеющейся техники или отказ от проекта.</p>
+          </details>
+          <p class="kb-qa__none" hidden data-i18n="knowledge.faq.none">В вопросах совпадений нет.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 06 СМОТРИТЕ ТАКЖЕ ================= -->
+    <section data-i18n-attr="data-name:knowledge.sections.see" class="sol-sec wrap" id="see" data-sec="06" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>06</b> — <span data-i18n="knowledge.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 data-i18n="knowledge.see.title" class="h2 reveal" id="see-h">От теории к вашему объекту.</h2>
+      </div>
+      <div class="see">
+        <a class="see-card reveal" href="solutions.html">
+          <span class="dir__no"><span data-i18n="knowledge.see.solutions.kicker">КАК МЫ ВНЕДРЯЕМ</span></span>
+          <h3 data-i18n="knowledge.see.solutions.title">Решения</h3>
+          <p data-i18n="knowledge.see.solutions.text">Клининг · Склады · Сервисные роботы · Производство · Стройка · Медицина · Агро</p>
+          <div class="see-card__foot"><span data-i18n="knowledge.see.solutions.foot" class="mono" style="color:var(--ink-muted)">Оборудование, интеграция и сервис</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+        <a class="see-card reveal" style="--i:1" href="cases.html">
+          <span class="dir__no"><span data-i18n="knowledge.see.cases.kicker">РЕЗУЛЬТАТ В ЦИФРАХ</span></span>
+          <h3 data-i18n="knowledge.see.cases.title">Кейсы</h3>
+          <p data-i18n="knowledge.see.cases.text">Бизнес-центр · Агрохолдинг · Склад · Производство · Строительство</p>
+          <div class="see-card__foot"><span data-i18n="knowledge.see.cases.foot" class="mono" style="color:var(--ink-muted)">Задача, решение и результат</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= 07 ЗАЯВКА ================= -->
+    <section data-i18n-attr="data-name:knowledge.sections.talk" class="sol-sec wrap" id="talk" data-sec="07" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>07</b> — <span data-i18n="knowledge.sections.talk">ЗАЯВКА</span></span>
+          <h2 data-i18n="knowledge.talk.title" class="h2 reveal" id="talk-h">Нужен ответ под ваш объект? Закажите аудит.</h2>
+          <p data-i18n="knowledge.talk.lead" class="lead reveal">Статья объясняет принцип, аудит даёт цифры вашего объекта. Оставьте контакты: инженер уточнит задачу и подскажет, с чего начать.</p>
+          <div class="btns reveal"><a class="btn btn-pri" href="roi.html"><span data-i18n="knowledge.talk.roiCta">Рассчитать ROI</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="knowledge" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label data-i18n="common.form.name" for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label data-i18n="common.form.phone" for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label data-i18n-html="knowledge.talk.form.industryLabel" for="f-dir">Ваша отрасль <small>необязательно</small></label>
+            <select id="f-dir" name="direction">
+              <option data-i18n="common.form.directionUnknown" value="">Пока не знаю</option>
+              <option data-i18n="home.industries.items.businessCenters" value="business-centers">Бизнес-центры и офисы</option>
+              <option data-i18n="home.industries.items.retail" value="retail">Торговые центры и ритейл</option>
+              <option data-i18n="home.industries.items.logistics.name" value="logistics">Склады и логистика</option>
+              <option data-i18n="home.industries.items.hotels" value="hotels">Отели и HoReCa</option>
+              <option data-i18n="home.industries.items.medical" value="medical">Медицинские объекты</option>
+              <option data-i18n="home.industries.items.construction.name" value="construction">Строительство и девелопмент</option>
+              <option data-i18n="home.industries.items.manufacturing" value="manufacturing">Промышленность и производство</option>
+              <option data-i18n="home.industries.items.publicSpaces" value="public-spaces">Общественные пространства</option>
+              <option data-i18n="home.industries.items.municipal" value="municipal">Муниципальные службы</option>
+              <option data-i18n="home.industries.items.agriculture.name" value="agriculture">Агро и фермерские хозяйства</option>
+              <option data-i18n="home.industries.items.education" value="education">Образовательные учреждения</option>
+              <option data-i18n="home.industries.items.fitness" value="fitness-sports">Фитнес-клубы и спорткомплексы</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span data-i18n="solutions.talk.form.submit" class="btn__t">Заказать звонок</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoInverseSrc" src="assets/profrobot-logo-inverse.png" alt="Профессиональная Робототехника" width="783" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span data-i18n="common.footer.rights">© 2026 Профессиональная Робототехника. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html"><span data-i18n="common.footer.backHome">На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"/"},{"@type":"ListItem","position":2,"name":"База знаний","item":"/knowledge/"}]},
+    {"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"За сколько окупается робот-уборщик?","acceptedAnswer":{"@type":"Answer","text":"Срок зависит от трёх вещей: сколько площади убирает робот, сколько смен он работает и какую ставку уборщика заменяет. Предварительную оценку даст калькулятор окупаемости за пару минут. Точный срок считаем на аудите объекта и подтверждаем на пилоте."}},
+{"@type":"Question","name":"Это дорого. Можно начать без крупных вложений?","acceptedAnswer":{"@type":"Answer","text":"Да. Аренда роботов (RaaS) убирает крупный разовый платёж: вы платите за использование. При покупке помогаем с рассрочкой и лизингом от ведущих банков РФ. А до любых вложений можно провести пилот на вашем объекте и проверить цифры."}},
+{"@type":"Question","name":"А если робот сломается?","acceptedAnswer":{"@type":"Answer","text":"Сервис входит в проект: профилактика, диагностика и ремонт силами нашей сервисной сети по России. Время реакции и восстановления фиксируем в SLA. Платформа следит за состоянием парка, а AI-агенты предсказывают поломку до простоя."}},
+{"@type":"Question","name":"Придётся переучивать персонал?","acceptedAnswer":{"@type":"Answer","text":"Обучение персонала входит во внедрение: люди на объекте учатся ставить роботу задания и работать с платформой. Переучивать никого не нужно. Обычно сотрудники переходят на задачи, которые робот не делает: санузлы, точечная уборка, контроль качества."}},
+{"@type":"Question","name":"Чем AMR отличается от AGV?","acceptedAnswer":{"@type":"Answer","text":"AGV ездит по заранее размеченному пути: магнитной ленте или меткам на полу. AMR (автономный мобильный робот) сам строит карту помещения, прокладывает маршрут и объезжает препятствия. Поэтому AMR проще перенастроить, когда меняется планировка склада."}},
+{"@type":"Question","name":"Что такое аренда роботов (RaaS)?","acceptedAnswer":{"@type":"Answer","text":"RaaS (Robot as a Service) — вы платите за использование робота вместо покупки: ниже барьер входа и быстрее старт. Сравнить аренду и покупку на своих цифрах можно в калькуляторе на странице продуктов."}},
+{"@type":"Question","name":"Можно автоматизировать технику, которая у нас уже есть?","acceptedAnswer":{"@type":"Answer","text":"Часто да. Retrofit — модернизация имеющейся техники: ставим камеры, навигацию, датчики и полуавтоматические сценарии. Это бывает быстрее и дешевле, чем покупать нового робота."}},
+{"@type":"Question","name":"Вы продаёте роботов одного бренда?","acceptedAnswer":{"@type":"Answer","text":"Нет. Мы не производитель и не привязаны к одному бренду. На каждое направление сравниваем 2–5 производителей и выбираем тех, кто подходит задаче и кого можно обслуживать в России."}},
+{"@type":"Question","name":"Когда роботизация не окупается?","acceptedAnswer":{"@type":"Answer","text":"Бывает, что работы для робота мало: небольшая площадь, одна короткая смена или задача, которую он закрывает лишь частично. Тогда экономия не покрывает вложения. Мы скажем это прямо и предложим другой вариант: аренду, модернизацию имеющейся техники или отказ от проекта."}}
+    ]}
+  ]}
+  </script>
+  <script src="solutions.js"></script>
+  <script src="knowledge.js"></script>
+</body>
+</html>

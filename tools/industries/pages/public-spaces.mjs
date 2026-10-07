@@ -120,7 +120,7 @@ const industry = {
   why: {
     title: 'Сначала поток, потом робот.',
     text: 'Прежде чем ставить робота, смотрим, когда и где идут люди, и под это составляем расписание уборки. Технику берём у нескольких производителей и обслуживаем по SLA по всей России.',
-    link: { label: 'Аудит объекта', href: '/services/audit/' },
+    link: { label: 'Аудит объекта', href: 'services.html#audit' },
   },
   form: {
     title: 'Найдём окна для уборки на вашем объекте.',
@@ -135,7 +135,7 @@ const industry = {
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Уборка как услуга, без покупки техники.', href: 'products.html#raas' },
     { kicker: 'ПРОДУКТ', title: 'Платформа Профессиональная Робототехника', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'ОТРАСЛЬ', title: 'Муниципальные службы', text: 'Парки и улицы — там.', href: '/industries/municipal/' },
-    { kicker: 'КЕЙСЫ', title: 'Кейсы: общественные пространства', text: 'Внедрения на вокзалах и в аэропортах.', href: '/cases/?industry=public-spaces' },
+    { kicker: 'КЕЙСЫ', title: 'Кейсы: общественные пространства', text: 'Внедрения на вокзалах и в аэропортах.', href: 'cases.html?industry=public-spaces' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
   ],
   sections: ['hero', 'problems', 'flow', 'directions', 'proof', 'results', 'vendors', 'why', 'form', 'see'],

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="manufacturers.meta.title">Производители роботов, с которыми мы работаем | Профессиональная Робототехника</title>
+  <meta data-i18n-attr="content:manufacturers.meta.description" name="description" content="Работаем с ведущими производителями робототехники: Pudu, Gausium, Keenon, Hikrobot, Unitree и другими. Подбираем оборудование под задачу, без привязки к одному вендору.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="/manufacturers/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="solutions.css">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="manufacturers.css">
+  <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="sol-page pr-page mf-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M3 18h18M5 18a7 7 0 0 1 14 0M12 7v4M10 7h4"/></symbol>
+    <symbol id="i-hat" viewBox="0 0 24 24"><path d="M4 17h16v-1a8 8 0 0 0-16 0z"/><path d="M10 8V5h4v3M2 17h20v2H2z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.6-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.4 12 20 12 20z"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l6 4v-4l6 4V4h6v17z"/><path d="M3 21h18M8 18h1M13 18h1M17 18h1"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6z"/><path d="M12 15c0-3-2-5-6-5 0 3 2 5 6 5z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M15 7h4v4"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.6-.6-.6-2.6z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M5 8h14l-3.5-3.5M19 16H5l3.5 3.5"/></symbol>
+  </defs></svg>
+
+  <!-- ================= NAV ================= -->
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoSrc" src="assets/profrobot-logo.png" alt="Профессиональная Робототехника"></a>
+    <nav class="nav-links">
+      <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+      <a data-i18n="common.nav.industries" href="index.html#industries">Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html">Продукты</a>
+      <a data-i18n="common.nav.services" href="services.html">Услуги</a>
+      <a data-i18n="common.nav.platform" href="platform.html">Платформа</a>
+      <a data-i18n="common.nav.cases" href="cases.html">Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="contacts.html">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">06</span>
+    <span data-i18n="manufacturers.sections.hero" class="lbl">ПРОИЗВОДИТЕЛИ</span>
+  </div>
+
+  <main>
+    <!-- ================= 01 HERO ================= -->
+    <section data-i18n-attr="data-name:manufacturers.sections.hero" class="sol-hero wrap" data-sec="01" data-name="ПРОИЗВОДИТЕЛИ">
+      <div class="sol-hero__grid">
+        <div class="sol-hero__copy">
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li data-i18n="manufacturers.crumb" aria-current="page">Производители</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="manufacturers.sections.hero">ПРОИЗВОДИТЕЛИ</span></span>
+          <h1 class="h1 reveal" data-i18n="manufacturers.hero.title">Производители, с которыми мы работаем.</h1>
+          <div class="sol-hero__text reveal">
+            <p data-i18n-html="manufacturers.hero.lead" class="lead">Мы работаем с производителями напрямую, но <b>не привязаны ни к одному из них</b>. Это принципиально: интегратор, завязанный на одного вендора, продаёт его технику даже там, где она не лучшая.</p>
+            <p data-i18n="manufacturers.hero.text">Основная ставка — сильные азиатские производители: лучшее соотношение цены и качества, широкий выбор и быстрое развитие. На каждое направление держим по несколько вендоров, чтобы оборудование можно было заменить и не зависеть от одного поставщика.</p>
+          </div>
+          <div class="btns reveal">
+            <a class="btn btn-pri" href="#talk"><span data-i18n="manufacturers.hero.ctaPick">Подобрать оборудование под задачу</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-sec" href="roi.html"><span data-i18n="manufacturers.hero.ctaRoi">Рассчитать ROI</span></a>
+          </div>
+        </div>
+
+        <!-- Карта подбора: оглавление каталога. По точке на каждого производителя; число точек = число логотипов в группе ниже. -->
+        <nav class="mf-map reveal" style="--i:2" data-i18n-attr="aria-label:manufacturers.map.label" aria-label="Каталог производителей: пять направлений">
+          <p class="mf-map__head"><span class="mf-map__total"><b class="tnum">40</b><span data-i18n="manufacturers.map.total">производителей в подборе</span></span><span class="mono" data-i18n="manufacturers.map.count">5 направлений</span></p>
+          <ol class="mf-map__rows">
+            <li>
+              <a class="mf-map__row" href="#grp-service">
+                <span class="mf-map__no mono">01</span>
+                <span class="mf-map__name" data-i18n="manufacturers.groups.service.name">Сервисные роботы и гуманоиды</span>
+                <b class="mf-map__n tnum">7</b>
+                <span class="mf-map__dots" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i><i style="--k:5"></i><i style="--k:6"></i></span>
+              </a>
+            </li>
+            <li>
+              <a class="mf-map__row" href="#grp-construction">
+                <span class="mf-map__no mono">02</span>
+                <span class="mf-map__name" data-i18n="manufacturers.groups.construction.name">Строительная робототехника</span>
+                <b class="mf-map__n tnum">9</b>
+                <span class="mf-map__dots" aria-hidden="true"><i style="--k:3"></i><i style="--k:4"></i><i style="--k:5"></i><i style="--k:6"></i><i style="--k:7"></i><i style="--k:8"></i><i style="--k:9"></i><i style="--k:10"></i><i style="--k:11"></i></span>
+              </a>
+            </li>
+            <li>
+              <a class="mf-map__row" href="#grp-wellness">
+                <span class="mf-map__no mono">03</span>
+                <span class="mf-map__name" data-i18n="manufacturers.groups.wellness.name">Велнес и медицина</span>
+                <b class="mf-map__n tnum">3</b>
+                <span class="mf-map__dots" aria-hidden="true"><i style="--k:6"></i><i style="--k:7"></i><i style="--k:8"></i></span>
+              </a>
+            </li>
+            <li>
+              <a class="mf-map__row" href="#grp-industry">
+                <span class="mf-map__no mono">04</span>
+                <span class="mf-map__name" data-i18n="manufacturers.groups.industry.name">Промышленность и складская логистика</span>
+                <b class="mf-map__n tnum">13</b>
+                <span class="mf-map__dots" aria-hidden="true"><i style="--k:9"></i><i style="--k:10"></i><i style="--k:11"></i><i style="--k:12"></i><i style="--k:13"></i><i style="--k:14"></i><i style="--k:15"></i><i style="--k:16"></i><i style="--k:17"></i><i style="--k:18"></i><i style="--k:19"></i><i style="--k:20"></i><i style="--k:21"></i></span>
+              </a>
+            </li>
+            <li>
+              <a class="mf-map__row" href="#grp-agro">
+                <span class="mf-map__no mono">05</span>
+                <span class="mf-map__name" data-i18n="manufacturers.groups.agro.name">Сельское хозяйство</span>
+                <b class="mf-map__n tnum">8</b>
+                <span class="mf-map__dots" aria-hidden="true"><i style="--k:12"></i><i style="--k:13"></i><i style="--k:14"></i><i style="--k:15"></i><i style="--k:16"></i><i style="--k:17"></i><i style="--k:18"></i><i style="--k:19"></i></span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ================= 02 КАТАЛОГ ================= -->
+    <section data-i18n-attr="data-name:manufacturers.sections.catalog" class="sol-sec wrap" id="catalog" data-sec="02" data-name="КАТАЛОГ" aria-labelledby="catalog-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>02</b> — <span data-i18n="manufacturers.sections.catalog">КАТАЛОГ</span></span>
+        <h2 data-i18n="manufacturers.catalog.title" class="h2 reveal" id="catalog-h">Каталог по направлениям.</h2>
+        <p data-i18n="manufacturers.catalog.lead" class="lead reveal">В каждом направлении несколько производителей. Здесь названы ключевые бренды, остальных назовём под вашу задачу.</p>
+      </div>
+      <div class="mf-groups">
+
+      <article class="mf-grp reveal" id="grp-service" aria-labelledby="grp-service-h">
+        <header class="mf-grp__head">
+          <span class="mf-grp__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-bell"/></svg></span><span class="mf-grp__no mono">01</span></span>
+          <h3 id="grp-service-h" data-i18n="manufacturers.groups.service.name">Сервисные роботы и гуманоиды</h3>
+          <p data-i18n="manufacturers.groups.service.text">Доставка, уборка, ресепшн и навигация: отели, торговые центры, бизнес-центры, общественные пространства.</p>
+        </header>
+        <ul class="mf-tiles">
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/pudu.svg" alt="" style="--h:30px" width="93" height="24" loading="lazy"></span><span class="mf-tile__n">Pudu Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/keenon.png" alt="" style="--h:31px" width="1845" height="433" loading="lazy"></span><span class="mf-tile__n">KEENON Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/orionstar.png" alt="" style="--h:30px" width="419" height="92" loading="lazy"></span><span class="mf-tile__n">OrionStar Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/gausium.svg" alt="" style="--h:33px" width="195" height="56" loading="lazy"></span><span class="mf-tile__n">Gausium</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/lionsbot.png" alt="" style="--h:40px" width="402" height="120" loading="lazy"></span><span class="mf-tile__n">LionsBot</span></li>
+          <li class="mf-tile mf-tile--word"><span class="mf-tile__logo"><span class="mf-word">AgiBot</span></span></li>
+          <li class="mf-tile mf-tile--word"><span class="mf-tile__logo"><span class="mf-word">Fourier</span></span></li>
+        </ul>
+      </article>
+
+      <article class="mf-grp reveal" id="grp-construction" aria-labelledby="grp-construction-h">
+        <header class="mf-grp__head">
+          <span class="mf-grp__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-hat"/></svg></span><span class="mf-grp__no mono">02</span></span>
+          <h3 id="grp-construction-h" data-i18n="manufacturers.groups.construction.name">Строительная робототехника</h3>
+          <p data-i18n="manufacturers.groups.construction.text">Демонтаж, отделка и стяжка на стройплощадке.</p>
+        </header>
+        <ul class="mf-tiles">
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/we-i-build.png" alt="" style="--h:24px" width="284" height="41" loading="lazy"></span><span class="mf-tile__n">We-I-Build</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/dafang.png" alt="" style="--h:36px" width="2137" height="727" loading="lazy"></span><span class="mf-tile__n">Dafang</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/legendrobot.png" alt="" style="--h:29px" width="258" height="56" loading="lazy"></span><span class="mf-tile__n">Legend Robot</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/fangshi.png" alt="" style="--h:41px" width="1266" height="551" loading="lazy"></span><span class="mf-tile__n">Fangshi</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/derutu.png" alt="" style="--h:29px" width="547" height="120" loading="lazy"></span><span class="mf-tile__n">Derutu</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/sany.svg" alt="" style="--h:30px" width="109" height="29" loading="lazy"></span><span class="mf-tile__n">SANY</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/bmr.png" alt="" style="--h:37px" width="863" height="313" loading="lazy"></span><span class="mf-tile__n">BMR</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/bzl.png" alt="" style="--h:31px" width="208" height="53" loading="lazy"></span><span class="mf-tile__n">Bright Dream Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/brokk.png" alt="" style="--h:33px" width="250" height="65" loading="lazy"></span><span class="mf-tile__n">Brokk</span></li>
+          <li class="mf-tile mf-tile--more"><span class="mf-tile__logo"><span data-i18n="manufacturers.catalog.others">и другие</span></span></li>
+        </ul>
+      </article>
+
+      <article class="mf-grp reveal" id="grp-wellness" aria-labelledby="grp-wellness-h">
+        <header class="mf-grp__head">
+          <span class="mf-grp__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><span class="mf-grp__no mono">03</span></span>
+          <h3 id="grp-wellness-h" data-i18n="manufacturers.groups.wellness.name">Велнес и медицина</h3>
+          <p data-i18n="manufacturers.groups.wellness.text">Оборудование для велнес-центров, реабилитации и клиник.</p>
+        </header>
+        <ul class="mf-tiles">
+          <li class="mf-tile mf-tile--word"><span class="mf-tile__logo"><span class="mf-word">Mare-X</span></span></li>
+          <li class="mf-tile mf-tile--word"><span class="mf-tile__logo"><span class="mf-word">Maxpower</span></span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/xlija.png" alt="" style="--h:27px" width="669" height="123" loading="lazy"></span><span class="mf-tile__n">Xlija</span></li>
+        </ul>
+      </article>
+
+      <article class="mf-grp reveal" id="grp-industry" aria-labelledby="grp-industry-h">
+        <header class="mf-grp__head">
+          <span class="mf-grp__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-factory"/></svg></span><span class="mf-grp__no mono">04</span></span>
+          <h3 id="grp-industry-h" data-i18n="manufacturers.groups.industry.name">Промышленность и складская логистика</h3>
+          <p data-i18n="manufacturers.groups.industry.text">Склад, цех и инспекция: мобильные роботы, манипуляторы, коботы и шагающие роботы.</p>
+        </header>
+        <ul class="mf-tiles">
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/realman.png" alt="" style="--h:22px" width="644" height="112" loading="lazy"></span><span class="mf-tile__n">Realman Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/elite-robots.svg" alt="" style="--h:28px" width="246" height="48" loading="lazy"></span><span class="mf-tile__n">Elite Robots</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/siasun.png" alt="" style="--h:24px" width="337" height="49" loading="lazy"></span><span class="mf-tile__n">SIASUN</span></li>
+          <li class="mf-tile mf-tile--word"><span class="mf-tile__logo"><span class="mf-word">Slamtec</span></span></li>
+          <li class="mf-tile mf-tile--word"><span class="mf-tile__logo"><span class="mf-word">Reeman</span></span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/unitree.svg" alt="" style="--h:26px" width="871" height="196" loading="lazy"></span><span class="mf-tile__n">Unitree Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/deep-robotics.png" alt="" style="--h:34px" width="519" height="160" loading="lazy"></span><span class="mf-tile__n">DEEP Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/agilex.png" alt="" style="--h:44px" width="600" height="228" loading="lazy"></span><span class="mf-tile__n">AgileX Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/forwardx.png" alt="" style="--h:23px" width="599" height="82" loading="lazy"></span><span class="mf-tile__n">ForwardX Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/hikrobot.svg" alt="" style="--h:20px" width="191" height="25" loading="lazy"></span><span class="mf-tile__n">Hikrobot</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/quicktron.png" alt="" style="--h:22px" width="1277" height="232" loading="lazy"></span><span class="mf-tile__n">Quicktron Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/ubtech.svg" alt="" style="--h:29px" width="1094" height="272" loading="lazy"></span><span class="mf-tile__n">UBTECH Robotics</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/jaka.png" alt="" style="--h:26px" width="774" height="193" loading="lazy"></span><span class="mf-tile__n">JAKA Robotics</span></li>
+          <li class="mf-tile mf-tile--more"><span class="mf-tile__logo"><span data-i18n="manufacturers.catalog.others">и другие</span></span></li>
+        </ul>
+      </article>
+
+      <article class="mf-grp reveal" id="grp-agro" aria-labelledby="grp-agro-h">
+        <header class="mf-grp__head">
+          <span class="mf-grp__top"><span class="ic-tile"><svg aria-hidden="true"><use href="#i-sprout"/></svg></span><span class="mf-grp__no mono">05</span></span>
+          <h3 id="grp-agro-h" data-i18n="manufacturers.groups.agro.name">Сельское хозяйство</h3>
+          <p data-i18n="manufacturers.groups.agro.text">Агродроны и полевая техника: опрыскивание и работы в поле.</p>
+        </header>
+        <ul class="mf-tiles">
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/xag.svg" alt="" style="--h:30px" width="69" height="25" loading="lazy"></span><span class="mf-tile__n">XAG</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/dji.png" alt="" style="--h:40px" width="360" height="208" loading="lazy"></span><span class="mf-tile__n">DJI Agriculture</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/eavision.png" alt="" style="--h:34px" width="174" height="52" loading="lazy"></span><span class="mf-tile__n">EAVision</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/fjdynamics.png" alt="" style="--h:34px" width="396" height="96" loading="lazy"></span><span class="mf-tile__n">FJ Dynamics</span></li>
+          <li class="mf-tile mf-tile--word"><span class="mf-tile__logo"><span class="mf-word">LJ Tech</span></span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/aiforce.png" alt="" style="--h:33px" width="1434" height="404" loading="lazy"></span><span class="mf-tile__n">AI Force Tech</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/koham.png" alt="" style="--h:28px" width="399" height="83" loading="lazy"></span><span class="mf-tile__n">Koham</span></li>
+          <li class="mf-tile"><span class="mf-tile__logo"><img src="assets/brands/leking.png" alt="" style="--h:32px" width="226" height="60" loading="lazy"></span><span class="mf-tile__n">Leking</span></li>
+        </ul>
+      </article>
+      </div>
+    </section>
+
+    <!-- ================= 03 КЛЮЧЕВЫЕ БРЕНДЫ ================= -->
+    <section data-i18n-attr="data-name:manufacturers.sections.key" class="sol-sec" id="key" data-sec="03" data-name="БРЕНДЫ" data-dark aria-labelledby="key-h">
+      <div class="stage pr-stage mf-stage">
+        <div class="pr-stage__copy mf-stage__copy">
+          <span class="idx reveal"><b>03</b> — <span data-i18n="manufacturers.sections.key">БРЕНДЫ</span></span>
+          <h2 data-i18n="manufacturers.key.title" class="h2 reveal" id="key-h">Ключевые бренды в подборе.</h2>
+          <p data-i18n="manufacturers.key.lead" class="lead reveal">Откуда производитель, какую технику делает и для каких задач мы её берём.</p>
+        </div>
+        <ul class="mf-keys">
+          <li class="mf-key reveal" style="--i:0">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/pudu.svg" alt="" style="--h:30px" width="93" height="24" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.cn">Китай</span></div>
+            <h3>Pudu Robotics</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.cleaningService">Клининг · сервис</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.pudu.text">Уборка полов и доставка в зале: отели, торговые центры, бизнес-центры.</p>
+          </li>
+          <li class="mf-key reveal" style="--i:1">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/gausium.svg" alt="" style="--h:33px" width="195" height="56" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.cn">Китай</span></div>
+            <h3>Gausium</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.cleaning">Клининг</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.gausium.text">Уборка холлов, торговых галерей, залов и терминалов.</p>
+          </li>
+          <li class="mf-key reveal" style="--i:2">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/keenon.png" alt="" style="--h:31px" width="1845" height="433" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.cn">Китай</span></div>
+            <h3>KEENON Robotics</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.serviceHoreca">Сервис · HoReCa</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.keenon.text">Доставка блюд и заказов, промо и навигация: рестораны, отели, магазины.</p>
+          </li>
+          <li class="mf-key reveal" style="--i:0">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/lionsbot.png" alt="" style="--h:40px" width="402" height="120" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.sg">Сингапур</span></div>
+            <h3>LionsBot</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.cleaning">Клининг</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.lionsbot.text">Роботы-уборщики для общественных зданий: холлы, торговые зоны, залы.</p>
+          </li>
+          <li class="mf-key reveal" style="--i:1">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/hikrobot.svg" alt="" style="--h:20px" width="191" height="25" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.cn">Китай</span></div>
+            <h3>Hikrobot</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.warehouseAmr">Склад · AMR</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.hikrobot.text">Мобильные роботы для внутрицеховой и складской логистики.</p>
+          </li>
+          <li class="mf-key reveal" style="--i:2">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/unitree.svg" alt="" style="--h:26px" width="871" height="196" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.cn">Китай</span></div>
+            <h3>Unitree Robotics</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.legged">Шагающие роботы</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.unitree.text">Инспекция и обходы объектов, учебные лаборатории.</p>
+          </li>
+          <li class="mf-key reveal" style="--i:0">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/ubtech.svg" alt="" style="--h:29px" width="1094" height="272" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.cn">Китай</span></div>
+            <h3>UBTECH Robotics</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.humanoids">Гуманоиды</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.ubtech.text">Ресепшн, встреча гостей и навигация: бизнес-центры, общественные пространства.</p>
+          </li>
+          <li class="mf-key reveal" style="--i:1">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/xag.svg" alt="" style="--h:30px" width="69" height="25" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.cn">Китай</span></div>
+            <h3>XAG</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.agrodrones">Агродроны</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.xag.text">Опрыскивание и полевые работы на больших площадях.</p>
+          </li>
+          <li class="mf-key reveal" style="--i:2">
+            <div class="mf-key__top"><img class="mf-key__logo" src="assets/brands/brokk.png" alt="" style="--h:33px" width="250" height="65" loading="lazy"><span class="mf-key__cn mono" data-i18n="manufacturers.key.country.se">Швеция</span></div>
+            <h3>Brokk</h3>
+            <p class="mf-key__kind mono" data-i18n="home.brands.cat.demolition">Демонтаж</p>
+            <p class="mf-key__text" data-i18n="manufacturers.key.brokk.text">Дистанционно управляемые демонтажные машины для тяжёлых работ.</p>
+          </li>
+        </ul>
+        <p class="mf-note mono reveal" data-i18n="manufacturers.key.note">Страна — место штаб-квартиры производителя. Задачи — по нашим отраслевым страницам.</p>
+      </div>
+    </section>
+
+    <!-- ================= 04 КАК МЫ ВЫБИРАЕМ ================= -->
+    <section data-i18n-attr="data-name:manufacturers.sections.select" class="sol-sec wrap" id="select" data-sec="04" data-name="ПОДБОР" aria-labelledby="select-h">
+      <div class="mf-sel">
+        <div class="mf-sel__head">
+          <span class="idx reveal"><b>04</b> — <span data-i18n="manufacturers.sections.select">ПОДБОР</span></span>
+          <h2 data-i18n="manufacturers.select.title" class="h2 reveal" id="select-h">Как мы выбираем оборудование.</h2>
+          <p data-i18n="manufacturers.select.lead" class="lead reveal">Не привязаны к одному вендору, поэтому выбираем технику под вашу задачу и экономику, а не под свой каталог.</p>
+          <!-- Схема: несколько производителей на входе, один выбор под задачу на выходе. Иллюстрация, без оценок брендов. -->
+          <div class="mf-pick reveal" style="--i:2" aria-hidden="true">
+            <span class="mf-pick__cap mono" data-i18n="manufacturers.select.example">Пример: клининг</span>
+            <div class="mf-pick__grid">
+              <ul class="mf-pick__in">
+                <li><img src="assets/brands/gausium.svg" alt="" style="--h:33px" width="195" height="56" loading="lazy"></li>
+                <li><img src="assets/brands/pudu.svg" alt="" style="--h:30px" width="93" height="24" loading="lazy"></li>
+                <li><img src="assets/brands/lionsbot.png" alt="" style="--h:40px" width="402" height="120" loading="lazy"></li>
+              </ul>
+              <svg class="mf-pick__lines" viewBox="0 0 120 144" preserveAspectRatio="none"><path d="M0 22C70 22 50 72 120 72M0 72H120M0 122C70 122 50 72 120 72"/></svg>
+              <span class="mf-pick__out"><b data-i18n="manufacturers.select.result">Под вашу задачу</b></span>
+            </div>
+          </div>
+        </div>
+        <ol class="mf-rows">
+          <li class="mf-row reveal" style="--i:0">
+            <span class="mf-row__no mono">01</span>
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+            <div><h3 data-i18n="manufacturers.select.task.title">Задача и экономика</h3><p data-i18n="manufacturers.select.task.text">Начинаем с задачи и считаем окупаемость. Подбираем то, что окупится у вас, а не то, что есть в наличии.</p></div>
+          </li>
+          <li class="mf-row reveal" style="--i:1">
+            <span class="mf-row__no mono">02</span>
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span>
+            <div><h3 data-i18n="manufacturers.select.service.title">Сервис и поддержка</h3><p data-i18n="manufacturers.select.service.text">Берём ту технику, которую реально можно обслуживать. Своя сервисная сеть по России, работа по SLA.</p></div>
+          </li>
+          <li class="mf-row reveal" style="--i:2">
+            <span class="mf-row__no mono">03</span>
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-swap"/></svg></span>
+            <div><h3 data-i18n="manufacturers.select.swap.title">Несколько вендоров на направление</h3><p data-i18n="manufacturers.select.swap.text">Держим 2–5 производителей на каждое направление. Оборудование можно заменить, а поставщик не становится единственным.</p></div>
+          </li>
+          <li class="mf-row reveal" style="--i:3">
+            <span class="mf-row__no mono">04</span>
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-link"/></svg></span>
+            <div><h3 data-i18n="manufacturers.select.platform.title">Одна платформа для всей техники</h3><p data-i18n="manufacturers.select.platform.text">Роботов разных брендов подключаем к платформе Профессиональной Робототехники через адаптеры производителей: единая карта, отчёты и KPI.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= 05 СМОТРИТЕ ТАКЖЕ ================= -->
+    <section data-i18n-attr="data-name:manufacturers.sections.see" class="sol-sec wrap" id="see" data-sec="05" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>05</b> — <span data-i18n="manufacturers.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 data-i18n="manufacturers.see.title" class="h2 reveal" id="see-h">Смотрите также.</h2>
+      </div>
+      <div class="see">
+        <a class="see-card reveal" href="solutions.html#directions">
+          <span class="dir__no"><span data-i18n="manufacturers.see.solutions.kicker">9 НАПРАВЛЕНИЙ</span></span>
+          <h3 data-i18n="manufacturers.see.solutions.title">Решения</h3>
+          <p data-i18n="manufacturers.see.solutions.text">Клининг · Склад · Сервисные роботы · Промышленность · Медицина · Строительство · Агро · Безопасность · Гуманоиды</p>
+          <div class="see-card__foot"><span data-i18n="manufacturers.see.solutions.foot" class="mono" style="color:var(--ink-muted)">Где применяется эта техника</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+        <a class="see-card reveal" style="--i:1" href="products.html#raas">
+          <span class="dir__no"><span data-i18n="manufacturers.see.products.kicker">7 ПРОДУКТОВ</span></span>
+          <h3 data-i18n="manufacturers.see.products.title">Продукты</h3>
+          <p data-i18n="manufacturers.see.products.text">Платформа · Fleet Management · Диспетчеризация · AI-модули · Open API · Аренда (RaaS) · Retrofit</p>
+          <div class="see-card__foot"><span data-i18n="manufacturers.see.products.foot" class="mono" style="color:var(--ink-muted)">Аренда и модернизация техники</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= 06 ЗАЯВКА ================= -->
+    <section data-i18n-attr="data-name:manufacturers.sections.talk" class="sol-sec wrap" id="talk" data-sec="06" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>06</b> — <span data-i18n="manufacturers.sections.talk">ЗАЯВКА</span></span>
+          <h2 data-i18n="manufacturers.talk.title" class="h2 reveal" id="talk-h">Подберём оборудование под вашу задачу.</h2>
+          <p data-i18n="manufacturers.talk.lead" class="lead reveal">Расскажите о задаче: предложим варианты от разных производителей и посчитаем окупаемость. Сначала прикинуть экономику можно в калькуляторе.</p>
+          <div class="btns reveal"><a class="btn btn-sec" href="roi.html"><span data-i18n="manufacturers.talk.roiCta">Рассчитать ROI</span></a></div>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="manufacturers" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label data-i18n="common.form.name" for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label data-i18n="common.form.phone" for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label data-i18n-html="manufacturers.talk.form.directionLabel" for="f-dir">Какое направление <small>необязательно</small></label>
+            <select id="f-dir" name="direction">
+              <option data-i18n="common.form.directionUnknown" value="">Пока не знаю</option>
+              <option data-i18n="manufacturers.groups.service.name" value="service">Сервисные роботы и гуманоиды</option>
+              <option data-i18n="manufacturers.groups.construction.name" value="construction">Строительная робототехника</option>
+              <option data-i18n="manufacturers.groups.wellness.name" value="wellness">Велнес и медицина</option>
+              <option data-i18n="manufacturers.groups.industry.name" value="industry">Промышленность и складская логистика</option>
+              <option data-i18n="manufacturers.groups.agro.name" value="agro">Сельское хозяйство</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span data-i18n="solutions.talk.form.submit" class="btn__t">Заказать звонок</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoInverseSrc" src="assets/profrobot-logo-inverse.png" alt="Профессиональная Робототехника" width="783" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span data-i18n="common.footer.rights">© 2026 Профессиональная Робототехника. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html"><span data-i18n="common.footer.backHome">На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"/"},{"@type":"ListItem","position":2,"name":"Производители","item":"/manufacturers/"}]},{"@type":"ItemList","name":"Производители роботов, с которыми работает Профессиональная Робототехника","itemListElement":[
+{"@type":"ListItem","position":1,"item":{"@type":"Brand","name":"Pudu Robotics"}},
+{"@type":"ListItem","position":2,"item":{"@type":"Brand","name":"KEENON Robotics"}},
+{"@type":"ListItem","position":3,"item":{"@type":"Brand","name":"OrionStar Robotics"}},
+{"@type":"ListItem","position":4,"item":{"@type":"Brand","name":"Gausium"}},
+{"@type":"ListItem","position":5,"item":{"@type":"Brand","name":"LionsBot"}},
+{"@type":"ListItem","position":6,"item":{"@type":"Brand","name":"AgiBot"}},
+{"@type":"ListItem","position":7,"item":{"@type":"Brand","name":"Fourier"}},
+{"@type":"ListItem","position":8,"item":{"@type":"Brand","name":"We-I-Build"}},
+{"@type":"ListItem","position":9,"item":{"@type":"Brand","name":"Dafang"}},
+{"@type":"ListItem","position":10,"item":{"@type":"Brand","name":"Legend Robot"}},
+{"@type":"ListItem","position":11,"item":{"@type":"Brand","name":"Fangshi"}},
+{"@type":"ListItem","position":12,"item":{"@type":"Brand","name":"Derutu"}},
+{"@type":"ListItem","position":13,"item":{"@type":"Brand","name":"SANY"}},
+{"@type":"ListItem","position":14,"item":{"@type":"Brand","name":"BMR"}},
+{"@type":"ListItem","position":15,"item":{"@type":"Brand","name":"Bright Dream Robotics"}},
+{"@type":"ListItem","position":16,"item":{"@type":"Brand","name":"Brokk"}},
+{"@type":"ListItem","position":17,"item":{"@type":"Brand","name":"Mare-X"}},
+{"@type":"ListItem","position":18,"item":{"@type":"Brand","name":"Maxpower"}},
+{"@type":"ListItem","position":19,"item":{"@type":"Brand","name":"Xlija"}},
+{"@type":"ListItem","position":20,"item":{"@type":"Brand","name":"Realman Robotics"}},
+{"@type":"ListItem","position":21,"item":{"@type":"Brand","name":"Elite Robots"}},
+{"@type":"ListItem","position":22,"item":{"@type":"Brand","name":"SIASUN"}},
+{"@type":"ListItem","position":23,"item":{"@type":"Brand","name":"Slamtec"}},
+{"@type":"ListItem","position":24,"item":{"@type":"Brand","name":"Reeman"}},
+{"@type":"ListItem","position":25,"item":{"@type":"Brand","name":"Unitree Robotics"}},
+{"@type":"ListItem","position":26,"item":{"@type":"Brand","name":"DEEP Robotics"}},
+{"@type":"ListItem","position":27,"item":{"@type":"Brand","name":"AgileX Robotics"}},
+{"@type":"ListItem","position":28,"item":{"@type":"Brand","name":"ForwardX Robotics"}},
+{"@type":"ListItem","position":29,"item":{"@type":"Brand","name":"Hikrobot"}},
+{"@type":"ListItem","position":30,"item":{"@type":"Brand","name":"Quicktron Robotics"}},
+{"@type":"ListItem","position":31,"item":{"@type":"Brand","name":"UBTECH Robotics"}},
+{"@type":"ListItem","position":32,"item":{"@type":"Brand","name":"JAKA Robotics"}},
+{"@type":"ListItem","position":33,"item":{"@type":"Brand","name":"XAG"}},
+{"@type":"ListItem","position":34,"item":{"@type":"Brand","name":"DJI Agriculture"}},
+{"@type":"ListItem","position":35,"item":{"@type":"Brand","name":"EAVision"}},
+{"@type":"ListItem","position":36,"item":{"@type":"Brand","name":"FJ Dynamics"}},
+{"@type":"ListItem","position":37,"item":{"@type":"Brand","name":"LJ Tech"}},
+{"@type":"ListItem","position":38,"item":{"@type":"Brand","name":"AI Force Tech"}},
+{"@type":"ListItem","position":39,"item":{"@type":"Brand","name":"Koham"}},
+{"@type":"ListItem","position":40,"item":{"@type":"Brand","name":"Leking"}}]}]}
+  </script>
+  <script src="solutions.js"></script>
+  <script src="products.js"></script>
+  <script src="manufacturers.js"></script>
+</body>
+</html>

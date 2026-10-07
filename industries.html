@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="industriesHub.meta.title">Роботизация по отраслям: от отеля до поля | Профессиональная Робототехника</title>
+  <meta data-i18n-attr="content:industriesHub.meta.description" name="description" content="Роботы для 11 отраслей: отели, ритейл, бизнес-центры, медицина, производство, строительство, агро и другие. Сценарии, оборудование и расчёт под вашу отрасль.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="/industries/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="solutions.css">
+  <link rel="stylesheet" href="industries.css">
+  <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="sol-page ih-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  </defs></svg>
+
+  <!-- ================= NAV ================= -->
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoSrc" src="assets/profrobot-logo.png" alt="Профессиональная Робототехника"></a>
+    <nav class="nav-links">
+      <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+      <a data-i18n="common.nav.industries" href="industries.html" class="on" aria-current="page">Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html">Продукты</a>
+      <a data-i18n="common.nav.services" href="services.html">Услуги</a>
+      <a data-i18n="common.nav.platform" href="platform.html">Платформа</a>
+      <a data-i18n="common.nav.cases" href="cases.html">Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="contacts.html">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">05</span>
+    <span data-i18n="industriesHub.sections.hero" class="lbl">ОТРАСЛИ</span>
+  </div>
+
+  <main>
+    <!-- ================= 01 HERO ================= -->
+    <section data-i18n-attr="data-name:industriesHub.sections.hero" class="sol-hero wrap" data-sec="01" data-name="ОТРАСЛИ">
+      <div class="sol-hero__grid">
+        <div class="sol-hero__copy">
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li data-i18n="common.crumbs.industries" aria-current="page">Отрасли</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="industriesHub.sections.hero">ОТРАСЛИ</span></span>
+          <h1 class="h1 reveal"><span data-i18n="industriesHub.hero.title.line1">Роботизация по отраслям:</span> <span data-i18n="industriesHub.hero.title.line2">от отеля до поля.</span></h1>
+          <div class="sol-hero__text reveal">
+            <p data-i18n="industriesHub.hero.lead" class="lead">Под каждую отрасль — свои сценарии, оборудование и расчёт. Выберите отрасль или найдите свой тип объекта ниже.</p>
+          </div>
+        </div>
+        <aside data-i18n-attr="aria-label:industriesHub.hero.facts.label" class="facts reveal" style="--i:2" aria-label="Коротко об отраслях">
+          <div class="facts__row">
+            <div><b>11</b><span data-i18n="industriesHub.hero.facts.industries">отраслей</span></div>
+            <div><b>36</b><span data-i18n="industriesHub.hero.facts.makers">производителей в подборках</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= 02 ОТРАСЛИ — бенто ================= -->
+    <section data-i18n-attr="data-name:industriesHub.sections.list" class="sol-sec wrap" id="list" data-sec="02" data-name="ВЫБОР ОТРАСЛИ" aria-labelledby="list-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>02</b> — <span data-i18n="industriesHub.sections.list">ВЫБОР ОТРАСЛИ</span></span>
+        <h2 data-i18n="industriesHub.list.title" class="h2 reveal" id="list-h">Одиннадцать отраслей.</h2>
+      </div>
+      <div class="ib">
+        <a class="ic ic--feature reveal" style="--i:1" href="industries-retail.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/retail.webp" alt="" width="1536" height="1024" style="object-position:78% 60%" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">01</span><span data-i18n="solutions.directions.items.cleaning.badge" class="badge-roi">Понятная окупаемость</span></span>
+            <h3 data-i18n="industries.retail.name">Торговые центры и ритейл</h3>
+            <p data-i18n="industriesHub.list.items.retail.desc">Галереи, торговый зал и паркинг: уборка ночью и между покупателями.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.retail.scenes">Торговый зал · Паркинг · Промо · Дарксторы</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic reveal" style="--i:2" href="industries-business-centers.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/business-centers.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">02</span></span>
+            <h3 data-i18n="industries.businessCenters.name">Бизнес-центры и офисы</h3>
+            <p data-i18n="industriesHub.list.items.businessCenters.desc">Холлы, паркинги и фасады: уборка днём, при арендаторах.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.businessCenters.scenes">Холлы · Фасады · Доставка · Ресепшн</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic reveal" style="--i:3" href="industries-hotels.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/hotels.webp" alt="" width="1536" height="1024" style="object-position:75% 60%" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">03</span></span>
+            <h3 data-i18n="industries.hotels.name">Отели и HoReCa</h3>
+            <p data-i18n="industriesHub.list.items.hotels.desc">Доставка по этажам, уборка общих зон и ресепшн: разгружаем линейный персонал.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.hotels.scenes">Доставка · Уборка · Ресепшн</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic reveal" style="--i:0" href="industries-public-spaces.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/public-spaces.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">04</span></span>
+            <h3 data-i18n="industries.publicSpaces.name">Общественные пространства</h3>
+            <p data-i18n="industriesHub.list.items.publicSpaces.desc">Вокзалы, аэропорты, МФЦ и музеи: уборка между пиками потока.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.publicSpaces.scenes">Залы · Навигация · Патруль</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic reveal" style="--i:1" href="industries-medical-wellness.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/medical-wellness.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">05</span></span>
+            <h3 data-i18n="industries.medicalWellness.name">Медицина и велнес</h3>
+            <p data-i18n="industriesHub.list.items.medicalWellness.desc">Внутренняя доставка и дезинфекция: рутина уходит от медперсонала.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.medicalWellness.scenes">Доставка · Дезинфекция · Реабилитация</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic ic--third reveal" style="--i:2" href="industries-education.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/education.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">06</span></span>
+            <h3 data-i18n="industries.education.name">Образовательные учреждения</h3>
+            <p data-i18n="industriesHub.list.items.education.desc">Коридоры моют во время уроков; для вузов — лаборатории робототехники.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.education.scenes">Коридоры · Спортзал · Лаборатории</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic ic--third reveal" style="--i:3" href="industries-fitness-sports.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/fitness-sports.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">07</span></span>
+            <h3 data-i18n="industries.fitnessSports.name">Фитнес-клубы и спорткомплексы</h3>
+            <p data-i18n="industriesHub.list.items.fitnessSports.desc">Залы, раздевалки, бассейн и поля: уборка по санитарным правилам.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.fitnessSports.scenes">Залы · Раздевалки · Бассейн · Поля</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic ic--third reveal" style="--i:0" href="industries-municipal.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/municipal.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">08</span></span>
+            <h3 data-i18n="industries.municipal.name">Муниципальные службы</h3>
+            <p data-i18n="industriesHub.list.items.municipal.desc">Парки, набережные, зимнее содержание и газоны.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.municipal.scenes">Парки · Зима · Газоны · Паркинги</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic ic--third reveal" style="--i:1" href="industries-agriculture.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/agriculture.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">09</span></span>
+            <h3 data-i18n="industries.agriculture.name">Сельское хозяйство</h3>
+            <p data-i18n="industriesHub.list.items.agriculture.desc">Агродроны и полевые роботы: опрыскивание, мониторинг, уход за территорией.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.agriculture.scenes">Опрыскивание · Мониторинг · Территория</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic ic--third reveal" style="--i:2" href="industries-manufacturing.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/manufacturing.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">10</span></span>
+            <h3 data-i18n="industries.manufacturing.name">Промышленность и производство</h3>
+            <p data-i18n="industriesHub.list.items.manufacturing.desc">Логистика в цехе, повторяющиеся операции и инспекция: начните с пилота.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.manufacturing.scenes">AMR · Манипуляторы · Инспекция</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="ic ic--third ic--stage reveal" style="--i:3" href="industries-construction.html">
+          <span class="ic__ph" aria-hidden="true"><img src="assets/industry_hero/construction.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"></span>
+          <span class="ic__body">
+            <span class="ic__top"><span class="dir__no">11</span></span>
+            <h3 data-i18n="industries.construction.name">Строительство</h3>
+            <p data-i18n="industriesHub.list.items.construction.desc">Демонтаж, отделка и тяжёлые операции там, где людей не хватает или это опасно.</p>
+            <span class="ic__scenes" data-i18n="industriesHub.list.items.construction.scenes">Демонтаж · Отделка · Тяжёлые операции</span>
+          </span>
+          <span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= 03 ПО ТИПУ ОБЪЕКТА ================= -->
+    <section data-i18n-attr="data-name:industriesHub.sections.objects" class="sol-sec wrap" id="objects" data-sec="03" data-name="ПО ТИПУ ОБЪЕКТА" aria-labelledby="obj-h">
+      <div class="ind">
+        <div class="ind-head">
+          <span class="idx reveal"><b>03</b> — <span data-i18n="industriesHub.sections.objects">ПО ТИПУ ОБЪЕКТА</span></span>
+          <h2 data-i18n="industriesHub.objects.title" class="h2 reveal" id="obj-h">Найдите свой объект.</h2>
+          <p data-i18n="industriesHub.objects.lead" class="lead reveal">Подскажем, с чего начать роботизацию именно у вас.</p>
+        </div>
+        <ol class="ind-list">
+          <li><a class="ind-row ind-row--obj reveal" href="industries-business-centers.html#indoor-cleaning"><span class="no">01</span><span class="ind-row__t" data-i18n="home.industries.items.businessCenters">Бизнес-центры и офисы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-retail.html#sales-floor"><span class="no">02</span><span class="ind-row__t" data-i18n="home.industries.items.retail">Торговые центры и ритейл</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-hotels.html#delivery"><span class="no">03</span><span class="ind-row__t" data-i18n="home.industries.items.hotels">Отели и HoReCa</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-public-spaces.html#halls"><span class="no">04</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.transport">Вокзалы и аэропорты</span><span class="ind-row__ind mono" data-i18n="industries.publicSpaces.name">Общественные пространства</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-public-spaces.html#wayfinding"><span class="no">05</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.service">МФЦ и музеи</span><span class="ind-row__ind mono" data-i18n="industries.publicSpaces.name">Общественные пространства</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-medical-wellness.html#logistics"><span class="no">06</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.hospitals">Больницы и клиники</span><span class="ind-row__ind mono" data-i18n="industries.medicalWellness.name">Медицина и велнес</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-medical-wellness.html#rehab"><span class="no">07</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.rehab">Реабилитация и велнес</span><span class="ind-row__ind mono" data-i18n="industries.medicalWellness.name">Медицина и велнес</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-education.html#corridors"><span class="no">08</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.schools">Школы, колледжи и вузы</span><span class="ind-row__ind mono" data-i18n="industries.education.name">Образовательные учреждения</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-fitness-sports.html#gym-floor"><span class="no">09</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.fitness">Фитнес-клубы и бассейны</span><span class="ind-row__ind mono" data-i18n="industries.fitnessSports.name">Фитнес-клубы и спорткомплексы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-municipal.html#streets"><span class="no">10</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.parks">Парки и набережные</span><span class="ind-row__ind mono" data-i18n="industries.municipal.name">Муниципальные службы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-municipal.html#parking"><span class="no">11</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.parking">Паркинги и большие площадки</span><span class="ind-row__ind mono" data-i18n="industries.municipal.name">Муниципальные службы</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-manufacturing.html#logistics"><span class="no">12</span><span class="ind-row__t" data-i18n="home.industries.items.logistics.name">Склады и логистика</span><span class="ind-row__ind mono" data-i18n="industries.manufacturing.name">Промышленность и производство</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-manufacturing.html"><span class="no">13</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.factories">Заводы и цеха</span><span class="ind-row__ind mono" data-i18n="industries.manufacturing.name">Промышленность и производство</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-construction.html#demolition"><span class="no">14</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.sites">Стройплощадки</span><span class="ind-row__ind mono" data-i18n="industries.construction.name">Строительство</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+          <li><a class="ind-row ind-row--obj reveal" href="industries-agriculture.html#spraying"><span class="no">15</span><span class="ind-row__t" data-i18n="industriesHub.objects.items.fields">Поля и хозяйства</span><span class="ind-row__ind mono" data-i18n="industries.agriculture.name">Сельское хозяйство</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= 04 КЕЙСЫ ================= -->
+    <section data-i18n-attr="data-name:industriesHub.sections.cases" class="sol-sec ih-cases" id="cases" data-sec="04" data-name="КЕЙСЫ" aria-labelledby="cases-h">
+      <div class="wrap cases-head reveal">
+        <div class="sol-head" style="margin:0">
+          <span class="idx"><b>04</b> — <span data-i18n="industriesHub.sections.cases">КЕЙСЫ</span></span>
+          <h2 data-i18n="industriesHub.cases.title" class="h2" id="cases-h">Кейсы по отраслям.</h2>
+        </div>
+        <div class="slider-ctrl">
+          <span class="mono tnum"><b class="c-cur">01</b> / <span class="c-total">05</span></span>
+          <button data-i18n-attr="aria-label:home.cases.prevLabel" class="round" type="button" data-dir="-1" aria-label="Предыдущий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button data-i18n-attr="aria-label:home.cases.nextLabel" class="round" type="button" data-dir="1" aria-label="Следующий кейс"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <!-- Те же пять кейсов, что на главной (цифры агро и производства — плейсхолдеры, см. assets/cases_images/README.md) -->
+      <div data-i18n-attr="aria-label:home.cases.sliderLabel" class="cases" tabindex="0" aria-label="Кейсы, прокрутка по горизонтали">
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.businessCenter.alt" src="assets/cases_images/case-business-center.webp" alt="Робот-уборщик в холле бизнес-центра" loading="lazy" decoding="async"></div><div class="body"><a class="case__ind" href="industries-business-centers.html"><span class="mono" data-i18n="cases.labels.industry">Отрасль</span><span data-i18n="home.industries.items.businessCenters">Бизнес-центры и офисы</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a><div class="res"><b>−32%</b></div><h3 data-i18n="home.cases.items.businessCenter.title">Снижение затрат на клининг</h3><a class="more" href="cases.html#business-center"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.agro.alt" src="assets/cases_images/case-agro.webp" alt="Агродрон опрыскивает пшеничное поле ранним утром" loading="lazy" decoding="async"></div><div class="body"><a class="case__ind" href="industries-agriculture.html"><span class="mono" data-i18n="cases.labels.industry">Отрасль</span><span data-i18n="home.industries.items.agriculture.name">Агро и фермерские хозяйства</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a><div class="res"><b>−30%</b></div><h3 data-i18n="home.cases.items.agro.title">Снижение расхода СЗР при обработке полей</h3><a class="more" href="cases.html#agro"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.warehouse.alt" src="assets/cases_images/case-warehouse.webp" alt="Автономный складской робот везёт стеллаж с коробками по проходу склада" loading="lazy" decoding="async"></div><div class="body"><a class="case__ind" href="industries-manufacturing.html#logistics"><span class="mono" data-i18n="cases.labels.industry">Отрасль</span><span data-i18n="home.industries.items.logistics.name">Склады и логистика</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a><div class="res"><b>+35%</b></div><h3 data-i18n="home.cases.items.warehouse.title">Рост пропускной способности склада</h3><a class="more" href="cases.html#warehouse"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.manufacturing.alt" src="assets/cases_images/case-manufacturing.webp" alt="Коллаборативный манипулятор на мобильной базе загружает станок с ЧПУ" loading="lazy" decoding="async"></div><div class="body"><a class="case__ind" href="industries-manufacturing.html"><span class="mono" data-i18n="cases.labels.industry">Отрасль</span><span data-i18n="home.industries.items.manufacturing">Промышленность и производство</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a><div class="res"><b>−2</b><span data-i18n="home.cases.items.manufacturing.unit" class="mono">оператора в смену</span></div><h3 data-i18n="home.cases.items.manufacturing.title">Автоматизация загрузки станков с ЧПУ</h3><a class="more" href="cases.html#manufacturing"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+        <article class="case"><div class="ph"><img data-i18n-attr="alt:home.cases.items.construction.alt" src="assets/cases_images/case-construction.webp" alt="Демонтажный робот разрушает бетонную стену на объекте реконструкции" loading="lazy" decoding="async"></div><div class="body"><a class="case__ind" href="industries-construction.html"><span class="mono" data-i18n="cases.labels.industry">Отрасль</span><span data-i18n="home.industries.items.construction.name">Строительство и девелопмент</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a><div class="res"><b>−40%</b></div><h3 data-i18n="home.cases.items.construction.title">Снижение трудозатрат на демонтаж</h3><a class="more" href="cases.html#construction"><span data-i18n="home.cases.more">Смотреть кейс</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></article>
+      </div>
+      <div class="wrap cases-foot"><a data-i18n="home.cases.all" class="btn btn-sec" href="cases.html">Все кейсы</a></div>
+    </section>
+
+    <!-- ================= 05 ФОРМА ================= -->
+    <section data-i18n-attr="data-name:industriesHub.sections.talk" class="sol-sec wrap" id="talk" data-sec="05" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>05</b> — <span data-i18n="industriesHub.sections.talk">ЗАЯВКА</span></span>
+          <h2 data-i18n="industriesHub.talk.title" class="h2 reveal" id="talk-h">Не нашли свою отрасль?</h2>
+          <p data-i18n="industriesHub.talk.lead" class="lead reveal">Расскажите, что за объект, — подскажем, что можно роботизировать.</p>
+          <a class="text-link reveal" href="roi.html"><span data-i18n="solutions.talk.roiLink">Или сами рассчитайте окупаемость</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="industries" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label data-i18n="common.form.name" for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label data-i18n="common.form.phone" for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label data-i18n-html="industriesHub.talk.form.industryLabel" for="f-dir">Отрасль <small>необязательно</small></label>
+            <select id="f-dir" name="direction">
+              <option data-i18n="common.form.directionUnknown" value="">Пока не знаю</option>
+              <option data-i18n="industries.retail.name" value="retail">Торговые центры и ритейл</option>
+              <option data-i18n="industries.businessCenters.name" value="business-centers">Бизнес-центры и офисы</option>
+              <option data-i18n="industries.hotels.name" value="hotels">Отели и HoReCa</option>
+              <option data-i18n="industries.publicSpaces.name" value="public-spaces">Общественные пространства</option>
+              <option data-i18n="industries.medicalWellness.name" value="medical-wellness">Медицина и велнес</option>
+              <option data-i18n="industries.education.name" value="education">Образовательные учреждения</option>
+              <option data-i18n="industries.fitnessSports.name" value="fitness-sports">Фитнес-клубы и спорткомплексы</option>
+              <option data-i18n="industries.municipal.name" value="municipal">Муниципальные службы</option>
+              <option data-i18n="industries.agriculture.name" value="agriculture">Сельское хозяйство</option>
+              <option data-i18n="industries.manufacturing.name" value="manufacturing">Промышленность и производство</option>
+              <option data-i18n="industries.construction.name" value="construction">Строительство</option>
+              <option data-i18n="contacts.form.objectOther" value="other">Другое</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span data-i18n="solutions.talk.form.submit" class="btn__t">Заказать звонок</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoInverseSrc" src="assets/profrobot-logo-inverse.png" alt="Профессиональная Робототехника" width="783" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span data-i18n="common.footer.rights">© 2026 Профессиональная Робототехника. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html"><span data-i18n="common.footer.backHome">На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"/"},{"@type":"ListItem","position":2,"name":"Отрасли","item":"/industries/"}]},
+    {"@type":"ItemList","name":"Отрасли роботизации","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Торговые центры и ритейл","url":"/industries/retail/"},{"@type":"ListItem","position":2,"name":"Бизнес-центры и офисы","url":"/industries/business-centers/"},{"@type":"ListItem","position":3,"name":"Отели и HoReCa","url":"/industries/hotels/"},{"@type":"ListItem","position":4,"name":"Общественные пространства","url":"/industries/public-spaces/"},{"@type":"ListItem","position":5,"name":"Медицина и велнес","url":"/industries/medical-wellness/"},{"@type":"ListItem","position":6,"name":"Образовательные учреждения","url":"/industries/education/"},{"@type":"ListItem","position":7,"name":"Фитнес-клубы и спорткомплексы","url":"/industries/fitness-sports/"},{"@type":"ListItem","position":8,"name":"Муниципальные службы","url":"/industries/municipal/"},{"@type":"ListItem","position":9,"name":"Сельское хозяйство","url":"/industries/agriculture/"},{"@type":"ListItem","position":10,"name":"Промышленность и производство","url":"/industries/manufacturing/"},{"@type":"ListItem","position":11,"name":"Строительство","url":"/industries/construction/"}
+    ]}
+  ]}
+  </script>
+  <script src="solutions.js"></script>
+  <script src="industries.js"></script>
+</body>
+</html>

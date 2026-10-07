@@ -249,7 +249,7 @@ const photo = (ind, ratio, cls = '') => {
   const metrics = `<div class="ph__metrics"><span${mDir.attr}>${mDir.text}</span><span${mBr.attr}>${mBr.text}</span></div>`;
   if (existsSync(join(root, 'assets', 'industry_hero', `${ind.slug}.webp`))) {
     return `<figure class="ph ph--photo ${cls} reveal" style="--ar:${ratio.replace(':', '/')};--i:2">
-          <img class="ph__img" src="assets/industry_hero/${ind.slug}.webp" alt="${esc(p.alt)}"${TA(['alt', dk(p, 'alt')])} width="1536" height="1024" decoding="async">
+          <img class="ph__img" src="assets/industry_hero/${ind.slug}.webp" alt="${esc(p.alt)}"${TA(['alt', dk(p, 'alt')])} width="1536" height="1024"${p.pos ? ` style="object-position:${p.pos}"` : ''} decoding="async">
           ${metrics}
         </figure>`;
   }
@@ -417,7 +417,7 @@ S.economy = (ind, n) => {
         <div class="econ__copy">
           ${idx(n, secName(ind, 'economy'))}
           <h2 class="h2 reveal" id="economy-h"${L('economy.title')}>Уборка окупается быстрее всего.</h2>
-          <p class="lead reveal"${L('economy.lead')}>Робот убирает общие зоны ночью, без ночной бригады и доплат. Посчитайте свой объект.</p>
+          <p class="lead reveal"${L('economy.lead')}>Робот убирает общие зоны ночью, без ночной бригады и доплат. Посчитайте, когда он окупится.</p>
           <span class="badge-roi reveal"${L('economy.badge')}>Быстрая окупаемость</span>
         </div>
         <form class="calc reveal" data-calc${TA(['aria-label', ck('calc.formLabel')])} aria-label="Быстрый расчёт окупаемости уборки">
@@ -489,12 +489,12 @@ S.case = (ind, n) => {
           <span class="mono case-kicker"${T(c, 'tag')}>${esc(c.tag)}</span>
           <div class="icase__res"><b class="tnum"${TN(dk(c, 'value'), c.value)}>${esc(c.value)}</b>${c.unit ? `<span class="mono"${T(c, 'unit')}>${esc(c.unit)}</span>` : ''}</div>
           <h3${T(c, 'title')}>${esc(c.title)}</h3>${c.note ? `\n          <p${T(c, 'note')}>${esc(c.note)}</p>` : ''}
-          <a class="text-link" href="/cases/?industry=${ind.slug}"><span${C('case.view')}>Смотреть кейс</span> ${ARROW_R}</a>
+          <a class="text-link" href="cases.html?industry=${ind.slug}"><span${C('case.view')}>Смотреть кейс</span> ${ARROW_R}</a>
         </div>
       </article>`;
   } else {
     body = `<div class="icases">${ind.cases.map((c, i) => `
-        <article class="case reveal" style="--i:${i}"><div class="ph"><img src="assets/cases_images/${c.img}" alt="${esc(c.alt)}"${TA(['alt', dk(c, 'alt')])} loading="lazy" decoding="async"></div><div class="body"><span class="mono case-kicker"${T(c, 'tag')}>${esc(c.tag)}</span><div class="res"><b${TN(dk(c, 'value'), c.value)}>${esc(c.value)}</b>${c.unit ? `<span class="mono"${T(c, 'unit')}>${esc(c.unit)}</span>` : ''}</div><h3${T(c, 'title')}>${esc(c.title)}</h3><a class="more" href="/cases/?industry=${ind.slug}"><span${C('case.view')}>Смотреть кейс</span> ${ARROW_UR}</a></div></article>`).join('')}
+        <article class="case reveal" style="--i:${i}"><div class="ph"><img src="assets/cases_images/${c.img}" alt="${esc(c.alt)}"${TA(['alt', dk(c, 'alt')])} loading="lazy" decoding="async"></div><div class="body"><span class="mono case-kicker"${T(c, 'tag')}>${esc(c.tag)}</span><div class="res"><b${TN(dk(c, 'value'), c.value)}>${esc(c.value)}</b>${c.unit ? `<span class="mono"${T(c, 'unit')}>${esc(c.unit)}</span>` : ''}</div><h3${T(c, 'title')}>${esc(c.title)}</h3><a class="more" href="cases.html?industry=${ind.slug}"><span${C('case.view')}>Смотреть кейс</span> ${ARROW_UR}</a></div></article>`).join('')}
       </div>`;
   }
   const many = ind.cases && ind.cases.length > 1;
@@ -729,9 +729,10 @@ ${BOOT}
       <a href="solutions.html"${K('common.nav.solutions')}>Решения</a>
       <a href="index.html#industries" class="on"${K('common.nav.industries')}>Отрасли</a>
       <a href="products.html"${K('common.nav.products')}>Продукты</a>
-      <a href="index.html#platform"${K('common.nav.platform')}>Платформа</a>
-      <a href="index.html#cases"${K('common.nav.cases')}>Кейсы</a>
-      <a href="#talk"${K('common.nav.contacts')}>Контакты</a>
+      <a href="services.html"${K('common.nav.services')}>Услуги</a>
+      <a href="platform.html"${K('common.nav.platform')}>Платформа</a>
+      <a href="cases.html"${K('common.nav.cases')}>Кейсы</a>
+      <a href="contacts.html"${K('common.nav.contacts')}>Контакты</a>
     </nav>
     <div class="lang" role="group" aria-label="Язык"${TA(['aria-label', 'common.lang.label'])}><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
     <a class="btn btn-pri" href="#talk"${K('common.cta.contact')}>Связаться</a>

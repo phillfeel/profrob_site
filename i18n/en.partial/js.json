@@ -53,6 +53,8 @@
   "js.solutions.errors.name": "Please tell us your name.",
   "js.solutions.errors.phone": "Enter the full number: +7 and ten digits.",
   "js.solutions.errors.consent": "We need your consent to process your data.",
+  "js.solutions.errors.contact": "Enter a phone or an email.",
+  "js.solutions.errors.email": "Check the email, e.g. name@company.com.",
   "js.solutions.status.offline": "No internet connection. Check your network and <button>try again</button>.",
   "js.solutions.status.failed": "Couldn’t send your request. <button>Try again</button>",
   "js.industry.notPaying": "No payback at these inputs; we’ll review it at the assessment",

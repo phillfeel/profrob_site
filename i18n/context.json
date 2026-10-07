@@ -29,57 +29,62 @@
     },
     "common.nav.label": {
       "role": "aria",
-      "where": "15 pages"
+      "where": "23 pages"
     },
     "common.brand.homeLabel": {
       "role": "aria",
-      "where": "15 pages"
+      "where": "23 pages"
     },
     "common.brand.logoAlt": {
       "role": "alt",
-      "where": "15 pages"
+      "where": "23 pages"
     },
     "common.brand.logoSrc": {
       "role": "attr",
-      "where": "4 pages"
+      "where": "12 pages"
     },
     "common.nav.solutions": {
       "role": "nav",
-      "where": "15 pages",
+      "where": "23 pages",
       "note": "Header and footer link to the page «Solutions» (the nine robotics areas). A navigation label, not a section title."
     },
     "common.nav.industries": {
       "role": "nav",
-      "where": "15 pages",
+      "where": "23 pages",
       "note": "Navigation link to the industries block of the home page. The breadcrumb link (common.crumbs.industries) and the card title on the solutions page are separate keys on purpose."
     },
     "common.nav.products": {
       "role": "nav",
-      "where": "15 pages",
+      "where": "23 pages",
       "note": "Navigation link to the page «Products» (own products and ways to work: platform, rental, retrofit). A navigation label, not the footer link common.footer.nav.products."
+    },
+    "common.nav.services": {
+      "role": "nav",
+      "where": "23 pages",
+      "note": "Navigation link to the page «Services» (the full deployment cycle: assessment, deployment, SLA-backed service). A navigation label, not the footer link common.footer.nav.services."
     },
     "common.nav.platform": {
       "role": "nav",
-      "where": "15 pages",
+      "where": "23 pages",
       "note": "Navigation link to the block that explains the platform (header and footer)."
     },
     "common.nav.cases": {
       "role": "nav",
-      "where": "15 pages",
-      "note": "Navigation link to the case studies. Not the same as the capital-letter section labels «КЕЙСЫ» (home.sections.cases, industries.common.sections.cases) or the link-card tag industries.common.kickers.cases."
+      "where": "23 pages",
+      "note": "Navigation link to the page «Case studies» (cases.html). Not the same as the capital-letter section labels «КЕЙСЫ» (home.sections.cases, cases.sections.hero, industries.common.sections.cases) or the link-card tag industries.common.kickers.cases."
     },
     "common.nav.contacts": {
       "role": "nav",
-      "where": "15 pages",
+      "where": "23 pages",
       "note": "Navigation link to the contact block (header and footer). Compare common.cta.contact (the header button) and common.footer.nav.contact (a footer column)."
     },
     "common.lang.label": {
       "role": "aria",
-      "where": "15 pages"
+      "where": "23 pages"
     },
     "common.cta.contact": {
       "role": "button",
-      "where": "15 pages",
+      "where": "23 pages",
       "note": "Header button that scrolls to the contact form. A call to action, verb first. Not the nav link common.nav.contacts and not a form submit button."
     },
     "home.sections.hero": {
@@ -273,15 +278,15 @@
     },
     "home.brands.cat.cleaningService": {
       "role": "short",
-      "where": "home #brands"
+      "where": "home #brands, manufacturers #brands"
     },
     "home.brands.cat.cleaning": {
       "role": "short",
-      "where": "home #brands"
+      "where": "home #brands, manufacturers #brands"
     },
     "home.brands.cat.serviceHoreca": {
       "role": "short",
-      "where": "home #brands"
+      "where": "home #brands, manufacturers #brands"
     },
     "home.brands.cat.serviceRobots": {
       "role": "short",
@@ -289,7 +294,7 @@
     },
     "home.brands.cat.warehouseAmr": {
       "role": "short",
-      "where": "home #brands"
+      "where": "home #brands, manufacturers #brands"
     },
     "home.brands.cat.logisticsAmr": {
       "role": "short",
@@ -301,11 +306,11 @@
     },
     "home.brands.cat.legged": {
       "role": "short",
-      "where": "home #brands"
+      "where": "home #brands, manufacturers #brands"
     },
     "home.brands.cat.humanoids": {
       "role": "short",
-      "where": "home #brands"
+      "where": "home #brands, manufacturers #brands"
     },
     "home.brands.cat.cobots": {
       "role": "short",
@@ -317,7 +322,7 @@
     },
     "home.brands.cat.demolition": {
       "role": "short",
-      "where": "home #brands"
+      "where": "home #brands, manufacturers #brands"
     },
     "home.brands.cat.construction": {
       "role": "short",
@@ -329,7 +334,7 @@
     },
     "home.brands.cat.agrodrones": {
       "role": "short",
-      "where": "home #brands"
+      "where": "home #brands, manufacturers #brands"
     },
     "home.brands.cat.agroAutopilot": {
       "role": "short",
@@ -911,87 +916,87 @@
     },
     "home.cases.prevLabel": {
       "role": "aria",
-      "where": "home #cases"
+      "where": "home #cases, industries #cases"
     },
     "home.cases.nextLabel": {
       "role": "aria",
-      "where": "home #cases"
+      "where": "home #cases, industries #cases"
     },
     "home.cases.sliderLabel": {
       "role": "aria",
-      "where": "home #cases"
+      "where": "home #cases, industries #cases"
     },
     "home.cases.items.businessCenter.alt": {
       "role": "alt",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.businessCenter.tag": {
       "role": "short",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases"
     },
     "home.cases.items.businessCenter.title": {
       "role": "heading",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.more": {
       "role": "short",
-      "where": "home #cases"
+      "where": "home #cases, industries #cases"
     },
     "home.cases.items.agro.alt": {
       "role": "alt",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.agro.tag": {
       "role": "short",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases"
     },
     "home.cases.items.agro.title": {
       "role": "heading",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.warehouse.alt": {
       "role": "alt",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.warehouse.tag": {
       "role": "short",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases"
     },
     "home.cases.items.warehouse.title": {
       "role": "heading",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.manufacturing.alt": {
       "role": "alt",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.manufacturing.tag": {
       "role": "short",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases"
     },
     "home.cases.items.manufacturing.unit": {
       "role": "tag",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.manufacturing.title": {
       "role": "heading",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.construction.alt": {
       "role": "alt",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.items.construction.tag": {
       "role": "short",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases"
     },
     "home.cases.items.construction.title": {
       "role": "heading",
-      "where": "home #cases"
+      "where": "home #cases, cases #cases, industries #cases"
     },
     "home.cases.all": {
       "role": "button",
-      "where": "home #cases",
+      "where": "home #cases, industries #cases",
       "note": "Button below the case slider."
     },
     "home.sections.industries": {
@@ -1014,27 +1019,27 @@
     },
     "home.industries.items.businessCenters": {
       "role": "short",
-      "where": "home #industries"
+      "where": "5 pages"
     },
     "home.industries.items.retail": {
       "role": "short",
-      "where": "home #industries"
+      "where": "5 pages"
     },
     "home.industries.items.logistics.name": {
       "role": "short",
-      "where": "home #industries"
+      "where": "5 pages"
     },
     "home.industries.items.hotels": {
       "role": "short",
-      "where": "home #industries"
+      "where": "5 pages"
     },
     "home.industries.items.medical": {
       "role": "short",
-      "where": "home #industries"
+      "where": "4 pages"
     },
     "home.industries.items.construction.name": {
       "role": "short",
-      "where": "home #industries"
+      "where": "5 pages"
     },
     "home.industries.items.construction.seo": {
       "role": "short",
@@ -1042,19 +1047,19 @@
     },
     "home.industries.items.manufacturing": {
       "role": "short",
-      "where": "home #industries"
+      "where": "5 pages"
     },
     "home.industries.items.publicSpaces": {
       "role": "short",
-      "where": "home #industries"
+      "where": "4 pages"
     },
     "home.industries.items.municipal": {
       "role": "short",
-      "where": "home #industries"
+      "where": "4 pages"
     },
     "home.industries.items.agriculture.name": {
       "role": "short",
-      "where": "home #industries"
+      "where": "5 pages"
     },
     "home.industries.items.agriculture.seo": {
       "role": "short",
@@ -1062,11 +1067,11 @@
     },
     "home.industries.items.education": {
       "role": "short",
-      "where": "home #industries"
+      "where": "4 pages"
     },
     "home.industries.items.fitness": {
       "role": "short",
-      "where": "home #industries"
+      "where": "4 pages"
     },
     "home.sections.why": {
       "role": "section-label",
@@ -1179,23 +1184,23 @@
     },
     "home.stats.projects": {
       "role": "short",
-      "where": "home footer"
+      "where": "home footer, about footer"
     },
     "home.stats.robots": {
       "role": "short",
-      "where": "home footer"
+      "where": "home footer, about footer"
     },
     "home.stats.savings": {
       "role": "short",
-      "where": "home footer"
+      "where": "home footer, about footer"
     },
     "home.stats.years": {
       "role": "short",
-      "where": "home footer"
+      "where": "home footer, about footer"
     },
     "home.stats.service": {
       "role": "short",
-      "where": "home footer"
+      "where": "home footer, about footer"
     },
     "common.footer.toTopLabel": {
       "role": "aria",
@@ -1203,15 +1208,15 @@
     },
     "common.brand.logoInverseSrc": {
       "role": "attr",
-      "where": "4 pages"
+      "where": "12 pages"
     },
     "common.footer.about": {
       "role": "paragraph",
-      "where": "15 pages"
+      "where": "23 pages"
     },
     "common.footer.dept": {
       "role": "short",
-      "where": "15 pages"
+      "where": "23 pages"
     },
     "common.footer.nav.sections": {
       "role": "heading",
@@ -1245,7 +1250,7 @@
     },
     "common.footer.nav.makers": {
       "role": "nav",
-      "where": "home footer",
+      "where": "home footer, knowledge footer",
       "note": "Footer link. The target pages do not exist yet (placeholder links)."
     },
     "common.footer.nav.contact": {
@@ -1290,11 +1295,11 @@
     },
     "common.footer.rights": {
       "role": "short",
-      "where": "15 pages"
+      "where": "23 pages"
     },
     "common.footer.privacy": {
       "role": "link",
-      "where": "15 pages"
+      "where": "23 pages"
     },
     "common.footer.requisites": {
       "role": "link",
@@ -1359,11 +1364,11 @@
     },
     "common.solutionNames.cleaning": {
       "role": "heading",
-      "where": "8 pages"
+      "where": "11 pages"
     },
     "solutions.directions.items.cleaning.badge": {
       "role": "tag",
-      "where": "solutions #directions"
+      "where": "solutions #directions, industries #directions"
     },
     "solutions.directions.items.cleaning.text": {
       "role": "paragraph",
@@ -1371,7 +1376,7 @@
     },
     "common.solutionNames.warehouse": {
       "role": "heading",
-      "where": "solutions #directions, manufacturing #directions, retail #directions"
+      "where": "4 pages"
     },
     "solutions.directions.items.warehouse.text": {
       "role": "paragraph",
@@ -1379,7 +1384,7 @@
     },
     "common.solutionNames.service": {
       "role": "heading",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "solutions.directions.items.service.text": {
       "role": "paragraph",
@@ -1387,7 +1392,7 @@
     },
     "common.solutionNames.industrial": {
       "role": "heading",
-      "where": "solutions #directions, manufacturing #directions"
+      "where": "4 pages"
     },
     "solutions.directions.items.industrial.text": {
       "role": "paragraph",
@@ -1395,7 +1400,7 @@
     },
     "common.solutionNames.medical": {
       "role": "heading",
-      "where": "solutions #directions, medical-wellness #directions"
+      "where": "solutions #directions, medical-wellness #directions, knowledge #directions"
     },
     "solutions.directions.items.medical.text": {
       "role": "paragraph",
@@ -1403,7 +1408,7 @@
     },
     "common.solutionNames.construction": {
       "role": "heading",
-      "where": "solutions #directions, construction #directions"
+      "where": "4 pages"
     },
     "solutions.directions.items.construction.text": {
       "role": "paragraph",
@@ -1411,7 +1416,7 @@
     },
     "common.solutionNames.agro": {
       "role": "heading",
-      "where": "solutions #directions, agriculture #directions, fitness-sports #directions"
+      "where": "4 pages"
     },
     "solutions.directions.items.agro.text": {
       "role": "paragraph",
@@ -1592,16 +1597,16 @@
     },
     "solutions.talk.roiLink": {
       "role": "short",
-      "where": "solutions #talk"
+      "where": "solutions #talk, industries #talk"
     },
     "common.form.name": {
       "role": "label",
-      "where": "13 pages",
+      "where": "21 pages",
       "note": "Label of the name field in the contact form."
     },
     "common.form.phone": {
       "role": "label",
-      "where": "13 pages",
+      "where": "21 pages",
       "note": "Label of the phone field in the contact form."
     },
     "solutions.talk.form.directionLabel": {
@@ -1612,35 +1617,35 @@
     },
     "common.form.directionUnknown": {
       "role": "option",
-      "where": "13 pages",
+      "where": "20 pages",
       "note": "First, empty option of the drop-down list (the visitor has not decided yet)."
     },
     "common.form.honeypot": {
       "role": "short",
-      "where": "13 pages"
+      "where": "21 pages"
     },
     "common.form.consent": {
       "role": "short",
-      "where": "13 pages",
+      "where": "21 pages",
       "variables": "tags: <a>…</a>",
       "note": "Consent checkbox text with a link to the privacy policy (the <a> stays). Legal text: the EN version comes from the company's lawyer (see style-guide R4)."
     },
     "solutions.talk.form.submit": {
       "role": "button",
-      "where": "solutions #talk, products #talk",
+      "where": "9 pages",
       "note": "Submit button of the contact form. Says what happens next (a call is ordered), not «Submit»."
     },
     "common.form.sentTitle": {
       "role": "short",
-      "where": "13 pages"
+      "where": "21 pages"
     },
     "common.form.sentText": {
       "role": "paragraph",
-      "where": "13 pages"
+      "where": "20 pages"
     },
     "common.footer.backHome": {
       "role": "short",
-      "where": "solutions footer, products footer, roi footer"
+      "where": "11 pages"
     },
     "products.meta.title": {
       "role": "meta",
@@ -1657,12 +1662,12 @@
     },
     "common.crumbs.label": {
       "role": "aria",
-      "where": "12 pages",
+      "where": "20 pages",
       "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
     },
     "common.crumbs.home": {
       "role": "link",
-      "where": "12 pages",
+      "where": "20 pages",
       "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
     },
     "products.crumb": {
@@ -1779,7 +1784,7 @@
     "products.platform.ctaMore": {
       "role": "button",
       "where": "products #platform",
-      "note": "Button with an arrow icon outside the message: opens the platform diagram on the home page."
+      "note": "Button with an arrow icon outside the message: opens the platform page."
     },
     "products.platform.board.label": {
       "role": "aria",
@@ -2663,6 +2668,1127 @@
       "role": "paragraph",
       "where": "roi #lead"
     },
+    "about.meta.title": {
+      "role": "meta",
+      "where": "about head"
+    },
+    "about.meta.description": {
+      "role": "meta",
+      "where": "about head"
+    },
+    "about.sections.hero": {
+      "role": "section-label",
+      "where": "about page",
+      "note": "Small capital-letter label of a section on the About page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "about.crumb": {
+      "role": "short",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.title": {
+      "role": "h1",
+      "where": "about #О КОМПАНИИ",
+      "variables": "tags: <span>…</span>",
+      "note": "H1 of the About page in two lines (two spans): «About us» and the company name. The name is not translated word by word and not declined: Professional Robotics."
+    },
+    "about.hero.lead": {
+      "role": "paragraph",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.text": {
+      "role": "paragraph",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.ctaTalk": {
+      "role": "button",
+      "where": "about #О КОМПАНИИ",
+      "note": "Primary button of the first screen, scrolls to the contact form at the bottom. Verb first, at most 28 characters."
+    },
+    "about.hero.ctaRoi": {
+      "role": "button",
+      "where": "about #О КОМПАНИИ",
+      "note": "Secondary button of the first screen, opens the ROI calculator page. Same wording as services.hero.ctaRoi."
+    },
+    "about.hero.chain.label": {
+      "role": "aria",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.chain.title": {
+      "role": "short",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.chain.makerTag": {
+      "role": "tag",
+      "where": "about #О КОМПАНИИ",
+      "note": "Small capital-letter label of a node in the diagram «manufacturer → us → business» on the first screen."
+    },
+    "about.hero.chain.maker": {
+      "role": "short",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.chain.edgeIn": {
+      "role": "tag",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.chain.usTag": {
+      "role": "tag",
+      "where": "about #О КОМПАНИИ",
+      "note": "Small capital-letter label of a node in the diagram «manufacturer → us → business» on the first screen."
+    },
+    "about.hero.chain.us": {
+      "role": "short",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.chain.edgeOut": {
+      "role": "tag",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.hero.chain.clientTag": {
+      "role": "tag",
+      "where": "about #О КОМПАНИИ",
+      "note": "Small capital-letter label of a node in the diagram «manufacturer → us → business» on the first screen."
+    },
+    "about.hero.chain.client": {
+      "role": "short",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.numbers.label": {
+      "role": "aria",
+      "where": "about #О КОМПАНИИ"
+    },
+    "about.sections.interest": {
+      "role": "section-label",
+      "where": "about #interest",
+      "note": "Small capital-letter label of a section on the About page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "about.interest.title": {
+      "role": "heading",
+      "where": "about #interest"
+    },
+    "about.interest.lead": {
+      "role": "paragraph",
+      "where": "about #interest"
+    },
+    "about.interest.maker.tag": {
+      "role": "tag",
+      "where": "about #interest",
+      "note": "Small capital-letter label of a card: who the card is about (manufacturer, shop, us). The same word as the card heading, in capitals."
+    },
+    "about.interest.maker.title": {
+      "role": "heading",
+      "where": "about #interest"
+    },
+    "about.interest.maker.text": {
+      "role": "paragraph",
+      "where": "about #interest"
+    },
+    "about.interest.shop.tag": {
+      "role": "tag",
+      "where": "about #interest",
+      "note": "Small capital-letter label of a card: who the card is about (manufacturer, shop, us). The same word as the card heading, in capitals."
+    },
+    "about.interest.shop.title": {
+      "role": "heading",
+      "where": "about #interest"
+    },
+    "about.interest.shop.text": {
+      "role": "paragraph",
+      "where": "about #interest"
+    },
+    "about.interest.us.tag": {
+      "role": "tag",
+      "where": "about #interest",
+      "note": "Small capital-letter label of a card: who the card is about (manufacturer, shop, us). The same word as the card heading, in capitals."
+    },
+    "about.interest.us.title": {
+      "role": "heading",
+      "where": "about #interest"
+    },
+    "about.interest.us.text": {
+      "role": "paragraph",
+      "where": "about #interest"
+    },
+    "about.sections.cycle": {
+      "role": "section-label",
+      "where": "about #cycle",
+      "note": "Small capital-letter label of a section on the About page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "about.cycle.title": {
+      "role": "heading",
+      "where": "about #cycle"
+    },
+    "about.cycle.lead": {
+      "role": "paragraph",
+      "where": "about #cycle"
+    },
+    "about.cycle.steps.audit": {
+      "role": "short",
+      "where": "about #cycle",
+      "note": "Step of the project life cycle (cards in a row, link to the matching service on the Services page). Short noun phrase, no period; the wording matches the service names on the Services page."
+    },
+    "about.cycle.steps.selection": {
+      "role": "short",
+      "where": "about #cycle",
+      "note": "Step of the project life cycle (cards in a row, link to the matching service on the Services page). Short noun phrase, no period; the wording matches the service names on the Services page."
+    },
+    "about.cycle.steps.design": {
+      "role": "short",
+      "where": "about #cycle",
+      "note": "Step of the project life cycle (cards in a row, link to the matching service on the Services page). Short noun phrase, no period; the wording matches the service names on the Services page."
+    },
+    "about.cycle.steps.supply": {
+      "role": "short",
+      "where": "about #cycle",
+      "note": "Step of the project life cycle (cards in a row, link to the matching service on the Services page). Short noun phrase, no period; the wording matches the service names on the Services page."
+    },
+    "about.cycle.steps.integration": {
+      "role": "short",
+      "where": "about #cycle",
+      "note": "Step of the project life cycle (cards in a row, link to the matching service on the Services page). Short noun phrase, no period; the wording matches the service names on the Services page."
+    },
+    "about.cycle.steps.training": {
+      "role": "short",
+      "where": "about #cycle",
+      "note": "Step of the project life cycle (cards in a row, link to the matching service on the Services page). Short noun phrase, no period; the wording matches the service names on the Services page."
+    },
+    "about.cycle.run.tag": {
+      "role": "tag",
+      "where": "about #cycle"
+    },
+    "about.cycle.run.title": {
+      "role": "short",
+      "where": "about #cycle"
+    },
+    "about.cycle.run.text": {
+      "role": "short",
+      "where": "about #cycle"
+    },
+    "about.sections.principles": {
+      "role": "section-label",
+      "where": "about #principles",
+      "note": "Small capital-letter label of a section on the About page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "about.principles.title": {
+      "role": "heading",
+      "where": "about #principles"
+    },
+    "about.principles.result.title": {
+      "role": "heading",
+      "where": "about #principles"
+    },
+    "about.principles.result.text": {
+      "role": "paragraph",
+      "where": "about #principles"
+    },
+    "about.principles.independence.title": {
+      "role": "heading",
+      "where": "about #principles"
+    },
+    "about.principles.independence.text": {
+      "role": "paragraph",
+      "where": "about #principles"
+    },
+    "about.principles.engineering.title": {
+      "role": "heading",
+      "where": "about #principles"
+    },
+    "about.principles.engineering.text": {
+      "role": "paragraph",
+      "where": "about #principles"
+    },
+    "about.principles.service.title": {
+      "role": "heading",
+      "where": "about #principles"
+    },
+    "about.principles.service.text": {
+      "role": "paragraph",
+      "where": "about #principles"
+    },
+    "about.principles.measurable.title": {
+      "role": "heading",
+      "where": "about #principles"
+    },
+    "about.principles.measurable.text": {
+      "role": "paragraph",
+      "where": "about #principles"
+    },
+    "about.sections.own": {
+      "role": "section-label",
+      "where": "about #own",
+      "note": "Small capital-letter label of a section on the About page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "about.own.title": {
+      "role": "heading",
+      "where": "about #own"
+    },
+    "about.own.lead": {
+      "role": "paragraph",
+      "where": "about #own"
+    },
+    "about.own.trust.data": {
+      "role": "short",
+      "where": "about #own"
+    },
+    "about.own.trust.dc": {
+      "role": "short",
+      "where": "about #own"
+    },
+    "about.own.trust.sla": {
+      "role": "short",
+      "where": "about #own"
+    },
+    "about.own.platform.title": {
+      "role": "heading",
+      "where": "about #own"
+    },
+    "about.own.platform.text": {
+      "role": "paragraph",
+      "where": "about #own"
+    },
+    "about.own.platform.cta": {
+      "role": "short",
+      "where": "about #own"
+    },
+    "about.own.agents.title": {
+      "role": "heading",
+      "where": "about #own"
+    },
+    "about.own.agents.text": {
+      "role": "paragraph",
+      "where": "about #own"
+    },
+    "about.own.network.title": {
+      "role": "heading",
+      "where": "about #own"
+    },
+    "about.own.network.text": {
+      "role": "paragraph",
+      "where": "about #own"
+    },
+    "about.sections.now": {
+      "role": "section-label",
+      "where": "about #now",
+      "note": "Small capital-letter label of a section on the About page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "about.now.title": {
+      "role": "heading",
+      "where": "about #now"
+    },
+    "about.now.text1": {
+      "role": "paragraph",
+      "where": "about #now"
+    },
+    "about.now.text2": {
+      "role": "paragraph",
+      "where": "about #now"
+    },
+    "about.now.window.label": {
+      "role": "aria",
+      "where": "about #now"
+    },
+    "about.now.window.span": {
+      "role": "tag",
+      "where": "about #now"
+    },
+    "about.now.window.now": {
+      "role": "short",
+      "where": "about #now"
+    },
+    "about.now.window.nowNote": {
+      "role": "short",
+      "where": "about #now"
+    },
+    "about.now.window.later": {
+      "role": "short",
+      "where": "about #now"
+    },
+    "about.now.window.laterNote": {
+      "role": "short",
+      "where": "about #now"
+    },
+    "about.sections.see": {
+      "role": "section-label",
+      "where": "about #see",
+      "note": "Small capital-letter label of a section on the About page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "about.see.title": {
+      "role": "heading",
+      "where": "about #see"
+    },
+    "services.see.cases.kicker": {
+      "role": "short",
+      "where": "about #see, services #see"
+    },
+    "services.see.cases.title": {
+      "role": "heading",
+      "where": "about #see, services #see"
+    },
+    "services.see.cases.text": {
+      "role": "paragraph",
+      "where": "about #see, services #see"
+    },
+    "services.see.cases.foot": {
+      "role": "tag",
+      "where": "about #see, services #see"
+    },
+    "about.see.services.kicker": {
+      "role": "short",
+      "where": "about #see"
+    },
+    "about.see.services.title": {
+      "role": "heading",
+      "where": "about #see"
+    },
+    "about.see.services.text": {
+      "role": "paragraph",
+      "where": "about #see"
+    },
+    "about.see.services.foot": {
+      "role": "tag",
+      "where": "about #see"
+    },
+    "about.see.makers.kicker": {
+      "role": "short",
+      "where": "about #see"
+    },
+    "about.see.makers.title": {
+      "role": "heading",
+      "where": "about #see"
+    },
+    "about.see.makers.text": {
+      "role": "paragraph",
+      "where": "about #see"
+    },
+    "about.see.makers.foot": {
+      "role": "tag",
+      "where": "about #see"
+    },
+    "about.sections.talk": {
+      "role": "section-label",
+      "where": "about #talk",
+      "note": "Small capital-letter label of a section on the About page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "about.talk.title": {
+      "role": "heading",
+      "where": "about #talk"
+    },
+    "about.talk.lead": {
+      "role": "paragraph",
+      "where": "about #talk"
+    },
+    "about.talk.roiCta": {
+      "role": "button",
+      "where": "about #talk",
+      "note": "Button with an arrow icon outside the message in the final block: opens the ROI calculator page. Same wording as about.hero.ctaRoi."
+    },
+    "cases.meta.title": {
+      "role": "meta",
+      "where": "cases head"
+    },
+    "cases.meta.description": {
+      "role": "meta",
+      "where": "cases head"
+    },
+    "cases.sections.hero": {
+      "role": "section-label",
+      "where": "cases page",
+      "note": "Small capital-letter label of a section on the Case studies page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "cases.crumb": {
+      "role": "short",
+      "where": "cases #КЕЙСЫ"
+    },
+    "cases.hero.title": {
+      "role": "h1",
+      "where": "cases #КЕЙСЫ",
+      "note": "Headline of the Case studies page, ends with a period. Keep «case studies» and «in numbers»."
+    },
+    "cases.hero.lead": {
+      "role": "paragraph",
+      "where": "cases #КЕЙСЫ"
+    },
+    "cases.hero.text": {
+      "role": "paragraph",
+      "where": "cases #КЕЙСЫ"
+    },
+    "cases.hero.ctaRoi": {
+      "role": "button",
+      "where": "cases #КЕЙСЫ",
+      "note": "Primary button of the first screen, opens the ROI calculator page. Same wording as cases.talk.roiCta and cases.empty.roi."
+    },
+    "cases.hero.ctaMethod": {
+      "role": "button",
+      "where": "cases #КЕЙСЫ",
+      "note": "Secondary button of the first screen, scrolls to the block that explains how the figures are calculated."
+    },
+    "cases.summary.label": {
+      "role": "aria",
+      "where": "cases #КЕЙСЫ"
+    },
+    "cases.summary.title": {
+      "role": "short",
+      "where": "cases #КЕЙСЫ"
+    },
+    "cases.summary.count": {
+      "role": "tag",
+      "where": "cases #КЕЙСЫ"
+    },
+    "cases.summary.manufacturing": {
+      "role": "tag",
+      "where": "cases #КЕЙСЫ"
+    },
+    "cases.summary.method": {
+      "role": "nav",
+      "where": "cases #КЕЙСЫ",
+      "note": "Link at the bottom of the results card on the first screen, scrolls to the methodology block."
+    },
+    "cases.sections.list": {
+      "role": "section-label",
+      "where": "cases #list",
+      "note": "Small capital-letter label of a section on the Case studies page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "cases.list.title": {
+      "role": "heading",
+      "where": "cases #list"
+    },
+    "cases.list.lead": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.filter.label": {
+      "role": "aria",
+      "where": "cases #list"
+    },
+    "cases.filter.all": {
+      "role": "nav",
+      "where": "cases #list",
+      "note": "First chip of the industry filter: show all case studies. Short."
+    },
+    "cases.illustration": {
+      "role": "caption",
+      "where": "cases #list"
+    },
+    "cases.howCounted": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.labels.object": {
+      "role": "caption",
+      "where": "cases #list",
+      "note": "Field label inside a case study card (mono, capitals by CSS). Short."
+    },
+    "cases.items.businessCenter.object": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.labels.period": {
+      "role": "caption",
+      "where": "cases #list",
+      "note": "Field label inside a case study card (mono, capitals by CSS). Short."
+    },
+    "cases.tbd": {
+      "role": "short",
+      "where": "cases #list",
+      "note": "Value of a case study field (period, payback) that the client has not confirmed yet: «to be confirmed». Short, lowercase, mono font."
+    },
+    "cases.labels.payback": {
+      "role": "caption",
+      "where": "cases #list",
+      "note": "Field label inside a case study card (mono, capitals by CSS). Short."
+    },
+    "cases.labels.task": {
+      "role": "heading",
+      "where": "cases #list",
+      "note": "Field label inside a case study card (mono, capitals by CSS). Short."
+    },
+    "cases.items.businessCenter.task": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.labels.solution": {
+      "role": "heading",
+      "where": "cases #list",
+      "note": "Field label inside a case study card (mono, capitals by CSS). Short."
+    },
+    "cases.items.businessCenter.solution": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.labels.industry": {
+      "role": "tag",
+      "where": "cases #list, industries #list",
+      "note": "Field label inside a case study card (mono, capitals by CSS). Short."
+    },
+    "cases.labels.solutionLink": {
+      "role": "tag",
+      "where": "cases #list",
+      "note": "Field label inside a case study card (mono, capitals by CSS). Short."
+    },
+    "cases.roiCta": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.sameCta": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.items.agro.object": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.items.agro.task": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.items.agro.solution": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.items.warehouse.object": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.items.warehouse.task": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.items.warehouse.solution": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.items.manufacturing.object": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.items.manufacturing.task": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.items.manufacturing.solution": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.items.construction.object": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.items.construction.task": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.items.construction.solution": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.empty.title": {
+      "role": "heading",
+      "where": "cases #list"
+    },
+    "cases.empty.text": {
+      "role": "paragraph",
+      "where": "cases #list"
+    },
+    "cases.empty.roi": {
+      "role": "button",
+      "where": "cases #list",
+      "note": "Button in the empty state (no case study for the chosen industry), opens the ROI calculator."
+    },
+    "cases.empty.industryPage": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.empty.all": {
+      "role": "short",
+      "where": "cases #list"
+    },
+    "cases.sections.method": {
+      "role": "section-label",
+      "where": "cases #method",
+      "note": "Small capital-letter label of a section on the Case studies page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "cases.method.title": {
+      "role": "heading",
+      "where": "cases #method"
+    },
+    "cases.method.lead": {
+      "role": "paragraph",
+      "where": "cases #method",
+      "variables": "tags: <b>…</b>"
+    },
+    "cases.method.rules.period": {
+      "role": "short",
+      "where": "cases #method"
+    },
+    "cases.method.rules.costs": {
+      "role": "short",
+      "where": "cases #method"
+    },
+    "cases.method.rules.nda": {
+      "role": "short",
+      "where": "cases #method"
+    },
+    "cases.sheet.title": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.note": {
+      "role": "tag",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.object": {
+      "role": "caption",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.objectVal": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.before": {
+      "role": "caption",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.perMonth": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.after": {
+      "role": "caption",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.invest": {
+      "role": "caption",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.rub": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.period": {
+      "role": "caption",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.periodVal": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.staff": {
+      "role": "caption",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.staffVal": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.consent": {
+      "role": "caption",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.sheet.consentVal": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short."
+    },
+    "cases.method.cost.title": {
+      "role": "heading",
+      "where": "cases #method"
+    },
+    "cases.method.cost.aria": {
+      "role": "aria",
+      "where": "cases #method"
+    },
+    "cases.method.cost.num": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Numerator of a formula shown as a fraction; keep it short, the minus sign stays."
+    },
+    "cases.method.cost.den": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Denominator of a formula shown as a fraction; keep it short."
+    },
+    "cases.method.cost.text": {
+      "role": "paragraph",
+      "where": "cases #method"
+    },
+    "cases.method.payback.title": {
+      "role": "heading",
+      "where": "cases #method"
+    },
+    "cases.method.payback.aria": {
+      "role": "aria",
+      "where": "cases #method"
+    },
+    "cases.method.payback.num": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Numerator of a formula shown as a fraction; keep it short, the minus sign stays."
+    },
+    "cases.method.payback.den": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Denominator of a formula shown as a fraction; keep it short."
+    },
+    "cases.method.payback.text": {
+      "role": "paragraph",
+      "where": "cases #method"
+    },
+    "cases.method.staff.title": {
+      "role": "heading",
+      "where": "cases #method"
+    },
+    "cases.method.staff.aria": {
+      "role": "aria",
+      "where": "cases #method"
+    },
+    "cases.method.staff.formula": {
+      "role": "short",
+      "where": "cases #method"
+    },
+    "cases.method.staff.text": {
+      "role": "paragraph",
+      "where": "cases #method"
+    },
+    "cases.method.growth.title": {
+      "role": "heading",
+      "where": "cases #method"
+    },
+    "cases.method.growth.aria": {
+      "role": "aria",
+      "where": "cases #method"
+    },
+    "cases.method.growth.num": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Numerator of a formula shown as a fraction; keep it short, the minus sign stays."
+    },
+    "cases.method.growth.den": {
+      "role": "short",
+      "where": "cases #method",
+      "note": "Denominator of a formula shown as a fraction; keep it short."
+    },
+    "cases.method.growth.text": {
+      "role": "paragraph",
+      "where": "cases #method"
+    },
+    "cases.sections.see": {
+      "role": "section-label",
+      "where": "cases #see",
+      "note": "Small capital-letter label of a section on the Case studies page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "cases.see.title": {
+      "role": "heading",
+      "where": "cases #see"
+    },
+    "cases.see.industries.kicker": {
+      "role": "short",
+      "where": "cases #see"
+    },
+    "cases.see.industries.title": {
+      "role": "heading",
+      "where": "cases #see"
+    },
+    "cases.see.industries.text": {
+      "role": "paragraph",
+      "where": "cases #see"
+    },
+    "cases.see.industries.foot": {
+      "role": "tag",
+      "where": "cases #see"
+    },
+    "cases.see.services.kicker": {
+      "role": "short",
+      "where": "cases #see"
+    },
+    "cases.see.services.title": {
+      "role": "heading",
+      "where": "cases #see"
+    },
+    "cases.see.services.text": {
+      "role": "paragraph",
+      "where": "cases #see"
+    },
+    "cases.see.services.foot": {
+      "role": "tag",
+      "where": "cases #see"
+    },
+    "cases.sections.talk": {
+      "role": "section-label",
+      "where": "cases #talk",
+      "note": "Small capital-letter label of a section on the Case studies page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "cases.talk.title": {
+      "role": "heading",
+      "where": "cases #talk"
+    },
+    "cases.talk.lead": {
+      "role": "paragraph",
+      "where": "cases #talk"
+    },
+    "cases.talk.roiCta": {
+      "role": "button",
+      "where": "cases #talk",
+      "note": "Button with an arrow icon outside the message in the final block: opens the ROI calculator page."
+    },
+    "cases.talk.form.industryLabel": {
+      "role": "label",
+      "where": "cases #talk",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Compare services.talk.form.serviceLabel."
+    },
+    "contacts.meta.title": {
+      "role": "meta",
+      "where": "contacts head"
+    },
+    "contacts.meta.description": {
+      "role": "meta",
+      "where": "contacts head"
+    },
+    "contacts.sections.hero": {
+      "role": "section-label",
+      "where": "contacts page",
+      "note": "Small capital-letter label of a section on the Contact page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "contacts.crumb": {
+      "role": "short",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.hero.title": {
+      "role": "h1",
+      "where": "contacts #КОНТАКТЫ",
+      "note": "Page headline (H1), one word, no period. Same word as the navigation link common.nav.contacts."
+    },
+    "contacts.hero.lead": {
+      "role": "paragraph",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.hero.text": {
+      "role": "paragraph",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.hero.reply": {
+      "role": "short",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.pick.label": {
+      "role": "aria",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.pick.title": {
+      "role": "paragraph",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.pick.roi.title": {
+      "role": "short",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.pick.roi.text": {
+      "role": "tag",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.pick.quote.title": {
+      "role": "short",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.pick.quote.text": {
+      "role": "tag",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.pick.pilot.title": {
+      "role": "short",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.pick.pilot.text": {
+      "role": "tag",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.form.title": {
+      "role": "heading",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.form.hint": {
+      "role": "paragraph",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.form.company": {
+      "role": "label",
+      "where": "contacts #КОНТАКТЫ",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the optional company field; the <small> part is the grey hint «optional»."
+    },
+    "contacts.form.intentLabel": {
+      "role": "label",
+      "where": "contacts #КОНТАКТЫ",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list in the form: what the visitor wants (proposal, demo or pilot, assessment, consultation); the <small> part is the grey hint «optional»."
+    },
+    "contacts.form.intent.quote": {
+      "role": "option",
+      "where": "contacts #КОНТАКТЫ",
+      "note": "Option of the «What you need» drop-down list. Same meaning as the choice buttons contacts.pick.*.title, but shorter. «КП» is a commercial proposal (glossary): proposal."
+    },
+    "contacts.form.intent.pilot": {
+      "role": "option",
+      "where": "contacts #КОНТАКТЫ",
+      "note": "Option of the «What you need» drop-down list. Same meaning as the choice buttons contacts.pick.*.title, but shorter. «КП» is a commercial proposal (glossary): proposal."
+    },
+    "common.linkNames.audit": {
+      "role": "option",
+      "where": "7 pages",
+      "note": "Name of the service «Аудит объекта» (a site assessment, not a financial audit; glossary). Shown as a link name, as an option in the drop-down lists of the forms (services, contact) and in the footer link lists: keep one short wording."
+    },
+    "contacts.form.intent.consult": {
+      "role": "option",
+      "where": "contacts #КОНТАКТЫ",
+      "note": "Option of the «What you need» drop-down list. Same meaning as the choice buttons contacts.pick.*.title, but shorter. «КП» is a commercial proposal (glossary): proposal."
+    },
+    "contacts.form.objectLabel": {
+      "role": "label",
+      "where": "contacts #КОНТАКТЫ",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list of site types (offices, retail, warehouses…); the <small> part is the grey hint «optional»."
+    },
+    "contacts.form.objectUnset": {
+      "role": "option",
+      "where": "contacts #КОНТАКТЫ",
+      "note": "First, empty option of the site-type list: nothing chosen yet. One word."
+    },
+    "contacts.form.objectOther": {
+      "role": "option",
+      "where": "contacts #КОНТАКТЫ, industries #КОНТАКТЫ",
+      "note": "Last option of the site-type list: none of the industries above."
+    },
+    "contacts.form.taskLabel": {
+      "role": "label",
+      "where": "contacts #КОНТАКТЫ",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the optional free-text field: what the visitor wants to automate; the <small> part is the grey hint «optional»."
+    },
+    "contacts.form.taskPlaceholder": {
+      "role": "placeholder",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.form.submit": {
+      "role": "button",
+      "where": "contacts #КОНТАКТЫ",
+      "note": "Submit button of the request form. At most 28 characters, verb first."
+    },
+    "contacts.form.sentText": {
+      "role": "paragraph",
+      "where": "contacts #КОНТАКТЫ"
+    },
+    "contacts.sections.channels": {
+      "role": "section-label",
+      "where": "contacts #channels",
+      "note": "Small capital-letter label of a section on the Contact page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "contacts.channels.title": {
+      "role": "heading",
+      "where": "contacts #channels"
+    },
+    "contacts.channels.lead": {
+      "role": "paragraph",
+      "where": "contacts #channels"
+    },
+    "contacts.channels.phone.label": {
+      "role": "tag",
+      "where": "contacts #channels"
+    },
+    "contacts.channels.phone.note": {
+      "role": "short",
+      "where": "contacts #channels"
+    },
+    "contacts.channels.mail.note": {
+      "role": "short",
+      "where": "contacts #channels"
+    },
+    "contacts.channels.messenger.label": {
+      "role": "tag",
+      "where": "contacts #channels"
+    },
+    "contacts.channels.telegram.note": {
+      "role": "short",
+      "where": "contacts #channels"
+    },
+    "contacts.channels.whatsapp.note": {
+      "role": "short",
+      "where": "contacts #channels"
+    },
+    "contacts.sections.office": {
+      "role": "section-label",
+      "where": "contacts #office",
+      "note": "Small capital-letter label of a section on the Contact page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "contacts.office.title": {
+      "role": "heading",
+      "where": "contacts #office"
+    },
+    "contacts.office.lead": {
+      "role": "paragraph",
+      "where": "contacts #office"
+    },
+    "contacts.office.facts.office": {
+      "role": "caption",
+      "where": "contacts #office"
+    },
+    "contacts.office.facts.officeValue": {
+      "role": "short",
+      "where": "contacts #office"
+    },
+    "contacts.office.facts.service": {
+      "role": "caption",
+      "where": "contacts #office"
+    },
+    "contacts.office.facts.serviceValue": {
+      "role": "short",
+      "where": "contacts #office"
+    },
+    "contacts.office.facts.meeting": {
+      "role": "caption",
+      "where": "contacts #office"
+    },
+    "contacts.office.facts.meetingValue": {
+      "role": "short",
+      "where": "contacts #office"
+    },
+    "contacts.office.net.label": {
+      "role": "aria",
+      "where": "contacts #office"
+    },
+    "contacts.office.net.hq": {
+      "role": "tag",
+      "where": "contacts #office"
+    },
+    "contacts.office.net.service": {
+      "role": "tag",
+      "where": "contacts #office"
+    },
+    "contacts.requisites.title": {
+      "role": "heading",
+      "where": "contacts #office"
+    },
+    "contacts.requisites.text": {
+      "role": "paragraph",
+      "where": "contacts #office"
+    },
+    "contacts.requisites.cta": {
+      "role": "button",
+      "where": "contacts #office",
+      "note": "Button in the «Details for the contract» block: opens an e-mail with a request for the company details. At most 28 characters, verb first."
+    },
     "industries.agriculture.title": {
       "role": "meta",
       "where": "agriculture head"
@@ -2678,12 +3804,12 @@
     },
     "common.crumbs.industries": {
       "role": "link",
-      "where": "11 pages",
+      "where": "12 pages",
       "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
     },
     "industries.agriculture.name": {
       "role": "short",
-      "where": "agriculture #СЕЛЬСКОЕ ХОЗЯЙСТВО"
+      "where": "agriculture #СЕЛЬСКОЕ ХОЗЯЙСТВО, industries #СЕЛЬСКОЕ ХОЗЯЙСТВО"
     },
     "industries.agriculture.h1.items.0": {
       "role": "h1",
@@ -3052,7 +4178,7 @@
     },
     "common.linkNames.maintenance": {
       "role": "short",
-      "where": "agriculture #why, medical-wellness #why"
+      "where": "agriculture #why, medical-wellness #why, services #why"
     },
     "industries.common.sections.form": {
       "role": "section-label",
@@ -3105,7 +4231,7 @@
     },
     "common.linkNames.selection": {
       "role": "heading",
-      "where": "agriculture #see"
+      "where": "agriculture #see, services #see"
     },
     "industries.agriculture.links.items.1.text": {
       "role": "paragraph",
@@ -3158,7 +4284,7 @@
     },
     "industries.businessCenters.name": {
       "role": "short",
-      "where": "business-centers #БИЗНЕС-ЦЕНТРЫ И ОФИСЫ"
+      "where": "business-centers #БИЗНЕС-ЦЕНТРЫ И ОФИСЫ, industries #БИЗНЕС-ЦЕНТРЫ И ОФИСЫ"
     },
     "industries.businessCenters.h1.items.0": {
       "role": "h1",
@@ -3701,7 +4827,7 @@
     },
     "common.linkNames.raas": {
       "role": "short",
-      "where": "7 pages"
+      "where": "8 pages"
     },
     "industries.businessCenters.form.title": {
       "role": "heading",
@@ -3716,17 +4842,13 @@
       "where": "business-centers #talk",
       "note": "Submit button of the contact form of this industry page; says what happens next, not «Submit»."
     },
-    "common.linkNames.audit": {
-      "role": "heading",
-      "where": "5 pages"
-    },
     "industries.businessCenters.links.items.0.text": {
       "role": "paragraph",
       "where": "business-centers #see"
     },
     "common.linkNames.pilotProject": {
       "role": "heading",
-      "where": "4 pages"
+      "where": "5 pages"
     },
     "industries.businessCenters.links.items.1.text": {
       "role": "paragraph",
@@ -3775,7 +4897,7 @@
     },
     "industries.construction.name": {
       "role": "short",
-      "where": "construction #СТРОИТЕЛЬСТВО"
+      "where": "construction #СТРОИТЕЛЬСТВО, industries #СТРОИТЕЛЬСТВО"
     },
     "industries.construction.h1.items.0": {
       "role": "h1",
@@ -4069,7 +5191,7 @@
     },
     "industries.education.name": {
       "role": "short",
-      "where": "education #ОБРАЗОВАТЕЛЬНЫЕ УЧРЕЖДЕНИЯ"
+      "where": "education #ОБРАЗОВАТЕЛЬНЫЕ УЧРЕЖДЕНИЯ, industries #ОБРАЗОВАТЕЛЬНЫЕ УЧРЕЖДЕНИЯ"
     },
     "industries.education.h1.items.0": {
       "role": "h1",
@@ -4693,7 +5815,7 @@
     },
     "industries.fitnessSports.name": {
       "role": "short",
-      "where": "fitness-sports #ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ"
+      "where": "fitness-sports #ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ, industries #ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ"
     },
     "industries.fitnessSports.h1.items.0": {
       "role": "h1",
@@ -5203,7 +6325,7 @@
     },
     "industries.hotels.name": {
       "role": "short",
-      "where": "hotels #ОТЕЛИ И HORECA"
+      "where": "hotels #ОТЕЛИ И HORECA, industries #ОТЕЛИ И HORECA"
     },
     "industries.hotels.h1.items.0": {
       "role": "h1",
@@ -5244,10 +6366,9 @@
       "role": "short",
       "where": "hotels #ОТЕЛИ И HORECA"
     },
-    "industries.common.photo.placeholder": {
-      "role": "caption",
-      "where": "hotels #ОТЕЛИ И HORECA",
-      "variables": "{ratio}"
+    "industries.hotels.photo.alt": {
+      "role": "alt",
+      "where": "hotels #ОТЕЛИ И HORECA"
     },
     "industries.hotels.heads.problems": {
       "role": "heading",
@@ -5579,7 +6700,7 @@
     },
     "industries.manufacturing.name": {
       "role": "short",
-      "where": "manufacturing #ПРОМЫШЛЕННОСТЬ И ПРОИЗВОДСТВО"
+      "where": "manufacturing #ПРОМЫШЛЕННОСТЬ И ПРОИЗВОДСТВО, industries #ПРОМЫШЛЕННОСТЬ И ПРОИЗВОДСТВО"
     },
     "industries.manufacturing.h1.items.0": {
       "role": "h1",
@@ -5913,7 +7034,7 @@
     },
     "industries.medicalWellness.name": {
       "role": "short",
-      "where": "medical-wellness #МЕДИЦИНА И ВЕЛНЕС"
+      "where": "medical-wellness #МЕДИЦИНА И ВЕЛНЕС, industries #МЕДИЦИНА И ВЕЛНЕС"
     },
     "industries.medicalWellness.h1.items.0": {
       "role": "h1",
@@ -6247,7 +7368,7 @@
     },
     "industries.municipal.name": {
       "role": "short",
-      "where": "municipal #МУНИЦИПАЛЬНЫЕ СЛУЖБЫ, public-spaces #МУНИЦИПАЛЬНЫЕ СЛУЖБЫ"
+      "where": "municipal #МУНИЦИПАЛЬНЫЕ СЛУЖБЫ, public-spaces #МУНИЦИПАЛЬНЫЕ СЛУЖБЫ, industries #МУНИЦИПАЛЬНЫЕ СЛУЖБЫ"
     },
     "industries.municipal.h1.items.0": {
       "role": "h1",
@@ -6799,7 +7920,7 @@
     },
     "industries.publicSpaces.name": {
       "role": "short",
-      "where": "public-spaces #ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА"
+      "where": "public-spaces #ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА, industries #ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА"
     },
     "industries.publicSpaces.h1.items.0": {
       "role": "h1",
@@ -7311,7 +8432,7 @@
     },
     "industries.retail.name": {
       "role": "short",
-      "where": "retail #ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ"
+      "where": "retail #ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ, industries #ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ"
     },
     "industries.retail.h1.items.0": {
       "role": "h1",
@@ -7815,6 +8936,2420 @@
       "role": "paragraph",
       "where": "retail #see"
     },
+    "industriesHub.meta.title": {
+      "role": "meta",
+      "where": "industries head"
+    },
+    "industriesHub.meta.description": {
+      "role": "meta",
+      "where": "industries head"
+    },
+    "industriesHub.sections.hero": {
+      "role": "section-label",
+      "where": "industries page",
+      "note": "Small capital-letter label of a section on the Industries hub page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "industriesHub.hero.title.line1": {
+      "role": "h1",
+      "where": "industries #ОТРАСЛИ",
+      "note": "Two lines of the H1 of the Industries hub page; line 2 ends with a period. Line 2 «from hotel to farm» stands for the range of industries, from hospitality to agriculture."
+    },
+    "industriesHub.hero.title.line2": {
+      "role": "h1",
+      "where": "industries #ОТРАСЛИ",
+      "note": "Two lines of the H1 of the Industries hub page; line 2 ends with a period. Line 2 «from hotel to farm» stands for the range of industries, from hospitality to agriculture."
+    },
+    "industriesHub.hero.lead": {
+      "role": "paragraph",
+      "where": "industries #ОТРАСЛИ"
+    },
+    "industriesHub.hero.facts.label": {
+      "role": "aria",
+      "where": "industries #ОТРАСЛИ"
+    },
+    "industriesHub.hero.facts.industries": {
+      "role": "short",
+      "where": "industries #ОТРАСЛИ"
+    },
+    "industriesHub.hero.facts.makers": {
+      "role": "short",
+      "where": "industries #ОТРАСЛИ"
+    },
+    "industriesHub.sections.list": {
+      "role": "section-label",
+      "where": "industries #list",
+      "note": "Small capital-letter label of a section on the Industries hub page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "industriesHub.list.title": {
+      "role": "heading",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.retail.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.retail.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.businessCenters.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.businessCenters.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.hotels.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.hotels.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.publicSpaces.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.publicSpaces.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.medicalWellness.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.medicalWellness.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.education.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.education.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.fitnessSports.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.fitnessSports.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.municipal.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.municipal.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.agriculture.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.agriculture.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.manufacturing.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.manufacturing.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.construction.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.construction.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
+    "industriesHub.sections.objects": {
+      "role": "section-label",
+      "where": "industries #objects",
+      "note": "Small capital-letter label of a section on the Industries hub page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "industriesHub.objects.title": {
+      "role": "heading",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.lead": {
+      "role": "paragraph",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.transport": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.service": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.hospitals": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.rehab": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.schools": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.fitness": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.parks": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.parking": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.factories": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.sites": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.objects.items.fields": {
+      "role": "short",
+      "where": "industries #objects"
+    },
+    "industriesHub.sections.cases": {
+      "role": "section-label",
+      "where": "industries #cases",
+      "note": "Small capital-letter label of a section on the Industries hub page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "industriesHub.cases.title": {
+      "role": "heading",
+      "where": "industries #cases"
+    },
+    "industriesHub.sections.talk": {
+      "role": "section-label",
+      "where": "industries #talk",
+      "note": "Small capital-letter label of a section on the Industries hub page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "industriesHub.talk.title": {
+      "role": "heading",
+      "where": "industries #talk"
+    },
+    "industriesHub.talk.lead": {
+      "role": "paragraph",
+      "where": "industries #talk"
+    },
+    "industriesHub.talk.form.industryLabel": {
+      "role": "label",
+      "where": "industries #talk",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Same as cases.talk.form.industryLabel."
+    },
+    "knowledge.meta.title": {
+      "role": "meta",
+      "where": "knowledge head"
+    },
+    "knowledge.meta.description": {
+      "role": "meta",
+      "where": "knowledge head"
+    },
+    "knowledge.sections.hero": {
+      "role": "section-label",
+      "where": "knowledge page",
+      "note": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "knowledge.crumb": {
+      "role": "short",
+      "where": "knowledge #БАЗА ЗНАНИЙ"
+    },
+    "knowledge.hero.title": {
+      "role": "h1",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "variables": "tags: <span>…</span>",
+      "note": "Headline of the Knowledge base page, ends with a period. The <span> part («without the marketing») is highlighted with a marker stroke: keep it at the end."
+    },
+    "knowledge.hero.lead": {
+      "role": "paragraph",
+      "where": "knowledge #БАЗА ЗНАНИЙ"
+    },
+    "knowledge.hero.text": {
+      "role": "paragraph",
+      "where": "knowledge #БАЗА ЗНАНИЙ"
+    },
+    "knowledge.hero.ctaRoi": {
+      "role": "button",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "note": "Primary button of the first screen, opens the ROI calculator page. Same wording as knowledge.talk.roiCta."
+    },
+    "knowledge.hero.ctaAudit": {
+      "role": "button",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "note": "Secondary button of the first screen, scrolls to the request form. «Аудит» is a site assessment (glossary), not a financial audit."
+    },
+    "knowledge.toc.label": {
+      "role": "aria",
+      "where": "knowledge #БАЗА ЗНАНИЙ"
+    },
+    "knowledge.toc.title": {
+      "role": "short",
+      "where": "knowledge #БАЗА ЗНАНИЙ"
+    },
+    "knowledge.toc.note": {
+      "role": "tag",
+      "where": "knowledge #БАЗА ЗНАНИЙ"
+    },
+    "knowledge.faq.items.payback.q": {
+      "role": "short",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.faq.items.cost.q": {
+      "role": "short",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.faq.items.breakdown.q": {
+      "role": "short",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.faq.items.staff.q": {
+      "role": "short",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.faq.items.notPaying.q": {
+      "role": "short",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.toc.all": {
+      "role": "nav",
+      "where": "knowledge #БАЗА ЗНАНИЙ",
+      "note": "Link at the bottom of the «Questions before a deal» card on the first screen, scrolls to the FAQ block."
+    },
+    "knowledge.sections.topics": {
+      "role": "section-label",
+      "where": "knowledge #topics",
+      "note": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "knowledge.topics.title": {
+      "role": "heading",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.lead": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.cleaning.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.count": {
+      "role": "short",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.toSolution": {
+      "role": "short",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.warehouse.name": {
+      "role": "heading",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.warehouse.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.service.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.industrial.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.construction.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.medical.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.agro.name": {
+      "role": "heading",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.agro.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.raas.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.toProduct": {
+      "role": "short",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.roi.name": {
+      "role": "heading",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.roi.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.toCalc": {
+      "role": "short",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.reviews.name": {
+      "role": "heading",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.reviews.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.news.name": {
+      "role": "heading",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.news.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.faq.name": {
+      "role": "heading",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.items.faq.text": {
+      "role": "paragraph",
+      "where": "knowledge #topics"
+    },
+    "knowledge.topics.questions": {
+      "role": "short",
+      "where": "knowledge #topics"
+    },
+    "knowledge.sections.materials": {
+      "role": "section-label",
+      "where": "knowledge #materials",
+      "note": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "knowledge.materials.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.lead": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.search.label": {
+      "role": "label",
+      "where": "knowledge #materials",
+      "note": "Label above the search field that filters the materials and the FAQ on this page (mono, capitals by CSS)."
+    },
+    "knowledge.search.placeholder": {
+      "role": "placeholder",
+      "where": "knowledge #materials"
+    },
+    "knowledge.filter.label": {
+      "role": "aria",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.all": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "First chip of the topic filter: show all materials. Short. Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.cleaning": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.warehouse": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.service": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.industrial": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.construction": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.medical": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.agro": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.raas": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.roi": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.filter.reviews": {
+      "role": "nav",
+      "where": "knowledge #materials",
+      "note": "Chip of the topic filter above the list of materials: a short name of the knowledge base section, one or two words."
+    },
+    "knowledge.formats.article": {
+      "role": "short",
+      "where": "knowledge #materials",
+      "note": "Format of a material in its meta line (mono, capitals by CSS): article, calculation, comparison, guide, review. One word."
+    },
+    "knowledge.materials.items.cleaningBasics.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.cleaningBasics.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.status.soon": {
+      "role": "tag",
+      "where": "knowledge #materials",
+      "note": "Status of a material that is not published yet: «in preparation». Short, mono pill."
+    },
+    "knowledge.formats.calc": {
+      "role": "short",
+      "where": "knowledge #materials",
+      "note": "Format of a material in its meta line (mono, capitals by CSS): article, calculation, comparison, guide, review. One word."
+    },
+    "knowledge.materials.items.cleaningPayback.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.cleaningPayback.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.formats.compare": {
+      "role": "short",
+      "where": "knowledge #materials",
+      "note": "Format of a material in its meta line (mono, capitals by CSS): article, calculation, comparison, guide, review. One word."
+    },
+    "knowledge.materials.items.robotVsMachine.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.robotVsMachine.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.amr.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.amr.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.raasBasics.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.raasBasics.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.rentVsBuy.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.rentVsBuy.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.agroDrone.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.agroDrone.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.formats.guide": {
+      "role": "short",
+      "where": "knowledge #materials",
+      "note": "Format of a material in its meta line (mono, capitals by CSS): article, calculation, comparison, guide, review. One word."
+    },
+    "knowledge.materials.items.droneOperator.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.droneOperator.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.demolition.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.demolition.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.delivery.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.delivery.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.industrialStart.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.industrialStart.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.clinic.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.clinic.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.formats.review": {
+      "role": "short",
+      "where": "knowledge #materials",
+      "note": "Format of a material in its meta line (mono, capitals by CSS): article, calculation, comparison, guide, review. One word."
+    },
+    "knowledge.materials.items.brands.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.brands.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.notPaying.title": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.materials.items.notPaying.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.empty.topicTitle": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.empty.searchTitle": {
+      "role": "heading",
+      "where": "knowledge #materials"
+    },
+    "knowledge.empty.text": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
+    },
+    "knowledge.empty.ask": {
+      "role": "button",
+      "where": "knowledge #materials",
+      "note": "Button in the empty state (no materials in the section or no search results), scrolls to the request form."
+    },
+    "knowledge.empty.all": {
+      "role": "short",
+      "where": "knowledge #materials"
+    },
+    "knowledge.sections.roi": {
+      "role": "section-label",
+      "where": "knowledge #roi",
+      "note": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "knowledge.roi.title": {
+      "role": "heading",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.lead": {
+      "role": "paragraph",
+      "where": "knowledge #roi",
+      "variables": "tags: <b>…</b>"
+    },
+    "knowledge.roi.cta": {
+      "role": "button",
+      "where": "knowledge #roi",
+      "note": "Primary button on the dark ROI block, opens the ROI calculator page."
+    },
+    "knowledge.roi.method": {
+      "role": "button",
+      "where": "knowledge #roi",
+      "note": "Secondary button on the dark ROI block, opens the methodology block of the Case studies page."
+    },
+    "knowledge.roi.eq.title": {
+      "role": "short",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.note": {
+      "role": "tag",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.before": {
+      "role": "tag",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.beforeHint": {
+      "role": "tag",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.after": {
+      "role": "tag",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.afterHint": {
+      "role": "tag",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.saving": {
+      "role": "short",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.aria": {
+      "role": "aria",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.payback": {
+      "role": "tag",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.num": {
+      "role": "short",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.eq.den": {
+      "role": "short",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.rules.period.title": {
+      "role": "heading",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.rules.period.text": {
+      "role": "paragraph",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.rules.costs.title": {
+      "role": "heading",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.rules.costs.text": {
+      "role": "paragraph",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.rules.honest.title": {
+      "role": "heading",
+      "where": "knowledge #roi"
+    },
+    "knowledge.roi.rules.honest.text": {
+      "role": "paragraph",
+      "where": "knowledge #roi"
+    },
+    "knowledge.sections.faq": {
+      "role": "section-label",
+      "where": "knowledge #faq",
+      "note": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "knowledge.faq.title": {
+      "role": "heading",
+      "where": "knowledge #faq"
+    },
+    "knowledge.faq.lead": {
+      "role": "paragraph",
+      "where": "knowledge #faq"
+    },
+    "knowledge.faq.ask": {
+      "role": "short",
+      "where": "knowledge #faq"
+    },
+    "knowledge.faq.items.payback.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq",
+      "variables": "tags: <a>…</a>"
+    },
+    "knowledge.faq.items.cost.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq",
+      "variables": "tags: <a>…</a>"
+    },
+    "knowledge.faq.items.breakdown.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq",
+      "variables": "tags: <a>…</a>"
+    },
+    "knowledge.faq.items.staff.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq"
+    },
+    "knowledge.faq.items.amr.q": {
+      "role": "short",
+      "where": "knowledge #faq",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.faq.items.amr.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq"
+    },
+    "knowledge.faq.items.raas.q": {
+      "role": "short",
+      "where": "knowledge #faq",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.faq.items.raas.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq",
+      "variables": "tags: <a>…</a>"
+    },
+    "knowledge.faq.items.retrofit.q": {
+      "role": "short",
+      "where": "knowledge #faq",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.faq.items.retrofit.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq",
+      "variables": "tags: <a>…</a>"
+    },
+    "knowledge.faq.items.vendors.q": {
+      "role": "short",
+      "where": "knowledge #faq",
+      "note": "FAQ question (summary of an accordion item, also a link in the first-screen card). A question as a buyer would ask it."
+    },
+    "knowledge.faq.items.vendors.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq"
+    },
+    "knowledge.faq.items.notPaying.a": {
+      "role": "paragraph",
+      "where": "knowledge #faq"
+    },
+    "knowledge.faq.none": {
+      "role": "paragraph",
+      "where": "knowledge #faq"
+    },
+    "knowledge.sections.see": {
+      "role": "section-label",
+      "where": "knowledge #see",
+      "note": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "knowledge.see.title": {
+      "role": "heading",
+      "where": "knowledge #see"
+    },
+    "knowledge.see.solutions.kicker": {
+      "role": "short",
+      "where": "knowledge #see"
+    },
+    "knowledge.see.solutions.title": {
+      "role": "heading",
+      "where": "knowledge #see"
+    },
+    "knowledge.see.solutions.text": {
+      "role": "paragraph",
+      "where": "knowledge #see"
+    },
+    "knowledge.see.solutions.foot": {
+      "role": "tag",
+      "where": "knowledge #see"
+    },
+    "knowledge.see.cases.kicker": {
+      "role": "short",
+      "where": "knowledge #see"
+    },
+    "knowledge.see.cases.title": {
+      "role": "heading",
+      "where": "knowledge #see"
+    },
+    "knowledge.see.cases.text": {
+      "role": "paragraph",
+      "where": "knowledge #see"
+    },
+    "knowledge.see.cases.foot": {
+      "role": "tag",
+      "where": "knowledge #see"
+    },
+    "knowledge.sections.talk": {
+      "role": "section-label",
+      "where": "knowledge #talk",
+      "note": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "knowledge.talk.title": {
+      "role": "heading",
+      "where": "knowledge #talk"
+    },
+    "knowledge.talk.lead": {
+      "role": "paragraph",
+      "where": "knowledge #talk"
+    },
+    "knowledge.talk.roiCta": {
+      "role": "button",
+      "where": "knowledge #talk",
+      "note": "Button with an arrow icon outside the message in the final block: opens the ROI calculator page. Same wording as knowledge.hero.ctaRoi."
+    },
+    "knowledge.talk.form.industryLabel": {
+      "role": "label",
+      "where": "knowledge #talk",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Same as cases.talk.form.industryLabel."
+    },
+    "manufacturers.meta.title": {
+      "role": "meta",
+      "where": "manufacturers head"
+    },
+    "manufacturers.meta.description": {
+      "role": "meta",
+      "where": "manufacturers head"
+    },
+    "manufacturers.sections.hero": {
+      "role": "section-label",
+      "where": "manufacturers page",
+      "note": "Small capital-letter label of a section on the Manufacturers page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "manufacturers.crumb": {
+      "role": "short",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.hero.title": {
+      "role": "h1",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ",
+      "note": "Headline of the Manufacturers page, ends with a period. Reads as «the manufacturers we work with»."
+    },
+    "manufacturers.hero.lead": {
+      "role": "paragraph",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ",
+      "variables": "tags: <b>…</b>"
+    },
+    "manufacturers.hero.text": {
+      "role": "paragraph",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.hero.ctaPick": {
+      "role": "button",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ",
+      "note": "Primary button of the first screen, scrolls to the request form. At most 28 characters, verb first."
+    },
+    "manufacturers.hero.ctaRoi": {
+      "role": "button",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ",
+      "note": "Secondary button of the first screen, opens the ROI calculator page."
+    },
+    "manufacturers.map.label": {
+      "role": "aria",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.map.total": {
+      "role": "short",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.map.count": {
+      "role": "tag",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.groups.service.name": {
+      "role": "short",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.groups.construction.name": {
+      "role": "short",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.groups.wellness.name": {
+      "role": "short",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.groups.industry.name": {
+      "role": "short",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.groups.agro.name": {
+      "role": "short",
+      "where": "manufacturers #ПРОИЗВОДИТЕЛИ"
+    },
+    "manufacturers.sections.catalog": {
+      "role": "section-label",
+      "where": "manufacturers #catalog",
+      "note": "Small capital-letter label of a section on the Manufacturers page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "manufacturers.catalog.title": {
+      "role": "heading",
+      "where": "manufacturers #catalog"
+    },
+    "manufacturers.catalog.lead": {
+      "role": "paragraph",
+      "where": "manufacturers #catalog"
+    },
+    "manufacturers.groups.service.text": {
+      "role": "paragraph",
+      "where": "manufacturers header"
+    },
+    "manufacturers.groups.construction.text": {
+      "role": "paragraph",
+      "where": "manufacturers header"
+    },
+    "manufacturers.catalog.others": {
+      "role": "short",
+      "where": "manufacturers #catalog"
+    },
+    "manufacturers.groups.wellness.text": {
+      "role": "paragraph",
+      "where": "manufacturers header"
+    },
+    "manufacturers.groups.industry.text": {
+      "role": "paragraph",
+      "where": "manufacturers header"
+    },
+    "manufacturers.groups.agro.text": {
+      "role": "paragraph",
+      "where": "manufacturers header"
+    },
+    "manufacturers.sections.key": {
+      "role": "section-label",
+      "where": "manufacturers #key",
+      "note": "Small capital-letter label of a section on the Manufacturers page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "manufacturers.key.title": {
+      "role": "heading",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.lead": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.country.cn": {
+      "role": "tag",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.pudu.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.gausium.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.keenon.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.country.sg": {
+      "role": "tag",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.lionsbot.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.hikrobot.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.unitree.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.ubtech.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.xag.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.country.se": {
+      "role": "tag",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.brokk.text": {
+      "role": "paragraph",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.key.note": {
+      "role": "tag",
+      "where": "manufacturers #key"
+    },
+    "manufacturers.sections.select": {
+      "role": "section-label",
+      "where": "manufacturers #select",
+      "note": "Small capital-letter label of a section on the Manufacturers page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "manufacturers.select.title": {
+      "role": "heading",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.lead": {
+      "role": "paragraph",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.example": {
+      "role": "tag",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.result": {
+      "role": "short",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.task.title": {
+      "role": "heading",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.task.text": {
+      "role": "paragraph",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.service.title": {
+      "role": "heading",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.service.text": {
+      "role": "paragraph",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.swap.title": {
+      "role": "heading",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.swap.text": {
+      "role": "paragraph",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.platform.title": {
+      "role": "heading",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.select.platform.text": {
+      "role": "paragraph",
+      "where": "manufacturers #select"
+    },
+    "manufacturers.sections.see": {
+      "role": "section-label",
+      "where": "manufacturers #see",
+      "note": "Small capital-letter label of a section on the Manufacturers page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "manufacturers.see.title": {
+      "role": "heading",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.see.solutions.kicker": {
+      "role": "short",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.see.solutions.title": {
+      "role": "heading",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.see.solutions.text": {
+      "role": "paragraph",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.see.solutions.foot": {
+      "role": "tag",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.see.products.kicker": {
+      "role": "short",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.see.products.title": {
+      "role": "heading",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.see.products.text": {
+      "role": "paragraph",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.see.products.foot": {
+      "role": "tag",
+      "where": "manufacturers #see"
+    },
+    "manufacturers.sections.talk": {
+      "role": "section-label",
+      "where": "manufacturers #talk",
+      "note": "Small capital-letter label of a section on the Manufacturers page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "manufacturers.talk.title": {
+      "role": "heading",
+      "where": "manufacturers #talk"
+    },
+    "manufacturers.talk.lead": {
+      "role": "paragraph",
+      "where": "manufacturers #talk"
+    },
+    "manufacturers.talk.roiCta": {
+      "role": "button",
+      "where": "manufacturers #talk",
+      "note": "Button outside the message in the final block: opens the ROI calculator page. Same wording as manufacturers.hero.ctaRoi."
+    },
+    "manufacturers.talk.form.directionLabel": {
+      "role": "label",
+      "where": "manufacturers #talk",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list in the form: which of the five equipment areas the visitor needs; the <small> part is the grey hint «optional». The options are manufacturers.groups.*.name."
+    },
+    "platform.meta.title": {
+      "role": "meta",
+      "where": "platform head"
+    },
+    "platform.meta.description": {
+      "role": "meta",
+      "where": "platform head"
+    },
+    "platform.sections.hero": {
+      "role": "section-label",
+      "where": "platform page",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.crumb": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.hero.title": {
+      "role": "h1",
+      "where": "platform #ПЛАТФОРМА",
+      "note": "H1 of the Platform page: the product name, not a sentence, no period. Use the glossary form «Professional Robotics Platform»."
+    },
+    "platform.hero.lead": {
+      "role": "paragraph",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.hero.text": {
+      "role": "paragraph",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.hero.ctaDemo": {
+      "role": "button",
+      "where": "platform #ПЛАТФОРМА",
+      "note": "Primary button of the first screen, scrolls to the form with «platform demo» preselected. Verb first, at most 28 characters."
+    },
+    "platform.hero.ctaRoi": {
+      "role": "button",
+      "where": "platform #ПЛАТФОРМА",
+      "note": "Secondary button of the first screen, opens the ROI calculator page."
+    },
+    "platform.hero.trust.russia": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.hero.trust.data": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.hero.trust.makers": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.ops.label": {
+      "role": "aria",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.ops.online": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.ops.example": {
+      "role": "tag",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.ops.operator": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.ops.robots": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.ui.status.work": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.ui.status.charge": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.ops.attention": {
+      "role": "short",
+      "where": "platform #ПЛАТФОРМА"
+    },
+    "platform.sections.idea": {
+      "role": "section-label",
+      "where": "platform #idea",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.idea.title": {
+      "role": "heading",
+      "where": "platform #idea"
+    },
+    "platform.idea.lead": {
+      "role": "paragraph",
+      "where": "platform #idea"
+    },
+    "platform.idea.verbs.assign": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.idea.verbs.watch": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.idea.verbs.catch": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.idea.verbs.show": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.idea.one.operator": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.idea.one.dozens": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.idea.one.devices": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.idea.one.caption": {
+      "role": "caption",
+      "where": "platform #idea"
+    },
+    "platform.any.makers": {
+      "role": "link",
+      "where": "platform #idea"
+    },
+    "platform.any.types": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.one": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.items.cleaning": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.items.delivery": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.items.warehouse": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.items.manipulators": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.items.agro": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.items.construction": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.items.wellness": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.any.items.humanoids": {
+      "role": "short",
+      "where": "platform #idea"
+    },
+    "platform.sections.problems": {
+      "role": "section-label",
+      "where": "platform #problems",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.problems.title": {
+      "role": "heading",
+      "where": "platform #problems"
+    },
+    "platform.problems.staff.title": {
+      "role": "heading",
+      "where": "platform #problems"
+    },
+    "platform.problems.staff.text": {
+      "role": "paragraph",
+      "where": "platform #problems"
+    },
+    "platform.problems.solves": {
+      "role": "short",
+      "where": "platform #problems"
+    },
+    "platform.cap.remote.title": {
+      "role": "short",
+      "where": "platform #problems"
+    },
+    "platform.problems.opaque.title": {
+      "role": "heading",
+      "where": "platform #problems"
+    },
+    "platform.problems.opaque.text": {
+      "role": "paragraph",
+      "where": "platform #problems"
+    },
+    "platform.cap.monitoring.title": {
+      "role": "short",
+      "where": "platform #problems"
+    },
+    "platform.problems.quality.title": {
+      "role": "heading",
+      "where": "platform #problems"
+    },
+    "platform.problems.quality.text": {
+      "role": "paragraph",
+      "where": "platform #problems"
+    },
+    "platform.cap.dispatch.title": {
+      "role": "short",
+      "where": "platform #problems"
+    },
+    "platform.problems.costs.title": {
+      "role": "heading",
+      "where": "platform #problems"
+    },
+    "platform.problems.costs.text": {
+      "role": "paragraph",
+      "where": "platform #problems"
+    },
+    "platform.cap.analytics.title": {
+      "role": "short",
+      "where": "platform #problems"
+    },
+    "platform.problems.disturb.title": {
+      "role": "heading",
+      "where": "platform #problems"
+    },
+    "platform.problems.disturb.text": {
+      "role": "paragraph",
+      "where": "platform #problems"
+    },
+    "platform.cap.maps.title": {
+      "role": "short",
+      "where": "platform #problems"
+    },
+    "platform.sections.capabilities": {
+      "role": "section-label",
+      "where": "platform #capabilities",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.capabilities.title": {
+      "role": "heading",
+      "where": "platform #capabilities"
+    },
+    "platform.capabilities.lead": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.capabilities.listLabel": {
+      "role": "aria",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.center.title": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.fleet.title": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.agents.title": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.api.title": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.sla.title": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.custom.title": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.center.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.kpi.devices": {
+      "role": "caption",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.kpi.sites": {
+      "role": "caption",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.kpi.online": {
+      "role": "caption",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.center.site1": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.center.site2": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.center.site3": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.center.site4": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.center.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.fleet.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.fleet.all": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.fleet.cleaning": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.fleet.delivery": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.fleet.warehouse": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.fleet.selected": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.fleet.update": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.fleet.schedule": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.fleet.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.monitoring.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.monitoring.uptime": {
+      "role": "caption",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.monitoring.errors": {
+      "role": "caption",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.monitoring.log1": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.monitoring.log2": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.monitoring.log3": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.monitoring.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.maps.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.maps.zone": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.maps.route": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.maps.nogo": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.maps.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.dispatch.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.dispatch.zoneA": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.dispatch.zoneB": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.dispatch.zoneC": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.dispatch.note": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.dispatch.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.where": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.start": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.pause": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.stop": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.diag": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.ok": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.link": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.stable": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.operator": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.remote.offsite": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.remote.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.analytics.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.analytics.heat": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.analytics.predTitle": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.analytics.predText": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.analytics.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.agents.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.agents.tagFound": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.agents.found": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.agents.tagDeviation": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.agents.deviation": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.agents.tagAdvice": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.agents.advice": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.agents.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.api.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.api.core": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.api.security": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.api.fullTitle": {
+      "role": "heading",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.api.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.s1tag": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.s1": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.s2tag": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.s2": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.s3tag": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.s3": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.s4tag": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.s4": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.sla.note": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.sla.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.sla.more": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.custom.window": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.custom.greet": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.custom.brandA": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.custom.lift": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.custom.building": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.custom.order": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.ui.custom.brandB": {
+      "role": "tag",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.custom.text": {
+      "role": "paragraph",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.custom.ex1": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.custom.ex2": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.custom.ex3": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.cap.custom.cta": {
+      "role": "short",
+      "where": "platform #capabilities"
+    },
+    "platform.sections.trust": {
+      "role": "section-label",
+      "where": "platform #trust",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.trust.title": {
+      "role": "heading",
+      "where": "platform #trust"
+    },
+    "platform.trust.main.kicker": {
+      "role": "tag",
+      "where": "platform #trust"
+    },
+    "platform.trust.main.title": {
+      "role": "heading",
+      "where": "platform #trust"
+    },
+    "platform.trust.main.text": {
+      "role": "paragraph",
+      "where": "platform #trust"
+    },
+    "platform.trust.dev.title": {
+      "role": "heading",
+      "where": "platform #trust"
+    },
+    "platform.trust.dev.text": {
+      "role": "paragraph",
+      "where": "platform #trust"
+    },
+    "platform.trust.secure.title": {
+      "role": "heading",
+      "where": "platform #trust"
+    },
+    "platform.trust.secure.text": {
+      "role": "paragraph",
+      "where": "platform #trust"
+    },
+    "platform.sections.results": {
+      "role": "section-label",
+      "where": "platform #results",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.results.title": {
+      "role": "heading",
+      "where": "platform #results"
+    },
+    "platform.results.lead": {
+      "role": "paragraph",
+      "where": "platform #results"
+    },
+    "platform.results.cta": {
+      "role": "button",
+      "where": "platform #results",
+      "note": "Button with an arrow icon outside the message in the results block: opens the ROI calculator page."
+    },
+    "platform.results.one.title": {
+      "role": "heading",
+      "where": "platform #results"
+    },
+    "platform.results.one.text": {
+      "role": "paragraph",
+      "where": "platform #results"
+    },
+    "platform.results.costs.title": {
+      "role": "heading",
+      "where": "platform #results"
+    },
+    "platform.results.costs.text": {
+      "role": "paragraph",
+      "where": "platform #results"
+    },
+    "platform.results.quality.title": {
+      "role": "heading",
+      "where": "platform #results"
+    },
+    "platform.results.quality.text": {
+      "role": "paragraph",
+      "where": "platform #results"
+    },
+    "platform.results.clarity.title": {
+      "role": "heading",
+      "where": "platform #results"
+    },
+    "platform.results.clarity.text": {
+      "role": "paragraph",
+      "where": "platform #results"
+    },
+    "platform.results.uptime.title": {
+      "role": "heading",
+      "where": "platform #results"
+    },
+    "platform.results.uptime.text": {
+      "role": "paragraph",
+      "where": "platform #results"
+    },
+    "platform.sections.objects": {
+      "role": "section-label",
+      "where": "platform #objects",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.objects.title": {
+      "role": "heading",
+      "where": "platform #objects"
+    },
+    "platform.objects.lead": {
+      "role": "paragraph",
+      "where": "platform #objects"
+    },
+    "platform.objects.office.kicker": {
+      "role": "short",
+      "where": "platform #objects"
+    },
+    "platform.objects.office.title": {
+      "role": "heading",
+      "where": "platform #objects"
+    },
+    "platform.objects.office.text": {
+      "role": "paragraph",
+      "where": "platform #objects"
+    },
+    "platform.objects.clinic.kicker": {
+      "role": "short",
+      "where": "platform #objects"
+    },
+    "platform.objects.clinic.title": {
+      "role": "heading",
+      "where": "platform #objects"
+    },
+    "platform.objects.clinic.text": {
+      "role": "paragraph",
+      "where": "platform #objects"
+    },
+    "platform.objects.retail.kicker": {
+      "role": "short",
+      "where": "platform #objects"
+    },
+    "platform.objects.retail.title": {
+      "role": "heading",
+      "where": "platform #objects"
+    },
+    "platform.objects.retail.text": {
+      "role": "paragraph",
+      "where": "platform #objects"
+    },
+    "platform.objects.more.warehouse": {
+      "role": "link",
+      "where": "platform #objects"
+    },
+    "platform.objects.more.hotels": {
+      "role": "link",
+      "where": "platform #objects"
+    },
+    "platform.objects.more.airports": {
+      "role": "link",
+      "where": "platform #objects"
+    },
+    "platform.objects.more.fitness": {
+      "role": "link",
+      "where": "platform #objects"
+    },
+    "platform.objects.more.education": {
+      "role": "link",
+      "where": "platform #objects"
+    },
+    "platform.objects.more.all": {
+      "role": "short",
+      "where": "platform #objects"
+    },
+    "platform.sections.see": {
+      "role": "section-label",
+      "where": "platform #see",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.see.title": {
+      "role": "heading",
+      "where": "platform #see"
+    },
+    "platform.see.cleaning.kicker": {
+      "role": "short",
+      "where": "platform #see"
+    },
+    "platform.see.cleaning.text": {
+      "role": "paragraph",
+      "where": "platform #see"
+    },
+    "platform.see.cleaning.foot": {
+      "role": "tag",
+      "where": "platform #see"
+    },
+    "platform.see.products.kicker": {
+      "role": "short",
+      "where": "platform #see"
+    },
+    "platform.see.products.title": {
+      "role": "heading",
+      "where": "platform #see"
+    },
+    "platform.see.products.text": {
+      "role": "paragraph",
+      "where": "platform #see"
+    },
+    "platform.see.products.foot": {
+      "role": "tag",
+      "where": "platform #see"
+    },
+    "platform.see.cases.kicker": {
+      "role": "short",
+      "where": "platform #see"
+    },
+    "platform.see.cases.title": {
+      "role": "heading",
+      "where": "platform #see"
+    },
+    "platform.see.cases.text": {
+      "role": "paragraph",
+      "where": "platform #see"
+    },
+    "platform.see.cases.foot": {
+      "role": "tag",
+      "where": "platform #see"
+    },
+    "platform.sections.talk": {
+      "role": "section-label",
+      "where": "platform #talk",
+      "note": "Small capital-letter label of a section on the Platform page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "platform.talk.title": {
+      "role": "heading",
+      "where": "platform #talk"
+    },
+    "platform.talk.lead": {
+      "role": "paragraph",
+      "where": "platform #talk"
+    },
+    "platform.talk.roiCta": {
+      "role": "button",
+      "where": "platform #talk",
+      "note": "Button in the final block: opens the ROI calculator page. Same wording as platform.results.cta."
+    },
+    "platform.talk.form.topicLabel": {
+      "role": "label",
+      "where": "platform #talk",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list in the form: what the visitor wants to discuss; the <small> part is the grey hint «optional». Compare services.talk.form.serviceLabel. Option of the drop-down list «what to discuss» in the contact form: a topic of the conversation, short noun phrase."
+    },
+    "platform.talk.form.demo": {
+      "role": "option",
+      "where": "platform #talk",
+      "note": "Option of the drop-down list «what to discuss» in the contact form: a topic of the conversation, short noun phrase."
+    },
+    "platform.talk.form.connect": {
+      "role": "option",
+      "where": "platform #talk",
+      "note": "Option of the drop-down list «what to discuss» in the contact form: a topic of the conversation, short noun phrase."
+    },
+    "platform.talk.form.custom": {
+      "role": "option",
+      "where": "platform #talk",
+      "note": "Option of the drop-down list «what to discuss» in the contact form: a topic of the conversation, short noun phrase."
+    },
+    "platform.talk.form.api": {
+      "role": "option",
+      "where": "platform #talk",
+      "note": "Option of the drop-down list «what to discuss» in the contact form: a topic of the conversation, short noun phrase."
+    },
+    "services.meta.title": {
+      "role": "meta",
+      "where": "services head"
+    },
+    "services.meta.description": {
+      "role": "meta",
+      "where": "services head"
+    },
+    "services.sections.hero": {
+      "role": "section-label",
+      "where": "services page",
+      "note": "Small capital-letter label of a section on the Services page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "services.crumb": {
+      "role": "short",
+      "where": "services #УСЛУГИ"
+    },
+    "services.hero.title": {
+      "role": "h1",
+      "where": "services #УСЛУГИ",
+      "note": "Headline of the Services page, ends with a period. «Аудит» is a site assessment (glossary), not a financial audit."
+    },
+    "services.hero.lead": {
+      "role": "paragraph",
+      "where": "services #УСЛУГИ"
+    },
+    "services.hero.text": {
+      "role": "paragraph",
+      "where": "services #УСЛУГИ"
+    },
+    "services.hero.ctaQuestion": {
+      "role": "paragraph",
+      "where": "services #УСЛУГИ"
+    },
+    "services.hero.ctaAudit": {
+      "role": "button",
+      "where": "services #УСЛУГИ",
+      "note": "Primary button of the first screen under «Where to start?», scrolls to the form with the site assessment preselected. At most 28 characters, verb first."
+    },
+    "services.hero.ctaRoi": {
+      "role": "button",
+      "where": "services #УСЛУГИ",
+      "note": "Secondary button of the first screen, opens the ROI calculator page."
+    },
+    "services.route.label": {
+      "role": "aria",
+      "where": "services #УСЛУГИ"
+    },
+    "services.route.title": {
+      "role": "short",
+      "where": "services #УСЛУГИ"
+    },
+    "services.route.count": {
+      "role": "tag",
+      "where": "services #УСЛУГИ"
+    },
+    "services.phases.before": {
+      "role": "short",
+      "where": "services #УСЛУГИ",
+      "note": "Name of a project stage. Also the group label in the form drop-down list."
+    },
+    "services.names.roi": {
+      "role": "link",
+      "where": "services #УСЛУГИ",
+      "note": "Service name. Used in the route on the first screen (short chips), on the cards and in the form list: keep one wording and keep it short."
+    },
+    "services.phases.rollout": {
+      "role": "short",
+      "where": "services #УСЛУГИ",
+      "note": "Name of a project stage. Also the group label in the form drop-down list."
+    },
+    "services.names.design": {
+      "role": "link",
+      "where": "services #УСЛУГИ",
+      "note": "Service name. Used in the route on the first screen (short chips), on the cards and in the form list: keep one wording and keep it short."
+    },
+    "services.names.supply": {
+      "role": "link",
+      "where": "services #УСЛУГИ",
+      "note": "Service name. Used in the route on the first screen (short chips), on the cards and in the form list: keep one wording and keep it short."
+    },
+    "services.names.integration": {
+      "role": "link",
+      "where": "services #УСЛУГИ",
+      "note": "Service name. Used in the route on the first screen (short chips), on the cards and in the form list: keep one wording and keep it short."
+    },
+    "services.names.training": {
+      "role": "link",
+      "where": "services #УСЛУГИ",
+      "note": "Service name. Used in the route on the first screen (short chips), on the cards and in the form list: keep one wording and keep it short."
+    },
+    "services.phases.operation": {
+      "role": "short",
+      "where": "services #УСЛУГИ",
+      "note": "Name of a project stage. Also the group label in the form drop-down list."
+    },
+    "services.names.sla": {
+      "role": "link",
+      "where": "services #УСЛУГИ",
+      "note": "Service name. Used in the route on the first screen (short chips), on the cards and in the form list: keep one wording and keep it short."
+    },
+    "services.names.monitoring": {
+      "role": "link",
+      "where": "services #УСЛУГИ",
+      "note": "Service name. Used in the route on the first screen (short chips), on the cards and in the form list: keep one wording and keep it short."
+    },
+    "services.names.consulting": {
+      "role": "link",
+      "where": "services #УСЛУГИ",
+      "note": "Service name. Used in the route on the first screen (short chips), on the cards and in the form list: keep one wording and keep it short."
+    },
+    "services.sections.before": {
+      "role": "section-label",
+      "where": "services #before",
+      "note": "Small capital-letter label of a section on the Services page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "services.before.title": {
+      "role": "heading",
+      "where": "services #before"
+    },
+    "services.before.lead": {
+      "role": "paragraph",
+      "where": "services #before"
+    },
+    "services.before.audit.tag": {
+      "role": "short",
+      "where": "services #before"
+    },
+    "services.before.audit.text": {
+      "role": "paragraph",
+      "where": "services #before"
+    },
+    "services.before.selection.text": {
+      "role": "paragraph",
+      "where": "services #before"
+    },
+    "services.before.roi.text": {
+      "role": "paragraph",
+      "where": "services #before"
+    },
+    "services.before.roi.cta": {
+      "role": "short",
+      "where": "services #before"
+    },
+    "services.before.pilot.text": {
+      "role": "paragraph",
+      "where": "services #before"
+    },
+    "services.before.pilot.cta": {
+      "role": "short",
+      "where": "services #before"
+    },
+    "services.sections.rollout": {
+      "role": "section-label",
+      "where": "services #rollout",
+      "note": "Small capital-letter label of a section on the Services page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "services.rollout.title": {
+      "role": "heading",
+      "where": "services #rollout"
+    },
+    "services.rollout.lead": {
+      "role": "paragraph",
+      "where": "services #rollout"
+    },
+    "services.rollout.launch": {
+      "role": "short",
+      "where": "services #rollout"
+    },
+    "services.rollout.design.text": {
+      "role": "paragraph",
+      "where": "services #rollout"
+    },
+    "services.rollout.supply.text": {
+      "role": "paragraph",
+      "where": "services #rollout"
+    },
+    "services.rollout.integration.text": {
+      "role": "paragraph",
+      "where": "services #rollout"
+    },
+    "services.rollout.training.text": {
+      "role": "paragraph",
+      "where": "services #rollout"
+    },
+    "services.sections.operation": {
+      "role": "section-label",
+      "where": "services #operation",
+      "note": "Small capital-letter label of a section on the Services page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "services.operation.title": {
+      "role": "heading",
+      "where": "services #operation"
+    },
+    "services.operation.lead": {
+      "role": "paragraph",
+      "where": "services #operation",
+      "variables": "tags: <b>…</b>"
+    },
+    "services.operation.trust.network": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.trust.sla": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.trust.predict": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.chain.label": {
+      "role": "aria",
+      "where": "services #operation"
+    },
+    "services.operation.chain.signalTag": {
+      "role": "tag",
+      "where": "services #operation"
+    },
+    "services.operation.chain.signal": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.chain.signalNote": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.chain.forecastTag": {
+      "role": "tag",
+      "where": "services #operation"
+    },
+    "services.operation.chain.forecast": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.chain.forecastNote": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.chain.visitTag": {
+      "role": "tag",
+      "where": "services #operation"
+    },
+    "services.operation.chain.visit": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.chain.visitNote": {
+      "role": "short",
+      "where": "services #operation"
+    },
+    "services.operation.maintenance.text": {
+      "role": "paragraph",
+      "where": "services #operation"
+    },
+    "services.operation.sla.text": {
+      "role": "paragraph",
+      "where": "services #operation"
+    },
+    "services.operation.monitoring.text": {
+      "role": "paragraph",
+      "where": "services #operation"
+    },
+    "services.operation.consulting.text": {
+      "role": "paragraph",
+      "where": "services #operation"
+    },
+    "services.sections.see": {
+      "role": "section-label",
+      "where": "services #see",
+      "note": "Small capital-letter label of a section on the Services page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "services.see.title": {
+      "role": "heading",
+      "where": "services #see"
+    },
+    "services.see.products.kicker": {
+      "role": "short",
+      "where": "services #see"
+    },
+    "services.see.products.title": {
+      "role": "heading",
+      "where": "services #see"
+    },
+    "services.see.products.text": {
+      "role": "paragraph",
+      "where": "services #see"
+    },
+    "services.see.products.foot": {
+      "role": "tag",
+      "where": "services #see"
+    },
+    "services.sections.talk": {
+      "role": "section-label",
+      "where": "services #talk",
+      "note": "Small capital-letter label of a section on the Services page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "services.talk.title": {
+      "role": "heading",
+      "where": "services #talk"
+    },
+    "services.talk.lead": {
+      "role": "paragraph",
+      "where": "services #talk"
+    },
+    "services.talk.roiCta": {
+      "role": "button",
+      "where": "services #talk",
+      "note": "Button with an arrow icon outside the message in the final block: opens the ROI calculator page. Same wording as services.hero.ctaRoi."
+    },
+    "services.talk.form.serviceLabel": {
+      "role": "label",
+      "where": "services #talk",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list in the form: which service the visitor needs; the <small> part is the grey hint «optional». Compare products.talk.form.productLabel."
+    },
     "js.roi.money.mln": {
       "role": "js",
       "where": "js",
@@ -8105,6 +11640,16 @@
       "note": "Assembled by a script at run time: keep the variables in braces and the tags exactly; the table in i18n/js-sites.md says where each one is used."
     },
     "js.solutions.errors.consent": {
+      "role": "js",
+      "where": "js",
+      "note": "Assembled by a script at run time: keep the variables in braces and the tags exactly; the table in i18n/js-sites.md says where each one is used."
+    },
+    "js.solutions.errors.contact": {
+      "role": "js",
+      "where": "js",
+      "note": "Assembled by a script at run time: keep the variables in braces and the tags exactly; the table in i18n/js-sites.md says where each one is used."
+    },
+    "js.solutions.errors.email": {
       "role": "js",
       "where": "js",
       "note": "Assembled by a script at run time: keep the variables in braces and the tags exactly; the table in i18n/js-sites.md says where each one is used."

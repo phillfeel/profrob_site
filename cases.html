@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="cases.meta.title">Кейсы роботизации: результаты и ROI | Профессиональная Робототехника</title>
+  <meta data-i18n-attr="content:cases.meta.description" name="description" content="Кейсы роботизации по отраслям: снижение затрат на клининг на 32%, рост пропускной способности склада на 35%. Задача, решение и результат в цифрах.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="/cases/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="solutions.css">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="cases.css">
+  <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="sol-page pr-page cs-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  </defs></svg>
+
+  <!-- ================= NAV ================= -->
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoSrc" src="assets/profrobot-logo.png" alt="Профессиональная Робототехника"></a>
+    <nav class="nav-links">
+      <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+      <a data-i18n="common.nav.industries" href="index.html#industries">Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html">Продукты</a>
+      <a data-i18n="common.nav.services" href="services.html">Услуги</a>
+      <a data-i18n="common.nav.platform" href="platform.html">Платформа</a>
+      <a data-i18n="common.nav.cases" href="cases.html" class="on" aria-current="page">Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="contacts.html">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="#talk">Связаться</a>
+  </header>
+
+  <div class="counter" aria-hidden="true">
+    <span class="cur tnum">01</span>
+    <span class="bar"><i></i></span>
+    <span class="tot tnum">05</span>
+    <span data-i18n="cases.sections.hero" class="lbl">КЕЙСЫ</span>
+  </div>
+
+  <main>
+    <!-- ================= 01 HERO ================= -->
+    <section data-i18n-attr="data-name:cases.sections.hero" class="sol-hero wrap" data-sec="01" data-name="КЕЙСЫ">
+      <div class="sol-hero__grid">
+        <div class="sol-hero__copy">
+          <nav class="crumbs reveal" data-i18n-attr="aria-label:common.crumbs.label" aria-label="Хлебные крошки"><ol><li><a data-i18n="common.crumbs.home" href="index.html">Главная</a></li><li data-i18n="cases.crumb" aria-current="page">Кейсы</li></ol></nav>
+          <span class="idx reveal"><b>01</b> — <span data-i18n="cases.sections.hero">КЕЙСЫ</span></span>
+          <h1 class="h1 reveal" data-i18n="cases.hero.title">Кейсы: что роботизация дала бизнесу в цифрах.</h1>
+          <div class="sol-hero__text reveal">
+            <p data-i18n="cases.hero.lead" class="lead">Здесь без общих слов. По каждому проекту — какая была задача, что внедрили и какой результат получили в цифрах.</p>
+            <p data-i18n="cases.hero.text">Если у вас похожий объект, порядок экономики будет близким. Все цифры считаем по одной методике: что с чем сравниваем, за какой период и что входит в затраты.</p>
+          </div>
+          <div class="btns reveal">
+            <a class="btn btn-pri" href="roi.html"><span data-i18n="cases.hero.ctaRoi">Рассчитать ROI</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-sec" href="#method"><span data-i18n="cases.hero.ctaMethod">Как мы считаем</span></a>
+          </div>
+        </div>
+
+        <!-- Сводка: оглавление кейсов, цифра первой. Порядок как в блоке «Кейсы» на главной. -->
+        <nav class="cs-sum reveal" style="--i:2" data-i18n-attr="aria-label:cases.summary.label" aria-label="Результаты кейсов">
+          <p class="cs-sum__head"><span data-i18n="cases.summary.title">Результаты в цифрах</span><span class="mono" data-i18n="cases.summary.count">5 кейсов</span></p>
+          <ol class="cs-sum__list">
+            <li><a href="#business-center"><b class="tnum">−32%</b><span class="cs-sum__txt"><span data-i18n="home.cases.items.businessCenter.title">Снижение затрат на клининг</span><small data-i18n="home.cases.items.businessCenter.tag">Бизнес-центр</small></span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+            <li><a href="#agro"><b class="tnum">−30%</b><span class="cs-sum__txt"><span data-i18n="home.cases.items.agro.title">Снижение расхода СЗР при обработке полей</span><small data-i18n="home.cases.items.agro.tag">Агрохолдинг</small></span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+            <li><a href="#warehouse"><b class="tnum">+35%</b><span class="cs-sum__txt"><span data-i18n="home.cases.items.warehouse.title">Рост пропускной способности склада</span><small data-i18n="home.cases.items.warehouse.tag">Складской комплекс</small></span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+            <li><a href="#manufacturing"><b class="tnum">−2</b><span class="cs-sum__txt"><span data-i18n="home.cases.items.manufacturing.title">Автоматизация загрузки станков с ЧПУ</span><small data-i18n="cases.summary.manufacturing">Производство · оператора в смену</small></span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+            <li><a href="#construction"><b class="tnum">−40%</b><span class="cs-sum__txt"><span data-i18n="home.cases.items.construction.title">Снижение трудозатрат на демонтаж</span><small data-i18n="home.cases.items.construction.tag">Строительство</small></span><svg aria-hidden="true"><use href="#i-down"/></svg></a></li>
+          </ol>
+          <a class="cs-sum__foot" href="#method"><span data-i18n="cases.summary.method">Каждая цифра — по формуле, см. методику</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ================= 02 ПРОЕКТЫ ================= -->
+    <section data-i18n-attr="data-name:cases.sections.list" class="sol-sec wrap" id="list" data-sec="02" data-name="ПРОЕКТЫ" aria-labelledby="list-h">
+      <div class="cs-head">
+        <div class="sol-head">
+          <span class="idx reveal"><b>02</b> — <span data-i18n="cases.sections.list">ПРОЕКТЫ</span></span>
+          <h2 data-i18n="cases.list.title" class="h2 reveal" id="list-h">Найдите объект, похожий на ваш.</h2>
+          <p data-i18n="cases.list.lead" class="lead reveal">Шаблон у всех кейсов один: объект, задача, что внедрили, результат и период, за который он получен.</p>
+        </div>
+        <!-- Фильтр: ссылки работают и без JS (тогда видны все кейсы); cases.js фильтрует на месте и пишет ?industry= в адрес. -->
+        <nav class="cs-filter reveal" data-i18n-attr="aria-label:cases.filter.label" aria-label="Фильтр по отрасли">
+          <a class="cs-chip" href="cases.html#list" data-filter="" aria-current="true"><span data-i18n="cases.filter.all">Все</span><span class="cs-chip__n tnum">5</span></a>
+          <a class="cs-chip" href="cases.html?industry=business-centers#list" data-filter="business-centers"><span data-i18n="home.industries.items.businessCenters">Бизнес-центры и офисы</span><span class="cs-chip__n tnum">1</span></a>
+          <a class="cs-chip" href="cases.html?industry=manufacturing#list" data-filter="manufacturing"><span data-i18n="home.industries.items.manufacturing">Промышленность и производство</span><span class="cs-chip__n tnum">2</span></a>
+          <a class="cs-chip" href="cases.html?industry=construction#list" data-filter="construction"><span data-i18n="home.industries.items.construction.name">Строительство и девелопмент</span><span class="cs-chip__n tnum">1</span></a>
+          <a class="cs-chip" href="cases.html?industry=agriculture#list" data-filter="agriculture"><span data-i18n="home.industries.items.agriculture.name">Агро и фермерские хозяйства</span><span class="cs-chip__n tnum">1</span></a>
+        </nav>
+      </div>
+
+      <!-- TODO(client): у всех пяти кейсов цифра результата взята из ТЗ (агро и производство — плейсхолдеры, assets/cases_images/README.md),
+           период, окупаемость и параметры объекта не известны, тексты «Задача» и «Что внедрили» — черновик. См. docs/specs/СПЕКА_СТРАНИЦА_КЕЙСЫ_ДИЗАЙН.md -->
+      <div class="cs-list">
+        <article class="cs reveal" id="business-center" data-industry="business-centers" aria-labelledby="cs-bc-h">
+          <figure class="cs__ph"><img data-i18n-attr="alt:home.cases.items.businessCenter.alt" src="assets/cases_images/case-business-center.webp" alt="Робот-уборщик в холле бизнес-центра" width="1120" height="700" loading="lazy" decoding="async"><figcaption class="mono" data-i18n="cases.illustration">Иллюстрация</figcaption></figure>
+          <div class="cs__body">
+            <div class="cs__top mono"><span class="cs__no">01</span><span data-i18n="home.cases.items.businessCenter.tag">Бизнес-центр</span></div>
+            <h3 id="cs-bc-h" data-i18n="home.cases.items.businessCenter.title">Снижение затрат на клининг</h3>
+            <div class="cs__res">
+              <div class="cs__fig"><b class="tnum">−32%</b><a class="cs__how" href="#method-cost"><span data-i18n="cases.howCounted">Как посчитано</span> <svg aria-hidden="true"><use href="#i-down"/></svg></a></div>
+              <dl class="cs__pass">
+                <div><dt data-i18n="cases.labels.object">Объект</dt><dd data-i18n="cases.items.businessCenter.object">Бизнес-центр, общие зоны и лобби</dd></div>
+                <div><dt data-i18n="cases.labels.period">Период</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+                <div><dt data-i18n="cases.labels.payback">Окупаемость</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+              </dl>
+            </div>
+            <div class="cs__story">
+              <div><h4 data-i18n="cases.labels.task">Задача</h4><p data-i18n="cases.items.businessCenter.task">Уборка общих зон держалась на подрядной бригаде: текучка, качество менялось от смены к смене, а ставки росли каждый год.</p></div>
+              <div><h4 data-i18n="cases.labels.solution">Что внедрили</h4><p data-i18n="cases.items.businessCenter.solution">Поломоечные роботы моют лобби и коридоры по расписанию, задания и отчёты — в платформе. Люди остались на санузлах и точечных задачах.</p></div>
+            </div>
+            <div class="cs__foot">
+              <ul class="cs__links">
+                <li><a href="industries-business-centers.html"><span><span class="mono" data-i18n="cases.labels.industry">Отрасль</span> <span data-i18n="home.industries.items.businessCenters">Бизнес-центры и офисы</span></span></a></li>
+                <li><a href="/solutions/cleaning/"><span><span class="mono" data-i18n="cases.labels.solutionLink">Решение</span> <span data-i18n="common.solutionNames.cleaning">Роботизированный клининг</span></span></a></li>
+              </ul>
+              <div class="cs__cta">
+                <a class="text-link" href="roi.html?t=office"><span data-i18n="cases.roiCta">Рассчитать окупаемость</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="text-link cs__same" href="#talk" data-pick="business-centers"><span data-i18n="cases.sameCta">Хочу так же</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cs reveal" id="agro" data-industry="agriculture" aria-labelledby="cs-agro-h">
+          <figure class="cs__ph"><img data-i18n-attr="alt:home.cases.items.agro.alt" src="assets/cases_images/case-agro.webp" alt="Агродрон опрыскивает пшеничное поле ранним утром" width="1120" height="700" loading="lazy" decoding="async"><figcaption class="mono" data-i18n="cases.illustration">Иллюстрация</figcaption></figure>
+          <div class="cs__body">
+            <div class="cs__top mono"><span class="cs__no">02</span><span data-i18n="home.cases.items.agro.tag">Агрохолдинг</span></div>
+            <h3 id="cs-agro-h" data-i18n="home.cases.items.agro.title">Снижение расхода СЗР при обработке полей</h3>
+            <div class="cs__res">
+              <div class="cs__fig"><b class="tnum">−30%</b><a class="cs__how" href="#method-cost"><span data-i18n="cases.howCounted">Как посчитано</span> <svg aria-hidden="true"><use href="#i-down"/></svg></a></div>
+              <dl class="cs__pass">
+                <div><dt data-i18n="cases.labels.object">Объект</dt><dd data-i18n="cases.items.agro.object">Агрохолдинг, полевые культуры</dd></div>
+                <div><dt data-i18n="cases.labels.period">Период</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+                <div><dt data-i18n="cases.labels.payback">Окупаемость</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+              </dl>
+            </div>
+            <div class="cs__story">
+              <div><h4 data-i18n="cases.labels.task">Задача</h4><p data-i18n="cases.items.agro.task">Поля обрабатывали наземной техникой: перерасход препарата на перекрытиях, колея по посевам, окно обработки зависело от погоды.</p></div>
+              <div><h4 data-i18n="cases.labels.solution">Что внедрили</h4><p data-i18n="cases.items.agro.solution">Агродроны опрыскивают по полётным заданиям с картой поля. Норму внесения и маршрут задаём под каждое поле. Экономику считаем за сезон, а не за месяц.</p></div>
+            </div>
+            <div class="cs__foot">
+              <ul class="cs__links">
+                <li><a href="industries-agriculture.html"><span><span class="mono" data-i18n="cases.labels.industry">Отрасль</span> <span data-i18n="home.industries.items.agriculture.name">Агро и фермерские хозяйства</span></span></a></li>
+                <li><a href="/solutions/agro/"><span><span class="mono" data-i18n="cases.labels.solutionLink">Решение</span> <span data-i18n="common.solutionNames.agro">Агророботы</span></span></a></li>
+              </ul>
+              <div class="cs__cta">
+                <a class="text-link" href="roi.html"><span data-i18n="cases.roiCta">Рассчитать окупаемость</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="text-link cs__same" href="#talk" data-pick="agriculture"><span data-i18n="cases.sameCta">Хочу так же</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cs reveal" id="warehouse" data-industry="manufacturing" aria-labelledby="cs-wh-h">
+          <figure class="cs__ph"><img data-i18n-attr="alt:home.cases.items.warehouse.alt" src="assets/cases_images/case-warehouse.webp" alt="Автономный складской робот везёт стеллаж с коробками по проходу склада" width="1120" height="700" loading="lazy" decoding="async"><figcaption class="mono" data-i18n="cases.illustration">Иллюстрация</figcaption></figure>
+          <div class="cs__body">
+            <div class="cs__top mono"><span class="cs__no">03</span><span data-i18n="home.cases.items.warehouse.tag">Складской комплекс</span></div>
+            <h3 id="cs-wh-h" data-i18n="home.cases.items.warehouse.title">Рост пропускной способности склада</h3>
+            <div class="cs__res">
+              <div class="cs__fig"><b class="tnum">+35%</b><a class="cs__how" href="#method-growth"><span data-i18n="cases.howCounted">Как посчитано</span> <svg aria-hidden="true"><use href="#i-down"/></svg></a></div>
+              <dl class="cs__pass">
+                <div><dt data-i18n="cases.labels.object">Объект</dt><dd data-i18n="cases.items.warehouse.object">Складской комплекс, зона комплектации</dd></div>
+                <div><dt data-i18n="cases.labels.period">Период</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+                <div><dt data-i18n="cases.labels.payback">Окупаемость</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+              </dl>
+            </div>
+            <div class="cs__story">
+              <div><h4 data-i18n="cases.labels.task">Задача</h4><p data-i18n="cases.items.warehouse.task">Сборщики тратили большую часть смены на проходы между стеллажами. В пиковые недели склад упирался в число людей на смене.</p></div>
+              <div><h4 data-i18n="cases.labels.solution">Что внедрили</h4><p data-i18n="cases.items.warehouse.solution">Автономные мобильные роботы (AMR) везут стеллажи к станциям сборки. Задания приходят из WMS через платформу.</p></div>
+            </div>
+            <div class="cs__foot">
+              <ul class="cs__links">
+                <li><a href="industries-manufacturing.html#logistics"><span><span class="mono" data-i18n="cases.labels.industry">Отрасль</span> <span data-i18n="home.industries.items.logistics.name">Склады и логистика</span></span></a></li>
+                <li><a href="/solutions/warehouse/"><span><span class="mono" data-i18n="cases.labels.solutionLink">Решение</span> <span data-i18n="common.solutionNames.warehouse">Складская роботизация</span></span></a></li>
+              </ul>
+              <div class="cs__cta">
+                <a class="text-link" href="roi.html?t=warehouse"><span data-i18n="cases.roiCta">Рассчитать окупаемость</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="text-link cs__same" href="#talk" data-pick="logistics"><span data-i18n="cases.sameCta">Хочу так же</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cs reveal" id="manufacturing" data-industry="manufacturing" aria-labelledby="cs-mf-h">
+          <figure class="cs__ph"><img data-i18n-attr="alt:home.cases.items.manufacturing.alt" src="assets/cases_images/case-manufacturing.webp" alt="Коллаборативный манипулятор на мобильной базе загружает станок с ЧПУ" width="1120" height="700" loading="lazy" decoding="async"><figcaption class="mono" data-i18n="cases.illustration">Иллюстрация</figcaption></figure>
+          <div class="cs__body">
+            <div class="cs__top mono"><span class="cs__no">04</span><span data-i18n="home.cases.items.manufacturing.tag">Производство</span></div>
+            <h3 id="cs-mf-h" data-i18n="home.cases.items.manufacturing.title">Автоматизация загрузки станков с ЧПУ</h3>
+            <div class="cs__res">
+              <div class="cs__fig"><b class="tnum">−2</b><span class="cs__unit mono" data-i18n="home.cases.items.manufacturing.unit">оператора в смену</span><a class="cs__how" href="#method-staff"><span data-i18n="cases.howCounted">Как посчитано</span> <svg aria-hidden="true"><use href="#i-down"/></svg></a></div>
+              <dl class="cs__pass">
+                <div><dt data-i18n="cases.labels.object">Объект</dt><dd data-i18n="cases.items.manufacturing.object">Механообработка, участок станков с ЧПУ</dd></div>
+                <div><dt data-i18n="cases.labels.period">Период</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+                <div><dt data-i18n="cases.labels.payback">Окупаемость</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+              </dl>
+            </div>
+            <div class="cs__story">
+              <div><h4 data-i18n="cases.labels.task">Задача</h4><p data-i18n="cases.items.manufacturing.task">Операторы всю смену стояли у станков: загрузить заготовку, снять деталь. На вторую смену людей не хватало.</p></div>
+              <div><h4 data-i18n="cases.labels.solution">Что внедрили</h4><p data-i18n="cases.items.manufacturing.solution">Коллаборативный манипулятор на мобильной базе загружает и разгружает станки, переезжая между ними. Оператор следит за участком, а не за каждой деталью.</p></div>
+            </div>
+            <div class="cs__foot">
+              <ul class="cs__links">
+                <li><a href="industries-manufacturing.html"><span><span class="mono" data-i18n="cases.labels.industry">Отрасль</span> <span data-i18n="home.industries.items.manufacturing">Промышленность и производство</span></span></a></li>
+                <li><a href="/solutions/industrial/"><span><span class="mono" data-i18n="cases.labels.solutionLink">Решение</span> <span data-i18n="common.solutionNames.industrial">Промышленная роботизация</span></span></a></li>
+              </ul>
+              <div class="cs__cta">
+                <a class="text-link" href="roi.html"><span data-i18n="cases.roiCta">Рассчитать окупаемость</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="text-link cs__same" href="#talk" data-pick="manufacturing"><span data-i18n="cases.sameCta">Хочу так же</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="cs reveal" id="construction" data-industry="construction" aria-labelledby="cs-cn-h">
+          <figure class="cs__ph"><img data-i18n-attr="alt:home.cases.items.construction.alt" src="assets/cases_images/case-construction.webp" alt="Демонтажный робот разрушает бетонную стену на объекте реконструкции" width="1120" height="700" loading="lazy" decoding="async"><figcaption class="mono" data-i18n="cases.illustration">Иллюстрация</figcaption></figure>
+          <div class="cs__body">
+            <div class="cs__top mono"><span class="cs__no">05</span><span data-i18n="home.cases.items.construction.tag">Строительство</span></div>
+            <h3 id="cs-cn-h" data-i18n="home.cases.items.construction.title">Снижение трудозатрат на демонтаж</h3>
+            <div class="cs__res">
+              <div class="cs__fig"><b class="tnum">−40%</b><a class="cs__how" href="#method-cost"><span data-i18n="cases.howCounted">Как посчитано</span> <svg aria-hidden="true"><use href="#i-down"/></svg></a></div>
+              <dl class="cs__pass">
+                <div><dt data-i18n="cases.labels.object">Объект</dt><dd data-i18n="cases.items.construction.object">Реконструкция, демонтаж бетонных конструкций</dd></div>
+                <div><dt data-i18n="cases.labels.period">Период</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+                <div><dt data-i18n="cases.labels.payback">Окупаемость</dt><dd class="cs-tbd" data-i18n="cases.tbd">уточняется</dd></div>
+              </dl>
+            </div>
+            <div class="cs__story">
+              <div><h4 data-i18n="cases.labels.task">Задача</h4><p data-i18n="cases.items.construction.task">Ручной демонтаж: бригада с отбойными молотками, вибрация, пыль и риск обрушения рядом с людьми. Сроки срывались из-за нехватки рабочих.</p></div>
+              <div><h4 data-i18n="cases.labels.solution">Что внедрили</h4><p data-i18n="cases.items.construction.solution">Демонтажный робот с дистанционным управлением: оператор работает с безопасного расстояния, тяжёлую часть работы берёт машина.</p></div>
+            </div>
+            <div class="cs__foot">
+              <ul class="cs__links">
+                <li><a href="industries-construction.html"><span><span class="mono" data-i18n="cases.labels.industry">Отрасль</span> <span data-i18n="home.industries.items.construction.name">Строительство и девелопмент</span></span></a></li>
+                <li><a href="/solutions/construction/"><span><span class="mono" data-i18n="cases.labels.solutionLink">Решение</span> <span data-i18n="common.solutionNames.construction">Строительная робототехника</span></span></a></li>
+              </ul>
+              <div class="cs__cta">
+                <a class="text-link" href="roi.html"><span data-i18n="cases.roiCta">Рассчитать окупаемость</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a class="text-link cs__same" href="#talk" data-pick="construction"><span data-i18n="cases.sameCta">Хочу так же</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Пустое состояние: ?industry= отрасли, по которой кейса нет (ссылки «Кейсы: …» с отраслевых лендингов). Показывает cases.js. -->
+      <div class="cs-empty" hidden>
+        <div class="cs-empty__copy">
+          <p class="cs-empty__ind mono">
+            <span data-ind="retail" hidden data-i18n="home.industries.items.retail">Торговые центры и ритейл</span>
+            <span data-ind="hotels" hidden data-i18n="home.industries.items.hotels">Отели и HoReCa</span>
+            <span data-ind="medical" hidden data-i18n="home.industries.items.medical">Медицинские объекты</span>
+            <span data-ind="public-spaces" hidden data-i18n="home.industries.items.publicSpaces">Общественные пространства</span>
+            <span data-ind="municipal" hidden data-i18n="home.industries.items.municipal">Муниципальные службы</span>
+            <span data-ind="education" hidden data-i18n="home.industries.items.education">Образовательные учреждения</span>
+            <span data-ind="fitness-sports" hidden data-i18n="home.industries.items.fitness">Фитнес-клубы и спорткомплексы</span>
+          </p>
+          <h3 data-i18n="cases.empty.title">Опубликованного кейса по этой отрасли пока нет.</h3>
+          <p data-i18n="cases.empty.text">Посчитаем окупаемость по нашей модели, а реальные цифры получим на пилоте. На отраслевой странице — сценарии, оборудование и данные открытых источников.</p>
+        </div>
+        <div class="cs-empty__acts">
+          <a class="btn btn-pri" href="roi.html"><span data-i18n="cases.empty.roi">Рассчитать ROI</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="cs-empty__links">
+            <a class="text-link" data-ind="retail" hidden href="industries-retail.html"><span data-i18n="cases.empty.industryPage">Отраслевая страница</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+            <a class="text-link" data-ind="hotels" hidden href="industries-hotels.html"><span data-i18n="cases.empty.industryPage">Отраслевая страница</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+            <a class="text-link" data-ind="medical" hidden href="industries-medical-wellness.html"><span data-i18n="cases.empty.industryPage">Отраслевая страница</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+            <a class="text-link" data-ind="public-spaces" hidden href="industries-public-spaces.html"><span data-i18n="cases.empty.industryPage">Отраслевая страница</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+            <a class="text-link" data-ind="municipal" hidden href="industries-municipal.html"><span data-i18n="cases.empty.industryPage">Отраслевая страница</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+            <a class="text-link" data-ind="education" hidden href="industries-education.html"><span data-i18n="cases.empty.industryPage">Отраслевая страница</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+            <a class="text-link" data-ind="fitness-sports" hidden href="industries-fitness-sports.html"><span data-i18n="cases.empty.industryPage">Отраслевая страница</span> <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+            <a class="text-link" href="cases.html#list" data-filter=""><span data-i18n="cases.empty.all">Показать все кейсы</span></a>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 МЕТОДИКА ================= -->
+    <!-- ТЗ v2.1, раздел VIII, п. 8.2–8.3. Формула роста производительности и пояснения к трудозатратам и СЗР — наше расширение (см. спеку). -->
+    <section data-i18n-attr="data-name:cases.sections.method" class="sol-sec" id="method" data-sec="03" data-name="МЕТОДИКА" data-dark aria-labelledby="method-h">
+      <div class="stage pr-stage">
+        <div class="pr-stage__top">
+          <div class="pr-stage__copy">
+            <span class="idx reveal"><b>03</b> — <span data-i18n="cases.sections.method">МЕТОДИКА</span></span>
+            <h2 data-i18n="cases.method.title" class="h2 reveal" id="method-h">Кейс без методики — это обещание. Поэтому показываем, как считаем.</h2>
+            <p data-i18n-html="cases.method.lead" class="lead reveal">Каждую цифру можно пересчитать: указываем базу, период и что входит в расчёт. <b>Не округляем до красивых</b> — 32% точнее, чем «около трети».</p>
+            <ul class="pr-trust reveal">
+              <li data-i18n="cases.method.rules.period">Сопоставимые периоды до и после</li>
+              <li data-i18n="cases.method.rules.costs">ФОТ + расходники + сервис</li>
+              <li data-i18n="cases.method.rules.nda">Под NDA — без названия клиента</li>
+            </ul>
+          </div>
+
+          <!-- Лист замера: что собираем с клиентом по каждому проекту (ТЗ 8.3). -->
+          <div class="cs-sheet reveal" style="--i:2">
+            <p class="cs-sheet__head"><span data-i18n="cases.sheet.title">Лист замера</span><span class="mono" data-i18n="cases.sheet.note">заполняем с клиентом</span></p>
+            <dl class="cs-sheet__rows">
+              <div><dt data-i18n="cases.sheet.object">Объект</dt><dd data-i18n="cases.sheet.objectVal">тип, площадь</dd></div>
+              <div><dt data-i18n="cases.sheet.before">Затраты до внедрения</dt><dd data-i18n="cases.sheet.perMonth">₽ в месяц</dd></div>
+              <div><dt data-i18n="cases.sheet.after">Затраты после</dt><dd data-i18n="cases.sheet.perMonth">₽ в месяц</dd></div>
+              <div><dt data-i18n="cases.sheet.invest">Вложения клиента</dt><dd data-i18n="cases.sheet.rub">₽</dd></div>
+              <div><dt data-i18n="cases.sheet.period">Период сравнения</dt><dd data-i18n="cases.sheet.periodVal">месяц к месяцу</dd></div>
+              <div><dt data-i18n="cases.sheet.staff">Высвобождено</dt><dd data-i18n="cases.sheet.staffVal">ставок</dd></div>
+              <div><dt data-i18n="cases.sheet.consent">Публикация</dt><dd data-i18n="cases.sheet.consentVal">с названием или NDA</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <ol class="cs-fx">
+          <li class="mod cs-fx__item reveal" id="method-cost">
+            <span class="mod__no mono">01</span>
+            <h3 data-i18n="cases.method.cost.title">Снижение затрат, %</h3>
+            <p class="cs-fx__f" role="math" data-i18n-attr="aria-label:cases.method.cost.aria" aria-label="Затраты до минус затраты после, делённые на затраты до, умножить на сто процентов"><span class="cs-frac"><span data-i18n="cases.method.cost.num">Затраты до − Затраты после</span><span data-i18n="cases.method.cost.den">Затраты до</span></span><span class="cs-fx__x">× 100</span></p>
+            <p data-i18n="cases.method.cost.text">Сравниваем сопоставимые периоды. Для трудозатрат база — человеко-часы, для СЗР — литры на гектар за сезон.</p>
+          </li>
+          <li class="mod cs-fx__item reveal" id="method-payback" style="--i:1">
+            <span class="mod__no mono">02</span>
+            <h3 data-i18n="cases.method.payback.title">Окупаемость, мес.</h3>
+            <p class="cs-fx__f" role="math" data-i18n-attr="aria-label:cases.method.payback.aria" aria-label="Вложения клиента, делённые на экономию в месяц"><span class="cs-frac"><span data-i18n="cases.method.payback.num">Вложения клиента</span><span data-i18n="cases.method.payback.den">Экономия в месяц</span></span></p>
+            <p data-i18n="cases.method.payback.text">Экономия — та же разница затрат до и после, что и в первой формуле.</p>
+          </li>
+          <li class="mod cs-fx__item reveal" id="method-staff" style="--i:2">
+            <span class="mod__no mono">03</span>
+            <h3 data-i18n="cases.method.staff.title">Высвобождение персонала</h3>
+            <p class="cs-fx__f" role="math" data-i18n-attr="aria-label:cases.method.staff.aria" aria-label="Штат до минус штат после"><span class="cs-fx__line" data-i18n="cases.method.staff.formula">Штат до − Штат после</span></p>
+            <p data-i18n="cases.method.staff.text">В ставках, а не в людях. Люди обычно переходят на другие задачи объекта.</p>
+          </li>
+          <li class="mod cs-fx__item reveal" id="method-growth" style="--i:3">
+            <span class="mod__no mono">04</span>
+            <h3 data-i18n="cases.method.growth.title">Рост производительности, %</h3>
+            <p class="cs-fx__f" role="math" data-i18n-attr="aria-label:cases.method.growth.aria" aria-label="После минус до, делённое на до, умножить на сто процентов"><span class="cs-frac"><span data-i18n="cases.method.growth.num">После − До</span><span data-i18n="cases.method.growth.den">До</span></span><span class="cs-fx__x">× 100</span></p>
+            <p data-i18n="cases.method.growth.text">Для склада — заказы или строки за смену при том же штате.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= 04 СМОТРИТЕ ТАКЖЕ ================= -->
+    <section data-i18n-attr="data-name:cases.sections.see" class="sol-sec wrap" id="see" data-sec="04" data-name="СМОТРИТЕ ТАКЖЕ" aria-labelledby="see-h">
+      <div class="sol-head">
+        <span class="idx reveal"><b>04</b> — <span data-i18n="cases.sections.see">СМОТРИТЕ ТАКЖЕ</span></span>
+        <h2 data-i18n="cases.see.title" class="h2 reveal" id="see-h">Смотрите также.</h2>
+      </div>
+      <div class="see">
+        <a class="see-card reveal" href="index.html#industries">
+          <span class="dir__no"><span data-i18n="cases.see.industries.kicker">ПОД ВАШ ОБЪЕКТ</span></span>
+          <h3 data-i18n="cases.see.industries.title">Отрасли</h3>
+          <p data-i18n="cases.see.industries.text">Бизнес-центры · Ритейл · Склады · Отели · Производство · Строительство · Агро и другие</p>
+          <div class="see-card__foot"><span data-i18n="cases.see.industries.foot" class="mono" style="color:var(--ink-muted)">Сценарии и расчёт под отрасль</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+        <a class="see-card reveal" style="--i:1" href="services.html">
+          <span class="dir__no"><span data-i18n="cases.see.services.kicker">ПОЛНЫЙ ЦИКЛ</span></span>
+          <h3 data-i18n="cases.see.services.title">Услуги</h3>
+          <p data-i18n="cases.see.services.text">Аудит · Расчёт ROI · Пилот · Внедрение · Обучение · Сервис по SLA</p>
+          <div class="see-card__foot"><span data-i18n="cases.see.services.foot" class="mono" style="color:var(--ink-muted)">Как получается такой результат</span><span class="go-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= 05 ЗАЯВКА ================= -->
+    <section data-i18n-attr="data-name:cases.sections.talk" class="sol-sec wrap" id="talk" data-sec="05" data-name="ЗАЯВКА" aria-labelledby="talk-h">
+      <div class="talk">
+        <div class="talk__copy">
+          <span class="idx reveal"><b>05</b> — <span data-i18n="cases.sections.talk">ЗАЯВКА</span></span>
+          <h2 data-i18n="cases.talk.title" class="h2 reveal" id="talk-h">Хотите так же? Посчитаем окупаемость.</h2>
+          <p data-i18n="cases.talk.lead" class="lead reveal">Калькулятор даст оценку за пару минут. Для точного расчёта оставьте контакты: уточним объект, сравним с похожими проектами и предложим пилот.</p>
+          <div class="btns reveal"><a class="btn btn-pri" href="roi.html"><span data-i18n="cases.talk.roiCta">Рассчитать ROI</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="cases" aria-labelledby="talk-h">
+          <div class="form__row">
+            <div class="fld">
+              <label data-i18n="common.form.name" for="f-name">Имя</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="f-name-err">
+              <span class="fld__err" id="f-name-err" role="alert"></span>
+            </div>
+            <div class="fld">
+              <label data-i18n="common.form.phone" for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-err">
+              <span class="fld__err" id="f-phone-err" role="alert"></span>
+            </div>
+          </div>
+          <div class="fld">
+            <label data-i18n-html="cases.talk.form.industryLabel" for="f-dir">Ваша отрасль <small>необязательно</small></label>
+            <select id="f-dir" name="direction">
+              <option data-i18n="common.form.directionUnknown" value="">Пока не знаю</option>
+              <option data-i18n="home.industries.items.businessCenters" value="business-centers">Бизнес-центры и офисы</option>
+              <option data-i18n="home.industries.items.retail" value="retail">Торговые центры и ритейл</option>
+              <option data-i18n="home.industries.items.logistics.name" value="logistics">Склады и логистика</option>
+              <option data-i18n="home.industries.items.hotels" value="hotels">Отели и HoReCa</option>
+              <option data-i18n="home.industries.items.medical" value="medical">Медицинские объекты</option>
+              <option data-i18n="home.industries.items.construction.name" value="construction">Строительство и девелопмент</option>
+              <option data-i18n="home.industries.items.manufacturing" value="manufacturing">Промышленность и производство</option>
+              <option data-i18n="home.industries.items.publicSpaces" value="public-spaces">Общественные пространства</option>
+              <option data-i18n="home.industries.items.municipal" value="municipal">Муниципальные службы</option>
+              <option data-i18n="home.industries.items.agriculture.name" value="agriculture">Агро и фермерские хозяйства</option>
+              <option data-i18n="home.industries.items.education" value="education">Образовательные учреждения</option>
+              <option data-i18n="home.industries.items.fitness" value="fitness-sports">Фитнес-клубы и спорткомплексы</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label><span data-i18n="common.form.honeypot">Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld">
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span data-i18n-html="common.form.consent">Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <span class="fld__err" id="f-consent-err" role="alert"></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn btn-pri" type="submit"><span class="spin" aria-hidden="true"></span><span data-i18n="solutions.talk.form.submit" class="btn__t">Заказать звонок</span></button>
+            <span class="form__status" id="f-status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="form__ok" role="status">
+            <span class="ic-tile"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <b data-i18n="common.form.sentTitle">Заявка принята.</b>
+            <p data-i18n="common.form.sentText">Перезвоним в рабочее время.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoInverseSrc" src="assets/profrobot-logo-inverse.png" alt="Профессиональная Робототехника" width="783" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span data-i18n="common.footer.rights">© 2026 Профессиональная Робототехника. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="#">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html"><span data-i18n="common.footer.backHome">На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"/"},{"@type":"ListItem","position":2,"name":"Кейсы","item":"/cases/"}]},
+    {"@type":"ItemList","name":"Кейсы роботизации Профессиональной Робототехники","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Бизнес-центр: снижение затрат на клининг на 32%","url":"/cases/#business-center"},
+{"@type":"ListItem","position":2,"name":"Агрохолдинг: снижение расхода СЗР при обработке полей на 30%","url":"/cases/#agro"},
+{"@type":"ListItem","position":3,"name":"Складской комплекс: рост пропускной способности склада на 35%","url":"/cases/#warehouse"},
+{"@type":"ListItem","position":4,"name":"Производство: автоматизация загрузки станков с ЧПУ, минус 2 оператора в смену","url":"/cases/#manufacturing"},
+{"@type":"ListItem","position":5,"name":"Строительство: снижение трудозатрат на демонтаж на 40%","url":"/cases/#construction"}
+    ]}
+  ]}
+  </script>
+  <script src="solutions.js"></script>
+  <script src="products.js"></script>
+  <script src="cases.js"></script>
+</body>
+</html>

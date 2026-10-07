@@ -107,12 +107,12 @@ const industry = {
   formStage: true,
   form: { title: 'Проверим ваше здание под роботов.', lead: 'Пройдём маршрут от паркинга до кровли, проверим лифты, двери, воду и Wi-Fi и скажем, с какой зоны начать.', button: 'Заказать аудит' },
   links: [
-    { kicker: 'УСЛУГА', title: 'Аудит объекта', text: 'Проверка здания под роботов и расчёт по зонам.', href: '/services/audit/' },
-    { kicker: 'УСЛУГА', title: 'Пилотный проект', text: 'Одна зона, понятный результат.', href: '/services/pilot/' },
+    { kicker: 'УСЛУГА', title: 'Аудит объекта', text: 'Проверка здания под роботов и расчёт по зонам.', href: 'services.html#audit' },
+    { kicker: 'УСЛУГА', title: 'Пилотный проект', text: 'Одна зона, понятный результат.', href: 'services.html#pilot' },
     { kicker: 'РЕШЕНИЕ', title: 'Роботизированный клининг', text: 'Поломоечные и пылесосные роботы для общих зон.', href: SOL.cleaning.href },
     { kicker: 'РЕШЕНИЕ', title: 'Сервисные роботы', text: 'Доставка по этажам и встреча гостей.', href: SOL.service.href },
     { kicker: 'ПРОДУКТ', title: 'Платформа Профессиональная Робототехника', text: 'Задания, контроль и отчёты по уборке в одном окне.', href: 'products.html#platform' },
-    { kicker: 'КЕЙСЫ', title: 'Кейсы: бизнес-центры', text: 'Внедрения в офисных зданиях.', href: '/cases/?industry=business-centers' },
+    { kicker: 'КЕЙСЫ', title: 'Кейсы: бизнес-центры', text: 'Внедрения в офисных зданиях.', href: 'cases.html?industry=business-centers' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
   ],
   sections: ['hero', 'problems', 'directions', 'ready', 'case', 'economy', 'vendors', 'why', 'form', 'see'],
@@ -229,7 +229,7 @@ const ready = (ind, n, h) => `<section class="sol-sec wrap" id="ready" data-sec=
           <div class="bcr__cell bcr__cell--next">
             <span class="mono"${h.L('ready.next')}>Следующий шаг</span>
             <a class="btn btn-pri" href="#talk"${h.L('ready.orderAudit')}>Заказать аудит объекта</a>
-            <a class="text-link" href="/services/audit/"><span${h.L('ready.auditScope')}>Что входит в аудит</span> ${h.ARROW_R}</a>
+            <a class="text-link" href="services.html#audit"><span${h.L('ready.auditScope')}>Что входит в аудит</span> ${h.ARROW_R}</a>
           </div>
         </div>
       </div>

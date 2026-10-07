@@ -5,6 +5,7 @@
       "solutions": "Solutions",
       "industries": "Industries",
       "products": "Products",
+      "services": "Services",
       "platform": "Platform",
       "cases": "Case studies",
       "contacts": "Contact"
@@ -79,10 +80,10 @@
       "industries": "Industries"
     },
     "linkNames": {
+      "audit": "Site assessment",
       "maintenance": "Maintenance and service",
       "selection": "Solution selection",
       "raas": "Robot rental (RaaS)",
-      "audit": "Site assessment",
       "pilotProject": "Pilot project",
       "pilot": "Pilot",
       "dispatch": "Dispatch",
@@ -496,7 +497,7 @@
       }
     },
     "contact": {
-      "title": "Let’s run the numbers for your site.",
+      "title": "See when a robot pays for itself.",
       "lead": "We’ll calculate payback and prepare a quote. No obligation: numbers first, decision second.",
       "ctaRoi": "Calculate payback in 2\u00a0min",
       "or": "or",
@@ -616,9 +617,9 @@
     "see": {
       "title": "See also.",
       "industries": {
-        "kicker": "5 SECTORS",
+        "kicker": "11 SECTORS",
         "title": "Industries",
-        "text": "Hotels and hospitality · Construction · Healthcare and wellness · Manufacturing · Agriculture",
+        "text": "Hotels and hospitality · Retail · Healthcare and wellness · Manufacturing · Construction · Agri and more",
         "foot": "Solutions by site type"
       },
       "products": {
@@ -1113,9 +1114,6 @@
         "savingsShort": "annual savings",
         "millions": "≈ RUB {n, number, ::.0}M",
         "robots": "{n, plural, one {robot for the site} other {robots for the site}}"
-      },
-      "photo": {
-        "placeholder": "Photo slot · {ratio}"
       },
       "sources": {
         "labelColon": "Source:"
@@ -2154,6 +2152,9 @@
           "2": "hotel complexes"
         }
       },
+      "photo": {
+        "alt": "Robotic floor scrubber cleans the marble floor of a hotel lobby while a receptionist works at the front desk"
+      },
       "heads": {
         "problems": "Where hotels lose money and service."
       },
@@ -2244,7 +2245,7 @@
       },
       "economy": {
         "title": "Cleaning pays back fastest.",
-        "lead": "The robot cleans common areas at night: no night crew, no premiums. Run your numbers.",
+        "lead": "The robot cleans common areas at night: no night crew, no premiums. See when it pays for itself.",
         "badge": "Fast payback",
         "note": "A benchmark from our model. A detailed estimate follows a site assessment."
       },
@@ -3443,7 +3444,7 @@
         }
       },
       "economy": {
-        "title": "Run the numbers for your mall.",
+        "title": "Calculate the payback for a mall.",
         "lead": "The model covers floor cleaning: area, schedule, robots needed and when they pay back. The “Mall” type is already selected.",
         "estimate": "<span>Indicative estimate</span> This is a calculation from our model, not a deployment result. Figures for your site come after an assessment or pilot.",
         "note": "<b>Indicative estimate</b> from our ROI (return on investment) model. A detailed estimate follows the site assessment."
@@ -3595,7 +3596,9 @@
       "errors": {
         "name": "Please tell us your name.",
         "phone": "Enter the full number: +7 and ten digits.",
-        "consent": "We need your consent to process your data."
+        "consent": "We need your consent to process your data.",
+        "contact": "Enter a phone or an email.",
+        "email": "Check the email, e.g. name@company.com."
       },
       "status": {
         "offline": "No internet connection. Check your network and <button>try again</button>.",
@@ -3677,7 +3680,7 @@
         "makers": "40+ manufacturers, 8 robot types"
       },
       "ctaDemo": "Request a platform demo",
-      "ctaMore": "See the platform diagram",
+      "ctaMore": "More about the platform",
       "board": {
         "label": "Sample platform dashboard: 142 devices, 14 sites, 98.2% SLA, 24 active operations",
         "brand": "Professional Robotics <span>Platform</span>",
@@ -3797,10 +3800,10 @@
         "foot": "Where products are used"
       },
       "services": {
-        "kicker": "6 STEPS",
+        "kicker": "12 SERVICES",
         "title": "Services",
-        "text": "Assessment · Solution selection · Purchase · Deployment · SLA service · Analytics",
-        "foot": "How deployment works"
+        "text": "Assessment · ROI calculation · Pilot · Deployment · Training · SLA-backed service",
+        "foot": "Full deployment cycle"
       }
     },
     "talk": {
@@ -3809,6 +3812,1417 @@
       "roiLink": "Or calculate payback yourself",
       "form": {
         "productLabel": "Interested in <small>optional</small>"
+      }
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About us: robotics integrator | Professional Robotics",
+      "description": "Independent robotics integrator: engineering and service. We don’t sell robots: we deploy solutions with measurable ROI and service them under an SLA."
+    },
+    "sections": {
+      "hero": "ABOUT US",
+      "interest": "INDEPENDENCE",
+      "cycle": "WHAT WE DO",
+      "principles": "HOW WE WORK",
+      "own": "IN-HOUSE",
+      "now": "WHY NOW",
+      "see": "SEE ALSO",
+      "talk": "CONTACT"
+    },
+    "crumb": "About us",
+    "hero": {
+      "title": "<span>About us</span> <span>Professional Robotics</span>",
+      "lead": "Professional Robotics is an independent robotics integrator: engineering and service.",
+      "text": "We sit between equipment manufacturers and business: the manufacturer builds the robot, the client wants to solve a task, and we turn one into the other. We select, deploy and service.",
+      "ctaTalk": "Discuss a project",
+      "ctaRoi": "Calculate ROI",
+      "chain": {
+        "label": "Diagram: the manufacturer builds the robot, Professional Robotics selects, deploys and services it, the business solves its task",
+        "title": "Where we fit",
+        "makerTag": "MANUFACTURER",
+        "maker": "Builds the robot",
+        "edgeIn": "robots",
+        "usTag": "US",
+        "us": "We select, deploy and service",
+        "edgeOut": "a working solution",
+        "clientTag": "BUSINESS",
+        "client": "Solves the task"
+      }
+    },
+    "numbers": {
+      "label": "Company in numbers"
+    },
+    "interest": {
+      "title": "Each side has its own interest.",
+      "lead": "We are deliberately neither a manufacturer nor a “robot shop.”",
+      "maker": {
+        "tag": "MANUFACTURER",
+        "title": "Manufacturer",
+        "text": "Wants to sell its own hardware."
+      },
+      "shop": {
+        "tag": "SHOP",
+        "title": "Robot shop",
+        "text": "Wants to sell anything."
+      },
+      "us": {
+        "tag": "US",
+        "title": "We want the solution to pay back.",
+        "text": "Otherwise clients won’t come back to us for the next site and a service contract."
+      }
+    },
+    "cycle": {
+      "title": "The whole project life cycle.",
+      "lead": "From the first calculation to service throughout operation. Service is our particular strength: our own network across Russia and work under an SLA.",
+      "steps": {
+        "audit": "Assessment and economics",
+        "selection": "Equipment selection",
+        "design": "Project design",
+        "supply": "Supply",
+        "integration": "Integration",
+        "training": "Staff training"
+      },
+      "run": {
+        "tag": "07 · THROUGHOUT OPERATION",
+        "title": "Service",
+        "text": "Our own network across Russia, SLA-backed."
+      }
+    },
+    "principles": {
+      "title": "Five principles we work by.",
+      "result": {
+        "title": "We sell results, not robots",
+        "text": "The conversation starts with your economics, not with equipment specifications."
+      },
+      "independence": {
+        "title": "Independence from manufacturers",
+        "text": "We take equipment from those who truly fit and are serviced. Several vendors for each area, not tied to one."
+      },
+      "engineering": {
+        "title": "Engineering over sales",
+        "text": "If robotics won’t pay back for you, we will say so plainly. A bad project hurts you and our reputation."
+      },
+      "service": {
+        "title": "Service is part of the solution",
+        "text": "A robot without maintenance stops. We are responsible for keeping it working, not only for delivery."
+      },
+      "measurable": {
+        "title": "Every project has a measurable result",
+        "text": "If the effect can’t be calculated, we don’t start the project."
+      }
+    },
+    "own": {
+      "title": "Our own, not resold.",
+      "lead": "The platform and AI agents are our development, the service network is ours. So we answer for how the solution works, not only for delivery.",
+      "trust": {
+        "data": "Data stored in Russia",
+        "dc": "Data center in Skolkovo",
+        "sla": "Work under SLA"
+      },
+      "platform": {
+        "title": "Our own platform",
+        "text": "Russian in-house software, not a resold vendor product. It brings robots from different manufacturers into one window.",
+        "cta": "How the platform works"
+      },
+      "agents": {
+        "title": "AI agents built in-house",
+        "text": "Predictive maintenance and real-time cleaning optimization."
+      },
+      "network": {
+        "title": "Service network across Russia",
+        "text": "A robot without service stops. We work under an SLA and set the response time in the contract."
+      }
+    },
+    "now": {
+      "title": "The market is only starting. This is the window.",
+      "text1": "Robotics in Russia is still at an early stage. Robot density is several times lower than in developed countries, service infrastructure is weak, and there are almost no strong integrators.",
+      "text2": "For business this is a window: what becomes the norm in a few years gives a clear advantage now to those who deploy earlier.",
+      "window": {
+        "label": "Diagram: now the market is at the start and deploying gives an advantage; in a few years it will be the norm",
+        "span": "window to act",
+        "now": "Now",
+        "nowNote": "Early market, edge for those who deploy",
+        "later": "In a few years",
+        "laterNote": "Becomes the norm"
+      }
+    },
+    "see": {
+      "title": "See also.",
+      "services": {
+        "kicker": "12 SERVICES",
+        "title": "Services",
+        "text": "Assessment · Selection · Pilot · Integration · Training · SLA-backed service",
+        "foot": "Assessment to operation"
+      },
+      "makers": {
+        "kicker": "PARTNERS",
+        "title": "Manufacturers",
+        "text": "Pudu · Gausium · Keenon · Hikrobot · Unitree and others",
+        "foot": "Selection not tied to one vendor"
+      }
+    },
+    "talk": {
+      "title": "Discuss your project.",
+      "lead": "Tell us about the site and the task: we’ll come back with a calculation and a proposal. If you prefer to start with numbers, use the calculator.",
+      "roiCta": "Calculate ROI"
+    }
+  },
+  "services": {
+    "see": {
+      "cases": {
+        "kicker": "RESULTS IN NUMBERS",
+        "title": "Case studies",
+        "text": "Office building · Agribusiness · Warehouse · Manufacturing · Construction",
+        "foot": "Results for the business"
+      },
+      "title": "See also.",
+      "products": {
+        "kicker": "7 PRODUCTS",
+        "title": "Products",
+        "text": "Platform · Fleet Management · Dispatch · AI modules · Open API · Rental (RaaS) · Retrofit",
+        "foot": "What service runs on"
+      }
+    },
+    "meta": {
+      "title": "Robotics services: assessment, deployment | Professional Robotics",
+      "description": "Full cycle: site assessment, ROI, pilot, design, integration, training and SLA-backed service. From the first meeting to day-to-day operation."
+    },
+    "sections": {
+      "hero": "SERVICES",
+      "before": "PREPARATION",
+      "rollout": "DEPLOYMENT",
+      "operation": "OPERATION",
+      "see": "SEE ALSO",
+      "talk": "CONTACT"
+    },
+    "crumb": "Services",
+    "hero": {
+      "title": "Full cycle: from site assessment to SLA-backed service.",
+      "lead": "We don’t sell a box. We are responsible for making the solution work on your site and keep working.",
+      "text": "So our service covers the whole path: work out the economics, prove it in a pilot, deploy, train your people and maintain the fleet.",
+      "ctaQuestion": "Where to start?",
+      "ctaAudit": "Book a site assessment",
+      "ctaRoi": "Calculate ROI"
+    },
+    "route": {
+      "label": "Project route: three stages, twelve services",
+      "title": "Project route",
+      "count": "3 stages · 12 services"
+    },
+    "phases": {
+      "before": "Preparation",
+      "rollout": "Deployment",
+      "operation": "Operation"
+    },
+    "names": {
+      "roi": "ROI and economics",
+      "design": "Project design",
+      "supply": "Equipment supply",
+      "integration": "Integration and setup",
+      "training": "Staff training",
+      "sla": "SLA and support",
+      "monitoring": "Remote monitoring",
+      "consulting": "Consulting"
+    },
+    "before": {
+      "title": "Numbers and a test first, purchase second.",
+      "lead": "Before you invest, you see where money is lost, which equipment fits and how soon it pays back. A pilot confirms the numbers on your site.",
+      "audit": {
+        "tag": "1–2 weeks",
+        "text": "A site visit, a review of your processes and a calculation of where money is lost."
+      },
+      "selection": {
+        "text": "Equipment and scenarios for the task, not tied to one vendor: we compare 2–5 manufacturers."
+      },
+      "roi": {
+        "text": "A transparent payback model before you invest.",
+        "cta": "Open the calculator"
+      },
+      "pilot": {
+        "text": "A test on a real area that confirms the numbers. You decide on the purchase by the result.",
+        "cta": "Discuss a pilot"
+      }
+    },
+    "rollout": {
+      "title": "We handle the whole launch: from design to a trained shift.",
+      "lead": "One team runs the design, supply, setup and training. You don’t have to coordinate contractors with each other.",
+      "launch": "Launch",
+      "design": {
+        "text": "A robotics design for your site: zones, routes, charging points and operating scenarios."
+      },
+      "supply": {
+        "text": "Import, logistics, customs, commissioning. We handle the deal from the contract to delivery on site and help with installments and leasing."
+      },
+      "integration": {
+        "text": "Scenario setup and connection to your infrastructure: elevators, doors, your business systems and the Professional Robotics Platform. If the vendor’s software lacks a feature, we build it."
+      },
+      "training": {
+        "text": "So that people on site work with the system confidently: start-up, giving the robot tasks, simple faults."
+      }
+    },
+    "operation": {
+      "title": "A robot without service stops. We make sure it keeps working.",
+      "lead": "The project doesn’t end at launch. <b>Our own service network across Russia</b> and a platform that spots a fault before it turns into downtime.",
+      "trust": {
+        "network": "Own service network across Russia",
+        "sla": "Work under SLA",
+        "predict": "Predictive maintenance"
+      },
+      "chain": {
+        "label": "Diagram: the platform spots a deviation, an AI agent predicts the failure, an engineer arrives before downtime",
+        "signalTag": "SIGNAL",
+        "signal": "Platform spots a deviation",
+        "signalNote": "The state of each robot in the fleet",
+        "forecastTag": "FORECAST",
+        "forecast": "An AI agent predicts the failure",
+        "forecastNote": "Our own code, not vendor software",
+        "visitTag": "VISIT",
+        "visit": "Engineer arrives before downtime",
+        "visitNote": "Response time is fixed in the SLA"
+      },
+      "maintenance": {
+        "text": "Preventive maintenance, diagnostics, repair. Our own network across Russia."
+      },
+      "sla": {
+        "text": "Guaranteed response and recovery times, fixed in the contract."
+      },
+      "monitoring": {
+        "text": "Fleet condition monitoring and predictive maintenance."
+      },
+      "consulting": {
+        "text": "A robotics strategy for companies with several sites."
+      }
+    },
+    "talk": {
+      "title": "See when a robot pays for itself.",
+      "lead": "The calculator gives an estimate in a couple of minutes. For an exact calculation, leave your contacts: we’ll call back, clarify the task and suggest which service to start with.",
+      "roiCta": "Calculate ROI",
+      "form": {
+        "serviceLabel": "Which service you need <small>optional</small>"
+      }
+    }
+  },
+  "cases": {
+    "meta": {
+      "title": "Robotics case studies: results and ROI | Professional Robotics",
+      "description": "Robotics case studies by industry: 32% lower cleaning costs, 35% higher warehouse throughput. The task, the solution and the result in numbers."
+    },
+    "sections": {
+      "hero": "CASES",
+      "list": "PROJECTS",
+      "method": "METHOD",
+      "see": "SEE ALSO",
+      "talk": "CONTACT"
+    },
+    "crumb": "Case studies",
+    "hero": {
+      "title": "Case studies: robotics results in numbers.",
+      "lead": "No generalities here. For each project: what the task was, what we deployed and what result it gave, in numbers.",
+      "text": "If your site is similar, the economics will be in the same range. Every figure follows one method: what we compare, over which period and what counts as cost.",
+      "ctaRoi": "Calculate ROI",
+      "ctaMethod": "How we calculate"
+    },
+    "summary": {
+      "label": "Case study results",
+      "title": "Results in numbers",
+      "count": "5 case studies",
+      "manufacturing": "Manufacturing · operators/shift",
+      "method": "Each figure has a formula: see the method"
+    },
+    "list": {
+      "title": "Find a site like yours.",
+      "lead": "Every case study follows one template: the site, the task, what we deployed, the result and the period it took."
+    },
+    "filter": {
+      "label": "Filter by industry",
+      "all": "All"
+    },
+    "illustration": "Illustration",
+    "howCounted": "See the formula",
+    "labels": {
+      "object": "Site",
+      "period": "Period",
+      "payback": "Payback",
+      "task": "Task",
+      "solution": "Deployed",
+      "industry": "Industry",
+      "solutionLink": "Solution"
+    },
+    "items": {
+      "businessCenter": {
+        "object": "Office building, common areas",
+        "task": "Common-area cleaning relied on a contractor crew: high turnover, quality varied from shift to shift and rates went up every year.",
+        "solution": "Robotic floor scrubbers clean the lobby and corridors on schedule, with tasks and reports in the platform. People stayed on restrooms and spot jobs."
+      },
+      "agro": {
+        "object": "Agribusiness, field crops",
+        "task": "Fields were sprayed with ground machinery: excess product on overlaps, wheel ruts in the crop, and a spraying window that depended on the weather.",
+        "solution": "Agricultural drones spray along flight plans on a field map. We set the rate and route per field. Economics are counted per season, not per month."
+      },
+      "warehouse": {
+        "object": "Warehouse complex, picking area",
+        "task": "Pickers spent most of the shift walking between racks. In peak weeks the warehouse hit the limit of people on shift.",
+        "solution": "Autonomous mobile robots (AMR) bring racks to the picking stations. Tasks come from the WMS through the platform."
+      },
+      "manufacturing": {
+        "object": "Machining shop, CNC machine area",
+        "task": "Operators stood at the machines the whole shift: load a blank, unload a part. There were not enough people for a second shift.",
+        "solution": "A collaborative robot arm on a mobile base loads and unloads the machines, moving from one to the next. The operator watches the area, not every part."
+      },
+      "construction": {
+        "object": "Renovation, demolition of concrete structures",
+        "task": "Manual demolition: a crew with jackhammers, vibration, dust and a risk of collapse next to people. Deadlines slipped for lack of workers.",
+        "solution": "A remote-controlled demolition robot: the operator works from a safe distance and the machine takes the heavy part of the job."
+      }
+    },
+    "tbd": "pending",
+    "roiCta": "Calculate payback",
+    "sameCta": "Get the same",
+    "empty": {
+      "title": "No published case study for this industry yet.",
+      "text": "We will estimate the payback with our model and get the real figures in a pilot. The industry page has the use cases, equipment and data from open sources.",
+      "roi": "Calculate ROI",
+      "industryPage": "Industry page",
+      "all": "All case studies"
+    },
+    "method": {
+      "title": "A case study without a method is a promise. So we show how we calculate.",
+      "lead": "Every figure can be rechecked: we state the baseline, the period and what is included. <b>We don’t round to nice numbers</b>: 32% is more accurate than “about a third”.",
+      "rules": {
+        "period": "Comparable periods before and after",
+        "costs": "Payroll + supplies + service",
+        "nda": "Under NDA: no client name"
+      },
+      "cost": {
+        "title": "Cost reduction, %",
+        "aria": "Costs before minus costs after, divided by costs before, times one hundred percent",
+        "num": "Costs before − Costs after",
+        "den": "Costs before",
+        "text": "Periods are comparable. For labor the baseline is person-hours; for crop protection products, liters per hectare per season."
+      },
+      "payback": {
+        "title": "Payback, months",
+        "aria": "Client investment divided by monthly savings",
+        "num": "Client investment",
+        "den": "Savings a month",
+        "text": "Savings are the same before-and-after cost difference as in the first formula."
+      },
+      "staff": {
+        "title": "Staff freed up",
+        "aria": "Staff before minus staff after",
+        "formula": "Staff before − after",
+        "text": "In FTEs, not in people. People usually move to other jobs on the site."
+      },
+      "growth": {
+        "title": "Productivity gain, %",
+        "aria": "After minus before, divided by before, times one hundred percent",
+        "num": "After − Before",
+        "den": "Before",
+        "text": "For a warehouse: orders or lines per shift with the same staff."
+      }
+    },
+    "sheet": {
+      "title": "Data sheet",
+      "note": "filled with client",
+      "object": "Site",
+      "objectVal": "type, area",
+      "before": "Costs before deployment",
+      "perMonth": "RUB a month",
+      "after": "Costs after",
+      "invest": "Client investment",
+      "rub": "RUB",
+      "period": "Comparison period",
+      "periodVal": "month to month",
+      "staff": "Freed up",
+      "staffVal": "FTEs",
+      "consent": "Publication",
+      "consentVal": "named or NDA"
+    },
+    "see": {
+      "title": "See also.",
+      "industries": {
+        "kicker": "FOR YOUR SITE",
+        "title": "Industries",
+        "text": "Office buildings · Retail · Warehouses · Hotels · Manufacturing · Construction · Agriculture and more",
+        "foot": "Use cases by industry"
+      },
+      "services": {
+        "kicker": "FULL CYCLE",
+        "title": "Services",
+        "text": "Assessment · ROI · Pilot · Deployment · Training · SLA-backed service",
+        "foot": "How such results are achieved"
+      }
+    },
+    "talk": {
+      "title": "Want the same? Check the payback.",
+      "lead": "The calculator gives an estimate in minutes. For an exact calculation, leave your contacts: we’ll clarify the site, compare it with similar projects and suggest a pilot.",
+      "roiCta": "Calculate ROI",
+      "form": {
+        "industryLabel": "Your industry <small>optional</small>"
+      }
+    }
+  },
+  "contacts": {
+    "meta": {
+      "title": "Contact us: robotics in Moscow | Professional Robotics",
+      "description": "Phone, email, messengers and a request form. Office in Moscow, service network across Russia. We reply and calculate ROI for your site."
+    },
+    "sections": {
+      "hero": "CONTACT",
+      "channels": "CHANNELS",
+      "office": "OFFICE"
+    },
+    "crumb": "Contact",
+    "hero": {
+      "title": "Contact",
+      "lead": "Tell us about your site and task. We’ll reply with numbers and a proposal.",
+      "text": "If you’d rather start with numbers, request a site assessment and we’ll work out the payback for your case.",
+      "reply": "We reply within one business day."
+    },
+    "pick": {
+      "label": "What do you need",
+      "title": "What do you need?",
+      "roi": {
+        "title": "Calculate ROI",
+        "text": "Payback for your site in minutes, no call needed"
+      },
+      "quote": {
+        "title": "Get a proposal",
+        "text": "A proposal for equipment and deployment"
+      },
+      "pilot": {
+        "title": "Book a demo or pilot",
+        "text": "We test it at your site before you buy"
+      }
+    },
+    "form": {
+      "title": "Request",
+      "hint": "A name and one contact are enough: phone or email.",
+      "company": "Company <small>optional</small>",
+      "intentLabel": "What you need <small>optional</small>",
+      "intent": {
+        "quote": "Get a proposal",
+        "pilot": "Demo or pilot",
+        "consult": "Consultation"
+      },
+      "objectLabel": "Site type <small>optional</small>",
+      "objectUnset": "Select",
+      "objectOther": "Other",
+      "taskLabel": "Task <small>optional</small>",
+      "taskPlaceholder": "What to automate: cleaning, delivery, warehouse, monitoring",
+      "submit": "Send request",
+      "sentText": "We’ll reply within one business day."
+    },
+    "channels": {
+      "title": "Choose what suits you.",
+      "lead": "Call if the task is already clear. Write if you want to attach a site plan or photos. We reply on every channel within one business day.",
+      "phone": {
+        "label": "Phone",
+        "note": "If the task is clear and you want to talk fast"
+      },
+      "mail": {
+        "note": "Good for site plans, technical briefs and photos"
+      },
+      "messenger": {
+        "label": "Messenger"
+      },
+      "telegram": {
+        "note": "A quick question or a site photo"
+      },
+      "whatsapp": {
+        "note": "Same, if WhatsApp suits you better"
+      }
+    },
+    "office": {
+      "title": "Office in Moscow, service across Russia.",
+      "lead": "We meet at the office or come to your site. The service network works across all of Russia.",
+      "facts": {
+        "office": "Office",
+        "officeValue": "Moscow",
+        "service": "Service",
+        "serviceValue": "Across Russia",
+        "meeting": "Meeting",
+        "meetingValue": "At our office or on your site"
+      },
+      "net": {
+        "label": "Diagram: the Moscow office in the center, the service network across Russia around it",
+        "hq": "MOSCOW OFFICE",
+        "service": "FIELD SERVICE"
+      }
+    },
+    "requisites": {
+      "title": "Details for the contract",
+      "text": "We send the company details for the contract and invoice on request, within one business day.",
+      "cta": "Request details"
+    }
+  },
+  "industriesHub": {
+    "meta": {
+      "title": "Robotics by industry: hotels to farms | Professional Robotics",
+      "description": "Robotics for 11 industries: hotels, retail, offices, healthcare, manufacturing, construction, agriculture. Use cases, equipment and payback for your sector."
+    },
+    "sections": {
+      "hero": "SECTORS",
+      "list": "BY INDUSTRY",
+      "objects": "BY SITE TYPE",
+      "cases": "CASES",
+      "talk": "CONTACT"
+    },
+    "hero": {
+      "title": {
+        "line1": "Robotics by industry:",
+        "line2": "from hotel to farm."
+      },
+      "lead": "Each industry has its own use cases, equipment and calculation. Choose an industry, or find your type of site below.",
+      "facts": {
+        "label": "Industries at a glance",
+        "industries": "industries",
+        "makers": "manufacturers in shortlists"
+      }
+    },
+    "list": {
+      "title": "Eleven industries.",
+      "items": {
+        "retail": {
+          "desc": "Galleries, sales floors and parking: cleaning at night and between shoppers.",
+          "scenes": "Sales floor · Parking · Promo · Dark stores"
+        },
+        "businessCenters": {
+          "desc": "Lobbies, parking and facades: cleaning by day, with tenants in the building.",
+          "scenes": "Lobbies · Facades · Delivery · Reception"
+        },
+        "hotels": {
+          "desc": "Floor delivery, public-area cleaning and reception: relief for front-line staff.",
+          "scenes": "Delivery · Cleaning · Reception"
+        },
+        "publicSpaces": {
+          "desc": "Stations, airports, service centers and museums: cleaning between visitor peaks.",
+          "scenes": "Halls · Wayfinding · Patrol"
+        },
+        "medicalWellness": {
+          "desc": "Internal delivery and disinfection: routine work moves away from clinical staff.",
+          "scenes": "Delivery · Disinfection · Rehabilitation"
+        },
+        "education": {
+          "desc": "Corridors are cleaned during lessons; universities get robotics labs.",
+          "scenes": "Corridors · Gym · Labs"
+        },
+        "fitnessSports": {
+          "desc": "Gyms, locker rooms, pools and fields: cleaning to sanitary rules.",
+          "scenes": "Gyms · Locker rooms · Pool · Fields"
+        },
+        "municipal": {
+          "desc": "Parks, embankments, winter maintenance and lawns.",
+          "scenes": "Parks · Winter · Lawns · Parking"
+        },
+        "agriculture": {
+          "desc": "Agri drones and field robots: spraying, monitoring and grounds care.",
+          "scenes": "Spraying · Monitoring · Grounds"
+        },
+        "manufacturing": {
+          "desc": "In-plant logistics, repetitive tasks and inspection: start with a pilot.",
+          "scenes": "AMR · Manipulators · Inspection"
+        },
+        "construction": {
+          "desc": "Demolition, finishing and heavy work where labor is short or the task is dangerous.",
+          "scenes": "Demolition · Finishing · Heavy work"
+        }
+      }
+    },
+    "objects": {
+      "title": "Find your site.",
+      "lead": "We will tell you where to start with robots at your site.",
+      "items": {
+        "transport": "Stations and airports",
+        "service": "Public venues",
+        "hospitals": "Hospitals, clinics",
+        "rehab": "Rehab and wellness",
+        "schools": "Schools and universities",
+        "fitness": "Fitness clubs and pools",
+        "parks": "Parks, embankments",
+        "parking": "Parking lots and large sites",
+        "factories": "Factory floors",
+        "sites": "Building sites",
+        "fields": "Fields and farms"
+      }
+    },
+    "cases": {
+      "title": "Industry case studies."
+    },
+    "talk": {
+      "title": "Can’t find your industry?",
+      "lead": "Tell us about your site and we will suggest what can be automated with robots.",
+      "form": {
+        "industryLabel": "Industry <small>optional</small>"
+      }
+    }
+  },
+  "knowledge": {
+    "meta": {
+      "title": "Robotics knowledge base | Professional Robotics",
+      "description": "Robotics without the marketing: what AMRs and robot rental (RaaS) are, how to calculate payback, how robots differ. Articles, comparisons, common questions."
+    },
+    "sections": {
+      "hero": "KNOWLEDGE",
+      "topics": "TOPICS",
+      "materials": "MATERIALS",
+      "roi": "PAYBACK",
+      "faq": "FAQ",
+      "see": "SEE ALSO",
+      "talk": "CONTACT"
+    },
+    "crumb": "Knowledge base",
+    "hero": {
+      "title": "Knowledge base: robotics, <span>no marketing.</span>",
+      "lead": "What clients ask before a deal: how to calculate payback, how an AMR differs from conventional equipment, what robot rental is and when upgrading old equipment pays off better.",
+      "text": "We write like engineers: the answer first, then figures, timelines and an honest “when it doesn’t pay off”. For an answer about your own site, a site assessment is faster.",
+      "ctaRoi": "Calculate ROI",
+      "ctaAudit": "Book an assessment"
+    },
+    "toc": {
+      "label": "Common questions before a deal",
+      "title": "Pre-deal questions",
+      "note": "see below",
+      "all": "See all answers"
+    },
+    "faq": {
+      "items": {
+        "payback": {
+          "q": "How fast does a cleaning robot pay back?",
+          "a": "It depends on three things: how much floor area the robot cleans, how many shifts it works and what cleaner’s wage it replaces. The <a>payback calculator</a> gives an estimate in a couple of minutes. We calculate the exact period during the site assessment and confirm it in a pilot."
+        },
+        "cost": {
+          "q": "Too expensive? Can we start without a big outlay?",
+          "a": "Yes. <a>Robot rental (RaaS)</a> removes the large one-off payment: you pay for use. If you buy, we help with installments and leasing from leading Russian banks. And before any investment, you can run a pilot at your site and check the figures."
+        },
+        "breakdown": {
+          "q": "What if a robot breaks?",
+          "a": "Service is part of the project: maintenance, diagnostics and repairs by our own service network across Russia. Response and recovery times are fixed <a>in the SLA</a>. The platform monitors the fleet, and AI agents predict failures before downtime."
+        },
+        "staff": {
+          "q": "Will we have to retrain our staff?",
+          "a": "Staff training is part of deployment: your people learn to give the robot tasks and work with the platform. Nobody needs retraining. Staff usually move to the work the robot doesn’t do: restrooms, spot cleaning, quality control."
+        },
+        "notPaying": {
+          "q": "When doesn’t robotics pay off?",
+          "a": "Sometimes there isn’t enough work for a robot: a small area, one short shift or a task it covers only in part. Then the savings don’t cover the investment. We’ll say so plainly and offer another option: rental, an upgrade of your existing equipment or dropping the project."
+        },
+        "amr": {
+          "q": "How do AMRs differ from AGVs?",
+          "a": "An AGV follows a pre-marked path: magnetic tape or markers on the floor. An AMR (autonomous mobile robot) maps the space itself, plans its route and drives around obstacles. That makes an AMR easier to reconfigure when the warehouse layout changes."
+        },
+        "raas": {
+          "q": "What is robot rental (RaaS)?",
+          "a": "RaaS (Robots-as-a-Service) means you pay for using a robot instead of buying it: a lower entry cost and a faster start. You can compare renting and buying on your own figures <a>in the calculator on the Products page</a>."
+        },
+        "retrofit": {
+          "q": "Can you automate the equipment we already have?",
+          "a": "Often, yes. <a>Retrofit</a> is an upgrade of existing equipment: we add cameras, navigation, sensors and semi-automatic workflows. It can be faster and cheaper than buying a new robot."
+        },
+        "vendors": {
+          "q": "Do you sell robots of a single brand?",
+          "a": "No. We are not a manufacturer and are not tied to one brand. For each area we compare 2–5 manufacturers and choose those that fit the task and can be serviced in Russia."
+        }
+      },
+      "title": "Short answers to what people ask most.",
+      "lead": "Didn’t find your question? Ask an engineer, we’ll answer for your site.",
+      "ask": "Ask a question",
+      "none": "No matching questions."
+    },
+    "topics": {
+      "title": "Twelve topics: by area, economics and market.",
+      "lead": "Pick a topic to see its materials. Each topic links to the solution that shows how we deploy it.",
+      "items": {
+        "cleaning": {
+          "text": "How a cleaning robot works, what areas it suits and how fast it pays back."
+        },
+        "warehouse": {
+          "name": "Warehouse AMRs",
+          "text": "Autonomous mobile robots for intralogistics: use cases, navigation, WMS integration."
+        },
+        "service": {
+          "text": "Delivery and guest service in hotels, restaurants and clinics."
+        },
+        "industrial": {
+          "text": "Automating production operations: which station to start with and what to measure."
+        },
+        "construction": {
+          "text": "Where robots already work on construction sites: demolition, heavy and hazardous work."
+        },
+        "medical": {
+          "text": "Robots for clinics: delivery, disinfection and the requirements they must meet."
+        },
+        "agro": {
+          "name": "AgriTech",
+          "text": "Agricultural drones and farm robots: spraying, seasonal economics, the operator’s work."
+        },
+        "raas": {
+          "text": "How robot rental works, what the payment covers and who is better off renting than buying."
+        },
+        "roi": {
+          "name": "Robotics ROI",
+          "text": "How to calculate the economic effect honestly: what we compare, over which period and what counts as cost."
+        },
+        "reviews": {
+          "name": "Reviews, comparisons",
+          "text": "Models and manufacturers compared: which parameters matter and which to ignore."
+        },
+        "news": {
+          "name": "Market news",
+          "text": "What is happening in robotics in Russia and worldwide: launches, rules, prices."
+        },
+        "faq": {
+          "name": "FAQ",
+          "text": "Short answers to common questions: is it expensive, what if it breaks, how fast it pays back."
+        }
+      },
+      "count": "Materials",
+      "toSolution": "Solution",
+      "toProduct": "Product",
+      "toCalc": "Calculator",
+      "questions": "Questions"
+    },
+    "materials": {
+      "title": "One material, one search question.",
+      "lead": "Each material answers one specific question and covers it in full. We are preparing the first topics now.",
+      "items": {
+        "cleaningBasics": {
+          "title": "Cleaning robots: how they work and what areas they suit",
+          "text": "Navigation, cleaning modes, charging, the water station. What the robot does alone and where you still need a person."
+        },
+        "cleaningPayback": {
+          "title": "How fast a cleaning robot pays back: step by step",
+          "text": "Which costs we compare, where the savings come from and what changes the period most: area, number of shifts, cleaner’s wage."
+        },
+        "robotVsMachine": {
+          "title": "Floor-scrubbing robot or ride-on scrubber with an operator",
+          "text": "Productivity, people per shift, cost of ownership. And the cases where a machine with an operator beats a robot."
+        },
+        "amr": {
+          "title": "AMRs: what they are and how they differ from AGVs",
+          "text": "Navigation without floor markings, warehouse use cases, WMS integration. When an AGV is enough and when you need an AMR."
+        },
+        "raasBasics": {
+          "title": "Robot rental (RaaS): how it works and who it suits",
+          "text": "What the payment covers, how long the contract runs and who is responsible for service and downtime."
+        },
+        "rentVsBuy": {
+          "title": "Renting or buying a robot: how to compare costs",
+          "text": "Cumulative costs over the term, cost of ownership when you buy and the point where buying overtakes renting."
+        },
+        "agroDrone": {
+          "title": "Spraying drones: how they work and what you need to start",
+          "text": "A flight plan on the field map, the application rate, the weather window. What to prepare for the season."
+        },
+        "droneOperator": {
+          "title": "Spray drone operators: what to learn and how to organize work",
+          "text": "Training, crew roles and the documents to check before the season starts."
+        },
+        "demolition": {
+          "title": "Demolition robots: uses and how to calculate the economics",
+          "text": "Which work the robot takes over, how the crew changes and what to compare labor costs against."
+        },
+        "delivery": {
+          "title": "Delivery robots in hotels and restaurants: use cases and limits",
+          "text": "What the robot carries alone, where it needs elevators and doors, how guests react to it."
+        },
+        "industrialStart": {
+          "title": "Industrial robotics: which station to start with",
+          "text": "How to choose the first operation, what to measure before the project and why you don’t start with the hardest station."
+        },
+        "clinic": {
+          "title": "Robots in clinics: delivery, disinfection and their requirements",
+          "text": "Which tasks robots take on in healthcare facilities and what to check before you buy."
+        },
+        "brands": {
+          "title": "Pudu, Gausium, Keenon: how to compare manufacturers",
+          "text": "Which parameters to compare across cleaning robot brands and why service in Russia matters more than catalog figures."
+        },
+        "notPaying": {
+          "title": "When robotics doesn’t pay off",
+          "text": "Too little work, short shifts, a difficult environment: the conditions where we’ll tell you plainly the project won’t pay off."
+        }
+      }
+    },
+    "search": {
+      "label": "Search knowledge base",
+      "placeholder": "Payback, AMR, rental…"
+    },
+    "filter": {
+      "label": "Filter by topic",
+      "all": "All",
+      "cleaning": "Cleaning",
+      "warehouse": "Logistics",
+      "service": "Service",
+      "industrial": "Industry",
+      "construction": "Building",
+      "medical": "Healthcare",
+      "agro": "Agro",
+      "raas": "Rental",
+      "roi": "ROI",
+      "reviews": "Comparisons"
+    },
+    "formats": {
+      "article": "Article",
+      "calc": "Costing",
+      "compare": "Comparison",
+      "guide": "Guide",
+      "review": "Review"
+    },
+    "status": {
+      "soon": "Upcoming"
+    },
+    "empty": {
+      "topicTitle": "No materials in this topic yet.",
+      "searchTitle": "Nothing found for this query.",
+      "text": "Ask an engineer: we’ll answer for your site and add common questions to the knowledge base.",
+      "ask": "Ask a question",
+      "all": "Show all materials"
+    },
+    "roi": {
+      "title": "We calculate payback before you invest. With one method.",
+      "lead": "The calculator gives an estimate in minutes. The exact figure follows the site assessment; <b>we confirm it in a pilot</b>, before you buy.",
+      "cta": "Open the calculator",
+      "method": "Case study method",
+      "eq": {
+        "title": "Payback formula",
+        "note": "in months",
+        "before": "Costs today",
+        "beforeHint": "wages, vendor, supplies",
+        "after": "Costs with robots",
+        "afterHint": "rent or purchase, service, staff",
+        "saving": "Savings a month",
+        "aria": "Payback equals the investment divided by monthly savings",
+        "payback": "Payback",
+        "num": "Investment",
+        "den": "Savings a month"
+      },
+      "rules": {
+        "period": {
+          "title": "Comparable periods",
+          "text": "We compare equal periods before and after. For agriculture, season to season, not month to month."
+        },
+        "costs": {
+          "title": "Full cost of ownership",
+          "text": "Service, supplies and operator time count as costs with robots. Without them the period looks good and is wrong."
+        },
+        "honest": {
+          "title": "Honest “won’t pay off”",
+          "text": "If the savings don’t cover the investment, we say so plainly and offer another path: rental, an upgrade or dropping the project."
+        }
+      }
+    },
+    "see": {
+      "title": "From theory to your site.",
+      "solutions": {
+        "kicker": "HOW WE DEPLOY",
+        "title": "Solutions",
+        "text": "Cleaning · Warehouses · Service robots · Manufacturing · Construction · Healthcare · Agro",
+        "foot": "Equipment, integration, service"
+      },
+      "cases": {
+        "kicker": "RESULTS IN NUMBERS",
+        "title": "Case studies",
+        "text": "Office building · Agribusiness · Warehouse · Manufacturing · Construction",
+        "foot": "Task, solution and result"
+      }
+    },
+    "talk": {
+      "title": "Need answers for your site? Book an assessment.",
+      "lead": "An article explains the principle; an assessment gives your site’s figures. Leave your details: an engineer will clarify the task and suggest a start.",
+      "roiCta": "Calculate ROI",
+      "form": {
+        "industryLabel": "Your industry <small>optional</small>"
+      }
+    }
+  },
+  "manufacturers": {
+    "meta": {
+      "title": "Robot manufacturers we work with | Professional Robotics",
+      "description": "We work with leading robotics manufacturers: Pudu, Gausium, Keenon, Hikrobot, Unitree and others. We select equipment for the task, tied to no single vendor."
+    },
+    "sections": {
+      "hero": "MANUFACTURERS",
+      "catalog": "CATALOG",
+      "key": "BRANDS",
+      "select": "SELECTION",
+      "see": "SEE ALSO",
+      "talk": "CONTACT"
+    },
+    "crumb": "Manufacturers",
+    "hero": {
+      "title": "Manufacturers we work with.",
+      "lead": "We work with manufacturers directly, but we <b>are not tied to any one of them</b>. This is deliberate: an integrator tied to one vendor sells that vendor’s equipment even where it is not the best.",
+      "text": "Our main focus is strong Asian manufacturers: the best value for money, a wide choice and fast development. We keep several vendors in every area, so equipment can be replaced and you do not depend on a single supplier.",
+      "ctaPick": "Find equipment for your task",
+      "ctaRoi": "Calculate ROI"
+    },
+    "map": {
+      "label": "Manufacturer catalog: five areas",
+      "total": "manufacturers to pick from",
+      "count": "5 areas"
+    },
+    "groups": {
+      "service": {
+        "name": "Service robots and humanoids",
+        "text": "Delivery, cleaning, reception and navigation: hotels, shopping centers, office buildings, public venues."
+      },
+      "construction": {
+        "name": "Construction robotics",
+        "text": "Demolition, finishing and screeding on the construction site."
+      },
+      "wellness": {
+        "name": "Health and wellness",
+        "text": "Equipment for wellness centers, rehabilitation and clinics."
+      },
+      "industry": {
+        "name": "Industry and warehouse logistics",
+        "text": "Warehouse, shop floor and inspection: mobile robots, manipulators, cobots and legged robots."
+      },
+      "agro": {
+        "name": "Agriculture",
+        "text": "Agricultural drones and field equipment: spraying and field work."
+      }
+    },
+    "catalog": {
+      "title": "Catalog by area.",
+      "lead": "Every area has several manufacturers. Here we name the key brands; we will name the others for your task.",
+      "others": "and more"
+    },
+    "key": {
+      "title": "Key brands to pick from.",
+      "lead": "Where the manufacturer is from, what equipment it makes and what tasks we use it for.",
+      "country": {
+        "cn": "China",
+        "sg": "Singapore",
+        "se": "Sweden"
+      },
+      "pudu": {
+        "text": "Floor cleaning and delivery inside the venue: hotels, shopping centers, office buildings."
+      },
+      "gausium": {
+        "text": "Cleaning of lobbies, shopping galleries, halls and terminals."
+      },
+      "keenon": {
+        "text": "Delivery of dishes and orders, promo and navigation: restaurants, hotels, stores."
+      },
+      "lionsbot": {
+        "text": "Cleaning robots for public buildings: lobbies, retail areas, halls."
+      },
+      "hikrobot": {
+        "text": "Mobile robots for in-plant and warehouse logistics."
+      },
+      "unitree": {
+        "text": "Site inspection and patrols, teaching labs."
+      },
+      "ubtech": {
+        "text": "Reception, greeting guests and navigation: office buildings, public venues."
+      },
+      "xag": {
+        "text": "Spraying and field work over large areas."
+      },
+      "brokk": {
+        "text": "Remote-controlled demolition machines for heavy work."
+      },
+      "note": "Country is the manufacturer’s headquarters. Tasks follow our industry pages."
+    },
+    "select": {
+      "title": "How we choose equipment.",
+      "lead": "We are not tied to one vendor, so we choose equipment for your task and economics, not for our own catalog.",
+      "example": "E.g. cleaning",
+      "result": "For your task",
+      "task": {
+        "title": "Task and economics",
+        "text": "We start with the task and calculate payback. We choose what pays back for you, not what is in stock."
+      },
+      "service": {
+        "title": "Service and support",
+        "text": "We take equipment that can actually be maintained. Our own service network across Russia, work under an SLA."
+      },
+      "swap": {
+        "title": "Several vendors per area",
+        "text": "We keep 2–5 manufacturers in every area. Equipment can be replaced, and no supplier becomes the only one."
+      },
+      "platform": {
+        "title": "One platform for all equipment",
+        "text": "We connect robots of different brands to the Professional Robotics platform through manufacturer adapters: one map, reports and KPIs."
+      }
+    },
+    "see": {
+      "title": "See also.",
+      "solutions": {
+        "kicker": "9 AREAS",
+        "title": "Solutions",
+        "text": "Cleaning · Warehouse · Service robots · Industry · Healthcare · Construction · Agriculture · Security · Humanoids",
+        "foot": "Where the equipment is used"
+      },
+      "products": {
+        "kicker": "7 PRODUCTS",
+        "title": "Products",
+        "text": "Platform · Fleet Management · Dispatch · AI modules · Open API · Rental (RaaS) · Retrofit",
+        "foot": "Rental and equipment upgrade"
+      }
+    },
+    "talk": {
+      "title": "We’ll select equipment for your task.",
+      "lead": "Tell us about your task: we will suggest options from different manufacturers and calculate payback. You can estimate the economics in the calculator first.",
+      "roiCta": "Calculate ROI",
+      "form": {
+        "directionLabel": "Which area <small>optional</small>"
+      }
+    }
+  },
+  "platform": {
+    "meta": {
+      "title": "Robot management platform: monitoring, fleet, KPIs, Open API | Professional Robotics",
+      "description": "Our own platform for managing robots of any type and brand: monitoring, fleet, quality and KPIs, AI analytics, Open API. Built in Russia, data stays here."
+    },
+    "sections": {
+      "hero": "PLATFORM",
+      "idea": "IDEA",
+      "problems": "PROBLEMS",
+      "capabilities": "FEATURES",
+      "trust": "SECURITY",
+      "results": "RESULTS",
+      "objects": "SITES",
+      "see": "SEE ALSO",
+      "talk": "CONTACT"
+    },
+    "crumb": "Platform",
+    "hero": {
+      "title": "Professional Robotics Platform",
+      "lead": "One platform to manage your robots, equipment and site operations.",
+      "text": "Deploying a robot is half the job. After that you need to manage it, see what was done and where, control quality and service it on time. The platform brings it all into one window: fleet, tasks, quality, analytics and service. In effect, it is an operating system for robotic operations.",
+      "ctaDemo": "Request a platform demo",
+      "ctaRoi": "Calculate your site’s ROI",
+      "trust": {
+        "russia": "Developed in Russia",
+        "data": "Data in Russia, data center in Skolkovo",
+        "makers": "40+ manufacturers, 8 robot types"
+      }
+    },
+    "ops": {
+      "label": "Example operator console: one operator and 24 robots of five types on one screen",
+      "online": "Platform online",
+      "example": "Sample panel",
+      "operator": "operator",
+      "robots": "robots",
+      "attention": "alert"
+    },
+    "ui": {
+      "status": {
+        "work": "working",
+        "charge": "charging"
+      },
+      "center": {
+        "window": "All sites",
+        "site1": "Northern Mall",
+        "site2": "Park Offices",
+        "site3": "South depot",
+        "site4": "Central Clinic"
+      },
+      "kpi": {
+        "devices": "devices",
+        "sites": "sites",
+        "online": "online"
+      },
+      "fleet": {
+        "window": "Device fleet",
+        "all": "All",
+        "cleaning": "Cleaning",
+        "delivery": "Delivery",
+        "warehouse": "Warehouse",
+        "selected": "Picked: 12",
+        "update": "Update",
+        "schedule": "Schedule"
+      },
+      "monitoring": {
+        "window": "Telemetry",
+        "uptime": "hours working per day",
+        "errors": "errors this shift",
+        "log1": "Task completed · floor 1",
+        "log2": "Low battery · heading to base",
+        "log3": "Sensor error · alert sent"
+      },
+      "maps": {
+        "window": "Map · floor 1",
+        "zone": "Work zone",
+        "route": "Route",
+        "nogo": "No-go zone"
+      },
+      "dispatch": {
+        "window": "Tasks · shift",
+        "zoneA": "zone A",
+        "zoneB": "zone B",
+        "zoneC": "zone C",
+        "note": "No overlaps, no gaps"
+      },
+      "remote": {
+        "window": "Remote console",
+        "where": "1F · cleaning",
+        "start": "Start",
+        "pause": "Pause",
+        "stop": "Emergency stop",
+        "diag": "Diagnostics",
+        "ok": "normal",
+        "link": "Link",
+        "stable": "stable",
+        "operator": "Operator",
+        "offsite": "connected remotely"
+      },
+      "analytics": {
+        "window": "Analytics",
+        "heat": "Zone utilization",
+        "predTitle": "CL-04: maintenance in 3 days",
+        "predText": "Wear above normal. Fix before failure."
+      },
+      "agents": {
+        "window": "AI agent · feed",
+        "tagFound": "finding",
+        "found": "Robots queue up at the elevators",
+        "tagDeviation": "deviation",
+        "deviation": "Zone B was not done on schedule",
+        "tagAdvice": "advice",
+        "advice": "Move deliveries to another time to free up the elevators"
+      },
+      "api": {
+        "window": "Systems",
+        "core": "Platform",
+        "security": "Security"
+      },
+      "sla": {
+        "window": "Incident",
+        "s1tag": "SIGNAL",
+        "s1": "Platform sees a fault",
+        "s2tag": "TICKET",
+        "s2": "Incident created automatically",
+        "s3tag": "VISIT",
+        "s3": "Engineer or remote help",
+        "s4tag": "RESULT",
+        "s4": "Robot is back at work",
+        "note": "Response time is fixed in the SLA"
+      },
+      "custom": {
+        "window": "“Guest” workflow · v1.3",
+        "greet": "HM-01 greets the guest",
+        "brandA": "humanoid, brand A",
+        "lift": "Elevator call",
+        "building": "site system",
+        "order": "DL-01 delivers",
+        "brandB": "courier, brand B"
+      }
+    },
+    "idea": {
+      "title": "We manage results and quality, not just robots.",
+      "lead": "A robot is a tool. It creates value when a system stands behind it: one that assigns tasks, tracks execution, catches deviations and gives an objective picture of operations.",
+      "verbs": {
+        "assign": "Assigns tasks",
+        "watch": "Tracks execution",
+        "catch": "Catches deviations",
+        "show": "Shows the picture"
+      },
+      "one": {
+        "operator": "operator",
+        "dozens": "dozens of",
+        "devices": "devices",
+        "caption": "One operator oversees dozens of devices through the platform, with no extra headcount."
+      }
+    },
+    "any": {
+      "makers": "40+ manufacturers",
+      "types": "8 robot types",
+      "one": "1 platform",
+      "items": {
+        "cleaning": "Cleaning",
+        "delivery": "Delivery",
+        "warehouse": "Warehouse",
+        "manipulators": "Robot arms",
+        "agro": "Agri",
+        "construction": "Building",
+        "wellness": "Wellness",
+        "humanoids": "Humanoids"
+      }
+    },
+    "problems": {
+      "title": "Sound familiar? The platform is built for it.",
+      "staff": {
+        "title": "Staffing",
+        "text": "Labor shortages, high turnover, rising labor costs and dependence on shifts."
+      },
+      "solves": "Solved by:",
+      "opaque": {
+        "title": "No visibility",
+        "text": "The site doesn’t know where work was done, what was missed, how long it took or whether it followed the standard."
+      },
+      "quality": {
+        "title": "Inconsistent quality",
+        "text": "Results change from shift to shift and depend on the individual."
+      },
+      "costs": {
+        "title": "High costs",
+        "text": "Wasted consumables, inefficient equipment, expensive quality control."
+      },
+      "disturb": {
+        "title": "Work gets in the way",
+        "text": "Noise and blocked aisles during business hours, discomfort for visitors."
+      }
+    },
+    "cap": {
+      "remote": {
+        "title": "Remote control",
+        "text": "Start and stop tasks, run remote diagnostics and support, trigger an emergency stop from anywhere. The operator doesn’t need to be on site."
+      },
+      "monitoring": {
+        "title": "Round-the-clock monitoring",
+        "text": "Live telemetry and an operations map, status and error tracking, uptime, operation history and failure alerts."
+      },
+      "dispatch": {
+        "title": "Task assignment and coordination",
+        "text": "The platform assigns tasks between devices, builds the schedule and coordinates several robots on one site, so they stay out of each other’s way and cover the area without gaps."
+      },
+      "analytics": {
+        "title": "AI analytics and predictive maintenance",
+        "text": "Analysis of equipment utilization, route efficiency and site performance, heat maps and recurring errors. The system flags maintenance needs ahead of time: before a breakdown, not after."
+      },
+      "maps": {
+        "title": "Digital maps and navigation",
+        "text": "A site map with work zones, routes and no-go zones. Equipment is tracked on the map in real time, and zones are edited online and synced from the cloud."
+      },
+      "center": {
+        "title": "Single control center",
+        "text": "One panel for all your sites: map, device status, tasks, alerts and analytics. The whole fleet is visible in real time and managed from one place."
+      },
+      "fleet": {
+        "title": "Fleet management",
+        "text": "Hundreds of devices under control: grouping by site and status, bulk commands, remote setup and updates, schedule and workflow management."
+      },
+      "agents": {
+        "title": "In-house AI agents",
+        "text": "Our own intelligent agents analyze operations in real time, find problem areas, flag deviations and recommend how to optimize work and cut costs."
+      },
+      "api": {
+        "title": "Integrations",
+        "fullTitle": "Open API, integrations",
+        "text": "Connects to building systems (BMS), IoT and smart-building platforms, security systems, and your ERP and facility platforms. The platform fits into your infrastructure instead of replacing it."
+      },
+      "sla": {
+        "title": "SLA and service",
+        "text": "Service is built into the platform: stability monitoring, incident management, remote support, predictive maintenance. The goal is minimal downtime.",
+        "more": "How service works"
+      },
+      "custom": {
+        "title": "Custom software for you",
+        "text": "If the manufacturer lacks a feature, we build it. New workflows, integrations and interfaces are built on the platform, so you don’t wait for a vendor update.",
+        "ex1": "Different brands, one system",
+        "ex2": "Tasks from your systems",
+        "ex3": "Workflows for a humanoid",
+        "cta": "Discuss development"
+      }
+    },
+    "capabilities": {
+      "title": "What the platform does.",
+      "lead": "Eleven features in one window. Pick any one and see how it looks in the interface.",
+      "listLabel": "Platform features"
+    },
+    "trust": {
+      "title": "A Russian platform. Your data stays in Russia.",
+      "main": {
+        "kicker": "Data storage",
+        "title": "Data center in Skolkovo",
+        "text": "Data is stored in cloud infrastructure located in Russia. For healthcare and government sites, keeping data in Russia often decides the choice."
+      },
+      "dev": {
+        "title": "In-house development",
+        "text": "Fully Russian-developed software aimed at corporate customers. Not a vendor license."
+      },
+      "secure": {
+        "title": "Enterprise-grade security",
+        "text": "Secure communication channels, redundancy, access control."
+      }
+    },
+    "results": {
+      "title": "A platform built for results.",
+      "lead": "The scale of savings depends on site type and area. The calculator shows it in a couple of minutes.",
+      "cta": "Calculate ROI",
+      "one": {
+        "title": "One operator, dozens of robots",
+        "text": "Fewer people on oversight, less dependence on staffing."
+      },
+      "costs": {
+        "title": "Lower operating costs",
+        "text": "Measured use of consumables and efficient equipment operation."
+      },
+      "quality": {
+        "title": "Consistent quality",
+        "text": "Every operation follows the set workflow, with no human factor."
+      },
+      "clarity": {
+        "title": "Transparency",
+        "text": "Objective reports and KPIs, contractor oversight instead of “looks done”."
+      },
+      "uptime": {
+        "title": "More uptime",
+        "text": "Predictive service cuts downtime."
+      }
+    },
+    "objects": {
+      "title": "Which sites it’s for.",
+      "lead": "The platform is designed for commercial real estate and public venues.",
+      "office": {
+        "kicker": "OFFICES",
+        "title": "Office buildings",
+        "text": "Cleaning outside business hours, consistent quality, transparent contractor oversight and less dependence on staff."
+      },
+      "clinic": {
+        "kicker": "HEALTHCARE",
+        "title": "Clinics and healthcare facilities",
+        "text": "Standardized cleaning to protocol, tracking of treated zones, a digital operation history and predictable sanitary quality."
+      },
+      "retail": {
+        "kicker": "RETAIL",
+        "title": "Retail and public venues",
+        "text": "Constant cleanliness across large areas, round-the-clock operation and minimal impact on visitors."
+      },
+      "more": {
+        "warehouse": "Warehouses and logistics hubs",
+        "hotels": "Hotels",
+        "airports": "Airports",
+        "fitness": "Fitness clubs",
+        "education": "Education",
+        "all": "All industries"
+      }
+    },
+    "see": {
+      "title": "See also.",
+      "cleaning": {
+        "kicker": "SOLUTION",
+        "text": "The platform’s main scenario: cleaning with quality control and reports.",
+        "foot": "Where the platform works today"
+      },
+      "products": {
+        "kicker": "7 PRODUCTS",
+        "title": "Products",
+        "text": "Fleet Management · Dispatch · AI modules · Open API · Rental (RaaS) · Retrofit",
+        "foot": "Platform modules one by one"
+      },
+      "cases": {
+        "kicker": "RESULTS IN NUMBERS",
+        "title": "Case studies",
+        "text": "Office building · Agribusiness · Warehouse · Manufacturing · Construction",
+        "foot": "What it gave the business"
+      }
+    },
+    "talk": {
+      "title": "See the platform at work.",
+      "lead": "Leave your contact details. We’ll call you, clarify the task and arrange a demo. If you’d rather start with the economics, open the calculator.",
+      "roiCta": "Calculate ROI",
+      "form": {
+        "topicLabel": "What to discuss <small>optional</small>",
+        "demo": "Platform demo",
+        "connect": "Connecting my robots",
+        "custom": "Custom software for my task",
+        "api": "Integration with my systems"
       }
     }
   }

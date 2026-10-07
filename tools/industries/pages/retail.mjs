@@ -80,7 +80,7 @@ const industry = {
   // Calculator preset (roi-model.js, type «mall»). Shown with the label «Расчётный ориентир».
   estimate: { type: 'mall', area: 8000, mode: 'one', object: 'ТЦ, 8 000 м² убираемой площади, одна смена' },
 
-  why: { title: 'Свой пилот — раньше городского.', text: 'Итоги московского пилота обещают после нескольких месяцев работы. Ждать их не обязательно: запустим робота на одной галерее или одном этаже вашего ТЦ и сравним с ручной уборкой на ваших цифрах.', link: { label: 'Пилотный проект', href: '/services/pilot/' } },
+  why: { title: 'Свой пилот — раньше городского.', text: 'Итоги московского пилота обещают после нескольких месяцев работы. Ждать их не обязательно: запустим робота на одной галерее или одном этаже вашего ТЦ и сравним с ручной уборкой на ваших цифрах.', link: { label: 'Пилотный проект', href: 'services.html#pilot' } },
   form: { title: 'Обсудим робота для вашего ТЦ или сети.', lead: 'Посмотрим планировку, зоны и график уборки. Предложим технику, режим работы и формат: покупка, аренда или уборка как услуга.', button: 'Обсудить пилот' },
   formStage: true,
   links: [
@@ -89,8 +89,8 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Складская роботизация', text: 'Дарксторы и склады сетей.', href: SOL.warehouse.href },
     { kicker: 'ПРОДУКТ', title: 'Платформа Профессиональная Робототехника', text: 'Уборка всех точек сети в одном окне.', href: 'products.html#platform' },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Без капзатрат, с обслуживанием.', href: 'products.html#raas' },
-    { kicker: 'УСЛУГА', title: 'Пилотный проект', text: 'Одна галерея или один магазин.', href: '/services/pilot/' },
-    { kicker: 'КЕЙСЫ', title: 'Кейсы: ритейл', text: 'Внедрения в ТЦ и магазинах.', href: '/cases/?industry=retail' },
+    { kicker: 'УСЛУГА', title: 'Пилотный проект', text: 'Одна галерея или один магазин.', href: 'services.html#pilot' },
+    { kicker: 'КЕЙСЫ', title: 'Кейсы: ритейл', text: 'Внедрения в ТЦ и магазинах.', href: 'cases.html?industry=retail' },
     { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
   ],
   heads: { problems: 'Почему торговле нужен робот.', directions: 'Что роботизируем в ТЦ и магазине.', vendors: 'Оборудование и производители.' },
@@ -216,7 +216,7 @@ const renderers = {
       <div class="econ">
         <div class="econ__copy">
           ${h.idx(n, h.secName(ind, 'economy'))}
-          <h2 class="h2 reveal" id="economy-h"${h.L('economy.title')}>Посчитайте свой торговый центр.</h2>
+          <h2 class="h2 reveal" id="economy-h"${h.L('economy.title')}>Посчитайте окупаемость для ТЦ.</h2>
           <p class="lead reveal"${h.L('economy.lead')}>Модель считает уборку полов: площадь, режим, сколько роботов нужно и когда они окупятся. Тип «ТЦ» уже выбран.</p>
           <p class="reveal rh-est"${h.LH('economy.estimate')}><span class="mono">Расчётный ориентир</span> Это расчёт по нашей модели, не результат внедрения. Цифры по вашему объекту — после аудита или пилота.</p>
         </div>

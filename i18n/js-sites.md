@@ -75,11 +75,13 @@
 | `js.facadeModel.scenarios.portfolio` | facade-model.js:9 | название сценария SCENARIOS; пока нигде не показывается | — |
 | `js.facadeModel.scenarios.bigOffice` | facade-model.js:10 | название сценария SCENARIOS; пока нигде не показывается | — |
 | `js.facadeModel.scenarios.small` | facade-model.js:11 | название сценария SCENARIOS; пока нигде не показывается | — |
-| `js.solutions.errors.name` | solutions.js:94 | ошибка формы (и на отраслевых страницах: они используют solutions.js) | — |
-| `js.solutions.errors.phone` | solutions.js:95 | ошибка формы | — |
-| `js.solutions.errors.consent` | solutions.js:96 | ошибка формы | — |
-| `js.solutions.status.offline` | solutions.js:151 | статус формы; innerHTML; `<button type="button" data-retry>` создаёт код | <button> |
-| `js.solutions.status.failed` | solutions.js:161 | статус формы; innerHTML | <button> |
+| `js.solutions.errors.name` | solutions.js:127 | ошибка формы (и на отраслевых страницах: они используют solutions.js) | — |
+| `js.solutions.errors.phone` | solutions.js:128 | ошибка формы | — |
+| `js.solutions.errors.consent` | solutions.js:136 | ошибка формы | — |
+| `js.solutions.errors.contact` | solutions.js:133 | ошибка формы «Контакты»: нет ни телефона, ни e-mail | — |
+| `js.solutions.errors.email` | solutions.js:134 | ошибка формы «Контакты»: e-mail написан неверно | — |
+| `js.solutions.status.offline` | solutions.js:200 | статус формы; innerHTML; `<button type="button" data-retry>` создаёт код | <button> |
+| `js.solutions.status.failed` | solutions.js:210 | статус формы; innerHTML | <button> |
 | `js.industry.area` | industry.js:58 | значение ползунка мини-калькулятора и его aria-valuetext | {n} (number) |
 | `industries.common.calc.months` | industry.js:62 | «≈ N мес» в мини-калькуляторе; в разметке тот же шаблон | {n} |
 | `js.industry.notPaying` | industry.js:63 | мини-калькулятор, когда срок окупаемости бесконечен | — |

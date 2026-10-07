@@ -98,7 +98,9 @@ section { position: relative; z-index: 2; }
 }
 .nav img { height: 32px; width: auto; object-fit: contain; object-position: left center; } /* (contain: on a very narrow phone the logo gets smaller, not squeezed) */
 .nav-links { display: flex; gap: 28px; margin: 0 auto; font-size: 14px; font-weight: 500; }
-.nav-links a { color: var(--ink-muted); transition: color var(--fast) var(--ease); }
+.nav-links a { color: var(--ink-muted); white-space: nowrap; transition: color var(--fast) var(--ease); }
+/* Семь пунктов не помещаются с отступом 28px на 1024–1279 (в EN «Case studies» переносилось) */
+@media (max-width: 1279px) { .nav { gap: 20px; } .nav-links { gap: 18px; } }
 .nav-links a:hover, .nav-links a.on { color: var(--ink); }
 .nav .btn { height: 40px; padding: 0 20px; font-size: 14px; }
 /* Language switch: premium pill-toggle with animated slider and accent color */

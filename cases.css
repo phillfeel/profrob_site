@@ -1,0 +1,183 @@
+/* ================= СТРАНИЦА «КЕЙСЫ» (cases.html) =================
+   Надстройка над styles.css, solutions.css и products.css: hero, тёмная сцена .pr-stage и .mod, see-card и форма берутся оттуда.
+   Здесь сводка результатов в hero, фильтр по отраслям, карточка кейса по шаблону ТЗ (объект → задача → что внедрили →
+   результат → период), пустое состояние, лист замера и формулы методики. */
+
+.cs-page [hidden] { display: none !important; }
+.cs-page .cs, .cs-page .cs-fx__item { scroll-margin-top: 112px; }
+
+/* ---------- 01 Hero: сводка результатов ---------- */
+.cs-sum {
+  padding: 24px; border-radius: var(--r-lg); background: var(--glass); border: 1px solid var(--glass-line);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: var(--shadow-md);
+}
+.cs-sum__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); font-size: 18px; font-weight: 700; letter-spacing: -.02em; }
+.cs-sum__head .mono { font-size: 11px; font-weight: 500; letter-spacing: .04em; color: var(--ink-muted); }
+.cs-sum__list li + li { border-top: 1px dashed var(--line); }
+.cs-sum__list a {
+  display: grid; grid-template-columns: 92px minmax(0, 1fr) 18px; gap: 14px; align-items: center; min-height: 64px; padding: 10px; margin: 0 -10px;
+  border-radius: var(--r-sm); transition: background var(--fast) var(--ease);
+}
+.cs-sum__list b { font-size: 30px; font-weight: 700; letter-spacing: -.04em; line-height: 1; color: var(--accent-ink); }
+.cs-sum__txt { display: grid; gap: 2px; font-size: 15px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
+.cs-sum__txt small { font-size: 13px; font-weight: 400; letter-spacing: 0; color: var(--ink-muted); }
+.cs-sum__list svg, .cs-sum__foot svg { width: 18px; height: 18px; fill: none; stroke: var(--ink-muted); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--base) var(--ease), stroke var(--fast) var(--ease); }
+.cs-sum__list a:hover { background: var(--accent-soft); }
+.cs-sum__list a:hover svg { stroke: var(--accent-ink); transform: translateY(2px); }
+.cs-sum__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--line); min-height: 44px; font-size: 14px; color: var(--ink-muted); }
+.cs-sum__foot:hover { color: var(--accent-ink); }
+.cs-sum__foot:hover svg { stroke: var(--accent-ink); transform: translateX(3px); }
+
+/* ---------- 02 Проекты: заголовок и фильтр ---------- */
+.cs-head { display: grid; gap: 8px; margin-bottom: 40px; }
+.cs-head .sol-head { margin-bottom: 0; }
+.cs-page .sol-head .h2 { max-width: 18ch; }
+.cs-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.cs-chip {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 8px 0 18px; border-radius: var(--r-pill);
+  background: var(--surface-raised); border: 1px solid var(--line); font-size: 15px; font-weight: 500;
+  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+.cs-chip__n { display: grid; place-items: center; min-width: 28px; height: 28px; padding: 0 8px; border-radius: var(--r-pill); background: var(--surface); font: 500 12px var(--mono); color: var(--ink-muted); }
+.cs-chip:hover { border-color: var(--line-strong); }
+.cs-chip[aria-current="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.cs-chip[aria-current="true"] .cs-chip__n { background: var(--lime); color: var(--ink); }
+
+/* ---------- Карточка кейса: фото и досье, через одну фото справа ---------- */
+.cs-list { display: grid; gap: 24px; }
+.cs {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); border-radius: var(--r-lg); overflow: hidden;
+  background: var(--surface-raised); box-shadow: var(--shadow-sm); transition: box-shadow var(--fast) var(--ease);
+}
+.cs:hover { box-shadow: var(--shadow-md); }
+.cs:nth-child(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.cs:nth-child(even) .cs__ph { order: 2; }
+.cs__ph { position: relative; min-height: 100%; background: var(--surface-sunken); }
+.cs__ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cs__ph figcaption {
+  position: absolute; left: 16px; bottom: 16px; padding: 6px 10px; border-radius: var(--r-pill);
+  background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-size: 10px; color: var(--ink-muted);
+}
+.cs__body { display: grid; gap: 24px; align-content: start; padding: 36px 40px; }
+.cs__top { display: flex; gap: 14px; color: var(--ink-muted); }
+.cs__no { color: var(--accent-ink); }
+.cs h3 { margin-top: -12px; font-size: clamp(24px, 2.2vw, 32px); font-weight: 700; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; }
+
+/* Результат и паспорт объекта */
+.cs__res { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 40px; align-items: start; padding: 24px 0; border-block: 1px solid var(--line); }
+.cs__fig { display: grid; gap: 6px; justify-items: start; }
+.cs__fig b { font-size: clamp(56px, 6vw, 88px); font-weight: 700; letter-spacing: -.05em; line-height: .9; color: var(--accent-ink); }
+.cs__unit { color: var(--ink-muted); }
+.cs__how { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font-size: 13px; font-weight: 500; color: var(--ink-muted); }
+.cs__how svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--fast) var(--ease); }
+.cs__how:hover { color: var(--accent-ink); }
+.cs__how:hover svg { transform: translateY(2px); }
+.cs__pass { display: grid; }
+.cs__pass div { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; padding: 9px 0; }
+.cs__pass div + div { border-top: 1px dashed var(--line); }
+.cs__pass dt { padding-top: 2px; font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+.cs__pass dd { font-size: 15px; line-height: 1.4; }
+/* Данных нет в источниках: честный пробел, а не выдуманная цифра */
+.cs__pass dd.cs-tbd { width: fit-content; font: 500 12px/1.6 var(--mono); letter-spacing: .04em; color: var(--ink-muted); border-bottom: 1px dotted var(--line-strong); }
+
+/* Задача → что внедрили */
+.cs__story { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.cs__story h4 { margin-bottom: 8px; font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+.cs__story div + div h4 { color: var(--accent-ink); }
+.cs__story p { font-size: 15px; line-height: 1.55; }
+
+/* Связи кейса и CTA */
+.cs__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 24px; }
+.cs__links { display: flex; flex-wrap: wrap; gap: 8px; }
+.cs__links a {
+  display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: var(--r-pill); border: 1px solid var(--line);
+  font-size: 13.5px; line-height: 1.2; transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+.cs__links .mono { margin-right: 6px; font-size: 10px; color: var(--ink-muted); }
+.cs__links a:hover { background: var(--accent-soft); border-color: transparent; color: var(--accent-ink); }
+.cs__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; }
+.cs__cta .text-link { font-size: 15px; }
+.cs__same { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
+.cs__same:hover { text-decoration-color: currentColor; }
+
+/* ---------- Пустое состояние ---------- */
+.cs-empty {
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 40px; align-items: end; padding: 40px;
+  border-radius: var(--r-lg); border: 1.5px dashed var(--line-strong); background: repeating-linear-gradient(135deg, transparent 0 12px, #e9e7e255 12px 24px);
+}
+.cs-empty__copy { display: grid; gap: 14px; }
+.cs-empty__ind { color: var(--accent-ink); }
+.cs-empty h3 { font-size: clamp(24px, 2.4vw, 34px); font-weight: 700; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; }
+.cs-empty p:not(.cs-empty__ind) { font-size: 16px; line-height: 1.55; color: var(--ink-muted); max-width: 56ch; }
+.cs-empty__acts { display: grid; gap: 8px; justify-items: start; }
+.cs-empty__links { display: flex; flex-wrap: wrap; gap: 0 24px; }
+.cs-empty .text-link svg { fill: none; }
+
+/* ---------- 03 Методика: лист замера и формулы ---------- */
+.cs-page .pr-stage .h2 { max-width: 20ch; }
+.cs-sheet {
+  display: grid; gap: 12px; padding: 24px; border-radius: var(--r-lg); background: var(--stage-raised); border: 1px solid var(--stage-line);
+  box-shadow: 0 24px 48px -24px #000a;
+}
+.cs-sheet__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 18px; font-weight: 700; letter-spacing: -.02em; }
+.cs-sheet__head .mono { font-size: 11px; font-weight: 500; color: var(--lime); }
+.cs-sheet__rows div { display: flex; align-items: baseline; gap: 10px; padding: 9px 0; font-size: 14px; }
+.cs-sheet__rows div + div { border-top: 1px solid var(--stage-line); }
+.cs-sheet__rows dt { color: var(--on-stage); }
+.cs-sheet__rows dd { margin-left: auto; padding-left: 12px; font: 500 12px var(--mono); color: var(--on-stage-muted); text-align: right; }
+
+.cs-fx { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; list-style: none; }
+.cs-fx__item { position: relative; }
+.cs-fx__item h3 { min-height: 2.24em; }
+.cs-fx__item .mod__no { color: var(--on-stage-muted); }
+.cs-fx__f {
+  display: flex; align-items: center; gap: 12px; min-height: 96px; margin: 4px 0; padding: 16px; border-radius: var(--r-md);
+  background: var(--stage); border: 1px solid var(--stage-line); font: 500 13px/1.35 var(--mono); color: var(--on-stage);
+}
+.cs-frac { display: inline-grid; justify-items: center; text-align: center; }
+.cs-frac > span { padding: 4px 6px; }
+.cs-frac > span:first-child { border-bottom: 1.5px solid var(--accent-ink-dark); }
+.cs-fx__x { flex: none; color: var(--lime); }
+.cs-fx__line { color: var(--on-stage); }
+.cs-page .cs-fx__item p:last-child { font-size: 14px; }
+/* Переход по ссылке «Как посчитано»: формула подсвечивается */
+.cs-fx__item:target { border-color: var(--lime); box-shadow: 0 0 0 1px var(--lime), 0 16px 40px -16px #c8ff3c55; }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1279px) {
+  .cs-sum { max-width: 560px; }
+  .cs { grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); }
+  .cs:nth-child(even) { grid-template-columns: minmax(0, 6fr) minmax(0, 4fr); }
+  .cs__body { padding: 32px; }
+  .cs__res { grid-template-columns: 1fr; gap: 20px; }
+  .cs-fx { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-sheet { max-width: 520px; }
+}
+@media (max-width: 1023px) {
+  .cs, .cs:nth-child(even) { grid-template-columns: 1fr; }
+  .cs:nth-child(even) .cs__ph { order: 0; }
+  .cs__ph { min-height: 0; aspect-ratio: 16 / 10; }
+  .cs__res { grid-template-columns: auto minmax(0, 1fr); gap: 32px; }
+  .cs-empty { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 767px) {
+  .cs-sum { padding: 16px; }
+  .cs-sum__list a { grid-template-columns: 64px minmax(0, 1fr) 18px; gap: 10px; }
+  .cs-sum__list b { font-size: 24px; }
+  /* Фильтр — лента с прокруткой, а не четыре строки чипов */
+  .cs-filter { flex-wrap: nowrap; overflow-x: auto; margin: 16px -16px 0; padding: 0 16px 4px; scrollbar-width: none; }
+  .cs-filter::-webkit-scrollbar { display: none; }
+  .cs-chip { flex: none; font-size: 14px; padding-left: 14px; }
+  .cs__body { padding: 24px 20px; gap: 20px; }
+  .cs h3 { margin-top: -8px; }
+  .cs__res { grid-template-columns: 1fr; gap: 16px; padding: 20px 0; }
+  .cs__pass div { grid-template-columns: 96px minmax(0, 1fr); }
+  .cs__story { grid-template-columns: 1fr; gap: 20px; }
+  .cs-empty { padding: 24px 20px; }
+  .cs-fx { grid-template-columns: 1fr; }
+  .cs-fx__item h3 { min-height: 0; }
+  .cs-sheet { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-sum__list svg, .cs__how svg { transition: none; }
+}
