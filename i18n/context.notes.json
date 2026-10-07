@@ -158,5 +158,11 @@
   "industriesHub.talk.form.industryLabel": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Same as cases.talk.form.industryLabel.",
   "notFound.title": "Headline (H1) of the 404 page: a short statement that the page does not exist, no period.",
   "notFound.home": "Button on the 404 page: leads to the home page (index.html).",
-  "notFound.contacts": "Button on the 404 page: leads to the Contacts page (contacts.html); a call to write to us, not a navigation label."
+  "notFound.contacts": "Button on the 404 page: leads to the Contacts page (contacts.html); a call to write to us, not a navigation label.",
+  "solutions.*.secNames.*": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU.",
+  "solutions.*.nameCaps": "The solution name in capitals: section counter and the tag above the headline. Same words as solutions.<page>.name, upper-cased.",
+  "solutions.*.h1.items.*": "One line of a solution page headline (lines are separate spans and read as one sentence ending with a period). Product keywords («AMR», «cleaning robots») stay in the line.",
+  "solutions.*.primaryCta.label": "Primary call to action in the first screen of a solution page; verb first, at most 28 characters.",
+  "solutions.*.form.button": "Submit button of the contact form of a solution page; says what happens next, not «Submit».",
+  "solutions.*.econ.link.label": "Button under the economics block; opens the payback calculator (cleaning) or the warehouse industry page (warehouse). Verb first."
 }

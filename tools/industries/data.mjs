@@ -44,12 +44,12 @@ export const BRANDS = {
 
 const SOL = {
   service: { label: 'Сервисные роботы', href: 'solutions.html#dir-service-robots' },
-  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions-cleaning.html' },
   humanoid: { label: 'Гуманоидные роботы', href: 'solutions.html#dir-humanoid' },
   construction: { label: 'Строительная робототехника', href: 'solutions.html#dir-construction' },
   medical: { label: 'Медицинская робототехника', href: 'solutions.html#dir-medical' },
   industrial: { label: 'Промышленная роботизация', href: 'solutions.html#dir-industrial' },
-  warehouse: { label: 'Складская роботизация', href: 'solutions.html#dir-warehouse' },
+  warehouse: { label: 'Складская роботизация', href: 'solutions-warehouse.html' },
   security: { label: 'Роботы безопасности', href: 'solutions.html#dir-security' },
   agro: { label: 'Агророботы', href: 'solutions.html#dir-agro' },
 };

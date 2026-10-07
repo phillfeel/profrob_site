@@ -29,15 +29,15 @@
     },
     "common.nav.label": {
       "role": "aria",
-      "where": "28 pages"
+      "where": "30 pages"
     },
     "common.brand.homeLabel": {
       "role": "aria",
-      "where": "28 pages"
+      "where": "30 pages"
     },
     "common.brand.logoAlt": {
       "role": "alt",
-      "where": "28 pages"
+      "where": "30 pages"
     },
     "common.brand.logoSrc": {
       "role": "attr",
@@ -45,46 +45,46 @@
     },
     "common.nav.solutions": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Header and footer link to the page «Solutions» (the nine robotics areas). A navigation label, not a section title."
     },
     "common.nav.industries": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Navigation link to the page «Industries» (industries.html, the list of all industry pages). The breadcrumb link (common.crumbs.industries) and the card title on the solutions page are separate keys on purpose."
     },
     "common.nav.products": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Navigation link to the page «Products» (own products and ways to work: platform, rental, retrofit). A navigation label, not the footer link common.footer.nav.products."
     },
     "common.nav.services": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Navigation link to the page «Services» (the full deployment cycle: assessment, deployment, SLA-backed service). A navigation label, not the footer link common.footer.nav.services."
     },
     "common.nav.platform": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Navigation link to the block that explains the platform (header and footer)."
     },
     "common.nav.cases": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Navigation link to the page «Case studies» (cases.html). Not the same as the capital-letter section labels «КЕЙСЫ» (home.sections.cases, cases.sections.hero, industries.common.sections.cases) or the link-card tag industries.common.kickers.cases."
     },
     "common.nav.contacts": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Navigation link to the contact block (header and footer). Compare common.cta.contact (the header button) and common.footer.nav.contact (a footer column)."
     },
     "common.lang.label": {
       "role": "aria",
-      "where": "28 pages"
+      "where": "30 pages"
     },
     "common.cta.contact": {
       "role": "button",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Header button that scrolls to the contact form. A call to action, verb first. Not the nav link common.nav.contacts and not a form submit button."
     },
     "home.sections.hero": {
@@ -1212,45 +1212,45 @@
     },
     "common.footer.about": {
       "role": "paragraph",
-      "where": "28 pages"
+      "where": "30 pages"
     },
     "common.footer.dept": {
       "role": "short",
-      "where": "28 pages"
+      "where": "30 pages"
     },
     "common.footer.nav.sections": {
       "role": "heading",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.products": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.services": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.company": {
       "role": "heading",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.knowledge": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.about": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.makers": {
       "role": "nav",
-      "where": "28 pages",
+      "where": "30 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.contact": {
@@ -1295,11 +1295,11 @@
     },
     "common.footer.rights": {
       "role": "short",
-      "where": "28 pages"
+      "where": "30 pages"
     },
     "common.footer.privacy": {
       "role": "link",
-      "where": "28 pages"
+      "where": "30 pages"
     },
     "common.footer.requisites": {
       "role": "link",
@@ -1364,7 +1364,7 @@
     },
     "common.solutionNames.cleaning": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.cleaning.badge": {
       "role": "tag",
@@ -1376,7 +1376,7 @@
     },
     "common.solutionNames.warehouse": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.warehouse.text": {
       "role": "paragraph",
@@ -1384,7 +1384,7 @@
     },
     "common.solutionNames.service": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.service.text": {
       "role": "paragraph",
@@ -1392,7 +1392,7 @@
     },
     "common.solutionNames.industrial": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.industrial.text": {
       "role": "paragraph",
@@ -1400,7 +1400,7 @@
     },
     "common.solutionNames.medical": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.medical.text": {
       "role": "paragraph",
@@ -1408,7 +1408,7 @@
     },
     "common.solutionNames.construction": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.construction.text": {
       "role": "paragraph",
@@ -1416,7 +1416,7 @@
     },
     "common.solutionNames.agro": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.agro.text": {
       "role": "paragraph",
@@ -1424,7 +1424,7 @@
     },
     "common.solutionNames.security": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.security.text": {
       "role": "paragraph",
@@ -1432,7 +1432,7 @@
     },
     "common.solutionNames.humanoid": {
       "role": "heading",
-      "where": "27 pages"
+      "where": "29 pages"
     },
     "solutions.directions.items.humanoid.text": {
       "role": "paragraph",
@@ -1601,12 +1601,12 @@
     },
     "common.form.name": {
       "role": "label",
-      "where": "23 pages",
+      "where": "25 pages",
       "note": "Label of the name field in the contact form."
     },
     "common.form.phone": {
       "role": "label",
-      "where": "23 pages",
+      "where": "25 pages",
       "note": "Label of the phone field in the contact form."
     },
     "solutions.talk.form.directionLabel": {
@@ -1617,16 +1617,16 @@
     },
     "common.form.directionUnknown": {
       "role": "option",
-      "where": "22 pages",
+      "where": "24 pages",
       "note": "First, empty option of the drop-down list (the visitor has not decided yet)."
     },
     "common.form.honeypot": {
       "role": "short",
-      "where": "23 pages"
+      "where": "25 pages"
     },
     "common.form.consent": {
       "role": "short",
-      "where": "23 pages",
+      "where": "25 pages",
       "variables": "tags: <a>…</a>",
       "note": "Consent checkbox text with a link to the privacy policy (the <a> stays). Legal text: the EN version comes from the company's lawyer (see style-guide R4)."
     },
@@ -1637,85 +1637,85 @@
     },
     "common.form.sentTitle": {
       "role": "short",
-      "where": "23 pages"
+      "where": "25 pages"
     },
     "common.form.sentText": {
       "role": "paragraph",
-      "where": "22 pages"
+      "where": "24 pages"
     },
     "industries.retail.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.businessCenters.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.hotels.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.publicSpaces.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.medicalWellness.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.education.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.fitnessSports.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.municipal.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.warehouse.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.manufacturing.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.construction.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "industries.agriculture.name": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
     },
     "common.footer.nav.roi": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.quote": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.pilot": {
       "role": "nav",
-      "where": "27 pages",
+      "where": "29 pages",
       "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.backHome": {
@@ -1737,12 +1737,12 @@
     },
     "common.crumbs.label": {
       "role": "aria",
-      "where": "22 pages",
+      "where": "24 pages",
       "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
     },
     "common.crumbs.home": {
       "role": "link",
-      "where": "22 pages",
+      "where": "24 pages",
       "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
     },
     "products.crumb": {
@@ -3753,7 +3753,7 @@
     },
     "common.linkNames.audit": {
       "role": "option",
-      "where": "8 pages",
+      "where": "10 pages",
       "note": "Name of the service «Аудит объекта» (a site assessment, not a financial audit; glossary). Shown as a link name, as an option in the drop-down lists of the forms (services, contact) and in the footer link lists: keep one short wording."
     },
     "contacts.form.intent.consult": {
@@ -3942,7 +3942,7 @@
     },
     "industries.common.hero.audience": {
       "role": "tag",
-      "where": "12 pages"
+      "where": "14 pages"
     },
     "industries.agriculture.audiences.items.0": {
       "role": "short",
@@ -4213,7 +4213,7 @@
     },
     "industries.common.sections.vendors": {
       "role": "section-label",
-      "where": "12 pages",
+      "where": "14 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.common.heads.vendors": {
@@ -4284,7 +4284,7 @@
     },
     "industries.common.sections.form": {
       "role": "section-label",
-      "where": "12 pages",
+      "where": "14 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.agriculture.form.title": {
@@ -4297,11 +4297,11 @@
     },
     "industries.common.form.callUs": {
       "role": "link",
-      "where": "12 pages"
+      "where": "14 pages"
     },
     "industries.common.form.directionLabel": {
       "role": "label",
-      "where": "12 pages",
+      "where": "14 pages",
       "variables": "tags: <small>…</small>",
       "note": "Label of the drop-down list with the page's directions; <small> holds «optional»."
     },
@@ -4312,7 +4312,7 @@
     },
     "industries.common.sections.see": {
       "role": "section-label",
-      "where": "12 pages",
+      "where": "14 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.common.heads.see": {
@@ -4321,7 +4321,7 @@
     },
     "industries.common.kickers.solution": {
       "role": "short",
-      "where": "12 pages"
+      "where": "13 pages"
     },
     "industries.agriculture.links.items.0.text": {
       "role": "paragraph",
@@ -4329,7 +4329,7 @@
     },
     "industries.common.kickers.service": {
       "role": "short",
-      "where": "9 pages"
+      "where": "11 pages"
     },
     "common.linkNames.selection": {
       "role": "heading",
@@ -4357,7 +4357,7 @@
     },
     "industries.common.kickers.industries": {
       "role": "short",
-      "where": "12 pages"
+      "where": "14 pages"
     },
     "industries.common.links.allIndustries": {
       "role": "heading",
@@ -4369,7 +4369,7 @@
     },
     "common.footer.allIndustries": {
       "role": "short",
-      "where": "12 pages"
+      "where": "14 pages"
     },
     "industries.businessCenters.title": {
       "role": "meta",
@@ -4845,7 +4845,7 @@
     },
     "industries.common.sections.economy": {
       "role": "section-label",
-      "where": "business-centers #economy, education #economy, hotels #economy",
+      "where": "5 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.businessCenters.economy.title": {
@@ -4925,7 +4925,7 @@
     },
     "common.linkNames.raas": {
       "role": "short",
-      "where": "9 pages"
+      "where": "11 pages"
     },
     "industries.businessCenters.form.title": {
       "role": "heading",
@@ -4946,7 +4946,7 @@
     },
     "common.linkNames.pilotProject": {
       "role": "heading",
-      "where": "6 pages"
+      "where": "7 pages"
     },
     "industries.businessCenters.links.items.1.text": {
       "role": "paragraph",
@@ -4962,7 +4962,7 @@
     },
     "industries.common.kickers.product": {
       "role": "short",
-      "where": "9 pages"
+      "where": "11 pages"
     },
     "industries.businessCenters.links.items.4.title": {
       "role": "heading",
@@ -8469,7 +8469,7 @@
     },
     "industries.common.kickers.industry": {
       "role": "short",
-      "where": "public-spaces #see"
+      "where": "public-spaces #see, solutions-warehouse #see"
     },
     "industries.publicSpaces.links.items.5.text": {
       "role": "paragraph",
@@ -12560,6 +12560,1225 @@
       "where": "services #talk",
       "variables": "tags: <small>…</small>",
       "note": "Label of the drop-down list in the form: which service the visitor needs; the <small> part is the grey hint «optional». Compare products.talk.form.productLabel."
+    },
+    "solutions.cleaning.title": {
+      "role": "meta",
+      "where": "solutions-cleaning head"
+    },
+    "solutions.cleaning.description": {
+      "role": "meta",
+      "where": "solutions-cleaning head"
+    },
+    "solutions.cleaning.nameCaps": {
+      "role": "section-label",
+      "where": "solutions-cleaning page",
+      "note": "The solution name in capitals: section counter and the tag above the headline. Same words as solutions.<page>.name, upper-cased."
+    },
+    "common.crumbs.solutions": {
+      "role": "link",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ, solutions-warehouse #РОБОТИЗИРОВАННЫЙ КЛИНИНГ",
+      "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
+    },
+    "solutions.cleaning.name": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.h1.items.0": {
+      "role": "h1",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ",
+      "note": "One line of a solution page headline (lines are separate spans and read as one sentence ending with a period). Product keywords («AMR», «cleaning robots») stay in the line."
+    },
+    "solutions.cleaning.h1.items.1": {
+      "role": "h1",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ",
+      "note": "One line of a solution page headline (lines are separate spans and read as one sentence ending with a period). Product keywords («AMR», «cleaning robots») stay in the line."
+    },
+    "solutions.cleaning.lead": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.lead2": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.primaryCta.label": {
+      "role": "button",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ",
+      "note": "Primary call to action in the first screen of a solution page; verb first, at most 28 characters."
+    },
+    "solutions.cleaning.secondaryCta.label": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.audiences.items.0": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.audiences.items.1": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.audiences.items.2": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.consoleTitle": {
+      "role": "caption",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.consoleLabel": {
+      "role": "aria",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.brand.a": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.zone.cl-01": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.state.run": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.brand.b": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.zone.cl-02": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.zone.cl-03": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.state.charge": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.brand.c": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.zone.cl-04": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.hero.consoleFoot": {
+      "role": "short",
+      "where": "solutions-cleaning #РОБОТИЗИРОВАННЫЙ КЛИНИНГ"
+    },
+    "solutions.cleaning.secNames.paths": {
+      "role": "section-label",
+      "where": "solutions-cleaning #paths",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.cleaning.heads.paths": {
+      "role": "heading",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.heads.pathsLead": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.0.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.0.tag": {
+      "role": "short",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.1.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.1.tag": {
+      "role": "short",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.2.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.paths.items.2.tag": {
+      "role": "short",
+      "where": "solutions-cleaning #paths"
+    },
+    "solutions.cleaning.secNames.problems": {
+      "role": "section-label",
+      "where": "solutions-cleaning #problems",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.cleaning.heads.problems": {
+      "role": "heading",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.0.cap": {
+      "role": "short",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.0.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.sources.core.label": {
+      "role": "short",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.sources.mt.label": {
+      "role": "short",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.1.cap": {
+      "role": "short",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.1.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.2.cap": {
+      "role": "short",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.2.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.problems.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.sources.avito.label": {
+      "role": "short",
+      "where": "solutions-cleaning #problems"
+    },
+    "solutions.cleaning.secNames.software": {
+      "role": "section-label",
+      "where": "solutions-cleaning #software",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.cleaning.heads.software": {
+      "role": "heading",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.heads.softwareLead": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.more": {
+      "role": "short",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.0.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.gets": {
+      "role": "short",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.0.out": {
+      "role": "short",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.1.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.1.out": {
+      "role": "short",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.2.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.2.out": {
+      "role": "short",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.3.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.3.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.3.out": {
+      "role": "short",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.4.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.4.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.4.out": {
+      "role": "short",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.5.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.5.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.software.items.5.out": {
+      "role": "short",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.softwareNote": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #software"
+    },
+    "solutions.cleaning.secNames.directions": {
+      "role": "section-label",
+      "where": "solutions-cleaning #directions",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.cleaning.heads.directions": {
+      "role": "heading",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.heads.directionsLead": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.0.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.0.facts.items.0.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.0.facts.items.0.v": {
+      "role": "short",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.sources.price.label": {
+      "role": "short",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.0.facts.items.1.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.0.facts.items.1.v": {
+      "role": "short",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.sources.speed.label": {
+      "role": "short",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.0.facts.items.2.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.0.facts.items.2.v": {
+      "role": "short",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.1.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.1.facts.items.0.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.1.facts.items.0.v": {
+      "role": "short",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.2.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.3.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.3.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directions.items.3.link.label": {
+      "role": "short",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.directionsNote": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #directions"
+    },
+    "solutions.cleaning.heads.economy": {
+      "role": "heading",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.heads.economyLead": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.0.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.0.v": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.1.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.1.v": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.2.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.2.v": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.3.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.3.v": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.4.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.4.v": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.5.k": {
+      "role": "caption",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.how.items.items.5.v": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.sources.model.label": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.0.value": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.0.who": {
+      "role": "heading",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.0.what": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.1.value": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.1.who": {
+      "role": "heading",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.1.what": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.sources.komandor.label": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.2.value": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.2.who": {
+      "role": "heading",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.2.what": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.sources.r2b.label": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.3.value": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.3.who": {
+      "role": "heading",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.market.rows.items.3.what": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.sources.tco.label": {
+      "role": "short",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.note": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #economy"
+    },
+    "solutions.cleaning.econ.link.label": {
+      "role": "button",
+      "where": "solutions-cleaning #economy",
+      "note": "Button under the economics block; opens the payback calculator (cleaning) or the warehouse industry page (warehouse). Verb first."
+    },
+    "solutions.cleaning.heads.vendors": {
+      "role": "heading",
+      "where": "solutions-cleaning #vendors"
+    },
+    "solutions.cleaning.vendorsLead": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #vendors"
+    },
+    "solutions.cleaning.vendors.items.0.group": {
+      "role": "heading",
+      "where": "solutions-cleaning #vendors"
+    },
+    "solutions.cleaning.secNames.pilot": {
+      "role": "section-label",
+      "where": "solutions-cleaning #pilot",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.cleaning.heads.pilot": {
+      "role": "heading",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.pilot.items.0.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.pilot.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.pilot.items.1.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.pilot.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.pilot.items.2.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.pilot.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.pilot.items.3.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.pilot.items.3.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #pilot"
+    },
+    "solutions.cleaning.form.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #talk"
+    },
+    "solutions.cleaning.form.lead": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #talk"
+    },
+    "solutions.cleaning.form.button": {
+      "role": "button",
+      "where": "solutions-cleaning #talk",
+      "note": "Submit button of the contact form of a solution page; says what happens next, not «Submit»."
+    },
+    "solutions.cleaning.heads.see": {
+      "role": "heading",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.0.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.3.kicker": {
+      "role": "short",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.3.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.3.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.4.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.4.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.5.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.5.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.6.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.6.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.7.title": {
+      "role": "heading",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.cleaning.links.items.7.text": {
+      "role": "paragraph",
+      "where": "solutions-cleaning #see"
+    },
+    "solutions.warehouse.title": {
+      "role": "meta",
+      "where": "solutions-warehouse head"
+    },
+    "solutions.warehouse.description": {
+      "role": "meta",
+      "where": "solutions-warehouse head"
+    },
+    "solutions.warehouse.nameCaps": {
+      "role": "section-label",
+      "where": "solutions-warehouse page",
+      "note": "The solution name in capitals: section counter and the tag above the headline. Same words as solutions.<page>.name, upper-cased."
+    },
+    "solutions.warehouse.name": {
+      "role": "short",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.h1.items.0": {
+      "role": "h1",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ",
+      "note": "One line of a solution page headline (lines are separate spans and read as one sentence ending with a period). Product keywords («AMR», «cleaning robots») stay in the line."
+    },
+    "solutions.warehouse.h1.items.1": {
+      "role": "h1",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ",
+      "note": "One line of a solution page headline (lines are separate spans and read as one sentence ending with a period). Product keywords («AMR», «cleaning robots») stay in the line."
+    },
+    "solutions.warehouse.lead": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.lead2": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.primaryCta.label": {
+      "role": "button",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ",
+      "note": "Primary call to action in the first screen of a solution page; verb first, at most 28 characters."
+    },
+    "solutions.warehouse.secondaryCta.label": {
+      "role": "short",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.audiences.items.0": {
+      "role": "short",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.audiences.items.1": {
+      "role": "short",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.audiences.items.2": {
+      "role": "short",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.hero.routeTitle": {
+      "role": "caption",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.hero.routeLabel": {
+      "role": "aria",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.hero.pointA": {
+      "role": "tag",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.hero.pointB": {
+      "role": "tag",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.hero.pointC": {
+      "role": "tag",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.hero.routeFoot": {
+      "role": "short",
+      "where": "solutions-warehouse #СКЛАДСКАЯ РОБОТИЗАЦИЯ"
+    },
+    "solutions.warehouse.secNames.paths": {
+      "role": "section-label",
+      "where": "solutions-warehouse #paths",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.warehouse.heads.paths": {
+      "role": "heading",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.heads.pathsLead": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.0.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.0.tag": {
+      "role": "short",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.1.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.1.tag": {
+      "role": "short",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.2.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.paths.items.2.tag": {
+      "role": "short",
+      "where": "solutions-warehouse #paths"
+    },
+    "solutions.warehouse.secNames.problems": {
+      "role": "section-label",
+      "where": "solutions-warehouse #problems",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.warehouse.heads.problems": {
+      "role": "heading",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.0.cap": {
+      "role": "short",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.0.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.sources.comnews.label": {
+      "role": "short",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.1.cap": {
+      "role": "short",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.1.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.sources.yandex.label": {
+      "role": "short",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.2.figure": {
+      "role": "short",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.2.cap": {
+      "role": "short",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.2.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.problems.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #problems"
+    },
+    "solutions.warehouse.secNames.dispatcher": {
+      "role": "section-label",
+      "where": "solutions-warehouse #dispatcher",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.warehouse.heads.dispatcher": {
+      "role": "heading",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.heads.dispatcherLead": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.systems.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.systems.items.items.0": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.systems.items.items.1": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.systems.items.items.2": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.platform.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.platform.items.items.0": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.platform.items.items.1": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.platform.items.items.2": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.platform.items.items.3": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.robots.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.robots.items.items.0": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.robots.items.items.1": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.robots.items.items.2": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.note": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.sources.vda.label": {
+      "role": "short",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.dispatcher.legend": {
+      "role": "tag",
+      "where": "solutions-warehouse #dispatcher"
+    },
+    "solutions.warehouse.secNames.directions": {
+      "role": "section-label",
+      "where": "solutions-warehouse #directions",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.warehouse.heads.directions": {
+      "role": "heading",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.heads.directionsLead": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.0.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.0.facts.items.0.k": {
+      "role": "caption",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.0.facts.items.0.v": {
+      "role": "short",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.1.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.1.facts.items.0.k": {
+      "role": "caption",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.1.facts.items.0.v": {
+      "role": "short",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.sources.press.label": {
+      "role": "short",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.2.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.2.facts.items.0.k": {
+      "role": "caption",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.2.facts.items.0.v": {
+      "role": "short",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.sources.sber.label": {
+      "role": "short",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.3.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.3.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directions.items.3.link.label": {
+      "role": "short",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.directionsNote": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #directions"
+    },
+    "solutions.warehouse.heads.economy": {
+      "role": "heading",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.heads.economyLead": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.items.items.0.k": {
+      "role": "caption",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.items.items.0.v": {
+      "role": "short",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.items.items.1.k": {
+      "role": "caption",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.items.items.1.v": {
+      "role": "short",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.items.items.2.k": {
+      "role": "caption",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.items.items.2.v": {
+      "role": "short",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.items.items.3.k": {
+      "role": "caption",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.how.items.items.3.v": {
+      "role": "short",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.rows.items.0.value": {
+      "role": "short",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.rows.items.0.who": {
+      "role": "heading",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.rows.items.0.what": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.rows.items.1.who": {
+      "role": "heading",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.rows.items.1.what": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.rows.items.2.value": {
+      "role": "short",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.rows.items.2.who": {
+      "role": "heading",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.market.rows.items.2.what": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.note": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #economy"
+    },
+    "solutions.warehouse.econ.link.label": {
+      "role": "button",
+      "where": "solutions-warehouse #economy",
+      "note": "Button under the economics block; opens the payback calculator (cleaning) or the warehouse industry page (warehouse). Verb first."
+    },
+    "solutions.warehouse.heads.vendors": {
+      "role": "heading",
+      "where": "solutions-warehouse #vendors"
+    },
+    "solutions.warehouse.vendorsLead": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #vendors"
+    },
+    "solutions.warehouse.vendors.items.0.group": {
+      "role": "heading",
+      "where": "solutions-warehouse #vendors"
+    },
+    "solutions.warehouse.secNames.pilot": {
+      "role": "section-label",
+      "where": "solutions-warehouse #pilot",
+      "note": "Own section label of a solution page (small capitals, section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
+    },
+    "solutions.warehouse.heads.pilot": {
+      "role": "heading",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.pilot.items.0.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.pilot.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.pilot.items.1.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.pilot.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.pilot.items.2.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.pilot.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.pilot.items.3.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.pilot.items.3.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #pilot"
+    },
+    "solutions.warehouse.form.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #talk"
+    },
+    "solutions.warehouse.form.lead": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #talk"
+    },
+    "solutions.warehouse.form.button": {
+      "role": "button",
+      "where": "solutions-warehouse #talk",
+      "note": "Submit button of the contact form of a solution page; says what happens next, not «Submit»."
+    },
+    "solutions.warehouse.heads.see": {
+      "role": "heading",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.0.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.0.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.1.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.1.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.2.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.3.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.4.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.5.title": {
+      "role": "heading",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.5.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #see"
+    },
+    "solutions.warehouse.links.items.6.text": {
+      "role": "paragraph",
+      "where": "solutions-warehouse #see"
     },
     "js.roi.money.mln": {
       "role": "js",

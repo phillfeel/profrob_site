@@ -41,6 +41,9 @@ const BOOT = bootBlock(readFileSync(join(root, 'i18n', 'boot.js'), 'utf8')); // 
 // explicit keys: L(path) for the page's own, C(name) for the shared shell, K(key) for any other.
 const camel = (slug) => slug.replace(/-(\w)/g, (_, c) => c.toUpperCase());
 let CUR = null; // slug of the page being rendered
+// Namespace of a page's own messages. Industry pages: industries.<slug>; solution pages ({kind: 'solution', key}): solutions.<key>.
+const NS = new Map(); // slug → namespace
+const nsOf = (ind) => (ind.kind === 'solution' ? `solutions.${camel(ind.key)}` : `industries.${camel(ind.slug)}`);
 const REG = new WeakMap(); // data object or array → key path
 function registerKeys(node, path) {
   if (!node || typeof node !== 'object' || REG.has(node)) return;
@@ -106,11 +109,11 @@ const dk = (obj, field) => {
   if (obj.href !== undefined && NAMES[text]) return NAMES[text];
   const base = REG.get(obj);
   if (base === undefined) throw new Error(`i18n: «${String(text).slice(0, 50)}» has no key path: register the data object (module export "data")`);
-  const own = `industries.${camel(CUR)}`;
+  const own = NS.get(CUR);
   if (base !== own && !base.startsWith(`${own}.`)) throw new Error(`i18n: «${String(text).slice(0, 50)}» belongs to ${base}: shared data needs an entry in NAMES`);
   return Array.isArray(obj) ? `${base}.items.${field}` : `${base}.${field}`;
 };
-const pk = (path) => `industries.${camel(CUR)}.${path}`;
+const pk = (path) => `${NS.get(CUR)}.${path}`;
 const ck = (name) => `industries.common.${name}`;
 // Attributes. T/TH: the string obj[field] from the data (text / text with inline tags); L: literal of this page's
 // templates; C: literal of the shared shell; K: any key; TA: attribute messages, pairs of [attribute, key].
@@ -145,14 +148,19 @@ const PAGE_MODULES = existsSync(pagesDir)
   : [];
 for (const m of PAGE_MODULES) {
   if (!m || !m.industry) throw new Error('pages/*.mjs must export default { industry, ... }');
-  if (m.data) registerKeys(m.data, `industries.${camel(m.industry.slug)}`); // before the industry: nicer keys for shared constants
+  NS.set(m.industry.slug, nsOf(m.industry));
+  if (m.data) registerKeys(m.data, nsOf(m.industry)); // before the industry: nicer keys for shared constants
   Object.assign(TEMPLATES, m.templates); // messages with variables that only this page uses
   for (const [k, b] of Object.entries(m.brands || {})) if (!BRANDS[k]) BRANDS[k] = b;
   m.industry.renderers = m.renderers || {};
 }
 const INDUSTRIES = [...BASE_INDUSTRIES, ...PAGE_MODULES.map((m) => m.industry)];
-for (const ind of INDUSTRIES) registerKeys(ind, `industries.${camel(ind.slug)}`);
-const EXTRA_ICONS = PAGE_MODULES.flatMap((m) => m.icons || []).join('\n    ');
+for (const ind of INDUSTRIES) { NS.set(ind.slug, nsOf(ind)); registerKeys(ind, nsOf(ind)); }
+const isSolution = (ind) => ind.kind === 'solution';
+const fileOf = (ind) => (isSolution(ind) ? `solutions-${ind.key}.html` : `industries-${ind.slug}.html`);
+// Icons of an industry module go to every page (as before); icons of a solution module only to its own page.
+const EXTRA_ICONS = PAGE_MODULES.filter((m) => m.industry.kind !== 'solution').flatMap((m) => m.icons || []).join('\n    ');
+const ownIcons = (ind) => PAGE_MODULES.find((m) => m.industry === ind && ind.kind === 'solution')?.icons?.join('\n    ') || '';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const pad = (n) => String(n).padStart(2, '0');
@@ -170,7 +178,9 @@ const ARROW_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M1
 const goArrow = `<span class="go-arrow">${ARROW_UR}</span>`;
 const icon = (id) => `<svg aria-hidden="true"><use href="#i-${id}"/></svg>`;
 
-const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+const sprite = (ind) => {
+  const own = ownIcons(ind);
+  return `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
     <symbol id="i-people" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
     <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
@@ -186,8 +196,9 @@ const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden=
     <symbol id="i-stairs" viewBox="0 0 24 24"><path d="M3 20h5v-5h5v-5h5V5h3"/></symbol>
     <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></symbol>
     <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>${EXTRA_ICONS ? `\n    ${EXTRA_ICONS}` : ''}
-  </defs></svg>`;
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>${EXTRA_ICONS ? `\n    ${EXTRA_ICONS}` : ''}${own ? `\n    ${own}` : ''}
+  </defs></svg>`
+};
 
 // Section titles that differ per industry. Anything missing falls back to DEFAULT_HEADS.
 const DEFAULT_HEADS = {
@@ -220,7 +231,7 @@ const SEC_NAMES = {
 
 // Section label (the small caps «01 — ПРОБЛЕМЫ») and the page's own name in capitals, with their keys.
 const secName = (ind, key) => (ind.secNames && ind.secNames[key] ? dt(ind.secNames, key) : ct(`sections.${key === 'stairs' ? 'directions' : key}`, SEC_NAMES[key]));
-const nameCaps = (ind) => tx(ind.name.toUpperCase(), `industries.${camel(ind.slug)}.nameCaps`);
+const nameCaps = (ind) => tx(ind.name.toUpperCase(), `${NS.get(ind.slug)}.nameCaps`);
 // data-name of a section, with the key of its translation
 const dn = (ind, key) => { const s = secName(ind, key); return ` data-name="${s.t}"${TA(['data-name', s.k])}`; };
 const dnName = (ind) => { const s = nameCaps(ind); return ` data-name="${esc(s.t)}"${TA(['data-name', s.k])}`; };
@@ -263,7 +274,10 @@ const photo = (ind, ratio, cls = '') => {
         </figure>`;
 };
 
-const crumbs = (ind) => `<nav class="crumbs reveal"${TA(['aria-label', 'common.crumbs.label'])} aria-label="Хлебные крошки"><ol><li><a${K('common.crumbs.home')} href="index.html">Главная</a></li><li><a${K('common.crumbs.industries')} href="industries.html">Отрасли</a></li><li${T(ind, 'name')} aria-current="page">${esc(ind.name)}</li></ol></nav>`;
+const crumbs = (ind) => {
+  const sol = isSolution(ind);
+  return `<nav class="crumbs reveal"${TA(['aria-label', 'common.crumbs.label'])} aria-label="Хлебные крошки"><ol><li><a${K('common.crumbs.home')} href="index.html">Главная</a></li><li><a${K(sol ? 'common.crumbs.solutions' : 'common.crumbs.industries')} href="${sol ? 'solutions.html' : 'industries.html'}">${sol ? 'Решения' : 'Отрасли'}</a></li><li${T(ind, 'name')} aria-current="page">${esc(ind.name)}</li></ol></nav>`;
+};
 
 // The H1 as one <span> per line, and the «Для кого» line: the audiences stay separate messages, the dots between them are markup.
 const h1 = (ind) => ind.h1.map((l, i) => `<span${T(ind.h1, i)}>${esc(l)}</span>`).join(' ');
@@ -526,7 +540,7 @@ S.form = (ind, n) => {
           <a class="text-link reveal" href="tel:+74951234567"${C('form.callUs')}>Или позвоните: +7 (495) 123-45-67</a>
         </div>
 
-        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="industries/${ind.slug}" aria-labelledby="talk-h">
+        <form class="form reveal" id="lead-form" novalidate data-endpoint="" data-source="${isSolution(ind) ? `solutions/${ind.key}` : `industries/${ind.slug}`}" aria-labelledby="talk-h">
           <div class="form__row">
             <div class="fld">
               <label for="f-name"${K('common.form.name')}>Имя</label>
@@ -684,13 +698,14 @@ const page = (ind) => {
     const name = key === 'hero' ? 'HERO' : (ind.secNames && ind.secNames[key]) || SEC_NAMES[key] || key.toUpperCase();
     return `    <!-- ================= ${pad(i + 1)} ${name} ================= -->\n    ${render(ind, pad(i + 1), H)}`;
   }).join('\n\n');
-  const url = `/industries/${ind.slug}/`;
+  const sol = isSolution(ind);
+  const url = sol ? `/solutions/${ind.key}/` : `/industries/${ind.slug}/`;
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Главная', item: '/' },
-        { '@type': 'ListItem', position: 2, name: 'Отрасли', item: '/industries/' },
+        { '@type': 'ListItem', position: 2, name: sol ? 'Решения' : 'Отрасли', item: sol ? '/solutions/' : '/industries/' },
         { '@type': 'ListItem', position: 3, name: ind.name, item: url },
       ] },
       { '@type': 'Service', name: ind.h1.join(' ').replace(/\.$/, ''), serviceType: 'Роботизация', areaServed: 'RU',
@@ -716,19 +731,19 @@ const page = (ind) => {
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="solutions.css">
   <link rel="stylesheet" href="industry.css">
-${existsSync(join(root, `industry-${ind.slug}.css`)) ? `  <link rel="stylesheet" href="industry-${ind.slug}.css">\n` : ''}  <script>document.documentElement.classList.add('js');</script>
+${sol ? '  <link rel="stylesheet" href="solution.css">\n' : ''}${existsSync(join(root, `industry-${ind.slug}.css`)) ? `  <link rel="stylesheet" href="industry-${ind.slug}.css">\n` : ''}  <script>document.documentElement.classList.add('js');</script>
 ${BOOT}
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
-<body class="sol-page ind-page ind--${ind.slug}">
-  ${SPRITE}
+<body class="sol-page ind-page ind--${ind.slug}${sol ? ' sx-page' : ''}">
+  ${sprite(ind)}
 
   <!-- ================= NAV ================= -->
   <header class="nav"${TA(['aria-label', 'common.nav.label'])} aria-label="Основная навигация">
     <a href="index.html"${TA(['aria-label', 'common.brand.homeLabel'])} aria-label="Профессиональная Робототехника — на главную"><img src="assets/profrobot-logo.png"${TA(['alt', 'common.brand.logoAlt'])} alt="Профессиональная Робототехника"></a>
     <nav class="nav-links">
-      <a href="solutions.html"${K('common.nav.solutions')}>Решения</a>
-      <a href="industries.html" class="on"${K('common.nav.industries')}>Отрасли</a>
+      <a href="solutions.html"${sol ? ' class="on"' : ''}${K('common.nav.solutions')}>Решения</a>
+      <a href="industries.html"${sol ? '' : ' class="on"'}${K('common.nav.industries')}>Отрасли</a>
       <a href="products.html"${K('common.nav.products')}>Продукты</a>
       <a href="services.html"${K('common.nav.services')}>Услуги</a>
       <a href="platform.html"${K('common.nav.platform')}>Платформа</a>
@@ -787,7 +802,7 @@ const H = { S, esc, pad, plural, idx, secHead, logo, photo, heroCopy, crumbs, ic
   ARROW_UR, ARROW_R, goArrow, SEC_NAMES, ROI, fmtMonths, fmtMln,
   K, KH, T, TH, L, LH, C, CH, TA, TN, tx, dt, lt, ct, msg, dk, pk, ck, secName, nameCaps, dn, dnName, h1, audience, itemsList, solLink, calcTypes, calcModes, NEEDS };
 
-export { page, INDUSTRIES };
+export { page, INDUSTRIES, fileOf };
 
 // Run as a script: write the pages. Imported (tools/i18n): just expose page() and the data.
 if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
@@ -796,8 +811,8 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) 
   if (only && !INDUSTRIES.some((i) => i.slug === only)) throw new Error(`--only: unknown slug "${only}"`);
 
   for (const ind of INDUSTRIES.filter((i) => !only || i.slug === only)) {
-    const file = join(root, `industries-${ind.slug}.html`);
+    const file = join(root, fileOf(ind));
     await writeFile(file, page(ind));
-    console.log('wrote', `industries-${ind.slug}.html`);
+    console.log('wrote', fileOf(ind));
   }
 }

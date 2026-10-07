@@ -20,7 +20,7 @@ const SRC = {
 };
 
 const SOL = {
-  warehouse: { label: 'Складская роботизация', href: 'solutions.html#dir-warehouse' },
+  warehouse: { label: 'Складская роботизация', href: 'solutions-warehouse.html' },
   industrial: { label: 'Промышленная роботизация', href: 'solutions.html#dir-industrial' },
 };
 

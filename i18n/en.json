@@ -80,7 +80,8 @@
     "crumbs": {
       "label": "Breadcrumbs",
       "home": "Home",
-      "industries": "Industries"
+      "industries": "Industries",
+      "solutions": "Solutions"
     },
     "linkNames": {
       "audit": "Site assessment",
@@ -502,7 +503,7 @@
     "contact": {
       "title": "See when a robot pays for itself.",
       "lead": "We’ll calculate payback and prepare a quote. No obligation: numbers first, decision second.",
-      "ctaRoi": "Calculate payback in 2\u00a0min",
+      "ctaRoi": "Calculate payback in 2 min",
       "or": "or",
       "trust": {
         "network": "Service network across Russia",
@@ -640,6 +641,664 @@
         "directionLabel": "What to automate <small>optional</small>",
         "submit": "Request a call"
       }
+    },
+    "cleaning": {
+      "title": "Cleaning robots for business | Professional Robotics",
+      "description": "Cleaning robots and a platform to manage them: site assessment, pilot, integration, SLA-backed service. We connect robots from any maker. Calculate payback.",
+      "nameCaps": "ROBOTIC CLEANING",
+      "name": "Robotic cleaning",
+      "h1": {
+        "items": {
+          "0": "Cleaning robots",
+          "1": "for business."
+        }
+      },
+      "lead": "You can buy a cleaning robot from any dealer. We make it work as part of your business: our software sets tasks, tracks quality and connects the robot to elevators, doors and your systems. No robot yet? We will select one. Already have one? We will connect it.",
+      "lead2": "The brand you pick should not decide what you manage it with. A fleet of different robots runs in one window.",
+      "primaryCta": {
+        "label": "Select a cleaning solution"
+      },
+      "secondaryCta": {
+        "label": "What our software adds"
+      },
+      "audiences": {
+        "items": {
+          "0": "site owners and managers",
+          "1": "cleaning contractors",
+          "2": "retail chains and shopping centers"
+        }
+      },
+      "hero": {
+        "consoleTitle": "Platform · sample interface",
+        "consoleLabel": "A fleet of robots from different brands on one platform",
+        "brand": {
+          "a": "brand A",
+          "b": "brand B",
+          "c": "brand C"
+        },
+        "zone": {
+          "cl-01": "floor 1, lobby",
+          "cl-02": "floor 2, corridor",
+          "cl-03": "parking",
+          "cl-04": "floor 3, hall"
+        },
+        "state": {
+          "run": "running",
+          "charge": "charging"
+        },
+        "consoleFoot": "brands, one operator. Demo data."
+      },
+      "secNames": {
+        "paths": "START HERE",
+        "problems": "STAFF",
+        "software": "SOFTWARE",
+        "directions": "ROBOT CLASSES",
+        "pilot": "DEPLOYMENT"
+      },
+      "heads": {
+        "paths": "Where to start: three ways in.",
+        "pathsLead": "The robot is the carrier here; the product is the software that runs it. So you can come to us with a robot or without one.",
+        "problems": "Fewer people, higher labor costs.",
+        "software": "What our software adds to any robot.",
+        "softwareLead": "On its own a robot just drives around a map. It becomes a cleaning result when a system stands behind it.",
+        "directions": "Types of cleaning robots.",
+        "directionsLead": "By task, not by brand. Prices and speeds below are market benchmarks, not our offer.",
+        "economy": "How to count payback.",
+        "economyLead": "Two mistakes: taking the spec-sheet speed and assuming the robot replaces the whole crew. We count more carefully.",
+        "vendors": "Robots and manufacturers.",
+        "pilot": "From assessment to service.",
+        "see": "Where it is used and what to read."
+      },
+      "paths": {
+        "items": {
+          "0": {
+            "title": "You already have a robot.",
+            "text": "We connect it to the platform: a shared map, schedule, quality reports and service. If the maker gives access (API or SDK), we integrate it for your workflow. What is possible with your exact model, we tell you at the site assessment, before any deal.",
+            "tag": "Platform and integration"
+          },
+          "1": {
+            "title": "No robot yet.",
+            "text": "We select the class and model for your floor, area and schedule. Buy or rent. We launch it on our platform from day one, so the effect shows from the first shift.",
+            "tag": "Selection and deployment"
+          },
+          "2": {
+            "title": "You need what the box does not do.",
+            "text": "Elevators of several brands, tasks from your 1C, your own reports. We write software for your process within the platform.",
+            "tag": "Software for your workflow"
+          }
+        }
+      },
+      "problems": {
+        "items": {
+          "0": {
+            "cap": "foreign nationals in cleaning staff",
+            "title": "The team relies on people who are harder and harder to hire.",
+            "text": "In 2025, extra limits on hiring migrant workers came into force in 11 regions, and sector quotas were proposed for 2026."
+          },
+          "1": {
+            "cap": "growth of cleaning companies’ payroll over five years",
+            "title": "Labor gets more expensive.",
+            "text": "DAKO Professional estimates that payroll in cleaning grew two to three times. Forecast for 2025: cleaning prices up 10–15% because of the labor shortage."
+          },
+          "2": {
+            "cap": "growth in demand for cleaning workers, year on year, first half of 2026",
+            "title": "Demand for people is rising.",
+            "text": "A robot does not replace the whole crew: it takes flat floors and repeating routes, and people keep restrooms, corners and quality control."
+          }
+        }
+      },
+      "sources": {
+        "core": {
+          "label": "CORE.XP and DAKO Professional, Kommersant, 2025"
+        },
+        "mt": {
+          "label": "The Moscow Times, Aug 19, 2025"
+        },
+        "avito": {
+          "label": "Avito Rabota, Kommersant, Jun 18, 2026"
+        },
+        "price": {
+          "label": "dealer price list robouborka.rf, Oct 2, 2026"
+        },
+        "speed": {
+          "label": "gausium.ru and Retail Service, Sep 19, 2025"
+        },
+        "model": {
+          "label": "our model, roi-model.js"
+        },
+        "komandor": {
+          "label": "Retail.ru, Dec 12, 2024, a Pudu distributor case"
+        },
+        "r2b": {
+          "label": "R2B, vc.ru, Oct 15, 2025"
+        },
+        "tco": {
+          "label": "T-Company, Gausium dealer, Sep 3, 2026"
+        }
+      },
+      "software": {
+        "more": "How the platform works",
+        "items": {
+          "0": {
+            "title": "One fleet, one window",
+            "text": "Robots of different brands and classes appear on one map: status, charge, errors.",
+            "out": "one screen instead of an app for every brand"
+          },
+          "1": {
+            "title": "Tasks without overlaps",
+            "text": "The platform builds the schedule and splits the area between robots, so they do not get in each other’s way or leave gaps.",
+            "out": "no missed zones"
+          },
+          "2": {
+            "title": "A report of what was actually cleaned",
+            "text": "What was cleaned, when and how long it took. Operation history and deviations from the standard.",
+            "out": "you see the result, not hours of work"
+          },
+          "3": {
+            "title": "Elevators, doors, your systems",
+            "text": "We link the robot to building systems and your software through the platform API, so it moves between floors on its own.",
+            "out": "fewer manual carries and requests"
+          },
+          "4": {
+            "title": "Service and incidents",
+            "text": "A fault becomes a ticket automatically and the response time is recorded. Predictive maintenance reports wear in advance.",
+            "out": "less downtime"
+          },
+          "5": {
+            "title": "Your workflow",
+            "text": "Need logic that does not come in the box? We write software for your process within one platform.",
+            "out": "built for your task, not for a catalog"
+          }
+        },
+        "gets": "You get:"
+      },
+      "softwareNote": "How deep the integration goes depends on the access the maker gives: an open API, an SDK or only the cloud. We check this at the site assessment, before you buy.",
+      "directions": {
+        "items": {
+          "0": {
+            "title": "Scrubber robots for large flat areas",
+            "text": "Offices, sales floors, lobbies, warehouses with flat floors. The main class: most orders come here.",
+            "facts": {
+              "items": {
+                "0": {
+                  "k": "Market price",
+                  "v": "RUB 1.45–3.7M"
+                },
+                "1": {
+                  "k": "Real-world speed",
+                  "v": "300–700 m²/h"
+                },
+                "2": {
+                  "k": "Spec sheet",
+                  "v": "up to 1,180 m²/h"
+                }
+              }
+            }
+          },
+          "1": {
+            "title": "Large machines for warehouses and plants",
+            "text": "Large areas, night and round-the-clock shifts, heavy soiling. We have not checked the spec-sheet speeds of large machines: at the pilot we measure output at your site.",
+            "facts": {
+              "items": {
+                "0": {
+                  "k": "Market price",
+                  "v": "RUB 5.3–7.7M"
+                }
+              }
+            }
+          },
+          "2": {
+            "title": "Dry cleaning: sweeping and vacuuming",
+            "text": "Carpets, halls with fabric, dust. Dry and wet cleaning use different working units and give different output: we count hard floor and carpet separately."
+          },
+          "3": {
+            "title": "Facades and glazing",
+            "text": "A separate task with its own equipment and its own economics. Covered on the office buildings page.",
+            "link": {
+              "label": "Facade cleaning in office buildings"
+            }
+          }
+        }
+      },
+      "directionsNote": "The spec-sheet speed is almost always higher than the real one: even the Gausium dealer gives 300–700 m²/h in practice and 1,180 m²/h in theory for the Phantas. Count on the real one.",
+      "econ": {
+        "how": {
+          "title": "Our assumptions",
+          "items": {
+            "items": {
+              "0": {
+                "k": "Cleaner wage",
+                "v": "RUB 67,000 a month plus 30% employer social contributions"
+              },
+              "1": {
+                "k": "People freed",
+                "v": "on one shift, no more than 2 FTEs per robot and no more than half of the team"
+              },
+              "2": {
+                "k": "Stays with people",
+                "v": "30% of the floor work: corners, edges, spots"
+              },
+              "3": {
+                "k": "Service and consumables",
+                "v": "8% of the robot price a year, brushes and electricity RUB 60,000 a year, platform operator share RUB 120,000 a year"
+              },
+              "4": {
+                "k": "Chemicals and water",
+                "v": "40% lower use"
+              },
+              "5": {
+                "k": "Service life",
+                "v": "5 years"
+              }
+            }
+          }
+        },
+        "market": {
+          "title": "What the market says",
+          "rows": {
+            "items": {
+              "0": {
+                "value": "≈ 15 mo.",
+                "who": "Our model, a 6,000 m² office",
+                "what": "One robot, one shift, savings of about RUB 1.8M a year. Calculated from the assumptions on the left; recalculated for your site in the calculator."
+              },
+              "1": {
+                "value": "1.5–2 years",
+                "who": "Komandor chain: Pudu CC1 in 12 hypermarkets",
+                "what": "Cleaning payroll −25%, staff 8 → 6 people. Night cleaning stayed with the contractor. The only case we found with a named client and a stated payback."
+              },
+              "2": {
+                "value": "18–22 mo.",
+                "who": "R2B Mark 2",
+                "what": "The maker’s own calculation: 2 cleaners per shift, price RUB 2.2M, service RUB 20,000 a month."
+              },
+              "3": {
+                "value": "12–18 mo.",
+                "who": "Gausium dealer",
+                "what": "An average by the dealer’s own claim. Integrators advertise even 3–11 months, but assume the robot replaces the whole staff."
+              }
+            }
+          }
+        },
+        "note": "Other people’s figures are sellers’ claims, and we did not verify them. We will show our own results once there are sites with agreed figures. A precise calculation comes after the site assessment.",
+        "link": {
+          "label": "Calculate for your site"
+        }
+      },
+      "vendorsLead": "We connect robots from these and other manufacturers to one platform. What exactly is possible with a given model, we check before you buy.",
+      "vendors": {
+        "items": {
+          "0": {
+            "group": "Cleaning robots"
+          }
+        }
+      },
+      "pilot": {
+        "items": {
+          "0": {
+            "title": "Site assessment",
+            "text": "Area by floor type, thresholds, elevators and doors, a place for the station, the time when cleaning is allowed. We calculate payback before you invest."
+          },
+          "1": {
+            "title": "Pilot with the platform",
+            "text": "One robot (yours or one we select) at your site, connected to the platform. We measure output and quality on site, not from a spec sheet."
+          },
+          "2": {
+            "title": "Integrations and workflows",
+            "text": "We connect elevators, doors and your systems, and fine-tune the software to the process."
+          },
+          "3": {
+            "title": "Scale and service",
+            "text": "We add robots and sites. Monitoring, tickets and maintenance run under an SLA."
+          }
+        }
+      },
+      "form": {
+        "title": "Which robot and site to start with?",
+        "lead": "Describe the site: area, floor type, schedule. And tell us whether you already have robots. We will suggest a path and calculate the effect.",
+        "button": "Discuss a solution"
+      },
+      "links": {
+        "items": {
+          "0": {
+            "title": "Robot management platform",
+            "text": "Fleet, tasks, quality and service in one window."
+          },
+          "1": {
+            "text": "Start without a large investment."
+          },
+          "2": {
+            "text": "Floors, elevators, doors, calculation."
+          },
+          "3": {
+            "kicker": "ARTICLE",
+            "title": "How a cleaning robot works",
+            "text": "Sensors, map, what area it covers, when it does not fit."
+          },
+          "4": {
+            "title": "Office buildings",
+            "text": "Day and night cleaning, facades, delivery."
+          },
+          "5": {
+            "title": "Shopping centers and retail",
+            "text": "Night cleaning of sales floors, pass frequency."
+          },
+          "6": {
+            "title": "Hotels and hospitality",
+            "text": "Common areas, lobbies and corridors."
+          },
+          "7": {
+            "title": "Public venues and transport hubs",
+            "text": "Stations, airports, parks."
+          }
+        }
+      }
+    },
+    "warehouse": {
+      "title": "AMR and warehouse robotics | Professional Robotics",
+      "description": "AMRs, pallet-handling robots and software to manage a fleet of mixed brands: site assessment, one-route pilot, WMS and 1C integration, SLA-backed service.",
+      "nameCaps": "WAREHOUSE ROBOTICS",
+      "name": "Warehouse robotics",
+      "h1": {
+        "items": {
+          "0": "AMR robots and",
+          "1": "warehouse robotics."
+        }
+      },
+      "lead": "You can buy an AMR from any supplier. The hard part comes later: robots must be connected to your WMS or 1C, spread across routes and kept online. We deploy software that manages a fleet of AMRs of different brands, and put it on robots you already have or ones we select.",
+      "lead2": "It is better to start with one route, not the whole warehouse.",
+      "primaryCta": {
+        "label": "Select a warehouse solution"
+      },
+      "secondaryCta": {
+        "label": "The fleet dispatcher"
+      },
+      "audiences": {
+        "items": {
+          "0": "warehouse operators",
+          "1": "retail and e-commerce",
+          "2": "plants with in-house logistics"
+        }
+      },
+      "hero": {
+        "routeTitle": "One route · pilot",
+        "routeLabel": "Route diagram: the robot drives a loop between the dock, the racks and shipping",
+        "pointA": "dock",
+        "pointB": "racks",
+        "pointC": "shipping",
+        "routeFoot": "Start with one route: the effect shows fast and the investment is small."
+      },
+      "secNames": {
+        "paths": "START HERE",
+        "problems": "MARKET",
+        "dispatcher": "DISPATCH",
+        "directions": "ROBOT CLASSES",
+        "pilot": "DEPLOYMENT"
+      },
+      "heads": {
+        "paths": "Where to start: three ways in.",
+        "pathsLead": "The robot is the carrier here; the product is the software that runs it. So you can come to us with a fleet or without one.",
+        "problems": "Warehouses are only starting.",
+        "dispatcher": "A dispatcher above the fleet.",
+        "dispatcherLead": "Tasks come from your systems, and robots get them through the platform. The robot’s brand should not change how you run the warehouse.",
+        "directions": "Types of warehouse robots.",
+        "directionsLead": "By operation, not by brand. The whole order path through a warehouse is shown on the industry page.",
+        "economy": "How to count AMR payback.",
+        "economyLead": "A spec sheet will not show payback: it depends on your warehouse’s routes, shifts and peaks.",
+        "vendors": "Robots and manufacturers.",
+        "pilot": "From assessment to service.",
+        "see": "See also."
+      },
+      "paths": {
+        "items": {
+          "0": {
+            "title": "You already have AMRs or pallet-handling robots.",
+            "text": "We connect the fleet to one platform: a shared task queue, routes, monitoring. The condition is access to the robot’s interface: VDA 5050, an API or the maker’s SDK. We check it before work starts.",
+            "tag": "Platform and integration"
+          },
+          "1": {
+            "title": "No fleet yet.",
+            "text": "We select the robot type for your load, aisles and floor, and launch one route as a pilot. You can rent a robot instead of buying it.",
+            "tag": "Selection and pilot"
+          },
+          "2": {
+            "title": "You need integration with your systems.",
+            "text": "Tasks from WMS or 1C, statuses back, charging control, your own reports. We write it for your process within the platform.",
+            "tag": "Software for your workflow"
+          }
+        }
+      },
+      "problems": {
+        "items": {
+          "0": {
+            "cap": "robots per 10,000 employees in Russia",
+            "title": "The market is only beginning.",
+            "text": "Developed economies have 500–800 robots per 10,000 employees; Russia’s target for 2030 is 145. Only 3% of warehouses are fully automated with robots."
+          },
+          "1": {
+            "cap": "of surveyed companies plan to use AMRs",
+            "title": "Demand is already there.",
+            "text": "In a survey of 112 respondents from 51 companies, 43% wanted to launch 2–5 mobile robot projects in 2025."
+          },
+          "2": {
+            "figure": "2–3 years",
+            "cap": "the time in which investment pays back, by the study’s estimate",
+            "title": "Payback takes years, not months.",
+            "text": "Barriers named by the same study: the cost of entry, immature IT infrastructure, a shortage of specialists."
+          }
+        }
+      },
+      "sources": {
+        "comnews": {
+          "label": "“Technologies of Trust” study, ComNews, Aug 29, 2025"
+        },
+        "yandex": {
+          "label": "survey by Yandex Robotics and Industrial Robotics, Retail.ru, Jul 15, 2025"
+        },
+        "vda": {
+          "label": "VDA, vda.de, the VDA 5050 specification"
+        },
+        "press": {
+          "label": "press release, Retail.ru, Jun 23, 2026"
+        },
+        "sber": {
+          "label": "Sber PRO, Dec 16, 2024"
+        }
+      },
+      "dispatcher": {
+        "systems": {
+          "title": "Your systems",
+          "items": {
+            "items": {
+              "0": "WMS",
+              "1": "1C or ERP",
+              "2": "Orders and shipments"
+            }
+          }
+        },
+        "platform": {
+          "title": "Platform",
+          "items": {
+            "items": {
+              "0": "Task queue",
+              "1": "Routes without traffic jams",
+              "2": "Charging and idle time",
+              "3": "Monitoring and reports"
+            }
+          }
+        },
+        "robots": {
+          "title": "Robots of any brand",
+          "items": {
+            "items": {
+              "0": "Pallet-handling robot · brand A",
+              "1": "Goods-to-person AMR · brand B",
+              "2": "AMR beside the picker · brand C"
+            }
+          }
+        },
+        "note": "Connection is easier if the robot supports VDA 5050: an open specification for communication between a master control system and mobile robots from different makers (VDA and VDMA, version 3.0.0 of March 2026). If it does not, we connect through the maker’s API or SDK. What is available for your model, we check at the site assessment.",
+        "legend": "The diagram is illustrative: brands A, B and C stand for robots from different makers."
+      },
+      "directions": {
+        "items": {
+          "0": {
+            "title": "Pallet-handling robots and AMR carts",
+            "text": "They move pallets horizontally: dock, rack, shipping area. The simplest entry: the route repeats and the warehouse is not rebuilt.",
+            "facts": {
+              "items": {
+                "0": {
+                  "k": "We check at the assessment",
+                  "v": "floor surface, aisle width, thresholds and ramps"
+                }
+              }
+            }
+          },
+          "1": {
+            "title": "AMRs for order picking",
+            "text": "Goods come to the person: the robot brings the rack. Or the robot drives beside the picker and carries what has been picked.",
+            "facts": {
+              "items": {
+                "0": {
+                  "k": "Public case",
+                  "v": "Magnit: output per employee +80%"
+                }
+              }
+            }
+          },
+          "2": {
+            "title": "Robot arms: palletizing and depalletizing",
+            "text": "A robot arm takes boxes off a pallet or builds a pallet for shipping. Heavy repetitive work leaves the dock.",
+            "facts": {
+              "items": {
+                "0": {
+                  "k": "Public case",
+                  "v": "Leman PRO: depalletizing costs −40%"
+                }
+              }
+            }
+          },
+          "3": {
+            "title": "Sorting and inventory",
+            "text": "Mobile robots handle the order flow, dynamic storage, sorting and inventory. We add them once the first routes are running.",
+            "link": {
+              "label": "The whole order path through a warehouse"
+            }
+          }
+        }
+      },
+      "directionsNote": "Safety around people is described by the international standard ISO 3691-4: detecting a person, limiting speed, stopping. We clarify the requirements and certification for your warehouse at the site assessment.",
+      "econ": {
+        "how": {
+          "title": "What the calculation is made of",
+          "items": {
+            "items": {
+              "0": {
+                "k": "Distance walked",
+                "v": "how many kilometers per shift people and forklifts cover on routes that can be handed to a robot"
+              },
+              "1": {
+                "k": "Shifts and peaks",
+                "v": "how many shifts the warehouse runs and how much the load jumps between peak and low season; we count by the peak, not the average"
+              },
+              "2": {
+                "k": "Errors and damage",
+                "v": "the share of picking errors and cargo damage before and after"
+              },
+              "3": {
+                "k": "Cost of deployment",
+                "v": "robot, charging, integration with WMS or 1C, training, SLA-backed service: all in one estimate, not in parts after launch"
+              }
+            }
+          }
+        },
+        "market": {
+          "title": "What others have achieved",
+          "rows": {
+            "items": {
+              "0": {
+                "value": "2–3 years",
+                "who": "Market estimate",
+                "what": "The time in which investment in warehouse robotics pays back, by the estimate of the surveyed companies."
+              },
+              "1": {
+                "who": "Magnit: goods-to-person AMRs",
+                "what": "Output per employee grew from about 18 to 32+ tonnes. The company’s own claim."
+              },
+              "2": {
+                "value": "1 instead of 3",
+                "who": "Askona: AMRs on accessory assembly",
+                "what": "One employee instead of three on the operation, 70–80 → 300–350 units per hour. The company’s own claim."
+              }
+            }
+          }
+        },
+        "note": "These are other companies’ deployments, and the figures are the companies’ own claims that we did not verify independently. A precise calculation comes on your routes after the site assessment.",
+        "link": {
+          "label": "See all deployments"
+        }
+      },
+      "vendorsLead": "We connect robots from these and other manufacturers to one platform. We select equipment for the load, aisles and floor surface, not from a catalog.",
+      "vendors": {
+        "items": {
+          "0": {
+            "group": "AMRs and pallet-handling robots"
+          }
+        }
+      },
+      "pilot": {
+        "items": {
+          "0": {
+            "title": "Warehouse assessment",
+            "text": "Flows, aisles, floor surface, thresholds and ramps. We choose the route where a robot pays off soonest."
+          },
+          "1": {
+            "title": "One route on our software",
+            "text": "A robot (yours or one we select) works one route at your normal load, and the warehouse does not stop. Tasks come from your WMS or 1C."
+          },
+          "2": {
+            "title": "Integration and scale",
+            "text": "We connect the other routes and systems. Robots of different brands work in one window."
+          },
+          "3": {
+            "title": "Service",
+            "text": "Fleet monitoring, tickets and maintenance run under an SLA."
+          }
+        }
+      },
+      "form": {
+        "title": "Which route to start with in your warehouse?",
+        "lead": "Describe the warehouse: area, loads, shifts, whether you already have robots. We will suggest a pilot route and a way to connect.",
+        "button": "Discuss a pilot"
+      },
+      "links": {
+        "items": {
+          "0": {
+            "title": "Warehousing and logistics",
+            "text": "Order path, deployments and a one-route pilot."
+          },
+          "1": {
+            "title": "Robot management platform",
+            "text": "A fleet of robots of different brands in one window."
+          },
+          "2": {
+            "text": "A robot for the pilot without buying."
+          },
+          "3": {
+            "text": "Flows, aisles, routes and calculation."
+          },
+          "4": {
+            "text": "One route, a clear result."
+          },
+          "5": {
+            "title": "Manufacturing and industry",
+            "text": "AMRs inside the shop floor and cobots on the line."
+          },
+          "6": {
+            "text": "Warehouse floor cleaning and software for it."
+          }
+        }
+      }
     }
   },
   "roi": {
@@ -672,22 +1331,22 @@
       },
       "price": {
         "label": "Contractor price per m²",
-        "min": "RUB\u00a030",
-        "note": "typically RUB\u00a045–70/m² in Moscow",
-        "max": "RUB\u00a0150"
+        "min": "RUB 30",
+        "note": "typically RUB 45–70/m² in Moscow",
+        "max": "RUB 150"
       },
       "wage": {
         "label": "Operator wage",
-        "min": "RUB\u00a080,000",
+        "min": "RUB 80,000",
         "note": "take-home, per person",
-        "max": "RUB\u00a0200,000",
+        "max": "RUB 200,000",
         "hint": "The robot needs a crew of two: an operator and a roof safety attendant certified for work at height. We cost both at this rate."
       },
       "glass": {
         "legend": "Facade glazing",
         "flat": "Continuous",
         "frames": "With frames",
-        "hint": "The robot clears horizontal frames up to 10\u00a0mm high. If they are higher, the facade needs an assessment."
+        "hint": "The robot clears horizontal frames up to 10 mm high. If they are higher, the facade needs an assessment."
       }
     },
     "floor": {
@@ -707,9 +1366,9 @@
       },
       "wage": {
         "label": "Cleaner wage",
-        "min": "RUB\u00a055,000",
-        "note": "Moscow median: RUB\u00a067,000",
-        "max": "RUB\u00a0120,000"
+        "min": "RUB 55,000",
+        "note": "Moscow median: RUB 67,000",
+        "max": "RUB 120,000"
       },
       "who": {
         "legend": "Who cleans now",
@@ -736,7 +1395,7 @@
         "label": "Cumulative net gain chart"
       },
       "cmp": {
-        "caption": "Your cost per 1\u00a0m² cleaned",
+        "caption": "Your cost per 1 m² cleaned",
         "contractor": "Contractor",
         "robot": "With robot"
       },
@@ -752,19 +1411,19 @@
       "title": "Basis of the estimate.",
       "facade": {
         "price": {
-          "value": "RUB\u00a045–70",
+          "value": "RUB 45–70",
           "text": "per m²: the usual price for rope access cleaning of continuous glazing in Moscow, from public price lists"
         },
         "output": {
-          "value": "1,500\u00a0m²",
-          "text": "per robot per shift. The manufacturer states 1,200–2,000\u00a0m² a day"
+          "value": "1,500 m²",
+          "text": "per robot per shift. The manufacturer states 1,200–2,000 m² a day"
         },
         "shifts": {
           "value": "≈98 shifts",
           "text": "per cleaning season: mid-April to mid-October, excluding rain, wind and weekends"
         },
         "kit": {
-          "value": "RUB\u00a05.45M",
+          "value": "RUB 5.45M",
           "text": "turnkey X-Human K3 kit, according to the supplier"
         },
         "how": {
@@ -787,7 +1446,7 @@
       },
       "floor": {
         "wage": {
-          "value": "RUB\u00a067,000",
+          "value": "RUB 67,000",
           "text": "median cleaner wage in Moscow, from 2026 job postings"
         },
         "payroll": {
@@ -795,11 +1454,11 @@
           "text": "social contributions: since 2026, most companies pay 30%"
         },
         "manual": {
-          "value": "1,000\u00a0m²",
+          "value": "1,000 m²",
           "text": "of floor one person cleans by hand per shift"
         },
         "robot": {
-          "value": "RUB\u00a02.2M",
+          "value": "RUB 2.2M",
           "text": "price of a compact scrubber robot in the Pudu CC1 class"
         },
         "how": {
@@ -884,7 +1543,7 @@
           "title": "Moscow pilot · 26 malls",
           "since": "since 27 May 2026",
           "malls": "malls in the pilot",
-          "area": "million\u00a0m² of space",
+          "area": "million m² of space",
           "areaValue": "<small>over</small>1.1",
           "status": "<b>Pilot under way.</b> Robots from Russian manufacturers clean sales floors and parking, and will then be compared with manual cleaning. Results aren’t published yet."
         }
@@ -963,7 +1622,7 @@
           "chemicalsNote": "10× less",
           "robotChemicals": "0.1×"
         },
-        "service": "<b>10–15\u00a0min</b> a day to look after the robot; the docking station does the rest."
+        "service": "<b>10–15 min</b> a day to look after the robot; the docking station does the rest."
       },
       "directions": {
         "items": {
@@ -1186,8 +1845,8 @@
           "3": {
             "level": "Facade",
             "title": "Facades: work at height.",
-            "text": "Glass cleaning is work at height: certifications, a permit-to-work, and no work in exposed spots when wind reaches 15\u00a0m/s. Every cleaning means a contractor with rope access technicians.",
-            "srcText": "Work-at-height safety rules, Russian Ministry of Labour Order No.\u00a0782n"
+            "text": "Glass cleaning is work at height: certifications, a permit-to-work, and no work in exposed spots when wind reaches 15 m/s. Every cleaning means a contractor with rope access technicians.",
+            "srcText": "Work-at-height safety rules, Russian Ministry of Labour Order No. 782n"
           }
         }
       },
@@ -1206,12 +1865,12 @@
                 "3": "day and night cleaning"
               }
             },
-            "fact": "Developer MR Group: parking robots, up to 1,800\u00a0m²/h"
+            "fact": "Developer MR Group: parking robots, up to 1,800 m²/h"
           },
           "1": {
             "level": "Roof · facade",
             "title": "Facade and glass cleaning",
-            "text": "The K3 robot descends from the roof on a cable and cleans continuous glazing while people stay on the roof. It can’t clear horizontal frames over 10\u00a0mm, so we check the facade’s suitability during the assessment.",
+            "text": "The K3 robot descends from the roof on a cable and cleans continuous glazing while people stay on the roof. It can’t clear horizontal frames over 10 mm, so we check the facade’s suitability during the assessment.",
             "items": {
               "items": {
                 "0": "continuous glazing",
@@ -1219,7 +1878,7 @@
                 "2": "roof-mounted"
               }
             },
-            "fact": "Up to 1,500\u00a0m² per shift according to the manufacturer; pays back from ≈36,000\u00a0m² cleaned a year, our calculation at a contractor price of RUB\u00a060/m²",
+            "fact": "Up to 1,500 m² per shift according to the manufacturer; pays back from ≈36,000 m² cleaned a year, our calculation at a contractor price of RUB 60/m²",
             "solution": {
               "label": "Facade cleaning calculator"
             }
@@ -1300,7 +1959,7 @@
         "mr": {
           "kicker": "MR Group · iCITY, Symphony 34",
           "title": "Robots clean towers in Moscow City.",
-          "text": "Pudu robots clean the lobbies and common areas of the iCITY towers; separate machines clean the parking. The robots cost RUB\u00a02–4\u00a0million. MR Group has also issued an automated cleaning standard for its buildings.",
+          "text": "Pudu robots clean the lobbies and common areas of the iCITY towers; separate machines clean the parking. The robots cost RUB 2–4 million. MR Group has also issued an automated cleaning standard for its buildings.",
           "value": "up to 40%",
           "claim": "lower cleaning costs, as claimed by the developer"
         },
@@ -1517,7 +2176,7 @@
         "estimateLink": "How we calculate"
       },
       "estimate": {
-        "object": "Hotel, 10,000\u00a0m², common areas cleaned in two shifts"
+        "object": "Hotel, 10,000 m², common areas cleaned in two shifts"
       },
       "why": {
         "title": "Rent by the season.",
@@ -1751,7 +2410,7 @@
           },
           "value": "{n, number}",
           "unit": "m²/h",
-          "text": "Autonomous cleaning robots sweep and wash halls, build their own map of the space and log the level of dirt. Productivity: up to 1,980\u00a0m² per hour. Russian Railways has not named the model or the number of robots."
+          "text": "Autonomous cleaning robots sweep and wash halls, build their own map of the space and log the level of dirt. Productivity: up to 1,980 m² per hour. Russian Railways has not named the model or the number of robots."
         },
         "stationsLabel": "Stations",
         "upTo": "up to",
@@ -1759,7 +2418,7 @@
           "items": {
             "0": {
               "place": "Pulkovo Airport",
-              "value": "5,000\u00a0m²",
+              "value": "5,000 m²",
               "valueNote": "per charge",
               "text": "Cleaning robots with lidar and cameras in check-in and arrivals halls."
             }
@@ -2087,16 +2746,16 @@
         "title": "The robot cleans during lessons.",
         "lead": "At break the corridor belongs to the children, so the robot returns to its station. When the class bell rings, it heads out for the next cycle.",
         "facts": {
-          "robots": "robots at School No.\u00a0281",
+          "robots": "robots at School No. 281",
           "cycles": "cycles a day per floor, the sixth in the gym",
           "station": "station: charges, drains dirty water, refills clean",
           "stationValue": "3-in-1"
         },
-        "note": "School No.\u00a0281, Moscow. The cleaners stayed and now handle the classrooms.",
+        "note": "School No. 281, Moscow. The cleaners stayed and now handle the classrooms.",
         "board": {
           "title": "Bell schedule",
           "example": "Sample schedule",
-          "foot": "Bell times are illustrative. Cycles and the gym follow School No.\u00a0281; we build the robot’s schedule around your bells."
+          "foot": "Bell times are illustrative. Cycles and the gym follow School No. 281; we build the robot’s schedule around your bells."
         },
         "lesson": "Lesson {n}",
         "items": {
@@ -2205,10 +2864,10 @@
           "place": "Moscow schools",
           "value": "4,800",
           "unit": "m² a day",
-          "lead": "Robots clean more than 4,800\u00a0m² of hallways a day in three schools: No.\u00a01514, No.\u00a0281 and No.\u00a01387. They work during lessons, on every floor, and return to their stations on their own.",
+          "lead": "Robots clean more than 4,800 m² of hallways a day in three schools: No. 1514, No. 281 and No. 1387. They work during lessons, on every floor, and return to their stations on their own.",
           "announced": "Announced by Moscow’s Department of Education and Science.",
           "quote": "“We can’t imagine our work without them now.”",
-          "quoteBy": "Deputy head of School No.\u00a0281"
+          "quoteBy": "Deputy head of School No. 281"
         },
         "lab": {
           "place": "RTU MIREA",
@@ -2226,18 +2885,18 @@
         "calcTitle": "A robot in a school",
         "shiftLabel": "A cleaner’s eight-hour shift: the robot covers 2.5 hours out of 8, which is 31 percent",
         "scale": {
-          "zero": "0\u00a0h",
-          "part": "2.5\u00a0h",
-          "shift": "8\u00a0h shift"
+          "zero": "0 h",
+          "part": "2.5 h",
+          "shift": "8 h shift"
         },
         "nums": {
           "price": "robot price",
-          "priceValue": "≈ RUB\u00a02M",
+          "priceValue": "≈ RUB 2M",
           "covers": "of a cleaner’s shift: robot work",
-          "coversValue": "2.5 of 8\u00a0h",
-          "payback": "purchase payback at RUB\u00a065K take-home pay",
+          "coversValue": "2.5 of 8 h",
+          "payback": "purchase payback at RUB 65K take-home pay",
           "paybackValue": "≈ 5.5 years",
-          "lowWage": "at RUB\u00a030K pay",
+          "lowWage": "at RUB 30K pay",
           "lowWageValue": "almost 12 years"
         },
         "serviceNote": "Robot servicing is not included.",
@@ -2245,11 +2904,11 @@
           "title": "What this means",
           "rent": {
             "title": "Rental or cleaning as a service",
-            "text": "No capital spending and no five-year wait. Robotic cleaning can be bought as a service, just as schools already buy cleaning services under Federal Law No.\u00a044-FZ."
+            "text": "No capital spending and no five-year wait. Robotic cleaning can be bought as a service, just as schools already buy cleaning services under Federal Law No. 44-FZ."
           },
           "staff": {
             "title": "Cleaners: classrooms, restrooms",
-            "text": "The robot washes the long hallways; people do what it can’t: classrooms, restrooms, stairs. At School No.\u00a0281 the cleaners stayed and now handle the classrooms.",
+            "text": "The robot washes the long hallways; people do what it can’t: classrooms, restrooms, stairs. At School No. 281 the cleaners stayed and now handle the classrooms.",
             "link": "See it on the bell schedule ↑"
           }
         }
@@ -2359,7 +3018,7 @@
               }
             },
             "fact": {
-              "value": "700–1,000\u00a0m²/h",
+              "value": "700–1,000 m²/h",
               "text": "Pudu CC1 productivity"
             }
           },
@@ -2392,7 +3051,7 @@
               }
             },
             "fact": {
-              "value": "up to ~50\u00a0m",
+              "value": "up to ~50 m",
               "text": "pool length for the Maytronics Dolphin Wave 300 XL",
               "src": {
                 "label": "according to Maytronics dealers"
@@ -2410,8 +3069,8 @@
               }
             },
             "fact": {
-              "value": "up to 38,000\u00a0m²",
-              "text": "Husqvarna CEORA 544 EPOS; with daily “sports” mowing, up to 20,000\u00a0m²"
+              "value": "up to 38,000 m²",
+              "text": "Husqvarna CEORA 544 EPOS; with daily “sports” mowing, up to 20,000 m²"
             },
             "fact2": {
               "text": "FJ Dynamics PaintMaster: line-marking robots for sports fields"
@@ -2705,7 +3364,7 @@
             "facts": {
               "items": {
                 "0": {
-                  "text": "Pudu MT1: up to 1,800\u00a0m²/h in standard mode, 4–8\u00a0h of operation per charge."
+                  "text": "Pudu MT1: up to 1,800 m²/h in standard mode, 4–8 h of operation per charge."
                 }
               }
             }
@@ -2747,7 +3406,7 @@
       },
       "sources": {
         "pp1875": {
-          "label": "Decree No.\u00a01875"
+          "label": "Decree No. 1875"
         },
         "mt1": {
           "label": "manufacturer’s datasheet, Pudu"
@@ -2763,7 +3422,7 @@
           "kicker": "National procurement regime",
           "title": "“Vehicles for municipal services and road maintenance”.",
           "document": "Document",
-          "documentValue": "Decree No.\u00a01875, 23 Dec 2024",
+          "documentValue": "Decree No. 1875, 23 Dec 2024",
           "list": "List",
           "listValue": "Annex 1: ban on buying foreign goods",
           "okpd": "OKPD2 code",
@@ -2805,7 +3464,7 @@
           },
           "sidewalks": {
             "label": "Sidewalks",
-            "text": "<b>Sidewalks.</b> The experimental legal regime for robots on sidewalks (Government Decree No.\u00a01247 of 30 September 2026) targets delivery robots. Open sources don’t say whether it covers cleaning robots. In parks, the robot works on the customer’s own grounds."
+            "text": "<b>Sidewalks.</b> The experimental legal regime for robots on sidewalks (Government Decree No. 1247 of 30 September 2026) targets delivery robots. Open sources don’t say whether it covers cleaning robots. In parks, the robot works on the customer’s own grounds."
           }
         }
       },
@@ -2958,10 +3617,10 @@
             "text": "In developed economies there are 500–800 robots per 10,000 employees; Russia’s target for 2030 is 145. Only 3% of surveyed companies had fully automated warehouses."
           },
           "1": {
-            "figure": "RUB\u00a0115.4k",
+            "figure": "RUB 115.4k",
             "cap": "average warehouse staff salary, August 2026",
             "title": "Labor shortage eased, pay did not.",
-            "text": "In 2025, 65% of surveyed companies named the labor shortage as a problem. By 2026, labor market tension fell to 0.04–0.09 vacancies per 1,000\u00a0m²."
+            "text": "In 2025, 65% of surveyed companies named the labor shortage as a problem. By 2026, labor market tension fell to 0.04–0.09 vacancies per 1,000 m²."
           },
           "2": {
             "cap": "swing in volume between peak and low season, Borjomi",
@@ -3076,7 +3735,7 @@
               "cap": "output per employee",
               "what": "goods-to-person AMRs",
               "from": {
-                "label": "≈ 18\u00a0t"
+                "label": "≈ 18 t"
               },
               "to": {
                 "label": "32+ t"
@@ -3821,8 +4480,8 @@
         "load": "Season utilization"
       },
       "money": {
-        "mln": "RUB\u00a0{sign}{n}M",
-        "thou": "RUB\u00a0{sign}{n}K"
+        "mln": "RUB {sign}{n}M",
+        "thou": "RUB {sign}{n}K"
       },
       "chart": {
         "year1": "1 year",
@@ -3841,7 +4500,7 @@
       "plate": {
         "unfit": {
           "title": "Facade check needed",
-          "text": "the robot can’t clear frames over 10\u00a0mm"
+          "text": "the robot can’t clear frames over 10 mm"
         },
         "never": {
           "title": "No payback",
@@ -3935,12 +4594,12 @@
     },
     "products": {
       "calc": {
-        "mln": "RUB\u00a0{n, number, ::.0}M",
-        "thouPerMonth": "RUB\u00a0{n, number}K/mo",
-        "months": "{n, number}\u00a0mo",
+        "mln": "RUB {n, number, ::.0}M",
+        "thouPerMonth": "RUB {n, number}K/mo",
+        "months": "{n, number} mo",
         "verdict": {
-          "rent": "Renting is RUB\u00a0{diff, number, ::.0}M cheaper than buying. Costs break even after {cross, plural, one {# month} other {# months}}.",
-          "buy": "Buying comes out RUB\u00a0{diff, number, ::.0}M ahead: it overtook renting after {cross, plural, one {# month} other {# months}}.",
+          "rent": "Renting is RUB {diff, number, ::.0}M cheaper than buying. Costs break even after {cross, plural, one {# month} other {# months}}.",
+          "buy": "Buying comes out RUB {diff, number, ::.0}M ahead: it overtook renting after {cross, plural, one {# month} other {# months}}.",
           "always": "Under these terms, renting is cheaper than buying over any period up to 5 years."
         }
       }
@@ -4588,6 +5247,20 @@
       }
     }
   },
+  "legal": {
+    "consent": {
+      "meta": {
+        "title": "Consent to personal data processing | Professional Robotics",
+        "description": "The consent a user gives when submitting a form on the website (Russian text prevails)."
+      }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Privacy policy | Professional Robotics",
+        "description": "How Professional Robotics processes and protects the personal data of website visitors (Russian text prevails)."
+      }
+    }
+  },
   "contacts": {
     "meta": {
       "title": "Contact us: robotics in Moscow | Professional Robotics",
@@ -4793,7 +5466,7 @@
       "description": "How a cleaning robot works: lidar map, route, obstacle avoidance, water station. How much floor it covers, what is left to people and when it does not fit.",
       "topic": "Robotic cleaning",
       "format": "Article",
-      "read": "7\u00a0min read",
+      "read": "7 min read",
       "updated": "Updated 7 October 2026"
     },
     "sections": {
@@ -4850,7 +5523,7 @@
       "tool": {
         "k": "Working unit",
         "title": "Brushes, blade, tanks",
-        "text": "Some robots clean dry (sweeping, vacuuming), some clean wet (a water tank and a squeegee), and some do both. The Phantas scrubs, vacuums, sweeps and dust-mops. Clean-water tank 11.5\u00a0L, waste-water tank 10.5\u00a0L, dust bag 6\u00a0L."
+        "text": "Some robots clean dry (sweeping, vacuuming), some clean wet (a water tank and a squeegee), and some do both. The Phantas scrubs, vacuums, sweeps and dust-mops. Clean-water tank 11.5 L, waste-water tank 10.5 L, dust bag 6 L."
       },
       "dock": {
         "k": "Station",
@@ -4863,7 +5536,7 @@
       "lead": "No floor markings are needed. The robot navigates by a map it built itself. In this it resembles a warehouse AMR, not an AGV, which needs tape or marks.",
       "s1": {
         "title": "Map",
-        "text": "The robot drives around the premises and builds a map. Gausium quotes 30\u00a0minutes for a 2,000\u00a0m² site. Real time depends on the layout and the number of items."
+        "text": "The robot drives around the premises and builds a map. Gausium quotes 30 minutes for a 2,000 m² site. Real time depends on the layout and the number of items."
       },
       "s2": {
         "title": "Zones",
@@ -4907,14 +5580,14 @@
       "title": "Area one robot covers",
       "lead": "Two quantities set the area: how much the robot cleans per hour and how long it runs without a recharge. We multiply the Phantas datasheet values.",
       "calcAria": "4.5 hours times 350 to 700 square meters per hour equals roughly 1,600 to 3,100 square meters",
-      "c1": "4.5\u00a0h",
+      "c1": "4.5 h",
       "c1l": "scrub mode",
-      "c2": "350–700\u00a0m²/h",
+      "c2": "350–700 m²/h",
       "c2l": "in practice",
-      "c3": "≈ 1,600–3,100\u00a0m²",
+      "c3": "≈ 1,600–3,100 m²",
       "c3l": "on one charge",
       "p1": "This is our calculation, not a guarantee: output drops with a tight layout and many obstacles. For a larger site, a recharge during the day, a second shift or several robots help. Charging takes about two hours, so plan the schedule in advance.",
-      "p2": "Where this works in practice: offices and office buildings, shopping malls, warehouses, clinics and hotels. Our <a>payback calculator</a> handles sites from 3,500\u00a0m², warehouses from 10,000\u00a0m². That is the limit of the calculation, not a physical limit of the robot: on a smaller area there is usually too little work for it."
+      "p2": "Where this works in practice: offices and office buildings, shopping malls, warehouses, clinics and hotels. Our <a>payback calculator</a> handles sites from 3,500 m², warehouses from 10,000 m². That is the limit of the calculation, not a physical limit of the robot: on a smaller area there is usually too little work for it."
     },
     "limits": {
       "title": "When a robot does not fit",
@@ -4992,7 +5665,7 @@
       "product": "Gausium, Phantas: product page",
       "productFor": "(path modes, station, obstacle avoidance)",
       "tech": "Gausium: navigation and sensing",
-      "techFor": "(±2\u00a0cm accuracy, 30\u00a0minutes for 2,000\u00a0m², cables and thresholds, large debris)",
+      "techFor": "(±2 cm accuracy, 30 minutes for 2,000 m², cables and thresholds, large debris)",
       "roi": "PROFROBOT payback calculator",
       "roiFor": "(area limits by site type)",
       "back": "All knowledge base materials"
@@ -5769,20 +6442,6 @@
         "connect": "Connecting my robots",
         "custom": "Custom software for my task",
         "api": "Integration with my systems"
-      }
-    }
-  },
-  "legal": {
-    "privacy": {
-      "meta": {
-        "title": "Privacy policy | Professional Robotics",
-        "description": "How Professional Robotics processes and protects the personal data of website visitors (Russian text prevails)."
-      }
-    },
-    "consent": {
-      "meta": {
-        "title": "Consent to personal data processing | Professional Robotics",
-        "description": "The consent a user gives when submitting a form on the website (Russian text prevails)."
       }
     }
   }

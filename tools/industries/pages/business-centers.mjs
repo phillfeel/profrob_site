@@ -15,7 +15,7 @@ const heroPhoto = (slug) => (existsSync(new URL(`../../../assets/industry_hero/$
   ? `assets/industry_hero/${slug}.webp` : null);
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions-cleaning.html' },
   service: { label: 'Сервисные роботы', href: 'solutions.html#dir-service-robots' },
   humanoid: { label: 'Гуманоидные роботы', href: 'solutions.html#dir-humanoid' },
 };

@@ -12,9 +12,9 @@
 //   economy   — the shared mini calculator markup (industry.js drives it), preset to «ТЦ».
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions-cleaning.html' },
   service: { label: 'Сервисные роботы', href: 'solutions.html#dir-service-robots' },
-  warehouse: { label: 'Складская роботизация', href: 'solutions.html#dir-warehouse' },
+  warehouse: { label: 'Складская роботизация', href: 'solutions-warehouse.html' },
 };
 
 const industry = {

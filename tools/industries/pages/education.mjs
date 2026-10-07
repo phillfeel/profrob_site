@@ -7,7 +7,7 @@
 // Styles: industry-education.css (every selector starts with .ind--education).
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions-cleaning.html' },
   humanoid: { label: 'Гуманоидные роботы', href: 'solutions.html#dir-humanoid' },
 };
 

@@ -16,7 +16,7 @@ const SRC = {
 };
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions-cleaning.html' },
   agro: { label: 'Агророботы и уход за территорией', href: 'solutions.html#dir-agro' },
 };
 

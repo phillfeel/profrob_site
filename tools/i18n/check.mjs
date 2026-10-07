@@ -60,9 +60,9 @@ test('4. generated industry pages equal the generator output', async () => {
   const { build } = await loadTemplates();
   const stale = [];
   for (const ind of build.INDUSTRIES) {
-    const file = join(root, `industries-${ind.slug}.html`);
+    const file = join(root, build.fileOf(ind));
     const onDisk = existsSync(file) ? await readFile(file, 'utf8') : null;
-    if (onDisk !== build.page(ind)) stale.push(`industries-${ind.slug}.html`);
+    if (onDisk !== build.page(ind)) stale.push(build.fileOf(ind));
   }
   assert.deepEqual(stale, [], `\n  ${list(stale)}\n  Generated files are never edited by hand. Fix: node tools/industries/build.mjs`);
 });
@@ -246,5 +246,5 @@ test('14. every page has the switcher and the boot; no links to language variant
 });
 
 test('pages found', async () => {
-  assert.equal((await listPages()).length, 28);
+  assert.equal((await listPages()).length, 30);
 });

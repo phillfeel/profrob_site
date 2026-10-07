@@ -11,6 +11,8 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+// Solutions that have their own page (solutions-<slug>.html)
+const SOLUTION_PAGES = new Set(['cleaning', 'warehouse']);
 
 export const START = '<!-- foot-nav:start -->';
 export const END = '<!-- foot-nav:end -->';
@@ -75,7 +77,7 @@ export function footerNav() {
   const cols = [
     col(1, 'common.footer.nav.sections', 'Разделы', SECTIONS),
     col(2, 'common.nav.industries', 'Отрасли', INDUSTRIES.map(([s, k, ru]) => [`industries-${s}.html`, `industries.${k}.name`, ru])),
-    col(3, 'common.nav.solutions', 'Решения', SOLUTIONS.map(([s, k, ru]) => [`solutions.html#dir-${s}`, `common.solutionNames.${k}`, ru])),
+    col(3, 'common.nav.solutions', 'Решения', SOLUTIONS.map(([s, k, ru]) => [SOLUTION_PAGES.has(s) ? `solutions-${s}.html` : `solutions.html#dir-${s}`, `common.solutionNames.${k}`, ru])),
     col(4, 'common.footer.nav.company', 'Компания', COMPANY),
   ];
   return `      ${START}
