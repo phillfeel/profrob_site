@@ -27,6 +27,7 @@ import { BRANDS, INDUSTRIES as BASE_INDUSTRIES } from './data.mjs';
 import { parse as icuParse, format as icuFormat } from '../i18n/icu.mjs';
 import { NEEDS } from '../i18n/needs.mjs';
 import { bootBlock } from '../i18n/embed.mjs';
+import { footerNav } from '../site/footer-nav.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..', '..');
@@ -80,7 +81,7 @@ const NAMES = {
   'CORE.XP и DAKO Professional, «Коммерсантъ», 2025': 'common.sources.kommersantCoreDako2025',
   'CORE.XP в «Коммерсанте», 2025': 'common.sources.kommersantCore2025',
   'Все отрасли': 'industries.common.links.allIndustries',
-  'Все 11 отраслевых страниц.': 'industries.common.links.allIndustriesText',
+  'Все 12 отраслевых страниц.': 'industries.common.links.allIndustriesText',
   'РЕШЕНИЕ': 'industries.common.kickers.solution',
   'ПРОДУКТ': 'industries.common.kickers.product',
   'УСЛУГА': 'industries.common.kickers.service',
@@ -262,7 +263,7 @@ const photo = (ind, ratio, cls = '') => {
         </figure>`;
 };
 
-const crumbs = (ind) => `<nav class="crumbs reveal"${TA(['aria-label', 'common.crumbs.label'])} aria-label="Хлебные крошки"><ol><li><a${K('common.crumbs.home')} href="index.html">Главная</a></li><li><a${K('common.crumbs.industries')} href="index.html#industries">Отрасли</a></li><li${T(ind, 'name')} aria-current="page">${esc(ind.name)}</li></ol></nav>`;
+const crumbs = (ind) => `<nav class="crumbs reveal"${TA(['aria-label', 'common.crumbs.label'])} aria-label="Хлебные крошки"><ol><li><a${K('common.crumbs.home')} href="index.html">Главная</a></li><li><a${K('common.crumbs.industries')} href="industries.html">Отрасли</a></li><li${T(ind, 'name')} aria-current="page">${esc(ind.name)}</li></ol></nav>`;
 
 // The H1 as one <span> per line, and the «Для кого» line: the audiences stay separate messages, the dots between them are markup.
 const h1 = (ind) => ind.h1.map((l, i) => `<span${T(ind.h1, i)}>${esc(l)}</span>`).join(' ');
@@ -547,7 +548,7 @@ S.form = (ind, n) => {
           </div>
           <div class="hp" aria-hidden="true"><label><span${K('common.form.honeypot')}>Не заполняйте</span> <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <div class="fld">
-            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span${KH('common.form.consent')}>Согласен на обработку персональных данных. <a href="#">Политика конфиденциальности</a></span></label>
+            <label class="consent"><input type="checkbox" name="consent" id="f-consent" required aria-describedby="f-consent-err"><span${KH('common.form.consent')}>Даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и принимаю <a href="privacy.html" target="_blank" rel="noopener">политику конфиденциальности</a></span></label>
             <span class="fld__err" id="f-consent-err" role="alert"></span>
           </div>
           <div class="form__foot">
@@ -727,7 +728,7 @@ ${BOOT}
     <a href="index.html"${TA(['aria-label', 'common.brand.homeLabel'])} aria-label="Профессиональная Робототехника — на главную"><img src="assets/profrobot-logo.png"${TA(['alt', 'common.brand.logoAlt'])} alt="Профессиональная Робототехника"></a>
     <nav class="nav-links">
       <a href="solutions.html"${K('common.nav.solutions')}>Решения</a>
-      <a href="index.html#industries" class="on"${K('common.nav.industries')}>Отрасли</a>
+      <a href="industries.html" class="on"${K('common.nav.industries')}>Отрасли</a>
       <a href="products.html"${K('common.nav.products')}>Продукты</a>
       <a href="services.html"${K('common.nav.services')}>Услуги</a>
       <a href="platform.html"${K('common.nav.platform')}>Платформа</a>
@@ -762,10 +763,10 @@ ${body}
           <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
         </div>
       </div>
-      <div class="foot-bot">
+${footerNav()}      <div class="foot-bot">
         <span${K('common.footer.rights')}>© 2026 Профессиональная Робототехника. Все права защищены.</span>
-        <a href="#"${K('common.footer.privacy')}>Политика конфиденциальности</a>
-        <a class="foot-up" href="index.html#industries"><span${K('common.footer.allIndustries')}>Все отрасли</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a href="privacy.html"${K('common.footer.privacy')}>Политика конфиденциальности</a>
+        <a class="foot-up" href="industries.html"><span${K('common.footer.allIndustries')}>Все отрасли</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
   </footer>

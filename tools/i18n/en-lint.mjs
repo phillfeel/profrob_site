@@ -62,6 +62,8 @@ const ACCEPT = {
   'industries.*.h1.items.*': 'headline line: see en.review.md (every line stays shorter than the longest RU line)',
   // mono capitals and tags: the shortest accurate word is longer than the RU one
   'home.sections.contact': 'RU "ЗАЯВКА" is 6 letters; CONTACT (7) is the shortest accurate label',
+  'kbCleaning.sections.talk': 'RU "ЗАЯВКА" is 6 letters; CONTACT (7) is the shortest accurate label',
+  'kbCleaning.sections.hero': 'RU "СТАТЬЯ" is 6 letters; ARTICLE (7) is the only accurate word; the label is only visible in the section counter',
   'solutions.sections.talk': 'RU "ЗАЯВКА" is 6 letters; CONTACT (7) is the shortest accurate label',
   'products.sections.talk': 'RU "ЗАЯВКА" is 6 letters; CONTACT (7) is the shortest accurate label',
   'industries.common.sections.form': 'RU "ЗАЯВКА" is 6 letters; CONTACT (7) is the shortest accurate label',

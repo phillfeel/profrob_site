@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="notFound.meta.title">Страница не найдена | Профессиональная Робототехника</title>
+  <meta data-i18n-attr="content:notFound.meta.description" name="description" content="Такой страницы нет. Вернитесь на главную или напишите нам.">
+  <meta name="robots" content="noindex">
+  <script>(function(){var h=location.hostname,p=location.pathname.split('/')[1],b=/\.github\.io$/.test(h)&&p?'/'+p+'/':'/';document.write('<base href="'+b+'">');})();</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="solutions.css">
+  <link rel="stylesheet" href="legal.css">
+  <script>document.documentElement.classList.add('js');</script>
+<script>
+(function (w, d) {
+  var q = /[?&]lang=(en|ru)(?=&|#|$)/.exec(location.search), s = null, l;
+  try { if (q) localStorage.setItem('lang', q[1]); s = localStorage.getItem('lang'); } catch (e) {}
+  l = q ? q[1] : s === 'en' ? 'en' : 'ru';
+  var i = w.i18n = { lang: l, t: function () {}, ready: Promise.resolve() };
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('aria-pressed') === 'true') return;
+    var n = b.getAttribute('data-lang'), u = new URL(location.href);
+    u.searchParams.delete('lang');
+    try { localStorage.setItem('lang', n); } catch (x) { u.searchParams.set('lang', n); }
+    if (u.href === location.href) location.reload(); else location.replace(u.href);
+  });
+  if (l !== 'en') return;
+  var st = d.createElement('style');
+  st.textContent = 'html.i18n-wait body{visibility:hidden}';
+  d.head.appendChild(st);
+  d.documentElement.classList.add('i18n-wait');
+  i.ready = new Promise(function (ok) {
+    var tm = setTimeout(function () { i.done('the English text did not load in time'); }, 3000), over;
+    i.done = function (why) {
+      if (over) return;
+      over = 1;
+      clearTimeout(tm);
+      if (why) { i.lang = 'ru'; console.warn('i18n: ' + why + ', the page stays in Russian'); }
+      d.documentElement.classList.remove('i18n-wait');
+      ok();
+    };
+    var sc = d.createElement('script');
+    sc.src = 'i18n.js';
+    sc.async = true;
+    sc.onerror = function () { i.done('i18n.js did not load'); };
+    d.head.appendChild(sc);
+  });
+})(window, document);
+</script>
+</head>
+<body class="sol-page">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 4 3 11l7 3 3 7z"/><path d="m10 14 11-10"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 20l1.4-4.2A8 8 0 1 1 8.2 18.6z"/><path d="M9.5 8.5c.4 2 2.5 4.5 5.5 5.5l1.5-1.5-2-1-1 .8c-.8-.4-1.5-1.2-2-2l.8-1-1-2z"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="m8 15 3-4 3 2 5-6"/><path d="M15 7h4v4"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h4"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/></symbol>
+  </defs></svg>
+
+  <!-- ================= NAV ================= -->
+  <header data-i18n-attr="aria-label:common.nav.label" class="nav" aria-label="Основная навигация">
+    <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoSrc" src="assets/profrobot-logo.png" alt="Профессиональная Робототехника"></a>
+    <nav class="nav-links">
+      <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+      <a data-i18n="common.nav.industries" href="industries.html">Отрасли</a>
+      <a data-i18n="common.nav.products" href="products.html">Продукты</a>
+      <a data-i18n="common.nav.services" href="services.html">Услуги</a>
+      <a data-i18n="common.nav.platform" href="platform.html">Платформа</a>
+      <a data-i18n="common.nav.cases" href="cases.html">Кейсы</a>
+      <a data-i18n="common.nav.contacts" href="contacts.html">Контакты</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык" data-i18n-attr="aria-label:common.lang.label"><button type="button" lang="ru" data-lang="ru" aria-pressed="true">RU</button><button type="button" lang="en" data-lang="en" aria-pressed="false">EN</button></div>
+    <a data-i18n="common.cta.contact" class="btn btn-pri" href="contacts.html#talk">Связаться</a>
+  </header>
+
+  <main>
+    <section class="wrap nf" aria-labelledby="nf-h">
+      <p class="nf__code" aria-hidden="true">404</p>
+      <h1 class="nf__title" id="nf-h" data-i18n="notFound.title">Страница не найдена</h1>
+      <p class="nf__text" data-i18n="notFound.text">Возможно, ссылка устарела или в адресе опечатка. Вернитесь на главную или напишите нам, и мы подскажем, где искать.</p>
+      <div class="nf__links">
+        <a class="btn btn-pri" href="index.html"><span data-i18n="notFound.home">На главную</span></a>
+        <a class="btn btn-inv" href="contacts.html"><span data-i18n="notFound.contacts">Связаться с нами</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot sol-foot">
+    <div class="stage foot">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a data-i18n-attr="aria-label:common.brand.homeLabel" href="index.html" aria-label="Профессиональная Робототехника — на главную"><img data-i18n-attr="alt:common.brand.logoAlt;src:common.brand.logoInverseSrc" src="assets/profrobot-logo-inverse.png" alt="Профессиональная Робототехника" width="783" height="136"></a>
+          <p data-i18n="common.footer.about">Независимый инженерно-сервисный интегратор роботизации. Внедряем решения с измеримой окупаемостью и обслуживаем их по SLA — по всей России.</p>
+        </div>
+        <div class="foot-call">
+          <span class="mono">[ <span data-i18n="common.footer.dept">Отдел внедрения</span> ]</span>
+          <a class="foot-phone tnum" href="tel:+74951234567">+7 (495) 123-45-67</a>
+          <a class="foot-mail" href="mailto:info@profrobot.ru">info@profrobot.ru</a>
+        </div>
+      </div>
+      <!-- foot-nav:start -->
+      <div class="foot-grid foot-grid--site">
+        <nav class="foot-col" aria-labelledby="foot-site-1">
+          <h3 class="mono" id="foot-site-1"><b>01</b> <span data-i18n="common.footer.nav.sections">Разделы</span></h3>
+          <a data-i18n="common.nav.solutions" href="solutions.html">Решения</a>
+          <a data-i18n="common.nav.industries" href="industries.html">Отрасли</a>
+          <a data-i18n="common.footer.nav.products" href="products.html">Продукты</a>
+          <a data-i18n="common.nav.platform" href="platform.html">Платформа</a>
+          <a data-i18n="common.footer.nav.services" href="services.html">Услуги</a>
+          <a data-i18n="common.nav.cases" href="cases.html">Кейсы</a>
+          <a data-i18n="common.footer.nav.knowledge" href="knowledge.html">База знаний</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-2">
+          <h3 class="mono" id="foot-site-2"><b>02</b> <span data-i18n="common.nav.industries">Отрасли</span></h3>
+          <a data-i18n="industries.retail.name" href="industries-retail.html">Торговые центры и ритейл</a>
+          <a data-i18n="industries.businessCenters.name" href="industries-business-centers.html">Бизнес-центры и офисы</a>
+          <a data-i18n="industries.hotels.name" href="industries-hotels.html">Отели и HoReCa</a>
+          <a data-i18n="industries.publicSpaces.name" href="industries-public-spaces.html">Общественные пространства</a>
+          <a data-i18n="industries.medicalWellness.name" href="industries-medical-wellness.html">Медицина и велнес</a>
+          <a data-i18n="industries.education.name" href="industries-education.html">Образовательные учреждения</a>
+          <a data-i18n="industries.fitnessSports.name" href="industries-fitness-sports.html">Фитнес-клубы и спорткомплексы</a>
+          <a data-i18n="industries.municipal.name" href="industries-municipal.html">Муниципальные службы</a>
+          <a data-i18n="industries.warehouse.name" href="industries-warehouse.html">Склады и логистика</a>
+          <a data-i18n="industries.manufacturing.name" href="industries-manufacturing.html">Промышленность и производство</a>
+          <a data-i18n="industries.construction.name" href="industries-construction.html">Строительство</a>
+          <a data-i18n="industries.agriculture.name" href="industries-agriculture.html">Сельское хозяйство</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-3">
+          <h3 class="mono" id="foot-site-3"><b>03</b> <span data-i18n="common.nav.solutions">Решения</span></h3>
+          <a data-i18n="common.solutionNames.cleaning" href="solutions.html#dir-cleaning">Роботизированный клининг</a>
+          <a data-i18n="common.solutionNames.warehouse" href="solutions.html#dir-warehouse">Складская роботизация</a>
+          <a data-i18n="common.solutionNames.service" href="solutions.html#dir-service-robots">Сервисные роботы</a>
+          <a data-i18n="common.solutionNames.industrial" href="solutions.html#dir-industrial">Промышленная роботизация</a>
+          <a data-i18n="common.solutionNames.medical" href="solutions.html#dir-medical">Медицинская робототехника</a>
+          <a data-i18n="common.solutionNames.construction" href="solutions.html#dir-construction">Строительная робототехника</a>
+          <a data-i18n="common.solutionNames.agro" href="solutions.html#dir-agro">Агророботы</a>
+          <a data-i18n="common.solutionNames.security" href="solutions.html#dir-security">Роботы безопасности</a>
+          <a data-i18n="common.solutionNames.humanoid" href="solutions.html#dir-humanoid">Гуманоидные роботы</a>
+        </nav>
+        <nav class="foot-col" aria-labelledby="foot-site-4">
+          <h3 class="mono" id="foot-site-4"><b>04</b> <span data-i18n="common.footer.nav.company">Компания</span></h3>
+          <a data-i18n="common.footer.nav.about" href="about.html">О компании</a>
+          <a data-i18n="common.footer.nav.makers" href="manufacturers.html">Производители</a>
+          <a data-i18n="common.nav.contacts" href="contacts.html">Контакты</a>
+          <a data-i18n="common.footer.nav.roi" href="roi.html">Калькулятор ROI</a>
+          <a data-i18n="common.footer.nav.quote" href="contacts.html#talk">Запросить КП</a>
+          <a data-i18n="common.footer.nav.pilot" href="services.html#pilot">Демо и пилот</a>
+        </nav>
+      </div>
+      <!-- foot-nav:end -->
+      <div class="foot-bot">
+        <span data-i18n="common.footer.rights">© 2026 Профессиональная Робототехника. Все права защищены.</span>
+        <a data-i18n="common.footer.privacy" href="privacy.html">Политика конфиденциальности</a>
+        <a class="foot-up" href="index.html"><span data-i18n="common.footer.backHome">На главную</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

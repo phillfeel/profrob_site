@@ -11,9 +11,9 @@ const heroPhoto = (slug) => (existsSync(new URL(`../../../assets/industry_hero/$
   ? `assets/industry_hero/${slug}.webp` : null);
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: '/solutions/cleaning/' },
-  service: { label: 'Сервисные роботы', href: '/solutions/service-robots/' },
-  security: { label: 'Роботы безопасности', href: '/solutions/security/' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  service: { label: 'Сервисные роботы', href: 'solutions.html#dir-service-robots' },
+  security: { label: 'Роботы безопасности', href: 'solutions.html#dir-security' },
 };
 
 // Departure-board rows in the hero: object → what the robot does → mode. Each row leads to its direction.
@@ -134,9 +134,9 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Роботы безопасности', text: 'Патрулирование периметра и паркингов.', href: SOL.security.href },
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Уборка как услуга, без покупки техники.', href: 'products.html#raas' },
     { kicker: 'ПРОДУКТ', title: 'Платформа Профессиональная Робототехника', text: 'Управление уборкой и отчёты в одном окне.', href: 'products.html#platform' },
-    { kicker: 'ОТРАСЛЬ', title: 'Муниципальные службы', text: 'Парки и улицы — там.', href: '/industries/municipal/' },
+    { kicker: 'ОТРАСЛЬ', title: 'Муниципальные службы', text: 'Парки и улицы — там.', href: 'industries-municipal.html' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: общественные пространства', text: 'Внедрения на вокзалах и в аэропортах.', href: 'cases.html?industry=public-spaces' },
-    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
+    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 12 отраслевых страниц.', href: 'industries.html' },
   ],
   sections: ['hero', 'problems', 'flow', 'directions', 'proof', 'results', 'vendors', 'why', 'form', 'see'],
 };
@@ -286,7 +286,7 @@ const directions = (ind, n, h) => `<section class="sol-sec wrap" id="directions"
           </div>
         </article>`).join('\n        ')}
       </div>
-      <p class="psd__more"><span${h.L('directions.more')}>Ищете уборку парков и улиц?</span> <a class="text-link" href="/industries/municipal/"><span${h.K('industries.municipal.name')}>Муниципальные службы</span> ${h.ARROW_R}</a></p>
+      <p class="psd__more"><span${h.L('directions.more')}>Ищете уборку парков и улиц?</span> <a class="text-link" href="industries-municipal.html"><span${h.K('industries.municipal.name')}>Муниципальные службы</span> ${h.ARROW_R}</a></p>
     </section>`;
 
 const proof = (ind, n, h) => {

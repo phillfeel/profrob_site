@@ -35,7 +35,10 @@
         "about": "About us",
         "makers": "Manufacturers",
         "contact": "Contact",
-        "status": "Status"
+        "status": "Status",
+        "roi": "ROI calculator",
+        "quote": "Get a proposal",
+        "pilot": "Demo and pilot"
       },
       "location": "Moscow · serving Russia",
       "status": {
@@ -70,7 +73,7 @@
       "phone": "Phone",
       "directionUnknown": "Not sure yet",
       "honeypot": "Leave this empty",
-      "consent": "I consent to the processing of my personal data. <a>Privacy policy</a>",
+      "consent": "I give my <a>consent to the processing of personal data</a> and accept the <a>privacy policy</a>",
       "sentTitle": "Request received.",
       "sentText": "We’ll call back in business hours."
     },
@@ -332,7 +335,7 @@
           "agents": "AI agents",
           "analytics": "Analytics and SLA"
         },
-        "foot": "Built in-house · data stored in Russia · data center in Skolkovo"
+        "foot": "Built in-house · data stored in Russia"
       },
       "dev": {
         "title": "Missing a vendor feature? We’ll build it.",
@@ -475,7 +478,7 @@
           "makers": "manufacturers",
           "window": "control window"
         },
-        "foot": "Data stored in Russia · data center in Skolkovo · <a>How the platform works</a>"
+        "foot": "Data stored in Russia · <a>How the platform works</a>"
       },
       "cards": {
         "agents": {
@@ -823,7 +826,7 @@
         "companyPlaceholder": "e.g. Severny tower, Moscow",
         "email": "Email <span>– for the quote</span>",
         "emailError": "Check the address: it’s missing @ or a domain",
-        "consent": "I consent to the processing of my personal data under Federal Law No.\u00a0152-FZ and the <a>privacy policy</a>",
+        "consent": "I give my <a>consent to the processing of personal data</a> and accept the <a>privacy policy</a>",
         "consentError": "We can’t accept your request without consent",
         "submit": "Get estimate and quote",
         "sendError": "Couldn’t send your request. Please call us: +7 (495) 123-45-67"
@@ -849,281 +852,258 @@
     }
   },
   "industries": {
-    "agriculture": {
-      "title": "Farm robots and drones: spraying | Professional Robotics",
-      "description": "Farm robots and drones: precision spraying, fieldwork, crop monitoring, grounds care. Savings on crop protection products and labor. Estimate the impact.",
-      "nameCaps": "AGRICULTURE",
-      "name": "Agriculture",
+    "retail": {
+      "name": "Shopping centers and retail",
+      "title": "Cleaning robots for malls and stores | Professional Robotics",
+      "description": "Cleaning robots for malls and supermarkets: concourses, sales floor, parking, promo robots. Lenta and Perekrestok case studies, a 26-mall Moscow pilot.",
+      "nameCaps": "SHOPPING CENTERS, RETAIL",
       "h1": {
         "items": {
-          "0": "Robots and drones",
-          "1": "for agriculture."
+          "0": "Cleaning robots",
+          "1": "for shopping centers",
+          "2": "and stores."
         }
       },
-      "lead": "Seasonal workers are scarcer, yet fields must still be treated on time. Agricultural drones and field robots do it more precisely and faster than people.",
-      "lead2": "They spray exactly where needed, save crop protection products and give you an objective picture of the field, especially where manual work can’t keep up.",
+      "lead": "A cleaning robot for shopping centers washes concourses, the sales floor and parking on a schedule: at night before opening and by day between shoppers.",
+      "lead2": "Cleaners stay where hands are needed: restrooms, the food court, spills at the checkout. The robot takes the repeat passes over large areas.",
       "primaryCta": {
-        "label": "Estimate chemical savings"
+        "label": "Discuss a mall pilot"
       },
       "secondaryCta": {
-        "label": "Discuss treating your fields"
+        "label": "Calculate payback"
       },
       "audiences": {
         "items": {
-          "0": "agricultural holdings",
-          "1": "farms",
-          "2": "greenhouse operations"
+          "0": "mall management companies",
+          "1": "grocery chains and hypermarkets",
+          "2": "DIY and fashion retail"
+        }
+      },
+      "hero": {
+        "proof": {
+          "title": "Moscow pilot · 26 malls",
+          "since": "since 27 May 2026",
+          "malls": "malls in the pilot",
+          "area": "million\u00a0m² of space",
+          "areaValue": "<small>over</small>1.1",
+          "status": "<b>Pilot under way.</b> Robots from Russian manufacturers clean sales floors and parking, and will then be compared with manual cleaning. Results aren’t published yet."
         }
       },
       "photo": {
-        "alt": "Agricultural drone spraying a field at dawn"
+        "alt": "A floor-scrubbing robot washes the central concourse of a shopping center in the early morning, with store shutters still down"
       },
-      "season": {
-        "title": "A farm year with robots.",
-        "lead": "We calculate the economics of farm machinery per season, not per month. Here is where each area fits into the season.",
+      "heads": {
+        "problems": "Why retail needs a robot.",
+        "directions": "What we automate in a mall or store.",
+        "vendors": "Equipment and manufacturers."
+      },
+      "problems": {
+        "lead": "Fewer people are available for cleaning, for reasons a store can’t influence.",
         "items": {
           "0": {
-            "name": "Off-season",
-            "title": "Preparation",
-            "text": "Assessing fields and terrain, choosing equipment, training operators."
+            "title": "Cleaning depends on migrant labor.",
+            "text": "Over 80% of cleaning staff are foreign nationals. In 2025, 11 regions introduced additional restrictions on hiring them."
           },
           "1": {
-            "name": "Spring",
-            "title": "Emergence",
-            "text": "Crop monitoring: where emergence is weak, where weeds are."
+            "title": "Payroll is rising.",
+            "text": "In five years, cleaning companies’ payroll has grown two- to threefold. That goes into the cleaning contract price."
           },
           "2": {
-            "name": "Summer",
-            "title": "Spraying",
-            "text": "Spot spraying in a short window, day and night."
+            "title": "Frontline staff are scarce.",
+            "text": "15% of retailers name frontline staff shortages as their main reason to modernize."
           },
           "3": {
-            "name": "Fall",
-            "title": "Season review",
-            "text": "Yield assessment, grounds care, calculating the season’s savings."
+            "title": "Large area, short window.",
+            "text": "Concourses, sales floor and parking must be washed before opening, then cleaned by day without disturbing shoppers."
+          }
+        }
+      },
+      "secNames": {
+        "frequency": "FREQUENCY",
+        "case": "CASES",
+        "economy": "ECONOMICS"
+      },
+      "frequency": {
+        "title": "The sales floor is cleaned several times a day.",
+        "lead": "Each cleaning is a separate pass over the entire area. The more passes, the more sense it makes to give them to a robot and leave spot work to people.",
+        "mainTitle": "How many times a day a store is cleaned.",
+        "scale": "per day",
+        "items": {
+          "0": {
+            "zone": "Sales floor",
+            "when": "regular day",
+            "ariaLabel": "Sales floor, regular day: 2 times a day",
+            "note": "minimum"
+          },
+          "1": {
+            "zone": "Sales floor",
+            "when": "fall and winter",
+            "ariaLabel": "Sales floor, fall and winter: 5 times a day",
+            "note": "in season"
+          },
+          "2": {
+            "zone": "Produce",
+            "when": "all day",
+            "ariaLabel": "Produce, all day: 5 to 10 times a day",
+            "note": "as needed"
           }
         },
-        "us": "Professional Robotics’ work",
-        "foot": "Timing depends on the crop and region; we build the work calendar during the assessment."
+        "legend": {
+          "cleaning": "cleaning",
+          "range": "as needed"
+        },
+        "note": "As Perekrestok (X5 Group) puts it: this is the chain’s practice, not a sanitary standard.",
+        "resourcesTitle": "Annual resources per Perekrestok store.",
+        "cmp": {
+          "water": "Water",
+          "waterUnit": "t/year",
+          "manual": "Manual floor scrubber",
+          "robot": "Robot",
+          "chemicals": "Detergents",
+          "chemicalsNote": "10× less",
+          "robotChemicals": "0.1×"
+        },
+        "service": "<b>10–15\u00a0min</b> a day to look after the robot; the docking station does the rest."
       },
       "directions": {
         "items": {
           "0": {
-            "title": "Spraying",
-            "text": "Drones treat fields precisely, saving crop protection products.",
+            "title": "Sales floor and concourse cleaning",
+            "text": "Floor-scrubbing robots wash mall concourses and the sales floor at night before opening, then make repeat passes by day among shoppers.",
             "items": {
               "items": {
-                "0": "agri drones",
-                "1": "robotic sprayers",
-                "2": "robotic irrigation"
+                "0": "scrubber robots",
+                "1": "night concourse cleaning",
+                "2": "daytime sales floor passes",
+                "3": "entrances and checkouts"
               }
             }
           },
           "1": {
-            "title": "Fieldwork and monitoring",
-            "text": "Robots and drones for crop health assessment and precision farming.",
+            "title": "Parking cleaning",
+            "text": "Sweeping and scrubbing robots for indoor and underground parking. In the Moscow pilot, robots clean not only the mall interiors but the parking too.",
             "items": {
               "items": {
-                "0": "crop inspection robots",
-                "1": "weeding robots",
-                "2": "smart farming",
-                "3": "AI farming"
+                "0": "sweeper robots",
+                "1": "indoor and underground parking",
+                "2": "night shift, no machine operator"
               }
             }
           },
           "2": {
-            "title": "Grounds care",
-            "text": "Autonomous mowers and machinery for maintaining grounds and farms.",
+            "title": "Promo and wayfinding",
+            "text": "A service robot with an advertising screen carries promos around the floor and shows the way. BellaBot works this way in two Perekrestok stores; according to project participants, sales of some products grow by up to 100%.",
             "items": {
               "items": {
-                "0": "autonomous mowers",
-                "1": "lawn care robots",
-                "2": "grounds maintenance"
+                "0": "robots with ad screens",
+                "1": "shopper wayfinding",
+                "2": "Pudu BellaBot, Keenon"
               }
             }
-          }
-        }
-      },
-      "heads": {
-        "problems": "Why fields can’t wait.",
-        "pilot": "Start with one field."
-      },
-      "problems": {
-        "items": {
-          "0": {
-            "title": "Seasonal labor shortage",
-            "text": "At peak times there aren’t enough people, and the spray window is short."
-          },
-          "1": {
-            "title": "Large areas",
-            "text": "Manual work and ground machinery can’t always finish in time."
-          },
-          "2": {
-            "title": "Chemical use",
-            "text": "Imprecise spraying wastes expensive chemicals."
           },
           "3": {
-            "title": "Monitoring",
-            "text": "Judging crop health by eye leads to mistakes and yield losses."
+            "title": "Warehouses, dark stores",
+            "text": "Online order picking and moving goods behind the sales floor is warehouse robotics. It has a page of its own.",
+            "items": {
+              "items": {
+                "0": "dark stores",
+                "1": "chain warehouses",
+                "2": "AMRs and sorting"
+              }
+            }
           }
         }
+      },
+      "case": {
+        "title": "Chains already use floor robots.",
+        "lead": "Named sites and figures come from open sources. These are not our projects but the market track record you can build on."
       },
       "cases": {
         "items": {
           "0": {
-            "alt": "Agricultural drone spraying a wheat field in the early morning",
-            "tag": "Agribusiness",
-            "title": "Less crop protection product in field spraying",
-            "note": "We count economics per season, not per month."
+            "kicker": "Hypermarkets · 2025",
+            "unit": "cleaning robots",
+            "title": "Lenta hypermarkets: robots across the country.",
+            "text": "Volgograd, Nizhny Novgorod, Moscow, St Petersburg and other cities. They started with a pilot: 10 robots in 9 hypermarkets, then bought 32 more. Savings come from staff and from dropping rented scrubbers.",
+            "quote": "According to Lenta’s press service, cleaning staff shrank by 30–40%."
+          },
+          "1": {
+            "kicker": "Supermarkets · 2024",
+            "unit": "supermarkets",
+            "title": "Perekrestok: Pudu CC1 in the chain’s supermarkets.",
+            "text": "9 stores in Moscow, 1 in St Petersburg, 1 in Sochi (as of June 2024). Caring for the robot with its docking station takes 10–15 minutes a day.",
+            "quote": "11 tonnes of water a year per store versus 73 tonnes for a manual floor scrubber, according to project participants."
+          },
+          "2": {
+            "kicker": "Moscow pilot · 2026",
+            "pre": "over",
+            "value": "16,000",
+            "unit": "m² in week one",
+            "title": "Central Children’s Store: pilot week one.",
+            "text": "A pilot by FTs BAS under the Moscow Department of Entrepreneurship and Innovation: 26 malls, robots from four Russian manufacturers. They clean interiors and parking lots.",
+            "quote": "The pilot lasts several months, then a comparison with manual cleaning. No results published yet."
           }
         }
       },
-      "results": {
-        "items": {
-          "0": "Savings on crop protection products through precision.",
-          "1": "Large areas covered in tight windows.",
-          "2": "Less reliance on seasonal workers.",
-          "3": "Objective field data for decisions."
-        }
+      "economy": {
+        "title": "Calculate the payback for a mall.",
+        "lead": "The model covers floor cleaning: area, schedule, robots needed and when they pay back. The “Mall” type is already selected.",
+        "estimate": "<span>Indicative estimate</span> This is a calculation from our model, not a deployment result. Figures for your site come after an assessment or pilot.",
+        "note": "<b>Indicative estimate</b> from our ROI (return on investment) model. A detailed estimate follows the site assessment."
       },
-      "vendorsLead": "We match equipment to crop, area and terrain.",
+      "vendorsLead": "We match equipment to the area, flooring and cleaning schedule, without tying you to a single brand. The Moscow mall pilot runs on Russian robots.",
       "vendors": {
         "items": {
           "0": {
-            "group": "Spraying and fieldwork"
+            "group": "Sales floor, concourses"
           },
           "1": {
-            "group": "Grounds care"
-          }
-        }
-      },
-      "pilot": {
-        "items": {
-          "0": {
-            "title": "Survey",
-            "text": "Crop, fields, terrain and spray windows."
-          },
-          "1": {
-            "title": "One-season pilot",
-            "text": "A drone on one field: we compare chemical use with conventional spraying."
-          },
-          "2": {
-            "title": "Scaling up",
-            "text": "Remaining fields, monitoring, grounds care."
+            "group": "Promo, wayfinding"
           }
         }
       },
       "why": {
-        "title": "The season won’t wait.",
-        "text": "A spray window lasts a few days. We service equipment under SLA across Russia so the drone isn’t idle at peak time."
+        "title": "Don’t wait for the city pilot.",
+        "text": "The Moscow pilot promises its results after several months of operation. You don’t have to wait: we’ll launch a robot in one concourse or on one floor of your mall and compare it with manual cleaning using your own figures."
       },
       "form": {
-        "title": "Let’s discuss treating your fields.",
-        "lead": "Tell us the crop and area, and we’ll estimate chemical savings and choose the equipment.",
-        "button": "Plan your season"
+        "title": "A robot for your mall or chain: let’s talk.",
+        "lead": "We’ll review layout, zones and cleaning schedule, then propose equipment, an operating mode and a format: purchase, rental or cleaning as a service.",
+        "button": "Discuss a pilot"
       },
       "links": {
         "items": {
           "0": {
-            "text": "Drones, field robots, mowers."
+            "text": "Scrubber and sweeper robots."
           },
           "1": {
-            "text": "Matched to crop, area, terrain."
+            "text": "Promo, wayfinding, in-store delivery."
           },
           "2": {
-            "text": "So equipment doesn’t stop mid-season."
+            "text": "Dark stores, chain warehouses."
           },
           "3": {
-            "title": "Case studies: agriculture",
-            "text": "Field spraying, monitoring."
+            "title": "Professional Robotics Platform",
+            "text": "Cleaning of every chain site in one window."
+          },
+          "4": {
+            "text": "No capex, with maintenance."
+          },
+          "5": {
+            "text": "One concourse or one store."
+          },
+          "6": {
+            "title": "Case studies: retail",
+            "text": "Deployments in malls and stores."
           }
         }
       }
     },
-    "common": {
-      "hero": {
-        "audience": "Audience",
-        "metrics": {
-          "directions": "<b>{n}</b> {n, plural, one {area} other {areas}}",
-          "makers": "<b>{n}</b> {n, plural, one {manufacturer} other {manufacturers}}"
-        },
-        "tickerLabel": "Areas",
-        "noteLabel": "Important"
-      },
-      "sections": {
-        "season": "YEAR",
-        "problems": "PROBLEMS",
-        "directions": "AREAS",
-        "case": "CASE",
-        "results": "RESULTS",
-        "vendors": "EQUIPMENT",
-        "pilot": "FIRST STEPS",
-        "why": "WHY US",
-        "form": "CONTACT",
-        "see": "SEE ALSO",
-        "economy": "ECONOMICS",
-        "safety": "SAFETY",
-        "day": "HOTEL DAY",
-        "cases": "CASES",
-        "route": "ROUTE"
-      },
-      "heads": {
-        "directions": "What we automate.",
-        "results": "What the business gets.",
-        "vendors": "Equipment and manufacturers.",
-        "see": "See also."
-      },
-      "directions": {
-        "solution": "Solution:"
-      },
-      "case": {
-        "title": "Case study.",
-        "view": "View case study",
-        "titleMany": "Case studies.",
-        "number": "Case {no}"
-      },
-      "form": {
-        "callUs": "Or call: +7 (495) 123-45-67",
-        "directionLabel": "Area <small>optional</small>"
-      },
-      "kickers": {
-        "solution": "SOLUTION",
-        "service": "SERVICE",
-        "cases": "CASES",
-        "industries": "SECTORS",
-        "product": "PRODUCT",
-        "industry": "SECTOR"
-      },
-      "links": {
-        "allIndustries": "All industries",
-        "allIndustriesText": "All 11 industry pages."
-      },
-      "estimate": {
-        "flag": "Indicative estimate"
-      },
-      "calc": {
-        "mode": "Shift schedule",
-        "payback": "Payback",
-        "savings": "Annual savings",
-        "fullRoi": "Full ROI breakdown",
-        "formLabel": "Quick cleaning payback estimate",
-        "object": "Site",
-        "area": "Area",
-        "paybackShort": "payback",
-        "months": "≈ {n} mo",
-        "savingsShort": "annual savings",
-        "millions": "≈ RUB {n, number, ::.0}M",
-        "robots": "{n, plural, one {robot for the site} other {robots for the site}}"
-      },
-      "sources": {
-        "labelColon": "Source:"
-      }
-    },
     "businessCenters": {
+      "name": "Office buildings",
       "title": "Office robots: cleaning, facades | Professional Robotics",
       "description": "Cleaning robots for office buildings: daytime lobby and parking cleaning, facade washing, floor-to-floor delivery, front desk. We’ll check your building.",
       "nameCaps": "OFFICE BUILDINGS",
-      "name": "Office buildings",
       "h1": {
         "items": {
           "0": "Robots in an office tower:",
@@ -1386,177 +1366,649 @@
         }
       }
     },
-    "construction": {
-      "title": "Construction robots: demolition | Professional Robotics",
-      "description": "Construction robots for demolition, plastering, screeding and heavy work. We cut labor and on-site risk when workers are scarce. Estimate the impact.",
-      "nameCaps": "CONSTRUCTION",
-      "name": "Construction",
+    "hotels": {
+      "name": "Hotels and hospitality",
+      "title": "Hotel robots: delivery, cleaning | Professional Robotics",
+      "description": "Service and cleaning robots for hotels: room delivery, lobby and corridor cleaning, front-desk support. We cut costs and staff turnover. Calculate your ROI.",
+      "nameCaps": "HOSPITALITY",
       "h1": {
         "items": {
           "0": "Robotics",
-          "1": "in construction."
+          "1": "for hotels and HoReCa."
         }
       },
-      "lead": "Sites are short of workers, and the ones you have cost more every season. Meanwhile, the heaviest and most dangerous jobs, such as demolition, plastering and screeding, are still done by hand.",
-      "lead2": "Construction robots take on these jobs: they work longer than people, deliver more consistent quality and keep workers out of harm’s way.",
+      "lead": "Hotels run on frontline staff who are ever harder to hire and keep. Housekeepers, waiters, floor runners: turnover hurts both service and the budget.",
+      "lead2": "Robots take over the routine: room delivery, cleaning common areas and part of the front-desk work, so people can focus on guests.",
       "primaryCta": {
-        "label": "Discuss an on-site pilot"
+        "label": "Estimate staff savings"
       },
       "secondaryCta": {
-        "label": "Estimate labor savings"
+        "label": "Book an on-site demo"
       },
       "audiences": {
         "items": {
-          "0": "developers",
-          "1": "general contractors",
-          "2": "finishing and demolition contractors"
+          "0": "hotels and aparthotels",
+          "1": "restaurants and cafés",
+          "2": "hotel complexes"
         }
       },
       "photo": {
-        "alt": "Remote-controlled demolition robot breaking a concrete partition"
-      },
-      "directions": {
-        "items": {
-          "0": {
-            "title": "Demolition",
-            "text": "Remote-controlled robots for demolition and breaking, where it’s dangerous for people. The operator stays outside the zone.",
-            "items": {
-              "items": {
-                "0": "robotic demolition",
-                "1": "robotic construction machinery",
-                "2": "remote control"
-              }
-            }
-          },
-          "1": {
-            "title": "Finishing work",
-            "text": "Plastering, painting, skim coating and floor screeding with consistent quality from the first floor to the top.",
-            "items": {
-              "items": {
-                "0": "robotic finishing",
-                "1": "robotic painting",
-                "2": "plastering and skim coating",
-                "3": "floor screeding"
-              }
-            }
-          },
-          "2": {
-            "title": "Blockwork and heavy tasks",
-            "text": "Moving and placing materials: we take the heaviest work off your crews.",
-            "items": {
-              "items": {
-                "0": "block-laying robots",
-                "1": "material handling",
-                "2": "autonomous construction systems"
-              }
-            }
-          }
-        }
+        "alt": "Robotic floor scrubber cleans the marble floor of a hotel lobby while a receptionist works at the front desk"
       },
       "heads": {
-        "problems": "What slows work down on site."
+        "problems": "Where hotels lose money and service."
       },
       "problems": {
         "items": {
           "0": {
-            "title": "Labor shortage",
-            "text": "Skilled finishers and laborers are getting scarcer, and payroll keeps rising."
+            "title": "Turnover, seasonality",
+            "text": "High season: not enough people. Low season: a full team is costly."
           },
           "1": {
-            "title": "Hazardous work",
-            "text": "Demolition and work at height mean injuries and occupational safety requirements."
+            "title": "Night lobby cleaning",
+            "text": "Cleaning must happen when guests are out, and a night crew means premiums and the same turnover."
           },
           "2": {
-            "title": "Finishing time and quality",
-            "text": "The human factor causes uneven quality and missed deadlines."
+            "title": "Floor-to-floor delivery",
+            "text": "Towels, water and room orders eat into staff time."
           },
           "3": {
-            "title": "Heavy physical labor",
-            "text": "Burnout and turnover on the most labor-intensive tasks."
+            "title": "Consistent guest experience",
+            "text": "Service quality shouldn’t depend on who’s on shift today."
           }
         }
       },
-      "safety": {
-        "title": "Keep people out of danger.",
-        "lead": "At a demolition with collapse risk, the robot goes in, not the crew. The operator uses a remote and sees the whole zone from a distance.",
-        "diagramLabel": "Diagram: the robot works inside the demolition zone; the operator with the remote stands outside it",
-        "zoneLabel": "DEMOLITION ZONE",
-        "operatorLabel": "OPERATOR OUTSIDE",
+      "day": {
+        "title": "A hotel day: where the robot works.",
+        "lead": "Nights and peak hours are when people are scarce or expensive. This is a sample day; we build the schedule around your hotel.",
         "items": {
           "0": {
-            "value": "−40%",
-            "text": "labor on demolition, per the case study"
+            "title": "Lobby and corridor cleaning",
+            "text": "While guests sleep, with no night crew."
           },
           "1": {
-            "value": "Outside",
-            "text": "the operator controls the robot remotely from a safe distance"
+            "title": "Breakfast",
+            "text": "A serving robot brings dishes and clears plates."
           },
           "2": {
-            "value": "No fatigue",
-            "text": "the same finishing quality at the start and end of a shift"
+            "title": "Check-in",
+            "text": "Wayfinding, greetings, routine questions at reception."
+          },
+          "3": {
+            "title": "Towels and water",
+            "text": "Floor delivery, calls the elevator itself."
+          },
+          "4": {
+            "title": "Room service",
+            "text": "24/7 room service, no night premiums."
           }
         }
       },
-      "cases": {
+      "directions": {
         "items": {
           "0": {
-            "alt": "Demolition robot breaking a concrete wall",
-            "tag": "Construction",
-            "title": "Less labor on demolition"
+            "title": "Room and floor delivery",
+            "text": "The robot calls the elevator, rides to the floor and notifies the guest. It relieves the front desk and room service.",
+            "items": {
+              "items": {
+                "0": "room service robots",
+                "1": "hotel robots",
+                "2": "hotel logistics robots",
+                "3": "serving robots",
+                "4": "food delivery robots"
+              }
+            }
+          },
+          "1": {
+            "title": "Cleaning common areas",
+            "text": "Robotic floor scrubbers for lobbies, corridors and restaurant areas, at night and off-peak, without a night crew.",
+            "items": {
+              "items": {
+                "0": "scrubber robots",
+                "1": "lobby and corridor cleaning",
+                "2": "restaurant area cleaning"
+              }
+            }
+          },
+          "2": {
+            "title": "Guest service and front desk",
+            "text": "Humanoid and service robots for wayfinding, greetings and routine questions, where the wow factor matters.",
+            "items": {
+              "items": {
+                "0": "robotic concierge",
+                "1": "robotic check-in desk",
+                "2": "humanoid robots"
+              }
+            }
+          }
+        }
+      },
+      "economy": {
+        "title": "Cleaning pays back fastest.",
+        "lead": "The robot cleans common areas at night: no night crew, no premiums. See when it pays for itself.",
+        "badge": "Fast payback",
+        "note": "A benchmark from our model. A detailed estimate follows a site assessment."
+      },
+      "results": {
+        "items": {
+          "0": "Lower cleaning costs for common areas and relief for staff in high season.",
+          "1": "Less exposure to turnover in frontline roles.",
+          "2": "Round-the-clock delivery without night premiums.",
+          "3": "An extra marketing point for the hotel: tech-forward service."
+        }
+      },
+      "vendorsLead": "We pick equipment for the hotel’s class and layout, without tying you to any single vendor.",
+      "vendors": {
+        "items": {
+          "0": {
+            "group": "Delivery, service"
+          },
+          "1": {
+            "group": "Cleaning"
+          },
+          "2": {
+            "group": "Humanoids, front desk"
+          }
+        }
+      },
+      "case": {
+        "estimateTitle": "What it costs a hotel.",
+        "estimateText": "We don’t have a hotel case study yet, so this is an estimate from our ROI (return on investment) model. Actual figures will come after a pilot.",
+        "estimateLink": "How we calculate"
+      },
+      "estimate": {
+        "object": "Hotel, 10,000\u00a0m², common areas cleaned in two shifts"
+      },
+      "why": {
+        "title": "Rent by the season.",
+        "text": "You can rent robots (RaaS) for high season and return them when occupancy drops. We choose equipment from several brands, not from a single catalog."
+      },
+      "form": {
+        "title": "We’ll show a robot in your hotel.",
+        "lead": "We’ll bring a demo unit, run a route across your floors and calculate the savings for your layout.",
+        "button": "Book a demo"
+      },
+      "links": {
+        "items": {
+          "0": {
+            "text": "Delivery, serving, guest service."
+          },
+          "1": {
+            "text": "Scrubber robots for common areas."
+          },
+          "2": {
+            "text": "Front desk, wayfinding, wow factor."
+          },
+          "3": {
+            "text": "A strong case for seasonal businesses."
+          },
+          "4": {
+            "title": "Professional Robotics Platform",
+            "text": "Cleaning management and reports in one window."
+          },
+          "5": {
+            "title": "Case studies: hotels",
+            "text": "Deployments in hotels and HoReCa."
+          }
+        }
+      }
+    },
+    "publicSpaces": {
+      "name": "Public venues and transport hubs",
+      "title": "Robots for airports and stations | Professional Robotics",
+      "description": "Cleaning robots for waiting halls and terminals, wayfinding robots for service centers and museums, patrol robots. Night and off-peak cleaning. Site assessment.",
+      "nameCaps": "PUBLIC VENUES & HUBS",
+      "h1": {
+        "items": {
+          "0": "Robots for stations,",
+          "1": "airports and MFCs."
+        }
+      },
+      "lead": "Waiting halls and terminals run almost around the clock, and people arrive in waves, following train and flight schedules. Cleaning a huge floor area must not get in passengers’ way.",
+      "lead2": "The robot washes floors at night and in lulls between peaks, while people handle restrooms, spot cleaning and visitors. Cleaning robots already work at six Russian Railways (RZD) stations.",
+      "primaryCta": {
+        "label": "Book a site assessment"
+      },
+      "secondaryCta": {
+        "label": "Where robots already work"
+      },
+      "audiences": {
+        "items": {
+          "0": "station and airport operators",
+          "1": "museums and exhibition centers",
+          "2": "MFC public service centers and government offices",
+          "3": "concert venues"
+        }
+      },
+      "photo": {
+        "alt": "A floor-scrubbing robot washes the marble floor of a train station waiting hall as passengers with suitcases walk past"
+      },
+      "hero": {
+        "board": {
+          "title": "Robots on shift",
+          "cols": {
+            "zone": "Zone · what the robot does",
+            "mode": "Mode"
+          },
+          "listLabel": "Robot work scenarios by zone",
+          "note": "Scenarios are examples. We set the schedule at the site assessment."
+        }
+      },
+      "board": {
+        "items": {
+          "0": {
+            "zone": "Waiting halls",
+            "task": "Wet floor cleaning in gaps between trains",
+            "mode": "Between peaks"
+          },
+          "1": {
+            "zone": "Terminals, concourses",
+            "task": "Washing large areas while it’s quiet",
+            "mode": "At night"
+          },
+          "2": {
+            "zone": "MFC and museum lobbies",
+            "task": "Shows the way and answers routine questions",
+            "mode": "Opening hours"
+          },
+          "3": {
+            "zone": "Perimeter, parking",
+            "task": "Patrols a route and alerts the duty officer",
+            "mode": "24/7"
+          }
+        }
+      },
+      "heads": {
+        "problems": "Why halls are hard to keep clean.",
+        "directions": "What we automate.",
+        "results": "What the site operator gets."
+      },
+      "problems": {
+        "staffingTitle": "Labor shortage",
+        "items": {
+          "0": {
+            "title": "Huge floor areas",
+            "text": "Waiting halls, terminals and concourses are huge, and people keep coming almost around the clock."
+          },
+          "1": {
+            "title": "Scheduled peaks",
+            "text": "Trains and flights bring people in waves. At the peak, a cleaner with a machine blocks passengers; after it, there’s the most dirt."
+          },
+          "2": {
+            "title": "The same questions",
+            "text": "Where the platforms are, which counter, how to reach the exhibition: staff spend the shift on routine answers."
+          }
+        }
+      },
+      "staffing": {
+        "text": "of cleaning staff in Russia are foreign nationals. Regions are also tightening rules on hiring migrants: in 2025, 11 regions added restrictions."
+      },
+      "secNames": {
+        "flow": "FLOW",
+        "proof": "IN SERVICE"
+      },
+      "flow": {
+        "title": "Between passenger waves.",
+        "lead": "People arrive in waves. The robot washes halls at night and in lulls between peaks: it doesn’t block passengers or drive over a wet floor in a crowd.",
+        "chartDescription": "Illustrative 24-hour passenger flow chart: a morning peak around 08:00, an evening peak around 18:00. Cleaning windows: 00:30–05:30 night washing; 10:30–12:30 after the morning wave; 14:00–15:45 midday lull; 21:15–23:45 after the evening wave.",
+        "now": "Now",
+        "legend": {
+          "flow": "foot traffic",
+          "window": "cleaning window",
+          "note": "Illustrative chart: the flow shape is an example. We record your site’s peak hours during the assessment and build the robot’s schedule around them."
+        },
+        "toDirection": "Area: cleaning waiting halls, terminals, concourses ↓"
+      },
+      "peaks": {
+        "items": {
+          "0": {
+            "label": "Morning peak"
+          },
+          "1": {
+            "label": "Evening peak"
+          }
+        }
+      },
+      "windows": {
+        "items": {
+          "0": {
+            "title": "Night wash",
+            "text": "Main wet cleaning of halls and concourses while traffic is at its lowest."
+          },
+          "1": {
+            "title": "After the morning wave",
+            "text": "A pass through waiting halls after commuter trains."
+          },
+          "2": {
+            "title": "Midday lull",
+            "text": "Spot washing of tracked-in dirt at entrances, ticket offices."
+          },
+          "3": {
+            "title": "After the evening wave",
+            "text": "A repeat pass before night mode."
+          }
+        }
+      },
+      "directions": {
+        "lead": "Stations, airports, museums, exhibition centers, MFC public service centers and concert venues. Parks and streets are on the “Municipal services” page.",
+        "items": {
+          "0": {
+            "title": "Cleaning waiting halls, terminals, concourses",
+            "text": "Floor-scrubbing robots wash large areas at night and in the gaps between peaks. They build their own map of the hall and steer around people.",
+            "status": "Deployed in Russia",
+            "items": {
+              "items": {
+                "0": "cleaning robots for stations",
+                "1": "cleaning robots for airports",
+                "2": "scrubber robots",
+                "3": "waiting hall cleaning",
+                "4": "terminal and concourse cleaning"
+              }
+            }
+          },
+          "1": {
+            "title": "Visitor wayfinding and information",
+            "text": "Service robots and humanoids in lobbies show the way, answer routine questions and greet exhibition guests.",
+            "status": "Additional scenario",
+            "items": {
+              "items": {
+                "0": "wayfinding robot",
+                "1": "information robot for MFCs",
+                "2": "museum guide robot",
+                "3": "humanoid robots"
+              }
+            }
+          },
+          "2": {
+            "title": "Patrolling",
+            "text": "A security robot patrols the perimeter, parking or empty halls at night along a set route and alerts the duty officer.",
+            "status": "No Russian transport case studies yet",
+            "items": {
+              "items": {
+                "0": "patrol robots",
+                "1": "security robots",
+                "2": "night patrol"
+              }
+            }
+          }
+        },
+        "more": "Need park and street cleaning?"
+      },
+      "proof": {
+        "title": "Cleaning robots already work in stations and airports.",
+        "lead": "These are other companies’ deployments, not Professional Robotics projects. We show them to demonstrate that the equipment copes with halls and crowds.",
+        "main": {
+          "place": "RZD stations",
+          "stations": {
+            "items": {
+              "0": "Kazansky",
+              "1": "Yaroslavsky",
+              "2": "Kursky",
+              "3": "Paveletsky",
+              "4": "Kievsky",
+              "5": "Moskovsky (St Petersburg)"
+            }
+          },
+          "value": "{n, number}",
+          "unit": "m²/h",
+          "text": "Autonomous cleaning robots sweep and wash halls, build their own map of the space and log the level of dirt. Productivity: up to 1,980\u00a0m² per hour. Russian Railways has not named the model or the number of robots."
+        },
+        "stationsLabel": "Stations",
+        "upTo": "up to",
+        "more": {
+          "items": {
+            "0": {
+              "place": "Pulkovo Airport",
+              "value": "5,000\u00a0m²",
+              "valueNote": "per charge",
+              "text": "Cleaning robots with lidar and cameras in check-in and arrivals halls."
+            }
           }
         }
       },
       "results": {
         "items": {
-          "0": "Less labor on heavy tasks.",
-          "1": "Less reliance on hard-to-find crews.",
-          "2": "Fewer injuries and lower safety risks.",
-          "3": "Consistent finishing quality and predictable timelines."
+          "0": "Halls are clean by the peak: cleaning runs at night and in lulls.",
+          "1": "People move to restrooms, spot cleaning and working with visitors.",
+          "2": "Less dependence on hiring in a labor-short cleaning market.",
+          "3": "A cleaning map and zone reports show what was cleaned and when."
         }
       },
-      "vendorsLead": "We choose equipment separately for each type of work and each site.",
+      "vendorsLead": "We choose equipment by area, floor surface and site schedule, with no tie to a single vendor.",
       "vendors": {
         "items": {
           "0": {
-            "group": "Demolition and heavy work"
+            "group": "Hall and terminal cleaning"
           },
           "1": {
-            "group": "Finishing and screeding"
+            "group": "Wayfinding and information"
           }
         }
       },
       "why": {
-        "title": "No idle robots on site.",
-        "text": "Idle machinery on site wrecks the schedule. We service equipment under SLA across Russia and take responsibility for the robot working, not just for delivering it."
+        "title": "Traffic first, then the robot.",
+        "text": "Before placing a robot, we study when and where people move and build the cleaning schedule around that. We source equipment from several manufacturers and service it under SLA across Russia."
       },
       "form": {
-        "title": "Let’s discuss a pilot on your site.",
-        "lead": "We’ll visit, look at the site and suggest 2–3 equipment options for your type of work.",
-        "button": "Discuss a pilot"
+        "title": "We’ll find the cleaning windows at your site.",
+        "lead": "We’ll look at your halls and foot traffic and propose equipment and a robot schedule.",
+        "button": "Book an assessment"
       },
       "links": {
         "items": {
           "0": {
-            "text": "Equipment classes, specs, comparison."
+            "text": "Robotic scrubbers for large areas."
           },
           "1": {
-            "text": "One site section, a clear result."
+            "text": "Wayfinding and answers for visitors."
           },
           "2": {
-            "text": "Where a robot will pay back on your site."
+            "text": "Perimeter and parking patrols."
           },
           "3": {
-            "title": "Case studies: construction",
-            "text": "Demolition, finishing on site."
+            "text": "Cleaning as a service, no equipment purchase."
+          },
+          "4": {
+            "title": "Professional Robotics Platform",
+            "text": "Cleaning management and reports in one window."
+          },
+          "5": {
+            "text": "For parks and streets."
+          },
+          "6": {
+            "title": "Case studies: public venues",
+            "text": "Deployments at stations and airports."
+          }
+        }
+      }
+    },
+    "medicalWellness": {
+      "name": "Healthcare and wellness",
+      "title": "Healthcare robots: disinfection | Professional Robotics",
+      "description": "Robots for clinics and wellness centers: delivering lab samples and medication, disinfecting rooms, rehabilitation. We relieve staff and keep hygiene standards.",
+      "nameCaps": "HEALTH & WELLNESS",
+      "h1": {
+        "items": {
+          "0": "Healthcare and wellness",
+          "1": "robotics."
+        }
+      },
+      "lead": "A clinic is full of routine work that takes time away from medical staff: running lab samples and medication, disinfecting rooms, delivering linen.",
+      "lead2": "Robots take over this logistics. Staff focus on patients, and hygiene procedures run to standard with nothing skipped.",
+      "primaryCta": {
+        "label": "Estimate staff relief"
+      },
+      "secondaryCta": {
+        "label": "Request a consultation"
+      },
+      "audiences": {
+        "items": {
+          "0": "hospitals and clinics",
+          "1": "rehabilitation centers",
+          "2": "wellness centers"
+        }
+      },
+      "photo": {
+        "alt": "Autonomous hospital cart driving down a ward corridor"
+      },
+      "compliance": "Medical use requires checking the equipment’s certification and registration in Russia. We don’t promise medical functions without confirmed approval documents, and we select equipment in line with the facility’s requirements.",
+      "heads": {
+        "problems": "Where a clinic loses staff time.",
+        "pilot": "Start with one route."
+      },
+      "problems": {
+        "items": {
+          "0": {
+            "title": "Strain on support staff",
+            "text": "Internal logistics eats up time that is already in short supply."
+          },
+          "1": {
+            "title": "Hygiene and disinfection",
+            "text": "Requirements are strict, and the human factor leads to gaps."
+          },
+          "2": {
+            "title": "Round-the-clock processes",
+            "text": "Delivery and cleaning run at night too, but staff is limited."
+          },
+          "3": {
+            "title": "Rehabilitation",
+            "text": "Not enough specialists or equipment for patient recovery."
+          }
+        }
+      },
+      "route": {
+        "title": "Robots deliver, staff treat.",
+        "lead": "Internal logistics is the easiest place to start: the route is clear, and the impact shows within the first weeks.",
+        "legend": {
+          "pharmacy": {
+            "title": "Pharmacy → ward",
+            "text": "medication and supplies"
+          },
+          "lab": {
+            "title": "Ward → lab",
+            "text": "lab samples on schedule and on call"
+          },
+          "linen": {
+            "title": "Linen room → wards",
+            "text": "clean linen, at night too"
+          }
+        },
+        "diagramLabel": "Clinic floor plan: the robot takes medication from the pharmacy to the wards and lab samples to the laboratory along the corridor and via the elevator",
+        "rooms": {
+          "pharmacy": "PHARMACY",
+          "ward1": "WARD 1",
+          "lab": "LABORATORY",
+          "linen": "LINEN ROOM",
+          "ward2": "WARD 2",
+          "lift": "ELEVATOR"
+        }
+      },
+      "directions": {
+        "items": {
+          "0": {
+            "title": "Internal delivery",
+            "text": "Lab samples, medication, linen and supplies between departments, on schedule and on call.",
+            "items": {
+              "items": {
+                "0": "medication delivery to wards",
+                "1": "in-hospital logistics",
+                "2": "autonomous hospital carts",
+                "3": "nurse assistant robots"
+              }
+            }
+          },
+          "1": {
+            "title": "Room disinfection",
+            "text": "Disinfection robots for wards, operating rooms and common areas, following protocol, with a report on every pass.",
+            "items": {
+              "items": {
+                "0": "ward disinfection",
+                "1": "operating rooms",
+                "2": "common areas"
+              }
+            }
+          },
+          "2": {
+            "title": "Rehab and wellness",
+            "text": "Equipment for patient recovery and wellness treatments.",
+            "items": {
+              "items": {
+                "0": "rehabilitation robots",
+                "1": "exoskeletons",
+                "2": "AI massage and physiotherapy systems",
+                "3": "remote rehabilitation"
+              }
+            }
+          }
+        }
+      },
+      "pilot": {
+        "items": {
+          "0": {
+            "title": "Survey",
+            "text": "We review routes between departments, elevators and equipment requirements."
+          },
+          "1": {
+            "title": "Pilot on one route",
+            "text": "For example, taking lab samples from a ward to the laboratory."
+          },
+          "2": {
+            "title": "Scaling up",
+            "text": "Other departments, night shifts, disinfection by protocol."
+          }
+        }
+      },
+      "results": {
+        "items": {
+          "0": "Support and nursing staff freed from logistics.",
+          "1": "A consistent hygiene standard with no gaps.",
+          "2": "Round-the-clock processes without adding staff.",
+          "3": "An extra level of service for wellness clients."
+        }
+      },
+      "vendorsLead": "For delivery and disinfection we use manufacturers’ medical product lines, selected to meet the facility’s requirements.",
+      "vendors": {
+        "items": {
+          "0": {
+            "group": "Delivery and disinfection"
+          },
+          "1": {
+            "group": "Wellness and rehab"
+          }
+        }
+      },
+      "why": {
+        "title": "Chosen to fit requirements, not a catalog.",
+        "text": "We compare 2–5 manufacturers and check the equipment’s documents before offering it to a clinic."
+      },
+      "form": {
+        "title": "Tell us about your clinic.",
+        "lead": "We’ll suggest which route to start with and check which equipment meets your requirements.",
+        "button": "Request a consultation"
+      },
+      "links": {
+        "items": {
+          "0": {
+            "text": "Delivery, disinfection, rehabilitation."
+          },
+          "1": {
+            "text": "Routes, elevators, requirements."
+          },
+          "2": {
+            "text": "SLA-backed, no downtime."
+          },
+          "3": {
+            "title": "Case studies: healthcare",
+            "text": "Deployments in clinics."
           }
         }
       }
     },
     "education": {
+      "name": "Education",
       "title": "Robots for schools and universities | Professional Robotics",
       "description": "Robotic scrubbers clean school hallways during lessons. Humanoids and platforms for robotics teaching labs. Honest economics: rental, cleaning as a service.",
       "nameCaps": "EDUCATION",
-      "name": "Education",
       "h1": {
         "items": {
           "0": "Robots for schools",
@@ -1860,10 +2312,10 @@
       }
     },
     "fitnessSports": {
+      "name": "Fitness clubs and sports facilities",
       "title": "Fitness club robots: gym, pool | Professional Robotics",
       "description": "Robots that clean gyms, locker rooms and restrooms, underwater robots for pools, mowers and line markers for stadiums. A pilot in one zone of your club.",
       "nameCaps": "FITNESS & SPORTS FACILITIES",
-      "name": "Fitness clubs and sports facilities",
       "h1": {
         "items": {
           "0": "Robots for fitness clubs",
@@ -2126,568 +2578,11 @@
         }
       }
     },
-    "hotels": {
-      "title": "Hotel robots: delivery, cleaning | Professional Robotics",
-      "description": "Service and cleaning robots for hotels: room delivery, lobby and corridor cleaning, front-desk support. We cut costs and staff turnover. Calculate your ROI.",
-      "nameCaps": "HOSPITALITY",
-      "name": "Hotels and hospitality",
-      "h1": {
-        "items": {
-          "0": "Robotics",
-          "1": "for hotels and HoReCa."
-        }
-      },
-      "lead": "Hotels run on frontline staff who are ever harder to hire and keep. Housekeepers, waiters, floor runners: turnover hurts both service and the budget.",
-      "lead2": "Robots take over the routine: room delivery, cleaning common areas and part of the front-desk work, so people can focus on guests.",
-      "primaryCta": {
-        "label": "Estimate staff savings"
-      },
-      "secondaryCta": {
-        "label": "Book an on-site demo"
-      },
-      "audiences": {
-        "items": {
-          "0": "hotels and aparthotels",
-          "1": "restaurants and cafés",
-          "2": "hotel complexes"
-        }
-      },
-      "photo": {
-        "alt": "Robotic floor scrubber cleans the marble floor of a hotel lobby while a receptionist works at the front desk"
-      },
-      "heads": {
-        "problems": "Where hotels lose money and service."
-      },
-      "problems": {
-        "items": {
-          "0": {
-            "title": "Turnover, seasonality",
-            "text": "High season: not enough people. Low season: a full team is costly."
-          },
-          "1": {
-            "title": "Night lobby cleaning",
-            "text": "Cleaning must happen when guests are out, and a night crew means premiums and the same turnover."
-          },
-          "2": {
-            "title": "Floor-to-floor delivery",
-            "text": "Towels, water and room orders eat into staff time."
-          },
-          "3": {
-            "title": "Consistent guest experience",
-            "text": "Service quality shouldn’t depend on who’s on shift today."
-          }
-        }
-      },
-      "day": {
-        "title": "A hotel day: where the robot works.",
-        "lead": "Nights and peak hours are when people are scarce or expensive. This is a sample day; we build the schedule around your hotel.",
-        "items": {
-          "0": {
-            "title": "Lobby and corridor cleaning",
-            "text": "While guests sleep, with no night crew."
-          },
-          "1": {
-            "title": "Breakfast",
-            "text": "A serving robot brings dishes and clears plates."
-          },
-          "2": {
-            "title": "Check-in",
-            "text": "Wayfinding, greetings, routine questions at reception."
-          },
-          "3": {
-            "title": "Towels and water",
-            "text": "Floor delivery, calls the elevator itself."
-          },
-          "4": {
-            "title": "Room service",
-            "text": "24/7 room service, no night premiums."
-          }
-        }
-      },
-      "directions": {
-        "items": {
-          "0": {
-            "title": "Room and floor delivery",
-            "text": "The robot calls the elevator, rides to the floor and notifies the guest. It relieves the front desk and room service.",
-            "items": {
-              "items": {
-                "0": "room service robots",
-                "1": "hotel robots",
-                "2": "hotel logistics robots",
-                "3": "serving robots",
-                "4": "food delivery robots"
-              }
-            }
-          },
-          "1": {
-            "title": "Cleaning common areas",
-            "text": "Robotic floor scrubbers for lobbies, corridors and restaurant areas, at night and off-peak, without a night crew.",
-            "items": {
-              "items": {
-                "0": "scrubber robots",
-                "1": "lobby and corridor cleaning",
-                "2": "restaurant area cleaning"
-              }
-            }
-          },
-          "2": {
-            "title": "Guest service and front desk",
-            "text": "Humanoid and service robots for wayfinding, greetings and routine questions, where the wow factor matters.",
-            "items": {
-              "items": {
-                "0": "robotic concierge",
-                "1": "robotic check-in desk",
-                "2": "humanoid robots"
-              }
-            }
-          }
-        }
-      },
-      "economy": {
-        "title": "Cleaning pays back fastest.",
-        "lead": "The robot cleans common areas at night: no night crew, no premiums. See when it pays for itself.",
-        "badge": "Fast payback",
-        "note": "A benchmark from our model. A detailed estimate follows a site assessment."
-      },
-      "results": {
-        "items": {
-          "0": "Lower cleaning costs for common areas and relief for staff in high season.",
-          "1": "Less exposure to turnover in frontline roles.",
-          "2": "Round-the-clock delivery without night premiums.",
-          "3": "An extra marketing point for the hotel: tech-forward service."
-        }
-      },
-      "vendorsLead": "We pick equipment for the hotel’s class and layout, without tying you to any single vendor.",
-      "vendors": {
-        "items": {
-          "0": {
-            "group": "Delivery, service"
-          },
-          "1": {
-            "group": "Cleaning"
-          },
-          "2": {
-            "group": "Humanoids, front desk"
-          }
-        }
-      },
-      "case": {
-        "estimateTitle": "What it costs a hotel.",
-        "estimateText": "We don’t have a hotel case study yet, so this is an estimate from our ROI (return on investment) model. Actual figures will come after a pilot.",
-        "estimateLink": "How we calculate"
-      },
-      "estimate": {
-        "object": "Hotel, 10,000\u00a0m², common areas cleaned in two shifts"
-      },
-      "why": {
-        "title": "Rent by the season.",
-        "text": "You can rent robots (RaaS) for high season and return them when occupancy drops. We choose equipment from several brands, not from a single catalog."
-      },
-      "form": {
-        "title": "We’ll show a robot in your hotel.",
-        "lead": "We’ll bring a demo unit, run a route across your floors and calculate the savings for your layout.",
-        "button": "Book a demo"
-      },
-      "links": {
-        "items": {
-          "0": {
-            "text": "Delivery, serving, guest service."
-          },
-          "1": {
-            "text": "Scrubber robots for common areas."
-          },
-          "2": {
-            "text": "Front desk, wayfinding, wow factor."
-          },
-          "3": {
-            "text": "A strong case for seasonal businesses."
-          },
-          "4": {
-            "title": "Professional Robotics Platform",
-            "text": "Cleaning management and reports in one window."
-          },
-          "5": {
-            "title": "Case studies: hotels",
-            "text": "Deployments in hotels and HoReCa."
-          }
-        }
-      }
-    },
-    "manufacturing": {
-      "title": "Manufacturing robotics: logistics | Professional Robotics",
-      "description": "Industrial robotics without heavy investment: AMRs for in-plant logistics, collaborative robots, equipment inspection. Start with a pilot. Calculate your ROI.",
-      "nameCaps": "MANUFACTURING AND INDUSTRY",
-      "photo": {
-        "alt": "Collaborative robot arm on a mobile base loading a CNC machine"
-      },
-      "name": "Manufacturing and industry",
-      "h1": {
-        "items": {
-          "0": "Robotics for manufacturing",
-          "1": "and industrial plants."
-        }
-      },
-      "lead": "Robotics in manufacturing doesn’t have to start with an expensive line retrofit. The fastest results come from simple things: moving materials around the shop floor, taking repetitive operations off operators, and regular equipment inspection.",
-      "lead2": "That’s the place to start: payback is clearer and the investment is lower.",
-      "primaryCta": {
-        "label": "Estimate pilot impact"
-      },
-      "secondaryCta": {
-        "label": "Discuss in-plant logistics"
-      },
-      "audiences": {
-        "items": {
-          "0": "plants and workshops",
-          "1": "production sites",
-          "2": "in-plant warehouses"
-        }
-      },
-      "heads": {
-        "problems": "What holds production back.",
-        "pilot": "Start with one route."
-      },
-      "problems": {
-        "items": {
-          "0": {
-            "title": "Operator shortage",
-            "text": "Frontline workers are hard to find, and repetitive tasks burn people out."
-          },
-          "1": {
-            "title": "In-plant logistics",
-            "text": "Moving materials by hand costs time and causes injuries."
-          },
-          "2": {
-            "title": "Equipment monitoring",
-            "text": "Rounds and inspections depend on people and schedules."
-          },
-          "3": {
-            "title": "Entry cost",
-            "text": "Fully automating a line means a long cycle and major capex."
-          }
-        }
-      },
-      "stairs": {
-        "title": "From simple to complex.",
-        "lead": "Start at the bottom step: lower investment, clearer payback. Move up once the first step is working.",
-        "levelLabel": {
-          "1": "Entry cost: low",
-          "2": "Entry cost: medium",
-          "3": "Entry cost: above average"
-        },
-        "entryBar": "Entry cost"
-      },
-      "directions": {
-        "items": {
-          "0": {
-            "title": "In-plant logistics (AMR)",
-            "text": "Autonomous mobile robots (AMRs) move materials between work areas. The fastest way in.",
-            "items": {
-              "items": {
-                "0": "AMR",
-                "1": "warehouse automation",
-                "2": "moving materials between work areas"
-              }
-            }
-          },
-          "1": {
-            "title": "Repetitive operations",
-            "text": "Collaborative robots on monotonous tasks, working alongside people.",
-            "items": {
-              "items": {
-                "0": "cobots",
-                "1": "robotic manipulators",
-                "2": "robotic cells",
-                "3": "assembly and packing"
-              }
-            }
-          },
-          "2": {
-            "title": "Inspection and monitoring",
-            "text": "Quadruped and mobile robots for rounds and equipment checks.",
-            "items": {
-              "items": {
-                "0": "AI inspection",
-                "1": "equipment rounds",
-                "2": "predictive maintenance"
-              }
-            }
-          }
-        }
-      },
-      "pilot": {
-        "items": {
-          "0": {
-            "title": "Area survey",
-            "text": "We find where time is lost on transport and monotonous operations."
-          },
-          "1": {
-            "title": "One route or one cell",
-            "text": "A pilot on one AMR route or one cobot cell."
-          },
-          "2": {
-            "title": "Scaling up",
-            "text": "New routes, cells and inspection, all on one platform."
-          }
-        }
-      },
-      "cases": {
-        "items": {
-          "0": {
-            "alt": "Collaborative robot arm on a mobile base loading a CNC machine",
-            "tag": "Manufacturing",
-            "unit": "operators a shift",
-            "title": "Automated CNC machine loading"
-          },
-          "1": {
-            "alt": "Autonomous warehouse robot carrying a rack down a warehouse aisle",
-            "tag": "Warehouse complex",
-            "title": "Higher warehouse throughput"
-          }
-        }
-      },
-      "results": {
-        "items": {
-          "0": "Higher productivity in monotonous work areas.",
-          "1": "Less downtime and fewer injuries in internal logistics.",
-          "2": "Regular inspection, independent of the rounds schedule.",
-          "3": "Clear payback by starting with easy scenarios."
-        }
-      },
-      "vendorsLead": "Robots of different brands work in one system. We choose for the operation, not from a catalog.",
-      "vendors": {
-        "items": {
-          "0": {
-            "group": "Collaborative and industrial"
-          },
-          "1": {
-            "group": "In-plant logistics (AMR)"
-          },
-          "2": {
-            "group": "Inspection"
-          }
-        }
-      },
-      "why": {
-        "title": "Different brands, one platform.",
-        "text": "An AMR from one manufacturer and a cobot from another, in one window: routes, tasks, KPIs and reports. Tasks come from your systems: WMS, MES or 1C.",
-        "link": {
-          "label": "Fleet Management"
-        }
-      },
-      "form": {
-        "title": "Where to start in your plant?",
-        "lead": "Describe the work area; we’ll suggest an easy pilot scenario and estimate its impact.",
-        "button": "Estimate pilot impact"
-      },
-      "links": {
-        "items": {
-          "0": {
-            "text": "Cobots, robot arms, cells."
-          },
-          "1": {
-            "text": "AMRs and internal logistics."
-          },
-          "2": {
-            "title": "Fleet Management",
-            "text": "A multi-brand robot fleet in one window."
-          },
-          "3": {
-            "text": "Tasks, routes and alerts."
-          },
-          "4": {
-            "title": "Case studies: manufacturing",
-            "text": "Machine loading, warehouse."
-          }
-        }
-      }
-    },
-    "medicalWellness": {
-      "title": "Healthcare robots: disinfection | Professional Robotics",
-      "description": "Robots for clinics and wellness centers: delivering lab samples and medication, disinfecting rooms, rehabilitation. We relieve staff and keep hygiene standards.",
-      "nameCaps": "HEALTH & WELLNESS",
-      "name": "Healthcare and wellness",
-      "h1": {
-        "items": {
-          "0": "Healthcare and wellness",
-          "1": "robotics."
-        }
-      },
-      "lead": "A clinic is full of routine work that takes time away from medical staff: running lab samples and medication, disinfecting rooms, delivering linen.",
-      "lead2": "Robots take over this logistics. Staff focus on patients, and hygiene procedures run to standard with nothing skipped.",
-      "primaryCta": {
-        "label": "Estimate staff relief"
-      },
-      "secondaryCta": {
-        "label": "Request a consultation"
-      },
-      "audiences": {
-        "items": {
-          "0": "hospitals and clinics",
-          "1": "rehabilitation centers",
-          "2": "wellness centers"
-        }
-      },
-      "photo": {
-        "alt": "Autonomous hospital cart driving down a ward corridor"
-      },
-      "compliance": "Medical use requires checking the equipment’s certification and registration in Russia. We don’t promise medical functions without confirmed approval documents, and we select equipment in line with the facility’s requirements.",
-      "heads": {
-        "problems": "Where a clinic loses staff time.",
-        "pilot": "Start with one route."
-      },
-      "problems": {
-        "items": {
-          "0": {
-            "title": "Strain on support staff",
-            "text": "Internal logistics eats up time that is already in short supply."
-          },
-          "1": {
-            "title": "Hygiene and disinfection",
-            "text": "Requirements are strict, and the human factor leads to gaps."
-          },
-          "2": {
-            "title": "Round-the-clock processes",
-            "text": "Delivery and cleaning run at night too, but staff is limited."
-          },
-          "3": {
-            "title": "Rehabilitation",
-            "text": "Not enough specialists or equipment for patient recovery."
-          }
-        }
-      },
-      "route": {
-        "title": "Robots deliver, staff treat.",
-        "lead": "Internal logistics is the easiest place to start: the route is clear, and the impact shows within the first weeks.",
-        "legend": {
-          "pharmacy": {
-            "title": "Pharmacy → ward",
-            "text": "medication and supplies"
-          },
-          "lab": {
-            "title": "Ward → lab",
-            "text": "lab samples on schedule and on call"
-          },
-          "linen": {
-            "title": "Linen room → wards",
-            "text": "clean linen, at night too"
-          }
-        },
-        "diagramLabel": "Clinic floor plan: the robot takes medication from the pharmacy to the wards and lab samples to the laboratory along the corridor and via the elevator",
-        "rooms": {
-          "pharmacy": "PHARMACY",
-          "ward1": "WARD 1",
-          "lab": "LABORATORY",
-          "linen": "LINEN ROOM",
-          "ward2": "WARD 2",
-          "lift": "ELEVATOR"
-        }
-      },
-      "directions": {
-        "items": {
-          "0": {
-            "title": "Internal delivery",
-            "text": "Lab samples, medication, linen and supplies between departments, on schedule and on call.",
-            "items": {
-              "items": {
-                "0": "medication delivery to wards",
-                "1": "in-hospital logistics",
-                "2": "autonomous hospital carts",
-                "3": "nurse assistant robots"
-              }
-            }
-          },
-          "1": {
-            "title": "Room disinfection",
-            "text": "Disinfection robots for wards, operating rooms and common areas, following protocol, with a report on every pass.",
-            "items": {
-              "items": {
-                "0": "ward disinfection",
-                "1": "operating rooms",
-                "2": "common areas"
-              }
-            }
-          },
-          "2": {
-            "title": "Rehab and wellness",
-            "text": "Equipment for patient recovery and wellness treatments.",
-            "items": {
-              "items": {
-                "0": "rehabilitation robots",
-                "1": "exoskeletons",
-                "2": "AI massage and physiotherapy systems",
-                "3": "remote rehabilitation"
-              }
-            }
-          }
-        }
-      },
-      "pilot": {
-        "items": {
-          "0": {
-            "title": "Survey",
-            "text": "We review routes between departments, elevators and equipment requirements."
-          },
-          "1": {
-            "title": "Pilot on one route",
-            "text": "For example, taking lab samples from a ward to the laboratory."
-          },
-          "2": {
-            "title": "Scaling up",
-            "text": "Other departments, night shifts, disinfection by protocol."
-          }
-        }
-      },
-      "results": {
-        "items": {
-          "0": "Support and nursing staff freed from logistics.",
-          "1": "A consistent hygiene standard with no gaps.",
-          "2": "Round-the-clock processes without adding staff.",
-          "3": "An extra level of service for wellness clients."
-        }
-      },
-      "vendorsLead": "For delivery and disinfection we use manufacturers’ medical product lines, selected to meet the facility’s requirements.",
-      "vendors": {
-        "items": {
-          "0": {
-            "group": "Delivery and disinfection"
-          },
-          "1": {
-            "group": "Wellness and rehab"
-          }
-        }
-      },
-      "why": {
-        "title": "Chosen to fit requirements, not a catalog.",
-        "text": "We compare 2–5 manufacturers and check the equipment’s documents before offering it to a clinic."
-      },
-      "form": {
-        "title": "Tell us about your clinic.",
-        "lead": "We’ll suggest which route to start with and check which equipment meets your requirements.",
-        "button": "Request a consultation"
-      },
-      "links": {
-        "items": {
-          "0": {
-            "text": "Delivery, disinfection, rehabilitation."
-          },
-          "1": {
-            "text": "Routes, elevators, requirements."
-          },
-          "2": {
-            "text": "SLA-backed, no downtime."
-          },
-          "3": {
-            "title": "Case studies: healthcare",
-            "text": "Deployments in clinics."
-          }
-        }
-      }
-    },
     "municipal": {
+      "name": "Municipal services",
       "title": "Street and park cleaning robots | Professional Robotics",
       "description": "Sweeper robots for parks, sidewalks and waterfronts, winter upkeep, lawn and slope mowers, parking cleaning. How to buy under 44-FZ and 223-FZ.",
       "nameCaps": "MUNICIPAL SERVICES",
-      "name": "Municipal services",
       "h1": {
         "items": {
           "0": "Robots for cleaning",
@@ -2981,520 +2876,941 @@
         }
       }
     },
-    "publicSpaces": {
-      "title": "Robots for airports and stations | Professional Robotics",
-      "description": "Cleaning robots for waiting halls and terminals, wayfinding robots for service centers and museums, patrol robots. Night and off-peak cleaning. Site assessment.",
-      "nameCaps": "PUBLIC VENUES & HUBS",
-      "name": "Public venues and transport hubs",
+    "warehouse": {
+      "name": "Warehousing and logistics",
+      "title": "Warehouse robots: AMR, pallets | Professional Robotics",
+      "description": "Warehouse robotics without stopping the warehouse: pallet-handling robots, AMRs for order picking, palletizing and sorting. Start with one route.",
+      "nameCaps": "WAREHOUSING",
       "h1": {
         "items": {
-          "0": "Robots for stations,",
-          "1": "airports and MFCs."
+          "0": "Robots for warehouses",
+          "1": "and logistics."
         }
       },
-      "lead": "Waiting halls and terminals run almost around the clock, and people arrive in waves, following train and flight schedules. Cleaning a huge floor area must not get in passengers’ way.",
-      "lead2": "The robot washes floors at night and in lulls between peaks, while people handle restrooms, spot cleaning and visitors. Cleaning robots already work at six Russian Railways (RZD) stations.",
+      "lead": "A warehouse is a flow: pallets arrive, goods are picked into orders, orders leave. Robots take over moving and repetitive operations; people stay where a decision or an oversized load is involved.",
+      "lead2": "It is better to start with one route than with the whole warehouse: the effect shows quickly and the investment stays small.",
       "primaryCta": {
-        "label": "Book a site assessment"
+        "label": "Choose warehouse robots"
       },
       "secondaryCta": {
-        "label": "Where robots already work"
+        "label": "The path of an order"
       },
       "audiences": {
         "items": {
-          "0": "station and airport operators",
-          "1": "museums and exhibition centers",
-          "2": "MFC public service centers and government offices",
-          "3": "concert venues"
+          "0": "distribution centers",
+          "1": "e-commerce and retail warehouses",
+          "2": "3PL operators",
+          "3": "in-plant warehouses"
         }
-      },
-      "photo": {
-        "alt": "A floor-scrubbing robot washes the marble floor of a train station waiting hall as passengers with suitcases walk past"
       },
       "hero": {
-        "board": {
-          "title": "Robots on shift",
-          "cols": {
-            "zone": "Zone · what the robot does",
-            "mode": "Mode"
-          },
-          "listLabel": "Robot work scenarios by zone",
-          "note": "Scenarios are examples. We set the schedule at the site assessment."
-        }
-      },
-      "board": {
-        "items": {
-          "0": {
-            "zone": "Waiting halls",
-            "task": "Wet floor cleaning in gaps between trains",
-            "mode": "Between peaks"
-          },
-          "1": {
-            "zone": "Terminals, concourses",
-            "task": "Washing large areas while it’s quiet",
-            "mode": "At night"
-          },
-          "2": {
-            "zone": "MFC and museum lobbies",
-            "task": "Shows the way and answers routine questions",
-            "mode": "Opening hours"
-          },
-          "3": {
-            "zone": "Perimeter, parking",
-            "task": "Patrols a route and alerts the duty officer",
-            "mode": "24/7"
-          }
-        }
-      },
-      "heads": {
-        "problems": "Why halls are hard to keep clean.",
-        "directions": "What we automate.",
-        "results": "What the site operator gets."
-      },
-      "problems": {
-        "staffingTitle": "Labor shortage",
-        "items": {
-          "0": {
-            "title": "Huge floor areas",
-            "text": "Waiting halls, terminals and concourses are huge, and people keep coming almost around the clock."
-          },
-          "1": {
-            "title": "Scheduled peaks",
-            "text": "Trains and flights bring people in waves. At the peak, a cleaner with a machine blocks passengers; after it, there’s the most dirt."
-          },
-          "2": {
-            "title": "The same questions",
-            "text": "Where the platforms are, which counter, how to reach the exhibition: staff spend the shift on routine answers."
-          }
-        }
-      },
-      "staffing": {
-        "text": "of cleaning staff in Russia are foreign nationals. Regions are also tightening rules on hiring migrants: in 2025, 11 regions added restrictions."
-      },
-      "secNames": {
-        "flow": "FLOW",
-        "proof": "IN SERVICE"
+        "mapTitle": "Warehouse plan · robots at work",
+        "planLabel": "Warehouse plan: receiving, storage, picking, sorting and packing, shipping; robots drive along the aisles",
+        "legendLabel": "Order stages on the warehouse plan"
       },
       "flow": {
-        "title": "Between passenger waves.",
-        "lead": "People arrive in waves. The robot washes halls at night and in lulls between peaks: it doesn’t block passengers or drive over a wet floor in a crowd.",
-        "chartDescription": "Illustrative 24-hour passenger flow chart: a morning peak around 08:00, an evening peak around 18:00. Cleaning windows: 00:30–05:30 night washing; 10:30–12:30 after the morning wave; 14:00–15:45 midday lull; 21:15–23:45 after the evening wave.",
-        "now": "Now",
-        "legend": {
-          "flow": "foot traffic",
-          "window": "cleaning window",
-          "note": "Illustrative chart: the flow shape is an example. We record your site’s peak hours during the assessment and build the robot’s schedule around them."
-        },
-        "toDirection": "Area: cleaning waiting halls, terminals, concourses ↓"
-      },
-      "peaks": {
         "items": {
           "0": {
-            "label": "Morning peak"
+            "name": "Receiving, unloading",
+            "robot": "A robotic arm unloads cartons from the pallet; a pallet-handling robot takes the pallet from the dock.",
+            "people": "Checking against documents, quality control, non-standard loads."
           },
           "1": {
-            "label": "Evening peak"
-          }
-        }
-      },
-      "windows": {
-        "items": {
-          "0": {
-            "title": "Night wash",
-            "text": "Main wet cleaning of halls and concourses while traffic is at its lowest."
-          },
-          "1": {
-            "title": "After the morning wave",
-            "text": "A pass through waiting halls after commuter trains."
+            "name": "Storage and moving",
+            "robot": "Pallet-handling robots and AMRs move pallets between the dock, racks and zones.",
+            "people": "Placing oversized goods, decisions on stock."
           },
           "2": {
-            "title": "Midday lull",
-            "text": "Spot washing of tracked-in dirt at entrances, ticket offices."
+            "name": "Order picking",
+            "robot": "An AMR brings a rack to the worker or follows the picker.",
+            "people": "Take the item from the cell, check the order."
           },
           "3": {
-            "title": "After the evening wave",
-            "text": "A repeat pass before night mode."
-          }
-        }
-      },
-      "directions": {
-        "lead": "Stations, airports, museums, exhibition centers, MFC public service centers and concert venues. Parks and streets are on the “Municipal services” page.",
-        "items": {
-          "0": {
-            "title": "Cleaning waiting halls, terminals, concourses",
-            "text": "Floor-scrubbing robots wash large areas at night and in the gaps between peaks. They build their own map of the hall and steer around people.",
-            "status": "Deployed in Russia",
-            "items": {
-              "items": {
-                "0": "cleaning robots for stations",
-                "1": "cleaning robots for airports",
-                "2": "scrubber robots",
-                "3": "waiting hall cleaning",
-                "4": "terminal and concourse cleaning"
-              }
-            }
-          },
-          "1": {
-            "title": "Visitor wayfinding and information",
-            "text": "Service robots and humanoids in lobbies show the way, answer routine questions and greet exhibition guests.",
-            "status": "Additional scenario",
-            "items": {
-              "items": {
-                "0": "wayfinding robot",
-                "1": "information robot for MFCs",
-                "2": "museum guide robot",
-                "3": "humanoid robots"
-              }
-            }
-          },
-          "2": {
-            "title": "Patrolling",
-            "text": "A security robot patrols the perimeter, parking or empty halls at night along a set route and alerts the duty officer.",
-            "status": "No Russian transport case studies yet",
-            "items": {
-              "items": {
-                "0": "patrol robots",
-                "1": "security robots",
-                "2": "night patrol"
-              }
-            }
-          }
-        },
-        "more": "Need park and street cleaning?"
-      },
-      "proof": {
-        "title": "Cleaning robots already work in stations and airports.",
-        "lead": "These are other companies’ deployments, not Professional Robotics projects. We show them to demonstrate that the equipment copes with halls and crowds.",
-        "main": {
-          "place": "RZD stations",
-          "stations": {
-            "items": {
-              "0": "Kazansky",
-              "1": "Yaroslavsky",
-              "2": "Kursky",
-              "3": "Paveletsky",
-              "4": "Kievsky",
-              "5": "Moskovsky (St Petersburg)"
-            }
-          },
-          "value": "{n, number}",
-          "unit": "m²/h",
-          "text": "Autonomous cleaning robots sweep and wash halls, build their own map of the space and log the level of dirt. Productivity: up to 1,980\u00a0m² per hour. Russian Railways has not named the model or the number of robots."
-        },
-        "stationsLabel": "Stations",
-        "upTo": "up to",
-        "more": {
-          "items": {
-            "0": {
-              "place": "Pulkovo Airport",
-              "value": "5,000\u00a0m²",
-              "valueNote": "per charge",
-              "text": "Cleaning robots with lidar and cameras in check-in and arrivals halls."
-            }
-          }
-        }
-      },
-      "results": {
-        "items": {
-          "0": "Halls are clean by the peak: cleaning runs at night and in lulls.",
-          "1": "People move to restrooms, spot cleaning and working with visitors.",
-          "2": "Less dependence on hiring in a labor-short cleaning market.",
-          "3": "A cleaning map and zone reports show what was cleaned and when."
-        }
-      },
-      "vendorsLead": "We choose equipment by area, floor surface and site schedule, with no tie to a single vendor.",
-      "vendors": {
-        "items": {
-          "0": {
-            "group": "Hall and terminal cleaning"
-          },
-          "1": {
-            "group": "Wayfinding and information"
-          }
-        }
-      },
-      "why": {
-        "title": "Traffic first, then the robot.",
-        "text": "Before placing a robot, we study when and where people move and build the cleaning schedule around that. We source equipment from several manufacturers and service it under SLA across Russia."
-      },
-      "form": {
-        "title": "We’ll find the cleaning windows at your site.",
-        "lead": "We’ll look at your halls and foot traffic and propose equipment and a robot schedule.",
-        "button": "Book an assessment"
-      },
-      "links": {
-        "items": {
-          "0": {
-            "text": "Robotic scrubbers for large areas."
-          },
-          "1": {
-            "text": "Wayfinding and answers for visitors."
-          },
-          "2": {
-            "text": "Perimeter and parking patrols."
-          },
-          "3": {
-            "text": "Cleaning as a service, no equipment purchase."
+            "name": "Sorting and packing",
+            "robot": "Robots sort orders by destination and count stock.",
+            "people": "Packing non-standard orders, returns."
           },
           "4": {
-            "title": "Professional Robotics Platform",
-            "text": "Cleaning management and reports in one window."
-          },
-          "5": {
-            "text": "For parks and streets."
-          },
-          "6": {
-            "title": "Case studies: public venues",
-            "text": "Deployments at stations and airports."
+            "name": "Shipping",
+            "robot": "A palletizer builds the pallet; a pallet-handling robot takes it to the dock.",
+            "people": "Loading the truck, documents, control."
           }
-        }
-      }
-    },
-    "retail": {
-      "title": "Cleaning robots for malls and stores | Professional Robotics",
-      "description": "Cleaning robots for malls and supermarkets: concourses, sales floor, parking, promo robots. Lenta and Perekrestok case studies, a 26-mall Moscow pilot.",
-      "nameCaps": "SHOPPING CENTERS, RETAIL",
-      "name": "Shopping centers and retail",
-      "h1": {
-        "items": {
-          "0": "Cleaning robots",
-          "1": "for shopping centers",
-          "2": "and stores."
-        }
-      },
-      "lead": "A cleaning robot for shopping centers washes concourses, the sales floor and parking on a schedule: at night before opening and by day between shoppers.",
-      "lead2": "Cleaners stay where hands are needed: restrooms, the food court, spills at the checkout. The robot takes the repeat passes over large areas.",
-      "primaryCta": {
-        "label": "Discuss a mall pilot"
-      },
-      "secondaryCta": {
-        "label": "Calculate payback"
-      },
-      "audiences": {
-        "items": {
-          "0": "mall management companies",
-          "1": "grocery chains and hypermarkets",
-          "2": "DIY and fashion retail"
-        }
-      },
-      "hero": {
-        "proof": {
-          "title": "Moscow pilot · 26 malls",
-          "since": "since 27 May 2026",
-          "malls": "malls in the pilot",
-          "area": "million\u00a0m² of space",
-          "areaValue": "<small>over</small>1.1",
-          "status": "<b>Pilot under way.</b> Robots from Russian manufacturers clean sales floors and parking, and will then be compared with manual cleaning. Results aren’t published yet."
-        }
-      },
-      "photo": {
-        "alt": "A floor-scrubbing robot washes the central concourse of a shopping center in the early morning, with store shutters still down"
+        },
+        "title": "Warehouse order path.",
+        "lead": "Five stages, two questions: what the robot takes and what stays with people. An example for a typical distribution center; we adapt it to your warehouse during the site assessment.",
+        "robot": "Robot",
+        "people": "People",
+        "more": "Learn more",
+        "footLead": "Safety near people –",
+        "footTail": ": detects a person, slows down, stops."
       },
       "heads": {
-        "problems": "Why retail needs a robot.",
-        "directions": "What we automate in a mall or store.",
-        "vendors": "Equipment and manufacturers."
+        "problems": "Warehouse pressure.",
+        "directions": "What robots take over.",
+        "pilot": "Start with one route.",
+        "vendors": "Robots and manufacturers."
       },
       "problems": {
-        "lead": "Fewer people are available for cleaning, for reasons a store can’t influence.",
         "items": {
           "0": {
-            "title": "Cleaning depends on migrant labor.",
-            "text": "Over 80% of cleaning staff are foreign nationals. In 2025, 11 regions introduced additional restrictions on hiring them."
+            "cap": "robots per 10,000 employees in Russia",
+            "title": "Few robots in warehouses.",
+            "text": "In developed economies there are 500–800 robots per 10,000 employees; Russia’s target for 2030 is 145. Only 3% of surveyed companies had fully automated warehouses."
           },
           "1": {
-            "title": "Payroll is rising.",
-            "text": "In five years, cleaning companies’ payroll has grown two- to threefold. That goes into the cleaning contract price."
+            "figure": "RUB\u00a0115.4k",
+            "cap": "average warehouse staff salary, August 2026",
+            "title": "Labor shortage eased, pay did not.",
+            "text": "In 2025, 65% of surveyed companies named the labor shortage as a problem. By 2026, labor market tension fell to 0.04–0.09 vacancies per 1,000\u00a0m²."
           },
           "2": {
-            "title": "Frontline staff are scarce.",
-            "text": "15% of retailers name frontline staff shortages as their main reason to modernize."
+            "cap": "swing in volume between peak and low season, Borjomi",
+            "title": "Peaks jump, staff stays fixed.",
+            "text": "Borjomi plans to hand all horizontal pallet movements to robots within two years."
           },
           "3": {
-            "title": "Large area, short window.",
-            "text": "Concourses, sales floor and parking must be washed before opening, then cleaned by day without disturbing shoppers."
+            "figure": "2–3 years",
+            "cap": "time to pay back the investment, according to the study",
+            "title": "Costly entry, payback in years.",
+            "text": "The study lists the high cost of entry, immature IT infrastructure and a shortage of specialists among the barriers."
           }
+        }
+      },
+      "sources": {
+        "comnews": {
+          "label": "study by Technologies of Trust, ComNews, Aug 29, 2025"
+        },
+        "ibc": {
+          "label": "IBC Real Estate and Maksimikha zone, Retail.ru, Sep 14, 2026"
+        },
+        "press": {
+          "label": "press release, Retail.ru, Jun 23, 2026"
+        },
+        "iso": {
+          "label": "per the ISO 3691-4 standard"
+        },
+        "sber": {
+          "label": "Sber PRO, Dec 16, 2024"
+        },
+        "yandex": {
+          "label": "survey by Yandex Robotics and Industrial Robotics, Retail.ru, Jul 15, 2025"
         }
       },
       "secNames": {
-        "frequency": "FREQUENCY",
-        "case": "CASES",
-        "economy": "ECONOMICS"
-      },
-      "frequency": {
-        "title": "The sales floor is cleaned several times a day.",
-        "lead": "Each cleaning is a separate pass over the entire area. The more passes, the more sense it makes to give them to a robot and leave spot work to people.",
-        "mainTitle": "How many times a day a store is cleaned.",
-        "scale": "per day",
-        "items": {
-          "0": {
-            "zone": "Sales floor",
-            "when": "regular day",
-            "ariaLabel": "Sales floor, regular day: 2 times a day",
-            "note": "minimum"
-          },
-          "1": {
-            "zone": "Sales floor",
-            "when": "fall and winter",
-            "ariaLabel": "Sales floor, fall and winter: 5 times a day",
-            "note": "in season"
-          },
-          "2": {
-            "zone": "Produce",
-            "when": "all day",
-            "ariaLabel": "Produce, all day: 5 to 10 times a day",
-            "note": "as needed"
-          }
-        },
-        "legend": {
-          "cleaning": "cleaning",
-          "range": "as needed"
-        },
-        "note": "As Perekrestok (X5 Group) puts it: this is the chain’s practice, not a sanitary standard.",
-        "resourcesTitle": "Annual resources per Perekrestok store.",
-        "cmp": {
-          "water": "Water",
-          "waterUnit": "t/year",
-          "manual": "Manual floor scrubber",
-          "robot": "Robot",
-          "chemicals": "Detergents",
-          "chemicalsNote": "10× less",
-          "robotChemicals": "0.1×"
-        },
-        "service": "<b>10–15\u00a0min</b> a day to look after the robot; the docking station does the rest."
+        "flow": "ORDER PATH",
+        "proof": "DEPLOYED"
       },
       "directions": {
         "items": {
           "0": {
-            "title": "Sales floor and concourse cleaning",
-            "text": "Floor-scrubbing robots wash mall concourses and the sales floor at night before opening, then make repeat passes by day among shoppers.",
+            "title": "Pallet transport",
+            "text": "Pallet-handling robots and AMRs move pallets horizontally: dock, rack, shipping zone. The simplest entry point: the route is clear and the warehouse is not rebuilt.",
             "items": {
               "items": {
-                "0": "scrubber robots",
-                "1": "night concourse cleaning",
-                "2": "daytime sales floor passes",
-                "3": "entrances and checkouts"
+                "0": "pallet-handling robots (FMR)",
+                "1": "AMR carts",
+                "2": "dock – rack – zone",
+                "3": "night-time moves"
               }
+            },
+            "fact": {
+              "value": "2 years",
+              "text": "Borjomi plans to hand all horizontal movements to robots"
             }
           },
           "1": {
-            "title": "Parking cleaning",
-            "text": "Sweeping and scrubbing robots for indoor and underground parking. In the Moscow pilot, robots clean not only the mall interiors but the parking too.",
+            "title": "Order picking",
+            "text": "An AMR works on the goods-to-person scheme: the rack comes to the worker, not the other way round. Or it follows the picker and carries what has been picked.",
             "items": {
               "items": {
-                "0": "sweeper robots",
-                "1": "indoor and underground parking",
-                "2": "night shift, no machine operator"
+                "0": "goods-to-person",
+                "1": "AMR next to the picker",
+                "2": "assembling kits and accessories"
               }
+            },
+            "fact": {
+              "text": "picker output at Magnit: from about 18 to over 32 tons"
             }
           },
           "2": {
-            "title": "Promo and wayfinding",
-            "text": "A service robot with an advertising screen carries promos around the floor and shows the way. BellaBot works this way in two Perekrestok stores; according to project participants, sales of some products grow by up to 100%.",
+            "title": "Palletizing and depalletizing",
+            "text": "A robotic arm unloads cartons from a pallet or builds a pallet for shipping. Heavy, monotonous work leaves the dock.",
             "items": {
               "items": {
-                "0": "robots with ad screens",
-                "1": "shopper wayfinding",
-                "2": "Pudu BellaBot, Keenon"
+                "0": "depalletizing robotic arms",
+                "1": "palletizers",
+                "2": "carton stacking"
               }
+            },
+            "fact": {
+              "text": "depalletizing costs at a Leman Pro distribution center; speed doubled"
+            },
+            "fact2": {
+              "text": "of surveyed logistics companies have already installed palletizers"
             }
           },
           "3": {
-            "title": "Warehouses, dark stores",
-            "text": "Online order picking and moving goods behind the sales floor is warehouse robotics. It has a page of its own.",
+            "title": "Sorting and inventory",
+            "text": "Mobile robots handle the order flow, dynamic storage, inventory, sorting and transport. We add them once the first routes are running.",
             "items": {
               "items": {
-                "0": "dark stores",
-                "1": "chain warehouses",
-                "2": "AMRs and sorting"
+                "0": "order sorting",
+                "1": "inventory counts",
+                "2": "dynamic storage"
               }
+            },
+            "fact": {
+              "text": "The study names these tasks as typical for mobile robots in a warehouse"
             }
           }
         }
       },
-      "case": {
-        "title": "Chains already use floor robots.",
-        "lead": "Named sites and figures come from open sources. These are not our projects but the market track record you can build on."
+      "proof": {
+        "title": "What others have achieved.",
+        "lead": "Public deployments by Russian companies. These are not our projects but the companies’ own statements and press releases; we have not verified the figures independently.",
+        "cases": {
+          "items": {
+            "0": {
+              "company": "Magnit",
+              "value": "+80%",
+              "cap": "output per employee",
+              "what": "goods-to-person AMRs",
+              "from": {
+                "label": "≈ 18\u00a0t"
+              },
+              "to": {
+                "label": "32+ t"
+              }
+            },
+            "1": {
+              "company": "Askona",
+              "value": "1 vs 3",
+              "cap": "employees on the operation",
+              "what": "AMRs assembling accessories",
+              "from": {
+                "label": "70–80 units/h"
+              },
+              "to": {
+                "label": "300–350 units/h"
+              }
+            },
+            "2": {
+              "company": "Leman Pro",
+              "value": "−40%",
+              "cap": "depalletizing costs",
+              "what": "robotic depalletizer with artificial intelligence",
+              "from": {
+                "label": "speed 1×"
+              },
+              "to": {
+                "label": "speed 2×"
+              }
+            },
+            "3": {
+              "company": "JNB",
+              "value": "−80%",
+              "cap": "warehouse staff",
+              "what": "SberShuttle shuttle system",
+              "from": {
+                "label": "was 100%"
+              },
+              "to": {
+                "label": "now 20%"
+              }
+            }
+          }
+        },
+        "market": {
+          "text": "of surveyed companies plan to use mobile robots; 43% want to launch 2–5 projects in 2025 (112 respondents from 51 companies)"
+        },
+        "note": "The bars show orders of magnitude from the sources; for ranges, the midpoint is used."
       },
-      "cases": {
+      "pilot": {
         "items": {
           "0": {
-            "kicker": "Hypermarkets · 2025",
-            "unit": "cleaning robots",
-            "title": "Lenta hypermarkets: robots across the country.",
-            "text": "Volgograd, Nizhny Novgorod, Moscow, St Petersburg and other cities. They started with a pilot: 10 robots in 9 hypermarkets, then bought 32 more. Savings come from staff and from dropping rented scrubbers.",
-            "quote": "According to Lenta’s press service, cleaning staff shrank by 30–40%."
+            "title": "Site assessment",
+            "text": "We look at flows, aisle widths, floor surface, thresholds and docks. We choose the route where a robot pays off soonest."
           },
           "1": {
-            "kicker": "Supermarkets · 2024",
-            "unit": "supermarkets",
-            "title": "Perekrestok: Pudu CC1 in the chain’s supermarkets.",
-            "text": "9 stores in Moscow, 1 in St Petersburg, 1 in Sochi (as of June 2024). Caring for the robot with its docking station takes 10–15 minutes a day.",
-            "quote": "11 tonnes of water a year per store versus 73 tonnes for a manual floor scrubber, according to project participants."
+            "title": "One route",
+            "text": "The robot runs one route under your normal load, without stopping the warehouse. Tasks come from your WMS or 1C."
           },
           "2": {
-            "kicker": "Moscow pilot · 2026",
-            "pre": "over",
-            "value": "16,000",
-            "unit": "m² in week one",
-            "title": "Central Children’s Store: pilot week one.",
-            "text": "A pilot by FTs BAS under the Moscow Department of Entrepreneurship and Innovation: 26 malls, robots from four Russian manufacturers. They clean interiors and parking lots.",
-            "quote": "The pilot lasts several months, then a comparison with manual cleaning. No results published yet."
+            "title": "Review and decision",
+            "text": "We compare distance walked, speed and errors before and after. Then we decide which routes and operations to move to robots next."
           }
         }
       },
-      "economy": {
-        "title": "Calculate the payback for a mall.",
-        "lead": "The model covers floor cleaning: area, schedule, robots needed and when they pay back. The “Mall” type is already selected.",
-        "estimate": "<span>Indicative estimate</span> This is a calculation from our model, not a deployment result. Figures for your site come after an assessment or pilot.",
-        "note": "<b>Indicative estimate</b> from our ROI (return on investment) model. A detailed estimate follows the site assessment."
-      },
-      "vendorsLead": "We match equipment to the area, flooring and cleaning schedule, without tying you to a single brand. The Moscow mall pilot runs on Russian robots.",
+      "vendorsLead": "We select equipment for the load, aisle width and floor surface, not from a catalog. Robots from different brands work in one system.",
       "vendors": {
         "items": {
           "0": {
-            "group": "Sales floor, concourses"
-          },
-          "1": {
-            "group": "Promo, wayfinding"
+            "group": "AMRs and pallet robots"
           }
         }
       },
       "why": {
-        "title": "Don’t wait for the city pilot.",
-        "text": "The Moscow pilot promises its results after several months of operation. You don’t have to wait: we’ll launch a robot in one concourse or on one floor of your mall and compare it with manual cleaning using your own figures."
+        "title": "Different brands, one window.",
+        "text": "AMRs and pallet-handling robots from different manufacturers appear in one window: routes, tasks and reports. Tasks come from your WMS or 1C, and we maintain the fleet under an SLA.",
+        "link": {
+          "label": "Fleet Management"
+        }
       },
       "form": {
-        "title": "A robot for your mall or chain: let’s talk.",
-        "lead": "We’ll review layout, zones and cleaning schedule, then propose equipment, an operating mode and a format: purchase, rental or cleaning as a service.",
+        "title": "Which route first in your warehouse?",
+        "lead": "Describe the warehouse: area, loads, shifts. We will suggest a route for the pilot and estimate the effect.",
         "button": "Discuss a pilot"
       },
       "links": {
         "items": {
           "0": {
-            "text": "Scrubber and sweeper robots."
+            "text": "AMRs and internal logistics."
           },
           "1": {
-            "text": "Promo, wayfinding, in-store delivery."
+            "text": "Robotic arms, palletizers, cells."
           },
           "2": {
-            "text": "Dark stores, chain warehouses."
+            "title": "Fleet Management",
+            "text": "A multi-brand robot fleet in one window."
           },
           "3": {
-            "title": "Professional Robotics Platform",
-            "text": "Cleaning of every chain site in one window."
+            "text": "One route, a clear result."
           },
           "4": {
-            "text": "No capex, with maintenance."
+            "text": "Flows, aisles, routes and a calculation."
           },
           "5": {
-            "text": "One concourse or one store."
+            "text": "A pilot robot, no purchase."
           },
           "6": {
-            "title": "Case studies: retail",
-            "text": "Deployments in malls and stores."
+            "title": "Industry and manufacturing",
+            "text": "AMRs inside the plant and cobots on the line."
           }
         }
+      }
+    },
+    "manufacturing": {
+      "name": "Manufacturing and industry",
+      "title": "Manufacturing robotics: logistics | Professional Robotics",
+      "description": "Industrial robotics without heavy investment: AMRs for in-plant logistics, collaborative robots, equipment inspection. Start with a pilot. Calculate your ROI.",
+      "nameCaps": "MANUFACTURING AND INDUSTRY",
+      "photo": {
+        "alt": "Collaborative robot arm on a mobile base loading a CNC machine"
+      },
+      "h1": {
+        "items": {
+          "0": "Robotics for manufacturing",
+          "1": "and industrial plants."
+        }
+      },
+      "lead": "Robotics in manufacturing doesn’t have to start with an expensive line retrofit. The fastest results come from simple things: moving materials around the shop floor, taking repetitive operations off operators, and regular equipment inspection.",
+      "lead2": "That’s the place to start: payback is clearer and the investment is lower.",
+      "primaryCta": {
+        "label": "Estimate pilot impact"
+      },
+      "secondaryCta": {
+        "label": "Discuss in-plant logistics"
+      },
+      "audiences": {
+        "items": {
+          "0": "plants and workshops",
+          "1": "production sites",
+          "2": "in-plant warehouses"
+        }
+      },
+      "heads": {
+        "problems": "What holds production back.",
+        "pilot": "Start with one route."
+      },
+      "problems": {
+        "items": {
+          "0": {
+            "title": "Operator shortage",
+            "text": "Frontline workers are hard to find, and repetitive tasks burn people out."
+          },
+          "1": {
+            "title": "In-plant logistics",
+            "text": "Moving materials by hand costs time and causes injuries."
+          },
+          "2": {
+            "title": "Equipment monitoring",
+            "text": "Rounds and inspections depend on people and schedules."
+          },
+          "3": {
+            "title": "Entry cost",
+            "text": "Fully automating a line means a long cycle and major capex."
+          }
+        }
+      },
+      "stairs": {
+        "title": "From simple to complex.",
+        "lead": "Start at the bottom step: lower investment, clearer payback. Move up once the first step is working.",
+        "levelLabel": {
+          "1": "Entry cost: low",
+          "2": "Entry cost: medium",
+          "3": "Entry cost: above average"
+        },
+        "entryBar": "Entry cost"
+      },
+      "directions": {
+        "items": {
+          "0": {
+            "title": "In-plant logistics (AMR)",
+            "text": "Autonomous mobile robots (AMRs) move materials between work areas. The fastest way in.",
+            "items": {
+              "items": {
+                "0": "AMR",
+                "1": "warehouse automation",
+                "2": "moving materials between work areas"
+              }
+            }
+          },
+          "1": {
+            "title": "Repetitive operations",
+            "text": "Collaborative robots on monotonous tasks, working alongside people.",
+            "items": {
+              "items": {
+                "0": "cobots",
+                "1": "robotic manipulators",
+                "2": "robotic cells",
+                "3": "assembly and packing"
+              }
+            }
+          },
+          "2": {
+            "title": "Inspection and monitoring",
+            "text": "Quadruped and mobile robots for rounds and equipment checks.",
+            "items": {
+              "items": {
+                "0": "AI inspection",
+                "1": "equipment rounds",
+                "2": "predictive maintenance"
+              }
+            }
+          }
+        }
+      },
+      "pilot": {
+        "items": {
+          "0": {
+            "title": "Area survey",
+            "text": "We find where time is lost on transport and monotonous operations."
+          },
+          "1": {
+            "title": "One route or one cell",
+            "text": "A pilot on one AMR route or one cobot cell."
+          },
+          "2": {
+            "title": "Scaling up",
+            "text": "New routes, cells and inspection, all on one platform."
+          }
+        }
+      },
+      "cases": {
+        "items": {
+          "0": {
+            "alt": "Collaborative robot arm on a mobile base loading a CNC machine",
+            "tag": "Manufacturing",
+            "unit": "operators a shift",
+            "title": "Automated CNC machine loading"
+          },
+          "1": {
+            "alt": "Autonomous warehouse robot carrying a rack down a warehouse aisle",
+            "tag": "Warehouse complex",
+            "title": "Higher warehouse throughput"
+          }
+        }
+      },
+      "results": {
+        "items": {
+          "0": "Higher productivity in monotonous work areas.",
+          "1": "Less downtime and fewer injuries in internal logistics.",
+          "2": "Regular inspection, independent of the rounds schedule.",
+          "3": "Clear payback by starting with easy scenarios."
+        }
+      },
+      "vendorsLead": "Robots of different brands work in one system. We choose for the operation, not from a catalog.",
+      "vendors": {
+        "items": {
+          "0": {
+            "group": "Collaborative and industrial"
+          },
+          "1": {
+            "group": "In-plant logistics (AMR)"
+          },
+          "2": {
+            "group": "Inspection"
+          }
+        }
+      },
+      "why": {
+        "title": "Different brands, one platform.",
+        "text": "An AMR from one manufacturer and a cobot from another, in one window: routes, tasks, KPIs and reports. Tasks come from your systems: WMS, MES or 1C.",
+        "link": {
+          "label": "Fleet Management"
+        }
+      },
+      "form": {
+        "title": "Where to start in your plant?",
+        "lead": "Describe the work area; we’ll suggest an easy pilot scenario and estimate its impact.",
+        "button": "Estimate pilot impact"
+      },
+      "links": {
+        "items": {
+          "0": {
+            "text": "Cobots, robot arms, cells."
+          },
+          "1": {
+            "text": "AMRs and internal logistics."
+          },
+          "2": {
+            "title": "Fleet Management",
+            "text": "A multi-brand robot fleet in one window."
+          },
+          "3": {
+            "text": "Tasks, routes and alerts."
+          },
+          "4": {
+            "title": "Case studies: manufacturing",
+            "text": "Machine loading, warehouse."
+          }
+        }
+      }
+    },
+    "construction": {
+      "name": "Construction",
+      "title": "Construction robots: demolition | Professional Robotics",
+      "description": "Construction robots for demolition, plastering, screeding and heavy work. We cut labor and on-site risk when workers are scarce. Estimate the impact.",
+      "nameCaps": "CONSTRUCTION",
+      "h1": {
+        "items": {
+          "0": "Robotics",
+          "1": "in construction."
+        }
+      },
+      "lead": "Sites are short of workers, and the ones you have cost more every season. Meanwhile, the heaviest and most dangerous jobs, such as demolition, plastering and screeding, are still done by hand.",
+      "lead2": "Construction robots take on these jobs: they work longer than people, deliver more consistent quality and keep workers out of harm’s way.",
+      "primaryCta": {
+        "label": "Discuss an on-site pilot"
+      },
+      "secondaryCta": {
+        "label": "Estimate labor savings"
+      },
+      "audiences": {
+        "items": {
+          "0": "developers",
+          "1": "general contractors",
+          "2": "finishing and demolition contractors"
+        }
+      },
+      "photo": {
+        "alt": "Remote-controlled demolition robot breaking a concrete partition"
+      },
+      "directions": {
+        "items": {
+          "0": {
+            "title": "Demolition",
+            "text": "Remote-controlled robots for demolition and breaking, where it’s dangerous for people. The operator stays outside the zone.",
+            "items": {
+              "items": {
+                "0": "robotic demolition",
+                "1": "robotic construction machinery",
+                "2": "remote control"
+              }
+            }
+          },
+          "1": {
+            "title": "Finishing work",
+            "text": "Plastering, painting, skim coating and floor screeding with consistent quality from the first floor to the top.",
+            "items": {
+              "items": {
+                "0": "robotic finishing",
+                "1": "robotic painting",
+                "2": "plastering and skim coating",
+                "3": "floor screeding"
+              }
+            }
+          },
+          "2": {
+            "title": "Blockwork and heavy tasks",
+            "text": "Moving and placing materials: we take the heaviest work off your crews.",
+            "items": {
+              "items": {
+                "0": "block-laying robots",
+                "1": "material handling",
+                "2": "autonomous construction systems"
+              }
+            }
+          }
+        }
+      },
+      "heads": {
+        "problems": "What slows work down on site."
+      },
+      "problems": {
+        "items": {
+          "0": {
+            "title": "Labor shortage",
+            "text": "Skilled finishers and laborers are getting scarcer, and payroll keeps rising."
+          },
+          "1": {
+            "title": "Hazardous work",
+            "text": "Demolition and work at height mean injuries and occupational safety requirements."
+          },
+          "2": {
+            "title": "Finishing time and quality",
+            "text": "The human factor causes uneven quality and missed deadlines."
+          },
+          "3": {
+            "title": "Heavy physical labor",
+            "text": "Burnout and turnover on the most labor-intensive tasks."
+          }
+        }
+      },
+      "safety": {
+        "title": "Keep people out of danger.",
+        "lead": "At a demolition with collapse risk, the robot goes in, not the crew. The operator uses a remote and sees the whole zone from a distance.",
+        "diagramLabel": "Diagram: the robot works inside the demolition zone; the operator with the remote stands outside it",
+        "zoneLabel": "DEMOLITION ZONE",
+        "operatorLabel": "OPERATOR OUTSIDE",
+        "items": {
+          "0": {
+            "value": "−40%",
+            "text": "labor on demolition, per the case study"
+          },
+          "1": {
+            "value": "Outside",
+            "text": "the operator controls the robot remotely from a safe distance"
+          },
+          "2": {
+            "value": "No fatigue",
+            "text": "the same finishing quality at the start and end of a shift"
+          }
+        }
+      },
+      "cases": {
+        "items": {
+          "0": {
+            "alt": "Demolition robot breaking a concrete wall",
+            "tag": "Construction",
+            "title": "Less labor on demolition"
+          }
+        }
+      },
+      "results": {
+        "items": {
+          "0": "Less labor on heavy tasks.",
+          "1": "Less reliance on hard-to-find crews.",
+          "2": "Fewer injuries and lower safety risks.",
+          "3": "Consistent finishing quality and predictable timelines."
+        }
+      },
+      "vendorsLead": "We choose equipment separately for each type of work and each site.",
+      "vendors": {
+        "items": {
+          "0": {
+            "group": "Demolition and heavy work"
+          },
+          "1": {
+            "group": "Finishing and screeding"
+          }
+        }
+      },
+      "why": {
+        "title": "No idle robots on site.",
+        "text": "Idle machinery on site wrecks the schedule. We service equipment under SLA across Russia and take responsibility for the robot working, not just for delivering it."
+      },
+      "form": {
+        "title": "Let’s discuss a pilot on your site.",
+        "lead": "We’ll visit, look at the site and suggest 2–3 equipment options for your type of work.",
+        "button": "Discuss a pilot"
+      },
+      "links": {
+        "items": {
+          "0": {
+            "text": "Equipment classes, specs, comparison."
+          },
+          "1": {
+            "text": "One site section, a clear result."
+          },
+          "2": {
+            "text": "Where a robot will pay back on your site."
+          },
+          "3": {
+            "title": "Case studies: construction",
+            "text": "Demolition, finishing on site."
+          }
+        }
+      }
+    },
+    "agriculture": {
+      "name": "Agriculture",
+      "title": "Farm robots and drones: spraying | Professional Robotics",
+      "description": "Farm robots and drones: precision spraying, fieldwork, crop monitoring, grounds care. Savings on crop protection products and labor. Estimate the impact.",
+      "nameCaps": "AGRICULTURE",
+      "h1": {
+        "items": {
+          "0": "Robots and drones",
+          "1": "for agriculture."
+        }
+      },
+      "lead": "Seasonal workers are scarcer, yet fields must still be treated on time. Agricultural drones and field robots do it more precisely and faster than people.",
+      "lead2": "They spray exactly where needed, save crop protection products and give you an objective picture of the field, especially where manual work can’t keep up.",
+      "primaryCta": {
+        "label": "Estimate chemical savings"
+      },
+      "secondaryCta": {
+        "label": "Discuss treating your fields"
+      },
+      "audiences": {
+        "items": {
+          "0": "agricultural holdings",
+          "1": "farms",
+          "2": "greenhouse operations"
+        }
+      },
+      "photo": {
+        "alt": "Agricultural drone spraying a field at dawn"
+      },
+      "season": {
+        "title": "A farm year with robots.",
+        "lead": "We calculate the economics of farm machinery per season, not per month. Here is where each area fits into the season.",
+        "items": {
+          "0": {
+            "name": "Off-season",
+            "title": "Preparation",
+            "text": "Assessing fields and terrain, choosing equipment, training operators."
+          },
+          "1": {
+            "name": "Spring",
+            "title": "Emergence",
+            "text": "Crop monitoring: where emergence is weak, where weeds are."
+          },
+          "2": {
+            "name": "Summer",
+            "title": "Spraying",
+            "text": "Spot spraying in a short window, day and night."
+          },
+          "3": {
+            "name": "Fall",
+            "title": "Season review",
+            "text": "Yield assessment, grounds care, calculating the season’s savings."
+          }
+        },
+        "us": "Professional Robotics’ work",
+        "foot": "Timing depends on the crop and region; we build the work calendar during the assessment."
+      },
+      "directions": {
+        "items": {
+          "0": {
+            "title": "Spraying",
+            "text": "Drones treat fields precisely, saving crop protection products.",
+            "items": {
+              "items": {
+                "0": "agri drones",
+                "1": "robotic sprayers",
+                "2": "robotic irrigation"
+              }
+            }
+          },
+          "1": {
+            "title": "Fieldwork and monitoring",
+            "text": "Robots and drones for crop health assessment and precision farming.",
+            "items": {
+              "items": {
+                "0": "crop inspection robots",
+                "1": "weeding robots",
+                "2": "smart farming",
+                "3": "AI farming"
+              }
+            }
+          },
+          "2": {
+            "title": "Grounds care",
+            "text": "Autonomous mowers and machinery for maintaining grounds and farms.",
+            "items": {
+              "items": {
+                "0": "autonomous mowers",
+                "1": "lawn care robots",
+                "2": "grounds maintenance"
+              }
+            }
+          }
+        }
+      },
+      "heads": {
+        "problems": "Why fields can’t wait.",
+        "pilot": "Start with one field."
+      },
+      "problems": {
+        "items": {
+          "0": {
+            "title": "Seasonal labor shortage",
+            "text": "At peak times there aren’t enough people, and the spray window is short."
+          },
+          "1": {
+            "title": "Large areas",
+            "text": "Manual work and ground machinery can’t always finish in time."
+          },
+          "2": {
+            "title": "Chemical use",
+            "text": "Imprecise spraying wastes expensive chemicals."
+          },
+          "3": {
+            "title": "Monitoring",
+            "text": "Judging crop health by eye leads to mistakes and yield losses."
+          }
+        }
+      },
+      "cases": {
+        "items": {
+          "0": {
+            "alt": "Agricultural drone spraying a wheat field in the early morning",
+            "tag": "Agribusiness",
+            "title": "Less crop protection product in field spraying",
+            "note": "We count economics per season, not per month."
+          }
+        }
+      },
+      "results": {
+        "items": {
+          "0": "Savings on crop protection products through precision.",
+          "1": "Large areas covered in tight windows.",
+          "2": "Less reliance on seasonal workers.",
+          "3": "Objective field data for decisions."
+        }
+      },
+      "vendorsLead": "We match equipment to crop, area and terrain.",
+      "vendors": {
+        "items": {
+          "0": {
+            "group": "Spraying and fieldwork"
+          },
+          "1": {
+            "group": "Grounds care"
+          }
+        }
+      },
+      "pilot": {
+        "items": {
+          "0": {
+            "title": "Survey",
+            "text": "Crop, fields, terrain and spray windows."
+          },
+          "1": {
+            "title": "One-season pilot",
+            "text": "A drone on one field: we compare chemical use with conventional spraying."
+          },
+          "2": {
+            "title": "Scaling up",
+            "text": "Remaining fields, monitoring, grounds care."
+          }
+        }
+      },
+      "why": {
+        "title": "The season won’t wait.",
+        "text": "A spray window lasts a few days. We service equipment under SLA across Russia so the drone isn’t idle at peak time."
+      },
+      "form": {
+        "title": "Let’s discuss treating your fields.",
+        "lead": "Tell us the crop and area, and we’ll estimate chemical savings and choose the equipment.",
+        "button": "Plan your season"
+      },
+      "links": {
+        "items": {
+          "0": {
+            "text": "Drones, field robots, mowers."
+          },
+          "1": {
+            "text": "Matched to crop, area, terrain."
+          },
+          "2": {
+            "text": "So equipment doesn’t stop mid-season."
+          },
+          "3": {
+            "title": "Case studies: agriculture",
+            "text": "Field spraying, monitoring."
+          }
+        }
+      }
+    },
+    "common": {
+      "hero": {
+        "audience": "Audience",
+        "metrics": {
+          "directions": "<b>{n}</b> {n, plural, one {area} other {areas}}",
+          "makers": "<b>{n}</b> {n, plural, one {manufacturer} other {manufacturers}}"
+        },
+        "tickerLabel": "Areas",
+        "noteLabel": "Important"
+      },
+      "sections": {
+        "season": "YEAR",
+        "problems": "PROBLEMS",
+        "directions": "AREAS",
+        "case": "CASE",
+        "results": "RESULTS",
+        "vendors": "EQUIPMENT",
+        "pilot": "FIRST STEPS",
+        "why": "WHY US",
+        "form": "CONTACT",
+        "see": "SEE ALSO",
+        "economy": "ECONOMICS",
+        "safety": "SAFETY",
+        "day": "HOTEL DAY",
+        "cases": "CASES",
+        "route": "ROUTE"
+      },
+      "heads": {
+        "directions": "What we automate.",
+        "results": "What the business gets.",
+        "vendors": "Equipment and manufacturers.",
+        "see": "See also."
+      },
+      "directions": {
+        "solution": "Solution:"
+      },
+      "case": {
+        "title": "Case study.",
+        "view": "View case study",
+        "titleMany": "Case studies.",
+        "number": "Case {no}"
+      },
+      "form": {
+        "callUs": "Or call: +7 (495) 123-45-67",
+        "directionLabel": "Area <small>optional</small>"
+      },
+      "kickers": {
+        "solution": "SOLUTION",
+        "service": "SERVICE",
+        "cases": "CASES",
+        "industries": "SECTORS",
+        "product": "PRODUCT",
+        "industry": "SECTOR"
+      },
+      "links": {
+        "allIndustries": "All industries",
+        "allIndustriesText": "All 12 industry pages."
+      },
+      "estimate": {
+        "flag": "Indicative estimate"
+      },
+      "calc": {
+        "mode": "Shift schedule",
+        "payback": "Payback",
+        "savings": "Annual savings",
+        "fullRoi": "Full ROI breakdown",
+        "formLabel": "Quick cleaning payback estimate",
+        "object": "Site",
+        "area": "Area",
+        "paybackShort": "payback",
+        "months": "≈ {n} mo",
+        "savingsShort": "annual savings",
+        "millions": "≈ RUB {n, number, ::.0}M",
+        "robots": "{n, plural, one {robot for the site} other {robots for the site}}"
+      },
+      "sources": {
+        "labelColon": "Source:"
       }
     }
   },
@@ -3676,7 +3992,7 @@
       "lead": "<b>Professional Robotics Platform</b> is our own development. It manages robots of any type and manufacturer, from cleaners to humanoids, and we write the features you are missing for your task.",
       "trust": {
         "russia": "Developed in Russia",
-        "data": "Data in Russia, data center in Skolkovo",
+        "data": "Data in Russia",
         "makers": "40+ manufacturers, 8 robot types"
       },
       "ctaDemo": "Request a platform demo",
@@ -3768,7 +4084,7 @@
       "title": "How our products differ from a catalog.",
       "platform": {
         "title": "Our own platform",
-        "text": "This is not a vendor license but Professional Robotics’ own Russian development. We connect robots of any brand and write what’s missing. Data stored in Russia, data center in Skolkovo.",
+        "text": "This is not a vendor license but Professional Robotics’ own Russian development. We connect robots of any brand and write what’s missing. Data stored in Russia.",
         "types": "robot types",
         "makers": "manufacturers",
         "window": "control window"
@@ -3814,6 +4130,16 @@
         "productLabel": "Interested in <small>optional</small>"
       }
     }
+  },
+  "notFound": {
+    "meta": {
+      "title": "Page not found | Professional Robotics",
+      "description": "This page doesn’t exist. Go back to the home page or contact us."
+    },
+    "title": "Page not found",
+    "text": "The link may be outdated or the address has a typo. Go back to the home page or write to us and we’ll point you to the right place.",
+    "home": "Home",
+    "contacts": "Contact us"
   },
   "about": {
     "meta": {
@@ -3917,7 +4243,6 @@
       "lead": "The platform and AI agents are our development, the service network is ours. So we answer for how the solution works, not only for delivery.",
       "trust": {
         "data": "Data stored in Russia",
-        "dc": "Data center in Skolkovo",
         "sla": "Work under SLA"
       },
       "platform": {
@@ -4360,7 +4685,7 @@
   "industriesHub": {
     "meta": {
       "title": "Robotics by industry: hotels to farms | Professional Robotics",
-      "description": "Robotics for 11 industries: hotels, retail, offices, healthcare, manufacturing, construction, agriculture. Use cases, equipment and payback for your sector."
+      "description": "Robotics for 12 industries: hotels, retail, offices, healthcare, manufacturing, construction, agriculture. Use cases, equipment and payback for your sector."
     },
     "sections": {
       "hero": "SECTORS",
@@ -4382,7 +4707,7 @@
       }
     },
     "list": {
-      "title": "Eleven industries.",
+      "title": "Twelve industries.",
       "items": {
         "retail": {
           "desc": "Galleries, sales floors and parking: cleaning at night and between shoppers.",
@@ -4424,6 +4749,10 @@
           "desc": "In-plant logistics, repetitive tasks and inspection: start with a pilot.",
           "scenes": "AMR · Manipulators · Inspection"
         },
+        "warehouse": {
+          "desc": "Pallets, order picking and sorting: robots take over moving, people stay on decisions.",
+          "scenes": "AMR · Pallets · Order picking"
+        },
         "construction": {
           "desc": "Demolition, finishing and heavy work where labor is short or the task is dangerous.",
           "scenes": "Demolition · Finishing · Heavy work"
@@ -4458,7 +4787,232 @@
       }
     }
   },
+  "kbCleaning": {
+    "meta": {
+      "title": "Cleaning robot: how it works and which areas it suits | Professional Robotics",
+      "description": "How a cleaning robot works: lidar map, route, obstacle avoidance, water station. How much floor it covers, what is left to people and when it does not fit.",
+      "topic": "Robotic cleaning",
+      "format": "Article",
+      "read": "7\u00a0min read",
+      "updated": "Updated 7 October 2026"
+    },
+    "sections": {
+      "hero": "ARTICLE",
+      "body": "GUIDE",
+      "talk": "CONTACT"
+    },
+    "crumb": "Cleaning robots",
+    "hero": {
+      "title": "Cleaning robot: how it works <span>and which areas it suits.</span>",
+      "lead": "A cleaning robot is an autonomous machine: it builds a map of the premises from lidar and cameras, follows a set route, goes around obstacles on its own and returns to its station. It suits large, open areas with level floors. In tight spaces with steps and cluttered floors it often does not pay off.",
+      "text": "Below, in order: how the robot finds its way, what it does on its own, how much floor it covers on one charge and what to check before buying. The figures come from the datasheet of one model, which we name. Other models differ."
+    },
+    "spec": {
+      "label": "Datasheet figures of the model",
+      "title": "Model datasheet",
+      "model": "Gausium Phantas",
+      "speed": "Practical productivity",
+      "speedVal": "350–700",
+      "speedUnit": "m²/h",
+      "run": "Runtime on one charge, scrubbing",
+      "runVal": "4.5",
+      "runUnit": "h",
+      "charge": "Charging",
+      "chargeVal": "≈ 2",
+      "chargeUnit": "h",
+      "foot": "Manufacturer data, <a>source</a>. We have not re-checked it: in a pilot we measure output at your site."
+    },
+    "toc": {
+      "label": "Article contents",
+      "title": "Contents",
+      "parts": "What a robot is made of",
+      "navigation": "How it finds its way",
+      "split": "What it does, what people do",
+      "area": "Area it covers",
+      "limits": "When it won’t fit",
+      "checklist": "What to check before buying",
+      "faq": "Common questions",
+      "roi": "Calculate payback"
+    },
+    "parts": {
+      "title": "What a robot is made of",
+      "lead": "Four units. Knowing what each one does makes any datasheet easier to read and models easier to compare.",
+      "eyes": {
+        "k": "Sensors",
+        "title": "Lidar and cameras",
+        "text": "In the Phantas these are a 2D lidar, depth cameras and a color camera, plus anti-drop and anti-collision sensors. The lidar measures the distance to walls and items, the cameras spot obstacles, and the sensors act as a backstop if everything else fails."
+      },
+      "brain": {
+        "k": "Mapping",
+        "title": "Map and position",
+        "text": "From the sensor data the software builds a map and keeps track of where the robot is on it (this is called SLAM). Gausium states a positioning accuracy of ±2 cm using lidar."
+      },
+      "tool": {
+        "k": "Working unit",
+        "title": "Brushes, blade, tanks",
+        "text": "Some robots clean dry (sweeping, vacuuming), some clean wet (a water tank and a squeegee), and some do both. The Phantas scrubs, vacuums, sweeps and dust-mops. Clean-water tank 11.5\u00a0L, waste-water tank 10.5\u00a0L, dust bag 6\u00a0L."
+      },
+      "dock": {
+        "k": "Station",
+        "title": "Charge and water",
+        "text": "The station charges the robot and manages the water. The manufacturer adds that it also cleans the squeegee, the suction pipe and the waste-water tank by itself. Without a station, a person does these steps."
+      }
+    },
+    "nav": {
+      "title": "How the robot finds its way",
+      "lead": "No floor markings are needed. The robot navigates by a map it built itself. In this it resembles a warehouse AMR, not an AGV, which needs tape or marks.",
+      "s1": {
+        "title": "Map",
+        "text": "The robot drives around the premises and builds a map. Gausium quotes 30\u00a0minutes for a 2,000\u00a0m² site. Real time depends on the layout and the number of items."
+      },
+      "s2": {
+        "title": "Zones",
+        "text": "In the app the operator edits the map and picks the cleaning zones. A whole floor does not have to be one task."
+      },
+      "s3": {
+        "title": "Route",
+        "text": "The robot plans the path itself: a zigzag or a spiral, as in the Phantas modes. It covers a zone the same way every time, so quality does not depend on who is on shift."
+      },
+      "s4": {
+        "title": "Avoiding obstacles",
+        "text": "While working, the robot checks the map and goes around people and things that are not on it. According to the manufacturer, it avoids cables on the floor but drives over low thresholds."
+      },
+      "s5": {
+        "title": "Station and alerts",
+        "text": "Task done or battery low: back to the station. If there is debris nearby that it cannot pick up, in spot-cleaning mode it sends the operator a message."
+      }
+    },
+    "split": {
+      "title": "What the robot does, what people do",
+      "lead": "A robot does not replace cleaning altogether. It takes the level floor and the repeating routes.",
+      "robot": {
+        "title": "The robot does",
+        "i1": "Level floor in large open areas",
+        "i2": "The same route every time",
+        "i3": "Night and off-peak shifts",
+        "i4": "Avoiding people and items",
+        "i5": "Reports and alerts through the platform"
+      },
+      "people": {
+        "title": "People keep",
+        "i1": "Restrooms",
+        "i2": "Spot cleaning: corners, edges, stains",
+        "i3": "Quality control",
+        "i4": "Large debris and spills",
+        "i5": "Stairs and places the robot cannot reach"
+      },
+      "note": "The right-hand column is an engineering estimate based on the limits of the technology, not manufacturer data. For your site we refine the list during the assessment."
+    },
+    "area": {
+      "title": "Area one robot covers",
+      "lead": "Two quantities set the area: how much the robot cleans per hour and how long it runs without a recharge. We multiply the Phantas datasheet values.",
+      "calcAria": "4.5 hours times 350 to 700 square meters per hour equals roughly 1,600 to 3,100 square meters",
+      "c1": "4.5\u00a0h",
+      "c1l": "scrub mode",
+      "c2": "350–700\u00a0m²/h",
+      "c2l": "in practice",
+      "c3": "≈ 1,600–3,100\u00a0m²",
+      "c3l": "on one charge",
+      "p1": "This is our calculation, not a guarantee: output drops with a tight layout and many obstacles. For a larger site, a recharge during the day, a second shift or several robots help. Charging takes about two hours, so plan the schedule in advance.",
+      "p2": "Where this works in practice: offices and office buildings, shopping malls, warehouses, clinics and hotels. Our <a>payback calculator</a> handles sites from 3,500\u00a0m², warehouses from 10,000\u00a0m². That is the limit of the calculation, not a physical limit of the robot: on a smaller area there is usually too little work for it."
+    },
+    "limits": {
+      "title": "When a robot does not fit",
+      "lead": "Five signs of a site where a cleaning robot most often does not pay off. This is our engineering judgement.",
+      "i1": {
+        "t": "Little work",
+        "d": "A small area or one short shift: the robot sits idle and the savings do not cover the investment."
+      },
+      "i2": {
+        "t": "Cramped",
+        "d": "Narrow aisles and frequent turns eat time, and output falls below the datasheet figure."
+      },
+      "i3": {
+        "t": "Steps and level changes",
+        "d": "Between floors without an elevator the robot has to be carried, and it does not take high thresholds."
+      },
+      "i4": {
+        "t": "Cluttered floor",
+        "d": "Boxes, furniture and pallets in a new place every day: the route breaks and the robot stops."
+      },
+      "i5": {
+        "t": "Large debris and heavy soiling",
+        "d": "People clear it by hand."
+      },
+      "foot": "If your site matches these points, we will say so at the assessment and suggest something else: rental, retrofitting existing equipment, or dropping the project."
+    },
+    "check": {
+      "title": "What to check before buying",
+      "lead": "Six questions to answer before signing a contract.",
+      "i1": {
+        "t": "Area by floor type",
+        "d": "Hard floor and carpet are cleaned by different units; in the datasheet they are different modes with different output."
+      },
+      "i2": {
+        "t": "Is the path level",
+        "d": "Thresholds, elevators, doors that open on their own. One spot where the robot gets stuck breaks the whole route."
+      },
+      "i3": {
+        "t": "When to clean",
+        "d": "At night, during a shift or with people around. The number of shifts and the payback period depend on it."
+      },
+      "i4": {
+        "t": "Station location",
+        "d": "You need a power socket and a place to drain water near the working zone."
+      },
+      "i5": {
+        "t": "Who maintains it",
+        "d": "Service and spare parts in Russia, response and recovery times. With us they are fixed <a>in the SLA</a>."
+      },
+      "i6": {
+        "t": "How payback is counted",
+        "d": "Costs with the robot must include service, consumables and operator time, otherwise the period looks attractive and is wrong."
+      }
+    },
+    "faq": {
+      "title": "Common questions",
+      "markup": {
+        "q": "Are floor markings needed?",
+        "a": "No. The robot builds a map of the premises from lidar and cameras and navigates by it. That is why it can be reconfigured when the layout of a hall changes."
+      },
+      "people": {
+        "q": "Can the robot run while people are in the room?",
+        "a": "Yes, the manufacturer states that it avoids moving obstacles in real time. Night is still more convenient: fewer people in the way and fewer stops."
+      },
+      "staff": {
+        "q": "Will it replace a cleaner?",
+        "a": "Not entirely. The robot takes level floor and repeating routes, and staff move to tasks it does not do: restrooms, spot cleaning, quality control. How many people are freed up we calculate at the assessment."
+      }
+    },
+    "sources": {
+      "title": "Sources",
+      "lead": "The Phantas figures come from the manufacturer; the pages were opened on 7 October 2026. We have not verified them independently.",
+      "specs": "Gausium, Phantas: technical specifications",
+      "specsFor": "(productivity, runtime, tanks, charging, sensors)",
+      "product": "Gausium, Phantas: product page",
+      "productFor": "(path modes, station, obstacle avoidance)",
+      "tech": "Gausium: navigation and sensing",
+      "techFor": "(±2\u00a0cm accuracy, 30\u00a0minutes for 2,000\u00a0m², cables and thresholds, large debris)",
+      "roi": "PROFROBOT payback calculator",
+      "roiFor": "(area limits by site type)",
+      "back": "All knowledge base materials"
+    },
+    "talk": {
+      "title": "Does a robot fit your site?",
+      "lead": "The article explains the principle; an assessment gives the figures for your site: area, thresholds, shifts, payback period. Leave your contacts and an engineer will clarify the task.",
+      "solutions": "Cleaning solutions"
+    }
+  },
   "knowledge": {
+    "crumb": "Knowledge base",
+    "talk": {
+      "roiCta": "Calculate ROI",
+      "form": {
+        "industryLabel": "Your industry <small>optional</small>"
+      },
+      "title": "Need answers for your site? Book an assessment.",
+      "lead": "An article explains the principle; an assessment gives your site’s figures. Leave your details: an engineer will clarify the task and suggest a start."
+    },
     "meta": {
       "title": "Robotics knowledge base | Professional Robotics",
       "description": "Robotics without the marketing: what AMRs and robot rental (RaaS) are, how to calculate payback, how robots differ. Articles, comparisons, common questions."
@@ -4472,7 +5026,6 @@
       "see": "SEE ALSO",
       "talk": "CONTACT"
     },
-    "crumb": "Knowledge base",
     "hero": {
       "title": "Knowledge base: robotics, <span>no marketing.</span>",
       "lead": "What clients ask before a deal: how to calculate payback, how an AMR differs from conventional equipment, what robot rental is and when upgrading old equipment pays off better.",
@@ -4671,6 +5224,7 @@
       "review": "Review"
     },
     "status": {
+      "read": "Read",
       "soon": "Upcoming"
     },
     "empty": {
@@ -4726,14 +5280,6 @@
         "title": "Case studies",
         "text": "Office building · Agribusiness · Warehouse · Manufacturing · Construction",
         "foot": "Task, solution and result"
-      }
-    },
-    "talk": {
-      "title": "Need answers for your site? Book an assessment.",
-      "lead": "An article explains the principle; an assessment gives your site’s figures. Leave your details: an engineer will clarify the task and suggest a start.",
-      "roiCta": "Calculate ROI",
-      "form": {
-        "industryLabel": "Your industry <small>optional</small>"
       }
     }
   },
@@ -4898,7 +5444,7 @@
       "ctaRoi": "Calculate your site’s ROI",
       "trust": {
         "russia": "Developed in Russia",
-        "data": "Data in Russia, data center in Skolkovo",
+        "data": "Data in Russia",
         "makers": "40+ manufacturers, 8 robot types"
       }
     },
@@ -5129,7 +5675,7 @@
       "title": "A Russian platform. Your data stays in Russia.",
       "main": {
         "kicker": "Data storage",
-        "title": "Data center in Skolkovo",
+        "title": "Data in Russia",
         "text": "Data is stored in cloud infrastructure located in Russia. For healthcare and government sites, keeping data in Russia often decides the choice."
       },
       "dev": {
@@ -5223,6 +5769,20 @@
         "connect": "Connecting my robots",
         "custom": "Custom software for my task",
         "api": "Integration with my systems"
+      }
+    }
+  },
+  "legal": {
+    "privacy": {
+      "meta": {
+        "title": "Privacy policy | Professional Robotics",
+        "description": "How Professional Robotics processes and protects the personal data of website visitors (Russian text prevails)."
+      }
+    },
+    "consent": {
+      "meta": {
+        "title": "Consent to personal data processing | Professional Robotics",
+        "description": "The consent a user gives when submitting a form on the website (Russian text prevails)."
       }
     }
   }

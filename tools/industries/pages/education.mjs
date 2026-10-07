@@ -7,8 +7,8 @@
 // Styles: industry-education.css (every selector starts with .ind--education).
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: '/solutions/cleaning/' },
-  humanoid: { label: 'Гуманоидные роботы', href: '/solutions/humanoid/' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  humanoid: { label: 'Гуманоидные роботы', href: 'solutions.html#dir-humanoid' },
 };
 
 // Illustrative bell schedule. Cycles per floor and the gym cycle follow school №281 (АиФ, 17.11.2025);
@@ -94,7 +94,7 @@ const industry = {
     { kicker: 'ПРОДУКТ', title: 'Платформа Профессиональная Робототехника', text: 'Циклы уборки и отчёты в одном окне.', href: 'products.html#platform' },
     { kicker: 'УСЛУГА', title: 'Пилот', text: 'Один этаж, понятные критерии успеха.', href: 'services.html#pilot' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: образование', text: 'Внедрения в школах и вузах.', href: 'cases.html?industry=education' },
-    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
+    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 12 отраслевых страниц.', href: 'industries.html' },
   ],
   sections: ['hero', 'problems', 'bells', 'directions', 'proof', 'economy', 'vendors', 'pilot', 'form', 'see'],
 };

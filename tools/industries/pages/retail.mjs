@@ -12,9 +12,9 @@
 //   economy   — the shared mini calculator markup (industry.js drives it), preset to «ТЦ».
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: '/solutions/cleaning/' },
-  service: { label: 'Сервисные роботы', href: '/solutions/service-robots/' },
-  warehouse: { label: 'Складская роботизация', href: '/solutions/warehouse/' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  service: { label: 'Сервисные роботы', href: 'solutions.html#dir-service-robots' },
+  warehouse: { label: 'Складская роботизация', href: 'solutions.html#dir-warehouse' },
 };
 
 const industry = {
@@ -91,7 +91,7 @@ const industry = {
     { kicker: 'ПРОДУКТ', title: 'Аренда роботов (RaaS)', text: 'Без капзатрат, с обслуживанием.', href: 'products.html#raas' },
     { kicker: 'УСЛУГА', title: 'Пилотный проект', text: 'Одна галерея или один магазин.', href: 'services.html#pilot' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: ритейл', text: 'Внедрения в ТЦ и магазинах.', href: 'cases.html?industry=retail' },
-    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
+    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 12 отраслевых страниц.', href: 'industries.html' },
   ],
   heads: { problems: 'Почему торговле нужен робот.', directions: 'Что роботизируем в ТЦ и магазине.', vendors: 'Оборудование и производители.' },
   secNames: { frequency: 'ЧАСТОТА УБОРКИ', case: 'КЕЙСЫ', economy: 'ЭКОНОМИКА' },

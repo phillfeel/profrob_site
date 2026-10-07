@@ -15,6 +15,7 @@ const SKIP = new Set(['script', 'style', 'noscript', 'template']);
 
 /** Elements whose text or attribute is rewritten by scripts on load. */
 const JS_OWNED = [
+  (el) => hasAttr(el, 'data-i18n-skip'), // legal documents (privacy.html, consent.html): Russian only, the Russian text has legal force
   (el) => hasAttr(el, 'data-count'), // count-up numbers (main.js)
   (el) => hasAttr(el, 'data-out'), // mini calculator results (industry.js)
   (el) => attr(el, 'id') === 'foot-clock' || hasAttr(el, 'data-ps-clock') || hasAttr(el, 'data-ps-now-t') || hasAttr(el, 'data-ready-n'),

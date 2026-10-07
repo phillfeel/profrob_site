@@ -15,9 +15,9 @@ const heroPhoto = (slug) => (existsSync(new URL(`../../../assets/industry_hero/$
   ? `assets/industry_hero/${slug}.webp` : null);
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: '/solutions/cleaning/' },
-  service: { label: 'Сервисные роботы', href: '/solutions/service-robots/' },
-  humanoid: { label: 'Гуманоидные роботы', href: '/solutions/humanoid/' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  service: { label: 'Сервисные роботы', href: 'solutions.html#dir-service-robots' },
+  humanoid: { label: 'Гуманоидные роботы', href: 'solutions.html#dir-humanoid' },
 };
 
 // Hero «building section»: top to bottom. Elevation marks are illustrative (a typical office tower), not a real object.
@@ -113,7 +113,7 @@ const industry = {
     { kicker: 'РЕШЕНИЕ', title: 'Сервисные роботы', text: 'Доставка по этажам и встреча гостей.', href: SOL.service.href },
     { kicker: 'ПРОДУКТ', title: 'Платформа Профессиональная Робототехника', text: 'Задания, контроль и отчёты по уборке в одном окне.', href: 'products.html#platform' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: бизнес-центры', text: 'Внедрения в офисных зданиях.', href: 'cases.html?industry=business-centers' },
-    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
+    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 12 отраслевых страниц.', href: 'industries.html' },
   ],
   sections: ['hero', 'problems', 'directions', 'ready', 'case', 'economy', 'vendors', 'why', 'form', 'see'],
 };

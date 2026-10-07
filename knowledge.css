@@ -108,6 +108,17 @@
   border: 1px dashed var(--line-strong); font-size: 11px; letter-spacing: .04em; color: var(--ink-muted); white-space: nowrap;
 }
 .kb-item__st::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--lime-ink); box-shadow: 0 0 0 3px var(--lime-soft); animation: kb-pulse 2.4s var(--ease) infinite; }
+/* Опубликованный материал: заголовок — растянутая ссылка на всю строку, вместо статуса «Читать» */
+.kb-item--live { position: relative; transition: background var(--fast) var(--ease); }
+.kb-item__go::after { content: ""; position: absolute; inset: 0; }
+.kb-item__go:focus-visible { outline: none; box-shadow: none; }
+.kb-item--live:has(.kb-item__go:focus-visible) { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: var(--r-sm); }
+.kb-item__st--go { border: 0; background: var(--lime); color: var(--ink); font-weight: 500; transition: box-shadow var(--base) var(--ease); }
+.kb-item__st--go::before { display: none; }
+.kb-item__st--go svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform var(--fast) var(--ease); }
+.kb-item--live:hover h3 { color: var(--accent-ink); }
+.kb-item--live:hover .kb-item__st--go { box-shadow: var(--shadow-md); }
+.kb-item--live:hover .kb-item__st--go svg { transform: translateX(3px); }
 @keyframes kb-pulse { 50% { box-shadow: 0 0 0 6px transparent; } }
 .anim-off .kb-item__st::before { animation-play-state: paused; }
 

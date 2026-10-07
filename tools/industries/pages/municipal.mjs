@@ -25,8 +25,8 @@ const SRC = {
 };
 
 const SOL = {
-  cleaning: { label: 'Роботизированный клининг', href: '/solutions/cleaning/' },
-  agro: { label: 'Агророботы и уход за территорией', href: '/solutions/agro/' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  agro: { label: 'Агророботы и уход за территорией', href: 'solutions.html#dir-agro' },
 };
 
 const industry = {
@@ -112,7 +112,7 @@ const industry = {
     { kicker: 'УСЛУГА', title: 'Аудит территории', text: 'Покрытия, маршруты, модель закупки.', href: 'services.html#audit' },
     { kicker: 'УСЛУГА', title: 'Пилот', text: 'Одна аллея или паркинг — до решения о закупке.', href: 'services.html#pilot' },
     { kicker: 'КЕЙСЫ', title: 'Кейсы: муниципальные службы', text: 'Внедрения на городских территориях.', href: 'cases.html?industry=municipal' },
-    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' },
+    { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 12 отраслевых страниц.', href: 'industries.html' },
   ],
   sections: ['hero', 'problems', 'directions', 'procurement', 'pilot', 'vendors', 'why', 'form', 'see'],
 };

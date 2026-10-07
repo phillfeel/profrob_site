@@ -43,18 +43,18 @@ export const BRANDS = {
 };
 
 const SOL = {
-  service: { label: 'Сервисные роботы', href: '/solutions/service-robots/' },
-  cleaning: { label: 'Роботизированный клининг', href: '/solutions/cleaning/' },
-  humanoid: { label: 'Гуманоидные роботы', href: '/solutions/humanoid/' },
-  construction: { label: 'Строительная робототехника', href: '/solutions/construction/' },
-  medical: { label: 'Медицинская робототехника', href: '/solutions/medical/' },
-  industrial: { label: 'Промышленная роботизация', href: '/solutions/industrial/' },
-  warehouse: { label: 'Складская роботизация', href: '/solutions/warehouse/' },
-  security: { label: 'Роботы безопасности', href: '/solutions/security/' },
-  agro: { label: 'Агророботы', href: '/solutions/agro/' },
+  service: { label: 'Сервисные роботы', href: 'solutions.html#dir-service-robots' },
+  cleaning: { label: 'Роботизированный клининг', href: 'solutions.html#dir-cleaning' },
+  humanoid: { label: 'Гуманоидные роботы', href: 'solutions.html#dir-humanoid' },
+  construction: { label: 'Строительная робототехника', href: 'solutions.html#dir-construction' },
+  medical: { label: 'Медицинская робототехника', href: 'solutions.html#dir-medical' },
+  industrial: { label: 'Промышленная роботизация', href: 'solutions.html#dir-industrial' },
+  warehouse: { label: 'Складская роботизация', href: 'solutions.html#dir-warehouse' },
+  security: { label: 'Роботы безопасности', href: 'solutions.html#dir-security' },
+  agro: { label: 'Агророботы', href: 'solutions.html#dir-agro' },
 };
 
-const ALL_INDUSTRIES = { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 11 отраслевых страниц.', href: '/industries/' };
+const ALL_INDUSTRIES = { kicker: 'ОТРАСЛИ', title: 'Все отрасли', text: 'Все 12 отраслевых страниц.', href: 'industries.html' };
 
 export const INDUSTRIES = [
   // ───────────────────────────── 1. Отели и HoReCa ─────────────────────────────

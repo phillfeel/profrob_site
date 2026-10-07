@@ -153,5 +153,6 @@
   "knowledge.talk.title": "Need answers for your site? Book an assessment.",
   "knowledge.talk.lead": "An article explains the principle; an assessment gives your site’s figures. Leave your details: an engineer will clarify the task and suggest a start.",
   "knowledge.talk.roiCta": "Calculate ROI",
-  "knowledge.talk.form.industryLabel": "Your industry <small>optional</small>"
+  "knowledge.talk.form.industryLabel": "Your industry <small>optional</small>",
+  "knowledge.status.read": "Read"
 }

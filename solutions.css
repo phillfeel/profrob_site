@@ -56,8 +56,11 @@
   background: var(--surface-raised); box-shadow: var(--shadow-sm);
   transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
 }
-.dir:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.dir:hover .go-arrow { background: var(--accent); color: #fff; }
+a.dir:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+a.dir:hover .go-arrow { background: var(--accent); color: #fff; }
+/* Карточки направлений пока без страниц-решений: pills и ссылки с других страниц ведут сюда по #dir-<slug> */
+.dir { scroll-margin-top: 112px; }
+.dir:target { box-shadow: 0 0 0 2px var(--accent), var(--shadow-md); }
 .dir__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .dir__no { font-family: var(--mono); font-size: 13px; color: var(--ink-muted); }
 .dir__art { position: absolute; pointer-events: none; }

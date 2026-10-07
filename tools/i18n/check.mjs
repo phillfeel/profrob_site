@@ -246,5 +246,5 @@ test('14. every page has the switcher and the boot; no links to language variant
 });
 
 test('pages found', async () => {
-  assert.equal((await listPages()).length, 23);
+  assert.equal((await listPages()).length, 28);
 });

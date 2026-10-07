@@ -31,7 +31,7 @@
 | Сценарии между роботами | Multi-robot workflows | Отвергнуто: *scenarios between robots* (калька). |
 | Аналитика и SLA | Analytics and SLA | |
 | Сценарий «Гость» · v1.3 | "Guest" workflow · v1.3 | Элемент макета диспетчерской. |
-| Своя разработка · данные хранятся в РФ · дата-центр в Сколково | In-house development · data stored in Russia · data center in Skolkovo | См. риски (`style-guide.md`, §10, R5). |
+| Своя разработка · данные хранятся в РФ | In-house development · data stored in Russia | См. риски (`style-guide.md`, §10, R5). |
 
 ## 2. Решения (9 направлений), услуги, модели работы
 
@@ -143,13 +143,13 @@
 
 ## 4. Отрасли (11 страниц + главная)
 
-На главной 12 строк, отраслевых страниц 11 («Склады и логистика» ведёт на страницу производства). Названия на главной и на самих страницах расходятся («Медицинские объекты» / «Медицина и велнес», «Агро и фермерские хозяйства» / «Сельское хозяйство»). В EN одна пара *полное название / короткая метка* на отрасль.
+На главной 12 строк, отраслевых страниц 12. Названия на главной и на самих страницах расходятся («Медицинские объекты» / «Медицина и велнес», «Агро и фермерские хозяйства» / «Сельское хозяйство»). В EN одна пара *полное название / короткая метка* на отрасль.
 
 | Slug | RU (главная / страница) | Утверждённый EN: полное · короткое | Заметки |
 |---|---|---|---|
 | business-centers | Бизнес-центры и офисы | **Office buildings** · Offices | Отвергнуто: *Business centers*. Это русизм; в EN *business center* — комната с принтером в отеле. «БЦ класса А» → *Class A office building*. |
 | retail | Торговые центры и ритейл | **Shopping centers and retail** · Retail | *mall* допустимо в тексте; «ТРЦ» → *shopping and entertainment center*. |
-| (warehouse) | Склады и логистика | **Warehousing and logistics** · Logistics | Своей страницы нет. |
+| (warehouse) | Склады и логистика | **Warehousing and logistics** · Logistics | Своя страница `industries-warehouse.html`. |
 | hotels | Отели и HoReCa | **Hotels and hospitality** · Hotels | HoReCa понятна в Европе, в США почти нет. Оставить в списках аудитории: *hotels, restaurants, cafés (HoReCa)*. |
 | medical-wellness | Медицинские объекты / Медицина и велнес | **Healthcare and wellness** · Healthcare | См. «Healthcare robotics» в §2. |
 | construction | Строительство и девелопмент / Строительство | **Construction and development** · Construction | |
@@ -159,7 +159,7 @@
 | agriculture | Агро и фермерские хозяйства / Сельское хозяйство | **Agriculture and farming** · Agriculture | |
 | education | Образовательные учреждения | **Education** · Education | H1 страницы уже называет школы, колледжи и вузы. |
 | fitness-sports | Фитнес-клубы и спорткомплексы | **Fitness clubs and sports facilities** · Fitness & sports | |
-| — | Отрасли (раздел) / Все отрасли | Industries / All industries | «Все 11 отраслевых страниц» → *All 11 industry pages*. |
+| — | Отрасли (раздел) / Все отрасли | Industries / All industries | «Все 12 отраслевых страниц» → *All 12 industry pages*. |
 
 ## 5. Экономика, финансы, калькулятор
 

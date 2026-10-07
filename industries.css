@@ -13,6 +13,20 @@
 }
 .ic--feature { grid-column: span 6; grid-row: span 2; }
 .ic--third { grid-column: span 4; }
+.ic--wide { grid-column: span 12; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ic--wide .ic__ph { aspect-ratio: auto; min-height: 240px; }
+.ic--wide .ic__ph::after { background: linear-gradient(to right, transparent 45%, var(--stage) 100%); }
+.ic--wide .ic__body { align-content: end; padding: 28px 96px 32px 32px; gap: 12px; }
+.ic--wide h3 { font-size: clamp(26px, 2.6vw, 36px); letter-spacing: -.03em; line-height: 1.06; }
+.ic--wide .go-arrow { right: 28px; bottom: 28px; }
+
+/* План склада вместо фото: тёмная сцена с роботами-точками */
+.ic--plan .ic__ph { background: var(--stage); }
+.ic__plan { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ic__plan rect { fill: var(--stage-raised); stroke: var(--stage-line); stroke-width: 1.5; }
+.ic__plan .ic__plan-wall { fill: none; }
+.ic__plan-rack { fill: none; stroke: var(--stage-line); stroke-width: 6; stroke-linecap: round; }
+.ic__plan circle { fill: var(--lime); filter: drop-shadow(0 0 4px rgba(200,255,60,.8)); }
 .ic:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .ic:hover .go-arrow { background: var(--accent); color: #fff; }
 .ic:focus-visible { border-radius: var(--r-lg); }
@@ -68,6 +82,7 @@
   /* Ритейл на всю ширину (фото слева, текст справа), остальные по две в ряд */
   .ib { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ic, .ic--third, .ic--feature { grid-column: auto; grid-row: auto; }
+  .ic--wide { grid-column: 1 / -1; }
   .ic--feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
   .ic--feature .ic__ph { min-height: 360px; }
   .ic--feature .ic__body { align-content: end; }
@@ -77,9 +92,10 @@
 }
 @media (max-width: 767px) {
   .ib { grid-template-columns: 1fr; gap: 12px; }
-  .ic--feature { display: flex; }
-  .ic__ph, .ic--feature .ic__ph { aspect-ratio: 16 / 9; flex: none; min-height: 0; }
-  .ic__body, .ic--feature .ic__body { padding: 18px 76px 20px 20px; }
+  .ic--feature, .ic--wide { display: flex; }
+  .ic__ph, .ic--feature .ic__ph, .ic--wide .ic__ph { aspect-ratio: 16 / 9; flex: none; min-height: 0; }
+  .ic--wide .ic__ph::after { background: linear-gradient(to bottom, transparent 45%, var(--stage) 100%); }
+  .ic__body, .ic--feature .ic__body, .ic--wide .ic__body { padding: 18px 76px 20px 20px; }
   .ic--feature h3 { font-size: 26px; }
   .ic--feature p { font-size: 15px; }
   .ic .go-arrow, .ic--feature .go-arrow { right: 16px; bottom: 16px; }

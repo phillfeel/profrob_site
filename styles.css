@@ -807,6 +807,8 @@ html:not(.js) .stk-sys .stk-node::after, .stk.is-live .stk-sys .stk-node::after 
 .foot-mail:hover { color: var(--on-stage); border-color: var(--on-stage-muted); }
 
 .foot-grid { display: grid; grid-template-columns: repeat(3, 1fr) 1.3fr; gap: 32px; }
+/* Inner pages: same site map as the home footer plus industries and solutions (tools/site/footer-nav.mjs) */
+.foot-grid--site { grid-template-columns: repeat(4, 1fr); padding-top: 40px; border-top: 1px solid var(--stage-line); }
 .foot-col { display: grid; gap: 12px; align-content: start; font-size: 15px; }
 .foot-col h3 { font-weight: 500; margin-bottom: 8px; }
 .foot-col h3 b { color: var(--accent-ink-dark); font-weight: 500; margin-right: 6px; }

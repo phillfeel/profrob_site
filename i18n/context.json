@@ -29,62 +29,62 @@
     },
     "common.nav.label": {
       "role": "aria",
-      "where": "23 pages"
+      "where": "28 pages"
     },
     "common.brand.homeLabel": {
       "role": "aria",
-      "where": "23 pages"
+      "where": "28 pages"
     },
     "common.brand.logoAlt": {
       "role": "alt",
-      "where": "23 pages"
+      "where": "28 pages"
     },
     "common.brand.logoSrc": {
       "role": "attr",
-      "where": "12 pages"
+      "where": "16 pages"
     },
     "common.nav.solutions": {
       "role": "nav",
-      "where": "23 pages",
+      "where": "28 pages",
       "note": "Header and footer link to the page «Solutions» (the nine robotics areas). A navigation label, not a section title."
     },
     "common.nav.industries": {
       "role": "nav",
-      "where": "23 pages",
-      "note": "Navigation link to the industries block of the home page. The breadcrumb link (common.crumbs.industries) and the card title on the solutions page are separate keys on purpose."
+      "where": "28 pages",
+      "note": "Navigation link to the page «Industries» (industries.html, the list of all industry pages). The breadcrumb link (common.crumbs.industries) and the card title on the solutions page are separate keys on purpose."
     },
     "common.nav.products": {
       "role": "nav",
-      "where": "23 pages",
+      "where": "28 pages",
       "note": "Navigation link to the page «Products» (own products and ways to work: platform, rental, retrofit). A navigation label, not the footer link common.footer.nav.products."
     },
     "common.nav.services": {
       "role": "nav",
-      "where": "23 pages",
+      "where": "28 pages",
       "note": "Navigation link to the page «Services» (the full deployment cycle: assessment, deployment, SLA-backed service). A navigation label, not the footer link common.footer.nav.services."
     },
     "common.nav.platform": {
       "role": "nav",
-      "where": "23 pages",
+      "where": "28 pages",
       "note": "Navigation link to the block that explains the platform (header and footer)."
     },
     "common.nav.cases": {
       "role": "nav",
-      "where": "23 pages",
+      "where": "28 pages",
       "note": "Navigation link to the page «Case studies» (cases.html). Not the same as the capital-letter section labels «КЕЙСЫ» (home.sections.cases, cases.sections.hero, industries.common.sections.cases) or the link-card tag industries.common.kickers.cases."
     },
     "common.nav.contacts": {
       "role": "nav",
-      "where": "23 pages",
+      "where": "28 pages",
       "note": "Navigation link to the contact block (header and footer). Compare common.cta.contact (the header button) and common.footer.nav.contact (a footer column)."
     },
     "common.lang.label": {
       "role": "aria",
-      "where": "23 pages"
+      "where": "28 pages"
     },
     "common.cta.contact": {
       "role": "button",
-      "where": "23 pages",
+      "where": "28 pages",
       "note": "Header button that scrolls to the contact form. A call to action, verb first. Not the nav link common.nav.contacts and not a form submit button."
     },
     "home.sections.hero": {
@@ -1019,27 +1019,27 @@
     },
     "home.industries.items.businessCenters": {
       "role": "short",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "home.industries.items.retail": {
       "role": "short",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "home.industries.items.logistics.name": {
       "role": "short",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "home.industries.items.hotels": {
       "role": "short",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "home.industries.items.medical": {
       "role": "short",
-      "where": "4 pages"
+      "where": "5 pages"
     },
     "home.industries.items.construction.name": {
       "role": "short",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "home.industries.items.construction.seo": {
       "role": "short",
@@ -1047,19 +1047,19 @@
     },
     "home.industries.items.manufacturing": {
       "role": "short",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "home.industries.items.publicSpaces": {
       "role": "short",
-      "where": "4 pages"
+      "where": "5 pages"
     },
     "home.industries.items.municipal": {
       "role": "short",
-      "where": "4 pages"
+      "where": "5 pages"
     },
     "home.industries.items.agriculture.name": {
       "role": "short",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "home.industries.items.agriculture.seo": {
       "role": "short",
@@ -1067,11 +1067,11 @@
     },
     "home.industries.items.education": {
       "role": "short",
-      "where": "4 pages"
+      "where": "5 pages"
     },
     "home.industries.items.fitness": {
       "role": "short",
-      "where": "4 pages"
+      "where": "5 pages"
     },
     "home.sections.why": {
       "role": "section-label",
@@ -1208,55 +1208,55 @@
     },
     "common.brand.logoInverseSrc": {
       "role": "attr",
-      "where": "12 pages"
+      "where": "16 pages"
     },
     "common.footer.about": {
       "role": "paragraph",
-      "where": "23 pages"
+      "where": "28 pages"
     },
     "common.footer.dept": {
       "role": "short",
-      "where": "23 pages"
+      "where": "28 pages"
     },
     "common.footer.nav.sections": {
       "role": "heading",
-      "where": "home footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "where": "28 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.products": {
       "role": "nav",
-      "where": "home footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "where": "28 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.services": {
       "role": "nav",
-      "where": "home footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "where": "28 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.company": {
       "role": "heading",
-      "where": "home footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "where": "28 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.knowledge": {
       "role": "nav",
-      "where": "home footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "where": "28 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.about": {
       "role": "nav",
-      "where": "home footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "where": "28 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.makers": {
       "role": "nav",
-      "where": "home footer, knowledge footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "where": "28 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.nav.contact": {
       "role": "heading",
       "where": "home footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.location": {
       "role": "short",
@@ -1265,7 +1265,7 @@
     "common.footer.nav.status": {
       "role": "heading",
       "where": "home footer",
-      "note": "Footer link. The target pages do not exist yet (placeholder links)."
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.status.online": {
       "role": "short",
@@ -1295,11 +1295,11 @@
     },
     "common.footer.rights": {
       "role": "short",
-      "where": "23 pages"
+      "where": "28 pages"
     },
     "common.footer.privacy": {
       "role": "link",
-      "where": "23 pages"
+      "where": "28 pages"
     },
     "common.footer.requisites": {
       "role": "link",
@@ -1364,7 +1364,7 @@
     },
     "common.solutionNames.cleaning": {
       "role": "heading",
-      "where": "11 pages"
+      "where": "27 pages"
     },
     "solutions.directions.items.cleaning.badge": {
       "role": "tag",
@@ -1376,7 +1376,7 @@
     },
     "common.solutionNames.warehouse": {
       "role": "heading",
-      "where": "4 pages"
+      "where": "27 pages"
     },
     "solutions.directions.items.warehouse.text": {
       "role": "paragraph",
@@ -1384,7 +1384,7 @@
     },
     "common.solutionNames.service": {
       "role": "heading",
-      "where": "6 pages"
+      "where": "27 pages"
     },
     "solutions.directions.items.service.text": {
       "role": "paragraph",
@@ -1392,7 +1392,7 @@
     },
     "common.solutionNames.industrial": {
       "role": "heading",
-      "where": "4 pages"
+      "where": "27 pages"
     },
     "solutions.directions.items.industrial.text": {
       "role": "paragraph",
@@ -1400,7 +1400,7 @@
     },
     "common.solutionNames.medical": {
       "role": "heading",
-      "where": "solutions #directions, medical-wellness #directions, knowledge #directions"
+      "where": "27 pages"
     },
     "solutions.directions.items.medical.text": {
       "role": "paragraph",
@@ -1408,7 +1408,7 @@
     },
     "common.solutionNames.construction": {
       "role": "heading",
-      "where": "4 pages"
+      "where": "27 pages"
     },
     "solutions.directions.items.construction.text": {
       "role": "paragraph",
@@ -1416,7 +1416,7 @@
     },
     "common.solutionNames.agro": {
       "role": "heading",
-      "where": "4 pages"
+      "where": "27 pages"
     },
     "solutions.directions.items.agro.text": {
       "role": "paragraph",
@@ -1424,7 +1424,7 @@
     },
     "common.solutionNames.security": {
       "role": "heading",
-      "where": "solutions #directions, manufacturing #directions, public-spaces #directions"
+      "where": "27 pages"
     },
     "solutions.directions.items.security.text": {
       "role": "paragraph",
@@ -1432,7 +1432,7 @@
     },
     "common.solutionNames.humanoid": {
       "role": "heading",
-      "where": "4 pages"
+      "where": "27 pages"
     },
     "solutions.directions.items.humanoid.text": {
       "role": "paragraph",
@@ -1601,12 +1601,12 @@
     },
     "common.form.name": {
       "role": "label",
-      "where": "21 pages",
+      "where": "23 pages",
       "note": "Label of the name field in the contact form."
     },
     "common.form.phone": {
       "role": "label",
-      "where": "21 pages",
+      "where": "23 pages",
       "note": "Label of the phone field in the contact form."
     },
     "solutions.talk.form.directionLabel": {
@@ -1617,35 +1617,110 @@
     },
     "common.form.directionUnknown": {
       "role": "option",
-      "where": "20 pages",
+      "where": "22 pages",
       "note": "First, empty option of the drop-down list (the visitor has not decided yet)."
     },
     "common.form.honeypot": {
       "role": "short",
-      "where": "21 pages"
+      "where": "23 pages"
     },
     "common.form.consent": {
       "role": "short",
-      "where": "21 pages",
+      "where": "23 pages",
       "variables": "tags: <a>…</a>",
       "note": "Consent checkbox text with a link to the privacy policy (the <a> stays). Legal text: the EN version comes from the company's lawyer (see style-guide R4)."
     },
     "solutions.talk.form.submit": {
       "role": "button",
-      "where": "9 pages",
+      "where": "10 pages",
       "note": "Submit button of the contact form. Says what happens next (a call is ordered), not «Submit»."
     },
     "common.form.sentTitle": {
       "role": "short",
-      "where": "21 pages"
+      "where": "23 pages"
     },
     "common.form.sentText": {
       "role": "paragraph",
-      "where": "20 pages"
+      "where": "22 pages"
+    },
+    "industries.retail.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.businessCenters.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.hotels.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.publicSpaces.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.medicalWellness.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.education.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.fitnessSports.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.municipal.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.warehouse.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.manufacturing.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.construction.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "industries.agriculture.name": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period."
+    },
+    "common.footer.nav.roi": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
+    },
+    "common.footer.nav.quote": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
+    },
+    "common.footer.nav.pilot": {
+      "role": "nav",
+      "where": "27 pages",
+      "note": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical."
     },
     "common.footer.backHome": {
       "role": "short",
-      "where": "11 pages"
+      "where": "15 pages"
     },
     "products.meta.title": {
       "role": "meta",
@@ -1662,12 +1737,12 @@
     },
     "common.crumbs.label": {
       "role": "aria",
-      "where": "20 pages",
+      "where": "22 pages",
       "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
     },
     "common.crumbs.home": {
       "role": "link",
-      "where": "20 pages",
+      "where": "22 pages",
       "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
     },
     "products.crumb": {
@@ -2668,6 +2743,33 @@
       "role": "paragraph",
       "where": "roi #lead"
     },
+    "notFound.meta.title": {
+      "role": "meta",
+      "where": "404 head"
+    },
+    "notFound.meta.description": {
+      "role": "meta",
+      "where": "404 head"
+    },
+    "notFound.title": {
+      "role": "h1",
+      "where": "404 #section",
+      "note": "Headline (H1) of the 404 page: a short statement that the page does not exist, no period."
+    },
+    "notFound.text": {
+      "role": "paragraph",
+      "where": "404 #section"
+    },
+    "notFound.home": {
+      "role": "button",
+      "where": "404 #section",
+      "note": "Button on the 404 page: leads to the home page (index.html)."
+    },
+    "notFound.contacts": {
+      "role": "button",
+      "where": "404 #section",
+      "note": "Button on the 404 page: leads to the Contacts page (contacts.html); a call to write to us, not a navigation label."
+    },
     "about.meta.title": {
       "role": "meta",
       "where": "about head"
@@ -2926,10 +3028,6 @@
       "where": "about #own"
     },
     "about.own.trust.data": {
-      "role": "short",
-      "where": "about #own"
-    },
-    "about.own.trust.dc": {
       "role": "short",
       "where": "about #own"
     },
@@ -3549,6 +3647,14 @@
       "variables": "tags: <small>…</small>",
       "note": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Compare services.talk.form.serviceLabel."
     },
+    "legal.consent.meta.title": {
+      "role": "meta",
+      "where": "consent head"
+    },
+    "legal.consent.meta.description": {
+      "role": "meta",
+      "where": "consent head"
+    },
     "contacts.meta.title": {
       "role": "meta",
       "where": "contacts head"
@@ -3647,7 +3753,7 @@
     },
     "common.linkNames.audit": {
       "role": "option",
-      "where": "7 pages",
+      "where": "8 pages",
       "note": "Name of the service «Аудит объекта» (a site assessment, not a financial audit; glossary). Shown as a link name, as an option in the drop-down lists of the forms (services, contact) and in the footer link lists: keep one short wording."
     },
     "contacts.form.intent.consult": {
@@ -3804,12 +3910,8 @@
     },
     "common.crumbs.industries": {
       "role": "link",
-      "where": "12 pages",
+      "where": "13 pages",
       "note": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>."
-    },
-    "industries.agriculture.name": {
-      "role": "short",
-      "where": "agriculture #СЕЛЬСКОЕ ХОЗЯЙСТВО, industries #СЕЛЬСКОЕ ХОЗЯЙСТВО"
     },
     "industries.agriculture.h1.items.0": {
       "role": "h1",
@@ -3840,7 +3942,7 @@
     },
     "industries.common.hero.audience": {
       "role": "tag",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "industries.agriculture.audiences.items.0": {
       "role": "short",
@@ -3951,7 +4053,7 @@
     },
     "industries.common.sections.problems": {
       "role": "section-label",
-      "where": "11 pages",
+      "where": "12 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.agriculture.heads.problems": {
@@ -3992,7 +4094,7 @@
     },
     "industries.common.sections.directions": {
       "role": "section-label",
-      "where": "11 pages",
+      "where": "12 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.common.heads.directions": {
@@ -4017,7 +4119,7 @@
     },
     "industries.common.directions.solution": {
       "role": "short",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "industries.agriculture.directions.items.1.text": {
       "role": "paragraph",
@@ -4111,7 +4213,7 @@
     },
     "industries.common.sections.vendors": {
       "role": "section-label",
-      "where": "11 pages",
+      "where": "12 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.common.heads.vendors": {
@@ -4132,7 +4234,7 @@
     },
     "industries.common.sections.pilot": {
       "role": "section-label",
-      "where": "6 pages",
+      "where": "7 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.agriculture.heads.pilot": {
@@ -4165,7 +4267,7 @@
     },
     "industries.common.sections.why": {
       "role": "section-label",
-      "where": "10 pages",
+      "where": "11 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.agriculture.why.title": {
@@ -4182,7 +4284,7 @@
     },
     "industries.common.sections.form": {
       "role": "section-label",
-      "where": "11 pages",
+      "where": "12 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.agriculture.form.title": {
@@ -4195,11 +4297,11 @@
     },
     "industries.common.form.callUs": {
       "role": "link",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "industries.common.form.directionLabel": {
       "role": "label",
-      "where": "11 pages",
+      "where": "12 pages",
       "variables": "tags: <small>…</small>",
       "note": "Label of the drop-down list with the page's directions; <small> holds «optional»."
     },
@@ -4210,16 +4312,16 @@
     },
     "industries.common.sections.see": {
       "role": "section-label",
-      "where": "11 pages",
+      "where": "12 pages",
       "note": "Small capital-letter label of a section of the industry pages (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU. «КЕЙС» (one case) and «КЕЙСЫ» (several) are separate keys."
     },
     "industries.common.heads.see": {
       "role": "heading",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "industries.common.kickers.solution": {
       "role": "short",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "industries.agriculture.links.items.0.text": {
       "role": "paragraph",
@@ -4227,7 +4329,7 @@
     },
     "industries.common.kickers.service": {
       "role": "short",
-      "where": "8 pages"
+      "where": "9 pages"
     },
     "common.linkNames.selection": {
       "role": "heading",
@@ -4255,19 +4357,19 @@
     },
     "industries.common.kickers.industries": {
       "role": "short",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "industries.common.links.allIndustries": {
       "role": "heading",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "industries.common.links.allIndustriesText": {
       "role": "paragraph",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "common.footer.allIndustries": {
       "role": "short",
-      "where": "11 pages"
+      "where": "12 pages"
     },
     "industries.businessCenters.title": {
       "role": "meta",
@@ -4281,10 +4383,6 @@
       "role": "section-label",
       "where": "business-centers page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
-    },
-    "industries.businessCenters.name": {
-      "role": "short",
-      "where": "business-centers #БИЗНЕС-ЦЕНТРЫ И ОФИСЫ, industries #БИЗНЕС-ЦЕНТРЫ И ОФИСЫ"
     },
     "industries.businessCenters.h1.items.0": {
       "role": "h1",
@@ -4827,7 +4925,7 @@
     },
     "common.linkNames.raas": {
       "role": "short",
-      "where": "8 pages"
+      "where": "9 pages"
     },
     "industries.businessCenters.form.title": {
       "role": "heading",
@@ -4848,7 +4946,7 @@
     },
     "common.linkNames.pilotProject": {
       "role": "heading",
-      "where": "5 pages"
+      "where": "6 pages"
     },
     "industries.businessCenters.links.items.1.text": {
       "role": "paragraph",
@@ -4864,7 +4962,7 @@
     },
     "industries.common.kickers.product": {
       "role": "short",
-      "where": "8 pages"
+      "where": "9 pages"
     },
     "industries.businessCenters.links.items.4.title": {
       "role": "heading",
@@ -4894,10 +4992,6 @@
       "role": "section-label",
       "where": "construction page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
-    },
-    "industries.construction.name": {
-      "role": "short",
-      "where": "construction #СТРОИТЕЛЬСТВО, industries #СТРОИТЕЛЬСТВО"
     },
     "industries.construction.h1.items.0": {
       "role": "h1",
@@ -5188,10 +5282,6 @@
       "role": "section-label",
       "where": "education page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
-    },
-    "industries.education.name": {
-      "role": "short",
-      "where": "education #ОБРАЗОВАТЕЛЬНЫЕ УЧРЕЖДЕНИЯ, industries #ОБРАЗОВАТЕЛЬНЫЕ УЧРЕЖДЕНИЯ"
     },
     "industries.education.h1.items.0": {
       "role": "h1",
@@ -5813,10 +5903,6 @@
       "where": "fitness-sports page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
     },
-    "industries.fitnessSports.name": {
-      "role": "short",
-      "where": "fitness-sports #ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ, industries #ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ"
-    },
     "industries.fitnessSports.h1.items.0": {
       "role": "h1",
       "where": "fitness-sports #ФИТНЕС-КЛУБЫ И СПОРТКОМПЛЕКСЫ",
@@ -6323,10 +6409,6 @@
       "where": "hotels page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
     },
-    "industries.hotels.name": {
-      "role": "short",
-      "where": "hotels #ОТЕЛИ И HORECA, industries #ОТЕЛИ И HORECA"
-    },
     "industries.hotels.h1.items.0": {
       "role": "h1",
       "where": "hotels #ОТЕЛИ И HORECA",
@@ -6698,10 +6780,6 @@
       "role": "alt",
       "where": "manufacturing #ПРОМЫШЛЕННОСТЬ И ПРОИЗВОДСТВО"
     },
-    "industries.manufacturing.name": {
-      "role": "short",
-      "where": "manufacturing #ПРОМЫШЛЕННОСТЬ И ПРОИЗВОДСТВО, industries #ПРОМЫШЛЕННОСТЬ И ПРОИЗВОДСТВО"
-    },
     "industries.manufacturing.h1.items.0": {
       "role": "h1",
       "where": "manufacturing #ПРОМЫШЛЕННОСТЬ И ПРОИЗВОДСТВО",
@@ -7032,10 +7110,6 @@
       "where": "medical-wellness page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
     },
-    "industries.medicalWellness.name": {
-      "role": "short",
-      "where": "medical-wellness #МЕДИЦИНА И ВЕЛНЕС, industries #МЕДИЦИНА И ВЕЛНЕС"
-    },
     "industries.medicalWellness.h1.items.0": {
       "role": "h1",
       "where": "medical-wellness #МЕДИЦИНА И ВЕЛНЕС",
@@ -7365,10 +7439,6 @@
       "role": "section-label",
       "where": "municipal page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
-    },
-    "industries.municipal.name": {
-      "role": "short",
-      "where": "municipal #МУНИЦИПАЛЬНЫЕ СЛУЖБЫ, public-spaces #МУНИЦИПАЛЬНЫЕ СЛУЖБЫ, industries #МУНИЦИПАЛЬНЫЕ СЛУЖБЫ"
     },
     "industries.municipal.h1.items.0": {
       "role": "h1",
@@ -7918,10 +7988,6 @@
       "where": "public-spaces page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
     },
-    "industries.publicSpaces.name": {
-      "role": "short",
-      "where": "public-spaces #ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА, industries #ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА"
-    },
     "industries.publicSpaces.h1.items.0": {
       "role": "h1",
       "where": "public-spaces #ОБЩЕСТВЕННЫЕ ПРОСТРАНСТВА",
@@ -8430,10 +8496,6 @@
       "where": "retail page",
       "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
     },
-    "industries.retail.name": {
-      "role": "short",
-      "where": "retail #ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ, industries #ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ"
-    },
     "industries.retail.h1.items.0": {
       "role": "h1",
       "where": "retail #ТОРГОВЫЕ ЦЕНТРЫ И РИТЕЙЛ",
@@ -8936,6 +8998,581 @@
       "role": "paragraph",
       "where": "retail #see"
     },
+    "industries.warehouse.title": {
+      "role": "meta",
+      "where": "warehouse head"
+    },
+    "industries.warehouse.description": {
+      "role": "meta",
+      "where": "warehouse head"
+    },
+    "industries.warehouse.nameCaps": {
+      "role": "section-label",
+      "where": "warehouse page",
+      "note": "The industry name in capitals: section counter and the tag above the headline. Same words as industries.<page>.name, upper-cased."
+    },
+    "industries.warehouse.h1.items.0": {
+      "role": "h1",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА",
+      "note": "One line of the page headline (the lines are separate spans and read as one sentence ending with a period). Each line at most +15% of the RU line; the break between lines must stay possible."
+    },
+    "industries.warehouse.h1.items.1": {
+      "role": "h1",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА",
+      "note": "One line of the page headline (the lines are separate spans and read as one sentence ending with a period). Each line at most +15% of the RU line; the break between lines must stay possible."
+    },
+    "industries.warehouse.lead": {
+      "role": "paragraph",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.lead2": {
+      "role": "paragraph",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.primaryCta.label": {
+      "role": "button",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА",
+      "note": "Primary call to action in the first screen of the industry page; verb first, at most 28 characters."
+    },
+    "industries.warehouse.secondaryCta.label": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.audiences.items.0": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.audiences.items.1": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.audiences.items.2": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.audiences.items.3": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.hero.mapTitle": {
+      "role": "caption",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.hero.planLabel": {
+      "role": "aria",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.hero.legendLabel": {
+      "role": "aria",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.flow.items.0.name": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.flow.items.1.name": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.flow.items.2.name": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.flow.items.3.name": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.flow.items.4.name": {
+      "role": "short",
+      "where": "warehouse #СКЛАДЫ И ЛОГИСТИКА"
+    },
+    "industries.warehouse.heads.problems": {
+      "role": "heading",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.0.cap": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.0.title": {
+      "role": "heading",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.0.text": {
+      "role": "paragraph",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.sources.comnews.label": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.1.figure": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.1.cap": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.1.title": {
+      "role": "heading",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.1.text": {
+      "role": "paragraph",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.sources.ibc.label": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.2.cap": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.2.title": {
+      "role": "heading",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.2.text": {
+      "role": "paragraph",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.sources.press.label": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.3.figure": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.3.cap": {
+      "role": "short",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.3.title": {
+      "role": "heading",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.problems.items.3.text": {
+      "role": "paragraph",
+      "where": "warehouse #problems"
+    },
+    "industries.warehouse.secNames.flow": {
+      "role": "section-label",
+      "where": "warehouse #flow",
+      "note": "The page's own section label (small capitals, section counter and tag); EN in capitals, not longer than the RU."
+    },
+    "industries.warehouse.flow.title": {
+      "role": "heading",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.lead": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.robot": {
+      "role": "tag",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.0.robot": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.people": {
+      "role": "tag",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.0.people": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.more": {
+      "role": "short",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.1.robot": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.1.people": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.2.robot": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.2.people": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.3.robot": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.3.people": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.4.robot": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.items.4.people": {
+      "role": "paragraph",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.footLead": {
+      "role": "short",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.sources.iso.label": {
+      "role": "short",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.flow.footTail": {
+      "role": "short",
+      "where": "warehouse #flow"
+    },
+    "industries.warehouse.heads.directions": {
+      "role": "heading",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.0.title": {
+      "role": "heading",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.0.text": {
+      "role": "paragraph",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.0.items.items.0": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.0.items.items.1": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.0.items.items.2": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.0.items.items.3": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.0.fact.value": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.0.fact.text": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.1.title": {
+      "role": "heading",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.1.text": {
+      "role": "paragraph",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.1.items.items.0": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.1.items.items.1": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.1.items.items.2": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.1.fact.text": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.2.title": {
+      "role": "heading",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.2.text": {
+      "role": "paragraph",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.2.items.items.0": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.2.items.items.1": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.2.items.items.2": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.2.fact.text": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.sources.sber.label": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.2.fact2.text": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.3.title": {
+      "role": "heading",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.3.text": {
+      "role": "paragraph",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.3.items.items.0": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.3.items.items.1": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.3.items.items.2": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.directions.items.3.fact.text": {
+      "role": "short",
+      "where": "warehouse #directions"
+    },
+    "industries.warehouse.secNames.proof": {
+      "role": "section-label",
+      "where": "warehouse #proof",
+      "note": "The page's own section label (small capitals, section counter and tag); EN in capitals, not longer than the RU."
+    },
+    "industries.warehouse.proof.title": {
+      "role": "heading",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.lead": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.0.company": {
+      "role": "tag",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.0.value": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.0.cap": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.0.what": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.0.from.label": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.0.to.label": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.1.company": {
+      "role": "tag",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.1.value": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.1.cap": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.1.what": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.1.from.label": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.1.to.label": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.2.company": {
+      "role": "tag",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.2.value": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.2.cap": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.2.what": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.2.from.label": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.2.to.label": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.3.company": {
+      "role": "tag",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.3.value": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.3.cap": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.3.what": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.3.from.label": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.cases.items.3.to.label": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.market.text": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.sources.yandex.label": {
+      "role": "short",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.proof.note": {
+      "role": "paragraph",
+      "where": "warehouse #proof"
+    },
+    "industries.warehouse.heads.pilot": {
+      "role": "heading",
+      "where": "warehouse #pilot"
+    },
+    "industries.warehouse.pilot.items.0.title": {
+      "role": "heading",
+      "where": "warehouse #pilot"
+    },
+    "industries.warehouse.pilot.items.0.text": {
+      "role": "paragraph",
+      "where": "warehouse #pilot"
+    },
+    "industries.warehouse.pilot.items.1.title": {
+      "role": "heading",
+      "where": "warehouse #pilot"
+    },
+    "industries.warehouse.pilot.items.1.text": {
+      "role": "paragraph",
+      "where": "warehouse #pilot"
+    },
+    "industries.warehouse.pilot.items.2.title": {
+      "role": "heading",
+      "where": "warehouse #pilot"
+    },
+    "industries.warehouse.pilot.items.2.text": {
+      "role": "paragraph",
+      "where": "warehouse #pilot"
+    },
+    "industries.warehouse.heads.vendors": {
+      "role": "heading",
+      "where": "warehouse #vendors"
+    },
+    "industries.warehouse.vendorsLead": {
+      "role": "paragraph",
+      "where": "warehouse #vendors"
+    },
+    "industries.warehouse.vendors.items.0.group": {
+      "role": "heading",
+      "where": "warehouse #vendors"
+    },
+    "industries.warehouse.why.title": {
+      "role": "heading",
+      "where": "warehouse #why"
+    },
+    "industries.warehouse.why.text": {
+      "role": "paragraph",
+      "where": "warehouse #why"
+    },
+    "industries.warehouse.why.link.label": {
+      "role": "short",
+      "where": "warehouse #why"
+    },
+    "industries.warehouse.form.title": {
+      "role": "heading",
+      "where": "warehouse #talk"
+    },
+    "industries.warehouse.form.lead": {
+      "role": "paragraph",
+      "where": "warehouse #talk"
+    },
+    "industries.warehouse.form.button": {
+      "role": "button",
+      "where": "warehouse #talk",
+      "note": "Submit button of the contact form of this industry page; says what happens next, not «Submit»."
+    },
+    "industries.warehouse.links.items.0.text": {
+      "role": "paragraph",
+      "where": "warehouse #see"
+    },
+    "industries.warehouse.links.items.1.text": {
+      "role": "paragraph",
+      "where": "warehouse #see"
+    },
+    "industries.warehouse.links.items.2.title": {
+      "role": "heading",
+      "where": "warehouse #see"
+    },
+    "industries.warehouse.links.items.2.text": {
+      "role": "paragraph",
+      "where": "warehouse #see"
+    },
+    "industries.warehouse.links.items.3.text": {
+      "role": "paragraph",
+      "where": "warehouse #see"
+    },
+    "industries.warehouse.links.items.4.text": {
+      "role": "paragraph",
+      "where": "warehouse #see"
+    },
+    "industries.warehouse.links.items.5.text": {
+      "role": "paragraph",
+      "where": "warehouse #see"
+    },
+    "industries.warehouse.links.items.6.title": {
+      "role": "heading",
+      "where": "warehouse #see"
+    },
+    "industries.warehouse.links.items.6.text": {
+      "role": "paragraph",
+      "where": "warehouse #see"
+    },
     "industriesHub.meta.title": {
       "role": "meta",
       "where": "industries head"
@@ -9064,6 +9701,14 @@
       "role": "short",
       "where": "industries #list"
     },
+    "industriesHub.list.items.warehouse.desc": {
+      "role": "paragraph",
+      "where": "industries #list"
+    },
+    "industriesHub.list.items.warehouse.scenes": {
+      "role": "short",
+      "where": "industries #list"
+    },
     "industriesHub.list.items.construction.desc": {
       "role": "paragraph",
       "where": "industries #list"
@@ -9157,6 +9802,575 @@
       "variables": "tags: <small>…</small>",
       "note": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Same as cases.talk.form.industryLabel."
     },
+    "kbCleaning.meta.title": {
+      "role": "meta",
+      "where": "knowledge-cleaning-robot-basics head"
+    },
+    "kbCleaning.meta.description": {
+      "role": "meta",
+      "where": "knowledge-cleaning-robot-basics head"
+    },
+    "kbCleaning.sections.hero": {
+      "role": "section-label",
+      "where": "knowledge-cleaning-robot-basics page",
+      "note": "Small capital-letter label of a section of the knowledge base article (section counter and the «NN — LABEL» tag); EN in capitals, as short as possible."
+    },
+    "knowledge.crumb": {
+      "role": "link",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ, knowledge #СТАТЬЯ"
+    },
+    "kbCleaning.crumb": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.hero.title": {
+      "role": "h1",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ",
+      "variables": "tags: <span>…</span>",
+      "note": "Headline (H1) of the article «Cleaning robot», ends with a period. The <span> part («and which areas it suits») is highlighted with a marker stroke: keep it at the end."
+    },
+    "kbCleaning.hero.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.hero.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.meta.topic": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.meta.format": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.meta.read": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.meta.updated": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.label": {
+      "role": "aria",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.title": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.model": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.speed": {
+      "role": "caption",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.speedVal": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.speedUnit": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.run": {
+      "role": "caption",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.runVal": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.runUnit": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.charge": {
+      "role": "caption",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.chargeVal": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.chargeUnit": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ"
+    },
+    "kbCleaning.spec.foot": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #СТАТЬЯ",
+      "variables": "tags: <a>…</a>"
+    },
+    "kbCleaning.sections.body": {
+      "role": "section-label",
+      "where": "knowledge-cleaning-robot-basics #article",
+      "note": "Small capital-letter label of a section of the knowledge base article (section counter and the «NN — LABEL» tag); EN in capitals, as short as possible."
+    },
+    "kbCleaning.toc.label": {
+      "role": "aria",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.title": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.parts": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.navigation": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.split": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.area": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.limits": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.checklist": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.faq": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #article"
+    },
+    "kbCleaning.toc.roi": {
+      "role": "nav",
+      "where": "knowledge-cleaning-robot-basics #article",
+      "note": "Lime link at the bottom of the sticky table of contents, opens the ROI calculator page."
+    },
+    "kbCleaning.parts.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.eyes.k": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.eyes.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.eyes.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.brain.k": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.brain.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.brain.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.tool.k": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.tool.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.tool.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.dock.k": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.dock.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.parts.dock.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #parts"
+    },
+    "kbCleaning.nav.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s1.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s1.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s2.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s2.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s3.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s3.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s4.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s4.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s5.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.nav.s5.text": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #navigation"
+    },
+    "kbCleaning.split.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.robot.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.robot.i1": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.robot.i2": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.robot.i3": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.robot.i4": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.robot.i5": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.people.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.people.i1": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.people.i2": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.people.i3": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.people.i4": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.people.i5": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.split.note": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #split"
+    },
+    "kbCleaning.area.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.calcAria": {
+      "role": "aria",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.c1": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.c1l": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.c2": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.c2l": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.c3": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.c3l": {
+      "role": "tag",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.p1": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #area"
+    },
+    "kbCleaning.area.p2": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #area",
+      "variables": "tags: <a>…</a>"
+    },
+    "kbCleaning.limits.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i1.t": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i1.d": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i2.t": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i2.d": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i3.t": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i3.d": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i4.t": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i4.d": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i5.t": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.i5.d": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.limits.foot": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #limits"
+    },
+    "kbCleaning.check.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i1.t": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i1.d": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i2.t": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i2.d": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i3.t": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i3.d": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i4.t": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i4.d": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i5.t": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i5.d": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #checklist",
+      "variables": "tags: <a>…</a>"
+    },
+    "kbCleaning.check.i6.t": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.check.i6.d": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #checklist"
+    },
+    "kbCleaning.faq.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #faq"
+    },
+    "kbCleaning.faq.markup.q": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #faq"
+    },
+    "kbCleaning.faq.markup.a": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #faq"
+    },
+    "kbCleaning.faq.people.q": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #faq"
+    },
+    "kbCleaning.faq.people.a": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #faq"
+    },
+    "kbCleaning.faq.staff.q": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #faq"
+    },
+    "kbCleaning.faq.staff.a": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #faq"
+    },
+    "kbCleaning.sources.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.specs": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.specsFor": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.product": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.productFor": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.tech": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.techFor": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.roi": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.roiFor": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sources.back": {
+      "role": "short",
+      "where": "knowledge-cleaning-robot-basics #sources"
+    },
+    "kbCleaning.sections.talk": {
+      "role": "section-label",
+      "where": "knowledge-cleaning-robot-basics #talk",
+      "note": "Small capital-letter label of a section of the knowledge base article (section counter and the «NN — LABEL» tag); EN in capitals, as short as possible."
+    },
+    "kbCleaning.talk.title": {
+      "role": "heading",
+      "where": "knowledge-cleaning-robot-basics #talk"
+    },
+    "kbCleaning.talk.lead": {
+      "role": "paragraph",
+      "where": "knowledge-cleaning-robot-basics #talk"
+    },
+    "knowledge.talk.roiCta": {
+      "role": "button",
+      "where": "knowledge-cleaning-robot-basics #talk, knowledge #talk",
+      "note": "Button with an arrow icon outside the message in the final block: opens the ROI calculator page. Same wording as knowledge.hero.ctaRoi."
+    },
+    "kbCleaning.talk.solutions": {
+      "role": "button",
+      "where": "knowledge-cleaning-robot-basics #talk",
+      "note": "Secondary button next to the ROI button in the final block, opens the Solutions page."
+    },
+    "knowledge.talk.form.industryLabel": {
+      "role": "label",
+      "where": "knowledge-cleaning-robot-basics #talk, knowledge #talk",
+      "variables": "tags: <small>…</small>",
+      "note": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Same as cases.talk.form.industryLabel."
+    },
     "knowledge.meta.title": {
       "role": "meta",
       "where": "knowledge head"
@@ -9169,10 +10383,6 @@
       "role": "section-label",
       "where": "knowledge page",
       "note": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU."
-    },
-    "knowledge.crumb": {
-      "role": "short",
-      "where": "knowledge #БАЗА ЗНАНИЙ"
     },
     "knowledge.hero.title": {
       "role": "h1",
@@ -9440,10 +10650,9 @@
       "role": "paragraph",
       "where": "knowledge #materials"
     },
-    "knowledge.status.soon": {
-      "role": "tag",
-      "where": "knowledge #materials",
-      "note": "Status of a material that is not published yet: «in preparation». Short, mono pill."
+    "knowledge.status.read": {
+      "role": "paragraph",
+      "where": "knowledge #materials"
     },
     "knowledge.formats.calc": {
       "role": "short",
@@ -9457,6 +10666,11 @@
     "knowledge.materials.items.cleaningPayback.text": {
       "role": "paragraph",
       "where": "knowledge #materials"
+    },
+    "knowledge.status.soon": {
+      "role": "tag",
+      "where": "knowledge #materials",
+      "note": "Status of a material that is not published yet: «in preparation». Short, mono pill."
     },
     "knowledge.formats.compare": {
       "role": "short",
@@ -9817,17 +11031,6 @@
     "knowledge.talk.lead": {
       "role": "paragraph",
       "where": "knowledge #talk"
-    },
-    "knowledge.talk.roiCta": {
-      "role": "button",
-      "where": "knowledge #talk",
-      "note": "Button with an arrow icon outside the message in the final block: opens the ROI calculator page. Same wording as knowledge.hero.ctaRoi."
-    },
-    "knowledge.talk.form.industryLabel": {
-      "role": "label",
-      "where": "knowledge #talk",
-      "variables": "tags: <small>…</small>",
-      "note": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Same as cases.talk.form.industryLabel."
     },
     "manufacturers.meta.title": {
       "role": "meta",
@@ -11033,6 +12236,14 @@
       "role": "option",
       "where": "platform #talk",
       "note": "Option of the drop-down list «what to discuss» in the contact form: a topic of the conversation, short noun phrase."
+    },
+    "legal.privacy.meta.title": {
+      "role": "meta",
+      "where": "privacy head"
+    },
+    "legal.privacy.meta.description": {
+      "role": "meta",
+      "where": "privacy head"
     },
     "services.meta.title": {
       "role": "meta",

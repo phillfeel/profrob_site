@@ -1,11 +1,12 @@
 {
   "common.nav.solutions": "Header and footer link to the page «Solutions» (the nine robotics areas). A navigation label, not a section title.",
-  "common.nav.industries": "Navigation link to the industries block of the home page. The breadcrumb link (common.crumbs.industries) and the card title on the solutions page are separate keys on purpose.",
+  "common.nav.industries": "Navigation link to the page «Industries» (industries.html, the list of all industry pages). The breadcrumb link (common.crumbs.industries) and the card title on the solutions page are separate keys on purpose.",
   "common.nav.platform": "Navigation link to the block that explains the platform (header and footer).",
   "common.nav.cases": "Navigation link to the page «Case studies» (cases.html). Not the same as the capital-letter section labels «КЕЙСЫ» (home.sections.cases, cases.sections.hero, industries.common.sections.cases) or the link-card tag industries.common.kickers.cases.",
   "common.nav.contacts": "Navigation link to the contact block (header and footer). Compare common.cta.contact (the header button) and common.footer.nav.contact (a footer column).",
   "common.cta.contact": "Header button that scrolls to the contact form. A call to action, verb first. Not the nav link common.nav.contacts and not a form submit button.",
-  "common.footer.nav.*": "Footer link. The target pages do not exist yet (placeholder links).",
+  "common.footer.nav.*": "Footer link to a site page (sections, company, tools). Column headings use the same keys as the header links where the label is identical.",
+  "industries.*.name": "Industry name. Used as the card title on the industries page and as a link label in the footer list «Industries» on every page. Short noun phrase, no period.",
   "common.footer.wordmark1": "First line of the company name drawn as a large two-line wordmark at the bottom of the footer (SVG text, not stretched: the Russian first line fills the page width). Keep the line about as long as the Russian one.",
   "common.footer.wordmark2": "Second line of the same footer wordmark. Starts in lower case in Russian because it continues the first line; capitalise it in English.",
   "common.crumbs.*": "Breadcrumb at the top of the industry pages: Home / Industries / <this page>.",
@@ -106,6 +107,10 @@
   "cases.method.*.num": "Numerator of a formula shown as a fraction; keep it short, the minus sign stays.",
   "cases.method.*.den": "Denominator of a formula shown as a fraction; keep it short.",
   "cases.sheet.*": "Row of the «measurement sheet»: a field the client fills in for each project and its unit. Short.",
+  "kbCleaning.sections.*": "Small capital-letter label of a section of the knowledge base article (section counter and the «NN — LABEL» tag); EN in capitals, as short as possible.",
+  "kbCleaning.hero.title": "Headline (H1) of the article «Cleaning robot», ends with a period. The <span> part («and which areas it suits») is highlighted with a marker stroke: keep it at the end.",
+  "kbCleaning.toc.roi": "Lime link at the bottom of the sticky table of contents, opens the ROI calculator page.",
+  "kbCleaning.talk.solutions": "Secondary button next to the ROI button in the final block, opens the Solutions page.",
   "knowledge.sections.*": "Small capital-letter label of a section on the Knowledge base page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU.",
   "knowledge.hero.title": "Headline of the Knowledge base page, ends with a period. The <span> part («without the marketing») is highlighted with a marker stroke: keep it at the end.",
   "knowledge.hero.ctaRoi": "Primary button of the first screen, opens the ROI calculator page. Same wording as knowledge.talk.roiCta.",
@@ -150,5 +155,8 @@
   "platform.talk.form.*": "Option of the drop-down list «what to discuss» in the contact form: a topic of the conversation, short noun phrase.",
   "industriesHub.sections.*": "Small capital-letter label of a section on the Industries hub page (section counter and the «NN — LABEL» tag); EN in capitals, not longer than the RU.",
   "industriesHub.hero.title.*": "Two lines of the H1 of the Industries hub page; line 2 ends with a period. Line 2 «from hotel to farm» stands for the range of industries, from hospitality to agriculture.",
-  "industriesHub.talk.form.industryLabel": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Same as cases.talk.form.industryLabel."
+  "industriesHub.talk.form.industryLabel": "Label of the drop-down list of industries in the form; the <small> part is the grey hint «optional». Same as cases.talk.form.industryLabel.",
+  "notFound.title": "Headline (H1) of the 404 page: a short statement that the page does not exist, no period.",
+  "notFound.home": "Button on the 404 page: leads to the home page (index.html).",
+  "notFound.contacts": "Button on the 404 page: leads to the Contacts page (contacts.html); a call to write to us, not a navigation label."
 }
