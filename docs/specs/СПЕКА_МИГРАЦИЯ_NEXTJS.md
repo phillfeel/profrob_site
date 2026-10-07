@@ -1,7 +1,13 @@
 # Спека: перенос сайта ПРОФРОБОТ на Next.js (SSR)
 
-Версия 1.0 · 2026-10-07 · Исполнитель: ИИ-агент (вайбкодинг) · Владелец решений: Филипп
+Версия 1.1 · 2026-10-07 · Исполнитель: ИИ-агент (вайбкодинг) · Владелец решений: Филипп
 
+> **Состояние легаси, на которое рассчитана эта версия:** коммит `296282e` (ветка `gh-pages`), рабочее
+> дерево чистое. 28 HTML-файлов: 27 страниц и `404.html`. Легаси продолжает расти (за один день
+> добавились хаб отраслей, склады, платформа, юридические страницы и статья), поэтому
+> **источник истины по составу страниц — скрипт инвентаря (7.1)**, а не таблица в 2.1. Порядок
+> действий при появлении новых страниц — раздел 13.
+>
 > **Для агента.** Это обязательный документ. Прочитай его целиком до первой правки. Если что-то в коде
 > противоречит спеке, остановись и запиши противоречие в журнал (раздел 11), а не выбирай молча.
 > Главный принцип: **перенос, а не редизайн**. Сайт после переноса выглядит и ведёт себя так же,
@@ -43,8 +49,10 @@ Router: это серверный рендер, выполненный один 
 `●` (static / SSG).
 
 **Входит:**
-- все страницы `*.html` из корня (полный список строит скрипт инвентаря, раздел 7.1);
-- отраслевые лендинги, которые сейчас генерирует `tools/industries/build.mjs`;
+- все страницы `*.html` из корня (полный список строит скрипт инвентаря, раздел 7.1), включая хаб
+  отраслей, статью базы знаний, юридические страницы (`privacy`, `consent`) и страницу 404;
+- 12 отраслевых лендингов, которые сейчас генерирует `tools/industries/build.mjs`;
+- общий блок навигации подвала, который синхронизирует `tools/site/footer-nav.mjs`;
 - i18n: словари `i18n/ru.json`, `i18n/en.json`, `i18n/js.ru.json`, ICU-сообщения, переключатель языка;
 - весь клиентский JS: GSAP + ScrollTrigger, Lenis, калькуляторы ROI, фильтры, формы, часы, ленты;
 - модели расчёта `roi-model.js` и `facade-model.js` с тестами;
@@ -55,7 +63,7 @@ Router: это серверный рендер, выполненный один 
 **Не входит (не делать, даже если «напрашивается»):**
 - редизайн, правка текстов, переименование классов, перевод CSS на Tailwind или CSS Modules;
 - `next/image` и `next/font` в фазах 1–6 (меняют разметку и имена шрифтов, ломают паритет; см. фазу 9);
-- создание страниц, которых нет сейчас (`/solutions/cleaning/` и т. п., см. 2.5);
+- создание страниц, которых нет сейчас: страниц решений `/solutions/<slug>/` (отложены решением владельца, `docs/adr/0001-temporary-solution-urls.md`, см. 2.5) и любых других;
 - бэкенд формы заявки: сейчас `data-endpoint=""`, форма имитирует отправку. Так и остаётся;
 - открытие сайта для индексации: все страницы сейчас `noindex`, так и остаётся;
 - обновление версий GSAP и Lenis (отдельная задача после переноса).
@@ -69,44 +77,58 @@ Router: это серверный рендер, выполненный один 
 
 ### 2.1 Страницы и целевые адреса
 
-Целевой адрес берётся из `<link rel="canonical">` страницы. Где canonical нет, адрес указан ниже.
+Состояние на коммит `296282e`: 27 страниц и `404.html`. Целевой адрес берётся из
+`<link rel="canonical">` страницы; где canonical нет, адрес указан ниже. Адрес EN всегда равен
+адресу RU с префиксом `/en`.
 
-| Файл | Адрес RU | Адрес EN | Свои CSS / JS (кроме общих) |
+CSS подключаются **после `styles.css` в указанном порядке** (порядок важен для каскада, см. 3.6).
+JS подключаются в указанном порядке перед `</body>`. Все страницы получают `i18n/boot.js` инлайном.
+
+| Файл | Адрес RU | CSS после `styles.css` | JS |
 |---|---|---|---|
-| `index.html` | `/` (canonical нет) | `/en/` | `main.js` + GSAP, ScrollTrigger, Lenis с CDN |
-| `industries.html` | `/industries/` | `/en/industries/` | `industries.css`, `industries.js` (лента кейсов); `solutions.css`, `solutions.js` |
-| `solutions.html` | `/solutions/` | `/en/solutions/` | `solutions.css`, `solutions.js` |
-| `products.html` | `/products/` | `/en/products/` | `products.css`, `products.js` |
-| `services.html` | `/services/` | `/en/services/` | `services.css`, `products.js` |
-| `cases.html` | `/cases/` | `/en/cases/` | `cases.css`, `cases.js` |
-| `knowledge.html` | `/knowledge/` | `/en/knowledge/` | `knowledge.css`, `knowledge.js` |
-| `about.html` | `/about/` | `/en/about/` | ссылается на `about.css`, которого нет (см. 2.5) |
-| `contacts.html` | `/contacts/` | `/en/contacts/` | по инвентарю |
-| `manufacturers.html` | `/manufacturers/` | `/en/manufacturers/` | по инвентарю |
-| `roi.html` | `/roi/` (canonical нет) | `/en/roi/` | `roi.css`, `roi-model.js`, `facade-model.js`, `roi.js` |
-| `industries-<slug>.html` (11 шт.) | `/industries/<slug>/` | `/en/industries/<slug>/` | `industry.css`, `industry.js`, опционально `industry-<slug>.css/.js`, у части `roi-model.js` |
+| `index.html` | `/` (canonical нет) | нет | `main.js`; GSAP, ScrollTrigger, Lenis с CDN |
+| `industries.html` (хаб) | `/industries/` | `solutions.css`, `industries.css` | `solutions.js`, `industries.js` |
+| `industries-<slug>.html` (12 шт.) | `/industries/<slug>/` | `solutions.css`, `industry.css`, опционально `industry-<slug>.css` | `solutions.js`, `industry.js`, опционально `industry-<slug>.js`; у части впереди `roi-model.js` |
+| `solutions.html` | `/solutions/` | `solutions.css` | `solutions.js` |
+| `products.html` | `/products/` | `solutions.css`, `products.css` | `solutions.js`, `products.js` |
+| `platform.html` | `/platform/` | `solutions.css`, `products.css`, `platform.css` | `solutions.js`, `products.js`, `platform.js` |
+| `services.html` | `/services/` | `solutions.css`, `products.css`, `services.css` | `solutions.js`, `products.js` |
+| `cases.html` | `/cases/` | `solutions.css`, `products.css`, `cases.css` | `solutions.js`, `products.js`, `cases.js` |
+| `knowledge.html` | `/knowledge/` | `solutions.css`, `products.css`, `knowledge.css` | `solutions.js`, `knowledge.js` |
+| `knowledge-cleaning-robot-basics.html` (статья) | `/knowledge/cleaning-robot-basics/` | `solutions.css`, `products.css`, `knowledge.css`, `knowledge-article.css` | `solutions.js`, `knowledge-article.js` |
+| `manufacturers.html` | `/manufacturers/` | `solutions.css`, `products.css`, `manufacturers.css` | `solutions.js`, `products.js`, `manufacturers.js` |
+| `about.html` | `/about/` | `solutions.css`, `products.css`, `about.css` | `solutions.js`, `products.js` |
+| `contacts.html` | `/contacts/` | `solutions.css`, `contacts.css` | `solutions.js`, `contacts.js` |
+| `roi.html` | `/roi/` (canonical нет) | `roi.css` (без `solutions.css`) | `roi-model.js`, `facade-model.js`, `roi.js` (без `solutions.js`) |
+| `privacy.html` | `/privacy/` (canonical нет) | `solutions.css`, `legal.css` | нет |
+| `consent.html` | `/consent/` (canonical нет) | `solutions.css`, `legal.css` | нет |
+| `404.html` | не маршрут, это страница «не найдено» (см. 3.3) | `solutions.css`, `legal.css` | нет |
+
+Правило имён для статей базы знаний: `knowledge-<slug>.html` → `/knowledge/<slug>/`. Сейчас статья
+одна; новые статьи появятся по тому же правилу.
 
 Общие для всех: шрифты Onest и JetBrains Mono с Google Fonts, `styles.css`, инлайн-скрипт
 `document.documentElement.classList.add('js')`, инлайн-скрипт выбора языка (`i18n/boot.js`).
-Большинство внутренних страниц подключают `solutions.css` и `solutions.js` (появление блоков,
-счётчик разделов, форма заявки).
+Блоки `.reveal`, счётчик разделов и форма заявки живут в `solutions.js`.
 
-Слаги отраслей: `agriculture`, `business-centers`, `construction`, `education`, `fitness-sports`,
-`hotels`, `manufacturing`, `medical-wellness`, `municipal`, `public-spaces`, `retail`.
+Слаги отраслей (12): `agriculture`, `business-centers`, `construction`, `education`,
+`fitness-sports`, `hotels`, `manufacturing`, `medical-wellness`, `municipal`, `public-spaces`,
+`retail`, `warehouse`.
 
 Адреса только английскими словами, без транслита (правило владельца).
 
 ### 2.2 Генератор отраслевых страниц
 
-`industries-*.html` **не пишутся руками**. Их собирает `tools/industries/build.mjs` из
-`tools/industries/data.mjs` (первые пять отраслей) и `tools/industries/pages/<slug>.mjs` (остальные).
+`industries-<slug>.html` (12 страниц) **не пишутся руками**. Их собирает `tools/industries/build.mjs` из
+`tools/industries/data.mjs` (первые пять отраслей) и `tools/industries/pages/<slug>.mjs` (остальные,
+сейчас семь, включая `warehouse`). Хаб `industries.html` генератором **не собирается**: он написан руками.
 У каждой отрасли свой Hero, свой порядок секций и свой фирменный блок: страницы сознательно разные,
 общие только токены, шрифты и компоненты. Модуль страницы экспортирует
 `{ industry, brands?, renderers?, icons?, data?, templates? }`. Рендереры возвращают HTML-строки и
 получают помощники `h` (`h.T`, `h.L`, `h.C`, `h.K`, `h.TH`…, `h.msg`), которые ставят ключи i18n.
 Генератор считает цифры мини-калькулятора через `roi-model.js` во время сборки.
 
-**Требование:** различия между отраслями сохраняются. Нельзя свести 11 страниц к одному шаблону
+**Требование:** различия между отраслями сохраняются. Нельзя свести 12 страниц к одному шаблону
 с переключателями.
 
 ### 2.3 i18n (самое хрупкое место)
@@ -127,6 +149,12 @@ Router: это серверный рендер, выполненный один 
 - Английский сейчас подставляется **в браузере**: `i18n/boot.js` читает `?lang=en` или
   `localStorage.lang`, прячет `body`, грузит `i18n.js`, тот подменяет тексты. Скрипты страниц ждут
   `window.i18n.ready`. Английский не индексируется, JSON-LD и `<html lang>` рантайм не трогает.
+- Пространства ключей на коммите `296282e`: `common`, `home`, `solutions`, `roi`, `calc`,
+  `industries` (общая оболочка и 12 отраслей), `industriesHub`, `products`, `platform`, `services`,
+  `cases`, `knowledge`, `kbCleaning` (статья), `about`, `contacts`, `manufacturers`, `legal`
+  (`privacy` и `consent`), `notFound`, `js`. В `ru.json` и `en.json` по 3079 сообщений, ключи
+  совпадают (проверка `tools/i18n/check.mjs`). **Число и набор пространств растут вместе с
+  сайтом**: список строится инвентарём, а не берётся из этой спеки.
 - Числа на сайте всегда с группировкой разрядов (`useGrouping: 'always'`): «6 000», а не «6000».
 
 ### 2.4 Клиентский JS
@@ -135,8 +163,13 @@ Router: это серверный рендер, выполненный один 
 |---|---|---|
 | `main.js` | главная: лента роботов с GSAP, пины ScrollTrigger, Lenis, бренды-ленты с клонами, часы МСК в подвале | `gsap.ticker`, `gsap.matchMedia`, клоны DOM, `setInterval`, reduced motion, `(hover: hover)` |
 | `solutions.js` | появление `.reveal`, счётчик разделов, форма заявки (honeypot, таймаут 12 с, имитация без endpoint) | подключён на многих страницах |
-| `products.js` | пример «покупка или аренда», выбор продукта в форме | подключён и на `services.html` |
-| `industry.js`, `industry-<slug>.js` | мини-калькулятор, фирменные блоки отраслей | `location.hash` |
+| `products.js` | пример «покупка или аренда», выбор продукта в форме, счётчик над тёмной сценой | подключён на `products`, `services`, `platform`, `cases`, `about`, `manufacturers` |
+| `platform.js` | вкладки «Возможности»: клик, стрелки, автопереключение по таймеру, переход от «проблемы» к вкладке | `setTimeout`, `IntersectionObserver`, `scrollTo`; остановка при наведении |
+| `industries.js` | стрелки и счётчик ленты кейсов на хабе отраслей | без GSAP |
+| `contacts.js` | мини-CTA «Запросить КП» / «Заказать демо или пилот» подставляют цель в форму | форма из `solutions.js` |
+| `manufacturers.js` | прожектор под курсором на карточках брендов (`--mx`/`--my`) | только при `(hover: hover)` |
+| `knowledge-article.js` | подсветка раздела в оглавлении, раскрытие вопроса `<details>` по якорю `#faq-…` | `location.hash`, `scroll` на `window` |
+| `industry.js`, `industry-<slug>.js` | мини-калькулятор, фирменные блоки отраслей (свои скрипты у `business-centers`, `public-spaces`, `retail`, `warehouse`) | `location.hash` |
 | `cases.js`, `knowledge.js` | фильтр по `?industry=` / `?topic=` и поиск, `history.replaceState` | без JS видны все элементы, фильтр работает ссылками |
 | `roi.js` | два калькулятора, параметры из `?t=&a=&m=&k=`, `localStorage` | ссылки с отраслей ведут на `roi.html?t=…&a=…&m=…` |
 | `roi-model.js`, `facade-model.js` | чистые модели расчёта, UMD (`module.exports` + `window`) | есть тесты `node --test` |
@@ -144,16 +177,25 @@ Router: это серверный рендер, выполненный один 
 Все скрипты стартуют после `window.i18n.ready`, уважают `prefers-reduced-motion` и CSS-класс
 `html.js` (элементы `.reveal` скрыты, пока JS не покажет их).
 
-### 2.5 Известные дефекты легаси (переносить как есть, не чинить)
+### 2.5 Известные особенности легаси (переносить как есть, не чинить)
 
-- `about.html` подключает `about.css`, которого нет в репозитории.
-- Ссылки на несуществующие страницы: `/solutions/cleaning/`, `/solutions/warehouse/`,
-  `/solutions/agro/` и другие `/solutions/<x>/`. Страниц под ними нет. Хаб `/industries/` (`industries.html`)
-  появился 2026-10-07 и в этот список не входит.
-- `index.html` и `roi.html` без canonical.
+Проверено на `296282e`: битых внутренних ссылок и якорей нет (ни одной на 27 страницах).
 
-Эти пункты переходят в новый сайт без изменений и попадают в отчёт (раздел 11). Чинить их будет
-владелец отдельно.
+- **Страниц решений нет.** Внутренние ссылки на решения ведут на `solutions.html#dir-<slug>`
+  (карточка направления на хабе решений), а не на `/solutions/<slug>/`. Это решение владельца,
+  см. `docs/adr/0001-temporary-solution-urls.md`. В новом сайте они становятся
+  `/solutions/#dir-<slug>`, якоря `id="dir-<slug>"` сохраняются. Страницы решений агент **не создаёт**.
+  `canonical`, JSON-LD и `url` в разметке уже боевые (`/solutions/`, `/industries/<slug>/`) и
+  переносятся как есть.
+- **Блоки `.reveal` без JS невидимы** (CSS скрывает их безусловно, показывает `solutions.js`). Текст
+  при этом есть в HTML. Для индексации это не проблема, для посетителя без JS — проблема; решение
+  за владельцем.
+- **Нет canonical** у `index`, `roi`, `privacy`, `consent`, `404`. Все страницы `noindex`.
+- **`404.html` содержит GitHub-Pages-хак:** инлайн-скрипт `document.write('<base href=…>')` для
+  подкаталога `*.github.io/<repo>/`. Он нужен только статике на GitHub Pages и **не переносится**
+  (см. 3.3).
+
+Эти пункты попадают в отчёт (раздел 11). Чинить их будет владелец отдельно.
 
 ### 2.6 Инструменты, которые уже есть и на которые опирается проверка
 
@@ -163,10 +205,23 @@ Router: это серверный рендер, выполненный один 
 - `tools/playwright/check.mjs` — скриншоты, горизонтальный скролл, ошибки консоли, `--pin` для
   GSAP-пинов, `--reduce`, `--hover`.
 - `tools/playwright/perf.mjs` — замер загрузки и скролла.
-- `tools/playwright/{cases,knowledge,roi,products,services,industries,lang}.mjs` — сценарии страниц.
+- `tools/playwright/<страница>.mjs` — сценарии страниц: `about`, `cases`, `contacts`,
+  `industries`, `industries-hub`, `knowledge`, `knowledge-article`, `manufacturers`, `platform`,
+  `products`, `roi`, `services`, `lang`. Каждый поднимает свой статический сервер из корня легаси
+  (для нового сайта их надо научить принимать `--base-url`, см. 7.4).
 - `tools/i18n/icu.mjs` — разбор и подстановка ICU без зависимостей; `tools/i18n/check.mjs` — проверки
   словаря.
 - `roi-model.test.js`, `facade-model.test.js`, `tools/i18n/icu.test.mjs`.
+
+### 2.7 Общий блок навигации подвала
+
+Источник один: `tools/site/footer-nav.mjs` (списки разделов, 12 отраслей, 9 решений, компании).
+Он вставляет блок между маркерами `<!-- foot-nav:start -->` и `<!-- foot-nav:end -->` во все
+страницы, кроме `index.html` (у главной свой подвал со статистикой); отраслевые получают тот же
+блок из `build.mjs`. В 27 файлах блок **побайтово одинаков**. В новом сайте это один серверный
+компонент `FooterNav`, а не 27 копий. Его списки берутся из тех же констант, что в
+`footer-nav.mjs` (перенести данные в `content/`, ключи `common.*` и `industries.<slug>.name`
+сохранить). Ссылки на решения в блоке — `solutions.html#dir-<slug>` (см. 2.5).
 
 ---
 
@@ -217,17 +272,24 @@ site/
         page.tsx            # главная
         solutions/page.tsx
         products/page.tsx
+        platform/page.tsx
         services/page.tsx
         cases/page.tsx
         knowledge/page.tsx
+        knowledge/cleaning-robot-basics/page.tsx   # статья: своя папка на каждую статью
         about/page.tsx
         contacts/page.tsx
         manufacturers/page.tsx
         roi/page.tsx
-        industries/[slug]/page.tsx   # generateStaticParams по 11 слагам
+        privacy/page.tsx
+        consent/page.tsx
+        industries/page.tsx          # хаб отраслей (рукописный)
+        industries/[slug]/page.tsx   # generateStaticParams по 12 слагам
+        not-found.tsx               # бывший 404.html
+        [...rest]/page.tsx          # вызывает notFound(): локализованный 404 на неизвестных адресах
       api/health/route.ts   # GET → 200 {"status":"ok"}
     components/
-      shell/                # Nav, Footer, LeadForm, LangSwitch, Crumbs, Sprite
+      shell/                # Nav, Footer, FooterNav (2.7), LeadForm, LangSwitch, Crumbs, Sprite
       home/  solutions/  products/  …   # секции страниц
       industries/
         shared/             # общие секции оболочки отраслей
@@ -254,6 +316,13 @@ site/
 - Параметры из адреса (`?topic=`, `?industry=`, `?t=&a=&m=&k=`) читает клиентский остров в
   `useEffect` через `window.location`, как сейчас. Сервер рендерит полный список, фильтр прячет
   лишнее. `useSearchParams` без `Suspense` не использовать: он выключает SSR до ближайшей границы.
+- **404.** `404.html` становится `not-found.tsx` внутри `[locale]` плюс `[...rest]/page.tsx` с
+  `notFound()` (схема из документации next-intl, https://next-intl.dev/docs/environments/error-files).
+  Ответ обязан иметь **статус 404** и `noindex`, как сейчас. Для адресов вне локали next-intl
+  предлагает `global-not-found.tsx`: проверить в документации Next 16.4, нужен ли для него флаг, и
+  закрепить поведение e2e-тестом (`/nope/` и `/en/nope/` → 404 с текстом на своём языке).
+  Хак `document.write('<base href=…>')` из `404.html` **не переносится**: все ссылки в новом сайте
+  абсолютные от корня, `<base>` не нужен.
 - `setRequestLocale(locale)` в каждом layout и page, `generateStaticParams` для локалей и слагов
   (по документации next-intl для статического рендера).
 
@@ -387,11 +456,29 @@ next-intl 4 сочетает `localeDetection: false` с cookie `NEXT_LOCALE`, �
   EN: canonical не ставить (страницы `noindex`), решение владельца в разделе 10.
 - JSON-LD переносится как есть: `<script type="application/ld+json">` в теле страницы с тем же
   содержимым. На EN — тот же русский JSON-LD, как в легаси (рантайм его не переводил).
-- Внутренние ссылки переписывает скрипт по карте адресов:
-  `products.html#raas` → `/products/#raas`, `index.html#industries` → `/#industries`,
-  `industries-retail.html` → `/industries/retail/`, `cases.html?industry=x` → `/cases/?industry=x`,
-  `roi.html?k=facade` → `/roi/?k=facade`. Ссылки, которые собирает JS (`roi.html?t=…`), тоже.
-  На `/en/`-страницах внутренние ссылки ведут на `/en/…`.
+- Внутренние ссылки переписывает скрипт по карте адресов (7.2). Правило: файл → адрес из
+  canonical, если его нет — по таблице 2.1; `query` и `#якорь` сохраняются как есть.
+
+  | Легаси | Новый сайт |
+  |---|---|
+  | `index.html`, `index.html#platform` | `/`, `/#platform` |
+  | `industries.html` | `/industries/` |
+  | `industries-warehouse.html`, `industries-hotels.html#delivery` | `/industries/warehouse/`, `/industries/hotels/#delivery` |
+  | `solutions.html#dir-cleaning` | `/solutions/#dir-cleaning` (страницы `/solutions/cleaning/` нет, см. 2.5) |
+  | `products.html#raas`, `platform.html`, `services.html#pilot` | `/products/#raas`, `/platform/`, `/services/#pilot` |
+  | `cases.html?industry=manufacturing`, `cases.html#list` | `/cases/?industry=manufacturing`, `/cases/#list` |
+  | `knowledge.html?topic=roi#materials` | `/knowledge/?topic=roi#materials` |
+  | `knowledge-cleaning-robot-basics.html` | `/knowledge/cleaning-robot-basics/` |
+  | `roi.html?k=facade`, `roi.html?t=…&a=…&m=…` | `/roi/?k=facade`, `/roi/?t=…&a=…&m=…` |
+  | `privacy.html`, `consent.html` | `/privacy/`, `/consent/` |
+  | `contacts.html#talk` | `/contacts/#talk` |
+
+  Ссылки, которые собирает JS (`roi.html?t=…`), тоже. На `/en/`-страницах внутренние ссылки
+  ведут на `/en/…`. Ссылка на файл, которого нет в карте, — ошибка конвертера. Ссылки на `/privacy/`
+  и `/consent/` из формы (`target="_blank" rel="noopener"`) сохраняют эти атрибуты.
+- `<meta name="robots" content="noindex">` в выводе должен совпасть с легаси дословно. Если
+  `metadata.robots = { index: false }` отдаёт другую строку (например, добавляет `nofollow`),
+  использовать форму, которая даёт ровно `noindex`; проверяет инвариант 10.
 - Старые адреса `*.html` отдают 308 на новые (`redirects` в `next.config.ts`), с сохранением
   query и hash.
 - `trailingSlash: true`: адреса со слешем на конце, как в canonical.
@@ -399,7 +486,13 @@ next-intl 4 сочетает `localeDetection: false` с cookie `NEXT_LOCALE`, �
 ### 3.9 Формы
 
 Поведение формы заявки сохраняется полностью: валидация, honeypot, таймаут 12 с, имитация
-отправки при пустом `data-endpoint`, атрибут `data-source` у каждой страницы. Endpoint берётся из
+отправки при пустом `data-endpoint`, обязательный чекбокс согласия (`name="consent"`) со ссылкой
+на `/consent/`, атрибут `data-source` у каждой страницы. Значения `data-source` берутся из легаси
+как есть (на данный момент: `about`, `cases`, `contacts`, `industries`, `industries/<slug>`,
+`knowledge`, `knowledge-article`, `manufacturers`, `platform`, `products`, `services`; у `solutions`
+атрибута нет, и `solutions.js` подставляет `solutions` сам); у `roi` своя форма
+(`#f-consent`, `id="lead-form"` с классом `roi-form`) и логика в `roi.js`. Тест сверяет набор
+значений `data-source` с инвентарём. Endpoint берётся из
 `NEXT_PUBLIC_LEAD_ENDPOINT` (по умолчанию пусто, то есть имитация), переменная описана в
 `.env.example`. Серверной обработки заявок не делать.
 
@@ -428,7 +521,8 @@ docker build -t profrobot-site . && docker run -p 3000:3000 profrobot-site
 2. **Атрибуты.** `alt`, `title`, `aria-*`, `placeholder`, `content` у meta, `data-name`, `data-cat`,
    `data-res` — те же значения.
 3. **Рамки элементов.** Те же размеры и положения при 1440 и 390 px.
-4. **Без JS.** С выключенным JS сервер отдаёт полный текст каждой страницы; фильтры кейсов и базы
+4. **Без JS.** Сервер отдаёт в HTML полный текст каждой страницы (проверка по DOM без
+   выполнения скриптов, а не по видимости: `.reveal` без JS скрыт и в легаси, см. 6.11); фильтры кейсов и базы
    знаний показывают все элементы; ссылки работают.
 5. **Анимации.** Пины ScrollTrigger на главной (кадры start / mid / end), лента роботов, ленты
    брендов, появление `.reveal`, часы в подвале, фирменные блоки отраслей ведут себя как в легаси.
@@ -437,7 +531,7 @@ docker build -t profrobot-site . && docker run -p 3000:3000 profrobot-site
    цифры. Параметры из адреса подхватываются.
 7. **Консоль.** Ноль ошибок и ноль предупреждений гидрации на всех страницах в обоих языках.
 8. **Горизонтальный скролл.** Нет ни на одной странице при 1440, 1024, 768, 390 px.
-9. **Ссылки.** Все внутренние ссылки ведут на существующие страницы, кроме списка из 2.5.
+9. **Ссылки.** Все внутренние ссылки и якоря ведут на существующие страницы и элементы, исключений нет.
 10. **Метаданные.** title, description, robots, canonical, JSON-LD совпадают с легаси.
 11. **Сборка.** `next build` без ошибок, все страницы статические (`○`/`●`), `tsc --noEmit` и
     `eslint` чистые.
@@ -500,6 +594,14 @@ docker build -t profrobot-site . && docker run -p 3000:3000 profrobot-site
    остров заменяет его после монтирования.
 9. **Порядок `<link>` CSS.** Next может переставить импорты. Проверить итоговый порядок
    `<link rel="stylesheet">` в отданном HTML против легаси.
+10. **`<details>` и якоря.** В статье базы знаний вопрос `<details class="kb-q">` раскрывается по
+    `#faq-…`. Атрибут `open` ставит только остров после монтирования, на сервере его нет, иначе
+    ломается гидрация. Якоря с `id` на странице сохраняются без изменений (на них ведут ссылки
+    с других страниц, см. 3.8).
+11. **Видимость без JS.** В легаси `.reveal` скрыт CSS безусловно (`opacity: 0`), показывает его
+    `solutions.js`; без JS такие блоки остаются невидимыми, хотя текст в HTML есть. Это
+    поведение переносится как есть и не чинится. Класс `js` у `<html>` ставится только инлайн-
+    скриптом (3.6), а не серверным рендером.
 
 ---
 
@@ -513,8 +615,12 @@ docker build -t profrobot-site . && docker run -p 3000:3000 profrobot-site
 `docs/migration/INVENTORY.md`. Для каждой страницы: файл, целевой адрес (canonical или карта из
 2.1), подключённые CSS и JS по порядку, CDN-скрипты, инлайн-скрипты (кратко), наличие JSON-LD,
 robots, формы (`id`, `data-source`, `data-endpoint`), параметры адреса, которые читает JS,
-используемые ассеты, число ключей `data-i18n*`. Отдельно: битые внутренние ссылки, отсутствующие
-файлы (как `about.css`). Падает, если нашёл страницу без адреса в карте.
+используемые ассеты, число ключей `data-i18n*`. Для каждой страницы: рукописная она или
+сгенерирована `build.mjs`, есть ли в ней блок `foot-nav` (2.7), есть ли `document.write` и
+`<base>` (как в `404.html`). Отдельно: битые внутренние ссылки и якоря, отсутствующие файлы.
+Падает, если нашёл страницу без адреса в карте. Режим `--diff <тег>` печатает страницы,
+добавленные, удалённые и изменённые после тега (для раздела 13). На `296282e` ожидаемый результат:
+27 страниц и `404.html`, ни одной битой ссылки.
 
 ### 7.2 `url-map.mjs` — карта адресов
 Строит `tools/migrate/url-map.json` из инвентаря: `{ "products.html": "/products/", … }`. Его
@@ -525,8 +631,10 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 страницы. Делает всё из раздела 6, переводит `data-i18n*` в вызовы `t()` / `t.rich()` (раздел 3.5),
 переписывает ссылки и пути ассетов по карте. Для `data-i18n-html` строит отображение тегов по
 правилу «n-й элемент с тем же именем», сверяясь с сообщением в `ru.json`. Тег, которого нет в
-сообщении или в разметке, — ошибка конвертера, не молчаливый пропуск. Юнит-тесты на каждый пункт
-раздела 6.
+сообщении или в разметке, — ошибка конвертера, не молчаливый пропуск. Блок между
+`<!-- foot-nav:start -->` и `<!-- foot-nav:end -->` заменяется на `<FooterNav />` (2.7), при условии
+что блок побайтово совпадает с эталоном из `footer-nav.mjs`; иначе ошибка. Юнит-тесты на каждый
+пункт раздела 6.
 
 Разделять вывод на компоненты (секции, оболочку) после конвертации можно и вручную, но паритет
 проверяется после каждого шага.
@@ -556,7 +664,7 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 
 ### 7.8 `links.mjs` — проверка ссылок
 Обходит все страницы `next start` на обоих языках, проверяет, что каждая внутренняя ссылка
-отдаёт 200 (или 308 на 200), якоря существуют на целевой странице. Исключения — только список 2.5.
+отдаёт 200 (или 308 на 200), якоря существуют на целевой странице. Список исключений пуст (на `296282e` битых ссылок нет); любое исключение вносит только владелец.
 
 ### 7.9 `models-golden.mjs` — паритет расчётов
 Прогоняет сетку входов (все типы объектов × все режимы × 10 площадей по диапазону; все сценарии
@@ -575,12 +683,14 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 ## 8. Фазы и шлюзы
 
 ### Фаза 0. Подготовка
-- Владелец коммитит рабочее дерево. Агент ставит тег `legacy-baseline`, создаёт ветку
-  `feat/nextjs-migration` от этого коммита.
+- Рабочее дерево должно быть чистым (`git status` пуст; на момент версии 1.1 спеки так и есть,
+  коммит `296282e`). Агент ставит тег `legacy-baseline` на текущий коммит ветки `gh-pages` и
+  создаёт ветку `feat/nextjs-migration` от него. Если дерево грязное, остановиться и спросить
+  владельца: базой нельзя делать незакоммиченное состояние.
 - Скрипты 7.1, 7.2. Снимки легаси RU и EN (раздел 5).
 - Журнал `docs/migration/STATUS.md` (раздел 11).
 
-**Шлюз 0:** `inventory.json` покрывает все `*.html` корня; снимки легаси сняты при 1440 и 390 на
+**Шлюз 0:** `inventory.json` покрывает все `*.html` корня (на `296282e` это 28 файлов); снимки легаси сняты при 1440 и 390 на
 обоих языках; `node --test roi-model.test.js facade-model.test.js tools/i18n/icu.test.mjs` и
 `node --test tools/i18n/check.mjs` на легаси зелёные (если `check.mjs` красный на легаси,
 записать в журнал и сообщить владельцу до фазы 1).
@@ -599,17 +709,21 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 
 ### Фаза 2. Оболочка
 Шапка, меню, переключатель языка, подвал (с часами и подсветкой вордмарка), форма заявки,
-крошки, SVG-спрайт — серверные компоненты + острова. Первая страница для обкатки: `solutions`
-(у неё нет GSAP).
+крошки, SVG-спрайт, `FooterNav` — серверные компоненты + острова. Обкатка в два шага. Сначала
+`privacy`: нет ни JS, ни формы, проверяет только оболочку, i18n и конвейер снимков. Затем
+`solutions`: добавляет форму, `.reveal` и счётчик разделов (GSAP там нет).
 
-**Шлюз 2:** `gate.mjs --only solutions` зелёный на RU и EN.
+**Шлюз 2:** `gate.mjs --only privacy` и `gate.mjs --only solutions` зелёные на RU и EN.
 
 ### Фаза 3. Простые страницы
-`products`, `services`, `cases`, `knowledge`, `about`, `contacts`, `manufacturers`. По одной:
-конвертер → компоненты → остров → шлюз страницы → коммит.
+Рукописные страницы: `products`, `platform`, `services`, `cases`, `knowledge`,
+`knowledge/cleaning-robot-basics`, `about`, `contacts`, `manufacturers`. Затем `consent` и
+`not-found` (3.3). По одной: конвертер → компоненты → остров → шлюз страницы → коммит.
 
 **Шлюз 3:** `gate.mjs --only <страница>` зелёный для каждой; фильтры `cases` и `knowledge`
-работают с параметром в адресе и без JS.
+работают с параметром в адресе и без JS; вкладки `platform` переключаются кликом, стрелками и
+по таймеру, таймер останавливается при наведении; якорь `#faq-…` в статье раскрывает вопрос;
+`/nope/` и `/en/nope/` отдают 404 с текстом на своём языке.
 
 ### Фаза 4. ROI
 `roi` с двумя калькуляторами, параметрами адреса и `localStorage`.
@@ -622,15 +736,18 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 - Рендереры → компоненты: общие секции в `industries/shared/`, свои Hero и фирменные блоки
   в `industries/<slug>/`. Таблица «секция → компонент» на каждую отрасль, как в генераторе.
 - Мини-калькулятор считает через `lib/roi-model.ts` на сервере, как генератор при сборке.
-- Острова `industry.js` и `industry-<slug>.js`.
-- Порядок: сначала одна отрасль из `data.mjs` (`hotels`), потом одна из `pages/` (`retail`),
-  дальше остальные.
+- Острова `industry.js` и `industry-<slug>.js` (`business-centers`, `public-spaces`, `retail`,
+  `warehouse`).
+- Порядок: сначала одна отрасль из `data.mjs` (`hotels`), потом одна из `pages/` со своим CSS и JS
+  (`warehouse`), затем `retail`, дальше остальные.
+- Хаб `industries` (рукописный) последним: его карточки и лента кейсов используют данные отраслей.
 
-**Шлюз 5:** шлюз страницы зелёный для всех 11 отраслей; `tools/playwright/industries.mjs`
-проходит.
+**Шлюз 5:** шлюз страницы зелёный для хаба и всех 12 отраслей; `tools/playwright/industries.mjs`
+и `tools/playwright/industries-hub.mjs` проходят.
 
-### Фаза 6. Главная
-`index` последней: GSAP-пины, лента роботов, Lenis, бренды-ленты.
+### Фаза 6. Главная и догон
+`index` последней: GSAP-пины, лента роботов, Lenis, бренды-ленты. Перед шлюзом выполнить
+процедуру раздела 13 (страницы, появившиеся в легаси после тега).
 
 **Шлюз 6:** снимки RU/EN совпадают; `check.mjs --pin <секция>` даёт те же кадры start / mid / end,
 что у легаси (сравнение скриншотов, допускается только сглаживание шрифтов); `perf.mjs` не хуже
@@ -641,7 +758,7 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 - Агент готовит, но не выполняет без явного «да» владельца: перенос `site/` в корень или смену
   корня деплоя, архивацию легаси-файлов в `legacy/`, отключение `extract.mjs`/`embed.mjs`,
   обновление `CLAUDE.md`, `docs/README.md`, `i18n/README.md` под новую схему.
-- ADR `docs/adr/0001-nextjs-migration.md`: контекст, решение, альтернативы, последствия.
+- ADR `docs/adr/0002-nextjs-migration.md` (номер 0001 занят: `0001-temporary-solution-urls.md`): контекст, решение, альтернативы, последствия.
 
 ### Фаза 8. Отчёт
 Итоговый отчёт в `docs/migration/REPORT.md` (раздел 11).
@@ -659,6 +776,8 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 - Не переименовывать CSS-классы, `id`, `data-*`: на них завязаны CSS, JS и тесты Playwright.
 - Не «упрощать» анимации и не заменять GSAP на CSS или Framer Motion.
 - Не сводить отраслевые страницы к одному шаблону.
+- Не создавать страницы решений `/solutions/<slug>/` и не менять ссылки `solutions.html#dir-<slug>` на них (ADR 0001).
+- Не переносить GitHub-Pages-хак `<base href>` из `404.html`.
 - Не ставить `'use client'` на страницу или секцию целиком ради одного обработчика.
 - Не читать `searchParams`, `cookies()`, `headers()` в страницах.
 - Не заглушать ошибки гидрации через `suppressHydrationWarning` нигде, кроме `<html>`.
@@ -681,8 +800,10 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 | 1 | Где хостить Node-сервер | Docker-образ, площадку выбирает владелец; `gh-pages` пока отдаёт легаси | Vercel: Dockerfile не обязателен. Только статика: `output: 'export'`, нет `proxy.ts`, языковой редирект по cookie и `?lang=` уходит в клиентский скрипт |
 | 2 | Английский под `/en/` | да, `localePrefix: 'as-needed'` | поддомен `en.` — другая настройка next-intl и редиректов |
 | 3 | Индексировать ли EN | нет, `noindex`, без `hreflang` | при «да»: `hreflang`, canonical для EN, перевод JSON-LD |
-| 4 | Заморозка правок легаси на время переноса | желательна; без неё — новые теги и повторный перенос разницы | |
+| 4 | Заморозка правок легаси на время переноса | не нужна: легаси растёт быстро, поэтому действует протокол раздела 13 (тег, диф, догон) | при заморозке раздел 13 не понадобится |
 | 5 | Где живёт Next-проект после переключения | в корне репозитория, легаси в `legacy/` | |
+| 6 | Адреса юридических страниц | `/privacy/` и `/consent/` | другие слаги меняют только карту адресов (7.2) |
+| 7 | Страницы решений `/solutions/<slug>/` | не создаём, ссылки остаются якорями на `/solutions/` (ADR 0001) | когда страницы появятся в легаси, они переносятся по протоколу раздела 13, а ссылки возвращаются по инструкции из ADR |
 
 ---
 
@@ -712,6 +833,8 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
   не работает со static export): https://nextjs.org/docs/app/api-reference/file-conventions/proxy
 - next-intl, конфигурация маршрутизации (`localePrefix`, `localeDetection`, cookie `NEXT_LOCALE`):
   https://next-intl.dev/docs/routing/configuration
+- next-intl, локализованные страницы «не найдено» (`not-found.tsx`, catch-all, `global-not-found`):
+  https://next-intl.dev/docs/environments/error-files
 - next-intl, числа в сообщениях (глобальные `formats`, скелеты `::`):
   https://next-intl.dev/docs/usage/numbers
 - Версии пакетов: `npm view` на 2026-10-07 — next 16.4.0, next-intl 4.14.9, gsap 3.15.0
@@ -723,3 +846,29 @@ robots, формы (`id`, `data-source`, `data-endpoint`), параметры а
 Не проверено: совместимость TypeScript 7 с Next 16 (поэтому версия TS — та, что ставит
 `create-next-app`); точное поведение `localeDetection: false` вместе с cookie в next-intl 4
 (закрывается e2e-тестом в шлюзе 1).
+
+---
+
+## 13. Протокол: легаси меняется во время переноса
+
+Легаси развивается параллельно (хаб отраслей, склады, платформа, юридические страницы и статья
+появились за один день перед этой версией спеки). Чтобы перенос не гонялся за движущейся целью:
+
+1. Эталон — тег `legacy-baseline`. Всё, что сделано в легаси после тега, агент в текущей фазе
+   **не трогает** и не переносит.
+2. В начале каждой фазы и перед шлюзом 6 агент запускает `node tools/migrate/inventory.mjs
+   --diff legacy-baseline` и записывает результат в журнал: какие страницы добавлены, удалены,
+   изменены и какие общие файлы (`styles.css`, `solutions.js`, `i18n/*.json`) затронуты.
+3. Если диф не пуст, агент сообщает владельцу и **ждёт нового тега** (`legacy-baseline-2`), если
+   владелец хочет, чтобы изменения вошли. Без нового тега изменения не переносятся. Владелец
+   вправе отложить их на после фазы 8.
+4. После нового тега: инвентарь и снимки эталона пересоздаются; новые страницы идут по конвейеру
+   фаз 2–3 (конвертер → компоненты → шлюз страницы); изменения в уже перенесённых страницах
+   переносятся правкой соответствующих компонентов, после чего шлюз этих страниц запускается
+   заново; словари `messages` обновляются скриптом 7.6.
+5. Новая страница в карте адресов добавляется скриптом 7.2. Если у неё нет canonical и её адрес
+   не следует из правил 2.1, агент берёт адрес по смыслу английскими словами и записывает его
+   в журнал как решение к подтверждению (раздел 10).
+6. Сгенерированные страницы (отрасли): менять нужно данные в `content/industries/`, а не
+   компоненты, если различие только в данных. Если легаси добавило новый тип блока в
+   `build.mjs`, это новый компонент в `industries/<slug>/` (или `shared/`).
