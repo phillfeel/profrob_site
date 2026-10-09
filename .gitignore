@@ -2,3 +2,4 @@
 .idea/
 __pycache__/
 .migrate/
+node_modules/

@@ -6,8 +6,11 @@
 //
 // Compared: <html lang>, <title>, every <meta> (name/property/http-equiv -> content), canonical, the Google Fonts
 // <link> tags (preconnect + stylesheet, with crossorigin) and the JSON-LD blocks (parsed, order-independent).
-// <link rel="icon"> is reported separately (legacy has none; the Next scaffold adds /favicon.ico): see "extra" lines.
-// Exit code 1 if anything differs.
+// <link rel="icon"> is reported separately (legacy has none; the Next site has favicon.ico/icon/apple-icon): "extra".
+// Canonical is compared by pathname: the Next site resolves the legacy relative canonical against metadataBase.
+// Sanctioned SEO deviations of 2026-10-09 (DEVIATIONS.md) are tolerated: RU robots flip noindex -> "index, follow"
+// and the og:*/twitter:* share tags the Next site adds everywhere. The legacy og copy (/roi) must still match.
+// Exit code 1 if anything else differs.
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
@@ -40,7 +43,7 @@ const extract = () => {
   }
   for (const l of document.head.querySelectorAll('link')) {
     const rel = l.getAttribute('rel');
-    if (rel === 'canonical') out.push(`canonical=${l.getAttribute('href')}`);
+    if (rel === 'canonical') out.push(`canonical=${l.getAttribute('href').replace(/^https?:\/\/[^\/]+/, '')}`);
     else if (rel === 'preconnect' || (rel === 'stylesheet' && /fonts\.googleapis/.test(l.href))) out.push(`link rel=${rel} href=${l.getAttribute('href')} crossorigin=${l.getAttribute('crossorigin')}`);
     else if (/icon/.test(rel ?? '')) extra.push(`link rel=${rel} href=${l.getAttribute('href').replace(/\?.*/, '')}`);
   }
@@ -70,7 +73,9 @@ try {
       await np.close();
       if (opt('show') === route) console.log(`${lang} ${route}\n  ${want.head.map((x) => x.slice(0, 110)).join('\n  ')}`);
       got.extra.forEach((e) => extras.add(e));
-      const missing = want.head.filter((x) => !got.head.includes(x)), added = got.head.filter((x) => !want.head.includes(x));
+      const missing = want.head.filter((x) => !got.head.includes(x));
+      const added = got.head.filter((x) => !want.head.includes(x))
+        .filter((x) => !x.startsWith('meta property=og:') && !x.startsWith('meta name=twitter:') && x !== 'meta name=robots content=index, follow');
       if (res.status() !== 200 || missing.length || added.length) {
         bad++;
         console.log(`DIFF ${lang} ${route} (HTTP ${res.status()})`);

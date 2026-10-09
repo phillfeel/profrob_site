@@ -5310,7 +5310,10 @@
       "taskLabel": "Task <small>optional</small>",
       "taskPlaceholder": "What to automate: cleaning, delivery, warehouse, monitoring",
       "submit": "Send request",
-      "sentText": "We’ll reply within one business day."
+      "sentText": "We’ll reply within one business day.",
+      "sending": "Sending…",
+      "error": "Failed to send. Please try again later.",
+      "networkError": "Network error. Check your connection."
     },
     "channels": {
       "title": "Choose what suits you.",
