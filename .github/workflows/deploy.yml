@@ -1,0 +1,86 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [feat/nextjs-migration-2]
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Model and i18n tests
+        run: node --test roi-model.test.js facade-model.test.js tools/i18n/icu.test.mjs
+
+      - name: Install
+        working-directory: site
+        run: npm ci
+
+      - name: Lint
+        working-directory: site
+        run: npm run lint
+
+      - name: Build
+        working-directory: site
+        run: npm run build
+
+      - name: Build Docker image
+        run: docker build -t profrobot-site:ci site
+
+      - name: Smoke test image
+        run: |
+          docker run -d --name site -p 3000:3000 profrobot-site:ci
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:3000/api/health/ && break
+            sleep 2
+          done
+          curl -fsS http://127.0.0.1:3000/api/health/
+          curl -fsS -o /dev/null http://127.0.0.1:3000/
+          curl -fsS http://127.0.0.1:3000/en/ > en.html
+          grep -q '<html lang="en"' en.html
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/no-such-page/)" = "404"
+
+      - name: Container logs on failure
+        if: failure()
+        run: docker logs site || true
+
+  deploy:
+    needs: ci
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Trigger Dokploy deploy
+        env:
+          DOKPLOY_URL: ${{ secrets.DOKPLOY_URL }}
+          DOKPLOY_API_KEY: ${{ secrets.DOKPLOY_API_KEY }}
+          DOKPLOY_APPLICATION_ID: ${{ secrets.DOKPLOY_APPLICATION_ID }}
+        run: |
+          curl -fsS --retry 3 --retry-delay 5 -X POST "${DOKPLOY_URL%/}/api/application.deploy" \
+            -H "x-api-key: ${DOKPLOY_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d "{\"applicationId\": \"${DOKPLOY_APPLICATION_ID}\"}"
