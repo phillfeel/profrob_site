@@ -80,6 +80,10 @@ jobs:
           DOKPLOY_API_KEY: ${{ secrets.DOKPLOY_API_KEY }}
           DOKPLOY_APPLICATION_ID: ${{ secrets.DOKPLOY_APPLICATION_ID }}
         run: |
+          if [ -z "${DOKPLOY_URL}" ] || [ -z "${DOKPLOY_API_KEY}" ] || [ -z "${DOKPLOY_APPLICATION_ID}" ]; then
+            echo "::notice::DOKPLOY_* secrets are not set, deploy skipped (Dokploy Auto Deploy may be handling it)"
+            exit 0
+          fi
           curl -fsS --retry 3 --retry-delay 5 -X POST "${DOKPLOY_URL%/}/api/application.deploy" \
             -H "x-api-key: ${DOKPLOY_API_KEY}" \
             -H "Content-Type: application/json" \
