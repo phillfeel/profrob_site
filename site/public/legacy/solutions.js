@@ -78,7 +78,7 @@
     consent: form.elements.namedItem('consent'),
     website: form.elements.namedItem('website'),
     direction: form.elements.namedItem('direction'),
-    // Страница «Контакты»: достаточно телефона или e-mail, плюс необязательные поля. На остальных страницах этих полей нет.
+    // Достаточно телефона или e-mail (поле есть на всех формах заявки). Компания, цель, объект и задача есть не везде.
     email: form.elements.namedItem('email'),
     company: form.elements.namedItem('company'),
     intent: form.elements.namedItem('intent'),

@@ -93,7 +93,7 @@
   "roi.lead.form.name": "Name",
   "roi.lead.form.nameError": "Please tell us your name",
   "roi.lead.form.phone": "Phone",
-  "roi.lead.form.phoneError": "Enter 10 digits after +7",
+  "roi.lead.form.phoneError": "Enter a phone (+7 and 10 digits) or an email",
   "roi.lead.form.company": "Company and site",
   "roi.lead.form.companyPlaceholder": "e.g. Severny tower, Moscow",
   "roi.lead.form.email": "Email <span>– for the quote</span>",

@@ -1480,7 +1480,7 @@
         "name": "Name",
         "nameError": "Please tell us your name",
         "phone": "Phone",
-        "phoneError": "Enter 10 digits after +7",
+        "phoneError": "Enter a phone (+7 and 10 digits) or an email",
         "company": "Company and site",
         "companyPlaceholder": "e.g. Severny tower, Moscow",
         "email": "Email <span>– for the quote</span>",

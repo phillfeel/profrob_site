@@ -551,8 +551,9 @@
 
   const rules = {
     name: () => $('#f-name').value.trim().length >= 2,
-    phone: () => phone.value.replace(/\D/g, '').length === 11,
-    email: () => { const v = $('#f-email').value.trim(); return !v || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); },
+    // Телефон или e-mail: пустой телефон не ошибка, если указан e-mail; начатый, но неполный телефон остаётся ошибкой
+    phone: () => { const d = phone.value.replace(/\D/g, ''); return d.length ? d.length === 11 : Boolean($('#f-email').value.trim()); },
+    email: () => { const v = $('#f-email').value.trim(); return v ? /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) : true; },
     consent: () => $('#f-consent').checked,
   };
   const inputs = { name: $('#f-name'), phone, email: $('#f-email'), consent: $('#f-consent') };
@@ -565,7 +566,19 @@
   };
   Object.keys(inputs).forEach((k) => inputs[k].addEventListener(k === 'consent' ? 'change' : 'blur', () => {
     if (inputs[k].getAttribute('aria-invalid') != null || inputs[k].value) check(k);
+    if (k === 'email' && phone.getAttribute('aria-invalid') === 'true') check('phone');
   }));
+
+  // Web3Forms: тот же публичный ключ и поля, что в solutions.js (форма заявки на остальных страницах)
+  const WEB3FORMS_KEY = '5cdb883a-1e41-4f29-bfd1-d53a9350b035';
+  const toWeb3Forms = (p) => {
+    const body = { access_key: WEB3FORMS_KEY, subject: 'Новая заявка с сайта Профробот: ' + p.source, from_name: 'Сайт Профробот', botcheck: '' };
+    if (p.email) body.replyto = p.email;
+    const fields = { 'Имя': p.name, 'Телефон': p.phone, 'E-mail': p.email, 'Компания и объект': p.company, 'Источник': p.source, 'Ссылка на расчёт': p.url,
+      'Параметры расчёта': p.calc && JSON.stringify(p.calc) };
+    for (const [k, v] of Object.entries(fields)) if (v) body[k] = v;
+    return body;
+  };
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -582,9 +595,10 @@
       const endpoint = form.dataset.endpoint;
       if (endpoint) {
         const ctrl = new AbortController(); const to = setTimeout(() => ctrl.abort(), 10000);
-        const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: ctrl.signal });
+        const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(toWeb3Forms(payload)), signal: ctrl.signal });
         clearTimeout(to);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false) throw new Error(`HTTP ${res.status} ${json.message || ''}`);
       } else {
         // Прототип: бэкенда ещё нет, заявку показываем в консоли
         console.info('[ROI] заявка', payload);
