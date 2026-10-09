@@ -63,7 +63,7 @@ try {
 
   const pg = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   const payloads = [];
-  pg.on('console', async (m) => { if (m.type() === 'info' && m.args()[1]) payloads.push(await m.args()[1].jsonValue()); });
+  await pg.route('https://api.web3forms.com/**', (r) => { payloads.push(JSON.parse(r.request().postData() ?? '{}')); r.fulfill({ status: 200, contentType: 'application/json', body: '{"success":true}' }); });
   await pg.goto(`${origin}industries.html`);
 
   // Cards: the 11 landings, each once
@@ -117,7 +117,7 @@ try {
   await pg.waitForSelector('#lead-form.is-done', { timeout: 4000 }).catch(() => {});
   check(await pg.locator('#lead-form.is-done').count() === 1, 'a valid form shows «request accepted»');
   await pg.waitForTimeout(200);
-  check(payloads.length === 1 && payloads[0].source === 'industries' && payloads[0].direction === 'retail', `the request carries source = industries and the chosen industry ${JSON.stringify(payloads[0])}`);
+  check(payloads.length === 1 && payloads[0]['Источник'] === 'industries' && payloads[0]['Направление'] === 'retail', `the request carries source = industries and the chosen industry ${JSON.stringify(payloads[0])}`);
   await pg.close();
 
   // Entry point: «Solutions → See also» leads here

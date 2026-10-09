@@ -95,7 +95,7 @@ try {
     check((await err('f-consent-err')).length > 0 && (await err('f-phone-err')) === '' && (await err('f-email-err')) === '', 'valid phone + e-mail: only the consent is missing');
 
     const logged = [];
-    pg.on('console', async (m) => { if (m.type() === 'info' && m.args()[1]) logged.push(JSON.stringify(await m.args()[1].jsonValue())); });
+    await pg.route('https://api.web3forms.com/**', (r) => { logged.push(r.request().postData() ?? ''); r.fulfill({ status: 200, contentType: 'application/json', body: '{"success":true}' }); });
     await pg.check('#f-consent');
     await pg.selectOption('#f-intent', 'audit');
     await pg.selectOption('#f-object', 'hotels');
@@ -104,6 +104,8 @@ try {
     check(await pg.locator('#lead-form.is-done').count() === 1, 'valid form: «Заявка принята»');
     await pg.waitForTimeout(200);
     const payload = logged.join(' ');
+    check(logged.length === 1, `exactly one request goes to Web3Forms (got ${logged.length})`);
+    check(payload.includes('access_key') && payload.includes('"replyto":"anna@company.ru"'), 'payload has the Web3Forms access_key and replyto');
     check(['anna@company.ru', '+79991234567', 'audit', 'hotels', 'contacts', 'Ночная'].every((x) => payload.includes(x)), `payload carries phone, e-mail, intent, object, source, task (${payload.slice(0, 160)}…)`);
     await pg.close();
   }
@@ -111,6 +113,7 @@ try {
   // E-mail only is enough
   {
     const pg = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+    await pg.route('https://api.web3forms.com/**', (r) => r.fulfill({ status: 200, contentType: 'application/json', body: '{"success":true}' })); // tests must never send real e-mail
     await pg.goto(`${origin}contacts.html`);
     await pg.waitForTimeout(400);
     await pg.fill('#f-name', 'Анна');

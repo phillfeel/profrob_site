@@ -156,6 +156,21 @@
 
   const setStatus = (kind, html) => { status.dataset.kind = kind; status.innerHTML = html; };
 
+  // Web3Forms: публичный ключ доступа (предназначен для браузера, получатель письма задан в кабинете web3forms.com)
+  const WEB3FORMS_KEY = '5cdb883a-1e41-4f29-bfd1-d53a9350b035';
+  const toWeb3Forms = (p) => {
+    const body = {
+      access_key: WEB3FORMS_KEY,
+      subject: 'Новая заявка с сайта Профробот: ' + p.source,
+      from_name: 'Сайт Профробот',
+      botcheck: '',
+    };
+    if (p.email) body.replyto = p.email;
+    const labels = { name: 'Имя', company: 'Компания', phone: 'Телефон', email: 'E-mail', direction: 'Направление', intent: 'Цель обращения', object: 'Тип объекта', task: 'Задача', source: 'Источник' };
+    for (const [k, label] of Object.entries(labels)) if (p[k]) body[label] = p[k];
+    return body;
+  };
+
   const send = async () => {
     const phoneDigits = els.phone.value.replace(/\D/g, '');
     const payload = {
@@ -178,10 +193,11 @@
     const timer = setTimeout(() => ctrl.abort(), 12000);
     try {
       const res = await fetch(endpoint, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload), signal: ctrl.signal,
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(toWeb3Forms(payload)), signal: ctrl.signal,
       });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || json.success === false) throw new Error('HTTP ' + res.status + ' ' + (json.message || ''));
     } finally {
       clearTimeout(timer);
     }

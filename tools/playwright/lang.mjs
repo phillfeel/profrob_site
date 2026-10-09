@@ -42,6 +42,7 @@ const browser = await chromium.launch();
 /** A context with the dictionary served from `serveDict`; `lang` is the language chosen before the visit (null: no choice). */
 const open = async ({ lang = null, serveDict = (r) => r.fulfill({ contentType: 'application/json', body: dict }), width = 1440, storage = true } = {}) => {
   const ctx = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+  await ctx.route('https://api.web3forms.com/**', (r) => r.fulfill({ status: 200, contentType: 'application/json', body: '{"success":true}' })); // tests must never send real e-mail
   await ctx.clock.setFixedTime(new Date('2026-06-15T09:30:00+03:00'));
   if (!storage) await ctx.addInitScript(() => Object.defineProperty(window, 'localStorage', { get() { throw new Error('blocked'); } }));
   else if (lang) await ctx.addInitScript((l) => { if (!sessionStorage.getItem('__seeded')) { sessionStorage.setItem('__seeded', '1'); localStorage.setItem('lang', l); } }, lang);

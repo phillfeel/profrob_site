@@ -1,78 +1,28 @@
-# Email Setup for Contact Form (Web3Forms)
+# Отправка заявок (Web3Forms)
 
-## Overview
-The contact form on `contacts.html` submits to `/api/lead` (a Vercel serverless function) which sends emails via **Web3Forms** to `aidvizh8@gmail.com` (changeable to `probot2020@mail.ru` later).
+Форма заявки (`#lead-form`, обработчик в `solutions.js`) отправляет JSON прямо из браузера на `https://api.web3forms.com/submit`. Бэкенда нет, сайт остаётся статическим.
 
-## Why Web3Forms
-- No SMTP setup needed
-- No account credentials to manage
-- Free tier: 250 submissions/month
-- Works instantly — just add API key
-- Easy to change recipient email anytime
+## Почему из браузера
+Документация Web3Forms: серверные запросы требуют платного плана и whitelist IP. На бесплатном плане запрос с сервера (curl, serverless-функция) получает отказ «This method is not allowed».
 
-## Setup Steps
+## Как это устроено
+- Ключ доступа (`access_key`) публичный по замыслу Web3Forms; он лежит в `solutions.js` как `WEB3FORMS_KEY`.
+- Все страницы с формой имеют `data-endpoint="https://api.web3forms.com/submit"`. Пустой `data-endpoint` = имитация без отправки.
+- Письмо уходит на почту, на которую выпущен ключ. Получателя параметром запроса не поменять.
+- Защита от спама: honeypot-поле `website` (бот получает «успех» без отправки), поле `botcheck`, таймаут запроса 12 с.
 
-### 1. Get API Key (already done)
-You have: `5cdb883a-1e41-4f29-bfd1-d53a9350b035`
+## Смена получателя (например, на probot2020@mail.ru)
+1. На web3forms.com выпустить новый ключ на нужный адрес (или сменить адрес у текущего ключа в кабинете).
+2. Подставить ключ в `WEB3FORMS_KEY` в `solutions.js`.
+3. В кабинете включить ограничение по домену сайта.
 
-### 2. Configure Environment Variables in Vercel
+## Проверка
+- Тесты Playwright (`tools/playwright/contacts.mjs` и др.) перехватывают запрос к Web3Forms, реальные письма не уходят.
+- Живая проверка: отправить заявку с боевого домена и посмотреть почту и папку «Спам».
 
-Go to Vercel Dashboard → Project → Settings → Environment Variables:
-
-| Variable | Value |
-|----------|-------|
-| `WEB3FORMS_API_KEY` | `5cdb883a-1e41-4f29-bfd1-d53a9350b035` |
-| `TO_EMAIL` | `aidvizh8@gmail.com` (or `probot2020@mail.ru` later) |
-
-**For local development**, create `.env.local`:
-```bash
-WEB3FORMS_API_KEY=5cdb883a-1e41-4f29-bfd1-d53a9350b035
-TO_EMAIL=aidvizh8@gmail.com
-```
-
-### 3. Deploy
-```bash
-npm install
-vercel --prod
-```
-
-## Switching to probot2020@mail.ru Later
-
-Just change `TO_EMAIL` in Vercel Environment Variables:
-```
-TO_EMAIL=probot2020@mail.ru
-```
-Redeploy (`vercel --prod`) — no code changes needed.
-
-## Testing Locally
-
-```bash
-cp .env.example .env.local
-npm run dev
-# Opens http://localhost:3000
-# Submit form on contacts.html → check Vercel function logs
-```
-
-## How It Works
-
-1. User submits form → `POST /api/lead`
-2. Serverless function validates data (honeypot, required fields, consent)
-3. Calls `https://api.web3forms.com/submit` with your API key
-4. Web3Forms sends email to `TO_EMAIL`
-5. Returns `{ ok: true }` → frontend shows success
-
-## Security Notes
-- Honeypot field (`website`) blocks bots
-- Form validates: name + (phone OR email) + consent required
-- API key only in Vercel environment variables (encrypted)
-- No SMTP credentials anywhere
-- Web3Forms handles deliverability, spam protection
-
-## Troubleshooting
-
-| Issue | Fix |
-|-------|-----|
-| `Email service not configured` | Add `WEB3FORMS_API_KEY` to Vercel env vars |
-| `Failed to send email` | Check Vercel function logs for Web3Forms response |
-| Email not received | Check spam. Verify `TO_EMAIL` is correct in Vercel. |
-| Rate limited | Free tier: 250/month. Upgrade at web3forms.com if needed. |
+## Если письмо не пришло
+| Симптом | Что проверить |
+|---------|---------------|
+| В форме «Не удалось отправить» | DevTools → Network → ответ `api.web3forms.com/submit` (`message`) |
+| Ответ 200, письма нет | Папка «Спам»; подтверждён ли адрес в кабинете Web3Forms |
+| Ответ 429 | Лимит бесплатного плана |

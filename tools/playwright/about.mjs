@@ -89,6 +89,7 @@ try {
     const pg = await browser.newPage({ viewport: { width: 1440, height: 900 } });
     const errors = [];
     pg.on('pageerror', (e) => errors.push(String(e)));
+    await pg.route('https://api.web3forms.com/**', (r) => r.fulfill({ status: 200, contentType: 'application/json', body: '{"success":true}' })); // tests must never send real e-mail
     await pg.goto(`${origin}about.html`);
     await pg.locator('#lead-form button[type="submit"]').click();
     check((await pg.locator('#f-name-err').textContent()).length > 0, 'empty form shows the name error');
